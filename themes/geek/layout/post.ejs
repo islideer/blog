@@ -6,11 +6,14 @@
         </p>
         <hr>
     </div>
+    <div class="post-date">
+        <%= full_date(page.date, 'YYYY-M-DD-MMM') %>
+    </div>
     <div class="post-content">
         <%- page.content %>
     </div>
     <% if (page.comments) { %>
-        <hr class="fhr">
-        <div id="vcomments"></div>
+    <hr class="fhr">
+    <div id="vcomments"></div>
     <% } %>
 </div>
