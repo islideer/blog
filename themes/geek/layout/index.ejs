@@ -1,0 +1,31 @@
+<div class="hd logodiv">
+    <%- image_tag('img/logo.png',{class: 'logopng'}) %>
+    <p class="logot"><%= theme.logo_title %></p>
+</div>
+<%- partial('_partial/nav') %>
+<div class="hd">
+    <% var last; %>
+    <% page.posts.each(function (post) { %>
+    <% var year = post.date.year(); %>
+
+    <% if (last != year){ %>
+    <div class="titlex">
+        <p><span class="jing">#</span>
+            <%= year %>
+        </p>
+    </div>
+    <% last = year; %>
+    <% } %>
+
+    <a class="flink" href="<%- url_for(post.path) %>">
+        <div class="list">
+            <div class="postname">
+                <%= post.title %>
+            </div>
+            <div class="posttime">
+                <%- full_date(post.date, 'MMM M-DD') %>
+            </div>
+        </div>
+    </a>
+    <% }) %>
+</div>

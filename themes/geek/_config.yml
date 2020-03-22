@@ -1,0 +1,16 @@
+logo_title: Viki的小空间
+style: black
+
+favicon: /favicon.ico
+
+menu:
+  关于我: /about
+  Github: https://github.com/vikiboss
+
+# 做了域名限制，请改成自己的 KEY
+valine:
+  appId: t8FRTzDWlzyWdMbxy6QqUleO-gzGzoHsz
+  appKey: MCfD6bwFzcWz7364yKp49WBU
+
+highlight:
+  enable: false
