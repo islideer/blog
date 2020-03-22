@@ -99,7 +99,7 @@ theme: geek
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: ''
-  repo:https://github.com/vikiboss/vikiboss.github.io.git
+  repo: https://github.com/vikiboss/vikiboss.github.io.git
   branch: master
 
   
