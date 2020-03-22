@@ -4,8 +4,6 @@ title: 寒假学习之JavaScript基础篇（1）
 date: 2020-1-11
 ---
 
-寒假学习之JavaScript基础篇（1）
-
 ## JavaScript语法标识符的命名规范
 
 `JavaScript` 中使用变量来作为值的符号名。变量的名字又叫做**标识符**，他的命名需要遵守一定的规则:

@@ -4,9 +4,6 @@ title: 寒假学习之nginx基础
 date: 2020-2-14
 ---
 
-
-寒假学习之 nginx 基础知识
-
 ## Nginx 简要介绍
 
 ### Nginx 与 Apache
