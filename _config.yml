@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Viki的小空间
+title: Viki's Blog
 subtitle: ''
 description: ''
-keywords:
+keywords: 'Blog'
 author: Viki
-language: en
+language: zh
 timezone: ''
 
 # URL
@@ -44,6 +44,7 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+highlight_theme: night
 highlight:
   enable: true
   line_number: true

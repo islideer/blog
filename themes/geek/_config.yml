@@ -1,10 +1,10 @@
-logo_title: Viki的小空间
+logo_title: Viki's Blog
 style: black
 
 favicon: /favicon.ico
 
 menu:
-  关于我: /about
+  About: /about
   Github: https://github.com/vikiboss
 
 # 做了域名限制，请改成自己的 KEY
