@@ -41,11 +41,11 @@ date: 2020-1-11
     
 
 ``` js
-    try {
-        //...
-    } catch (err) { //catch参数可以接受从try传来的错误信息
-        //...
-    }
+try {
+    //...
+} catch (err) { //catch参数可以接受从try传来的错误信息
+    //...
+}
 ```
 
 * `throw` 语句创建自定义错误。
@@ -55,18 +55,18 @@ date: 2020-1-11
     
 
 ``` js
-    var txt = "";
+var txt = "";
 
-    function message() {
-        try {
-            allert("Welcome guest!");
-        } catch (err) {
-            txt = "本页有一个错误。\n\n";
-            txt += "错误描述：" + err.message + "\n\n";
-            txt += "点击确定继续。\n\n";
-            alert(txt);
-        }
+function message() {
+    try {
+        allert("Welcome guest!");
+    } catch (err) {
+        txt = "本页有一个错误。\n\n";
+        txt += "错误描述：" + err.message + "\n\n";
+        txt += "点击确定继续。\n\n";
+        alert(txt);
     }
+}
 ```
 
 * 上述例子的message()函数中，故意将alert错写成allert，此时发生了错误，allert()函数未定义。JavaScript引擎本该终止并抛出错误，但是由于 `try...catch...` 语句的存在， `catch` 块会捕捉到 `try` 块中的错误，并执行代码来处理它。
@@ -76,17 +76,17 @@ date: 2020-1-11
     
 
 ``` js
-    function myFunction() {
-        try {
-            var x = document.getElementById("demo").value;
-            if (x == "") throw "empty";
-            if (isNaN(x)) throw "not a number";
-            if (x > 10) throw "too high";
-            if (x < 5) throw "too low";
-        } catch (err) {
-            console.log("error:", err);
-        }
+function myFunction() {
+    try {
+        var x = document.getElementById("demo").value;
+        if (x == "") throw "empty";
+        if (isNaN(x)) throw "not a number";
+        if (x > 10) throw "too high";
+        if (x < 5) throw "too low";
+    } catch (err) {
+        console.log("error:", err);
     }
+}
 ```
 
 * 为了捕捉不同类型的错误，catch代码块之中可以加入判断语句。
@@ -94,16 +94,16 @@ date: 2020-1-11
     
 
 ``` js
-    try {
-        foo.bar();
-    } catch (e) {
-        if (e instanceof EvalError) {
-            console.log(e.name + ": " + e.message);
-        } else if (e instanceof RangeError) {
-            console.log(e.name + ": " + e.message);
-        }
-        // ...
+try {
+    foo.bar();
+} catch (e) {
+    if (e instanceof EvalError) {
+        console.log(e.name + ": " + e.message);
+    } else if (e instanceof RangeError) {
+        console.log(e.name + ": " + e.message);
     }
+    // ...
+}
 ```
 
 * 即使有return语句在前，finally代码块依然会得到执行，且在其执行完毕后，才会显示return语句的值。
@@ -111,20 +111,20 @@ date: 2020-1-11
     
 
 ``` js
-    var count = 0;
+var count = 0;
 
-    function countUp() {
-        try {
-            return count;
-        } finally {
-            count++;
-        }
+function countUp() {
+    try {
+        return count;
+    } finally {
+        count++;
     }
+}
 
-    countUp()
-    // 0
-    count
-    // 1
+countUp()
+// 0
+count
+// 1
 ```
 
 ## finally代码块
@@ -134,21 +134,21 @@ date: 2020-1-11
     
 
 ``` js
-    function cleansUp() {
-        try {
-            throw new Error('出错了……');
-            console.log('此行不会执行');
-        } finally {
-            console.log('完成清理工作');
-        }
+function cleansUp() {
+    try {
+        throw new Error('出错了……');
+        console.log('此行不会执行');
+    } finally {
+        console.log('完成清理工作');
     }
+}
 
-    cleansUp()
-    // 完成清理工作
-    // Uncaught Error: 出错了……
+cleansUp()
+// 完成清理工作
+// Uncaught Error: 出错了……
 ```
 
-    上面代码中，由于没有 `catch` 语句块，所以错误没有捕获。执行 `finally` 代码块以后，程序就中断在错误抛出的地方。
+上面代码中，由于没有 `catch` 语句块，所以错误没有捕获执行 `finally` 代码块以后，程序就中断在错误抛出的方。
 
 ## finally代码块用法的典型场景
 

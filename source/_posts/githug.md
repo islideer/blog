@@ -176,5 +176,3 @@ A new directory， `git_hug` ， has been created; initialize an empty repositor
 
 * [命令行](https://jingyan.baidu.com/article/ceb9fb1074947b8cad2ba0f9.html)
 
-在此表示感谢
-

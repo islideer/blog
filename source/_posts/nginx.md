@@ -20,13 +20,7 @@ nginx 同 Apache 一样都是一种 WEB 服务器。通过 HTTP 协议提供各�
 
 ### nginx
 
-nginx是一款自由的、开源的、高性能的 HTTP 服务器和反向代理服务器；
-
-同时也是一个 IMAP、POP3、SMTP 代理服务器；
-
-nginx 可以作为一个 HTTP 服务器进行网站的发布处理；
-
-另外 nginx 可以作为反向代理进行负载均衡的实现。
+nginx是一款自由的、开源的、高性能的 HTTP 服务器和反向代理服务器；同时也是一个 IMAP、POP3、SMTP 代理服务器；nginx 可以作为一个 HTTP 服务器进行网站的发布处理；另外 nginx 可以作为反向代理进行负载均衡的实现。
 
 ## 安装
 
@@ -40,15 +34,15 @@ nginx 可以作为一个 HTTP 服务器进行网站的发布处理；
 
 ## 关于代理
 
-- 代理的理解
+* 代理的理解
 
   所谓代理就是一个代表、一个渠道；
 
   此时就涉及到两个角色，一个是被代理角色，一个是目标角色，被代理角色通过这个代理访问目标角色完成一些任务的过程称为代理操作过程；如同生活中的专卖店~客人到 Adidas 专卖店买了一双鞋，这个专卖店就是代理，被代理角色就是 Adidas 厂家，目标角色就是用户。
 
-- 分类
+* 分类
 
-  - **正向代理**
+  + **正向代理**
 
     在如今的网络环境下，我们如果由于技术需要，需要去访问国外的某些网站，此时你会发现位于国外的某网站我们通过浏览器是没有办法访问的
 
@@ -67,7 +61,7 @@ nginx 可以作为一个 HTTP 服务器进行网站的发布处理；
     - 对客户端访问授权，上网进行认证
     - 记录用户访问记录（上网行为管理），对外隐藏用户信息
 
-  - **反向代理**
+  + **反向代理**
 
     先来考察一个事例：
 
@@ -97,9 +91,9 @@ nginx 可以作为一个 HTTP 服务器进行网站的发布处理；
 
 ### 两个位置
 
-- #### /etc/nginx/
+* #### /etc/nginx/
 
-  这里存放了 `nginx` 的全局配置文件 `nginx.conf`
+  这里存放了 `nginx` 的全局配置文件 `nginx.conf` 
 
   > 或者被放在了 `/usr/local/nginx/nginx.conf` 👈这里
 
@@ -107,31 +101,33 @@ nginx 可以作为一个 HTTP 服务器进行网站的发布处理；
 
   > 这个文件的作用是：当配置文件修改出错时，可以回到上一正常状态。
 
-- #### /usr/share/nginx/ 
+* #### /usr/share/nginx/ 
 
   这里是部署项目的默认存放目录（默认的 nginx 欢迎页就是在这个目录下）
 
 ### 开始配置
 
-- #### 首先要将你的项目文件或项目目录上传到服务器上
+* #### 首先要将你的项目文件或项目目录上传到服务器上
 
   > 可以参考我写的用 scp 命令在服务器与本地之间双向传输文件
-  >
-  > 之前我都是上传到 GitHub 然后 git clone 到服务器，突然发现好 low ...
 
-- #### 然后用 vi 、vim 或者 nano 等命令行编辑器进行配置 nginx.conf 文件
+  > 之前我都是上传到 GitHub 然后 git clone 到服务器，突然发现好 low ... 
 
-  ```html
-  nano /etc/nginx/nginx.conf   #此处应使用你的 nginx.conf 文件路径
-  vi /etc/nginx/nginx.conf     #此处应使用你的 nginx.conf 文件路径
-  vim /etc/nginx/nginx.conf    #此处应使用你的 nginx.conf 文件路径
+* #### 然后用 vi 、vim 或者 nano 等命令行编辑器进行配置 nginx.conf 文件
+
+  
+
+  ``` bash
+  nano /etc/nginx/nginx.conf #此处应使用你的 nginx.conf 文  件路径
+  vi /etc/nginx/nginx.conf #此处应使用你的 nginx.conf 文件  路径
+  vim /etc/nginx/nginx.conf #此处应使用你的 nginx.conf 文 件路径
   ```
 
-  vi vim nano 的使用方法不清楚的话，请自行找搜索引擎解决
+vi vim nano 的使用方法不清楚的话，请自行找搜索引擎解决
 
-- #### 找到 `http{ }` 块，可以看到其中有一个默认的 server 块的配置👇   解释如下
+* #### 找到 `http{ }` 块，可以看到其中有一个默认的 server 块的配置👇   解释如下
 
-  ```nginx
+``` nginx
   #设定虚拟主机配置
       server {
           #侦听80端口
@@ -140,35 +136,36 @@ nginx 可以作为一个 HTTP 服务器进行网站的发布处理；
           server_name  localhost;
           #默认请求
           location / {
-  		#定义服务器的默认网站根目录位置
-  		root   /usr/share/nginx/html;
-  		#定义首页索引文件的名称
-          	index  index.html index.htm;
+  	          #定义服务器的默认网站根目录位置
+  	          root   /usr/share/nginx/html;
+  	          #定义首页索引文件的名称
+          	  index  index.html index.htm;
           }
-  	#定义 404 页面
-  	error_page  404              /404.html;
-  	#定义 50x 页面
+  	      #定义 404 页面
+  	      error_page  404              /404.html;
+  	      #定义 50x 页面
           error_page   500 502 503 504  /50x.html;
           location = /50x.html {
-  		#定义服务器的默认网站根目录位置
-  		root   /usr/share/nginx/html;
+  		        #定义服务器的默认网站根目录位置
+  		        root   /usr/share/nginx/html;
           }
-  }
-  ```
+}
+```
 
   启动 nginx 后，访问服务器公网 ip 时显示的默认页面就是这个配置起了作用
 
-- #### 自己来写一个简单的 server块 👇 （假设你部署的项目在 /home/blog 下）
+* #### 自己来写一个简单的 server块 👇 （假设你部署的项目在 /home/blog 下）
 
-  ```nginx
+
+``` nginx
   server {
-          listen       8000;
-          location / {
-              root   /home/blog;
-              index  index.html;
-          }
+      listen       8000;
+      location / {
+          root   /home/blog;
+          index  index.html;
+      }
   }
-  ```
+```
 
   配置完后运行 `nginx -s -reload` 进行配置的重载，此时访问服务器 ip 地址的8000端口（如：47.93.187.210:8000）就能看到自己部署的项目了！
 
@@ -176,63 +173,70 @@ nginx 可以作为一个 HTTP 服务器进行网站的发布处理；
 
   当然，这里只介绍了最基础的配置方法。
 
-- #### 跨域问题的简单解决方案
+* #### 跨域问题的简单解决方案
 
   先看代码👇
 
-  ```nginx
+``` nginx
   server {
       listen      8000;
       location ^~/api/ {
-              proxy_pass https://api.readhub.cn/;
+          proxy_pass https://api.readhub.cn/;
       }
       location / {
           root   /home/news;
           index index.html;
       }
   }
-  ```
+```
 
   >  项目背景：
-  >
+
   > 在编写项目代码时，由于浏览器存在**同源策略**，直接调用 ReadHub 官方的 api （https://api.readhub.cn/），会被 block。此时用 ‘api/’ 来请求，并用 nginx 代理到 https://api.readhub.cn/ ，浏览器便会认为你是在同一域下发起的请求而不会拦截，从而实现跨域。
 
   关键在于这里👇
 
-  ```nginx
+  
+
+``` nginx
   location ^~/api/ {
-              proxy_pass https://api.readhub.cn/;
+      proxy_pass https://api.readhub.cn/;
   }
-  ```
+```
 
   location后面用正则来匹配了所有以 api 结尾的请求，并将其转发到目的 url
 
   > 这里要搞清易混淆的地方
-  >
+  
   > 你的待部署项目主页配置应该是👇
-  >
-  > ```nginx
-  > location / {
-  >         root   /home/news;
-  >         index index.html;
-  > }
-  > ```
-  >
+  
+
+``` nginx
+  location / {
+      root   /home/news;
+      index index.html;
+  }
+```
+
   > 指定当前服务器 ip 对应监听端口的返回页面（即你的项目主页）
-  >
+
   > 而下面这个👇是你项目中请求其他页面的资源时为了解决跨域问题而特定配置的一个代理，意义就是将当前包含 `/api/` 结尾的地址转发到你设置的地址，具体更多的正则匹配参考👉[nginx location正则写法 - 博客园](https://www.cnblogs.com/IPYQ/p/7889399.html)
   >
-  > ```nginx
-  > location ^~/api/ {
-  >             proxy_pass https://api.readhub.cn/;
-  > }
-  > ```
+  
+
+``` nginx
+  location ^~/api/ {
+      proxy_pass https://api.readhub.cn/;
+  }
+```
 
   有了这个配置后，你的项目请求 api/topic 时，就被 nginx 代理转发到了 https://api.readhub.cn/topic 从而实现跨越。
 
   #### nginx location 的正则匹配基础知识归纳：
 
-  ```nginx
+  
+
+``` bash
   location  = / {
     # 精确匹配 / ，主机名后面不能带任何字符串
     [ configuration A ] 
@@ -254,28 +258,28 @@ nginx 可以作为一个 HTTP 服务器进行网站的发布处理；
     # 匹配任何以 /api/ 开头的地址，匹配符合以后，停止往下搜索正则，采用这一条。
     [ configuration D ] 
   }
-  ```
+```
 
   ### 常用正则
 
-  - `.` ： 匹配除换行符以外的任意字符
-  - `?` ： 重复0次或1次
-  - `+` ： 重复1次或更多次
-  - `*` ： 重复0次或更多次
-  - `\d` ：匹配数字
-  - `^` ： 匹配字符串的开始
-  - `$` ： 匹配字符串的介绍
-  - `{n}` ： 重复n次
-  - `{n,}` ： 重复n次或更多次
-  - `[c]` ： 匹配单个字符c
-  - `[a-z]` ： 匹配a-z小写字母的任意一个
+  + `.` ： 匹配除换行符以外的任意字符
+  + `?` ： 重复0次或1次
+  + `+` ： 重复1次或更多次
+  + `*` ： 重复0次或更多次
+  + `\d` ：匹配数字
+  + `^` ： 匹配字符串的开始
+  + ： 匹配字符串的介绍
+  + `{n}` ： 重复n次
+  + `{n,}` ： 重复n次或更多次
+  + `[c]` ： 匹配单个字符c
+  + `[a-z]` ： 匹配a-z小写字母的任意一个
 
-  小括号`()`之间匹配的内容，可以在后面通过`$1`来引用，`$2`表示的是前面第二个`()`里的内容。正则里面容易让人困惑的是`\`转义特殊字符。
+  小括号 `()` 之间匹配的内容，可以在后面通过 `$1` 来引用， `$2` 表示的是前面第二个 `()` 里的内容。正则里面容易让人困惑的是 `\` 转义特殊字符。
 
 ## nginx的详细配置以及配置文件详解参考👇
 
-- [nginx 基本配置与参数说明 - nginx中文网](http://www.nginx.cn/76.html)
-- [nginx 反向代理配置 - nginx中文网](http://www.nginx.cn/927.html)
+* [nginx 基本配置与参数说明 - nginx中文网](http://www.nginx.cn/76.html)
+* [nginx 反向代理配置 - nginx中文网](http://www.nginx.cn/927.html)
 
 ## 参考文章
 
@@ -283,4 +287,5 @@ nginx 可以作为一个 HTTP 服务器进行网站的发布处理；
 * [nginx location正则写法 - 博客园](https://www.cnblogs.com/IPYQ/p/7889399.html)
 * [nginx相关介绍(nginx是什么? 能干嘛?) - 博客园](https://www.cnblogs.com/wcwnina/p/8728391.html)
 
-  > （强烈建议阅读参考文章里的前两篇文章 👍）
+> （强烈建议阅读参考文章里的前两篇文章 👍）
+

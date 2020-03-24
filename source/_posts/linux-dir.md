@@ -13,14 +13,15 @@ date: 2020-2-13
 Linux 系统常见的目录结构如下
 
 ``` bash
-/bin    /sbin   /etc    /dev    /proc   /var    /tmp    /usr
-
-/home   /boot   /lib    /opt    /mnt    /media    /srv
+/bin    /sbin   /etc    /dev    
+/proc   /var    /tmp    /usr
+/home   /boot   /lib    /opt    
+/mnt    /media    /srv
 ```
 
 ## 目录分析
 
-### /
+### "/"
 
 根目录
 
@@ -146,7 +147,9 @@ root 用户的目录(root)
 
 正在运行的硬件设备的驱动程序信息。（虚拟文件系统，不占内存）
 
-## 关于 ①/bin ②/sbin ③/usr/bin ④/usr/sbin 之间的关系
+## 关于四者的区别
+
+①/bin   ②/sbin  ③/usr/bin   ④/usr/sbin
 
 `/bin` 一般存放对于用户和系统来说“必须”的程序（二进制文件）。
 

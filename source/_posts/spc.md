@@ -30,7 +30,7 @@ date: 2020-2-14
 
 ### 将本地文件上传到服务器上
 
-``` cmd
+``` bash
 scp D:\Desktop\demo.html root@47.93.187.210:/home
 ```
 
@@ -38,7 +38,7 @@ scp D:\Desktop\demo.html root@47.93.187.210:/home
 
 ### 将本地文件夹上传到服务器上
 
-``` cmd
+``` bash
 scp -r D:\Desktop\project root@47.93.187.210:/home
 ```
 
@@ -46,7 +46,7 @@ scp -r D:\Desktop\project root@47.93.187.210:/home
 
 ### 获取服务器上的文件(文件夹)
 
-``` cmd
+``` bash
 scp root@47.93.187.210:/home  D:\Desktop\project 
 ```
 
