@@ -14,7 +14,7 @@ for (var i = 0; i < 10; i++) {
 }
 
 for (var i = 0; i < 10; i++) {
-  (function(i) {
+  (function (i) {
     setTimeout(() => {
       console.log(i);
     });
