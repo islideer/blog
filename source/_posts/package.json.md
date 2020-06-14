@@ -54,9 +54,20 @@ date: 2020-4-23
 
 它**配置和描述了该如何与项目进行交互、运行**。包管理器（`npm`、`yarn`等）也可以通过它来**识别项目并分析出如何处理项目的依赖关系**。当你执行`npm instal`或者`yarn`来安装依赖的时候，就是通过这个文件来识别。此外，如果你的项目需要发布到 `npm` 的 registry 上供别人使用，也需要通过这个文件来**提供项目的信息**。
 
+> 在 npm 5.x 及以上还会生成一个package-lock.json文件，它用来描述更加确切的版本信息。package.json文件有缺陷，只能锁定大版本，也就是版本号的第一位，并不能锁定后面的小版本，每次npm install拉取的是该大版本下的最新的版本，为了稳定性考虑我们几乎是不敢随意升级依赖包的，这将导致多出来很多工作量，测试/适配等，所以package-lock.json文件出来了，当你每次安装一个依赖的时候就锁定在你安装的这个版本。
+
 ## 自定义字段 🎨
 
-**package.json** 文件中的字段不是固定的，只有 `name` 和 `version` 是必须的，其他可选，且**可以根据需要自定义添加**。需要的时候可被其他文件引用。
+**package.json** 文件中的字段不是固定的。如果你要发布的话，那就只有 `name` 和 `version` 是必须的，其他可选，且**可以根据需要自定义添加**。需要的时候可被其他文件引用。如果不需要发布，则任何都是可选的，且建议将`private`字段设置为`true`并移除`main`入口，这样可以防止代码意外发布（示例在下方，加减分别代表增删）。
+
+```json
+  {
++   "private": true,
+-   "main": "index.js",
+  }
+```
+
+
 
 > 例如：博客项目可能还需要 `"title":"Viki's Blog"` 类似的字段
 
@@ -102,14 +113,19 @@ date: 2020-4-23
 
 ## 想了解更多? 🙃
 
-> 强烈推荐阅读 => [package.json 文件 - 阮一峰](https://javascript.ruanyifeng.com/nodejs/packagejson.html)
+> 强烈推荐阅读 => [package.json 文件 - 阮一峰][1]
 
 ## 参考文章 👍
 
-- [package.json 文件 - 阮一峰](https://javascript.ruanyifeng.com/nodejs/packagejson.html)
+- [package.json 文件 - 阮一峰][1]
 
-- [package.json - npm](https://docs.npmjs.com/files/package.json)
+- [package.json - npm][2]
 
-- [package.json 详解 - 拉勾](https://www.lagou.com/lgeduarticle/43699.html)
+- [package.json 详解 - 拉勾][3]
 
-- [package.json 详解 - 掘金](https://juejin.im/post/5ddf97986fb9a071ac1a0b09#heading-2)
+- [package.json 详解 - 掘金][4]
+
+[1]:https://javascript.ruanyifeng.com/nodejs/packagejson.html	"package.json 文件 - 阮一峰"
+[2]:https://docs.npmjs.com/files/package.json	"package.json - npm"
+[3]:https://www.lagou.com/lgeduarticle/43699.html	"package.json 详解 - 拉勾"
+[4]:https://juejin.im/post/5ddf97986fb9a071ac1a0b09#heading-2	"package.json 详解 - 掘金"

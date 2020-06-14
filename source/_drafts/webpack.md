@@ -1,0 +1,311 @@
+## webpack  入门
+
+本篇文章简要地讲解了 `webpack 4.x` 的入门知识，适合想了解、学习  `webpack`  的小白
+
+### 引文
+
+`webpack`说白了就是一个打包工具🔧，可以预先配置好打包设定，并约定好适用于各种不同文件类型的`loader`，以及可能用到的插件📥等，然后其他的事情就交给`webpack`，它会将你项目中的所有js文件、样式🎨文件、图片或字体资源等等打包在一起。`webpack`让开发者的代码更易编写、维护的同时，也提高了生产效率。👍
+
+### 安装
+
+> 在开始之前，请确保安装了 [Node.js](https://nodejs.org/en/) 的较新版本
+
+- #### 全局安装
+
+    即：webpack 命令已加入环境变量，全局下可用
+
+    ```bash
+    npm install -g webpack
+    npm install -g webpack-cli
+    ```
+
+- #### 本地安装
+
+  即：仅在当前项目配置webpack的开发环境
+  
+  ```bash
+  npm install --save-dev webpack
+  npm install --save-dev webpack-cli
+  ```
+
+### 配置 npm脚本
+
+编辑项目根目录下的`package.json`文件。
+
+> package.json 是 nodejs 项目的描述文件，详见[npm文档](https://docs.npmjs.com/files/package.json)。
+
+```json
+// package.json
+"scripts": {
+    "webpack": "webpack --config webpack.config.js"
+}
+```
+
+### Webpack 配置
+
+可在项目根目录下建一个 `webpack.config.js` 文件作为 `webpack` 的配置文件，`webpack `在执行的时候会读取这个配置文件并将其作为打包的配置进行打包。更复杂的写法及功能后面将会介绍到。
+
+##### 基础配置示例
+
+```js
+// webpack.config.js
+const path = require('path'); // 引入path，用来更规范地指定路径
+
+module.exports = {
+    mode:"development", // 规定当前模式，生产模式或者开发模式
+    entry:'./scr/index.js', // 指定入口文件，webpack的打包从这个文件开始
+    output:{
+        // 指定输出的信息，文件名，路径等
+        name:'main.js',
+        // 使用path来更合理地指定一个输出文件的路径
+        path:path.resolve(__dirname,'dist'); 
+    }
+}
+```
+
+### 加载CSS
+
+##### 安装
+
+先将`style-loader`和`css-loader`作为生产依赖（dev）安装
+
+```bash
+npm install --save-dev  style-loader css-loader
+```
+
+##### 配置
+
+```js
+// webpack.config.js
+module.exports = {
+    // ...
+  module: {
+     rules: [
+       {
+         test: /\.css$/, // 使用正则对文件后缀名进行匹配，区分不同的文件
+           // 在'use'数组里配置专门处理匹配到的文件类型所需的loader
+         use: [
+           'style-loader',
+           'css-loader'
+         ]
+       }
+     ]
+   }
+ };
+```
+
+##### 使用示例
+
+```js
+// index.js
+import './style.css'
+
+console.log("css file has been loaded successfully!")
+```
+
+```css
+/* style.css */
+green{ background-color: #bfa;}
+```
+
+```html
+<!-- index.html -->
+<div class="green">
+    this element's backround color should be green.
+</div>
+```
+
+### 加载其他资源（图片，字体等）
+
+`file-loader` 和 `url-loader` 可以接收并加载任何文件，然后将其输出到构建目录。
+
+配置方法与加载`css`类似
+
+##### 安装
+
+```bash
+npm install --save-dev file-loader
+```
+
+##### 配置
+
+```js
+// webpack.config.js
+module.exports = {
+  module: {
+     rules: [
+       {
+         test: /\.(png|svg|jpg|gif)$/,
+         use: ['file-loader']
+       },
+       {
+		test: /\.(woff|woff2|eot|ttf|otf)$/,
+		use:['file-loader']
+       }
+     ]
+   }
+ };
+```
+
+然后就可以像引入其他模块一样引入图片和字体资源并使用了，示例如下
+
+```js
+// index.js
+import MyImage from './assests/dog.png'
+
+let ImageElement = document.createElement("img");
+ImageElemegt.src = MyImage; // or ImageElement.setAttribute('src', MyImage);
+```
+
+## HtmlWebpackPlugin
+
+要引用打包好的js文件，一种常规且基础的方法是：直接在`index.html`文件里引用我们打包好的文件（如下示例）。但是有时候我们要打包成很多个文件，要让它正确被引用，我们就要重新手动更改它（`main.js`）的名字，比较麻烦，一种解决方案就是：使用`HtmlWebpackPlugin`这个plugin。
+
+```html
+<script src="main.js"></script>
+```
+
+##### 安装
+
+```bash
+npm install --save-dev  html-webpack-plugin
+```
+
+##### 配置
+
+```js
+// webpack.config.js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: {
+    app: './src/index.js',
+    print: './src/print.js'
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+    title: 'Output Management'
+    })
+  ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};
+```
+
+`HtmlWebpackPlugin` 会默认生成新 `index.html` 文件，并用新生成的 `index.html` 文件，把原来的替换。
+
+### 启用观察模式
+
+简单地说，就是修改已存在的代码的时候能够及时自动执行webpack打包命令进行更新，开启的方式很简单，加上 `--watch` 参数即可，或者在`npm`的 `scripts`里的`webpack`相应字段中添加`--watch`，像这样👇	
+
+```js
+// package.json
+"scripts": {
+    "build": "webpack --config webpack.config.js --watch"
+},
+```
+
+这样 `webpack` 便会开启观察模式，即在检测到代码被修改的时候重新编译代码，然而却不会退出命令行。
+
+### 启用 webpack-dev-server
+
+webpack-dev-server 本质是一个基于`node`的简单本地web服务器，能够在请求的内容发生改变时及时更新（不用手动在浏览器刷新网页）。如果你是`vscode`用户，笔者更推荐使用**`Live Server`扩展**来达到这个目的。`Live Server`的详细使用方式参考[官方文档](https://ritwickdey.github.io/vscode-live-server/)
+
+##### 安装
+
+```bash
+npm install --save-dev webpack-dev-server
+```
+
+##### 配置
+
+```js
+// webpack.config.json
+module.exports = {
+  devServer: {
+	contentBase: './dist'
+  },
+}
+```
+
+以上配置告知 `webpack-dev-server`，在 `localhost:8080` 下建立服务，并将 `dist` 目录下的文件作为可访问文件（无特殊指明，默认加载目录下的`index.html`文件）。
+
+##### 添加npm脚本
+
+```json
+// package.json
+"scripts": {
+    "start": "webpack-dev-server --open"
+}
+```
+
+### 启用 HMR
+
+模块热替换(Hot Module Replacement 或 HMR)是 `webpack `提供的最有用的功能之一。它允许在运行时更新各种模块，而无需进行完全刷新。
+
+（webpack 4.x 及之后的版本貌似已经默认支持了？小声bb）
+
+> 前提是启用了 `webpack-dev-server`
+
+##### 配置
+
+```js
+// webpack.config.json
+module.exports = {
+  devServer: {
+    contentBase: './dist',
+    hot: true // 👈 关键在这
+  }
+};
+```
+
+> 它（HMR）与观察模式的区别在于：观察模式每次在文件更改后重新编译并更新文件，而模块热替换则不重新编译，只是热替换改动的模块
+
+### Tree Shaking
+
+**tree shaking** 是一个术语，通常用于描述移除 `JavaScript `上下文中的未引用代码(dead-code)。简单来说就是在打包过程忽略没有被使用的代码，而只打包被引用的代码从而减小总包的大小，以提升加载速度和用户体验。
+
+> 请注意，有些文件被`tree shaking`操作处理后可能会产生副作用，请确保将不确定的文件标记在副作用（`sideEffects`）列表。
+
+修改`package.json`文件，将对应文件标记为有副作用(side-effect)。
+
+```json
+// package.json
+{
+  "sideEffects": [
+    "./src/some-side-effectful-file.js"，
+    "*.css"
+  ]
+}
+```
+
+如果所有代码都不包含副作用，我们就可以简单地将该属性标记为 `false`，来告知 `webpack`，它可以安全地删除未用到的 `export `导出。
+
+```json
+// package.json
+{
+  "sideEffects": false
+}
+```
+
+其实在真正项目上线的时候，是使用**压缩输出**的。
+
+只需将`webpack.config.js`配置文件的`mode`字段从`development`改为`production`即可轻松切换到**压缩输出**。
+
+启用了`Tree Shaking`的项目在压缩输出时，`webpack`不会将无关代码打包进项目。
+
+### 脚本示例参考
+
+```json
+// package.json
+"scripts": {
+    "start": "webpack --config webpack.config.js --watch && webpack-dev-server --open"
+}
+```
+
+### Want to learn more？🤔
+
+参考[官方指南](https://www.webpackjs.com/guides/)
