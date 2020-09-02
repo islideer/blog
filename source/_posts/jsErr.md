@@ -2,6 +2,7 @@
 layout: post
 title: 寒假学习之JavaScript错误处理
 date: 2020-1-11
+excerpt: 寒假学习之JavaScript错误处理
 ---
 
 ## JavaScript原生错误类型

@@ -2,6 +2,7 @@
 layout: post
 title: 寒假学习之Linux目录结构
 date: 2020-2-13
+excerpt: 寒假学习之Linux目录结构
 ---
 
 ## 前言

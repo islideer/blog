@@ -1,7 +1,8 @@
 ---
 layout: post
-title: "Hello Jekyll !"
+title: Hello Jekyll !
 date: 2019-11-8
+excerpt: Hello Jekyll !
 ---
 
 ## 2019.11.8

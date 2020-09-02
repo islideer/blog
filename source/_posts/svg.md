@@ -2,6 +2,7 @@
 layout: post
 title: 寒假学习之SVG介绍
 date: 2020-2-16
+excerpt:  寒假学习之SVG介绍
 ---
 
 ## SVG 介绍

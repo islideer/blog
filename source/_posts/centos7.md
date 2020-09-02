@@ -2,6 +2,7 @@
 layout: post
 title: 关于CentOS7中yum失效问题的解决方案
 date: 2020-1-12
+excerpt: C语言常见算法
 ---
 
 刚在虚拟机中安装完的CentOS7的系统，可能出现**无法使用yum命令**的问题。可以使用下列方式进行尝试。

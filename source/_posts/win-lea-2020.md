@@ -2,6 +2,7 @@
 layout: post
 title: 2020寒假学习计划及进度更新
 date: 2020-1-10
+excerpt: 2020寒假学习计划及进度更新
 ---
 
 

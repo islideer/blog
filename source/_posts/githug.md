@@ -2,6 +2,7 @@
 layout: post
 title: Githug小白指南
 date: 2019-12-14
+excerpt: Githug小白指南
 ---
 
 ## 前言

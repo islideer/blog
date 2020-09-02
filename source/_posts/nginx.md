@@ -2,6 +2,7 @@
 layout: post
 title: 寒假学习之nginx基础
 date: 2020-2-14
+excerpt: 寒假学习之nginx基础
 ---
 
 ## Nginx 简要介绍

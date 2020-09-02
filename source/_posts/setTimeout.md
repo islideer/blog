@@ -2,6 +2,7 @@
 layout: post
 title: setTimeout初探
 date: 2020-4-2
+excerpt: setTimeout初探
 ---
 
 ## 写出下列三个循环的输出值，并解释原因

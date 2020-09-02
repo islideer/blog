@@ -2,6 +2,7 @@
 layout: post
 title: 寒假学习之JavaScript基础篇（1）
 date: 2020-1-11
+excerpt: 寒假学习之JavaScript基础篇（1）
 ---
 
 ## JavaScript语法标识符的命名规范

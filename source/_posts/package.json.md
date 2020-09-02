@@ -2,6 +2,7 @@
 layout: post
 title: package.json 文件详解
 date: 2020-4-23
+excerpt: package.json 文件详解
 ---
 
 此篇文章适合于对 `JavaScript` `nodejs` `npm` `json` 有一定了解，但不清楚 `package.json` 文件具体作用及其含义的读者

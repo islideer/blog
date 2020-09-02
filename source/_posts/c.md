@@ -2,7 +2,10 @@
 layout: post
 title: C语言常见算法
 date: 2019-11-13
+excerpt: C语言常见算法
 ---
+
+# 整理 C 语言常见算法
 
 ## 循环实现: 不定数组的排序
 
@@ -25,7 +28,7 @@ int main() {
 		printf("%d ", l[i]);
 	return 0;
 }
-``` 
+```
 
 ## 递归实现:倒序输出字符串
 
@@ -45,11 +48,11 @@ void rev(){
 }
 ```
 
-## 递归实现: 输出斐波那契数列前20项
+## 递归实现: 输出斐波那契数列前 20 项
 
 ```c++
 #include<stdio.h>
-int f(int n); 
+int f(int n);
 int main() {
 	int i=1;
 	//循环输出第i项
@@ -62,9 +65,9 @@ int f(int n) {
     //用三元运算符判断并递归调用f()函数
 	return (n==1|n==2)?1:(f(n-1)+f(n-2));
 }
-``` 
+```
 
-## for循环:打印三角形
+## for 循环:打印三角形
 
 ```c++
 #include <iostream>
@@ -107,7 +110,7 @@ int main(void){
     answer = fac(z);
     printf("answer = %lld", answer);
 }
-``` 
+```
 
 ## 指针实现:倒序输出字符串(原创)
 
@@ -134,7 +137,7 @@ void rev(char *p) {
 ```c++
 #include <iostream>
 #include <cmath>
-using namespace std; 
+using namespace std;
 int main(){
     float a, b, c, s, s2;
     printf("Please enter the length of the three sides : ");
@@ -145,20 +148,20 @@ int main(){
     //endl(最后为小写字母 l)表示焦点定位到最后一行末尾↓
     cout << "Area = " << s << endl;
 }
-``` 
+```
 
 ## 递归实现:倒序输出整数
 
 ```c++
 #include <stdio.h>
-long long rev(long long n); 
+long long rev(long long n);
 int main() {
 	int x;
 	scanf("%d",&x);
 	printf("%d",rev(x));
 }
 long long rev(long long n) {
-	if(n<9) return n; 
+	if(n<9) return n;
 	printf("%d",n%10);
 	if(n/10!=0) rev(n/10);
 }
@@ -168,7 +171,7 @@ long long rev(long long n) {
 
 ```c++
 #include <stdio.h>
-void max(int *p, int n); 
+void max(int *p, int n);
 int main() {
 	int x[20],y,n=0;
 	do { //输入n个数,可负,0结束输入
@@ -181,12 +184,12 @@ int main() {
 void max(int *p, int n) {
 	//定义一个新指针q记录最大值的地址
 	int *q=p;
-	//n个数需要判断n-1次 
+	//n个数需要判断n-1次
 	for(; n>1; n--)
 		if(*q>=*p) p++;
 	printf("%d",*p);
 }
-``` 
+```
 
 ## 二进制与十进制的转化
 
@@ -215,7 +218,7 @@ int main(){
     return 0;
 }
  /* Function to convert decimal to binary.*/
-int decimal_binary(int n){ 
+int decimal_binary(int n){
     int rem, i = 1, binary = 0;
     while (n != 0){
         rem = n % 2;
@@ -237,4 +240,3 @@ int binary_decimal(int n) {
     return decimal;
 }
 ```
-
