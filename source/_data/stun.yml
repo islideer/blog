@@ -447,7 +447,7 @@ post_widget:
     horizon_line: true
   # Article sharing
   share:
-    enable: true
+    enable: false
     # The text displayed before the share button.
     label: "分享至:"
     # Optional values: qzone | qq | weibo | wechat | douban | linkedin | facebook | twitter | google
