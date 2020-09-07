@@ -2,7 +2,7 @@
 layout: post
 title: webpack4.x 基础
 date: 2020-9-14
-top_image: https://www.multmax.top/images/2020/09/06/webpack-logo.jpg
+top_image: https://www.multmax.top/images/2020/09/07/webpack-logo.jpg
 excerpt: 本文简要地讲解了 webpack4.x 的入门知识，适合想了解、学习 webpack 的小白
 ---
 
@@ -14,7 +14,7 @@ excerpt: 本文简要地讲解了 webpack4.x 的入门知识，适合想了解�
 
 ### 安装
 
-> 在开始之前，请确保安装了 [Node.js](https://nodejs.org/en/) 的较新版本
+> 在开始之前，请确保安装了 [Node.js](https://nodejs.org/zh-cn/) 的较新版本
 
 - #### 全局安装
 
