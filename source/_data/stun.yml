@@ -11,7 +11,7 @@ shake_file: true
 
 # If true, will add site-subtitle to index page.
 # Remember to set up your site-subtitle in Hexo `_config.yml`.
-index_subtitle: false
+index_subtitle: true
 
 # Set a canonical link tag for your Hexo site.
 # See: https://support.google.com/webmasters/answer/139066
@@ -144,14 +144,14 @@ header:
     # Whether to show on the article page.
     post: true
   # If you set a percentage, it will be calculated based on the height of screen (Supports all CSS units)
-  height: 80%
+  height: 100%
   # Background image of site header.
   bg_image:
     enable: true
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: https://www.multmax.top/images/2020/09/02/bgi.jpg
+    url: https://www.multmax.top/images/2020/09/07/bgi.jpg
   # Mask effect of the background image.
   mask:
     enable: true
@@ -173,18 +173,18 @@ header:
 body:
   # Background image of site body.
   bg_image:
-    enable: false
+    enable: true
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url:
+    url: https://www.multmax.top/images/2020/09/05/viki.png
     # Whether to fixed the background image.
     fixed: true
     # Whether to repeat the image as much as possible to cover the entire area.
     repeat: false
   # Mask effect of the background image.
   mask:
-    enable: false
+    enable: true
     # Opacity of mask (value: 0 ~ 1)
     opacity:
       # Opacity of the mask by default.
@@ -203,7 +203,7 @@ footer:
     url:
   # Mask effect of the background image.
   mask:
-    enable: false
+    enable: true
     # Opacity of mask (value: 0 ~ 1)
     opacity: 0.5
   # Copyright information.
@@ -360,7 +360,7 @@ feed:
 reading_progress:
   enable: true
   # (Please use "" to wrap the value)
-  color: "#fc6423"
+  color: "#2c3544"
   height: 1px
 
 # ---------------------------------------------------------------
@@ -633,7 +633,7 @@ local_search:
 # Canvas-ribbon
 # Dependency: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: false
+  enable: true
   # The width of the ribbon.
   size: 120
   # The transparency of the ribbon.
@@ -644,14 +644,14 @@ canvas_ribbon:
 # Canvas-nest
 # Dependency: https://github.com/hustcc/canvas-nest.js
 canvas_nest:
-  enable: false
+  enable: true
   # Color of lines.
   # RGB values, use `,` to separate.
-  color: "0,0,0"
+  color: "255,255,255"
   # The opacity of lines (value: 0 ~ 1)
   opacity: 0.6
   # The number of lines.
-  count: 99
+  count: 200
   # `z-index` property of the background.
   zIndex: -1
 
