@@ -11,6 +11,11 @@ excerpt: Hello Jekyll !
 
 ## 2020.3.22
 
-由于种种原因，我把阵地搬到了Hexo上。
+由于种种原因，我把阵地搬到了 Hexo 上。
 新站点使用 `GitHubPages` + `Hexo`搭建 。
 
+## 2020.9.2
+
+更换主题为 [stun](https://github.com/liuyib/hexo-theme-stun)
+
+评论系统使用基于 Github issues 的 `gitalk`

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 寒假学习之SVG介绍
+title: 了解SVG格式
 date: 2020-2-16
-excerpt:  寒假学习之SVG介绍
+excerpt: 寒假学习之SVG介绍
 ---
 
 ## SVG 介绍
@@ -11,7 +11,7 @@ excerpt:  寒假学习之SVG介绍
 
 **一种图像文件格式**，英文全称 Scalable Vector Graphics，意为**可缩放的矢量图形**。
 
-它是基于XML（Extensible Markup Language），由World Wide Web Consortium（W3C）联盟进行开发的。严格来说应该是一种开放标准的矢量图形语言，可让你设计激动人心的、高分辨率的Web图形页面。用户可以直接**用代码来描绘图像**，可以用**任何文字处理工具打开SVG图像**，通过改变部分代码来使图像具有交互功能，并可以随时插入到HTML中通过浏览器来观看。
+它是基于 XML（Extensible Markup Language），由 World Wide Web Consortium（W3C）联盟进行开发的。严格来说应该是一种开放标准的矢量图形语言，可让你设计激动人心的、高分辨率的 Web 图形页面。用户可以直接**用代码来描绘图像**，可以用**任何文字处理工具打开 SVG 图像**，通过改变部分代码来使图像具有交互功能，并可以随时插入到 HTML 中通过浏览器来观看。
 
 主流浏览器均支持 SVG。**加载慢**是 SVG 的一个缺点。但是 SVG 也有自身的优点，比如它**实现了 DOM 接口**（比 Canvas 方便），**不需要安装第三方插件**就可以在浏览器中使用（比 Flash 方便）。
 
@@ -46,10 +46,18 @@ excerpt:  寒假学习之SVG介绍
 #### 一个简单的例子
 
 ```html
-<svg version="1.1" baseProfile="full"  width="300" height="200" mlns="http://www.w3.org/2000/svg">
+<svg
+  version="1.1"
+  baseProfile="full"
+  width="300"
+  height="200"
+  mlns="http://www.w3.org/2000/svg"
+>
   <rect width="100%" height="100%" fill="red" />
   <circle cx="150" cy="100" r="80" fill="green" />
-  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">
+    SVG
+  </text>
 </svg>
 ```
 
@@ -58,11 +66,11 @@ excerpt:  寒假学习之SVG介绍
 该图绘制流程包括以下几步：
 
 1. 从 SVG 根元素开始：
-   - 应舍弃来自  (X)HTML 的 doctype 声明，因为基于 SVG 的 DTD 验证导致的问题比它能解决的问题更多。
+   - 应舍弃来自 (X)HTML 的 doctype 声明，因为基于 SVG 的 DTD 验证导致的问题比它能解决的问题更多。
    - `version`和`baseProfile`属性是必不可少的，供其它类型的验证方式确定 SVG 版本。
-   - 作为 XML 的一种方言，SVG 必须正确的绑定命名空间 （在 xmlns 属性中绑定）。 
+   - 作为 XML 的一种方言，SVG 必须正确的绑定命名空间 （在 xmlns 属性中绑定）。
 2. 绘制一个完全覆盖图像区域的矩形 ，把背景颜色设为红色。
-3. 一个半径80px的绿色圆圈绘制在红色矩形的正中央 （向右偏移150px，向下偏移100px）。
+3. 一个半径 80px 的绿色圆圈绘制在红色矩形的正中央 （向右偏移 150px，向下偏移 100px）。
 4. 绘制文字“SVG”。文字被填充为白色， 通过设置居中的锚点把文字定位到期望的位置：在这种情况下，中心点应该对应于绿色圆圈的中点。还可以精细调整字体大小和垂直位置，确保最后的样式是美观的。
 
 > 想了解更多？请参考文末详细教程
@@ -73,7 +81,14 @@ excerpt:  寒假学习之SVG介绍
 
   ```html
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
+    <circle
+      cx="100"
+      cy="50"
+      r="40"
+      stroke="black"
+      stroke-width="2"
+      fill="red"
+    />
   </svg>
   ```
 
@@ -113,9 +128,9 @@ excerpt:  寒假学习之SVG介绍
 
   ```css
   #email {
-      background: url(./img/email.svg) 12px 7px no-repeat;
-      background-size: 20px 20px; 
-      // 在这设置图标大小，不设置就是svg默认的宽高
+    background: url(./img/email.svg) 12px 7px no-repeat;
+    background-size: 20px 20px;
+    // 在这设置图标大小，不设置就是svg默认的宽高
   }
   ```
 
@@ -125,10 +140,9 @@ excerpt:  寒假学习之SVG介绍
 
 ### 更多
 
-SVG 是一个庞大的规范，想了解更多的绘画方法请访问 👉 [SVG教程- MDN](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial)
+SVG 是一个庞大的规范，想了解更多的绘画方法请访问 👉 [SVG 教程- MDN](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial)
 
 ### 参考文章
 
-- [SVG教程- MDN](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial)
-- [svg格式 - 百度百科]([https://baike.baidu.com/item/SVG%E6%A0%BC%E5%BC%8F/3463453?fr=aladdin](https://baike.baidu.com/item/SVG格式/3463453?fr=aladdin))
-
+- [SVG 教程- MDN](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial)
+- [svg 格式 - 百度百科](<[https://baike.baidu.com/item/SVG%E6%A0%BC%E5%BC%8F/3463453?fr=aladdin](https://baike.baidu.com/item/SVG格式/3463453?fr=aladdin)>)

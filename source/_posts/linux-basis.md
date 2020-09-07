@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 寒假学习之Linux基础
+title: Linux基础
 date: 2020-1-12
 excerpt: 寒假学习之Linux基础
 ---

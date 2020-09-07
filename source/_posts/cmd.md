@@ -2,7 +2,7 @@
 layout: post
 title: Windows命令行下的常用命令
 date: 2019-12-18
-excerpt: Windows命令行下的常用命令
+excerpt: 总结了Windows命令行下的常用命令，便于日后翻阅
 ---
 
 在任何路径下使用 `help` + `命令名` 命令可以查看对应命令的详细用法

@@ -2,7 +2,7 @@
 layout: post
 title: C语言常见算法
 date: 2019-11-13
-excerpt: C语言常见算法
+excerpt: 简单总结了一些C语言常见的算法，可以参考
 ---
 
 # 整理 C 语言常见算法

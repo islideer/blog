@@ -1,7 +1,7 @@
 ---
 layout: post
 title: webpack4.x 基础
-date: 2020-9-14
+date: 2020-8-20
 top_image: https://www.multmax.top/images/2020/09/07/webpack-logo.jpg
 excerpt: 本文简要地讲解了 webpack4.x 的入门知识，适合想了解、学习 webpack 的小白
 ---

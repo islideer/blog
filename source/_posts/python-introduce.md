@@ -3,7 +3,7 @@ layout: post
 title: Python 介绍以及 Python2 与 Python3 的区别
 date: 2020-9-5
 quicklink: true
-top_image: https://www.multmax.top/images/2020/09/05/python-logo.jpg
+top_image: https://www.multmax.top/images/2020/09/07/python-diff.jpg
 excerpt: Python 是一种面向对象、解释型、动态数据类型的高级程序设计脚本语言，同时也是一种功能强大而完善的通用型语言。
 ---
 

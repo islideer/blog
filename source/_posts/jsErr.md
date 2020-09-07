@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 寒假学习之JavaScript错误处理
+title: JavaScript错误处理
 date: 2020-1-11
 excerpt: 寒假学习之JavaScript错误处理
 ---
