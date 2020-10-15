@@ -101,14 +101,8 @@ theme: stun
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/Vikiboss/Viki-blog
+  repo: https://github.com/vikiboss/viki-blog
   branch: master
-
-# setting for stun-local-search
-search:
-  path: search.xml
-  field: post
-  content: true
 
 # setting for hexo-all-minifier
 all_minifier: true

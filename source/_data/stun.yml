@@ -173,7 +173,7 @@ header:
 body:
   # Background image of site body.
   bg_image:
-    enable: true
+    enable: false
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
@@ -625,7 +625,7 @@ algolia_search:
 # See: https://github.com/wzpan/hexo-generator-search/
 local_search:
   # 是否启用
-  enable: true
+  enable: false
 
 # ---------------------------------------------------------------
 # Background config
@@ -652,7 +652,7 @@ canvas_nest:
   # The opacity of lines (value: 0 ~ 1)
   opacity: 0.8
   # The number of lines.
-  count: 200
+  count: 100
   # `z-index` property of the background.
   zIndex: -2
 
