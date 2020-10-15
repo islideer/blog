@@ -13,7 +13,7 @@ timezone: ""
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://vikiboss.top/
+url: https://vikiboss.top
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -101,12 +101,12 @@ theme: stun
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/vikiboss/vikiboss.github.io.git
+  repo: https://github.com/Vikiboss/Viki-blog
   branch: master
 
 # setting for stun-local-search
 search:
-  path: search.json
+  path: search.xml
   field: post
   content: true
 
