@@ -478,7 +478,7 @@ gitalk:
   # Github username.
   owner: vikiboss
   # Github repository.
-  repo: vikiboss.github.io
+  repo: blog-commits
   # Github Application Client ID.
   client_id: 001a68ef5042ee4c963c
   # Github Application Client Secret.
@@ -624,6 +624,7 @@ algolia_search:
 # Local Search
 # See: https://github.com/wzpan/hexo-generator-search/
 local_search:
+  # 是否启用
   enable: true
 
 # ---------------------------------------------------------------
@@ -633,7 +634,7 @@ local_search:
 # Canvas-ribbon
 # Dependency: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: true
+  enable: false
   # The width of the ribbon.
   size: 120
   # The transparency of the ribbon.
@@ -649,7 +650,7 @@ canvas_nest:
   # RGB values, use `,` to separate.
   color: "255,255,255"
   # The opacity of lines (value: 0 ~ 1)
-  opacity: 0.6
+  opacity: 0.8
   # The number of lines.
   count: 200
   # `z-index` property of the background.
