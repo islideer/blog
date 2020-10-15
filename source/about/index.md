@@ -28,4 +28,4 @@ TG：[Viki](https://t.me/VikiQAQ)
 
 QQ: [1141284758](https://qm.qq.com/cgi-bin/qm/qr?k=iz_DcbUMBvV8eViHh-V_9nq-gSrUv131) (Viki)
 
-Email：[vikiboss@qq.com][mailto:vikiboss@qq.com]
+Email：vikiboss@qq.com

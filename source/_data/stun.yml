@@ -56,7 +56,7 @@ menu:
   # archives: /archives/ || fas fa-folder-open
   # categories: /categories/ || fas fa-layer-group
   # tags: /tags/ || fas fa-tags
-  about: /about/ ||
+  about: /about ||
   # about: /about/ || fas fa-book
   # reading: /reading/ || fas fa-book
   # You can add a secondary menu like follow.
@@ -721,7 +721,7 @@ lazyload:
 # Quicklink support
 # See: https://github.com/GoogleChromeLabs/quicklink/
 quicklink:
-  enable: true
+  enable: false
   # Quicklink (quicklink.umd.js script) is loaded on demand.
   # Add `quicklink: true` in Front-matter of the page or post you need.
   # Home page and archive page can be controlled through home and archive options below.
