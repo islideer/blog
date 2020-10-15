@@ -8,6 +8,10 @@ excerpt: 总结了一些常见常用的 git 命令
 
 ## 用的最为频繁的 git 命令
 
+首先上张图
+
+![git常用命令](https://i.loli.net/2020/10/15/Swsq8OFLTMDzGjE.jpg)
+
 ### 配置默认信息
 
 ```bash
