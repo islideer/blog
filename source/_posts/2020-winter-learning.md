@@ -2,6 +2,7 @@
 layout: post
 title: 寒假学习计划和进度记录
 date: 2020-1-10
+top_image: https://i.loli.net/2020/11/21/4k5bCawEFxysD9r.jpg
 excerpt: 这篇文章用于记录2020寒假的学习进度
 ---
 

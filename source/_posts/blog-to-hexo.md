@@ -2,12 +2,13 @@
 layout: post
 title: 博客跳槽记
 date: 2020-3-23
+top_image: https://i.loli.net/2020/11/21/QJqGlbrP1RiYhIL.png
 excerpt: 博客搬迁，从 Jeklly 到 Hexo
 ---
 
 ## Jekyll => Hexo
 
-![hexo.png](https://i.loli.net/2020/03/23/p8Li2KulrEaQD9X.png)
+![hexo-logo.png](https://i.loli.net/2020/11/21/QJqGlbrP1RiYhIL.png)
 
 ## 好累 o((>ω< ))o
 

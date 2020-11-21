@@ -2,10 +2,11 @@
 layout: post
 title: scoop —— 实用的 windows 包管理软件
 date: 2020-9-20
-top_image: https://www.multmax.top/images/2020/09/20/scoop-logo.png
+top_image: https://i.loli.net/2020/11/21/BZunq4vrKAHIj7P.png
 excerpt: scoop可以提升你的windows开发体验
 ---
-## 前言 
+
+## 前言
 
 ### 包管理的概念
 

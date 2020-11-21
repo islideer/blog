@@ -2,6 +2,7 @@
 layout: post
 title: Linux目录结构
 date: 2020-2-13
+top_image: https://i.loli.net/2020/11/21/sRP8uFdSz4XcVkI.png
 excerpt: 寒假学习之Linux目录结构
 ---
 
@@ -9,14 +10,16 @@ excerpt: 寒假学习之Linux目录结构
 
 刚上手 Linux 系统，首先感到茫然的，我相信就是那个让初学者摸不着头脑（包括我）的目录结构了，这篇文章主要就是简要介绍各个目录相关的知识。
 
+![linux-content.jpg](https://i.loli.net/2020/11/21/8XzkbHGYlQg5ZTd.png)
+
 ## 目录结构
 
 Linux 系统常见的目录结构如下
 
-``` bash
-/bin    /sbin   /etc    /dev    
+```bash
+/bin    /sbin   /etc    /dev
 /proc   /var    /tmp    /usr
-/home   /boot   /lib    /opt    
+/home   /boot   /lib    /opt
 /mnt    /media    /srv
 ```
 
@@ -29,7 +32,7 @@ Linux 系统常见的目录结构如下
 每一个文件和目录从根目录开始。
 只有 root 用户具有该目录下的写权限。
 包含了几乎所的文件目录。相当于中央系统。
-进入的最简单方法是： `cd /` 
+进入的最简单方法是： `cd /`
 
 > 请注意， `/root` 是 `root` 用户的主目录，这与 `/` 不一样
 
@@ -150,7 +153,7 @@ root 用户的目录(root)
 
 ## 关于四者的区别
 
-①/bin   ②/sbin  ③/usr/bin   ④/usr/sbin
+①/bin ②/sbin ③/usr/bin ④/usr/sbin
 
 `/bin` 一般存放对于用户和系统来说“必须”的程序（二进制文件）。
 
@@ -172,7 +175,6 @@ root 用户的目录(root)
 
 ## 参考文章
 
-* [Linux 目录结构 - 博客园](https://www.cnblogs.com/JCSU/articles/2770249.html)
+- [Linux 目录结构 - 博客园](https://www.cnblogs.com/JCSU/articles/2770249.html)
 
-* [Linux 里有/lib 和/usr/lib 各个目录含义 - CSDN](https://blog.csdn.net/sweetfather/article/details/79625482)
-
+- [Linux 里有/lib 和/usr/lib 各个目录含义 - CSDN](https://blog.csdn.net/sweetfather/article/details/79625482)

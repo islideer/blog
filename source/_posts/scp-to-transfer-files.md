@@ -2,12 +2,13 @@
 layout: post
 title: 利用scp命令跨linux服务器传输文件
 date: 2020-2-14
+top_image: https://i.loli.net/2020/11/21/wYd3n5xtlVofF7E.jpg
 excerpt: 通过scp命令能够高效率的向服务器传输文件以及文件夹
 ---
 
-## 利用scp命令在服务器与本地双向传输文件
+## 利用 scp 命令在服务器与本地双向传输文件
 
-### 什么是scp? 有什么用?
+### 什么是 scp? 有什么用?
 
 `scp` 是 **Secure Copy** 的简写，用于在 Linux 下进行远程拷贝文件的命令，和它类似的命令有 `cp` ，不过 `cp` 只是在本机进行拷贝不能跨服务器，而且 `scp` 传输是加密的。可能会稍微影响一下速度。
 
@@ -19,19 +20,19 @@ excerpt: 通过scp命令能够高效率的向服务器传输文件以及文件�
 
 本机的 `ssh` 命令能够正确连接到远程服务器
 
-### 可选的常用参数 
+### 可选的常用参数
 
-* `-P` P为大写 指定传输端口(默认不修改为22端口, 修改后需用这个参数来指定端口)
+- `-P` P 为大写 指定传输端口(默认不修改为 22 端口, 修改后需用这个参数来指定端口)
 
-* `-r` 递归式复制(可用于传输整个文件夹的内容, 较常用)
-* `-v` 和大多数 Linux 命令中的 `-v` 意思一样 , 用来显示进度 . 可以用来查看连接 , 认证 , 或是配置错误
-* `-C` C为大写 使能压缩选项
-* `-4` 强行使用 IPV4 地址
-* `-6` 强行使用 IPV6 地址
+- `-r` 递归式复制(可用于传输整个文件夹的内容, 较常用)
+- `-v` 和大多数 Linux 命令中的 `-v` 意思一样 , 用来显示进度 . 可以用来查看连接 , 认证 , 或是配置错误
+- `-C` C 为大写 使能压缩选项
+- `-4` 强行使用 IPV4 地址
+- `-6` 强行使用 IPV6 地址
 
 ### 将本地文件上传到服务器上
 
-``` bash
+```bash
 scp D:\Desktop\demo.html root@47.93.187.210:/home
 ```
 
@@ -39,7 +40,7 @@ scp D:\Desktop\demo.html root@47.93.187.210:/home
 
 ### 将本地文件夹上传到服务器上
 
-``` bash
+```bash
 scp -r D:\Desktop\project root@47.93.187.210:/home
 ```
 
@@ -47,13 +48,12 @@ scp -r D:\Desktop\project root@47.93.187.210:/home
 
 ### 获取服务器上的文件(文件夹)
 
-``` bash
-scp root@47.93.187.210:/home  D:\Desktop\project 
+```bash
+scp root@47.93.187.210:/home  D:\Desktop\project
 ```
 
-> 加上 `-r` 参数的作用与上同 命令的意义与上述类似  容易明白
+> 加上 `-r` 参数的作用与上同 命令的意义与上述类似 容易明白
 
 ### 参考文章
 
-* [Linux SSH远程文件/目录传输命令scp - VPS侦探](https://www.vpser.net/manage/scp.html)
-
+- [Linux SSH 远程文件/目录传输命令 scp - VPS 侦探](https://www.vpser.net/manage/scp.html)

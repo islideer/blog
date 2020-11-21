@@ -1,9 +1,9 @@
 ---
 layout: post
-title: git 常用命令
+title: Git常用命令速览
 date: 2020-10-11
-top_image: https://i.loli.net/2020/10/11/RPTxzujrFkG2tDV.jpg
-excerpt: 总结了一些常见常用的 git 命令
+top_image: https://i.loli.net/2020/11/21/24MWNinubCAd5Dr.png
+excerpt: 总结了一些常见常用的 Git 命令 方便日后查阅
 ---
 
 ## 用的最为频繁的 git 命令
