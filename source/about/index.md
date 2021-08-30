@@ -25,11 +25,13 @@ Viki，某 211 计科在读大二学生。
 
 ### 联系方式？
 
-TG：[VikiQAQ](https://t.me/VikiQAQ) (Viki)
+```js
+"🐧 8574821411".split("").reverse().join("");
+```
 
-QQ: [1141284758](https://qm.qq.com/cgi-bin/qm/qr?k=iz_DcbUMBvV8eViHh-V_9nq-gSrUv131) (Viki)
-
-Email：vikiboss@qq.com (Viki)
+```js
+"📫 vikiboss#qq.com".replace("#", "@");
+```
 
 来交个朋友 ~
 
