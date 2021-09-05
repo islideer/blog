@@ -101,7 +101,7 @@ theme: stun
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:vikiboss/Viki-blog.git
+  repo: git@github.com:vikiboss/Viki-Blog.git
   branch: master
 
 # setting for hexo-all-minifier

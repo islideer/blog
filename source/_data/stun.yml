@@ -22,7 +22,7 @@ canonical: true
 # ---------------------------------------------------------------
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-google_site_verification: X4XROnpYkPQrrcs1BnKxPb3ed5YmqRWQ9rLpIevdmjE
+google_site_verification:
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
@@ -144,7 +144,7 @@ header:
     # Whether to show on the article page.
     post: true
   # If you set a percentage, it will be calculated based on the height of screen (Supports all CSS units)
-  height: 100%
+  height: 80%
   # Background image of site header.
   bg_image:
     enable: true
@@ -492,6 +492,25 @@ gitalk:
   # Optional values: en | zh-CN | es-ES | fr | ru | zh-TW
   language: zh-CN
 
+# Waline
+# See: https://waline.js.org/
+waline:
+  enable: false
+  # The URL of your server.
+  serverURL:
+  # Comment box placeholder.
+  placeholder: Just go go
+  # Gravatar style.
+  avatar: mp
+  # Custom comment header.
+  meta: nick,mail,link
+  # The number of comments per page.
+  pageSize: 10
+  # Optional values: en | zh-CN | zh-TW | jp
+  lang: zh-CN,zh-TW,en
+  # Article reading statistics.
+  visitor: false
+
 # Valine
 # See: https://valine.js.org/quickstart.html
 valine:
@@ -570,6 +589,27 @@ utterances:
   # ! -------------------------------------------------------------------------------
   script_url: https://utteranc.es/client.js
 
+# Facebook Comments
+# See: https://developers.facebook.com/docs/plugins/comments
+fbcomments:
+  enable: false
+  # The ID of your own Facebook App.
+  appId:
+  # See: https://developers.facebook.com/docs/internationalization#locales
+  # Example: en_US | zh_CN | zh_HK ... and so on. For detail, see: ☝
+  lang: en_US
+  # Number of comments displayed by default.
+  numPosts: 10
+  # See: https://developers.facebook.com/docs/plugins/comments#sorting
+  # Optional values: social | reverse_time | time
+  order_by: reverse_time
+  # Optional values: true | false
+  lazy: true
+  # Whether to optimize the display on the mobile.
+  # Optional values: true | false
+  mobile: true
+  width: 100%
+
 # ---------------------------------------------------------------
 # Statistics and Analytics config
 # ---------------------------------------------------------------
@@ -625,7 +665,19 @@ algolia_search:
 # See: https://github.com/wzpan/hexo-generator-search/
 local_search:
   # 是否启用
+  enable: true
+  # Auxiliary search buttons
+# ! -----------------------------------------------------------------------------------------
+# ! This feature can only be enabled if either `algolia_search` or `local_search` is enabled.
+# ! -----------------------------------------------------------------------------------------
+assist_search:
   enable: false
+  # Show the Google Search button. Use `www.google.com` to search for what you type.
+  google: true
+  # Show the Bing Search button. Use `www.bing.com` to search for what you type.
+  bing: true
+  # Show the Baidu Search button. Use `www.baidu.com` to search for what you type.
+  baidu: true
 
 # ---------------------------------------------------------------
 # Background config
@@ -842,6 +894,7 @@ icon:
   prompt_info: fas fa-arrow-circle-right
   prompt_warning: fas fa-exclamation-circle
   prompt_error: fas fa-times-circle
+  waline_visitor: fas fa-eye
   valine_visitor: fas fa-eye
   post_heading: fas fa-link
   notetag_default: fas fa-arrow-circle-right
@@ -849,6 +902,8 @@ icon:
   notetag_info: fas fa-info-circle
   notetag_warning: fas fa-exclamation-circle
   notetag_danger: fas fa-minus-circle
+  google: fab fa-google
+  # bing: fab fa-bing # not exist
 
 # Set a CDN address for the vendor you want to customize.
 # ! -------------------------------------------------------------------
@@ -899,6 +954,12 @@ cdn:
   # leancloud_storage: //cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js
   valine:
   leancloud_storage:
+
+  # Waline
+  # See: https://github.com/lizheming/waline
+  # Example:
+  # waline: //unpkg.com/@waline/client@0.8.5/dist/Waline.min.js
+  waline:
 
   # minivaline
   # See: https://github.com/MiniValine/MiniValine
