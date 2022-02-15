@@ -2,7 +2,6 @@
 layout: post
 title: cannot find module fs/promises
 date: 2022-2-15
-top_image: https://i.loli.net/2020/11/21/fDXpUSTL6BciRtO.png
 excerpt: 运行 node 项目时出现 cannot find module fs/promises 报错
 ---
 
