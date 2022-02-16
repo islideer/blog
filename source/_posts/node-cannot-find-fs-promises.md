@@ -1,8 +1,9 @@
 ---
 layout: post
-title: cannot find module fs/promises
+title: Cannot find module 'fs/promises'
 date: 2022-2-15
-excerpt: 运行 node 项目时出现 cannot find module fs/promises 报错
+top_image: https://s2.loli.net/2022/02/16/pmb43yIuZ5PETxU.png
+excerpt: 运行 node 项目时出现 Cannot find module 'fs/promises' 报错
 ---
 
 ### 原因
