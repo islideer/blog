@@ -2,7 +2,7 @@
 layout: post
 title: CSS 选择器
 date: 2022-2-16
-top_image: https://s2.loli.net/2022/02/16/lY6SWmJujVFOeqz.png
+top_image: https://s2.loli.net/2022/02/16/6j3YWJQon472zxt.png
 excerpt: 选择器是 CSS 规则的一部分，位于 CSS 声明块前。
 ---
 
@@ -30,8 +30,8 @@ a {
 a[title] {
   color: #3af;
 }
-/* 地址包含 viki 的链接，不区分大小写 */
-a[href$='viki' i] {
+/* 地址以 vikiboss.top 结尾的链接，不区分大小写 */
+a[href$='vikiboss.top' i] {
   color: red;
 }
 ```
