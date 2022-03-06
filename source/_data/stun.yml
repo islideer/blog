@@ -320,7 +320,7 @@ social:
   # segmentfault: https://segmentfault.com/ || origin:sf
   # weibo: https://weibo.com/banxiaosong || fab fa-weibo
   # zhihu: https://www.zhihu.com/ || origin:知
-  wechat: VikiQAQ || fab fa-weixin
+  wechat: /about || fab fa-weixin
   # telegram: https://t.me/VikiQAQ || fab fa-telegram
   qq: /about || fab fa-qq
   # 掘金: https://juejin.im/timeline || origin:掘
