@@ -54,7 +54,7 @@ console.log(obj2.a);
 
 ### 深拷贝
 
-以下情况属于浅拷贝（彻底拷贝完全，新旧对象互不影响）
+以下情况属于深拷贝（彻底拷贝完全，新旧对象互不影响）
 
 1. 创建新的对象，并使用递归对每一层的基本数据类型重新拷贝
 2. `JSON.parse(JSON.stringfy(obj))`（不推荐）
@@ -70,13 +70,13 @@ console.log(obj2.a);
 
 ## 实现一个 深拷贝 函数
 
-为了解决上述的奇怪的表现，我们需要一个函数 `deepClone`，来达到类似以下的效果：
+为了解决上述的奇怪的表现，我们需要一个函数 `deepClone`，来实现以下效果：
 
 ```js
 const obj = { a: 123, b: 456 };
 const obj2 = deepClone(obj);
 obj.a = 789;
-console.log(obj2.a); // 输出 123
+console.log(obj2.a); // 输出 123 而不是 789
 ```
 
 第一版代码：
@@ -84,7 +84,7 @@ console.log(obj2.a); // 输出 123
 ```js
 function deepClone(obj, useJSON = false) {
   // 过滤基本数据类型
-  if (typeof obj !== 'object' || obj === null) return obj;
+  if (typeof obj !== "object" || obj === null) return obj;
   // JSON 方式的深拷贝实现
   if (useJSON) return JSON.parse(JSON.stringify(obj));
 
@@ -92,7 +92,7 @@ function deepClone(obj, useJSON = false) {
   for (const key in obj) {
     // 原型链上的属性不拷贝
     if (!obj.hasOwnProperty(key)) return;
-    if (typeof obj[key] === 'object' && obj[key] !== null) {
+    if (typeof obj[key] === "object" && obj[key] !== null) {
       // 如果属性值为引用类型，递归调用 deepClone 函数进行深拷贝处理
       _obj[key] = deepClone(obj[key]);
     } else {
@@ -116,15 +116,16 @@ console.log(obj2.b.c); // 输出 456，测试通过
 上述 `deepClone` 的实现确实能搞定一般情况的深拷贝，但是对于一些属性值为内置的 JS 对象的对象，情况可能就不这么乐观了，看下面的例子：
 
 ```js
-// 这里我们采用上述的 deepClone 函数
 const obj = {
   a: new Date(),
-  b: { c: new Set([1]), d: new Map([['a', 1]]) },
-  e: { f: new Error('msg'), g: new RegExp('^obj$') },
+  b: { c: new Set([1]), d: new Map([["a", 1]]) },
+  e: { f: new Error("msg"), g: new RegExp("^obj$") },
   h: (e) => console.log(e),
 };
 
+// 这里我们采用上述的 deepClone 函数
 const obj2 = deepClone(obj);
+obj.b.c = (e) => console.log(e);
 console.log(obj2);
 
 // 输出结果如下：
@@ -150,13 +151,13 @@ function deepClone(obj) {
     return Object.prototype.toString.call(value).slice(8, -1);
   }
   // 过滤基本数据类型和内置对象（Error、RegExp、Date 等）
-  if (getType(obj) !== 'Object' && getType(obj) !== 'Array') return obj;
+  if (getType(obj) !== "Object" && getType(obj) !== "Array") return obj;
 
   let _obj = Array.isArray(obj) ? [] : {};
   for (const key in obj) {
     // 原型链上的属性不拷贝
     if (!obj.hasOwnProperty(key)) return;
-    if (getType(obj) === 'Object' || getType(obj) === 'Array') {
+    if (getType(obj) === "Object" || getType(obj) === "Array") {
       // 如果属性值为数组或对象，则递归调用 deepClone 函数进行深拷贝处理
       _obj[key] = deepClone(obj[key]);
     } else {
@@ -173,8 +174,8 @@ function deepClone(obj) {
 ```js
 const obj = {
   a: new Date(),
-  b: { c: new Set([1]), d: new Map([['a', 1]]) },
-  e: { f: new Error('msg'), g: new RegExp('^obj$') },
+  b: { c: new Set([1]), d: new Map([["a", 1]]) },
+  e: { f: new Error("msg"), g: new RegExp("^obj$") },
   h: (e) => console.log(e),
 };
 
