@@ -151,7 +151,7 @@ header:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: https://www.multmax.top/images/2020/09/07/bgi.jpg
+    url: https://s2.loli.net/2022/03/06/8ROjMUBflb24XTp.png
   # Mask effect of the background image.
   mask:
     enable: true
@@ -177,7 +177,7 @@ body:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: https://www.multmax.top/images/2020/09/05/viki.png
+    url: https://s2.loli.net/2022/03/06/PDRlzmWsXi3ngdx.png
     # Whether to fixed the background image.
     fixed: true
     # Whether to repeat the image as much as possible to cover the entire area.
@@ -214,7 +214,7 @@ footer:
     # Start time. If not set, the current year will be used.
     since: 2019
     # End time. If not set, the current year will be used.
-    end: 2020
+    end: 2022
   # The icon between the copyright and the owner.
   icon:
     enable: true
@@ -295,7 +295,7 @@ author:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: http://q.qlogo.cn/headimg_dl?dst_uin=1141284758&spec=640&img_type=jpg
+    url: http://q.qlogo.cn/headimg_dl?dst_uin=1141284758&spec=640&img_type=png
     # If true, the avatar would be displayed in a circle.
     rounded: true
     # Opacity of avatar (value: 0 ~ 1)
@@ -320,8 +320,8 @@ social:
   # segmentfault: https://segmentfault.com/ || origin:sf
   # weibo: https://weibo.com/banxiaosong || fab fa-weibo
   # zhihu: https://www.zhihu.com/ || origin:知
-  # wechat: yournumber || fab fa-weixin
-  telegram: https://t.me/VikiQAQ || fab fa-telegram
+  wechat: VikiQAQ || fab fa-weixin
+  # telegram: https://t.me/VikiQAQ || fab fa-telegram
   qq: /about || fab fa-qq
   # 掘金: https://juejin.im/timeline || origin:掘
 
@@ -384,8 +384,8 @@ heading_line: true
 reward:
   enable: true
   # Your QR code for collecting money.
-  alipay: https://www.multmax.top/images/2020/09/02/alipay.jpg
-  wechat: https://www.multmax.top/images/2020/09/02/wechat.png
+  alipay: https://s2.loli.net/2022/03/06/3mh9642bkYxvuia.png
+  wechat: https://s2.loli.net/2022/03/06/iKHoCVqlv7wPTBA.png
 
 # ---------------------------------------------------------------
 # Post config
@@ -451,7 +451,7 @@ post_widget:
     # The text displayed before the share button.
     label: "分享至:"
     # Optional values: qzone | qq | weibo | wechat | douban | linkedin | facebook | twitter | google
-    target: qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google
+    target: qzone, qq, weibo, wechat
 
 # Stick post to the top
 # Dependency: https://github.com/netcan/hexo-generator-index-pin-top/
@@ -507,7 +507,7 @@ waline:
   # The number of comments per page.
   pageSize: 10
   # Optional values: en | zh-CN | zh-TW | jp
-  lang: zh-CN,zh-TW,en
+  lang: zh-CN, zh-TW, en
   # Article reading statistics.
   visitor: false
 
@@ -528,7 +528,7 @@ valine:
   # Gravatar style.
   avatar: mp
   # Custom comment header.
-  meta: nick,mail,link
+  meta: nick, mail, link
   # Pagination size.
   pageSize: 10
   # Article reading statistics.
