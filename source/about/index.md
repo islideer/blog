@@ -23,7 +23,3 @@ console.info(QQ, WX, Email);
 ```
 
 来交个朋友 ~
-
-Tip：不知道什么意思就按 `F12` 试试。
-
-![柯南](https://i.loli.net/2021/07/16/1GKqYVJcUIPaBTj.jpg)
