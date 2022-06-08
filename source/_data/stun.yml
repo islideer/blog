@@ -723,18 +723,18 @@ math:
   # Optional values: mathjax | katex
   engine: katex
   mathjax:
-    cdn: https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    cdn: //unpkg.com/mathjax@3.2.1/es5/node-main.js
     # See: https://mhchem.github.io/MathJax-mhchem/
     mhchem:
-      enable: false
-      mhchem_js: https://cdn.jsdelivr.net/npm/mathjax-mhchem@3.3.2/mhchem.min.js
+      enable: true
+      mhchem_js: //unpkg.com/mathjax-mhchem@3.3.2/mhchem.js
   katex:
-    cdn: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css
+    cdn: //unpkg.com/katex@0.10.2/dist/katex.min.css
     # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
     copy_tex:
       enable: true
-      copy_tex_js: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/copy-tex.min.js
-      copy_tex_css: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/copy-tex.css
+      copy_tex_js: //unpkg.com/katex@0.10.2/dist/contrib/copy-tex.min.js
+      copy_tex_css: //unpkg.com/katex@0.10.2/dist/contrib/copy-tex.css
 
 # ---------------------------------------------------------------
 # Other config
@@ -824,7 +824,7 @@ pjax:
 google_adsense:
   enable: true
   client: ca-pub-1861620172391138
-  js_src: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
+  js_src: //pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
 
 # The links with `target="_blank"` attribute.
 external_link:
@@ -864,7 +864,7 @@ kill_old_ie:
   # ! ----------------------------------------------------------------
   # ! Usually you don't need to set this option, just use the default.
   # ! ----------------------------------------------------------------
-  warning_url: https://support.dmeng.net/upgrade-your-browser.html
+  warning_url: //support.dmeng.net/upgrade-your-browser.html
 
 # Assets
 # In theme directory (source/css)
@@ -917,13 +917,13 @@ cdn:
   # fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css
-  fontawesome:
+  fontawesome: //unpkg.com/font-awesome@5.12.1/css/font-awesome.min.css
 
   # Using version: 3.4.1
   # Example:
   # jquery: //cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js
   # jquery: //cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js
-  jquery:
+  jquery: //unpkg.com/jquery@3.4.1/dist/jquery.min.js
 
   # Using version: 1.5.2
   # See: http://velocityjs.org/
@@ -932,8 +932,8 @@ cdn:
   # velocity: //cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.min.js
   # velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js
   # velocity_ui: //cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.ui.min.js
-  velocity:
-  velocity_ui:
+  velocity: //unpkg.com/velocity-animate@1.5.2/velocity.min.js
+  velocity_ui: //unpkg.com/velocity-animate@1.5.2/velocity.ui.min.js
 
   # gitalk & js-md5
   # Using version: latest & latest
@@ -942,9 +942,9 @@ cdn:
   # gitalk_js: //cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js
   # gitalk_css: //cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.css
   # md5: //cdn.jsdelivr.net/npm/js-md5@latest/src/md5.min.js
-  gitalk_js:
-  gitalk_css:
-  gitalk_md5:
+  gitalk_js: //unpkg.com/gitalk@latest/dist/gitalk.min.js
+  gitalk_css: //unpkg.com/gitalk@latest/dist/gitalk.css
+  gitalk_md5: //unpkg.com/js-md5@latest/src/md5.js
 
   # valine & leancloud-storage
   # Using version: latest & latest
@@ -952,92 +952,84 @@ cdn:
   # Example:
   # valine: //cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js
   # leancloud_storage: //cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js
-  valine:
-  leancloud_storage:
+  valine: //unpkg.com/js-md5@latest/src/md5.js
+  leancloud_storage: //unpkg.com/js-md5@latest/src/md5.js
 
   # Waline
   # See: https://github.com/lizheming/waline
   # Example:
   # waline: //unpkg.com/@waline/client@0.8.5/dist/Waline.min.js
-  waline:
+  waline: //unpkg.com/@waline/client@latest/dist/Waline.min.js
 
   # minivaline
   # See: https://github.com/MiniValine/MiniValine
   # Example:
   # minivaline: //cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js
-  minivaline:
+  minivaline: //unpkg.com/minivaline@latest/dist/MiniValine.min.js
 
   # busuanzi
   # Using version: latest
   # See: https://busuanzi.ibruce.info/
   # Example:
   # busuanzi: //cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js
-  busuanzi:
+  busuanzi: //unpkg.com/busuanzi@latest/bsz.pure.mini.js
 
   # Using version: 2.1.1
   # See: https://busuanzi.ibruce.info/
   # Example:
   # instantsearch_js: //cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js
   # instantsearch_css: //cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css
-  instantsearch_js:
-  instantsearch_css:
+  instantsearch_js: //unpkg.com/instantsearch.js@2.1.1/dist/instantsearch.min.js
+  instantsearch_css: //unpkg.com/instantsearch.js@2.1.1/dist/instantsearch.min.css
 
   # Using version: latest
   # See: https://github.com/hustcc/ribbon.js
   # Example:
   # canvas_ribbon: //cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js
-  canvas_ribbon:
-    # 是否启用
-    enable: true
-    # ribbon 的宽度
-    size: 300
-    # ribbon 的透明度
-    alpha: 0.6
-    # ribbon 的层级
-    zIndex: -1
+  canvas_ribbon: //unpkg.com/ribbon.js@latest/dist/ribbon.min.js
 
   # Using version: latest
   # See: https://github.com/hustcc/canvas-nest.js
   # Example:
   # canvas_nest: //cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js
-  canvas_nest:
+  canvas_nest: //unpkg.com/canvas-nest.js@1.0.1/dist/canvas-nest.min.js
 
   # Using version: 3.5.7
   # See: https://www.fancyapps.com/fancybox/3/
   # Example:
   # fancybox_js: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
   # fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
-  fancybox_js:
-  fancybox_css:
+  fancybox_js: //unpkg.com/fancybox@3.5.7/dist/jquery.fancybox.min.js
+  fancybox_css: //unpkg.com/fancybox@3.5.7/dist/jquery.fancybox.min.css
 
   # Using version: 4.2.2
   # See: https://masonry.desandro.com/
   # Example:
   # masonry: //cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js
-  masonry:
+  masonry: //unpkg.com/masonry-layout@4.2.2/dist/masonry.pkgd.min.js
 
   # Using version: 2.0.0-rc.2
   # See: https://github.com/tuupola/lazyload/
   # Example:
   # lazyload: //cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js
-  lazyload:
+  lazyload: //unpkg.com/lazyload@2.0.0-rc.2/lazyload.min.js
 
   # Using version: latest
   # See: https://github.com/GoogleChromeLabs/quicklink/
   # Example:
   # quicklink: //cdn.jsdelivr.net/npm/quicklink@latest/dist/quicklink.umd.js
-  quicklink:
+  quicklink: //unpkg.com/quicklink@latest/dist/quicklink.umd.js
 
   # Using version: latest
   # See: https://github.com/MoOx/pjax/
   # Example:
   # pjax: //cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js
-  pjax:
+  pjax: //unpkg.com/pjax@latest/pjax.min.js
 
   # Using version: 1.0.16
   # See: https://github.com/overtrue/share.js
   # Example:
   # share_js: //cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js
   # share_css: //cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css
-  share_js:
-  share_css:
+  share_js: //unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js
+  share_css: //unpkg.com/social-share.js@1.0.16/dist/css/share.min.css
