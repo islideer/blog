@@ -917,7 +917,7 @@ cdn:
   # fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css
-  fontawesome: //unpkg.com/font-awesome@5.12.1/css/font-awesome.min.css
+  fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css
 
   # Using version: 3.4.1
   # Example:
@@ -999,8 +999,8 @@ cdn:
   # Example:
   # fancybox_js: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
   # fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
-  fancybox_js: //unpkg.com/fancybox@3.5.7/dist/jquery.fancybox.min.js
-  fancybox_css: //unpkg.com/fancybox@3.5.7/dist/jquery.fancybox.min.css
+  fancybox_js: //cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+  fancybox_css: //cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css
 
   # Using version: 4.2.2
   # See: https://masonry.desandro.com/
