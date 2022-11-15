@@ -4,10 +4,21 @@ import { BackTo } from '../../components/BackTo'
 export default async function PostPage({ params: { slug } }: { params: { slug: string } }) {
   const post = await fetchPostDetail(slug)
 
+  if (!post) {
+    return (
+      <div className='flex flex-col justify-center items-center'>
+        <div className='text-xl font-bold justify-self-start'>404 Not Found</div>
+        <BackTo path='/posts' name='Posts List' />
+      </div>
+    )
+  }
+
   if (typeof post === 'string') {
     return (
-      <div>
-        {slug} 404 Not Found {post}
+      <div className='flex flex-col justify-center'>
+        <div className='text-xl font-bold'>Error: </div>
+        <span className='text-xl'>{post}</span>
+        <BackTo path='/posts' name='Posts List' />
       </div>
     )
   }

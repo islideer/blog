@@ -1,4 +1,5 @@
 import MarkdownIt from 'markdown-it'
+import fg from 'fast-glob'
 import gm from 'gray-matter'
 import { promises as fs } from 'fs-extra'
 import { cache } from 'react'
@@ -13,7 +14,13 @@ const md = MarkdownIt({
 
 export const fetchPostDetail = cache(async (slug: string) => {
   try {
-    const markdown = await fs.readFile(`posts/${slug}.md`, { encoding: 'utf-8' })
+    const targetFile = await fg(`posts/${slug.toLowerCase()}.md`)
+
+    if (targetFile.length !== 1) {
+      return null
+    }
+
+    const markdown = await fs.readFile(targetFile[0], { encoding: 'utf-8' })
     const { data, content } = gm(markdown)
 
     const html = md.render(content)
