@@ -4,8 +4,6 @@ import { BackTo } from '../components/BackTo'
 
 export const revalidate = 300
 
-export const dynamic = 'error'
-
 export default async function PostPage() {
   const posts = await fetchPosts()
 
