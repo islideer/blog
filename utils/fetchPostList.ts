@@ -5,7 +5,7 @@ import gm from 'gray-matter'
 import dayjs from 'dayjs'
 
 export const fetchPosts = cache(async () => {
-  const postFilenames = await fg('./posts/*.md')
+  const postFilenames = await fg('posts/*.md')
 
   const fileContents = postFilenames.map(e => ({
     slug: e.slice(0, -3),

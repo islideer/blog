@@ -6,7 +6,7 @@ export default async function PostPage({ params: { slug } }: { params: { slug: s
   return (
     <div className='py-12'>
       <h1 className='text-4xl font-bold mb-6'>{post.title}</h1>
-      <div className='mb-2 w-auto text-right text-zinc-700'>{post.date}</div>
+      <div className='mb-2 w-auto text-right text-zinc-700 dark:text-zinc-400'>{post.date}</div>
       <article
         className='prose prose-zinc dark:prose-invert'
         dangerouslySetInnerHTML={{ __html: post.content }}

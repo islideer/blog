@@ -12,7 +12,7 @@ const md = MarkdownIt({
 })
 
 export const fetchPostDetail = cache(async (slug: string) => {
-  const markdown = await fs.readFile(`./posts/${slug}.md`, { encoding: 'utf-8' })
+  const markdown = await fs.readFile(`posts/${slug}.md`, { encoding: 'utf-8' })
   const { data, content } = gm(markdown)
 
   const html = md.render(content)
