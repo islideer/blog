@@ -12,16 +12,21 @@ const md = MarkdownIt({
 })
 
 export const fetchPostDetail = cache(async (slug: string) => {
-  const markdown = await fs.readFile(`posts/${slug}.md`, { encoding: 'utf-8' })
-  const { data, content } = gm(markdown)
+  try {
+    const markdown = await fs.readFile(`posts/${slug}.md`, { encoding: 'utf-8' })
+    const { data, content } = gm(markdown)
 
-  const html = md.render(content)
+    const html = md.render(content)
 
-  return {
-    slug,
-    title: data.title,
-    timestams: data.date,
-    date: dayjs(data.date).format('YYYY/MM/DD'),
-    content: html
+    return {
+      slug,
+      title: data.title,
+      timestams: data.date,
+      date: dayjs(data.date).format('YYYY/MM/DD'),
+      content: html
+    }
+  } catch (e) {
+    console.log(e)
+    return null
   }
 })

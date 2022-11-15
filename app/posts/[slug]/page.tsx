@@ -3,6 +3,11 @@ import { BackTo } from '../../components/BackTo'
 
 export default async function PostPage({ params: { slug } }: { params: { slug: string } }) {
   const post = await fetchPostDetail(slug)
+
+  if (!post) {
+    return <div>{slug} 404 Not Found</div>
+  }
+
   return (
     <div className='py-12'>
       <h1 className='text-4xl font-bold mb-6'>{post.title}</h1>
