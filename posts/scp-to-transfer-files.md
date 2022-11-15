@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 利用scp命令跨linux服务器传输文件
-date: 2020-2-14
+date: 2020-02-14
 top_image: https://i.loli.net/2020/11/21/wYd3n5xtlVofF7E.jpg
 excerpt: 通过scp命令能够高效率的向服务器传输文件以及文件夹
 ---

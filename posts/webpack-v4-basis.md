@@ -1,7 +1,7 @@
 ---
 layout: post
 title: webpack4.x 基础
-date: 2020-8-20
+date: 2020-08-20
 top_image: https://i.loli.net/2020/11/21/ePLUKyEQr2NDxko.jpg
 excerpt: 本文简要地讲解了 webpack4.x 的入门知识，适合想了解、学习 webpack 的小白
 ---

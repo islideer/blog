@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cannot find module 'fs/promises'
-date: 2022-2-15
+date: 2022-02-15
 top_image: https://s2.loli.net/2022/02/16/pmb43yIuZ5PETxU.png
 excerpt: 运行 node 项目时出现 Cannot find module 'fs/promises' 报错
 ---

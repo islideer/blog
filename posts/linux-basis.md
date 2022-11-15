@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linux基础
-date: 2020-1-12
+date: 2020-01-12
 top_image: https://i.loli.net/2020/11/21/NmiL9asOpcqPeCU.jpg
 excerpt: 寒假学习之Linux基础
 ---

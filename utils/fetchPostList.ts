@@ -16,8 +16,11 @@ export const fetchPosts = cache(async () => {
     return {
       slug: e.slug,
       title: data.title,
-      date: data.dat
+      date: data.date
     }
   })
+
+  posts.sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+
   return posts
 })

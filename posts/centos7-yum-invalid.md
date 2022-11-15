@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 关于CentOS7中yum失效问题的解决方案
-date: 2020-1-12
+date: 2020-01-12
 top_image: https://i.loli.net/2020/11/21/o7sYJZVIuqMRpT3.jpg
 excerpt: 列出了CentOS7中yum失效问题的可能原因，给出了对应的解决方案
 ---

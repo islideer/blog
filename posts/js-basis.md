@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JavaScript基础篇（1）
-date: 2020-1-11
+date: 2020-01-11
 top_image: https://i.loli.net/2020/11/21/2dmkoTYZnhjauOG.jpg
 excerpt: 寒假学习之JavaScript基础篇（1）
 ---

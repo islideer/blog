@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 了解SVG格式
-date: 2020-2-16
+date: 2020-02-16
 top_image: https://i.loli.net/2020/11/21/8SGjpezdYDC4PE1.gif
 excerpt: 寒假学习之SVG介绍
 ---

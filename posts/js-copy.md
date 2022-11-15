@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JavaScript 中的深拷贝与浅拷贝
-date: 2022-3-6
+date: 2022-03-06
 top_image: https://s2.loli.net/2022/03/06/ed7FfCKA1ipN24r.png
 excerpt: 分析深拷贝与浅拷贝的异同，并使用 JavaScript 进行代码实现。
 ---

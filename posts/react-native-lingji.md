@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 2020-Hackthon总结(RN项目)
-date: 2020-4-21
+date: 2020-04-21
 top_image: https://i.loli.net/2020/11/21/3XTAsgFaRyBLvOz.png
 excerpt: 2020年家园工作室Hackthon大赛ReactNative项目总结
 ---

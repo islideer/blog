@@ -10,7 +10,7 @@ export default async function PostPage() {
   const posts = await fetchPosts()
 
   return (
-    <div className='h-screen w-screen flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center py-12'>
       <div className='flex flex-col justify-center items-start'>
         <h1 className='text-4xl font-bold mb-2'>Posts</h1>
         {posts.map(e => (
