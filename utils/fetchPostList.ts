@@ -2,6 +2,7 @@ import { cache } from 'react'
 import fg from 'fast-glob'
 import fs from 'fs-extra'
 import gm from 'gray-matter'
+import dayjs from 'dayjs'
 
 export const fetchPosts = cache(async () => {
   const postFilenames = await fg('posts/*.md')
@@ -16,11 +17,12 @@ export const fetchPosts = cache(async () => {
     return {
       slug: e.slug,
       title: data.title,
-      date: data.date
+      timestams: data.date,
+      date: dayjs(data.date).format('YYYY/MM/DD')
     }
   })
 
-  posts.sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+  posts.sort((a, b) => b.timestams - a.timestams)
 
   return posts
 })

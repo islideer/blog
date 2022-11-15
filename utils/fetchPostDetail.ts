@@ -2,6 +2,7 @@ import MarkdownIt from 'markdown-it'
 import gm from 'gray-matter'
 import { promises as fs } from 'fs-extra'
 import { cache } from 'react'
+import dayjs from 'dayjs'
 
 const md = MarkdownIt({
   linkify: true,
@@ -16,12 +17,11 @@ export const fetchPostDetail = cache(async (slug: string) => {
 
   const html = md.render(content)
 
-  console.log(html)
-
   return {
     slug,
     title: data.title,
-    date: data.dat,
+    timestams: data.date,
+    date: dayjs(data.date).format('YYYY/MM/DD'),
     content: html
   }
 })

@@ -16,7 +16,7 @@ export default async function PostPage() {
         {posts.map(e => (
           <li key={e.slug} className='w-auto flex'>
             <Link href={`/${e.slug}`} className='flex flex-col'>
-              <h2 className='inline text-xl'>{e.title}</h2>
+              <h2 className='inline text-lg'>{e.title}</h2>
               <div className='flex space-x-2 text-base text-zinc-500 dark:text-zinc-400'>
                 <span>{e.date}</span>
               </div>
