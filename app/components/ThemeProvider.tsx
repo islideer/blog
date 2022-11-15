@@ -12,7 +12,7 @@ export default function ThemeProvider() {
     } else {
       document.documentElement.classList.remove('dark')
     }
-  })
+  }, [])
 
   return <></>
 }

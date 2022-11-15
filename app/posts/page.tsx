@@ -1,31 +1,14 @@
 import Link from 'next/link'
-import fg from 'fast-glob'
-import fs from 'fs-extra'
-import gm from 'gray-matter'
+import { fetchPosts } from '../../utils/fetchPostList'
 import { BackTo } from '../components/BackTo'
 
-const fetchPosts = async () => {
-  const postFilenames = await fg('posts/*.md')
+export const revalidate = 300
 
-  const fileContents = postFilenames.map(e => ({
-    slug: e.slice(0, -3),
-    text: fs.readFileSync(e, { encoding: 'utf-8' })
-  }))
-
-  const posts = fileContents.map(e => {
-    const { data, content } = gm(e.text)
-    return {
-      slug: e.slug,
-      title: data.title,
-      date: data.date,
-      content
-    }
-  })
-  return posts
-}
+export const dynamic = 'error'
 
 export default async function PostPage() {
   const posts = await fetchPosts()
+
   return (
     <div className='h-screen w-screen flex flex-col justify-center items-center'>
       <div className='flex flex-col justify-center items-start'>

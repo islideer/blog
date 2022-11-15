@@ -17,8 +17,3 @@ body {
 * {
   box-sizing: border-box;
 }
-
-*::selection {
-  color: #333;
-  background-color: #fefefe;
-}

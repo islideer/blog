@@ -35,7 +35,7 @@ export default function Homepage() {
                 { name: 'About', path: '/about' }
               ].map(e => (
                 <Link
-                  className='font-bold text-zinc-800 dark:text-zinc-500 dark:hover:text-zinc-400'
+                  className='text-zinc-500 hover:text-zinc-800 dark:text-zinc-500 dark:hover:text-zinc-400'
                   href={e.path}
                   key={e.name}
                 >
