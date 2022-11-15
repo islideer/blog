@@ -4,8 +4,12 @@ import { BackTo } from '../../components/BackTo'
 export default async function PostPage({ params: { slug } }: { params: { slug: string } }) {
   const post = await fetchPostDetail(slug)
 
-  if (!post) {
-    return <div>{slug} 404 Not Found</div>
+  if (typeof post === 'string') {
+    return (
+      <div>
+        {slug} 404 Not Found {post}
+      </div>
+    )
   }
 
   return (

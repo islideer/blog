@@ -26,7 +26,6 @@ export const fetchPostDetail = cache(async (slug: string) => {
       content: html
     }
   } catch (e) {
-    console.log(e)
-    return null
+    return String(e)
   }
 })
