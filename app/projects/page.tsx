@@ -1,12 +1,10 @@
-import Link from 'next/link'
+import { BackTo } from '../components/BackTo'
 
 export default function ProjectPage() {
   return (
-    <>
+    <div className='flex flex-col'>
       <h1 className='text-2xl font-bold mb-2'>Projects</h1>
-      <Link href='/' className='text-slate-800 dark:text-slate-500 dark:hover:text-slate-400'>
-        ← back to home
-      </Link>
-    </>
+      <BackTo />
+    </div>
   )
 }
