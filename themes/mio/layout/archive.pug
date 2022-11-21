@@ -1,0 +1,16 @@
+extends base/layout
+
+block site_title
+  !=  __('archives') + " - " + config.title
+
+block description
+  - var desc = __('archives') + ' - ' + config.title;
+  meta(name="description", content=desc)
+
+block content
+  .autopagerize_page_element: .content
+    .archive.animated.fadeInDown
+      ul.list-with-title
+        include mixins
+        +postList()
+        +make_pager(__('prev'), __('next'))
