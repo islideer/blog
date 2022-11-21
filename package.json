@@ -1,7 +1,24 @@
 {
-  "name": "blog",
+  "name": "viki-blog",
   "version": "0.1.0",
   "private": true,
-  "scripts": {},
-  "dependencies": {}
+  "scripts": {
+    "build": "hexo clean && hexo g",
+    "clean": "hexo clean",
+    "deploy": "hexo clean && hexo g && hexo d",
+    "dev": "hexo clean && concurrently \"hexo g -w\" \"hexo s\""
+  },
+  "hexo": {
+    "version": "6.3.0"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "hexo": "^6.3.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-feed": "^3.0.0",
+    "hexo-generator-index": "^3.0.0",
+    "hexo-renderer-marked": "^6.0.0",
+    "hexo-renderer-pug": "^3.0.0",
+    "hexo-server": "^3.0.0"
+  }
 }
