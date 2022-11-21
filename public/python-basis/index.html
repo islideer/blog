@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="zh-CN"><head><title>Python3 小白快速入门 · Viki 写东西的地方</title><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="author" content="Viki"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"><meta name="description" content="Python 中的数据类型Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。
+Python 是弱类型语言，变量的类型是不确定的。
+Python 有六种标准数据类型
+不可变数据
+Number 数字
+
+int 整数 如：1，2，0，-43 （Python3 中的"><meta name="keywords" content="Viki,Vikiboss,博客,Viki博客,个人主页,Viki个人主页"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/feed.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="https://qqa.deno.dev/1141284758"><h3>Viki 写东西的地方</h3><div class="description"><p>生活需要记录.</p></div></div></div><ul class="social-links"><li><a href="https://github.com/vikiboss"><i class="fa fa-github"></i></a></li><li><a href="mailto:hi@viki.moe"><i class="fa fa-envelope"></i></a></li></ul><div class="footer"><div class="p"> <span id="copyright">© 2019-[year] </span><span>Viki</span></div><div class="by_farbox"><span>Powered By </span><a href="https://hexo.io" target="_blank">Hexo </a><span>&amp; </span><a href="https://github.com/vikiboss/hexo-theme-mio" target="_blank">mio</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">文章</a></li><li><a href="/archives">归档</a></li><li><a href="/about">关于</a></li></div><div class="nav" style="float:right" onclick="window.history.back();"><li style="float: right"><a href="#">返回</a></li></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Python3 小白快速入门</a></h3></div><div class="post-content"><h2 id="Python-中的数据类型"><a href="#Python-中的数据类型" class="headerlink" title="Python 中的数据类型"></a>Python 中的数据类型</h2><p>Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。</p>
+<p>Python 是<strong>弱类型</strong>语言，变量的类型是不确定的。</p>
+<p>Python 有<strong>六种</strong>标准数据类型</p>
+<h3 id="不可变数据"><a href="#不可变数据" class="headerlink" title="不可变数据"></a>不可变数据</h3><ol>
+<li><p><code>Number</code> 数字</p>
+<ul>
+<li><code>int</code> 整数 如：1，2，0，-43 （Python3 中的整数大小无限制）</li>
+<li><code>float</code> 小数 如：0.2，-54.0，15.9</li>
+<li><code>bool</code> 布尔数（1 代表 true，2 代表 false）如：false 或 true 之一<blockquote>
+<p>在 Python2 中是没有布尔型的，它用数字 0 表示 False，用 1 表示 True。到 Python3 中，把 True 和 False 定义成关键字了，但它们的值还是 1 和 0，它们可以和数字相加。</p>
+</blockquote>
+</li>
+<li><code>complex</code> 复数 如 1+4j，7j，3</li>
+</ul>
+</li>
+<li><p><code>String</code> 字符串</p>
+<p>Python 中的字符串用单引号 <code>&#39;</code> 或双引号 <code>&quot;</code> 括起来，同时使用反斜杠 <code>\</code> 转义特殊字符。和其他语言类似，从 0 开始索引，-1 代表最后一个字符。同时还可以用 <code>:</code> 截取片段，左闭右开取值。</p>
+<p>示例如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">str</span> = <span class="string">&#x27;VikiVikiViki&#x27;</span></span><br><span class="line"><span class="built_in">str</span>[<span class="number">0</span>] <span class="comment"># V</span></span><br><span class="line"><span class="built_in">str</span>[-<span class="number">2</span>] <span class="comment"># k</span></span><br><span class="line"><span class="built_in">str</span>[<span class="number">1</span>:<span class="number">3</span>] <span class="comment">#ik</span></span><br><span class="line"><span class="built_in">str</span>[<span class="number">4</span>:-<span class="number">2</span>] <span class="comment"># VikiVi</span></span><br><span class="line">str2 = <span class="string">&#x27;Viki\nHello!&#x27;</span> <span class="comment"># 字符串被转义\n为换行</span></span><br><span class="line">str3 = <span class="string">r&#x27;Viki\nHello!&#x27;</span> <span class="comment"># 防止字符串内容被转义</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Tuple</code> 元组</p>
+</li>
+</ol>
+<h3 id="可变数据"><a href="#可变数据" class="headerlink" title="可变数据"></a>可变数据</h3><ol start="4">
+<li><code>List</code> 列表</li>
+<li><code>Set</code> 集合</li>
+<li><code>Dictionary</code> 字典</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">list</span> = [<span class="number">1</span>， <span class="number">2</span>， <span class="number">3</span>] <span class="comment"># list是数组 使用方括号</span></span><br><span class="line"><span class="built_in">list</span>[<span class="number">0</span>] <span class="comment"># 1 从0开始 通过索引获取每一项</span></span><br><span class="line"><span class="built_in">list</span>[<span class="number">1</span>] = <span class="string">&#x27;2&#x27;</span> <span class="comment"># list的每一项可以修改 且数据类型可不同</span></span><br><span class="line"><span class="built_in">list</span>[-<span class="number">1</span>] <span class="comment"># 3 负数代表从后开始索引 -1为最后一项的索引</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">tuple</span> = (<span class="number">1</span>， <span class="number">2</span>， <span class="number">3</span>) <span class="comment"># tuple是元组 使用圆括号</span></span><br><span class="line"><span class="built_in">tuple</span>[<span class="number">0</span>] <span class="comment"># 结果为1 从0开始 通过索引获取每一项</span></span><br><span class="line"><span class="built_in">tuple</span>[<span class="number">1</span>] = <span class="number">3</span> <span class="comment"># 运行报错 元组不支持赋值 其内的元素不允许修改</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Python-中的注释"><a href="#Python-中的注释" class="headerlink" title="Python 中的注释"></a>Python 中的注释</h2><p>注释可以帮助其他人阅读程序，通常用于概括算法、确认变量的用途或者阐明难以理解的代码段。</p>
+<p>在 Python 中，单行注释使用 <code>#</code></p>
+<p>多行注释在需要注释的首尾使用三个单引号<code>&#39;&#39;&#39;</code>或双引号<code>&quot;&quot;&quot;</code></p>
+<p>实例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这是一个单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">这是一个多行注释</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">这也是一个多行注释</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><p>除了常见的<code>+</code> <code>-</code> <code>*</code> <code>/</code> Python3 还内置:</p>
+<ul>
+<li><code>%</code> 求模运算</li>
+<li><code>**</code> 幂运算</li>
+<li><code>//</code> 整除(返回商的整数部分)</li>
+</ul>
+<p>运算实例如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">13</span></span><br><span class="line">y = <span class="number">5</span></span><br><span class="line">x + y <span class="comment"># 18</span></span><br><span class="line">x - y <span class="comment"># 8</span></span><br><span class="line">x * y <span class="comment"># 65</span></span><br><span class="line">x / y <span class="comment"># 2.6 (在Python2中是2)</span></span><br><span class="line">x % y <span class="comment"># 3</span></span><br><span class="line">x ** y <span class="comment"># 371293(13的五次方)</span></span><br><span class="line">x // y <span class="comment"># 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p>Python3 中的比较运算符有:</p>
+<ul>
+<li><code>==</code> 比较对象是否相等</li>
+<li><code>!=</code> 比较两个对象是否不相等</li>
+<li><code>&gt;</code> 、<code>&gt;=</code> 判断是否大于、大于等于</li>
+<li><code>&lt;</code> 、<code>&lt;=</code> 判断是否小于、小于等于</li>
+</ul>
+<p>实例如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">a == b <span class="comment"># false</span></span><br><span class="line">a != b <span class="comment"># true</span></span><br><span class="line">a &gt; b <span class="comment"># flase</span></span><br><span class="line">a &gt;= b <span class="comment"># false</span></span><br><span class="line">a &lt; b <span class="comment"># true</span></span><br><span class="line">a &lt;= b <span class="comment"># true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><ul>
+<li><code>=</code> 简单的赋值运算符</li>
+<li><code>+=</code> 加法赋值运算符</li>
+<li><code>-=</code> 减法赋值运算符</li>
+<li><code>*=</code> 乘法赋值运算符</li>
+<li><code>/=</code> 除法赋值运算符</li>
+<li><code>%=</code> 取模赋值运算符</li>
+<li><code>**=</code> 幂赋值运算符</li>
+<li><code>//=</code> 取整除赋值运算符</li>
+<li><strong><code>:=</code> 赋值表达式运算符（也叫海象运算符）（Python3.8 新增）</strong></li>
+</ul>
+<p>实例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span> <span class="comment"># 将1赋值给a</span></span><br><span class="line">b = <span class="number">2</span> <span class="comment"># 将2赋值给b</span></span><br><span class="line">b += a <span class="comment"># 等价于 b = b + a</span></span><br><span class="line">b -= a <span class="comment"># 等价于 b = b - a</span></span><br><span class="line">b *= a <span class="comment"># 等价于 b = b * a</span></span><br><span class="line">b /= a <span class="comment"># 等价于 b = b / a</span></span><br><span class="line">b %= a <span class="comment"># 等价于 b = b % a</span></span><br><span class="line">b **= a <span class="comment"># 等价于 b = b ** a</span></span><br><span class="line">b //= a <span class="comment"># 等价于 b = b // a</span></span><br><span class="line"><span class="comment"># 原代码（需单独赋值）</span></span><br><span class="line">length = <span class="built_in">len</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="keyword">if</span> length &gt; <span class="number">0</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;the length of the array is&#x27;</span>, length)</span><br><span class="line"><span class="comment"># 使用海象运算符后可在表达式内部为变量赋值</span></span><br><span class="line"><span class="keyword">if</span> length := <span class="built_in">len</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;the length of the array is&#x27;</span>, length)</span><br></pre></td></tr></table></figure>
+
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul>
+<li><code>and</code> 逻辑与运算</li>
+<li><code>or</code> 逻辑或运算</li>
+<li><code>not</code> 逻辑非运算</li>
+</ul>
+<p>实例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = true</span><br><span class="line">y = false</span><br><span class="line">x <span class="keyword">and</span> y <span class="comment"># false</span></span><br><span class="line">x <span class="keyword">or</span> y <span class="comment"># true</span></span><br><span class="line"><span class="keyword">not</span>(a <span class="keyword">and</span> b) <span class="comment"># true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="成员运算符"><a href="#成员运算符" class="headerlink" title="成员运算符"></a>成员运算符</h3><ul>
+<li><code>in</code> 在指定的序列中找到值返回 True，否则返回 False</li>
+<li><code>not in</code> 在指定的序列中没有找到值返回 True，否则返回 False</li>
+</ul>
+<p>实例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">list</span> = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">x = <span class="number">2</span></span><br><span class="line">x <span class="keyword">in</span> <span class="built_in">list</span> <span class="comment"># true</span></span><br><span class="line">x <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">list</span> <span class="comment"># false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="身份运算符"><a href="#身份运算符" class="headerlink" title="身份运算符"></a>身份运算符</h3><ul>
+<li><code>is</code> 判断是否引用自一个对象</li>
+<li><code>is not</code> 判断是否引用自不同对象</li>
+</ul>
+<p>实例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = a</span><br><span class="line">b <span class="keyword">is</span> a <span class="comment"># True</span></span><br><span class="line">b == a <span class="comment"># True</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b <span class="keyword">is</span> a <span class="comment"># False</span></span><br><span class="line">b == a <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><p>位运算就是直接对整数的二进制位进行操作</p>
+<ul>
+<li><code>&amp;</code> 按位与运算符 用法 <code>a &amp; b</code></li>
+<li><code>|</code> 按位或运算符 用法 <code>a | b</code></li>
+<li><code>^</code> 按位异或运算符 用法 <code>a ^ b</code></li>
+<li><code>~</code> 按位取反运算符 用法 <code>~a</code></li>
+<li><code>&lt;&lt;</code> 左移运算符 用法：<code>a &lt;&lt; 2</code></li>
+<li><code>&gt;&gt;</code> 右移运算符 用法：<code>a &lt;&lt; 2</code></li>
+</ul>
+<p>这一部分运算符用的相对较少，不做过多补充</p>
+<h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><p>所谓优先级，类似于数学里的加减乘除的运算顺序，各运算符优先级如下</p>
+<p>算数运算符&gt;位运算符&gt;比较运算符&gt;赋值运算符&gt;身份运算符&gt;成员运算符&gt;逻辑运算符</p>
+<p>常见运算符的顺序都比较简单,不过多说明</p>
+<blockquote>
+<p>&#x2F;&#x2F; 2020&#x2F;9&#x2F;6 待续</p>
+</blockquote>
+</div><p style="color: #bbb; margin:20px 0px 8px 0px;">The End.</p><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-calendar-o"></i><span class="date">2020-09-06</span><span class="leancloud_visitors"></span></div></div></div></div></div></div></div></div><script src="/js/init.js"></script></body></html>

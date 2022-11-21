@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="zh-CN"><head><title>Linux基础 · Viki 写东西的地方</title><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="author" content="Viki"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"><meta name="description" content="前言因为家园的 todolist 作业涉及到要自己部署，所以要学会适用于服务端的 Linux 发行版 CentOS 的基本操作，并完成部署作业
+我下载了官网的 CentOS7 版本的镜像, 并安装在 VM 虚拟机中进行学习
+
+安装教程参考了：VM 安装 Centos7-菜鸟教程
+
+基本操作基本命令
+"><meta name="keywords" content="Viki,Vikiboss,博客,Viki博客,个人主页,Viki个人主页"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/feed.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="https://qqa.deno.dev/1141284758"><h3>Viki 写东西的地方</h3><div class="description"><p>生活需要记录.</p></div></div></div><ul class="social-links"><li><a href="https://github.com/vikiboss"><i class="fa fa-github"></i></a></li><li><a href="mailto:hi@viki.moe"><i class="fa fa-envelope"></i></a></li></ul><div class="footer"><div class="p"> <span id="copyright">© 2019-[year] </span><span>Viki</span></div><div class="by_farbox"><span>Powered By </span><a href="https://hexo.io" target="_blank">Hexo </a><span>&amp; </span><a href="https://github.com/vikiboss/hexo-theme-mio" target="_blank">mio</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">文章</a></li><li><a href="/archives">归档</a></li><li><a href="/about">关于</a></li></div><div class="nav" style="float:right" onclick="window.history.back();"><li style="float: right"><a href="#">返回</a></li></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Linux基础</a></h3></div><div class="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为家园的 todolist 作业涉及到要自己部署，所以要学会适用于服务端的 <code>Linux</code> 发行版 <code>CentOS</code> 的基本操作，并完成部署作业</p>
+<p>我下载了官网的 CentOS7 版本的镜像, 并安装在 VM 虚拟机中进行学习</p>
+<blockquote>
+<p>安装教程参考了：<a href="https:#www.runoob.com/w3cnote/vmware-install-centos7.html">VM 安装 Centos7-菜鸟教程</a></p>
+</blockquote>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><ol>
+<li><code>man</code> 命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man <span class="built_in">cp</span> <span class="comment">#查看cp命令的使用文档</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>ls</code> 命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> <span class="comment">#列出目录列表</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span> - a <span class="comment">#列出全部（包括隐藏的）文件及目录</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><code>cd</code> 命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> / demo / demo <span class="comment">#切换到根目录下的demo下的demo目录</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> demo <span class="comment">#切换到当前目录下的demo下的demo目录</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span>~ <span class="comment">#回到到root(~)目录下</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span>.. <span class="comment">#回退到上一目录</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><code>pwd</code> 、 <code>mkdir</code> 与 <code>rmdir</code> 命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span> <span class="comment">#显示目前的目录</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> demo <span class="comment">#在当前路径下新建名为demo的文件夹</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">rmdir</span> demo <span class="comment">#删除名为demo的空目录</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><code>cp</code> 命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> demo demo1 - f - r <span class="comment">#强制复制demo文件或文件夹及其子文件并改名为demo1</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><code>rm</code> 和 <code>mv</code> 命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> demo - f - r <span class="comment">#强制删除当前目录下的demo文件夹及其子文件夹和文件</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> demo demo1 <span class="comment">#重命名当前目录的demo文件夹或文件为demo1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> demo demo1 - f <span class="comment">#若目标文件存在则强制覆盖</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> demo demo1 - i <span class="comment">#若目标文件存在，询问是否覆盖</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="关于文本文件操作"><a href="#关于文本文件操作" class="headerlink" title="关于文本文件操作"></a>关于文本文件操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> test1 <span class="comment"># 创建 test1 文件</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">nl</span> demo.txt - n <span class="built_in">ln</span> <span class="comment">#查看demo.txt文件内容并在行首显示行号</span></span><br><span class="line"></span><br><span class="line">vi demo.txt <span class="comment">#创建demo.txt文件并进行编辑</span></span><br><span class="line"></span><br><span class="line">vim demo.txt <span class="comment">#编辑demo.txt文件</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>具体详细权限说明参考：<a href="https:#www.runoob.com/linux/linux-file-attr-permission.html">菜鸟教程</a></p>
+</blockquote>
+<blockquote>
+<p>Linux 内置了 Vim 编辑器，详细用法参考： <a href="https:#www.runoob.com/linux/linux-vim.html">Vi&#x2F;Vim 操作-菜鸟教程</a></p>
+</blockquote>
+<h3 id="终端利用-ssh-登录远程服务器"><a href="#终端利用-ssh-登录远程服务器" class="headerlink" title="终端利用 ssh 登录远程服务器"></a>终端利用 ssh 登录远程服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装ssh:</span></span><br><span class="line">yum install ssh</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动ssh:</span></span><br><span class="line">service sshd start</span><br><span class="line"></span><br><span class="line"><span class="comment">#登录远程服务器:</span></span><br><span class="line">ssh - p 8080 name @127 .0 .0 .1</span><br><span class="line">输入口令：</span><br><span class="line">name @127 .0 .0 .1:</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">-p 后面是端口</span><br><span class="line">name 是服务器用户名</span><br><span class="line">127.0.0.1 是服务器 ip</span><br><span class="line">回车输入口令即可登录</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<h3 id="Linux-用户管理"><a href="#Linux-用户管理" class="headerlink" title="Linux 用户管理"></a>Linux 用户管理</h3><ol>
+<li>添加用户</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd– d / home / sam - m sam</span><br></pre></td></tr></table></figure>
+
+<p>此命令创建了一个用户 sam，其中 <code>-d</code> 和 <code>-m</code> 选项用来为登录名 sam 产生一个主目录<code>/home/sam</code> （ <code>/home</code> 为默认的用户主目录所在的父目录，所有用户的目录都应该在此目录下）。<code>-m</code> 命令保证了在目录不存在时自动创建目录</p>
+<ol start="2">
+<li>删除用户</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">userdel - r sam</span><br></pre></td></tr></table></figure>
+
+<p>此命令删除用户 sam 在系统文件中（主要是 <code>/etc/passwd</code> , <code>/etc/shadow</code> , <code>/etc/group</code> 等）的记录，同时删除用户的主目录。</p>
+<ol start="3">
+<li>修改用户</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod - s / bin / ksh - d / home / z– g developer sam</span><br></pre></td></tr></table></figure>
+
+<p>此命令将用户 sam 的登录 <code>Shell</code> 修改为 <code>ksh</code> ，主目录改为 <code>/home/z</code> ，用户组改为 <code>developer</code> 。</p>
+<ol start="4">
+<li>修改口令</li>
+</ol>
+<ul>
+<li>修改当前用户口令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br><span class="line">Old password: ** ** **</span><br><span class="line">New password: ** ** ** *</span><br><span class="line">Re - enter new password: ** ** ** *</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>超级用户修改任意用户口令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">passwd sam</span><br><span class="line">New password: ** ** ** *</span><br><span class="line">Re - enter new password: ** ** ** *</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>清除用户口令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd - d sam</span><br></pre></td></tr></table></figure>
+
+<h3 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h3><h4 id="三个常用命令"><a href="#三个常用命令" class="headerlink" title="三个常用命令"></a>三个常用命令</h4><ol>
+<li><code>df</code> 命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> - h / etc <span class="comment">#将/etc底下的可用的磁盘容量以易读的容量格式显示</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>du</code> 命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">du</span> - a - h * <span class="comment">#显示当前目录下所有文件/文件夹的容量大小</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><code>fdisk</code> 命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> - h / etc</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vim-的基本操作"><a href="#Vim-的基本操作" class="headerlink" title="Vim 的基本操作"></a>Vim 的基本操作</h2><ul>
+<li><a href="https:#www.runoob.com/linux/linux-vim.html">Vi&#x2F;Vim - 菜鸟教程</a></li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>实际安装时建议选择语言为 English，若选择其他语言很有可能发生意想不到的编码问题</li>
+</ul>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https:#www.runoob.com/linux/linux-tutorial.html">Linux 教程 - 菜鸟教程</a></li>
+</ul>
+</div><p style="color: #bbb; margin:20px 0px 8px 0px;">The End.</p><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-calendar-o"></i><span class="date">2020-01-12</span><span class="leancloud_visitors"></span></div></div></div></div></div></div></div></div><script src="/js/init.js"></script></body></html>

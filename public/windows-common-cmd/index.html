@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="zh-CN"><head><title>Windows命令行基础知识 · Viki 写东西的地方</title><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="author" content="Viki"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"><meta name="description" content="使用 help + 命令名 命令可以查看对应命令的详细用法
+
+如: help dir 可以查看 dir 命令的详细用法
+
+1. 切换路径:
+d: 或 c: 切换到到对应盘的根目录
+cd D:\downloads  切换到 D 盘下的 downloads 目录
+cd demo 切换到当前路径下的 de"><meta name="keywords" content="Viki,Vikiboss,博客,Viki博客,个人主页,Viki个人主页"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/feed.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="https://qqa.deno.dev/1141284758"><h3>Viki 写东西的地方</h3><div class="description"><p>生活需要记录.</p></div></div></div><ul class="social-links"><li><a href="https://github.com/vikiboss"><i class="fa fa-github"></i></a></li><li><a href="mailto:hi@viki.moe"><i class="fa fa-envelope"></i></a></li></ul><div class="footer"><div class="p"> <span id="copyright">© 2019-[year] </span><span>Viki</span></div><div class="by_farbox"><span>Powered By </span><a href="https://hexo.io" target="_blank">Hexo </a><span>&amp; </span><a href="https://github.com/vikiboss/hexo-theme-mio" target="_blank">mio</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">文章</a></li><li><a href="/archives">归档</a></li><li><a href="/about">关于</a></li></div><div class="nav" style="float:right" onclick="window.history.back();"><li style="float: right"><a href="#">返回</a></li></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Windows命令行基础知识</a></h3></div><div class="post-content"><p>使用 <code>help</code> + <code>命令名</code> 命令可以查看对应命令的详细用法</p>
+<blockquote>
+<p>如: <code>help dir</code> 可以查看 dir 命令的详细用法</p>
+</blockquote>
+<h2 id="1-切换路径"><a href="#1-切换路径" class="headerlink" title="1. 切换路径:"></a>1. 切换路径:</h2><ol>
+<li><code>d:</code> 或 <code>c:</code> 切换到到对应盘的根目录</li>
+<li><code>cd D:\downloads </code> 切换到 D 盘下的 downloads 目录</li>
+<li><code>cd demo</code> 切换到当前路径下的 demo 文件夹</li>
+<li><code>cd ..</code> 回退到上一目录</li>
+<li><code>cd ..\demo</code> 切换到上一目录的 demo 文件夹</li>
+<li><code>cd \</code> 或 <code>cd /</code> 回退到当前所在盘的根目录</li>
+</ol>
+<h2 id="2-文件-x2F-文件夹操作"><a href="#2-文件-x2F-文件夹操作" class="headerlink" title="2. 文件&#x2F;文件夹操作:"></a>2. 文件&#x2F;文件夹操作:</h2><ol>
+<li><code>dir</code> 列出当前路径下的文件和文件夹</li>
+<li><code>mkdir demo</code> 在当前路径下新建名为 demo 的文件夹</li>
+<li><code>copy demo1.md demo2.md</code> 将当前路径下 demo1.md 拷贝并命名为 demo2.md</li>
+<li><code>copy demo1.md demo</code> 将当前路径下 demo1.md 拷贝到当前路径下的 demo 文件夹中</li>
+<li><code>del demo.md</code> 删除当前路径下名为 demo.md 的文件且不能在回收站恢复</li>
+<li><code>del demo</code> 删除当前路径下名为 demo 的文件夹下的所有文件（不会删除 demo 文件夹下的文件夹）</li>
+<li><code>rd demo</code> 删除当前路径下名为 demo 的空文件夹</li>
+<li><code>move demo.md demo</code> 将当前路径下的 demo.md 文件移动到当前路径下的 demo 文件夹 (同时也可用来改文件名)</li>
+<li><code>del *.* /s /q /f </code> 静默删除当前路径下的所有文件及文件夹且无法恢复（慎用，我在尝试的时候就错把桌面文件全删没了 QAQ）</li>
+</ol>
+<h2 id="3-有趣的命令"><a href="#3-有趣的命令" class="headerlink" title="3. 有趣的命令"></a>3. 有趣的命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成指定大小的空文件</span></span><br><span class="line">fsutil file createnew demo.txt 524288000</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成空文件</span></span><br><span class="line">&quot;&quot; &gt; README.md</span><br><span class="line">copy nul &gt; file.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS:"></a>PS:</h2><ol>
+<li>Win10 可以在文件夹空白处按住 <code>shift</code> ，再单击鼠标右键选择在此目录打开 powershell 的选项来快速打开当前路径的 powershell</li>
+</ol>
+<blockquote>
+<p>如：在桌面空白处按住 shift，再单击鼠标右键可以看到”在此处打开 powershell 窗口”的选项</p>
+</blockquote>
+<ol start="2">
+<li><p>在文件夹窗口按 <code>Alt</code> + <code>d</code> 快捷键可快速定位到地址栏，再输入 <code>cmd</code> 或者 <code>powershell</code> 即可以快速打开当前路径下的命令行窗口</p>
+</li>
+<li><p>将文件夹拖入 <code>powershell</code> 的界面可以快速键入该目录的绝对路径</p>
+</li>
+<li><p>如果已经安装了 <code>vscode</code> ，可以输入 <code>code .</code> 命令用 <code>vscode</code> 打开当前目录</p>
+</li>
+</ol>
+</div><p style="color: #bbb; margin:20px 0px 8px 0px;">The End.</p><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-calendar-o"></i><span class="date">2019-12-18</span><span class="leancloud_visitors"></span></div></div></div></div></div></div></div></div><script src="/js/init.js"></script></body></html>
