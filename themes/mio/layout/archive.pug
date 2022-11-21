@@ -1,10 +1,10 @@
 extends base/layout
 
 block site_title
-  !=  __('archives') + " - " + config.title
+  !=  '归档 - ' + config.title
 
 block description
-  - var desc = __('archives') + ' - ' + config.title;
+  - var desc = '归档 - ' + config.title;
   meta(name="description", content=desc)
 
 block content
@@ -13,4 +13,3 @@ block content
       ul.list-with-title
         include mixins
         +postList()
-        +make_pager(__('prev'), __('next'))

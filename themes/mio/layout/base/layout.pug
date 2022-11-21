@@ -1,5 +1,5 @@
 doctype html
-html(lang=__('lang'))
+html(lang='zh-CN')
   head
     include head
 
@@ -8,4 +8,5 @@ html(lang=__('lang'))
     .main
       include nav
       block content
+    script(src= url_for('js/pangu.min.js'))
     script(src= url_for('js/init.js'))

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .social-links .fa {
-  font-size: 18px !important;
+  font-size: 20px !important;
 }
 
 html {
@@ -11,8 +11,9 @@ html {
 
 body {
   color: rgba(0, 0, 0, 0.7);
-  font-family: 'PingHei', 'PingFang SC', Helvetica Neue, 'Work Sans', 'Hiragino Sans GB',
-    'Microsoft YaHei', SimSun, sans-serif;
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',
+    'PingHei', 'PingFang SC', Helvetica Neue, 'Work Sans', 'Hiragino Sans GB', 'Microsoft YaHei',
+    SimSun, sans-serif !important;
   font-size: 15px;
   width: 100%;
   margin: 0 auto 30px auto;
@@ -118,6 +119,10 @@ a:active {
   float: right;
   width: 70%;
   margin-top: 60px;
+}
+
+.content::-webkit-scrollbar {
+  z-index: 999999;
 }
 
 .page-top {
@@ -416,12 +421,12 @@ a:active {
   text-align: center;
   font-size: 10px;
   margin: 0 auto;
-  bottom: 20px;
+  bottom: 0;
+  padding: 20px 0;
   position: absolute;
   width: 100%;
   background: #fefefe;
   opacity: 0.3;
-  transition: all ease-in-out 0.3s;
 }
 
 .footer:hover {
@@ -461,13 +466,25 @@ a:active {
   padding: 0;
 }
 .list-with-title .listing .listing-post {
-  padding-bottom: 5px;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+.list-with-title .listing .listing-post:hover {
+  background-color: #f8f8f8;
 }
 .list-with-title .listing .listing-post .post-time {
-  float: right;
+  /* float: right; */
   color: #ddd;
+  width: 40px;
+  margin-left: 12px;
 }
 .list-with-title .listing .listing-post a {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: #666;
 }
 .list-with-title .listing .listing-post a:hover {
@@ -691,6 +708,7 @@ a.btn {
 
 @media screen and (max-width: 960px) {
   .sidebar {
+    display: none;
     width: 100%;
     position: absolute;
     border-right: none;
@@ -719,6 +737,7 @@ a.btn {
 
   .content {
     margin-top: 440px;
+    margin-top: 60px;
     width: 100%;
     z-index: 2;
     position: absolute;

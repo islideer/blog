@@ -2,23 +2,23 @@
   .nav
     li
       if is_home()
-        a.current(href="/" style="font-weight: bold")= __('articles')
+        a.current(href="/" style="font-weight: bold")= '文章'
       else
-        a(href="/")= __('articles')
+        a(href="/")= '文章'
 
     li
       if is_archive()
-        a.current(href="/archives/" style="font-weight: bold")= __('archives')
+        a.current(href="/archives/" style="font-weight: bold")= '归档'
       else
-        a(href="/archives/")= __('archives')
+        a(href="/archives/")= '归档'
 
     li
       if is_current('about')
-        a.current(href="/about.html" style="font-weight: bold")= __('about')
+        a.current(href="/about/" style="font-weight: bold")= '关于'
       else
-        a(href="/about.html")= __('about')
+        a(href="/about/")= '关于'
 
   .nav(style="float:right" onclick="window.history.back();")
     if is_post()
       li(style="float: right")
-        a(href="#")= __('back')
+        a(href="#")= '返回'

@@ -8,7 +8,10 @@ mixin make_post(item, is_detail)
 					a(href= url_for(item.path))= item.title
 		if is_detail
 			.post-content!= item.content
-			p(style="color: #bbb; margin:20px 0px 8px 0px;") The End.
+			if is_current('about')
+				p
+			else
+				p(style="color: #bbb; margin:20px 0px 8px 0px;") The End.
 		else
 			.post-content
 				- var summary = item.excerpt || item.summary || item.content
@@ -20,19 +23,6 @@ mixin make_post(item, is_detail)
 				else
 					i.fa.fa-calendar-o
 					span.date= date(item.date, 'YYYY-MM-DD')
-
-					span.leancloud_visitors
-mixin make_pager()
-	- var prev = page.prev_link
-	- var next = page.next_link
-	.pagination
-		ul.clearfix
-			if page.prev
-				li.pre.pagbuttons
-					a.btn(role="navigation",href=url_for(prev))= __('prev')
-			if page.next
-				li.next.pagbuttons
-					a.btn(role="navigation",href=url_for(next))= __('next')
 
 mixin postList()
 	.archive
