@@ -8,15 +8,15 @@
 
     li
       if is_archive()
-        a.current(href="/archives" style="font-weight: bold")= __('archives')
+        a.current(href="/archives/" style="font-weight: bold")= __('archives')
       else
-        a(href="/archives")= __('archives')
+        a(href="/archives/")= __('archives')
 
     li
       if is_current('about')
-        a.current(href="/about" style="font-weight: bold")= __('about')
+        a.current(href="/about.html" style="font-weight: bold")= __('about')
       else
-        a(href="/about")= __('about')
+        a(href="/about.html")= __('about')
 
   .nav(style="float:right" onclick="window.history.back();")
     if is_post()
