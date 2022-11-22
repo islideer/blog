@@ -6,7 +6,7 @@ top_image: https://i.loli.net/2020/11/21/o7sYJZVIuqMRpT3.jpg
 excerpt: 列出了CentOS7中yum失效问题的可能原因，给出了对应的解决方案
 ---
 
-刚在虚拟机中安装完的 CentOS7 的系统，可能出现**无法使用 yum 命令**的问题。可以使用下列方式进行尝试。
+刚在虚拟机中安装完的 CentOS 7 的系统，可能出现**无法使用 yum 命令**的问题。可以使用下列方式进行尝试。
 
 ## 可能的原因
 
@@ -20,13 +20,13 @@ excerpt: 列出了CentOS7中yum失效问题的可能原因，给出了对应的�
 
 1. 进入/etc/sysconfig/network-scripts 目录
 
-```bash
+```shell
 cd / etc / sysconfig / network - scripts
 ```
 
 2. 修改名为 ifcfg-ens33 的网卡配置文件
 
-```bash
+```shell
 vi ifcfg - ens33 #用vi打开文件并进行编辑
 ```
 
@@ -35,22 +35,22 @@ vi ifcfg - ens33 #用vi打开文件并进行编辑
 
 3. 重启服务
 
-```bash
+```shell
 reboot #重启系统
 service network restart #或者重启网络服务
 ```
 
 ## 其他情况
 
-若上述方法还是无效可以尝试修改 CentOS-Base.repo 中的地址，具体方法与上类似
+若上述方法还是无效可以尝试修改 `CentOS-Base.repo` 中的地址，具体方法与上类似
 
-1. 进入目录 "/etc/yum.repos.d" 。
+1. 进入目录 `/etc/yum.repos.d` 。
 
-2. 编辑文件 "vi CentOS-Base.repo" 。
+2. 编辑文件 `vi CentOS-Base.repo` 。
 
-3. 将所有的 "mirrorlist" 注释掉，将所有的 "baseurl" 取消注释。
+3. 将所有的 `mirrorlist` 注释掉，将所有的 `baseurl` 取消注释。
 
-4. 保存后输入"reboot"重启系统
+4. 保存后输入 `reboot` 重启系统
 
 ## 参考文章
 
