@@ -410,8 +410,13 @@ a:active {
 .list-with-title .listing .listing-post .post-time {
   /* float: right; */
   color: #ddd;
-  width: 40px;
+  width: 48px;
   margin-left: 12px;
+}
+.list-with-title .listing .listing-post .post-time span {
+  display: inline-block;
+  width: 48px;
+  text-align: right;
 }
 .list-with-title .listing .listing-post a {
   flex: 1;
