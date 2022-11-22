@@ -4,15 +4,6 @@
   font-size: 20px !important;
 }
 
-body,
-body * {
-  max-height: 1000000px;
-}
-
-body * {
-  text-size-adjust: none;
-}
-
 *::selection {
   color: #fefefe;
   background-color: #999;

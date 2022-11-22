@@ -1,4 +1,6 @@
 pre {
+  max-height: 1000000px;
+  text-size-adjust: none;
   border: 1px solid rgb(120, 120, 120, 0.1);
   border-radius: 4px;
   font-size: 1rem !important;
