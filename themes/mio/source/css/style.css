@@ -4,6 +4,11 @@
   font-size: 20px !important;
 }
 
+*::selection {
+  color: #fefefe;
+  background-color: #999;
+}
+
 html {
   font-size: 15px !important;
   background-color: #fefefe;
@@ -11,6 +16,7 @@ html {
 }
 
 body {
+  font-size: 15px !important;
   color: rgba(0, 0, 0, 0.7);
   width: 100%;
   margin: 0 auto 30px auto;
@@ -18,7 +24,7 @@ body {
 }
 
 p {
-  line-height: 1.9em;
+  line-height: 2em;
   font-weight: 400;
   font-size: 15px;
 }
@@ -38,79 +44,6 @@ a:active {
   color: #4786d6;
 }
 
-/*basic styles ends*/
-/*animation starts*/
-/* .animated {
-  -webkit-animation-fill-mode: both;
-  -moz-animation-fill-mode: both;
-  -ms-animation-fill-mode: both;
-  -o-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
-}
-
-.animated.hinge {
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
-} */
-
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
-}
-@-moz-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -moz-transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    -moz-transform: translateY(0);
-  }
-}
-@-o-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -o-transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    -o-transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* .fadeInDown {
-  -webkit-animation-name: fadeInDown;
-  -moz-animation-name: fadeInDown;
-  -o-animation-name: fadeInDown;
-  animation-name: fadeInDown;
-} */
-
-/*animation ends*/
 .content {
   height: auto;
   float: right;
@@ -183,7 +116,7 @@ a:active {
 }
 .sidebar .logo-title {
   text-align: center;
-  padding-top: 240px;
+  padding-top: 200px;
 }
 .sidebar .logo-title .description {
   font-size: 14px;
@@ -237,23 +170,23 @@ a:active {
   border-bottom: 1px solid #f2f2f2;
 }
 .post .post-title h1 {
-  font-size: 30px;
-  letter-spacing: 5px;
-  line-height: 1;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  line-height: 2.8rem;
 }
 .post .post-title h2 {
   letter-spacing: 1px;
-  font-size: 28px;
-  line-height: 1;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
   font-weight: 600;
   color: #5f5f5f;
 }
 .post .post-title h3 {
   letter-spacing: 1px;
-  line-height: 1;
+  line-height: 2rem;
   font-weight: 600;
   color: #464646;
-  font-size: 22px;
+  font-size: 1.4rem;
   margin: 0;
 }
 .post .post-title a {
@@ -305,6 +238,9 @@ a:active {
 .post .post-content h6 {
   color: #5f5f5f;
   font-size: 15px;
+}
+.post .post-content img {
+  border-radius: 4px;
 }
 /* .post .post-footer {
   padding: 0 0 12px 0;

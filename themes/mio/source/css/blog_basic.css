@@ -1,8 +1,8 @@
 pre {
   border: 1px solid rgb(120, 120, 120, 0.1);
   border-radius: 4px;
-  font-size: 15px !important;
-  background-color: #f6f6f6 !important;
+  font-size: 1rem !important;
+  background-color: #fafafa !important;
   font-family: Fira Code, 'Roboto Mono', 'Lucida Console', 'Trebuchet MS', 'Courier New', Monaco,
     courier, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Jhenghei', 'Microsoft YaHei', monospace !important;
 }
@@ -30,8 +30,8 @@ figure.highlight .gutter {
 }
 
 figure.highlight .code pre {
-  padding: 1.2em 1.4em !important;
-  line-height: 1.5em !important;
+  padding: 1.2rem 1.4rem !important;
+  line-height: 1.5rem !important;
   margin: 0 !important;
 }
 

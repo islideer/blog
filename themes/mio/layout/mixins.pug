@@ -1,10 +1,10 @@
 mixin make_post(item, is_detail)
 	.post.animated.fadeInDown
 		.post-title
-			h3
-				if is_detail
-					a= item.title
-				else
+			if is_detail
+				h1= item.title
+			else
+				h3
 					a(href= url_for(item.path))= item.title
 		if is_detail
 			.post-content!= item.content
