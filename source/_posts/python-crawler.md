@@ -45,13 +45,13 @@ excerpt: 非常简单的一个 Python 爬虫程序爬取b站up主的粉丝数和
 
 安装 `fake_useragent`:
 
-```bash
+```shell
 pip insatll fake_useragent
 ```
 
 使用:
 
-```Python
+```py
 from fake_useragent import UserAgent
 UA = UserAgent().random
 headers = {'User-Agent': UA}
@@ -80,7 +80,7 @@ pip install selenium
 
 使用:
 
-```python
+```py
 # driver = webdriver.Firefox()   # Firefox浏览器
 # driver = webdriver.Chrome()    # Chrome浏览器
 # driver = webdriver.Ie()        # Internet Explorer浏览器
@@ -113,20 +113,20 @@ pip install csv codecs
 
 使用:
 
-```python
-  filename = "data.csv"
-  # ab 为追加 wb 为覆盖  更详细的内容自行搜索
-  csv_file = codecs.open(filename, 'ab', "gbk")
-  # 打开实例
-  csv_writer = csv.writer(csv_file)
-  # 写入表头
-  csv_writer.writerow(("第一项","第二项"))
-  info = (1,2)
-  infos = [(1, 2), (3, 4)]
-  # 写入一行数据
-  csv_writer.writerow(info)
-  # 写入多行数据
-  csv_writer.writerow(infos)
+```py
+filename = "data.csv"
+# ab 为追加 wb 为覆盖  更详细的内容自行搜索
+csv_file = codecs.open(filename, 'ab', "gbk")
+# 打开实例
+csv_writer = csv.writer(csv_file)
+# 写入表头
+csv_writer.writerow(("第一项","第二项"))
+info = (1,2)
+infos = [(1, 2), (3, 4)]
+# 写入一行数据
+csv_writer.writerow(info)
+# 写入多行数据
+csv_writer.writerow(infos)
 ```
 
 ### 返回的数据是 json 格式
@@ -141,7 +141,7 @@ pip install json
 
 使用:
 
-```Python
+```py
 import json
 jsonData  = '{"name": "Viki"}'
 # json字符串转为Python的字典(或者其他数据)
@@ -158,13 +158,13 @@ print(jsonStr) '{"name": "Viki"}'
 
 安装 `threading`:
 
-```bash
+```shell
 pip install threading
 ```
 
 使用:
 
-```python
+```py
 lst = [123, 456, 789]
 def double(n):
     return n*n
@@ -175,7 +175,7 @@ for n in lst:
 
 ## 代码实现
 
-```python
+```py
 import csv
 import json
 import time
