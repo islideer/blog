@@ -4,6 +4,11 @@
   font-size: 20px !important;
 }
 
+body,
+body * {
+  max-height: 1000000px;
+}
+
 body * {
   text-size-adjust: none;
 }
