@@ -3,9 +3,8 @@ pre {
   border-radius: 4px;
   font-size: 15px !important;
   background-color: #f6f6f6 !important;
-  font-family: Fira Code, 'Source Han Mono SC', 'Noto Sans Mono CJK SC', 'Source Code Pro',
-    'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace, -apple-system, monospace,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', emoji !important;
+  font-family: Fira Code, 'Roboto Mono', 'Lucida Console', 'Trebuchet MS', 'Courier New', Monaco,
+    courier, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Jhenghei', 'Microsoft YaHei', monospace !important;
 }
 
 figure.highlight {
