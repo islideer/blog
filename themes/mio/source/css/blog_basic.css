@@ -3,8 +3,8 @@ pre {
   border-radius: 4px;
   font-size: 15px !important;
   background-color: #f6f6f6 !important;
-  font-family: DM Mono, Input Mono, Fira Code, 'Source Han Mono SC', 'Noto Sans Mono CJK SC',
-    'Source Code Pro', 'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace, monospace,
+  font-family: Fira Code, 'Source Han Mono SC', 'Noto Sans Mono CJK SC', 'Source Code Pro',
+    'Noto Mono', 'SF Mono', 'Roboto Mono', ui-monospace, -apple-system, monospace,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', emoji !important;
 }
 

@@ -118,10 +118,6 @@ a:active {
   margin-top: 60px;
 }
 
-.content::-webkit-scrollbar {
-  z-index: 999999;
-}
-
 .page-top {
   width: 70%;
   position: fixed;
@@ -135,7 +131,7 @@ a:active {
   list-style: none;
   padding: 18px 30px;
   float: left;
-  font-size: 14px;
+  font-size: 16px;
 }
 .page-top .nav li {
   position: relative;
