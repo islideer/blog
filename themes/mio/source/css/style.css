@@ -4,6 +4,10 @@
   font-size: 20px !important;
 }
 
+body * {
+  text-size-adjust: none;
+}
+
 *::selection {
   color: #fefefe;
   background-color: #999;
