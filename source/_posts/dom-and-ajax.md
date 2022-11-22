@@ -1,12 +1,14 @@
 ---
 layout: post
-title: NCUHOME 研发组培训之 DOM 操作 & AJAX
+title: DOM 操作 & AJAX
 date: 2020-10-30
 top_image: https://i.loli.net/2020/10/24/erY2Oj4Z3TuIKBn.png
 excerpt: NCUHOME 研发组培训之 DOM 操作 & AJAX
 ---
 
-> 主讲人: 19 级前端 Viki 时间:2020/10/30
+这篇文章是给 NCUHOME 研发组新生有关 `DOM` 操作和 `AJAX` 的培训文档
+
+主讲人: 19 级前端 Viki，时间:2020/10/30
 
 参考了 MDN 文档、《JavaScript 高级程序设计（第四版）》以及一些博客文章的相关内容。
 
@@ -76,14 +78,14 @@ DOM 表示由多层节点构成的文档，通过它可以**对页面的各个�
 
 ```javascript
 // 创建一个元素
-var awesomeDiv = document.createElement("div");
+var awesomeDiv = document.createElement('div')
 // 获取元素
-var element = document.getElementById("box");
-var element = document.getElementsByClassName("red blue");
-var element = document.getElementsByName("card");
-var element = document.getElementsByTagName("number");
-var element = document.querySelector("div > #card");
-var element = document.querySelectorAll(".btn");
+var element = document.getElementById('box')
+var element = document.getElementsByClassName('red blue')
+var element = document.getElementsByName('card')
+var element = document.getElementsByTagName('number')
+var element = document.querySelector('div > #card')
+var element = document.querySelectorAll('.btn')
 ```
 
 > [MDN 对 HTMLCollection 的解释](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCollection)
@@ -96,14 +98,14 @@ var element = document.querySelectorAll(".btn");
 
 ```javascript
 // 首先获取到要改变样式的元素
-let awesomeDiv = document.getElementById("app");
-awesomeDiv.classList;
-awesomeDiv.classList.add("round");
-awesomeDiv.classList.remove("blue");
-awesomeDiv.className;
-awesomeDiv.style;
-awesomeDiv.style.backgroundColor = "#ffd9ce";
-awesomeDiv.style.border = "1px solid #3af";
+let awesomeDiv = document.getElementById('app')
+awesomeDiv.classList
+awesomeDiv.classList.add('round')
+awesomeDiv.classList.remove('blue')
+awesomeDiv.className
+awesomeDiv.style
+awesomeDiv.style.backgroundColor = '#ffd9ce'
+awesomeDiv.style.border = '1px solid #3af'
 ```
 
 > JavaScript 的标识符不允许使用 `-`，所以 JavaScript 里的 CSS 样式名都是小驼峰的命名形式。例如：CSS => `font-size` / JavaScript => `fontSize`
@@ -111,11 +113,11 @@ awesomeDiv.style.border = "1px solid #3af";
 #### 添加、改变 HTML 元素
 
 ```javascript
-document.body.innerText = "这是body的innerText";
-document.body.innerHTML = "<h1>这是body的<b>innerText</b></h1>";
-document.body.outerHTML;
-document.body.children[0].outerHTML = "<h2>NCUHOME</h2>";
-document.body.outerText = "NCUHOME";
+document.body.innerText = '这是body的innerText'
+document.body.innerHTML = '<h1>这是body的<b>innerText</b></h1>'
+document.body.outerHTML
+document.body.children[0].outerHTML = '<h2>NCUHOME</h2>'
+document.body.outerText = 'NCUHOME'
 ```
 
 #### 给 HTML 元素添加监听事件
@@ -123,11 +125,11 @@ document.body.outerText = "NCUHOME";
 ```javascript
 // let msg = () => alert("hello! ncuhomer!");
 function showMsg() {
-  alert("hello! ncuhomer!");
+  alert('hello! ncuhomer!')
 }
-document.getElementById("app").onclick = showMsg;
-document.getElementById("btn").addEventListener("click", showMsg);
-document.getElementById("btn").removeEventListener("click");
+document.getElementById('app').onclick = showMsg
+document.getElementById('btn').addEventListener('click', showMsg)
+document.getElementById('btn').removeEventListener('click')
 ```
 
 ## AJAX
@@ -165,9 +167,9 @@ JSON (JavaScript Object Notation) 是目前最常用的**数据交换格式**，
 #### 处理 JSON 数据（与 js 对象的相互转换）
 
 ```javascript
-let str1 = '{"name":"ncuhomer"}';
-let obj = JSON.parse(str1);
-let str2 = JSON.stringify(obj);
+let str1 = '{"name":"ncuhomer"}'
+let obj = JSON.parse(str1)
+let str2 = JSON.stringify(obj)
 ```
 
 ### 原生 XMLHttpRequest 的基本使用
@@ -185,13 +187,13 @@ let str2 = JSON.stringify(obj);
 #### 1. 创建一个实例对象
 
 ```javascript
-var xhr = new XMLHttpRequest();
+var xhr = new XMLHttpRequest()
 ```
 
 #### 2. 设置请求参数
 
 ```javascript
-xhr.open("GET", "url");
+xhr.open('GET', 'url')
 ```
 
 #### 3. 监听请求后的变化
@@ -199,15 +201,15 @@ xhr.open("GET", "url");
 ```javascript
 xhr.onreadystatechange = function () {
   if (xhr.readyState === 4 && xhr.status === 200) {
-    console.log(xhr.responseText);
+    console.log(xhr.responseText)
   }
-};
+}
 ```
 
 #### 4. 发送请求
 
 ```javascript
-xhr.send();
+xhr.send()
 ```
 
 > 深入了解参考：[XMLHttpRequest - MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
@@ -282,26 +284,26 @@ ES6 中的 6 是 ES 的版本标识，是 ES5 的下一个版本，在 2015 年�
 
 本周任务主要是学习 HTTP、DOM 操作和 AJAX，同时多了解 ES6 的新特性。
 
-- 学习
+**学习:**
 
-  - [学习 XMLHttpRequest](https://zh.javascript.info/xmlhttprequest)
-  - [HTTP 基础 - 菜鸟教程](https://www.runoob.com/http/http-tutorial.html)
-  - [学习 Fetch](https://zh.javascript.info/fetch)
-  - [ES6 基础教程](https://www.runoob.com/w3cnote/es6-tutorial.html)
-  - [现代 JavaScript 教程](https://zh.javascript.info/)
+- [学习 XMLHttpRequest](https://zh.javascript.info/xmlhttprequest)
+- [HTTP 基础 - 菜鸟教程](https://www.runoob.com/http/http-tutoriahtml)
+- [学习 Fetch](https://zh.javascript.info/fetch)
+- [ES6 基础教程](https://www.runoob.com/w3cnote/es6-tutorial.html)
+- [现代 JavaScript 教程](https://zh.javascript.info/)
 
-- 建议深入了解
+**建议深入了解:**
 
-  - [var、let、const 声明变量的区别](https://zh.javascript.info/variables)
-  - [箭头函数基础](https://zh.javascript.info/arrow-functions-basics) / [深入理解箭头函数](https://zh.javascript.info/arrow-functions)
-  - [学习 Promise](https://zh.javascript.info/promise-basics)
-  - [Axios - Github](https://github.com/axios/axios#axios)
-  - [async / await](https://zh.javascript.info/async-await)
+- [var、let、const 声明变量的区别](https://zh.javascript.info/variables)
+- [箭头函数基础](https://zh.javascript.info/arrow-functions-basics) /[深入理解箭头函数](https://zh.javascript.info/arrow-functions)
+- [学习 Promise](https://zh.javascript.info/promise-basics)
+- [Axios - Github](https://github.com/axios/axios#axios)
+- [async / await](https://zh.javascript.info/async-await)
 
-- 推荐阅读
+**推荐阅读**
 
-  - [浏览器的工作原理：新式网络浏览器幕后揭秘](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/#Introduction)
-  - [JavaScript 语言的历史 - 阮一峰](https://javascript.ruanyifeng.com/introduction/history.html)
+- [浏览器的工作原理：新式网络浏览器幕后揭秘](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/#Introduction)
+- [JavaScript 语言的历史 - 阮一峰](https://javascript.ruanyifeng.com/introduction/history.html)
 
 ### 本周作业
 

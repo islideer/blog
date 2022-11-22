@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 博客跳槽记
+title: 写的东西の搬家记录
 date: 2020-03-23
 top_image: https://i.loli.net/2020/11/21/QJqGlbrP1RiYhIL.png
 excerpt: 博客搬迁，从 Jeklly 到 Hexo

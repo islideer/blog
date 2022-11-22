@@ -6,9 +6,7 @@ top_image: https://s2.loli.net/2022/02/21/N6ljREPqY9n4wes.png
 excerpt: CSS 样式隔离与性能优化
 ---
 
-## CSS 样式隔离
-
-CSS 简要发展历程：
+简要的 CSS 发展历程：
 
 - 手写原生 `CSS` 规则（ [`BEM` 命名法](http://getbem.com/introduction/)）
 - 预处理器：[`Sass`](https://sass-lang.com/)、[`Less`](https://lesscss.org/) 和 [`Stylus`](https://stylus-lang.com/) 等
@@ -68,7 +66,7 @@ CSS 简要发展历程：
 }
 .otherClassName {
   /* 支持从其他文件导入 */
-  composes: className from "./style.css";
+  composes: className from './style.css';
 }
 /* 以上样式，默认是局部作用域 */
 
@@ -83,9 +81,9 @@ CSS 简要发展历程：
 ```
 
 ```js
-import styles from "./style.css";
+import styles from './style.css'
 // import { className } from "./style.css";
-element.innerHTML = '<div class="' + styles.className + '">';
+element.innerHTML = '<div class="' + styles.className + '">'
 // element.innerHTML = '<div class="' + styles['class-name'] + '">';
 ```
 
@@ -99,18 +97,18 @@ module.exports = {
       {
         test: /\.css$/,
         use: {
-          loader: "css-loader",
+          loader: 'css-loader',
           options: {
             modules: {
               // 自定义 hash 名称，可用变量
-              localIdentName: "[path][name]__[local]--[hash:base64:5]",
-            },
-          },
-        },
-      },
-    ],
-  },
-};
+              localIdentName: '[path][name]__[local]--[hash:base64:5]'
+            }
+          }
+        }
+      }
+    ]
+  }
+}
 ```
 
 打包后的效果（类名被转换为自定义的哈希名称格式）：
@@ -150,7 +148,7 @@ module.exports = {
 
 ```css
 /* 引入原生 CSS，会增加 http 请求 */
-@import "reset.css";
+@import 'reset.css';
 
 /* 预处理器格式，less 为对应预处理器的文件拓展名，如 scss，styl */
 /* body.less */
@@ -158,7 +156,7 @@ body {
   background: #eee;
 }
 /* style.less */
-@import "body.less";
+@import 'body.less';
 ```
 
 ### PostCSS
@@ -175,7 +173,7 @@ body {
 - 将 CSS 下一代版本的语法规则做**转译**（`Transpilers`）和**兼容**（`polyfill`）处理
 - 搭配插件实现特定功能，比如使用 [`autoprefix`](https://github.com/postcss/autoprefixer) 实现自动添加浏览器前缀的功能
 
-## CSS 性能优化
+## 关于 CSS 层面的性能优化
 
 常见的 `CSS` 性能优化的方式：
 

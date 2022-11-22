@@ -1,12 +1,14 @@
 ---
 layout: post
-title: CSS 选择器
+title: 浅谈 CSS 选择器
 date: 2022-02-16
 top_image: https://s2.loli.net/2022/02/16/6j3YWJQon472zxt.png
 excerpt: 选择器是 CSS 规则的一部分，位于 CSS 声明块前。
 ---
 
-选择器是 CSS 规则的一部分，位于 CSS 声明块前。它是元素和其他部分组合起来告诉浏览器哪个 HTML 元素应当是被选为应用规则中的 CSS 属性值的方式。
+选择器是 `CSS` 规则的一部分，位于 `CSS` 声明块前。
+
+它是元素和其他部分组合起来告诉浏览器哪个 `HTML` 元素应当是被选为应用规则中的 `CSS` 属性值的方式。
 
 ![image.png](https://s2.loli.net/2022/02/16/grAe6BM4mC2Tzdh.png)
 

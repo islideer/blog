@@ -8,11 +8,11 @@ excerpt: 简要介绍了 package.json 文件各个字段的意义
 
 此篇文章适合于对 `JavaScript` `nodejs` `npm` `json` 有一定了解，但不清楚 `package.json` 文件具体作用及其含义的读者
 
-## 什么是 package.json 文件？😱
+## 什么是 package.json 文件？
 
 `nodejs` 的项目遵循**模块化**的架构，`package.json` 文件是用来**描述项目的相关信息**，便于 `npm`、`yarn` 等包管理工具对项目进行操作。简单的来理解，就是每个项目都可以被叫做“包”，`package.json` 则是用来描述包信息的一个文件，一般存在于项目的根目录下。
 
-## 直接上个实例 🎉
+## 直接上个实例
 
 `package.json` 文件本身是 `json` 文件，当然也遵循 `json` 的语法
 
@@ -110,22 +110,3 @@ excerpt: 简要介绍了 package.json 文件各个字段的意义
 - 自动生成(～￣ ▽ ￣)～
 
 通过`npm init`新建，前提是已经配置好了 `npm` 的环境
-
-## 想了解更多? 🙃
-
-> 强烈推荐阅读 => [package.json 文件 - 阮一峰][1]
-
-## 参考文章 👍
-
-- [package.json 文件 - 阮一峰][1]
-
-- [package.json - npm][2]
-
-- [package.json 详解 - 拉勾][3]
-
-- [package.json 详解 - 掘金][4]
-
-[1]: https://javascript.ruanyifeng.com/nodejs/packagejson.html "package.json 文件 - 阮一峰"
-[2]: https://docs.npmjs.com/files/package.json "package.json - npm"
-[3]: https://www.lagou.com/lgeduarticle/43699.html "package.json 详解 - 拉勾"
-[4]: https://juejin.im/post/5ddf97986fb9a071ac1a0b09#heading-2 "package.json 详解 - 掘金"

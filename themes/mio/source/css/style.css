@@ -23,6 +23,10 @@ body {
   background-color: #fefefe;
 }
 
+body::-webkit-scrollbar-thumb {
+  z-index: 99999999999 !important;
+}
+
 p {
   line-height: 2em;
   font-weight: 400;

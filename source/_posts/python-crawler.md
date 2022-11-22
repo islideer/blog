@@ -21,7 +21,7 @@ excerpt: 非常简单的一个 Python 爬虫程序爬取b站up主的粉丝数和
 ## 用到的库及其作用
 
 `csv` : 读写 csv 文件
-`josn` : 读写 josn 文件
+`json` : 读写 json 文件
 `time` : 进行延时操作
 `random` : 随机数功能实现
 `codecs` : 打开文件 (解决中文写入文件后乱码问题)
