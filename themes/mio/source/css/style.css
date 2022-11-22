@@ -5,13 +5,13 @@
 }
 
 html {
+  font-size: 15px !important;
   background-color: #fefefe;
   -webkit-font-smoothing: antialiased;
 }
 
 body {
   color: rgba(0, 0, 0, 0.7);
-  font-size: 15px;
   width: 100%;
   margin: 0 auto 30px auto;
   background-color: #fefefe;
