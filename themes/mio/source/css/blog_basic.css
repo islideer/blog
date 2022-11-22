@@ -14,11 +14,13 @@ figure.highlight {
   line-height: 1.1em !important;
   background-color: #f8f8f8 !important;
   overflow-x: auto !important;
+  max-width: 99999px !important;
 }
 
 figure.highlight table,
 figure.highlight tr,
 figure.highlight td {
+  max-width: 99999px !important;
   width: 100% !important;
   border-collapse: collapse !important;
   padding: 0 !important;
