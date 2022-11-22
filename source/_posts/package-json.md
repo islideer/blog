@@ -71,7 +71,7 @@ excerpt: 简要介绍了 package.json 文件各个字段的意义
 
 > 例如：博客项目可能还需要 `"title":"Viki's Blog"` 类似的字段
 
-其他字段参考： `keywords`、`contributors`、`homepage`、`preferGlobal`、`style`、`bin`、`bugs`、`config`、`browser`、`engines`、`man`、`peerDependencies`
+其他字段参考: `keywords`, `contributors`, `homepage`, `preferGlobal`, `style`, `bin`, `bugs`, `config`, `browser`, `engines`, `man`, `peerDependencies`
 
 ## 脚本（scripts）字段 👟
 
