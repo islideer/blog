@@ -11,7 +11,12 @@ mixin make_post(item, is_detail)
 			if is_current('about')
 				p
 			else
-				p(style="color: #bbb; margin:20px 0px 8px 0px;") The End.
+				p(style="color: #bbb; margin:20px 0px 8px 0px;")
+					span The End. Thx for Reading. 
+				p(style="color: #bbb; margin:20px 0px 8px 0px;")
+					span 文章发表遵循
+					a(style="color: #aaa; margin: 0 4px" href="https://creativecommons.org/licenses/by-nc-sa/4.0/") CC BY-NC-SA 4.0
+					span 协议，如需引用请注明来源，感谢。
 		else
 			.post-content
 				- var summary = item.excerpt || item.summary || item.content
