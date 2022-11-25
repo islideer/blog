@@ -101,3 +101,9 @@ theme: 'mio'
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+feed:
+  type:
+    - atom
+  path:
+    - feed.xml

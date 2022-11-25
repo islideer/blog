@@ -9,6 +9,3 @@ accounts:
   github: vikiboss
   mail: hi@viki.moe
   qq: 1141284758
-
-# TODO: 细化 rss 选项
-rss: /feed.xml
