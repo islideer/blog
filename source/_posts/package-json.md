@@ -3,20 +3,19 @@ layout: post
 title: package.json 文件详解
 date: 2020-04-23
 top_image: https://i.loli.net/2020/11/21/UHTc1bZPxszuQYa.png
-excerpt: 简要介绍了 package.json 文件各个字段的意义
+excerpt: 简要介绍了 package.json 文件的常见字段及其意义
 ---
 
-此篇文章适合于对 `JavaScript` `nodejs` `npm` `json` 有一定了解，但不清楚 `package.json` 文件具体作用及其含义的读者
+此篇文章适合于对 `npm`, `node` 有一定了解，但不清楚 `package.json` 文件具体作用及其含义的读者
 
-## 什么是 package.json 文件？
+## package.json 文件是什么？
 
 `nodejs` 的项目遵循**模块化**的架构，`package.json` 文件是用来**描述项目的相关信息**，便于 `npm`、`yarn` 等包管理工具对项目进行操作。简单的来理解，就是每个项目都可以被叫做“包”，`package.json` 则是用来描述包信息的一个文件，一般存在于项目的根目录下。
 
 ## 直接上个实例
 
-`package.json` 文件本身是 `json` 文件，当然也遵循 `json` 的语法
+`package.json` 文件本身是 `JSON` 文件，当然也遵循 `JSON` 的语法.
 
-> JSON 语法参考链接 => [JSON 基础语法 - 菜鸟教程](https://www.runoob.com/json/json-syntax.html)
 
 ```json
 // package.json 文件内容
@@ -69,7 +68,7 @@ excerpt: 简要介绍了 package.json 文件各个字段的意义
   }
 ```
 
-> 例如：博客项目可能还需要 `"title":"Viki's Blog"` 类似的字段
+> 例如：博客项目可能还需要 `"title": "Viki's Blog"` 类似的字段
 
 其他字段参考: `keywords`, `contributors`, `homepage`, `preferGlobal`, `style`, `bin`, `bugs`, `config`, `browser`, `engines`, `man`, `peerDependencies`
 
