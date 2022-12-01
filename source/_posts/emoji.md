@@ -9,7 +9,7 @@ excerpt: 今天碰到一个挺奇怪的 emoji 字符分割问题，这篇文章�
 
 谈到 `emoji` 想必我们都不陌生，它是一种广泛使用在网页和聊天上的表情符号，如 😂, 😄 等。
 
-虽然 emoji 是合法的字符串内容，但由于其反直觉的字符长度和类型的多样，在分割的时候很可能会产生出乎意料的结果。比如下面这个例子：
+虽然 emoji 是合法的字符串内容，但由于其反直觉的长度和类型的多样，在分割的时候很可能会产生出乎意料的结果。比如下面这个例子：
 
 ```js
 '😃⛔'.split('') // ['\uD83D', '\uDE03', '⛔']
@@ -17,7 +17,7 @@ excerpt: 今天碰到一个挺奇怪的 emoji 字符分割问题，这篇文章�
 
 なに？怎么两个符号分割变成了三个？还乱码了？
 
-别慌，让我们来看看他们的长度。
+别慌，让我们先来看看他们的长度。
 
 ```js
 '⛔'.length // 1
@@ -115,9 +115,7 @@ Array.from('👦🏾') // ['👦', '🏾']
 
 使用 `Intl.Segmenter` 分割。
 
-很多人可能不太了解 `Intl`，甚至是第一次见到，~~我承认我基本没见过，也确实没怎么用过~~。
-
-> 这里引用 [MDN 关于 Intl 的解释](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl)：`Intl` 对象是 ECMAScript 国际化 API 的一个命名空间，它提供了精确的字符串对比、数字格式化，和日期时间格式化。
+> 很多人可能连 `Intl` 都不太了解，甚至是第一次见到，~~我承认我基本没见过，也确实没怎么用过~~。这里引用 [MDN 关于 Intl 的解释](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl)：`Intl` 对象是 ECMAScript 国际化 API 的一个命名空间，它提供了精确的字符串对比、数字格式化，和日期时间格式化。
 
 `Intl.Segmenter` 对象支持语言敏感的文本分割，允许你将一个字符串分割成有意义的片段（字、词、句）。
 
@@ -132,7 +130,7 @@ const splitEmoji = string => {
 splitEmoji('😴😄😃⛔🎠🚓🚇') // ['😴', '😄', '😃', '⛔', '🎠', '🚓', '🚇']
 ```
 
-不错不错，但是分割这些基本的 emoji 用刚才的方法也能实现，我们再来看看复杂的肤色 emoji 和组合 emoji 的情况。
+不错不错，但是分割这些基本的 emoji，用刚才的方法一样能实现，我们再来看看复杂的肤色 emoji 和组合 emoji 的情况。
 
 ```js
 splitEmoji('👨‍👨‍👧‍👧👦🏾') // ['👨‍👨‍👧‍👧', '👦🏾']
@@ -140,11 +138,11 @@ splitEmoji('👨‍👨‍👧‍👧👦🏾') // ['👨‍👨‍👧‍👧',
 
 Nice! 这不就是我们想要的结果吗？这个方式完美的解决了我们的需求，真不错。
 
-但是，这个东西都没怎么听说过，他的兼容性如何，可以被用到生产环境吗？通过可以到 [Can I Use](https://caniuse.com/?search=Intl) 上搜索和查阅可以发现，全球 	95.55% 的浏览器（报包括移动端和 PC 端）都是兼容的，那除了确实需要更大覆盖面的设备的兼容之外，我们基本上都可以放心用 `Intl` 对象了。
+但是，这个东西都没怎么听说过，他的兼容性如何，可以被用到生产环境吗？通过到 [`Can I Use`](https://caniuse.com/?search=Intl.Segmenter) 上搜索和查阅可以发现，全球 89.7% 的浏览器（报包括移动端和 PC 端）都是兼容的，那除了确实需要更大覆盖面的设备兼容之外，我们基本上都可以放心的使用 `Intl.Segmenter` 了。
 
 **开源社区的方案**
 
-其实，emoji 使用了这么长时间，开源社区肯定早就遇到过了这些问题，这里引用社区里比较成熟的解决方案：[`graphemer`](https://github.com/flmnt/graphemer)。
+其实，emoji 使用了这么长时间，开源社区肯定早就遇到过了类似问题，这里引用社区里比较成熟的解决方案：[`graphemer`](https://github.com/flmnt/graphemer)。
 
 安装依赖
 
@@ -172,8 +170,8 @@ console.log(graphemes) // ['😃', '⛔', '👨‍👨‍👧‍👧', '👦🏾
 
 **解决方案总结**
 
-1. 利用 [`Intl.Segmenter`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) 的特性进行分割。
-2. 使用开源社区比较成熟的方案：[`graphemer`](https://github.com/flmnt/graphemer)（推荐）
+1. 利用 [`Intl.Segmenter`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) 的特性进行分割。（详情参考上文）
+2. 使用开源社区比较成熟的方案：[`graphemer`](https://github.com/flmnt/graphemer)（推荐，详情参考上文）
 
 **相关科普**
 
