@@ -61,5 +61,5 @@ decodeEntity('&copy;', { level: 'xml' })
 
 ## 参考
 
-- [html 实体符号编码解析 - mingkr](https://blog.csdn.net/mingkr/article/details/38391061)，原文在[这里](http://mingkr.com/html-entity)（已失效）
+- [HTML 实体符号编码解析 - mingkr](https://blog.csdn.net/mingkr/article/details/38391061)，原文在[这里](http://mingkr.com/html-entity)（已失效）
 - [XML 与 HTML 字符实体引用列表 - Wekipedia](https://zh.wikipedia.org/zh-cn/XML%E4%B8%8EHTML%E5%AD%97%E7%AC%A6%E5%AE%9E%E4%BD%93%E5%BC%95%E7%94%A8%E5%88%97%E8%A1%A8)
