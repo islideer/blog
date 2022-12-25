@@ -7,7 +7,7 @@ excerpt: 在升级到正式版的 Axios 1.2.1 之后发现了部分问题，记�
 
 在 Axios 的 1.2.0 版本，不少人遇到了 `Z_BUF_ERROR` 的 BUG。
 
-当设置了 `Content-Encoding` 的请求头，但是返回的内容为空时（如 204 请求、HEAD 请求、或者重定向请求），Axios 仍会调用 `zlib` 的 `BrotliDecoder` 进行 Brotli decompression，导致 `zlib` 执行出，可参考这个 [issue](https://github.com/axios/axios/issues/5246)。
+当设置了 `Content-Encoding` 的请求头，但是返回的内容为空时（如 204 请求、HEAD 请求、或者重定向请求），Axios 仍会调用 `zlib` 的 `BrotliDecoder` 进行 Brotli decompression，导致 `zlib` 执行出错，可参考这个 [issue](https://github.com/axios/axios/issues/5246)。
 
 随后，开发者[修复](https://github.com/axios/axios/pull/5250)了这个问题，并同时[修复](https://github.com/axios/axios/pull/5306)了响应头没有 `Content-Length` 的情况。
 
