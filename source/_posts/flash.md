@@ -31,9 +31,9 @@ excerpt: Adobe 早在 2020 年底就宣布 Flash 结束了它使命，但是我�
 
 **方案 3，使用纯净的 Flash + 支持 Flash 的较高版本浏览器**
 
-你可以点击[这里](https://github.com/darktohka/clean-flash-builds/releases/tag/v1.30)下载并安装 Flash 的纯净三合一版本。（GitHub 上的这个是移植的，原项目在 [GitLab](https://gitlab.com/cleanflash/installer) 上）
+你可以点击[这里](https://github.com/darktohka/clean-flash-builds/releases/tag/v1.30)到 GitHub 的 release 页下载并安装 Flash 的纯净三合一版本。（GitHub 上的这个是移植的，原项目在 [GitLab](https://gitlab.com/cleanflash/installer) 上）
 
-支持 Flash 的浏览器比较多，像国内的 QQ 浏览器，360 安全浏览器等均支持。但如果你向我一样厌恶国内这些毒瘤，那么推荐你使用低版本的 Chrome。
+支持 Flash 的浏览器比较多，像国内的 QQ 浏览器，360 安全浏览器等均支持。但如果你像我一样厌恶国内这些毒瘤，那么推荐你使用低版本的 Chrome。
 
 国外各大知名浏览器，从 Chrome 88、Edge 88、Firefox 85 开始都不再支持 Flash，Chrome 支持 Flash 但没有内置 Flash 的最高版本是 87 版本，你可以点击[这里](https://viki.lanzout.com/ilIu50jrdpmh)跳转到蓝奏网盘下载 Chrome 87 版本。
 
