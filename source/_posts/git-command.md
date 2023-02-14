@@ -14,14 +14,14 @@ excerpt: 总结了一些常见常用的 Git 命令 方便日后查阅
 
 ### 配置默认信息
 
-```shell
+```bash
 git config --global user.name "[username]"
 git config --global user.email "[email_address]"
 ```
 
 ### 初始化版本库
 
-```shell
+```bash
 # 将当前目录初始化为 git 版本库
 git init
 # 重命名当前分支为 main
@@ -32,26 +32,26 @@ git branch -M main
 
 ### 设置远程分支
 
-```shell
+```bash
 git remote add origin [repo_url]
 ```
 
 ### 暂存更改
 
-```shell
+```bash
 git add .
 git add -A .
 ```
 
 ### 提交更改
 
-```shell
+```bash
 git commit -m "[commit_message]"
 ```
 
 ### 发布 main 分支
 
-```shell
+```bash
 git push -u origin main
 ```
 
@@ -61,19 +61,19 @@ git push -u origin main
 
 #### 查看当前版本库状态
 
-```shell
+```bash
 git status
 ```
 
 #### 暂存更改
 
-```shell
+```bash
 git add .
 ```
 
 #### 提交更改
 
-```shell
+```bash
 git commit -m "[commit_message]"
 ```
 
@@ -81,7 +81,7 @@ git commit -m "[commit_message]"
 
 运行以下命令后按`i`进入编辑模式
 
-```shell
+```bash
 git commit --amend
 ```
 
@@ -89,13 +89,13 @@ git commit --amend
 
 #### 新建分支
 
-```shell
+```bash
 git branch [new_branch]
 ```
 
 #### 切换分支
 
-```shell
+```bash
 git checkout [banch_name]
 git checkout HEAD^
 git checkout HEAD~3
@@ -103,13 +103,13 @@ git checkout HEAD~3
 
 #### 删除本地分支
 
-```shell
+```bash
 git branch -d [branch_name]
 ```
 
 #### 新建并切换到指定分支
 
-```shell
+```bash
 git checkout -b [branch_name]
 ```
 
@@ -117,7 +117,7 @@ git checkout -b [branch_name]
 
 合并指定分支到当前分支
 
-```shell
+```bash
 git merge [branch_name]
 ```
 
@@ -125,7 +125,7 @@ git merge [branch_name]
 
 把当前分支迁移到目标分支的后面
 
-```shell
+```bash
 git rebase [branch_name]
 ```
 
@@ -137,13 +137,13 @@ git rebase [branch_name]
 
 仅仅撤销上一个 `commit` 不修改你改动了的文件
 
-```shell
+```bash
 git reset --soft HEAD^
 ```
 
 若只是想修改 `commit` 信息，可以先运行下列命令，然后输入 `i` 进入编辑模式，并修改第一行 `commit` 信息
 
-```shell
+```bash
 git commit --amend
 ```
 
@@ -153,14 +153,14 @@ git commit --amend
 
 > 说人话就是: 不懂的话千万别乱用 否则一下午写的代码全白给
 
-```shell
+```bash
 git reset --hard HEAD^ # 撤销上一个提交
 git reset --hard HEAD~3 # 撤销前三个提交
 ```
 
 如果实在是不小心误删， 可以先查看撤销记录， 找到要还原的记录的 `commitID` ， 再通过 `commitID` 还原:
 
-```shell
+```bash
 git reflog
 git reset --hard [commitID]
 ```
@@ -169,7 +169,7 @@ git reset --hard [commitID]
 
 ### 四、查看提交历史
 
-```shell
+```bash
 git log # 查看git日志(按q退出)
 git show (commitID) # 查看上一次(或者指定id的)提交记录
 git log -p [file_name] # 查看指定文件
@@ -178,7 +178,7 @@ git blame [file_name] # 以列表形式查看指定文件提交历史
 
 ## 附：可用来查阅的 git 命令集
 
-```shell
+```bash
 # 初始化一个 git 版本库
 git init
 # 查看版本库的状态

@@ -12,13 +12,13 @@ excerpt: 通过 scp 命令能够高效率的向服务器传输文件以及文件
 
 ### 将本地文件上传到服务器上
 
-```shell
+```bash
 scp /home/project/demo.text root@xxx.xxx.xxx.xxx:/home/
 ```
 
 ### 将本地文件夹上传到服务器上
 
-```shell
+```bash
 scp -r /home/project root@xxx.xxx.xxx.xxx:/home/
 ```
 
@@ -26,7 +26,7 @@ scp -r /home/project root@xxx.xxx.xxx.xxx:/home/
 
 ### 获取服务器上的文件（文件夹）
 
-```shell
+```bash
 scp -r root@xxx.xxx.xxx.xxx:/home/project /home/
 ```
 

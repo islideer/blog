@@ -20,13 +20,13 @@ excerpt: 列出了CentOS7中yum失效问题的可能原因，给出了对应的�
 
 1. 进入/etc/sysconfig/network-scripts 目录
 
-```shell
+```bash
 cd / etc / sysconfig / network - scripts
 ```
 
 2. 修改名为 ifcfg-ens33 的网卡配置文件
 
-```shell
+```bash
 vi ifcfg - ens33 #用vi打开文件并进行编辑
 ```
 
@@ -35,7 +35,7 @@ vi ifcfg - ens33 #用vi打开文件并进行编辑
 
 3. 重启服务
 
-```shell
+```bash
 reboot #重启系统
 service network restart #或者重启网络服务
 ```

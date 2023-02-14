@@ -146,7 +146,7 @@ Nice! 这不就是我们想要的结果吗？这个方式完美的解决了我�
 
 安装依赖
 
-```shell
+```bash
 npm i graphemer
 ```
 

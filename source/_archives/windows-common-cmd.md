@@ -33,7 +33,7 @@ excerpt: 总结了Windows命令行下的基本常识和常用命令，便于日�
 
 ## 3. 有趣的命令
 
-```shell
+```bash
 # 生成指定大小的空文件
 fsutil file createnew demo.txt 524288000
 

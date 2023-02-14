@@ -45,7 +45,7 @@ excerpt: 非常简单的一个 Python 爬虫程序爬取b站up主的粉丝数和
 
 安装 `fake_useragent`:
 
-```shell
+```bash
 pip insatll fake_useragent
 ```
 
@@ -158,7 +158,7 @@ print(jsonStr) '{"name": "Viki"}'
 
 安装 `threading`:
 
-```shell
+```bash
 pip install threading
 ```
 
