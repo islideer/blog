@@ -5,7 +5,7 @@ date: 2022-11-26
 excerpt: 一次契机，我接触到了原神，随后一发不可收拾，再到后面开发了一个 PC 端的小工具...
 ---
 
-![原神](https://ys.mihoyo.com/main/_nuxt/img/47f71d4.jpg)
+<img src="https://ys.mihoyo.com/main/_nuxt/img/47f71d4.jpg" alt="genshin" style="max-height: 400px" />
 
 > [《原神》](https://ys.mihoyo.com/) 是由[米哈游](https://mihoyo.com/)公司制作发行的一款开放世界冒险游戏。
 
@@ -29,7 +29,7 @@ excerpt: 一次契机，我接触到了原神，随后一发不可收拾，再�
 
 但是玩过原神的同学都知道，如果你要查看一些游戏内的状态数据，要么登录游戏，要么只能下载米游社 APP，到手机上查看。启动游戏看的话大材小用，有时候还卡顿，用手机看的话太麻烦，要掏出手机，还得下米游社。~~现在搞开发的谁还时不时去看手机啊，笔记本一把梭~~。正是由于这些麻烦的地方，加上刚好我最近想学习一些跨端的框架和技术，于是心血来潮，花了一个多月的时间，完成了这个「原神助手」小工具的基本功能，并开源在了 [GitHub](https://github.com/vikiboss/gs-helper) 上。（截至 2023 年 1 月，项目原仓库已经收获了 180+ star）
 
-> 注: 2023 年 1 月 5 日因不明原因，仓库被 GitHub 冻结，已向 GitHub 发起工单，但截至目前仍未收到任何回复。故重新开了一个仓库维护本项目。
+> 注: 原仓库是 [genshin-helper](https://github.com/vikiboss/genshin-helper)，2022 年底因为没 Mac 电脑，就在 GitHub 开源仓库上配置了个自动构建多平台包的 Action，然后 2023 年 1 月 5 日仓库被 GitHub 以滥用 Action 的理由冻结了。现在以当前的 [gs-helper](https://github.com/vikiboss/genshin-helper) 仓库作为新的源码仓库进行后续更新。
 
 因为心血来潮而专门为 《原神》 玩家精心编写的开源小工具，基于 [`Electron`](https://www.electronjs.org/) 和 [`React`](https://reactjs.org/)，支持祈愿历史分析、导入导出祈愿数据、查看实时便签数据（树脂、委托、周本、派遣）、查询自己和他人的游戏详细数据（宝箱、神瞳、活跃天、探索度等）、查看深渊螺旋信息、查看角色列表和详细信息、内置米游社地图和攻略、原神材料日历、多账户支持并可快速切换等。
 
@@ -37,6 +37,8 @@ excerpt: 一次契机，我接触到了原神，随后一发不可收拾，再�
 
 ## 欢迎下载使用
 
-原神助手的 [GitHub](https://github.com/vikiboss/gs-helper) 仓库主页有详细功能介绍和界面截图，你可以到 GitHub 进行下载。或者，你也可以加入[**原神助手交流群**](https://jq.qq.com/?_wv=1027&k=InHF9niP)(群号: 176593098)，实时关注 最新动向，到群文件下载最新版本，欢迎一起来玩~
+[GitHub](https://github.com/vikiboss/gs-helper) 仓库主页下滑可以找到下载链接，仓库页面还有其他详细功能介绍和界面截图。
+
+你也可以加入[**原神助手交流群**](https://jq.qq.com/?_wv=1027&k=InHF9niP)(群号: 176593098)，实时关注最新的更新动向，或者到群文件下载尝新最新版本，欢迎一起来玩~
 
 以上观点和介绍仅代表我个人见解，感谢你的阅读。
