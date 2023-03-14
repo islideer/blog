@@ -5,7 +5,7 @@ date: 2023-03-14
 excerpt: Shebang，也称为 hashbang 或 sha-bang，是一种...
 ---
 
-> 本篇文章主要内容由 [ChatGPT](https://chat.openai.com/chat) 于 2023/3/14 生成。
+> 本篇文章主要内容由 [ChatGPT](https://chat.openai.com/chat) 生成。
 
 **什么是 Shebang？**
 
