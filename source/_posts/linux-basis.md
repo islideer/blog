@@ -312,38 +312,245 @@ ping -i 3 -s 1024 viki.moe
 
 ### ssh
 
+ssh 命令用于通过远程登录安全地连接到远程计算机。它使用加密技术对登录信息和数据进行保护。以下是一些常用的 ssh 命令示例：
+
+```bash
+# 连接到远程主机
+ssh username@remote_host
+
+# 使用不同的端口号连接
+ssh -p port_number username@remote_host
+
+# 连接时禁用主机密钥检查
+ssh -o StrictHostKeyChecking=no username@remote_host
+
+# 将本地文件传输到远程主机
+scp local_file username@remote_host:/remote_folder
+
+# 将远程主机的文件复制到本地
+scp username@remote_host:/remote_folder/remote_file local_folder
+```
+
 ### df
+
+df 命令用于显示文件系统的磁盘空间使用情况。以下是一些 df 命令的示例：
+
+```bash
+# 显示所有挂载的文件系统的磁盘使用情况
+df -h
+
+# 显示指定文件系统的磁盘使用情况
+df -h /dev/sda1
+
+# 显示所有文件系统的磁盘使用情况，并且以 1K 为单位显示
+df -k
+```
 
 ### kill
 
+kill 命令用于发送信号给进程。常用于终止运行中的进程。以下是一些 kill 命令的示例：
+
+```bash
+# 结束指定进程
+kill PID
+
+# 结束所有名为 name 的进程
+pkill name
+
+# 结束所有父进程为 PID 的进程
+killall -g PID
+```
+
 ### chmod
+
+chmod 命令用于更改文件或目录的权限。以下是一些 chmod 命令的示例：
+
+```bash
+# 给文件添加可执行权限
+chmod +x filename
+
+# 给文件添加可读写权限
+chmod u+rw filename
+
+# 给目录及其所有子目录和文件添加可读写执行权限
+chmod -R u+rwx directory
+```
 
 ### chown
 
+chown 命令用于更改文件或目录的所有者和所属组。以下是一些 chown 命令的示例：
+
+```bash
+# 更改文件的所有者为 username
+chown username filename
+
+# 更改文件的所有者和所属组
+chown username:groupname filename
+
+# 更改目录及其所有子目录和文件的所有者为 username
+chown -R username directory
+```
+
 ### ps
+
+ps 命令用于显示系统中运行的进程的信息。以下是一些 ps 命令的示例：
+
+```bash
+# 显示当前用户的进程
+ps
+
+# 显示所有运行中的进程
+ps -e
+
+# 显示指定进程的详细信息
+ps -p PID -o pid,ppid,cmd,%cpu,%mem
+```
 
 ### tar
 
+tar 命令用于创建和解压 tar 归档文件。tar 文件通常用于将一组文件打包成单个文件，以便于传输或备份。
+
+```bash
+# 创建 tar 归档文件
+tar -cvf archive.tar file1 file2 directory1
+
+# 查看 tar 归档文件的内容
+tar -tvf archive.tar
+
+# 解压缩 tar 归档文件
+tar -xvf archive.tar
+```
+
+### find
+
+find 命令用于查找文件，可以按照名称、类型、大小等条件查找。
+
+```bash
+# 按照名称查找
+find . -name "temp*"
+
+# 按照类型查找，d 代表目录，f 代表文件
+find . -type d
+
+# 按照大小查找，+ 表示大于，- 表示小于
+find . -size +10M
+
+# 按照修改时间查找，+ 表示更久远的时间，- 表示更新的时间
+find . -mtime -30ssc
+```
+
 ### grep
+
+grep 命令用于查找文本内容，可以在文件中查找指定的文本并输出匹配的行。
+
+```bash
+# 查找匹配的文本（示例中为 `console.log`）
+grep -r "console.log" src/
+
+# 查找不匹配的文本，加上 -v 参数
+grep -rv "debugger" src/
+
+# 查找文件内容并输出文件名
+grep -rl "React" src/
+
+# 查找多个关键字（使用 | 分割）
+grep -rnw "src/" -e "React" -e "Vue"
+```
 
 ### curl
 
+curl 命令用于从 URL 下载文件或向服务器发送 HTTP 请求。
+
+```bash
+# 下载文件
+curl -O https://example.com/file.zip
+
+# 发送 HTTP 请求
+curl -X POST https://example.com/api -H "Content-Type: application/json" -d '{"name": "John", "age": 30}'
+```
+
 ### wget
+
+wget 命令用于从 URL 下载文件。
+
+```bash
+# 下载文件
+wget https://example.com/file.zip
+```
 
 ### dig
 
+dig 命令用于查询 DNS 服务器并返回域名的 IP 地址。
+
+```bash
+# 查询域名的 IP 地址
+dig example.com
+```
+
 ### netstat
+
+netstat 命令用于显示网络连接、路由表和网络接口信息。
+
+```bash
+# 显示网络连接信息
+netstat -a
+
+# 显示路由表信息
+netstat -r
+
+# 显示网络接口信息
+netstat -i
+```
 
 ### nslookup
 
+nslookup 命令用于查询 DNS 服务器并返回域名的 IP 地址。
+
+```bash
+# 查询域名的 IP 地址
+nslookup example.com
+```
+
 ### ifconfig
+
+ifconfig 命令用于显示和配置网络接口信息。
+
+```bash
+# 显示所有网络接口信息
+ifconfig -a
+
+# 配置网络接口信息
+ifconfig eth0 192.168.0.10 netmask 255.255.255.0 up
+```
 
 ### ip
 
+ip 命令用于显示和配置网络接口信息。
+
+```bash
+# 显示所有网络接口信息
+ip addr show
+
+# 配置网络接口信息
+ip addr add 192.168.0.10/24 dev eth0
+```
+
 ### gzip
+
+gzip 命令用于压缩文件。
+
+```bash
+# 压缩文件
+gzip file.txt
+
+# 解压缩文件
+gzip -d file.txt.gz
+```
 
 ## 参考
 
 - [Arch manual pages](https://man.archlinux.org/)
 - [Linux 教程](https://www.myfreax.com/linux-tutorial/)
 - [前端应该会的 32 个 Linux 常用命令](https://mp.weixin.qq.com/s/4qBEmiO-ABNPyYxil3EqTg)
+
+> 部分内容由 [ChatGPT](https://chat.openai.com/chat) 补全。
