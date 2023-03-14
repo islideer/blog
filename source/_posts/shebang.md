@@ -5,9 +5,9 @@ date: 2023-03-14
 excerpt: Shebang，也称为 hashbang 或 sha-bang，是一种...
 ---
 
-> 本文内容大部分由 ChatGPT 生成。
->
-> **什么是 Shebang？**
+> 本篇文章主要内容由 [ChatGPT](https://chat.openai.com/chat) 于 2023/3/14 生成。
+
+**什么是 Shebang？**
 
 Shebang，也称为 hashbang 或 sha-bang，是一种在 Unix、Linux 和其他类 Unix 系统上的脚本中使用的特殊字符序列。它的作用是指定脚本应该由哪个解释器来解释执行。
 
