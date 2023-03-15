@@ -2,7 +2,7 @@
 layout: post
 title: 使用 Web Speech API 原生实现语音识别和文字转语音功能
 date: 2023-03-14
-excerpt: Web Speech API 是一项现代 Web 技术，它允许我们在浏览器中进行语音识别和文本转语音。在这篇文章中，我们将会深入探讨 Web Speech API 的基本使用，并且我们还将探讨它的浏览器兼容性。
+excerpt: Web Speech API 是一项现代 Web 技术，它允许我们在浏览器中进行语音识别和文本转语音。
 ---
 
 > 本篇文章主要内容由 [ChatGPT](https://chat.openai.com/chat) 生成。

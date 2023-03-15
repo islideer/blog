@@ -2,7 +2,7 @@
 layout: post
 title: 什么是 Shebang
 date: 2023-03-14
-excerpt: Shebang，也称为 hashbang 或 sha-bang，是一种...
+excerpt: Shebang，也称为 hashbang 或 sha-bang，是一种在 Unix、Linux 和其他类 Unix 系统上...
 ---
 
 > 本篇文章主要内容由 [ChatGPT](https://chat.openai.com/chat) 生成。
