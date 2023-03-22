@@ -24,7 +24,12 @@ Hi，我是 `Viki`，来自某不知名 211 高校**计科专业**的大四本�
 > 本站属于静态站点，托管在 [Vercel](https://vercel.com/) 上。
 
 <picture>
+  <source srcset="https://proxy.viki.moe/vikiboss/vikiboss/snake/snake.svg?proxy-host=raw.githubusercontent.com">
+  <img alt="snake" src="https://proxy.viki.moe/vikiboss/vikiboss/snake/snake.svg?proxy-host=raw.githubusercontent.com">
+</picture>
+
+<!-- <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://proxy.viki.moe/vikiboss/vikiboss/snake/snake-dark.svg?proxy-host=raw.githubusercontent.com">
   <source media="(prefers-color-scheme: light)" srcset="https://proxy.viki.moe/vikiboss/vikiboss/snake/snake.svg?proxy-host=raw.githubusercontent.com">
   <img alt="snake" src="https://proxy.viki.moe/vikiboss/vikiboss/snake/snake.svg?proxy-host=raw.githubusercontent.com">
-</picture>
+</picture> -->
