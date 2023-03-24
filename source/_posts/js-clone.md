@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JavaScript 中的深拷贝与浅拷贝
+title: 简单实现一下 JavaScript 中的深拷贝与浅拷贝
 date: 2022-03-06
 top_image: https://s2.loli.net/2022/03/06/ed7FfCKA1ipN24r.png
 excerpt: 分析深拷贝与浅拷贝的异同，并使用 JavaScript 进行代码实现。
@@ -194,3 +194,7 @@ console.log(obj2);
 ```
 
 可以看到，第二版代码的处理更加科学和准确，它采用 `Object.prototype.toString` 来判断类型，并对内置的 `JavaScript` 对象进行了还原，使它能更加精准的拷贝对象的属性。
+
+### 2023/3/24 更新
+
+实际生产环境下建议使用 [rfdc](https://github.com/davidmarkclements/rfdc) 社区 npm 包。
