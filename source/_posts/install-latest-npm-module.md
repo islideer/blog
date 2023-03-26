@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 频繁发布时如何确保始终安装最新的 npm 包
+title: 频繁发布 npm 包时如何确保始终安装最新版本
 date: 2023-03-26
 excerpt: 由于缓存和网络延迟的影响，在安装和更新的时候，可能安装的不是最新版本的 npm 包。
 ---
@@ -11,7 +11,7 @@ excerpt: 由于缓存和网络延迟的影响，在安装和更新的时候，�
 
 ## 解决方案
 
-**使用 --prefer-online 标志**
+**使用 `--prefer-online` 标志**
 
 执行 npm install 或 npm update 时添加 --prefer-online 标志，设置优先从远程 registry 获取。
 
@@ -25,4 +25,6 @@ npm install --prefer-online xxx
 prefer-online=true
 ```
 
-> 类似的选项还有 `--prefer-offline` 等，`--cache-max=0` 选项其实是 `--prefer-online` 的 alias，有关更多 npm config 的信息请参考 [npm doc](https://docs.npmjs.com/cli/v9/using-npm/config#prefer-online)。
+类似的选项还有 `--prefer-offline` 等，`--cache-max=0` 选项其实是 `--prefer-online` 的 alias。
+
+有关更多 npm config 的信息请参考 [npm doc](https://docs.npmjs.com/cli/v9/using-npm/config#prefer-online)。
