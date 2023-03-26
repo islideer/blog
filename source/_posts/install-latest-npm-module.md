@@ -27,4 +27,4 @@ prefer-online=true
 
 类似的选项还有 `--prefer-offline` 等，`--cache-max=0` 选项其实是 `--prefer-online` 的 alias。
 
-有关更多 npm config 的信息请参考 [npm doc](https://docs.npmjs.com/cli/v9/using-npm/config#prefer-online)。
+更多有关 npm config 的信息请参考 [npm doc](https://docs.npmjs.com/cli/v9/using-npm/config#prefer-online)。
