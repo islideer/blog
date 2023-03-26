@@ -2,7 +2,7 @@
 layout: post
 title: Hello World
 date: 2019-11-08
-excerpt: Viki 的博客行程轨迹。
+excerpt: 我的博客行程轨迹。
 ---
 
 ## 2019.11.8

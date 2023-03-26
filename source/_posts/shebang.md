@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 什么是 Shebang
+title: 什么是 Shebang (或 hashbang)
 date: 2023-03-14
 excerpt: Shebang，也称为 hashbang 或 sha-bang，是一种在 Unix、Linux 和其他类 Unix 系统上...
 ---

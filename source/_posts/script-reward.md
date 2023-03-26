@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 竟然有人给我打赏了
+title: 随手写的一个油猴脚本竟然有人给我打赏了
 date: 2020-06-17
-excerpt: 随手写的一个油猴脚本竟然获得了打赏，人生第一次写代码获得物质上的肯定。
+excerpt: 一个这么简单的油猴脚本竟然获得了打赏，人生第一次写代码获得物质上的肯定。
 ---
 
 > 2022 年更新：百度网盘网页端已更新，本文提到的脚本和文中的示例代码已失效，如仍有倍速播放需求，可以使用 Google Chrome 的浏览器扩展 [Global Speed](https://chrome.google.com/webstore/detail/global-speed/jpbjcnkcffbooppibceonlgknpkniiff?hl=zh-CN)。
