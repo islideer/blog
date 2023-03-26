@@ -11,7 +11,7 @@ excerpt: 由于缓存和网络延迟的影响，在安装和更新的时候，�
 
 ## 解决方案
 
-**使用 --prefer-online 标志**
+**安装时使用 --prefer-online 标志**
 
 执行 npm install 或 npm update 时添加 --prefer-online 标志，设置优先从远程 registry 获取。
 
@@ -24,5 +24,3 @@ npm install --prefer-online xxx
 ```ini
 prefer-online=true
 ```
-
-> 类似的选项还有 `--prefer-offline` 等，`--cache-max=0` 选项其实是 `--prefer-online` 的 alias，有关更多 npm config 的信息请参考 [npm doc](https://docs.npmjs.com/cli/v9/using-npm/config#prefer-online)。
