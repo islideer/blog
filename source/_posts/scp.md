@@ -22,7 +22,7 @@ scp /home/project/demo.text root@xxx.xxx.xxx.xxx:/home/
 scp -r /home/project root@xxx.xxx.xxx.xxx:/home/
 ```
 
-> `-r` 参数表示递归（recursiv）
+> `-r` 参数表示递归（recursive）
 
 ### 获取服务器上的文件（文件夹）
 

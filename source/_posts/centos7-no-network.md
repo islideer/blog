@@ -15,10 +15,12 @@ CentOS 默认是不连接网络的，需要在安装的时候（GUI 界面）手
 
 ## 解决方案
 
-如果安装的时候选忘了勾选咋整？我知道你很急，但你先别急
+如果安装的时候选忘了勾选咋整？
+
+我知道你很急，但你先别急
 
 使用 `vi` 编辑 `/etc/sysconfig/network-scripts/ifcfg-ens33` 文件，将 `ONBOOT` 改为 `yes`，然后保存并退出就好啦！
 
 好吧，其实改完了还不行，你得让这个改动生效。
 
-你可以通过 `service network restart` 命令重启网络服务，或者输入 `reboot` 重启 CentOS，好了这下真好了。
+你可以通过 `service network restart` 命令重启网络服务，或者输入 `reboot` 重启 CentOS。

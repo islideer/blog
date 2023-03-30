@@ -14,7 +14,7 @@ excerpt: JavaScript 之 this 指向判断
 
 在笔者自己彻底理解的同时, 也可以作为后来人的参考
 
-> 本文主要探讨浏览器环境下的 `this` 指向问题 node 环境会有所不同 如: 浏览器全局对象是 `window` 而 node 环境全局对象是 `gobal`
+> 本文主要探讨浏览器环境下的 `this` 指向问题 node 环境会有所不同 如: 浏览器全局对象是 `window` 而 node 环境全局对象是 `global`
 
 ## this 指向详析
 
@@ -25,15 +25,15 @@ excerpt: JavaScript 之 this 指向判断
 ```html
 <!-- 标准模式 -->
 <script>
-  console.log(this); // window
+  console.log(this) // window
 </script>
 ```
 
 ```html
 <!-- 严格模式 -->
 <script>
-  "use strict";
-  console.log(this); // window
+  'use strict'
+  console.log(this) // window
 </script>
 ```
 
@@ -44,13 +44,13 @@ excerpt: JavaScript 之 this 指向判断
 
 ```js
 // main.js  标准模式的全局环境下
-console.log(this); // window
+console.log(this) // window
 ```
 
 ```js
 // main.js  严格模式的全局环境下
-"use strict";
-console.log(this); // window
+'use strict'
+console.log(this) // window
 ```
 
 ### 2. function 定义的函数中
@@ -75,94 +75,94 @@ console.log(this); // window
 ```js
 // 标准模式下 普通函数调用
 function foo() {
-  console.log(this);
+  console.log(this)
 }
 
 // 等同于 window.foo()
-foo(); // window
+foo() // window
 ```
 
 ```js
 // 严格模式下 函数普通调用
-"use strict";
+'use strict'
 function foo() {
-  console.log(this);
+  console.log(this)
 }
 
-foo(); // undefined
+foo() // undefined
 ```
 
 ```js
 // 通过对象调用函数
 var obj = {
   foo: function () {
-    console.log(this);
-  },
-};
+    console.log(this)
+  }
+}
 
-obj.foo(); // obj
+obj.foo() // obj
 ```
 
 ```js
 // 通过 new 操作符调用
 function foo(bar) {
-  this.bar = bar;
-  console.log(this.value);
+  this.bar = bar
+  console.log(this.value)
 }
 
-var bar = new foo(2); // undefined
-console.log(bar); // foo {bar: 2}
+var bar = new foo(2) // undefined
+console.log(bar) // foo {bar: 2}
 ```
 
 ```js
 // 通过 call/apply 调用
 var obj = {
-  foo: 1,
-};
-
-function bar() {
-  console.log(this.foo);
+  foo: 1
 }
 
-bar(); //undefined
-bar.call(obj); // 1
-bar.apply(obj); // 1
-bar.call(null); // undefined
+function bar() {
+  console.log(this.foo)
+}
+
+bar() //undefined
+bar.call(obj) // 1
+bar.apply(obj) // 1
+bar.call(null) // undefined
 ```
 
 ```js
 var obj = {
-  foo: 1,
-};
-
-function bar() {
-  console.log(this.foo);
+  foo: 1
 }
 
-bar(); // undefined
-var bark = bar.bind(obj); // 无输出
-bark(); // 1
+function bar() {
+  console.log(this.foo)
+}
 
-obj.foo = 2;
-bark(); // 2
+bar() // undefined
+var bark = bar.bind(obj) // 无输出
+bark() // 1
+
+obj.foo = 2
+bark() // 2
 ```
 
 ```js
 // 异步函数中this指向 window
-var bar = 100;
+var bar = 100
 
 var obj = {
-  bar: 0,
-};
-
-function bark() {
-  console.log(this.bar);
-  setTimeout(function () {
-    console.log(this.bar);
-  }, 1000);
+  bar: 0
 }
 
-bark.call(obj); // 0 (等待一秒) 100
+function bark() {
+  console.log(this.bar)
+  setTimeout(function () {
+    console.log(this.bar)
+  }, 1000)
+}
+
+bark.call(obj) // 0 (等待一秒) 100
 ```
 
 ### 3. ES6 箭头函数中
@@ -174,20 +174,20 @@ bark.call(obj); // 0 (等待一秒) 100
 - 当无法找到时, 指向 `window`
 
 ```js
-var count = 100;
+var count = 100
 
 var obj = {
-  count: 0,
-};
-
-function foo() {
-  var bar = () => console.log(this);
-  bar.call(obj);
-  console.log(this.count);
+  count: 0
 }
 
-foo(); // window 100
-foo.call(obj); // {count: 0} 0
+function foo() {
+  var bar = () => console.log(this)
+  bar.call(obj)
+  console.log(this.count)
+}
+
+foo() // window 100
+foo.call(obj) // {count: 0} 0
 ```
 
 > 当上述代码中的 `var` 换为了 `let` 之后结果又是什么? 不妨自己试试.
@@ -203,7 +203,7 @@ foo.call(obj); // {count: 0} 0
 <div onclick="msg()">Viki</div>
 <script>
   function msg() {
-    alert(this); // this指向window 获取不到元素
+    alert(this) // this指向window 获取不到元素
   }
 </script>
 ```
@@ -213,7 +213,7 @@ foo.call(obj); // {count: 0} 0
 <div onclick="foo(event.target)">Viki</div>
 <script>
   function foo(element) {
-    alert(element); // this还是指向window 不过现在可以操作元素
+    alert(element) // this还是指向window 不过现在可以操作元素
   }
 </script>
 ```
@@ -226,26 +226,26 @@ foo.call(obj); // {count: 0} 0
 
 ```js
 // 给事件定义函数
-var box = document.getElementById("box");
+var box = document.getElementById('box')
 box.onclick = function () {
-  alert(this.id); // "box"
-};
+  alert(this.id) // "box"
+}
 ```
 
 ```js
 // 添加事件监听
-var box = document.getElementById("box");
-box.addEventListener("click", function () {
-  alert(this.id); // "box"
-});
+var box = document.getElementById('box')
+box.addEventListener('click', function () {
+  alert(this.id) // "box"
+})
 ```
 
 ```js
 // 在ie中使用attachEvent() this指向window
-var box = document.getElementById("box");
-box.attachEvent("onclick", function () {
-  alert(this); // winodw
-});
+var box = document.getElementById('box')
+box.attachEvent('onclick', function () {
+  alert(this) // window
+})
 ```
 
 #### Ajax 中 原生 XHR 对象的 this 指向问题
@@ -253,19 +253,19 @@ box.attachEvent("onclick", function () {
 由于 `onreadystatechange` 事件的作用域问题, 使用 `this` 对象，函数可能会在一些浏览器执行失败，或者发生错误. 所以一般使用 xhr 实例对象更加靠谱.
 
 ```js
-var xhr = new XMLHttpRequest();
-xhr.open("get", "https://example.org", true);
+var xhr = new XMLHttpRequest()
+xhr.open('get', 'https://example.org', true)
 xhr.onreadystatechange = function () {
   // 这里一般使用xhr实例对象而不用this
   if (xhr.readyState == 4) {
     if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
-      alert(xhr.responseText);
+      alert(xhr.responseText)
     } else {
-      alert("Request Failed: " + xhr.status);
+      alert('Request Failed: ' + xhr.status)
     }
   }
-};
-xhr.send(null);
+}
+xhr.send(null)
 ```
 
 ## 参考
