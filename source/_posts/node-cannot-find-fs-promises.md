@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cannot find module 'fs/promises'
+title: node 报错 Cannot find module 'fs/promises'
 date: 2022-02-15
 top_image: https://s2.loli.net/2022/02/16/pmb43yIuZ5PETxU.png
 excerpt: 运行 node 项目时出现 Cannot find module 'fs/promises' 报错
@@ -14,9 +14,10 @@ node 13 及以下版本的 `fs` `promises` CommonJS 规范的引用方式：
 
 ```js
 const fs = require('fs').promises
+const { promises: fs } = require('fs')
 ```
 
-node 14 及以上版本的 `fs` `promises` CommonJS 规范的引用方式：
+node 14 及以上版本支持的 `fs` `promises` CommonJS 规范的引用方式：
 
 ```js
 const fs = require('fs/promises')
@@ -35,6 +36,7 @@ Win7 及以下版本不支持 node 14 及以上版本，所以此方法在 Win7 
 ```js
 // node <= 13.x
 const fs = require('fs').promises
-// node >= 14.x
+const { promises: fs } = require('fs')
+// node >= 14.x 支持
 const fs = require('fs/promises')
 ```

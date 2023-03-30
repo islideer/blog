@@ -17,10 +17,10 @@ excerpt: 分析深拷贝与浅拷贝的异同，并使用 JavaScript 进行代�
 上述引用数据类型的值分配方式看着貌似没啥问题，但是在实际使用中会有奇怪的情况：
 
 ```js
-const obj = { a: 123, b: 456 };
-const obj2 = obj;
-obj.a = 789;
-console.log(obj2.a);
+const obj = { a: 123, b: 456 }
+const obj2 = obj
+obj.a = 789
+console.log(obj2.a)
 ```
 
 猜猜打印出的是什么？
@@ -55,10 +55,10 @@ console.log(obj2.a);
 以下情况属于深拷贝（彻底拷贝完全，新旧对象互不影响）
 
 1. 创建新的对象，并使用递归对每一层的基本数据类型重新拷贝
-2. `JSON.parse(JSON.stringfy(obj))`（不推荐）
+2. `JSON.parse(JSON.stringify(obj))`（不推荐）
 3. `jquery`、`lodash` 等自带的深拷贝函数
 
-使用 `JSON.parse(JSON.stringfy(obj))` 有很多弊端：
+使用 `JSON.parse(JSON.stringify(obj))` 有很多弊端：
 
 1. 值为 `undefined`、**函数**、`Symbol` 的属性会被忽略
 2. 值为 `NaN`、`Infinity`、`-Infinity` 的属性会被置为 `null`
@@ -71,10 +71,10 @@ console.log(obj2.a);
 为了解决上述的奇怪的表现，我们需要一个函数 `deepClone`，来实现以下效果：
 
 ```js
-const obj = { a: 123, b: 456 };
-const obj2 = deepClone(obj);
-obj.a = 789;
-console.log(obj2.a); // 输出 123 而不是 789
+const obj = { a: 123, b: 456 }
+const obj2 = deepClone(obj)
+obj.a = 789
+console.log(obj2.a) // 输出 123 而不是 789
 ```
 
 第一版代码：
@@ -82,33 +82,33 @@ console.log(obj2.a); // 输出 123 而不是 789
 ```js
 function deepClone(obj, useJSON = false) {
   // 过滤基本数据类型
-  if (typeof obj !== "object" || obj === null) return obj;
+  if (typeof obj !== 'object' || obj === null) return obj
   // JSON 方式的深拷贝实现
-  if (useJSON) return JSON.parse(JSON.stringify(obj));
+  if (useJSON) return JSON.parse(JSON.stringify(obj))
 
-  let _obj = Array.isArray(obj) ? [] : {};
+  let _obj = Array.isArray(obj) ? [] : {}
   for (const key in obj) {
     // 原型链上的属性不拷贝
-    if (!obj.hasOwnProperty(key)) return;
-    if (typeof obj[key] === "object" && obj[key] !== null) {
+    if (!obj.hasOwnProperty(key)) return
+    if (typeof obj[key] === 'object' && obj[key] !== null) {
       // 如果属性值为引用类型，递归调用 deepClone 函数进行深拷贝处理
-      _obj[key] = deepClone(obj[key]);
+      _obj[key] = deepClone(obj[key])
     } else {
       // 基本数据类型直接使用赋值运算符进行拷贝
-      _obj[key] = obj[key];
+      _obj[key] = obj[key]
     }
   }
-  return _obj;
+  return _obj
 }
 ```
 
 测试一下：
 
 ```js
-const obj = { a: 123, b: { c: 456 } };
-const obj2 = deepClone(obj);
-obj.b.c = 789;
-console.log(obj2.b.c); // 输出 456，测试通过
+const obj = { a: 123, b: { c: 456 } }
+const obj2 = deepClone(obj)
+obj.b.c = 789
+console.log(obj2.b.c) // 输出 456，测试通过
 ```
 
 上述 `deepClone` 的实现确实能搞定一般情况的深拷贝，但是对于一些属性值为内置的 `JavaScript` 对象的对象，情况可能就不这么乐观了，看下面的例子：
@@ -116,15 +116,15 @@ console.log(obj2.b.c); // 输出 456，测试通过
 ```js
 const obj = {
   a: new Date(),
-  b: { c: new Set([1]), d: new Map([["a", 1]]) },
-  e: { f: new Error("msg"), g: new RegExp("^obj$") },
-  h: (e) => console.log(e),
-};
+  b: { c: new Set([1]), d: new Map([['a', 1]]) },
+  e: { f: new Error('msg'), g: new RegExp('^obj$') },
+  h: e => console.log(e)
+}
 
 // 这里我们采用上述的 deepClone 函数
-const obj2 = deepClone(obj);
-obj.b.c = (e) => console.log(e);
-console.log(obj2);
+const obj2 = deepClone(obj)
+obj.b.c = e => console.log(e)
+console.log(obj2)
 
 // 输出结果如下：
 // {
@@ -146,24 +146,24 @@ console.log(obj2);
 function deepClone(obj) {
   // 定义获取类型的函数，Object.prototype.toString 会返回详细类型描述
   function getType(value) {
-    return Object.prototype.toString.call(value).slice(8, -1);
+    return Object.prototype.toString.call(value).slice(8, -1)
   }
   // 过滤基本数据类型和内置对象（Error、RegExp、Date 等）
-  if (getType(obj) !== "Object" && getType(obj) !== "Array") return obj;
+  if (getType(obj) !== 'Object' && getType(obj) !== 'Array') return obj
 
-  let _obj = Array.isArray(obj) ? [] : {};
+  let _obj = Array.isArray(obj) ? [] : {}
   for (const key in obj) {
     // 原型链上的属性不拷贝
-    if (!obj.hasOwnProperty(key)) continue;
-    if (getType(obj) === "Object" || getType(obj) === "Array") {
+    if (!obj.hasOwnProperty(key)) continue
+    if (getType(obj) === 'Object' || getType(obj) === 'Array') {
       // 如果属性值为数组或对象，则递归调用 deepClone 函数进行深拷贝处理
-      _obj[key] = deepClone(obj[key]);
+      _obj[key] = deepClone(obj[key])
     } else {
       // 基本数据类型与内置的 JavaScript 对象直接使用赋值运算符进行拷贝
-      _obj[key] = obj[key];
+      _obj[key] = obj[key]
     }
   }
-  return _obj;
+  return _obj
 }
 ```
 
@@ -172,14 +172,14 @@ function deepClone(obj) {
 ```js
 const obj = {
   a: new Date(),
-  b: { c: new Set([1]), d: new Map([["a", 1]]) },
-  e: { f: new Error("msg"), g: new RegExp("^obj$") },
-  h: (e) => console.log(e),
-};
+  b: { c: new Set([1]), d: new Map([['a', 1]]) },
+  e: { f: new Error('msg'), g: new RegExp('^obj$') },
+  h: e => console.log(e)
+}
 
-const obj2 = deepClone(obj);
-obj.b.c = (e) => console.log(e);
-console.log(obj2);
+const obj2 = deepClone(obj)
+obj.b.c = e => console.log(e)
+console.log(obj2)
 
 // 输出结果如下：
 // {
@@ -195,6 +195,8 @@ console.log(obj2);
 
 可以看到，第二版代码的处理更加科学和准确，它采用 `Object.prototype.toString` 来判断类型，并对内置的 `JavaScript` 对象进行了还原，使它能更加精准的拷贝对象的属性。
 
+但是这版也只是实现了普通对象的拷贝，针对复杂类型的对象（如 Map、Set 等），还是请使用社区的解决方案，如 [lodash](https://lodash.com/)、[clone](https://github.com/pvorb/clone) 等。
+
 ### 2023/3/24 更新
 
-实际生产环境下建议使用 [rfdc](https://github.com/davidmarkclements/rfdc) 社区 npm 包。
+实际生产环境下建议使用 [rfdc](https://github.com/davidmarkclements/rfdc)，这是社区的一个纯粹的、专门处理深拷贝的、优化性能可观的 npm 包。
