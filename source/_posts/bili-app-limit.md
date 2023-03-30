@@ -13,7 +13,7 @@ excerpt: 心血来潮想补补番，发现了个很不友好的提示。
 
 > “应版权方要求，本片仅支持 App 观看，请使用哔哩哔哩 App 扫描二维码”
 
-<img src="https://s2.loli.net/2023/03/26/oOPmKYyMViXnRlj.png" style="max-width: 320px" />
+<img src="https://s2.loli.net/2023/03/26/oOPmKYyMViXnRlj.png" style="max-width: 360px" />
 
 我第一次看到这个提示，原来啊 B 还有这种限制的吗？（思索）
 
@@ -23,4 +23,4 @@ excerpt: 心血来潮想补补番，发现了个很不友好的提示。
 
 其实，只要打开浏览器开发者工具（F12），切到手机端 UA，然后关掉开发者工具，点开全屏就 OK 了，好像也没什么困难的 XD。
 
-<img src="https://s2.loli.net/2023/03/26/Gu2JhxELwFPn74b.png" style="max-width: 320px" />
+<img src="https://s2.loli.net/2023/03/26/Gu2JhxELwFPn74b.png" style="max-width: 540px" />
