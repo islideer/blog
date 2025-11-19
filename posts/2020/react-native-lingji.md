@@ -1,33 +1,31 @@
 ---
 layout: post
-title: 2020-Hackthon总结(RN项目)
+title: 2020-Hackthon 总结（RN 项目）
 date: 2020-04-21
 top_image: https://i.loli.net/2020/11/21/3XTAsgFaRyBLvOz.png
-excerpt: 2020年家园工作室Hackthon大赛ReactNative项目总结
+excerpt: 2020 年家园工作室 Hackthon 大赛 ReactNative 项目总结
 ---
 
 ## 2020-Hackthon 总结(RN 项目)
 
 ### 前言
 
-这次家园举办的 **2020hackthon 大赛**的主题是“故事”，经过团队的讨论，我们最终的想法是做一个**以同人内容为主的的创作平台**。经过思考后，我选用的是 `React Native` ，一来是因为 App 是一个还没接触过的新领域，二来是因为 RN 是基于 `React` 的语法，最近刚学的 `React` 也可以从中得到实践。比赛共持续了 17 天，最终成果却很一般（悲伤辣么大）。在这个过程中，由于很多都是新学的技术，然后用的 RN 也是还处于公测期的最新版本，踩了不少的坑，这篇博客目的主要是记录学习 RN 的一个艰辛但难忘的过程，同时也是给后来的同学一个参考。
+这次家园举办的 **2020 Hackthon 大赛** 的主题是“故事”，经过团队的讨论，我们最终的想法是做一个**以同人内容为主的的创作平台**。经过思考后，我选用的是 `React Native` ，一来是因为 App 是一个还没接触过的新领域，二来是因为 RN 是基于 `React` 的语法，最近刚学的 `React` 也可以从中得到实践。比赛共持续了 17 天，最终成果却很一般（悲伤辣么大）。在这个过程中，由于很多都是新学的技术，然后用的 RN 也是还处于公测期的最新版本，踩了不少的坑，这篇博客目的主要是记录学习 RN 的一个艰辛但难忘的过程，同时也是给后来的同学一个参考。
 
 文章分为两部分内容。第一部分是对这次 Hackthon 整个项目的剖析（包括用到的一些开源库、一些新的语法、写法以及踩过的坑等等）。第二部分是自己在这个比赛过程中的一些心得体会。
 
-项目仓库地址：[lingji - Github](https://github.com/Vikiboss/2020-hackthon)
-
-本文代码示例只关注核心部分，不保证其完整性。
+项目仓库地址：[lingji - GitHub](https://github.com/Vikiboss/2020-hackthon)。本文代码示例只关注核心部分，不保证其完整性。
 
 ### 第一部分：“零几” RN 项目剖析
 
-- #### 技术栈
+#### 技术栈
 
   - `react` 16.11.0 用于构建用户界面的 JavaScript 库
   - `react-native` 0.62.1 使用 JavaScript 和 React 编写原生 App 的框架
   - `typescript` 3.8.3 微软开源拓展了 JavaScript 语法的编程语言
   - `redux` 4.0.5 JavaScript 应用程序的可预测状态容器
 
-- #### 用到的开源库
+#### 用到的开源库
 
   - `react-navigation 5.x` 管理全局路由
   - `react-native-vector-icons` 适用于 RN 的图标聚合库
@@ -45,7 +43,7 @@ excerpt: 2020年家园工作室Hackthon大赛ReactNative项目总结
 
 > 引用的所有开源库及版本信息等详见项目的[package.json](https://github.com/Vikiboss/2020-hackthon/blob/master/package.json)文件
 
-- #### 项目简析
+#### 项目简析
 
   - 目录树
 
@@ -166,4 +164,4 @@ excerpt: 2020年家园工作室Hackthon大赛ReactNative项目总结
     };
     ```
 
-    // 2020.4.21 待续
+// 2020.4.21 待续

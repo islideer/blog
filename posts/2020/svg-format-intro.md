@@ -1,14 +1,14 @@
 ---
 layout: post
-title: 了解SVG格式
+title: 了解 SVG 格式
 date: 2020-02-16
 top_image: https://i.loli.net/2020/11/21/8SGjpezdYDC4PE1.gif
-excerpt: 寒假学习之SVG介绍
+excerpt: 寒假学习之 SVG 介绍
 ---
 
 ## SVG 介绍
 
-### 什么是 SVG ？
+### 什么是 SVG？
 
 **一种图像文件格式**，英文全称 Scalable Vector Graphics，意为**可缩放的矢量图形**。
 

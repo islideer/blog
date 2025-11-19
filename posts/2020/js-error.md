@@ -1,9 +1,9 @@
 ---
 layout: post
-title: JavaScript错误处理
+title: JavaScript 错误处理
 date: 2020-01-11
 top_image: https://i.loli.net/2020/11/21/VHW3jNehAX7S548.jpg
-excerpt: 寒假学习之JavaScript错误处理
+excerpt: 寒假学习之 JavaScript 错误处理
 ---
 
 ## JavaScript 原生错误类型

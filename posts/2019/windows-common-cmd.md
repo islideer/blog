@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Windows命令行基础知识
+title: Windows 命令行基础知识
 date: 2019-12-18
 top_image: https://i.loli.net/2020/11/21/Q7DG9uSYmPJXov8.jpg
-excerpt: 总结了Windows命令行下的基本常识和常用命令，便于日后翻阅
+excerpt: 总结了 Windows 命令行下的基本常识和常用命令，便于日后翻阅
 ---
 
 使用 `help` + `命令名` 命令可以查看对应命令的详细用法
@@ -49,7 +49,5 @@ copy nul > file.txt
 > 如：在桌面空白处按住 shift，再单击鼠标右键可以看到"在此处打开 powershell 窗口"的选项
 
 2. 在文件夹窗口按 `Alt` + `d` 快捷键可快速定位到地址栏，再输入 `cmd` 或者 `powershell` 即可以快速打开当前路径下的命令行窗口
-
 3. 将文件夹拖入 `powershell` 的界面可以快速键入该目录的绝对路径
-
 4. 如果已经安装了 `vscode` ，可以输入 `code .` 命令用 `vscode` 打开当前目录

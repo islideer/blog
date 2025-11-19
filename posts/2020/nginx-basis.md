@@ -3,22 +3,14 @@ layout: post
 title: Nginx 快速入门
 date: 2020-02-14
 top_image: https://i.loli.net/2020/11/21/YCImdiJ4ovhqL1B.jpg
-excerpt: 寒假学习之Nginx基础
+excerpt: 寒假学习之 Nginx 基础
 ---
 
 ## Nginx 简要介绍
 
 ### Nginx 与 Apache
 
-`Nginx` 同 `Apache` 一样都是一种 WEB 服务器。通过 HTTP 协议提供各种网络服务。
-
-但毫无争议的世界第一大服务器 `Apache` 的发展时期很长，它被设计为一个重量级的服务器。
-
-它不支持高并发的服务器。在 `Apache` 上运行数以万计的并发访问，会导致服务器消耗大量内存。
-
-操作系统对其进行进程或线程间的切换也消耗了大量的 CPU 资源，导致 HTTP 请求的平均响应速度降低。
-
-这些都决定了 `Apache` 不可能成为高性能 WEB 服务器，轻量级高并发服务器 `Nginx` 就应运而生了。
+`Nginx` 同 `Apache` 一样都是一种 WEB 服务器。通过 HTTP 协议提供各种网络服务。但毫无争议的世界第一大服务器 `Apache` 的发展时期很长，它被设计为一个重量级的服务器。它不支持高并发的服务器。在 `Apache` 上运行数以万计的并发访问，会导致服务器消耗大量内存。操作系统对其进行进程或线程间的切换也消耗了大量的 CPU 资源，导致 HTTP 请求的平均响应速度降低。这些都决定了 `Apache` 不可能成为高性能 WEB 服务器，轻量级高并发服务器 `Nginx` 就应运而生了。
 
 ### Nginx
 
@@ -26,7 +18,7 @@ excerpt: 寒假学习之Nginx基础
 
 ## 安装
 
-参考 👉[官方网站](http://www.Nginx.cn/install)的安装教程
+参考 👉[官方网站](http://www.nginx.cn/install)的安装教程
 
 本文仅讨论 Nginx 在 Linux 服务器上的基本操作
 
@@ -36,19 +28,13 @@ excerpt: 寒假学习之Nginx基础
 
 ### 代理的理解
 
-所谓代理就是一个代表、一个渠道；
-
-此时就涉及到两个角色，一个是被代理角色，一个是目标角色，被代理角色通过这个代理访问目标角色完成一些任务的过程称为代理操作过程；
-
-如同生活中的专卖店，客人到 Adidas 专卖店买了一双鞋，这个专卖店就是代理，被代理角色就是 Adidas 厂家，目标角色就是用户。
+所谓代理就是一个代表、一个渠道；此时就涉及到两个角色，一个是被代理角色，一个是目标角色，被代理角色通过这个代理访问目标角色完成一些任务的过程称为代理操作过程；如同生活中的专卖店，客人到 Adidas 专卖店买了一双鞋，这个专卖店就是代理，被代理角色就是 Adidas 厂家，目标角色就是用户。
 
 ### 分类
 
 #### 正向代理
 
-在如今的网络环境下，我们如果由于技术需要，需要去访问国外的某些网站，此时你会发现位于国外的某网站我们通过浏览器是没有办法访问的
-
-一般的思路是，找到一个可以访问海外网站的服务器，我们将请求发送给这个服务器，让他去访问国外的网站，然后将访问到的数据传递回来来达到我们的目的。
+在如今的网络环境下，我们如果由于技术需要，需要去访问国外的某些网站，此时你会发现位于国外的某网站我们通过浏览器是没有办法访问的。一般的思路是，找到一个可以访问海外网站的服务器，我们将请求发送给这个服务器，让他去访问国外的网站，然后将访问到的数据传递回来来达到我们的目的。
 
 上述这样的代理模式称为**正向代理**，正向代理最大的特点是客户端非常明确要访问的服务器地址；服务器只清楚请求来自哪个代理服务器，而不清楚来自哪个具体的客户端；**正向代理模式屏蔽或者隐藏了真实客户端信息。**
 
@@ -67,15 +53,9 @@ excerpt: 寒假学习之Nginx基础
 
 先来考察一个事例：
 
-国内某宝电商平台大家都清楚，每天访问的人数相信在双十一期间大家都有目共睹。那么他们是如何处理这个问题的呢？
+国内某宝电商平台大家都清楚，每天访问的人数相信在双十一期间大家都有目共睹。那么他们是如何处理这个问题的呢？**分布式部署**，对 **分布式部署**
 
-**分布式部署**
-
-对 **分布式部署**
-
-直白来说就是通过部署多台服务器来解决访问人数限制的问题；某宝网站中大部分功能也是直接使用 Nginx 进行反向代理实现的，并且通过封装 Nginx 和其他的组件之后起了个高大上的名字：Tengine。
-
-简单理解 就是 一台 Nginx 服务器主要负责处理大量来自客户端请求，然后将这些请求分发给后台的业务服务器，那么这台负责处理请求服务器的运作方式就是反向代理。
+直白来说就是通过部署多台服务器来解决访问人数限制的问题；某宝网站中大部分功能也是直接使用 nginx 进行反向代理实现的，并且通过封装 nginx 和其他的组件之后起了个高大上的名字：Tengine。简单理解 就是 一台 nginx 服务器主要负责处理大量来自客户端请求，然后将这些请求分发给后台的业务服务器，那么这台负责处理请求服务器的运作方式就是反向代理。
 
 反向代理，"它**代理的是服务端，代服务端接收请求**"，主要用于服务器集群分布式部署，**反向代理隐藏了服务器的信息**。
 
@@ -91,21 +71,21 @@ excerpt: 寒假学习之Nginx基础
 
 ## 基本配置方法
 
-安装完 `Nginx` 后，执行 `Nginx` 命令。访问服务器公网 ip 地址即可看到 `Nginx` 的初始页面
+安装完 `nginx` 后，执行 `nginx` 命令。访问服务器公网 ip 地址即可看到 `nginx` 的初始页面
 
 ### 两个位置
 
-#### /etc/Nginx/
+#### /etc/nginx/
 
-这里存放了 `Nginx` 的全局配置文件 `Nginx.conf`
+这里存放了 `nginx` 的全局配置文件 `nginx.conf`
 
-> 或者被放在了 `/usr/local/Nginx/Nginx.conf` 👈 这里
+> 或者被放在了 `/usr/local/nginx/nginx.conf` 👈 这里
 
-其实配置文件目录下还有一个 `Nginx.conf.default` 文件
+其实配置文件目录下还有一个 `nginx.conf.default` 文件
 
 > 这个文件的作用是：当配置文件修改出错时，可以回到上一正常状态。
 
-#### /usr/share/Nginx/
+#### /usr/share/nginx/
 
 这里是部署项目的默认存放目录（默认的 Nginx 欢迎页就是在这个目录下）
 
@@ -117,15 +97,15 @@ excerpt: 寒假学习之Nginx基础
 
 > 具体可参考我写的[利用 Linux 的 scp 命令传输文件到服务器](https://vikiboss.top/2020/02/14/scp/)
 
-#### 然后用 vi 、vim 或者 nano 等编辑器配置 Nginx.conf 文件
+#### 然后用 vi 、vim 或者 nano 等编辑器配置 nginx.conf 文件
 
 ```bash
-nano /etc/Nginx/Nginx.conf #此处是你的 Nginx.conf 文件路径
+nano /etc/nginx/nginx.conf #此处是你的 nginx.conf 文件路径
 ```
 
 #### 找到 `http{ }` 块，可以看到其中有一个默认的 `server{ }` 块的配置 👇 解释如下
 
-```Nginx
+```nginx
 #设定虚拟主机配置
 server {
   #侦听80端口
@@ -135,7 +115,7 @@ server {
   #默认请求
   location / {
     #定义服务器的默认网站根目录位置
-    root /usr/share/Nginx/html;
+    root /usr/share/nginx/html;
     #定义首页索引文件的名称
     index index.html index.htm;
   }
@@ -145,7 +125,7 @@ server {
   error_page 500 502 503 504 /50x.html;
   location = /50x.html {
     #定义服务器的默认网站根目录位置
-    root /usr/share/Nginx/html;
+    root /usr/share/nginx/html;
   }
 }
 ```
@@ -154,7 +134,7 @@ server {
 
 #### 自己来写一个简单的 `server` 块 👇 （假设你部署的项目在 /home/blog 下）
 
-```Nginx
+```nginx
 server {
   listen 8000;
   location / {
@@ -164,7 +144,7 @@ server {
 }
 ```
 
-配置完后运行 `Nginx -s -reload` 进行配置的重载，此时访问服务器 ip 地址的 8000 端口（如：47.93.187.210:8000）就能看到自己部署的项目了！
+配置完后运行 `nginx -s -reload` 进行配置的重载，此时访问服务器 ip 地址的 8000 端口（如：47.93.187.210:8000）就能看到自己部署的项目了！
 
 请特别注意，这里的一个 `/` 或者一个 `空格` 可能都会影响最后部署的结果，请对照着仔细配置。
 
@@ -174,7 +154,7 @@ server {
 
 先看代码 👇
 
-```Nginx
+```nginx
 server {
   listen 8000;
   location ^~/api/ {
@@ -193,7 +173,7 @@ server {
 
 关键在于这里 👇
 
-```Nginx
+```nginx
 location ^~/api/ {
   proxy_pass https://api.readhub.cn/;
 }
@@ -205,7 +185,7 @@ location 后面用正则来匹配了所有以 api 结尾的请求，并将其转
 
 > 你的待部署项目主页配置应该是 👇
 
-```Nginx
+```nginx
 location / {
   root /home/news;
   index index.html;
@@ -216,7 +196,7 @@ location / {
 
 > 而下面这个 👇 是你项目中请求其他页面的资源时为了解决跨域问题而特定配置的一个代理，意义就是将当前包含 `/api/` 结尾的地址转发到你设置的地址，具体更多的正则匹配参考 👉[Nginx location 正则写法 - 博客园](https://www.cnblogs.com/IPYQ/p/7889399.html)
 
-```Nginx
+```nginx
 location ^~/api/ {
   proxy_pass https://api.readhub.cn/;
 }
@@ -224,7 +204,7 @@ location ^~/api/ {
 
 有了这个配置后，你的项目请求 api/topic 时，就被 Nginx 代理转发到了 https://api.readhub.cn/topic 从而实现跨越。
 
-#### Nginx location 的正则匹配归纳
+#### nginx location 的正则匹配归纳
 
 ```nginx
 location = / {
@@ -268,12 +248,12 @@ location ^~ /api/ {
 
 ## Nginx 的详细配置以及配置文件详解参考 👇
 
-- [Nginx 基本配置与参数说明 - Nginx 中文网](http://www.Nginx.cn/76.html)
-- [Nginx 反向代理配置 - Nginx 中文网](http://www.Nginx.cn/927.html)
+- [Nginx 基本配置与参数说明 - Nginx 中文网](http://www.nginx.cn/76.html)
+- [Nginx 反向代理配置 - Nginx 中文网](http://www.nginx.cn/927.html)
 
 ## 参考文章
 
-- [Nginx 配置入门 - Nginx 中文网](http://www.Nginx.cn/591.html)
+- [Nginx 配置入门 - nginx 中文网](http://www.nginx.cn/591.html)
 - [Nginx location 正则写法 - 博客园](https://www.cnblogs.com/IPYQ/p/7889399.html)
 - [Nginx 相关介绍(Nginx 是什么? 能干嘛?) - 博客园](https://www.cnblogs.com/wcwnina/p/8728391.html)
 

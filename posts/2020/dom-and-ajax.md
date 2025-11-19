@@ -6,20 +6,16 @@ top_image: https://i.loli.net/2020/10/24/erY2Oj4Z3TuIKBn.png
 excerpt: NCUHOME 研发组前端培训之 DOM 操作 & AJAX
 ---
 
-这篇文章是给 NCUHOME 研发组新生有关 `DOM` 操作和 `AJAX` 的培训文档
+> 主讲人: 19 级前端 Viki，时间:2020/10/30
 
-主讲人: 19 级前端 Viki，时间:2020/10/30
+这篇文章是给 NCUHOME 研发组新生有关 `DOM` 操作和 `AJAX` 的培训文档，参考了 MDN 文档、《JavaScript 高级程序设计（第四版）》以及一些博客文章的相关内容。
 
-参考了 MDN 文档、《JavaScript 高级程序设计（第四版）》以及一些博客文章的相关内容。
 
 ## 预习部分
 
 - [DOM 概述 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction)
-
 - [JSON 格式 - MDN](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/JSON)
-
 - [AJAX 基础 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/AJAX/Getting_Started)
-
 - [XMLHttpRequest - MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
 
 > 学有余力还可以进一步学习: [Fetch API - MDN](https://wiki.developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch) / [Axios - Github](https://github.com/axios/axios#axios-api)

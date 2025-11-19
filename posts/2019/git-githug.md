@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Githug小白指南
+title: Githug 小白指南
 date: 2019-12-14
 top_image: https://i.loli.net/2020/11/21/3ygtAW8ESVJuMKH.jpg
-excerpt: 给刚入门的小白门看的Githug指南
+excerpt: 写给刚入门的小白门看的 Githug 指南
 ---
 
 ## 前言
@@ -29,7 +29,7 @@ excerpt: 给刚入门的小白门看的Githug指南
 
 安装完后，打开命令行界面执行下列命令：
 
-```html
+```bash
 ruby --version
 ```
 
@@ -41,15 +41,18 @@ ruby --version
 
 执行下列三行命令修改默认下载源:
 
-```html
-//删除默认需要翻墙才能用的国外下载源 gem sources --remove https://rubygems.org/
-//设置下载源为国内可以访问的下载源 gem sources --a https://gems.ruby-china.org/
-//查看是否安装成功 gem sources -l
+```bash
+# 删除默认需要翻墙才能用的国外下载源
+gem sources --remove https://rubygems.org/
+# 设置下载源为国内可以访问的下载源
+gem sources --a https://gems.ruby-china.org/
+# 查看是否安装成功
+gem sources -l
 ```
 
 换源成功后执行下列命令安装 `Githug`
 
-```html
+```bash
 gem install githug
 ```
 
@@ -57,7 +60,7 @@ gem install githug
 
 首先打开一个你想要建立 githug 游戏目录的文件夹，然后在资源管理器（暂时简单理解为文件夹的页面）的地址栏(有 `"C:\windows\"` 这样类似文字的编辑框)输入 `cmd` 回车。系统会自动打开位于当前路径下的 `cmd` 控制台，在这个命令行界面输入 `githug` ，返回的预期结果如下：
 
-```html
+```bash
 *********************************************************** * Githug *
 *********************************************************** No githug directory
 found， do you wish to create one? [yn]
@@ -65,11 +68,11 @@ found， do you wish to create one? [yn]
 
 这个提示的意思是你已经进入到 `Githug` 的游戏界面了，但是它未检索到游戏目录，提示你是否要建立目录。此时，输入字母 `y` 并按回车确认，它会在该文件夹下创建名为 `git_hug` 的游戏文件夹，然后用如下命令行进入到 `git_hug` 路径下就可以进行闯关了。
 
-```html
+```bash
 cd git_hug
 ```
 
-> 不会命令行的基本操作?👉[命令行基本操作](https://jingyan.baidu.com/article/ceb9fb1074947b8cad2ba0f9.html)
+> 不会命令行的基本操作? 👉 [命令行速成课 - MDN](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Environment_setup/Command_line)
 
 ### 常用的命令:
 
@@ -80,89 +83,17 @@ cd git_hug
 
 注 · 在任意关卡退出后，再次进入 `Githug` ，闯关进度会保存
 
-## 闯关指引
-
-### Level 1 init
-
-```html
-Name: init Level: 1 Difficulty: * A new directory， `git_hug` ， has been
-created; initialize an empty repository in it.
-```
-
-### Level 2
-
-### Level 3
-
-### Level 4
-
-### Level 5
-
-### Level 6
-
-### Level 7
-
-### Level 8
-
-### Level 9
-
-### Level 10
-
-### Level 11
-
-### Level 12
-
-### Level 13
-
-### Level 14
-
-### Level 15
-
-### Level 16
-
-### Level 17
-
-### Level 18
-
-### Level 19
-
-### Level 20
-
-### Level 21
-
-### Level 22
-
-### Level 23
-
-### Level 24
-
-### Level 25
-
-### Level 26
-
-### Level 27
-
-### Level 28
-
-### Level 29
-
-### Level 30
-
 ## 需要注意的问题
 
 ## Git 学习资料
 
 - [Git 教程 - 慕雪峰](https://www.liaoxuefeng.com/wiki/896043488029600)
-
 - [Git 教程 - W3School](https://www.w3cschool.cn/git/)
-
 - [Git 教程 - 菜鸟教程](https://www.runoob.com/git/git-tutorial.html)
 
 ## 参考文章
 
 - [利用 githug 来练习 git - 灰太狼](https://blog.csdn.net/huitailang1991/article/details/54288618)
-
 - [Github 通关指南 - Wzb 博客](https://wzb.me/posts/2019/09/06/githug-guideline.html)
-
 - [GitHug 不完全通关攻略 - lunar](http://lunarnai.cn/2016/03/30/githug%20%E4%B8%8D%E5%AE%8C%E5%85%A8%E9%80%9A%E5%85%B3%E6%94%BB%E7%95%A5/)
-
-- [命令行](https://jingyan.baidu.com/article/ceb9fb1074947b8cad2ba0f9.html)
+- [命令行速成课 - MDN](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Environment_setup/Command_line)

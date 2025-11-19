@@ -45,11 +45,8 @@ service network restart #或者重启网络服务
 若上述方法还是无效可以尝试修改 `CentOS-Base.repo` 中的地址，具体方法与上类似
 
 1. 进入目录 `/etc/yum.repos.d` 。
-
 2. 编辑文件 `vi CentOS-Base.repo` 。
-
 3. 将所有的 `mirrorlist` 注释掉，将所有的 `baseurl` 取消注释。
-
 4. 保存后输入 `reboot` 重启系统
 
 ## 参考文章
