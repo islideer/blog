@@ -4,7 +4,7 @@ import { getAllPosts } from '@/lib/posts'
 export const dynamic = 'force-static'
 
 export async function GET() {
-  const siteUrl = 'https://viki.moe'
+  const siteUrl = 'https://blog.viki.moe'
   const posts = getAllPosts()
 
   const feed = new Feed({
@@ -13,7 +13,6 @@ export async function GET() {
     id: siteUrl,
     link: siteUrl,
     language: 'zh-CN',
-    image: `${siteUrl}/og-image.png`,
     favicon: `${siteUrl}/favicon.ico`,
     copyright: `© ${new Date().getFullYear()} Viki. 所有文章均遵循 CC BY-SA 4.0 协议，转载请注明出处。`,
     updated: new Date(posts[0]?.date || Date.now()),

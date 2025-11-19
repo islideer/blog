@@ -6,7 +6,7 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://viki.moe'),
+  metadataBase: new URL('https://blog.viki.moe'),
   title: {
     default: 'Viki 写东西的地方',
     template: '%s | Viki 写东西的地方',
@@ -32,31 +32,31 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
-    apple: '/apple-icon.png',
+    // apple: '/apple-icon.png',
   },
   manifest: '/manifest.json',
   openGraph: {
     type: 'website',
     locale: 'zh_CN',
-    url: 'https://viki.moe',
+    url: 'https://blog.viki.moe',
     title: 'Viki 写东西的地方',
     description: '分享技术和日常',
     siteName: 'Viki 写东西的地方',
-    images: [
-      {
-        url: '/og?title=Viki 写东西的地方&description=Less is more',
-        width: 1200,
-        height: 630,
-        alt: 'Viki 写东西的地方',
-      },
-    ],
+    // images: [
+    //   {
+    //     url: '/og?title=Viki 写东西的地方&description=Less is more',
+    //     width: 1200,
+    //     height: 630,
+    //     alt: 'Viki 写东西的地方',
+    //   },
+    // ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Viki 写东西的地方',
     description: '分享技术和日常',
     creator: '@vikiboss',
-    images: ['/og?title=Viki%20写东西的地方&description=分享技术和日常'],
+    // images: ['/og?title=Viki%20写东西的地方&description=分享技术和日常'],
   },
 }
 

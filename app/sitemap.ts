@@ -4,7 +4,7 @@ import { getAllPosts } from '@/lib/posts'
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = 'https://viki.moe'
+  const siteUrl = 'https://blog.viki.moe'
   const posts = getAllPosts()
 
   // 静态页面
