@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/*
+ * Design System - Minimalist Reading Experience
+ * Color Palette: Black / Gray / White
+ * Focus: Typography, Spacing, Reading comfort
+ */
+
+@theme {
+  /* Custom Colors */
+  --color-bg-primary: oklch(1 0 0);
+  --color-bg-secondary: oklch(0.98 0 0);
+  --color-bg-tertiary: oklch(0.96 0 0);
+
+  --color-text-primary: oklch(0.15 0 0);
+  --color-text-secondary: oklch(0.45 0 0);
+  --color-text-tertiary: oklch(0.65 0 0);
+
+  --color-border: oklch(0.9 0 0);
+  --color-border-hover: oklch(0.8 0 0);
+
+  /* Custom Typography */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+  --font-mono:
+    'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+
+  /* Custom Border Radius */
+  --radius-xs: 0.25rem; /* 4px - for code blocks */
+
+  /* Custom Reading Widths */
+  --content-width: 65ch;
+  --prose-width: 70ch;
+}

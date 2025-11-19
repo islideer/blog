@@ -1,25 +1,55 @@
 {
-  "name": "viki-blog",
+  "name": "modern-blog",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.20.0",
   "scripts": {
-    "build": "hexo clean && hexo g",
-    "clean": "hexo clean",
-    "deploy": "hexo clean && hexo g && hexo d",
-    "dev": "hexo clean && concurrently \"hexo g -w\" \"hexo s\""
-  },
-  "hexo": {
-    "version": "6.3.0"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "concurrently": "^7.6.0",
-    "hexo": "^6.3.0",
-    "hexo-cli": "^4.3.0",
-    "hexo-generator-archive": "^2.0.0",
-    "hexo-generator-feed": "^3.0.0",
-    "hexo-generator-index": "^3.0.0",
-    "hexo-renderer-marked": "^6.0.0",
-    "hexo-renderer-pug": "^3.0.0",
-    "hexo-server": "^3.0.0"
+    "@shikijs/rehype": "^3.15.0",
+    "dayjs": "^1.11.19",
+    "feed": "^5.1.0",
+    "gray-matter": "^4.0.3",
+    "next": "^16.0.1",
+    "next-mdx-remote": "^5.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-raw": "^7.0.0",
+    "rehype-slug": "^6.0.0",
+    "shiki": "^3.15.0"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.0.1",
+    "@tailwindcss/postcss": "^4.1.16",
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.0.1",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.7.1",
+    "tailwindcss": "^4.1.16",
+    "typescript": "^5.9.3"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "printWidth": 100,
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }

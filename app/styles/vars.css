@@ -1,0 +1,43 @@
+/* Dark mode - respond to both system preference and manual toggle */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --color-bg-primary: oklch(0.15 0 0); /* Almost black */
+    --color-bg-secondary: oklch(0.18 0 0); /* Dark gray */
+    --color-bg-tertiary: oklch(0.22 0 0); /* Medium dark gray */
+
+    --color-text-primary: oklch(0.98 0 0); /* Brighter white */
+    --color-text-secondary: oklch(0.70 0 0); /* Lighter gray */
+    --color-text-tertiary: oklch(0.50 0 0); /* Medium gray */
+
+    --color-border: oklch(0.28 0 0); /* Subtle dark border */
+    --color-border-hover: oklch(0.40 0 0); /* Hover dark border */
+  }
+}
+
+/* Manual dark mode class */
+:root.dark {
+  --color-bg-primary: oklch(0.15 0 0);
+  --color-bg-secondary: oklch(0.18 0 0);
+  --color-bg-tertiary: oklch(0.22 0 0);
+
+  --color-text-primary: oklch(0.98 0 0);
+  --color-text-secondary: oklch(0.70 0 0);
+  --color-text-tertiary: oklch(0.50 0 0);
+
+  --color-border: oklch(0.28 0 0);
+  --color-border-hover: oklch(0.40 0 0);
+}
+
+/* Manual light mode class */
+:root.light {
+  --color-bg-primary: oklch(1 0 0);
+  --color-bg-secondary: oklch(0.98 0 0);
+  --color-bg-tertiary: oklch(0.96 0 0);
+
+  --color-text-primary: oklch(0.08 0 0); /* Darker text */
+  --color-text-secondary: oklch(0.38 0 0); /* Darker secondary */
+  --color-text-tertiary: oklch(0.58 0 0); /* Darker tertiary */
+
+  --color-border: oklch(0.88 0 0); /* Slightly darker border */
+  --color-border-hover: oklch(0.75 0 0); /* Darker hover */
+}
