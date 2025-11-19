@@ -7,9 +7,9 @@ excerpt: 🎸 + 🌐 = your all-in-one guitar online toolkit.
 
 🎸 + 🌐 = your **all-in-one** guitar online toolkit.
 
-![guitar-studio](https://shp.qpic.cn/collector//0d9cf2df-efad-49f7-8d50-fb575c2c92d1/0)
+![guitar-studio](https://s2.loli.net/2025/11/19/fpWaixzZGSovCmE.png)
 
 It's now under developing, give it a try?
 
-Online Link: https://guitar.viki.moe
-GitHub: https://github.com/vikiboss/guitar-studio
+- Online Link: https://guitar.viki.moe
+- GitHub: https://github.com/vikiboss/guitar-studio

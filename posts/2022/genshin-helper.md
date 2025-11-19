@@ -5,7 +5,7 @@ date: 2022-11-26
 excerpt: 一次契机，我接触到了原神，随后一发不可收拾，再到后面开发了一个 PC 端的小工具...
 ---
 
-<img src="https://shp.qpic.cn/collector//4e40fd32-48bd-4154-b27b-55a9636064b5/0" alt="genshin" style="max-height: 400px" />
+<img src="https://s2.loli.net/2025/11/19/ubfBFP34JXIAeTN.png" alt="genshin" style="max-height: 400px" />
 
 > [《原神》](https://ys.mihoyo.com/) 是由[米哈游](https://mihoyo.com/)公司制作发行的一款开放世界冒险游戏。
 

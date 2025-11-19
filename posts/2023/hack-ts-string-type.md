@@ -37,12 +37,12 @@ const animal: Animal = ''; // 输入引号后可以看到正确的补全提示
 
 ### 之前（没有补全提示）
 
-![no-completion](https://shp.qpic.cn/collector//de353f48-752a-4148-befe-0fef444b20a2/0)
+![no-completion](https://s2.loli.net/2025/11/19/Uebrph2gZRfJVdE.png)
 
 ### 之后（完善的补全提示）
 
-![with-completion-1](https://shp.qpic.cn/collector//34238071-dc0d-4cc6-b5f6-087c243494e8/0)
+![with-completion-1](https://s2.loli.net/2025/11/19/XeviQjFsHDbRhmn.png)
 
-![with-completion-2](https://shp.qpic.cn/collector//022dad01-ee82-4ffc-8c7d-9f2518e6f40c/0)
+![with-completion-2](https://s2.loli.net/2025/11/19/wivfsRGpydTxOSj.png)
 
 Cheers! 🍻

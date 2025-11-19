@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     default: 'Viki 写东西的地方',
     template: '%s | Viki 写东西的地方',
   },
-  description: '分享前端技术见解和实验最新 Web 特性。生活需要记录.',
+  description: '分享技术和日常',
   authors: [{ name: 'Viki', url: 'https://github.com/vikiboss' }],
   keywords: [
     '前端开发',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     locale: 'zh_CN',
     url: 'https://viki.moe',
     title: 'Viki 写东西的地方',
-    description: '前端开发者的技术博客',
+    description: '分享技术和日常',
     siteName: 'Viki 写东西的地方',
     images: [
       {
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Viki 写东西的地方',
-    description: '前端开发者的技术博客',
+    description: '分享技术和日常',
     creator: '@vikiboss',
-    images: ['/og?title=Viki 写东西的地方&description=Less is more'],
+    images: ['/og?title=Viki%20写东西的地方&description=分享技术和日常'],
   },
 }
 

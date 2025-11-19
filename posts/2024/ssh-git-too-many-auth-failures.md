@@ -9,7 +9,7 @@ excerpt: 主要是因为 ssh 的 host 规则配置过多，且没有设置精确
 
 解决方案：host 匹配规则里加上精确匹配。
 
-```
+```bash
 # ~/.ssh/config
 
 Host gitlab.xxx.com

@@ -9,13 +9,13 @@ export async function GET() {
 
   const feed = new Feed({
     title: 'Viki 写东西的地方',
-    description: '分享前端技术见解和实验最新 Web 特性。Less is more.',
+    description: '分享技术和日常',
     id: siteUrl,
     link: siteUrl,
     language: 'zh-CN',
     image: `${siteUrl}/og-image.png`,
     favicon: `${siteUrl}/favicon.ico`,
-    copyright: `© ${new Date().getFullYear()} Viki. 基于 CC BY-SA 4.0 协议`,
+    copyright: `© ${new Date().getFullYear()} Viki. 所有文章均遵循 CC BY-SA 4.0 协议，转载请注明出处。`,
     updated: new Date(posts[0]?.date || Date.now()),
     feedLinks: {
       rss2: `${siteUrl}/rss.xml`,
@@ -30,8 +30,8 @@ export async function GET() {
   posts.forEach((post) => {
     feed.addItem({
       title: post.title,
-      id: `${siteUrl}/blog/${post.slug}`,
-      link: `${siteUrl}/blog/${post.slug}`,
+      id: `${siteUrl}/${post.slug}`,
+      link: `${siteUrl}/${post.slug}`,
       description: post.excerpt,
       content: post.excerpt,
       author: [
