@@ -52,12 +52,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <article>
       {/* Article Header */}
-      <header className="mb-12 space-y-6">
-        <h1 className="text-text-primary text-4xl leading-tight font-bold sm:text-5xl">
+      <header className="mb-8 sm:mb-12 space-y-4 sm:space-y-6">
+        <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-4xl md:text-5xl">
           {post.title}
         </h1>
 
-        <time dateTime={post.date} className="text-text-tertiary block text-sm">
+        <time dateTime={post.date} className="text-text-tertiary block text-xs sm:text-sm">
           {dayjs(post.date).year() === dayjs().year()
             ? dayjs(post.date).format('MM 月 DD 日')
             : dayjs(post.date).format('YYYY 年 MM 月 DD 日')}
@@ -76,14 +76,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       {/* Recommended Posts */}
       {recommendedPosts.length > 0 && (
-        <div className="mt-12 space-y-4">
-          <h2 className="text-text-secondary text-lg font-medium">也可以看看</h2>
-          <div className="space-y-3">
+        <div className="mt-8 sm:mt-12 space-y-3 sm:space-y-4">
+          <h2 className="text-text-secondary text-base sm:text-lg font-medium">也可以看看</h2>
+          <div className="space-y-2 sm:space-y-3">
             {recommendedPosts.map((recommendedPost) => (
               <Link
                 key={recommendedPost.slug}
                 href={`/${recommendedPost.slug}`}
-                className="text-text-secondary hover:text-text-primary text-link block"
+                className="text-text-secondary hover:text-text-primary text-sm sm:text-base block"
               >
                 {recommendedPost.title}
               </Link>

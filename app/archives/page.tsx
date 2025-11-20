@@ -61,18 +61,24 @@ export default async function ArchivesPage() {
       {/* Pinned Posts */}
       {pinnedPosts.length > 0 && (
         <section className="space-y-4">
-          <h2 className="text-text-primary text-2xl font-bold">
-            置顶 <span className="text-text-tertiary text-lg font-normal">({pinnedPosts.length})</span>
+          <h2 className="text-text-primary text-xl sm:text-2xl font-bold">
+            置顶{' '}
+            <span className="text-text-tertiary text-base sm:text-lg font-normal">
+              ({pinnedPosts.length})
+            </span>
           </h2>
-          <div className="space-y-1 border-l-2 pl-6" style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}>
+          <div
+            className="space-y-1 border-l-2 pl-4 sm:pl-6"
+            style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
+          >
             {pinnedPosts.map((post) => (
-              <article key={post.slug} className="flex items-baseline gap-4 py-1.5">
-                <time className="text-text-tertiary w-24 shrink-0 text-sm font-mono">
+              <article key={post.slug} className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-4 sm:py-1.5">
+                <time className="text-text-tertiary sm:w-24 shrink-0 text-xs sm:text-sm font-mono">
                   {dayjs(post.date).format('YYYY-MM-DD')}
                 </time>
                 <Link
                   href={`/${post.slug}`}
-                  className="text-text-secondary hover:text-text-primary text-link flex-1"
+                  className="text-text-secondary hover:text-text-primary text-sm sm:text-base flex-1"
                 >
                   {post.title}
                 </Link>
@@ -89,25 +95,33 @@ export default async function ArchivesPage() {
           const hasNoPosts = yearPosts.length === 0
 
           return (
-            <div key={year} className="space-y-6">
-              <h2 className="text-text-primary text-2xl font-bold">
+            <div key={year} className="space-y-4 sm:space-y-6">
+              <h2 className="text-text-primary text-xl sm:text-2xl font-bold">
                 {year}{' '}
-                <span className="text-text-tertiary text-lg font-normal">
+                <span className="text-text-tertiary text-base sm:text-lg font-normal">
                   ({yearPosts.length})
                 </span>
               </h2>
-              <div className="space-y-1 border-l-2 pl-6" style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}>
+              <div
+                className="space-y-1 border-l-2 pl-4 sm:pl-6"
+                style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
+              >
                 {hasNoPosts ? (
-                  <p className="text-text-tertiary text-sm italic opacity-60">{getEmptyYearMessage(year)}</p>
+                  <p className="text-text-tertiary text-xs sm:text-sm italic opacity-60">
+                    {getEmptyYearMessage(year)}
+                  </p>
                 ) : (
                   yearPosts.map((post) => (
-                    <article key={post.slug} className="flex items-baseline gap-4 py-1.5">
-                      <time className="text-text-tertiary w-24 shrink-0 text-sm font-mono">
+                    <article
+                      key={post.slug}
+                      className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-4 sm:py-1.5"
+                    >
+                      <time className="text-text-tertiary sm:w-24 shrink-0 text-xs sm:text-sm font-mono">
                         {dayjs(post.date).format('MM-DD')}
                       </time>
                       <Link
                         href={`/${post.slug}`}
-                        className="text-text-secondary hover:text-text-primary text-link flex-1"
+                        className="text-text-secondary hover:text-text-primary text-sm sm:text-base flex-1"
                       >
                         {post.title}
                       </Link>
