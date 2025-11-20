@@ -62,7 +62,7 @@ export const aboutData: AboutData = {
     {
       date: '2025/08/20',
       description:
-        '与 Mio 正式确立恋爱关系。这段感情始于 2019 年在工作室的相识，经历了六年的相互了解、陪伴与成长，最终走到了一起。',
+        '与 Mio 正式确立恋爱关系。这段感情始于 2019 年在 NCUHOME 的相识，经历了六年的相互了解、陪伴与成长，最终走到了一起。',
     },
   ],
   openSource: {
