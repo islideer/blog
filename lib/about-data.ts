@@ -70,13 +70,13 @@ export const aboutData: AboutData = {
       {
         name: '60s',
         url: 'https://github.com/vikiboss/60s',
-        description: '每天 60 秒读懂世界资讯、多种 API 聚合服务',
+        description: '60 秒资讯、API 聚合服务',
         stars: '4K+',
       },
       {
         name: '@shined/react-use',
         url: 'https://github.com/sheinsight/react-use',
-        description: '丰富、SSR 友好的 React Hooks 库',
+        description: 'SSR 友好的 React Hooks 库',
       },
       {
         name: '@shined/reactive',
@@ -86,27 +86,27 @@ export const aboutData: AboutData = {
       {
         name: 'guitar-studio',
         url: 'https://github.com/vikiboss/guitar-studio',
-        description: '多合一的吉他练习工具：调音、找和弦、打节奏',
+        description: '多合一吉他工具：调音、和弦、节奏',
       },
       {
         name: 'react-online',
         url: 'https://github.com/vikiboss/react-online',
-        description: 'React 在线编辑器，轻量原生、支持 ESM、TS、TailwindCSS',
+        description: 'React 在线编辑器，轻量、原生、支持 ESM、TypeScript、Tailwind CSS',
       },
       {
         name: 'deno-functions',
         url: 'https://github.com/vikiboss/deno-functions',
-        description: '一系列实用的 Serverless 函数，部署在 Deno Deploy',
+        description: '一系列实用的 Serverless 函数，实用可靠，部署在 Deno Deploy',
       },
       {
         name: 'face',
         url: 'https://github.com/vikiboss/face',
-        description: 'QQ 黄脸表情包 CDN 静态资源',
+        description: 'QQ 表情包静态资源',
       },
       {
         name: 'v50',
         url: 'https://github.com/vikiboss/v50',
-        description: '肯德基疯狂星期四文案静态仓库、API',
+        description: 'KFC 疯狂星期四文案数据、API',
       },
       {
         name: 'ncu-auto-login-script',
@@ -121,7 +121,7 @@ export const aboutData: AboutData = {
       {
         name: 'BaidupanPlaySpeedControl',
         url: 'https://github.com/vikiboss/BaidupanPlaySpeedControl',
-        description: '百度网盘视频倍速播放脚本（已归档）',
+        description: '适用于百度网盘的视频倍速播放脚本（已归档）',
       },
     ],
     moreLink: 'https://github.com/vikiboss?tab=repositories',

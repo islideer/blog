@@ -95,9 +95,12 @@ export default async function ArchivesPage() {
                 key={post.slug}
                 className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-4 sm:py-1.5"
               >
-                <time className="text-text-tertiary shrink-0 font-mono text-xs sm:w-24 sm:text-sm">
-                  {dayjs(post.date).format('YYYY.MM.DD')}
-                </time>
+                <div className="text-text-tertiary flex shrink-0 items-baseline gap-2 font-mono text-xs sm:w-24 sm:text-sm">
+                  <time>{dayjs(post.date).format('YYYY.MM.DD')}</time>
+                  {post.readingTime && (
+                    <span className="sm:hidden">{post.readingTime.toLocaleString('zh-CN')} 分钟</span>
+                  )}
+                </div>
                 <Link
                   href={`/${post.slug}`}
                   className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
@@ -105,7 +108,7 @@ export default async function ArchivesPage() {
                   {post.title}
                 </Link>
                 {post.readingTime && (
-                  <span className="text-text-tertiary shrink-0 text-xs">
+                  <span className="text-text-tertiary hidden shrink-0 text-xs sm:inline">
                     {post.readingTime.toLocaleString('zh-CN')} 分钟
                   </span>
                 )}
@@ -143,9 +146,12 @@ export default async function ArchivesPage() {
                       key={post.slug}
                       className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-4 sm:py-1.5"
                     >
-                      <time className="text-text-tertiary shrink-0 font-mono text-xs sm:w-24 sm:text-sm">
-                        {dayjs(post.date).format('MM.DD')}
-                      </time>
+                      <div className="text-text-tertiary flex shrink-0 items-baseline gap-2 font-mono text-xs sm:w-24 sm:text-sm">
+                        <time>{dayjs(post.date).format('MM.DD')}</time>
+                        {post.readingTime && (
+                          <span className="sm:hidden">{post.readingTime.toLocaleString('zh-CN')} 分钟</span>
+                        )}
+                      </div>
                       <Link
                         href={`/${post.slug}`}
                         className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
@@ -153,7 +159,7 @@ export default async function ArchivesPage() {
                         {post.title}
                       </Link>
                       {post.readingTime && (
-                        <span className="text-text-tertiary shrink-0 text-xs">
+                        <span className="text-text-tertiary hidden shrink-0 text-xs sm:inline">
                           {post.readingTime.toLocaleString('zh-CN')} 分钟
                         </span>
                       )}

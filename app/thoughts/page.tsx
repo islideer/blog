@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
 import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
 import { getAllThoughts } from '@/lib/thoughts'
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
 }
 
 export default async function ThoughtsPage() {
+  dayjs.locale('zh-cn')
   const thoughts = await getAllThoughts()
 
   return (
@@ -45,17 +47,24 @@ export default async function ThoughtsPage() {
       {/* Thoughts Timeline */}
       <section className="space-y-4">
         <div
-          className="space-y-8 border-l-2 pl-4 sm:pl-6"
+          className="space-y-12 border-l-2 pl-4 sm:pl-6"
           style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
         >
           {thoughts.length === 0 ? (
             <p className="text-text-tertiary text-sm italic opacity-60">还没有碎碎念，快来记录吧</p>
           ) : (
-            thoughts.map((thought) => (
-              <article key={thought.id} className="space-y-3">
+            thoughts.map((thought, index) => (
+              <article
+                key={thought.id}
+                className="space-y-3 pb-12"
+                style={{
+                  borderBottom:
+                    index < thoughts.length - 1 ? '1px solid rgba(128, 128, 128, 0.15)' : 'none',
+                }}
+              >
                 {/* 日期时间 */}
                 <time className="text-text-tertiary block text-xs sm:text-sm">
-                  {dayjs(thought.date).format('YYYY.MM.DD HH:mm')}
+                  {dayjs(thought.date).format('YYYY.MM.DD HH:mm ddd')}
                 </time>
 
                 <p>{renderMarkdown(thought.content)}</p>
