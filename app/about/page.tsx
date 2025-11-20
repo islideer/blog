@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-2xl space-y-16 py-12">
+    <div className="mx-auto max-w-2xl space-y-12 sm:space-y-16 py-12">
       <AboutIntro title={aboutData.intro.title} paragraphs={aboutData.intro.paragraphs} />
       <AboutTimeline items={aboutData.timeline} />
       <AboutOpenSource data={aboutData.openSource} />

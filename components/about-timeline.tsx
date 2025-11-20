@@ -14,7 +14,7 @@ export function AboutTimeline({ items }: AboutTimelineProps) {
         {items.map((item, index) => (
           <div key={index} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-4">
             <time className="text-text-tertiary shrink-0 font-mono text-sm sm:text-base">
-              {dayjs(item.date).isValid() ? dayjs(item.date).format('YYYY/MM/DD') : item.date}
+              {dayjs(item.date).isValid() ? dayjs(item.date).format('YYYY.MM.DD') : item.date}
             </time>
             <p className="text-text-secondary">{renderMarkdown(item.description)}</p>
           </div>

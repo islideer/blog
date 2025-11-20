@@ -47,18 +47,38 @@ export default async function ThoughtsPage() {
       {/* Thoughts Timeline */}
       <section className="space-y-4">
         <div
-          className="space-y-6 sm:border-l-2 sm:pl-6"
+          className="space-y-8 sm:border-l-2 sm:pl-6"
           style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
         >
           {thoughts.length === 0 ? (
             <p className="text-text-tertiary text-sm italic opacity-60">还没有碎碎念，快来记录吧</p>
           ) : (
-            thoughts.map((thought) => (
-              <article key={thought.id} className="space-y-2">
+            thoughts.map((thought, index) => (
+              <article
+                key={thought.id}
+                className="space-y-2 pb-8"
+                style={{
+                  borderBottom:
+                    index < thoughts.length - 1 ? '1px solid rgba(128, 128, 128, 0.1)' : 'none',
+                }}
+              >
                 {/* 日期时间 */}
-                <time className="text-text-tertiary block text-xs">
-                  {dayjs(thought.date).format('YYYY.MM.DD HH:mm ddd')}
-                </time>
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="text-text-tertiary size-3.5 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                  <time className="text-text-tertiary text-xs">
+                    发布于 {dayjs(thought.date).format('YYYY.MM.DD HH:mm ddd')}
+                  </time>
+                </div>
 
                 <p className="text-sm leading-relaxed">{renderMarkdown(thought.content)}</p>
 
