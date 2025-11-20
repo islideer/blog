@@ -34,14 +34,14 @@ export const aboutData: AboutData = {
   intro: {
     title: 'Viki',
     paragraphs: [
-      'Web 前端开发工程师，目前在 SHEIN 工作，热爱 Web 技术，热爱开源。',
+      '我是一名 Web 前端开发工程师，目前在 SHEIN 工作，热爱 Web 技术和开源。',
       '有幸与 Mio 成为恋人，在一起享受真诚且简单的生活。',
     ],
   },
   timeline: [
     {
       date: '2025.08.20',
-      description: '与 Mio 在一起，后半段人生悄悄大变。',
+      description: '与 Mio 在一起，共同迎接未来的每一天。',
     },
     {
       date: '2023.07.10',
@@ -86,12 +86,12 @@ export const aboutData: AboutData = {
     'Node.js',
     'TypeScript',
     'React',
-    'Bun',
-    'Deno',
     'Electron',
     'React Native',
     'Next.js',
     'Tailwind CSS',
+    'NestJS',
+    'Prisma',
   ],
   contact: [
     {
