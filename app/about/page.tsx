@@ -1,6 +1,13 @@
-import type { Metadata } from 'next'
+import { AboutContact } from '@/components/about-contact'
+import { AboutIntro } from '@/components/about-intro'
+import { AboutOpenSource } from '@/components/about-open-source'
+import { AboutTechStack } from '@/components/about-tech-stack'
+import { AboutTimeline } from '@/components/about-timeline'
+import { aboutData } from '@/lib/about-data'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
+
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: siteConfig.pages.about.title,
@@ -8,66 +15,41 @@ export const metadata: Metadata = {
   alternates: {
     canonical: generateCanonicalUrl('/about'),
   },
+  openGraph: {
+    type: 'website',
+    locale: siteConfig.locale.replace('-', '_'),
+    url: generateCanonicalUrl('/about'),
+    title: siteConfig.pages.about.title,
+    description: siteConfig.pages.about.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(siteConfig.pages.about.title)}&description=${encodeURIComponent(siteConfig.pages.about.description)}`,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.pages.about.title,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.pages.about.title,
+    description: siteConfig.pages.about.description,
+    creator: siteConfig.author.twitter,
+    images: [
+      `/og?title=${encodeURIComponent(siteConfig.pages.about.title)}&description=${encodeURIComponent(siteConfig.pages.about.description)}`,
+    ],
+  },
 }
 
 export default function AboutPage() {
   return (
-    <div className="space-y-16 py-8">
-      {/* Profile */}
-      <section className="flex flex-col items-center space-y-6 text-center">
-        <div className="space-y-3">
-          <h1 className="text-4xl font-bold">{siteConfig.shortName}</h1>
-          <p className="text-text-secondary text-lg">Web 前端开发者</p>
-          <p className="text-text-tertiary text-sm italic">Less is more</p>
-        </div>
-      </section>
-
-      {/* Bio */}
-      <section className="space-y-6 text-center">
-        <p className="text-text-secondary leading-relaxed">
-          热爱探索 Web 技术，追求简洁优雅的代码与设计
-        </p>
-
-        <div className="flex justify-center gap-6 text-sm">
-          <a
-            href={siteConfig.links.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-text-secondary hover:text-text-primary"
-          >
-            GitHub
-          </a>
-          <a
-            href={`mailto:${siteConfig.author.email}`}
-            className="text-text-secondary hover:text-text-primary"
-          >
-            Email
-          </a>
-          <a
-            href={siteConfig.links.rss}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-text-secondary hover:text-text-primary"
-          >
-            RSS
-          </a>
-        </div>
-      </section>
-
-      {/* Tech Stack - Simplified */}
-      <section className="space-y-4 text-center">
-        <h2 className="text-text-tertiary text-sm font-medium">技术栈</h2>
-        <div className="flex flex-wrap justify-center gap-2">
-          {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js'].map((tech) => (
-            <span
-              key={tech}
-              className="bg-bg-secondary text-text-secondary rounded-xs px-3 py-1 text-xs"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-      </section>
+    <div className="mx-auto max-w-2xl space-y-16 py-12">
+      <AboutIntro title={aboutData.intro.title} paragraphs={aboutData.intro.paragraphs} />
+      <AboutTimeline items={aboutData.timeline} />
+      <AboutOpenSource data={aboutData.openSource} />
+      <AboutTechStack technologies={aboutData.techStack} />
+      <AboutContact links={aboutData.contact} />
     </div>
   )
 }

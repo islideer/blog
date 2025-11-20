@@ -3,6 +3,8 @@
  * 统一管理网站的基本信息、元数据和常量
  */
 
+import { aboutData } from './about-data'
+
 export const siteConfig = {
   // 基本信息
   name: 'Viki 写东西的地方',
@@ -81,8 +83,7 @@ export const siteConfig = {
       description: '所有博客文章列表',
       hero: {
         title: '你好，我是 Viki',
-        description:
-          '我来自中国江西，是 Web 前端开发者，也是 Node.js 和 TypeScript 的狂热爱好者，经常活跃在 GitHub 开源社区。想用代码遇见更多有趣的人、做更多有趣的事。',
+        description: aboutData.intro.paragraphs[0],
       },
       postsToShow: 3,
     },

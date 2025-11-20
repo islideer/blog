@@ -97,7 +97,7 @@ export default function RootLayout({
         {/* Skip to Main Content Link - for keyboard navigation */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:bg-bg-primary focus:text-text-primary focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:px-4 focus:py-2 focus:shadow-lg"
+          className="focus:bg-bg-primary focus:text-text-primary sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:px-4 focus:py-2 focus:shadow-lg"
         >
           跳转到主要内容
         </a>
@@ -119,16 +119,10 @@ export default function RootLayout({
               </Link>
 
               <nav role="navigation" aria-label="主导航" className="flex items-center space-x-4">
-                <Link
-                  href="/archives"
-                  className="text-text-secondary hover:text-text-primary"
-                >
+                <Link href="/archives" className="text-text-secondary hover:text-text-primary">
                   归档
                 </Link>
-                <Link
-                  href="/about"
-                  className="text-text-secondary hover:text-text-primary"
-                >
+                <Link href="/about" className="text-text-secondary hover:text-text-primary">
                   关于
                 </Link>
                 <ThemeToggle />
@@ -168,6 +162,14 @@ export default function RootLayout({
 
                 <div className="flex items-center gap-4">
                   <a
+                    href={siteConfig.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text-secondary hover:text-text-primary"
+                  >
+                    GitHub
+                  </a>
+                  <a
                     href={siteConfig.links.rss}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -175,14 +177,6 @@ export default function RootLayout({
                     title="RSS 订阅"
                   >
                     RSS
-                  </a>
-                  <a
-                    href={siteConfig.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-text-secondary hover:text-text-primary"
-                  >
-                    GitHub
                   </a>
                 </div>
               </div>
