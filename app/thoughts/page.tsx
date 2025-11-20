@@ -99,13 +99,14 @@ export default async function ThoughtsPage() {
                     {thought.images.map((image, index) => (
                       <div
                         key={index}
-                        className="relative aspect-video overflow-hidden rounded border border-zinc-200 dark:border-zinc-700"
+                        className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border border-zinc-200 dark:border-zinc-700"
                       >
                         <Image
                           src={image}
                           alt={`${thought.content.slice(0, 20)}... 的图片 ${index + 1}`}
-                          fill
-                          className="object-cover"
+                          width={800}
+                          height={600}
+                          className="h-auto max-h-full w-full object-contain"
                           sizes="(max-width: 640px) 100vw, 50vw"
                         />
                       </div>
