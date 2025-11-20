@@ -16,19 +16,16 @@ import type { Metadata } from 'next'
 
 export async function generateStaticParams() {
   const slugs = await getAllPostSlugs()
-  // slug 现在是简单的文件名，需要包装成数组
-  return slugs.map((slug) => ({ slug: [slug] }))
+  return slugs.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string[] }>
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  // slug 数组现在只有一个元素（文件名）
-  const slugPath = slug[0]
-  const post = await getPostBySlug(slugPath)
+  const post = await getPostBySlug(slug)
 
   if (!post) {
     return {
@@ -50,11 +47,9 @@ export async function generateMetadata({
   }
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string[] }> }) {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  // slug 数组现在只有一个元素（文件名）
-  const slugPath = slug[0]
-  const post = await getPostBySlug(slugPath)
+  const post = await getPostBySlug(slug)
 
   if (!post) {
     notFound()
@@ -62,7 +57,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   // 获取推荐文章（最近的3篇，排除当前文章）
   const allPosts = await getAllPosts()
-  const recommendedPosts = allPosts.filter((p) => p.slug !== slugPath).slice(0, 3)
+  const recommendedPosts = allPosts.filter((p) => p.slug !== slug).slice(0, 3)
 
   // 生成结构化数据
   const blogPostingSchema = generateBlogPostingSchema(post)
