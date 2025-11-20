@@ -13,6 +13,7 @@ interface Thought {
 }
 
 interface AddThoughtRequest {
+  date?: string
   content: string
   images?: string[]
 }
@@ -64,7 +65,7 @@ export async function POST(req: NextRequest) {
     const newId = String(Math.max(0, ...thoughts.map((t) => Number(t.id))) + 1)
     const newThought: Thought = {
       id: newId,
-      date: dayjs().format('YYYY-MM-DDTHH:mm:ssZ'),
+      date: dayjs(body.date).format('YYYY-MM-DDTHH:mm:ssZ'),
       content: body.content.trim(),
     }
 
