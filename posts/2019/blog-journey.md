@@ -41,11 +41,11 @@ excerpt: '记录我的博客行程轨迹。'
 
 ## 2025.11.19
 
-近期发现，xLog 的服务出现包括但不限于:
+近期发现，[xLog](https://xlog.app/) 的服务出现包括但不限于:
 
 - [大陆访问异常](https://github.com/Crossbell-Box/xLog/issues/2228)
 - [文章无法发布](https://github.com/Crossbell-Box/xLog/issues/2213)
-- [被大量推广营销内容占领](https://github.com/Crossbell-Box/xLog/issues/2204)
+- [首页被大量营销推广内容占领](https://github.com/Crossbell-Box/xLog/issues/2204)
 - [后台无法登录，文章无法导出](https://github.com/Crossbell-Box/xLog/issues/2250)
 - ...
  
