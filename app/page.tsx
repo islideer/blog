@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
-import { renderMarkdownLinks } from '@/lib/markdown-utils'
+import { renderMarkdown } from '@/lib/markdown-utils'
 import dayjs from 'dayjs'
 import { generateBlogSchema, generateOrganizationSchema } from '@/lib/seo'
 
@@ -33,7 +33,7 @@ export default async function BlogPage() {
           <h1 className="text-3xl font-bold sm:text-4xl">{siteConfig.pages.home.hero.title}</h1>
           <div className="text-text-secondary text-base leading-relaxed sm:text-lg">
             {siteConfig.pages.home.hero.paragraphs.map((paragraph, index) => (
-              <p key={index}>{renderMarkdownLinks(paragraph)}</p>
+              <p key={index}>{renderMarkdown(paragraph)}</p>
             ))}
           </div>
         </section>

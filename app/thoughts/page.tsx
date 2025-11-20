@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
 import { getAllThoughts } from '@/lib/thoughts'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { renderMarkdownLinks } from '@/lib/markdown-utils'
+import { renderMarkdown } from '@/lib/markdown-utils'
 
 import type { Metadata } from 'next'
 
@@ -58,7 +58,7 @@ export default async function ThoughtsPage() {
                   {dayjs(thought.date).format('YYYY.MM.DD HH:mm')}
                 </time>
 
-                <p>{renderMarkdownLinks(thought.content)}</p>
+                <p>{renderMarkdown(thought.content)}</p>
 
                 {/* 图片 */}
                 {thought.images && thought.images.length > 0 && (
