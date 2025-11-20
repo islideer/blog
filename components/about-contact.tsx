@@ -7,7 +7,7 @@ interface AboutContactProps {
 export function AboutContact({ links }: AboutContactProps) {
   return (
     <section className="space-y-6">
-      <h2 className="text-text-secondary text-sm font-semibold tracking-wider uppercase">联系</h2>
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">Contact</h2>
       <div className="text-text-secondary flex flex-wrap gap-4 text-sm">
         {links.map((link, index) => (
           <a

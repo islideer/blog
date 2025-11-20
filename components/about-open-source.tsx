@@ -9,7 +9,7 @@ export function AboutOpenSource({ data }: AboutOpenSourceProps) {
 
   return (
     <section className="space-y-6">
-      <h2 className="text-text-secondary text-sm font-semibold tracking-wider uppercase">开源</h2>
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">Open Source</h2>
       <div className="space-y-4">
         <div className="text-text-secondary space-y-1.5 text-sm">
           {projects.map((project, index) => (

@@ -34,54 +34,94 @@ export const aboutData: AboutData = {
   intro: {
     title: 'Viki',
     paragraphs: [
-      '我是一名 Web 前端开发工程师，目前在 SHEIN 工作，热爱 Web 技术和开源。',
-      '有幸与 Mio 成为恋人，在一起享受真诚且简单的生活。',
+      '我是一名 Web 前端工程师，目前在 SHEIN 工作。热爱 Web 技术，相信开源的力量。',
+      '有幸与 Mio 相伴，一起享受真诚而简单的生活，朝着属于我们的小家努力。',
     ],
   },
   timeline: [
     {
       date: '2019/11/16',
-      description: '加入南昌大学家园工作室（NCUHOME），系统学习 Web 开发。结识了 Mio。',
+      description:
+        '加入南昌大学家园工作室（NCUHOME），在这里系统学习 Web 开发技术，从零开始接触前端世界。也是在这里，第一次遇见了 Mio。',
     },
     {
       date: '2022/07/06',
-      description: '在百度总部实习，感受企业级开发的严谨与挑战。第一次独立异地工作生活。',
+      description:
+        '前往北京百度总部实习，第一次体验大厂的工作节奏和企业级项目开发的严谨流程。这也是第一次独立在异地工作生活，收获了成长和独立。',
     },
     {
       date: '2023/06/20',
-      description: '毕业于南昌大学（NCU）软件工程专业，获得工学学士学位。',
+      description:
+        '从南昌大学（NCU）软件工程专业毕业，获得工学学士学位。四年的大学时光充实而美好，不仅学到了专业知识，更收获了珍贵的友谊和成长。',
     },
     {
       date: '2023/07/10',
-      description: '入职 SHEIN，担任 Web 前端开发工程师，主要负责公线基建与开发体验.',
+      description:
+        '入职 SHEIN，担任 Web 前端工程师。主要负责公共技术线的基础建设工作，致力于提升开发者体验和工程效率，在实践中不断学习和成长。',
     },
     {
       date: '2025/08/20',
-      description: '与 Mio 正式确立关系。这段感情始于大学相识，经历了多年相互了解与成长。',
+      description:
+        '与 Mio 正式确立恋爱关系。这段感情始于 2019 年在工作室的相识，经历了六年的相互了解、陪伴与成长，最终走到了一起。',
     },
   ],
   openSource: {
     projects: [
       {
-        name: 'vikiboss/60s',
+        name: '60s',
         url: 'https://github.com/vikiboss/60s',
-        description: '每天 60 秒读懂世界',
+        description: '每天 60 秒读懂世界资讯、多种 API 聚合服务',
         stars: '4K+',
       },
       {
         name: '@shined/react-use',
         url: 'https://github.com/sheinsight/react-use',
-        description: 'React Hooks 库',
+        description: '丰富、SSR 友好的 React Hooks 库',
       },
       {
         name: '@shined/reactive',
         url: 'https://github.com/sheinsight/reactive',
-        description: '响应式状态管理',
+        description: 'JavaScript 响应式状态管理',
       },
       {
-        name: 'vikiboss/gs-helper',
+        name: 'guitar-studio',
+        url: 'https://github.com/vikiboss/guitar-studio',
+        description: '多合一的吉他练习工具：调音、找和弦、打节奏',
+      },
+      {
+        name: 'react-online',
+        url: 'https://github.com/vikiboss/react-online',
+        description: 'React 在线编辑器，轻量原生、支持 ESM、TS、TailwindCSS',
+      },
+      {
+        name: 'deno-functions',
+        url: 'https://github.com/vikiboss/deno-functions',
+        description: '一系列实用的 Serverless 函数，部署在 Deno Deploy',
+      },
+      {
+        name: 'face',
+        url: 'https://github.com/vikiboss/face',
+        description: 'QQ 黄脸表情包 CDN 静态资源',
+      },
+      {
+        name: 'v50',
+        url: 'https://github.com/vikiboss/v50',
+        description: '肯德基疯狂星期四文案静态仓库、API',
+      },
+      {
+        name: 'ncu-auto-login-script',
+        url: 'https://github.com/vikiboss/ncu-auto-login-script',
+        description: '南昌大学（NCU）校园网自动登录脚本',
+      },
+      {
+        name: 'gs-helper',
         url: 'https://github.com/vikiboss/gs-helper',
-        description: '原神工具（已归档）',
+        description: '写给原神玩家的小工具（已归档）',
+      },
+      {
+        name: 'BaidupanPlaySpeedControl',
+        url: 'https://github.com/vikiboss/BaidupanPlaySpeedControl',
+        description: '百度网盘视频倍速播放脚本（已归档）',
       },
     ],
     moreLink: 'https://github.com/vikiboss?tab=repositories',

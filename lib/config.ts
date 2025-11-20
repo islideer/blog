@@ -83,8 +83,8 @@ export const siteConfig = {
       description: '所有博客文章列表',
       hero: {
         title: '你好，我是 Viki',
-        description: aboutData.intro.paragraphs[0],
-      },
+        paragraphs: aboutData.intro.paragraphs,
+      } as { title: string; paragraphs: string[] },
       postsToShow: 3,
     },
     archives: {

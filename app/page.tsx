@@ -30,9 +30,11 @@ export default async function BlogPage() {
       {/* Hero Section */}
       <section className="space-y-2 sm:space-y-4">
         <h1 className="text-3xl font-bold sm:text-4xl">{siteConfig.pages.home.hero.title}</h1>
-        <p className="text-text-secondary text-base leading-relaxed sm:text-lg">
-          {siteConfig.pages.home.hero.description}
-        </p>
+        <div className="text-text-secondary space-y-2 text-base leading-relaxed sm:text-lg">
+          {siteConfig.pages.home.hero.paragraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
       </section>
 
       {displayPosts.length === 0 ? (

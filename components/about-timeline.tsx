@@ -8,11 +8,11 @@ interface AboutTimelineProps {
 export function AboutTimeline({ items }: AboutTimelineProps) {
   return (
     <section className="space-y-6">
-      <h2 className="text-text-secondary text-sm font-semibold tracking-wider uppercase">大事记</h2>
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">Timeline</h2>
       <div className="space-y-4">
         {items.map((item, index) => (
-          <div key={index} className="flex items-start gap-4">
-            <time className="text-text-tertiary shrink-0 font-mono text-sm">
+          <div key={index} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-4">
+            <time className="text-text-tertiary shrink-0 font-mono text-sm sm:text-base">
               {dayjs(item.date).isValid() ? dayjs(item.date).format('YYYY/MM/DD') : item.date}
             </time>
             <p className="text-text-secondary">{item.description}</p>
