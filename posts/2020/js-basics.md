@@ -4,6 +4,7 @@ title: 'JavaScript 基础篇'
 date: 2020-01-11
 top_image: 'https://i.loli.net/2020/11/21/2dmkoTYZnhjauOG.jpg'
 excerpt: '寒假学习之 JavaScript基础篇'
+draft: true
 ---
 
 

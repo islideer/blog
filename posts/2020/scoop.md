@@ -9,11 +9,7 @@ excerpt: '使用 Scoop 提升你的 Windows 开发体验'
 
 ## 前言
 
-我们都知道 Linux 有包管理的概念，即：可以在命令行下通过一系列的指令来统一管理程序，常见的使用情景包括: 搜索、安装、更新、卸载等。
-
-macOS 也有类似的包管理器，如 `brew`，`homebrew` 等
-
-借助包管理器，我们可以达到统一管理常用软件的目的。
+我们都知道 Linux 有包管理的概念，即：可以在命令行下通过一系列的指令来统一管理程序，常见的使用情景包括: 搜索、安装、更新、卸载等。macOS 也有类似的包管理器，如 `brew`，`homebrew` 等借助包管理器，我们可以达到统一管理常用软件的目的。
 
 ### Windows 平台弊端
 
@@ -42,9 +38,7 @@ Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.
 iwr -useb get.Scoop .sh | iex
 ```
 
-然后你就可以在终端中输入 `Scoop ` 命令来查看是否安装完成
-
-如果你遇到错误，你可能需要改变执行策略，运行下列命令来启用 `PowerShell`
+然后你就可以在终端中输入 `Scoop ` 命令来查看是否安装完成。如果你遇到错误，你可能需要改变执行策略，运行下列命令来启用 `PowerShell`
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser
@@ -54,11 +48,7 @@ Set-ExecutionPolicy RemoteSigned -scope CurrentUser
 
 ### 添加 bucket
 
-`bucket` 可以简单理解为软件清单
-
-只有当前添加的 `bucket` 里有的软件才可以下载
-
-通过下面的命令添加常用的 `bucket` 来扩大你可以安装的软件类别和数目
+`bucket` 可以简单理解为软件清单。只有当前添加的 `bucket` 里有的软件才可以下载。通过下面的命令添加常用的 `bucket` 来扩大你可以安装的软件类别和数目。
 
 ```bash
 # 最常用的bucket
@@ -125,9 +115,7 @@ scoop cleanup *
 
 ### 切换版本
 
-当安装的软件有多个版本，且都需要同时使用时，可以参考下面设置两个 nodejs 版本共存与切换类似的方法
-
-- 先安装所需的版本
+当安装的软件有多个版本，且都需要同时使用时，可以参考下面设置两个 nodejs 版本共存与切换类似的方法，先安装所需的版本：
 
 ```bash
 scoop install nodejs12
@@ -135,21 +123,15 @@ scoop install nodejs12
 scoop install nodejs
 ```
 
-此时默认的 `node -v` 输出的是最新版本
-
-- 设置需要的版本 / 版本切换
-
-因为 `node12` 和最新版共用 `node` 这个命令，只需要执行 `reset` 加对应的版本就能够将该命令设置为指定版本
-
-切换为 `node12` 版本
+此时默认的 `node -v` 输出的是最新版本。然后设置需要的版本。因为 `node12` 和最新版共用 `node` 这个命令，只需要执行 `reset` 加对应的版本就能够将该命令设置为指定版本。
 
 ```bash
+# 切换为 `node12` 版本
 scoop reset nodejs12
 ```
 
-切换为 `node` 最新版本
-
 ```bash
+# 切换为 `node` 最新版本
 scoop reset nodejs
 ```
 

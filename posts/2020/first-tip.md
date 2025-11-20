@@ -5,7 +5,6 @@ date: 2020-06-17
 excerpt: '一个这么简单的油猴脚本竟然获得了打赏，人生第一次写代码获得物质上的肯定。'
 ---
 
-
 > 2022 年更新：百度网盘网页端已更新，本文提到的脚本和文中的示例代码已失效，如仍有倍速播放需求，可以使用 Google Chrome 的浏览器扩展 [Global Speed](https://chrome.google.com/webstore/detail/global-speed/jpbjcnkcffbooppibceonlgknpkniiff?hl=zh-CN)。
 
 前天（2020.6.15）我在百度网盘看网课视频（真的只是网课学习视频！！命苦的大学牲在准备期末复习）的时候，发现普通用户视频不能倍速播放，学习效率很低，困扰到了我。

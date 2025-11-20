@@ -4,8 +4,8 @@ title: 'C 语言常见算法'
 date: 2019-11-13
 top_image: 'https://i.loli.net/2020/11/21/vSnVGzuZ56WafsR.jpg'
 excerpt: '简单总结了一些 C 语言常见的算法，可以参考'
+draft: true
 ---
-
 
 # 整理 C 语言常见算法
 

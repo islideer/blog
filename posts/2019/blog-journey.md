@@ -2,9 +2,8 @@
 layout: 'post'
 title: 'Hello World'
 date: 2019-11-08
-excerpt: '我的博客行程轨迹。'
+excerpt: '记录我的博客行程轨迹。'
 ---
-
 
 ## 2019.11.8
 
@@ -12,10 +11,13 @@ excerpt: '我的博客行程轨迹。'
 
 ## 2020.3.22
 
-对，好累，折腾了很久终于把博客转移到 `Hexo` 了，中途踩了很多坑。还好，时间没白花，最后还是搞成了自己想要的样子。
-这次找了个简约的“Geek”主题，然后把自己不喜欢的地方改了下，加了点需要的东西。默认语法高亮主题是 `sublime` 的高亮主题，我不是很喜欢，改成了 `One Dark` 的高亮主题。（和我 `vscode` 的主题类似。）然后加上了博文的发布时间，对一些 CSS 样式进行了更改。
+好累，折腾了很久终于把博客转移到 [Hexo](https://hexo.io/) + [GitHub Pages](https://pages.github.com/) 了，中途踩了很多坑。好在时间没白花，最后还是搞成了自己想要的样子。
 
-出于种种原因，将阵地搬到了 [Hexo](https://hexo.io/) 上，新站点使用 [GitHub Pages](https://pages.github.com/) + [Hexo](https://hexo.io/) 搭建。
+这次找了个简约的 [Geek](https://github.com/sanjinhub/hexo-theme-geek) 主题，然后把自己不喜欢的地方改了下，加了点需要的东西。默认语法高亮主题是 `sublime` 的高亮主题，我不是很喜欢，改成了 `One Dark` 的高亮主题。（和我 `vscode` 的主题保持一致）然后加上了博文的发布时间，对一些 CSS 样式进行了更改。
+
+写博客难免要插入一些图片，我的解决方案是 [sm.ms](https://sm.ms/)，免费的图床网站。最大的优点就是简单，快速，缺点是单张图片大小有限制，总容量也不多，但是对我这种对图片需求量不大的人来说还是绰绰有余的。
+
+总体来说还是很满意的，比较简洁，不失美感，想要的功能大都实现了。
 
 ## 2020.9.2
 
@@ -49,4 +51,4 @@ excerpt: '我的博客行程轨迹。'
  
 等等问题，已经无法忍受，决定重新搭建博客。
 
-新博客使用 Next.js 16 + React 19 + Tailwind CSS 4 + Vercel 重新搭建和设计，内容已全数手工迁移至新博客。
+新博客使用 [Next.js 16](https://nextjs.org/) + [React 19](https://react.dev/) + [Tailwind CSS 4](https://tailwindcss.com/) + [Vercel](https://vercel.com/) 重新搭建和设计，内容已全数手工迁移至新博客 =.=。

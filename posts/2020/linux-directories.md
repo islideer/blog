@@ -6,7 +6,6 @@ top_image: 'https://i.loli.net/2020/11/21/sRP8uFdSz4XcVkI.png'
 excerpt: '寒假学习之 Linux 目录结构'
 ---
 
-
 ## 前言
 
 刚上手 Linux 系统，首先感到茫然的，我相信就是那个让初学者摸不着头脑（包括我）的目录结构了，这篇文章主要就是简要介绍各个目录相关的知识。

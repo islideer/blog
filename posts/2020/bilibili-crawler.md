@@ -21,33 +21,25 @@ excerpt: '非常简单的一个 Python 爬虫程序爬取 B 站 up 主的粉丝�
 
 ## 用到的库及其作用
 
-`csv` : 读写 csv 文件
-`json` : 读写 json 文件
-`time` : 进行延时操作
-`random` : 随机数功能实现
-`codecs` : 打开文件 (解决中文写入文件后乱码问题)
-`requests` : 请求库
-`selenium` : 模拟浏览器
-`UserAgent` : 随机 UA 库
-`threading` : 多线程库
-`BeautifulSoup` : 解析 HTML 与 XML 的库
+- `csv`: 读写 csv 文件
+- `json`: 读写 json 文件
+- `time`: 进行延时操作
+- `random`: 随机数功能实现
+- `codecs`: 打开文件 (解决中文写入文件后乱码问题)
+- `requests`: 请求库
+- `selenium`: 模拟浏览器
+- `UserAgent`: 随机 UA 库
+- `threading`: 多线程库
+- `BeautifulSoup`: 解析 HTML 与 XML 的库
 
 ## 遇到的问题以及解决方案
 
 ### 拿不到 html 结构
 
-可能是因为**没有设置 UA** 服务器无法确认请求是否由用户发出
-
-提前设置好请求头 UA(浏览器标识), **伪装成浏览器, 模拟用户正常请求**, 防止 ip 被 ban ~~如果已经被 ban 那就算啦~~
-
-这里可以自己设置 UA 为指定浏览器标识 也可以用库来随机生成
-
-这里**建议使用 `fake_useragent` 库来随机生成 UA 标识**
-
-安装 `fake_useragent`:
+可能是因为**没有设置 UA** 服务器无法确认请求是否由用户发出。提前设置好请求头 UA(浏览器标识), **伪装成浏览器, 模拟用户正常请求**, 防止 IP 被 ban ~~如果已经被 ban 那就算啦~~。这里可以自己设置 UA 为指定浏览器标识 也可以用库来随机生成。这里**建议使用 `fake_useragent` 库来随机生成 UA 标识**。安装 `fake_useragent`:
 
 ```bash
-pip insatll fake_useragent
+pip install fake_useragent
 ```
 
 使用:
@@ -60,11 +52,7 @@ headers = {'User-Agent': UA}
 
 ### 拿到的 html 结构不完整
 
-可能是因为**网页动态加载**的(拿到网页并用浏览器解析之后还需要 js 来动态更新网页内容), 导致拿到的网页的 html 结构残缺, 拿不到想要的数据
-
-可以**使用 `Selenium` 库来模拟浏览器爬虫** 这样他会**等到网页加载完全**再拿出网页的 html
-
-安装 `Selenium`:
+可能是因为**网页动态加载**的(拿到网页并用浏览器解析之后还需要 JS 来动态更新网页内容), 导致拿到的网页的 HTML 结构残缺, 拿不到想要的数据。可以**使用 `Selenium` 库来模拟浏览器爬虫** 这样他会**等到网页加载完全**再拿出网页的 HTML。安装 `Selenium`:
 
 ```bash
 pip install selenium
@@ -98,15 +86,7 @@ html = browser.page_source
 
 ### 无法永久保存且不会乱码的数据
 
-我太菜了 不会使数据库 所以只能存本地了 为了数据后续处理的方便 这里**使用了 `csv` 文件格式存数据**
-
-同时使用了 `codecs` 打开文件来防止乱码
-
-`csv` 格式文件很简单 Excel 也能打开并处理
-
-Python 里有 `csv` 库来读写 `csv` 格式文件
-
-安装 `csv` 及 `codecs` 库:
+我太菜了，不会使数据库，所以只能存本地了。为了数据后续处理的方便，这里**使用了 `csv` 文件格式存数据**，同时使用了 `codecs` 打开文件来防止乱码。`csv` 格式文件很简单，Excel 也能打开并处理，Python 里有 `csv` 库来读写 `csv` 格式文件。安装 `csv` 及 `codecs` 库:
 
 ```bash
 pip install csv codecs
@@ -132,9 +112,7 @@ csv_writer.writerow(infos)
 
 ### 返回的数据是 json 格式
 
-使用 `json` 库处理
-
-安装 `json` 库:
+使用 `json` 库处理，安装 `json` 库:
 
 ```bash
 pip install json
@@ -155,9 +133,7 @@ print(jsonStr) '{"name": "Viki"}'
 
 ### 爬取速度太慢
 
-使用 `threading` 库实现**多线程**
-
-安装 `threading`:
+使用 `threading` 库实现**多线程**，安装 `threading`:
 
 ```bash
 pip install threading
@@ -353,7 +329,6 @@ if __name__ == '__main__':
         print(f"开始第{i+1}次爬取...")
         main(browser)
     browser.close()
-
 ```
 
 ### 参考

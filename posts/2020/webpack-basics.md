@@ -17,23 +17,23 @@ excerpt: '本文简要地讲解了 webpack 4.x 的入门知识，适合想了解
 
 > 在开始之前，请确保安装了 [Node.js](https://nodejs.org/zh-cn/) 的较新版本
 
-- #### 全局安装
+#### 全局安装
 
-  即：webpack 命令已加入环境变量，全局下可用
+即：webpack 命令已加入环境变量，全局下可用
 
-  ```bash
-  npm install -g webpack
-  npm install -g webpack-cli
-  ```
+```bash
+npm install -g webpack
+npm install -g webpack-cli
+```
 
-- #### 本地安装
+#### 本地安装
 
-  即：仅在当前项目配置 webpack 的开发环境
+即：仅在当前项目配置 webpack 的开发环境
 
-  ```bash
-  npm install --save-dev webpack
-  npm install --save-dev webpack-cli
-  ```
+```bash
+npm install --save-dev webpack
+npm install --save-dev webpack-cli
+```
 
 ### 配置 npm 脚本
 

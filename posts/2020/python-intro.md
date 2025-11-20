@@ -5,6 +5,7 @@ date: 2020-09-05
 quicklink: true
 top_image: 'https://i.loli.net/2020/11/21/vYmfz2eAjhud7sP.jpg'
 excerpt: 'Python 是一种面向对象、解释型、动态数据类型的高级程序设计脚本语言，同时也是一种功能强大而完善的通用型语言。'
+draft: true
 ---
 
 
