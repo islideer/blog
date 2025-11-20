@@ -8,8 +8,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* 为 sticky header 预留空间 */
+  scroll-padding-top: 3rem; /* 为 sticky header 预留空间 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -57,18 +56,14 @@ summary {
   transition: none !important;
 }
 
-/* Navigation and footer links with underline */
-nav a,
-footer a,
-a.text-link {
+/* All links with dashed underline, except header and no-underline class */
+a:not(header a):not(.no-underline) {
   text-decoration: underline dashed;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
 }
 
-nav a:hover,
-footer a:hover,
-a.text-link:hover {
+a:not(header a):not(.no-underline):hover {
   text-decoration-style: solid;
 }
 
@@ -90,16 +85,6 @@ a[target='_blank']::after {
   outline: 2px solid var(--color-text-primary);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
-}
-
-/* View Transitions */
-@view-transition {
-  navigation: auto;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.3s;
 }
 
 /* Smooth scrollbar */
