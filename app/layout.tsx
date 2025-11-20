@@ -3,6 +3,7 @@ import './globals.css'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
+import { Analytics } from '@vercel/analytics/next'
 
 import type { Metadata } from 'next'
 
@@ -202,6 +203,8 @@ export default function RootLayout({
             </div>
           </footer>
         </div>
+
+        <Analytics />
       </body>
     </html>
   )
