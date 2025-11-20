@@ -3,6 +3,7 @@ import './globals.css'
 import { ScrollHeader } from '@/components/scroll-header'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { siteConfig } from '@/lib/config'
+import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
@@ -24,9 +25,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
-    // apple: '/apple-icon.png',
+    apple: '/apple-icon.png',
   },
   manifest: '/manifest.json',
+  alternates: {
+    canonical: generateCanonicalUrl('/'),
+  },
   openGraph: {
     type: siteConfig.openGraph.type,
     locale: siteConfig.locale.replace('-', '_'),

@@ -2,8 +2,11 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
 import dayjs from 'dayjs'
+import { generateBlogSchema, generateOrganizationSchema } from '@/lib/seo'
 
 export default async function BlogPage() {
+  const blogSchema = generateBlogSchema()
+  const organizationSchema = generateOrganizationSchema()
   const allPosts = await getAllPosts()
   const pinnedPosts = allPosts.filter((post) => post.top)
   const regularPosts = allPosts.filter((post) => !post.top)
@@ -12,7 +15,18 @@ export default async function BlogPage() {
   const displayPosts = [...pinnedPosts, ...regularPosts.slice(0, siteConfig.pages.home.postsToShow)]
 
   return (
-    <div className="space-y-8 sm:space-y-12">
+    <>
+      {/* JSON-LD 结构化数据 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+
+      <div className="space-y-8 sm:space-y-12">
       {/* Hero Section */}
       <section className="space-y-2 sm:space-y-4">
         <h1 className="text-3xl font-bold sm:text-4xl">{siteConfig.pages.home.hero.title}</h1>
@@ -88,6 +102,7 @@ export default async function BlogPage() {
           </Link>
         </div>
       )}
-    </div>
+      </div>
+    </>
   )
 }

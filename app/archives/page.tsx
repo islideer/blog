@@ -2,11 +2,15 @@ import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
 import Link from 'next/link'
 import dayjs from 'dayjs'
+import { generateCanonicalUrl } from '@/lib/seo'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: siteConfig.pages.archives.title,
   description: siteConfig.pages.archives.description,
+  alternates: {
+    canonical: generateCanonicalUrl('/archives'),
+  },
 }
 
 export default async function ArchivesPage() {

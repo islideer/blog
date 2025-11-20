@@ -4,6 +4,13 @@ import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { mdxOptions } from '@/lib/mdx'
 import { getPostBySlug, getAllPostSlugs, getAllPosts } from '@/lib/posts'
+import {
+  generateBlogPostingSchema,
+  generateBreadcrumbSchema,
+  generateCanonicalUrl,
+  generatePostOpenGraph,
+  generatePostTwitterCard,
+} from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
@@ -29,9 +36,17 @@ export async function generateMetadata({
     }
   }
 
+  const canonicalUrl = generateCanonicalUrl(post.slug)
+
   return {
     title: post.title,
     description: post.excerpt,
+    keywords: post.tags?.join(', '),
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: generatePostOpenGraph(post),
+    twitter: generatePostTwitterCard(post),
   }
 }
 
@@ -49,8 +64,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const allPosts = await getAllPosts()
   const recommendedPosts = allPosts.filter((p) => p.slug !== slugPath).slice(0, 3)
 
+  // 生成结构化数据
+  const blogPostingSchema = generateBlogPostingSchema(post)
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: '首页', url: '/' },
+    { name: post.title, url: `/${post.slug}` },
+  ])
+
   return (
-    <article>
+    <>
+      {/* JSON-LD 结构化数据 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      <article>
       {/* Article Header */}
       <header className="mb-8 sm:mb-12 space-y-4 sm:space-y-6">
         <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-4xl md:text-5xl">
@@ -92,5 +125,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       )}
     </article>
+    </>
   )
 }

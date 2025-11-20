@@ -1,9 +1,13 @@
 import type { Metadata } from 'next'
 import { siteConfig } from '@/lib/config'
+import { generateCanonicalUrl } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: siteConfig.pages.about.title,
   description: siteConfig.pages.about.description,
+  alternates: {
+    canonical: generateCanonicalUrl('/about'),
+  },
 }
 
 export default function AboutPage() {
