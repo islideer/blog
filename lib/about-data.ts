@@ -44,19 +44,19 @@ export const aboutData: AboutData = {
       description: '加入南昌大学家园工作室（NCUHOME），系统学习 Web 开发。结识了 Mio。',
     },
     {
-      date: '2022/7/6',
+      date: '2022/07/06',
       description: '在百度总部实习，感受企业级开发的严谨与挑战。第一次独立异地工作生活。',
     },
     {
-      date: '2023/6/20',
+      date: '2023/06/20',
       description: '毕业于南昌大学（NCU）软件工程专业，获得工学学士学位。',
     },
     {
-      date: '2023/7/10',
-      description: '入职 SHEIN，担任 Web 前端开发工程师，主要负责公线基建与开发体验。',
+      date: '2023/07/10',
+      description: '入职 SHEIN，担任 Web 前端开发工程师，主要负责公线基建与开发体验.',
     },
     {
-      date: '2025/8/20',
+      date: '2025/08/20',
       description: '与 Mio 正式确立关系。这段感情始于大学相识，经历了多年相互了解与成长。',
     },
   ],

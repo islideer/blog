@@ -47,7 +47,7 @@ export default async function BlogPage() {
         <>
           <div className="border-border border-t" />
           <section className="space-y-4">
-            <h2 className="text-text-primary text-xl font-semibold">最近文章</h2>
+            <h2 className="text-text-secondary text-xl font-semibold">最近文章</h2>
             <div className="space-y-4 sm:space-y-6">
               {displayPosts.map((post) => (
                 <Link
@@ -68,7 +68,7 @@ export default async function BlogPage() {
                             <path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z" />
                           </svg>
                         )}
-                        <h2 className="text-text-secondary group-hover:underline text-base font-medium sm:text-lg md:text-xl truncate">
+                        <h2 className="text-text-primary group-hover:underline text-base font-medium sm:text-lg md:text-xl truncate">
                           {post.title}
                         </h2>
                       </div>
@@ -87,7 +87,7 @@ export default async function BlogPage() {
                       </div>
                     </div>
                     {post.excerpt && (
-                      <p className="text-text-tertiary line-clamp-2 text-sm leading-relaxed">
+                      <p className="text-text-secondary line-clamp-2 text-sm leading-relaxed">
                         {post.excerpt}
                       </p>
                     )}
