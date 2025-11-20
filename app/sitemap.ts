@@ -1,28 +1,28 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/posts'
+import { siteConfig } from '@/lib/config'
 
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = 'https://blog.viki.moe'
   const posts = getAllPosts()
 
   // 静态页面
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: siteUrl,
+      url: siteConfig.url,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1,
     },
     {
-      url: `${siteUrl}/archives`,
+      url: `${siteConfig.url}/archives`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${siteUrl}/about`,
+      url: `${siteConfig.url}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // 博客文章页面
   const postPages: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${siteUrl}/${post.slug}`,
+    url: `${siteConfig.url}/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: 'monthly' as const,
     priority: 0.9,

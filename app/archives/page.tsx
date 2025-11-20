@@ -1,11 +1,12 @@
 import { getAllPosts } from '@/lib/posts'
+import { siteConfig } from '@/lib/config'
 import Link from 'next/link'
 import dayjs from 'dayjs'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: '归档',
-  description: '按年份归档的所有文章',
+  title: siteConfig.pages.archives.title,
+  description: siteConfig.pages.archives.description,
 }
 
 export default function ArchivesPage() {
@@ -49,7 +50,7 @@ export default function ArchivesPage() {
     <div className="space-y-12">
       {/* Header */}
       <section className="space-y-3">
-        <h1 className="text-3xl font-bold">归档</h1>
+        <h1 className="text-3xl font-bold">{siteConfig.pages.archives.title}</h1>
         <p className="text-text-secondary">共 {posts.length} 篇文章，按年份归档</p>
       </section>
 

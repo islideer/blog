@@ -1,43 +1,43 @@
 import { Feed } from 'feed'
 import { getAllPosts } from '@/lib/posts'
+import { siteConfig } from '@/lib/config'
 
 export const dynamic = 'force-static'
 
 export async function GET() {
-  const siteUrl = 'https://blog.viki.moe'
   const posts = getAllPosts()
 
   const feed = new Feed({
-    title: 'Viki 写东西的地方',
-    description: '分享技术和日常',
-    id: siteUrl,
-    link: siteUrl,
-    language: 'zh-CN',
-    favicon: `${siteUrl}/favicon.ico`,
-    copyright: `© ${new Date().getFullYear()} Viki. 所有文章均遵循 CC BY-SA 4.0 协议，转载请注明出处。`,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    id: siteConfig.url,
+    link: siteConfig.url,
+    language: siteConfig.language,
+    favicon: `${siteConfig.url}/favicon.ico`,
+    copyright: `© ${new Date().getFullYear()} ${siteConfig.author.name}. 所有文章均遵循 ${siteConfig.copyright.license.name} 协议，转载请注明出处。`,
     updated: new Date(posts[0]?.date || Date.now()),
     feedLinks: {
-      rss2: `${siteUrl}/rss.xml`,
+      rss2: `${siteConfig.url}${siteConfig.links.rss}`,
     },
     author: {
-      name: 'Viki',
-      email: 'hi@viki.moe',
-      link: 'https://github.com/vikiboss',
+      name: siteConfig.author.name,
+      email: siteConfig.author.email,
+      link: siteConfig.author.github,
     },
   })
 
   posts.forEach((post) => {
     feed.addItem({
       title: post.title,
-      id: `${siteUrl}/${post.slug}`,
-      link: `${siteUrl}/${post.slug}`,
+      id: `${siteConfig.url}/${post.slug}`,
+      link: `${siteConfig.url}/${post.slug}`,
       description: post.excerpt,
       content: post.excerpt,
       author: [
         {
-          name: 'Viki',
-          email: 'hi@viki.moe',
-          link: 'https://github.com/vikiboss',
+          name: siteConfig.author.name,
+          email: siteConfig.author.email,
+          link: siteConfig.author.github,
         },
       ],
       date: new Date(post.date),

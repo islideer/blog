@@ -2,29 +2,21 @@ import Link from 'next/link'
 import './globals.css'
 import { ScrollHeader } from '@/components/scroll-header'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { siteConfig } from '@/lib/config'
 
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://blog.viki.moe'),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Viki 写东西的地方',
-    template: '%s | Viki 写东西的地方',
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: '分享技术和日常',
-  authors: [{ name: 'Viki', url: 'https://github.com/vikiboss' }],
-  keywords: [
-    '前端开发',
-    'Web 开发',
-    'React',
-    'Next.js',
-    'TypeScript',
-    'JavaScript',
-    'Node.js',
-    '博客',
-  ],
-  creator: 'Viki',
-  publisher: 'Viki',
+  description: siteConfig.description,
+  authors: [{ name: siteConfig.author.name, url: siteConfig.author.github }],
+  keywords: siteConfig.keywords,
+  creator: siteConfig.author.name,
+  publisher: siteConfig.author.name,
   formatDetection: {
     email: false,
     address: false,
@@ -36,12 +28,12 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   openGraph: {
-    type: 'website',
-    locale: 'zh_CN',
-    url: 'https://blog.viki.moe',
-    title: 'Viki 写东西的地方',
-    description: '分享技术和日常',
-    siteName: 'Viki 写东西的地方',
+    type: siteConfig.openGraph.type,
+    locale: siteConfig.locale.replace('-', '_'),
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
     // images: [
     //   {
     //     url: '/og?title=Viki 写东西的地方&description=Less is more',
@@ -53,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Viki 写东西的地方',
-    description: '分享技术和日常',
-    creator: '@vikiboss',
+    title: siteConfig.name,
+    description: siteConfig.description,
+    creator: siteConfig.author.twitter,
     // images: ['/og?title=Viki%20写东西的地方&description=分享技术和日常'],
   },
 }
@@ -86,8 +78,8 @@ export default function RootLayout({
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="Viki 的博客 RSS 订阅"
-          href="/rss.xml"
+          title={`${siteConfig.name} RSS 订阅`}
+          href={siteConfig.links.rss}
         />
       </head>
       <body className="bg-bg-primary text-text-primary min-h-screen">
@@ -100,9 +92,9 @@ export default function RootLayout({
               <Link href="/" passHref>
                 <div>
                   <h1 className="text-text-primary text-base font-semibold sm:text-lg">
-                    Viki 写东西的地方
+                    {siteConfig.name}
                   </h1>
-                  <p className="text-text-tertiary hidden text-xs sm:block">生活需要记录</p>
+                  <p className="text-text-tertiary hidden text-xs sm:block">{siteConfig.tagline}</p>
                 </div>
               </Link>
 
@@ -133,15 +125,16 @@ export default function RootLayout({
               <div className="flex flex-col items-center justify-between gap-4 text-sm sm:flex-row">
                 <div className="text-text-tertiary text-center sm:text-left">
                   <p>
-                    © 2019-PRESENT Viki.
+                    © {siteConfig.copyright.year.start}-{siteConfig.copyright.year.end}{' '}
+                    {siteConfig.author.name}.
                     <br className="sm:hidden" /> 文章以{' '}
                     <a
-                      href="https://creativecommons.org/licenses/by-sa/4.0/"
+                      href={siteConfig.copyright.license.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-text-secondary"
                     >
-                      CC BY-SA 4.0
+                      {siteConfig.copyright.license.name}
                     </a>{' '}
                     协议共享，转载请注明出处。
                   </p>
@@ -149,7 +142,7 @@ export default function RootLayout({
 
                 <div className="flex items-center gap-4">
                   <a
-                    href="/rss.xml"
+                    href={siteConfig.links.rss}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-text-secondary hover:text-text-primary"
@@ -158,7 +151,7 @@ export default function RootLayout({
                     RSS
                   </a>
                   <a
-                    href="https://github.com/vikiboss"
+                    href={siteConfig.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-text-secondary hover:text-text-primary"
