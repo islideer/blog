@@ -56,15 +56,20 @@ summary {
   transition: none !important;
 }
 
-/* All links with dashed underline, except header and no-underline class */
-a:not(header a):not(.no-underline) {
+/* All links with dashed underline, except no-underline class */
+a:not(.no-underline) {
   text-decoration: underline dashed;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
 }
 
-a:not(header a):not(.no-underline):hover {
+a:not(.no-underline):hover {
   text-decoration-style: solid;
+}
+
+/* Header logo link without underline */
+header > div > a {
+  text-decoration: none;
 }
 
 /* External links with arrow icon */

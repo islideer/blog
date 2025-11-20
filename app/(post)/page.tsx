@@ -37,10 +37,10 @@ export default async function BlogPage() {
             <div className="space-y-6">
               {displayPosts.map((post) => (
                 <Link key={post.slug} href={`/${post.slug}`} className="group block no-underline">
-                  <article className="group-hover:bg-bg-secondary space-y-2 py-4 px-2 -mx-2 rounded-xs">
+                  <article className="space-y-2 py-4">
                     <div className="flex items-baseline justify-between gap-4">
                       <div className="flex items-center gap-2 flex-1 min-w-0">
-                        <h2 className="text-text-secondary group-hover:text-text-primary text-lg font-medium sm:text-xl truncate">
+                        <h2 className="text-text-secondary group-hover:underline text-lg font-medium sm:text-xl truncate">
                           {post.title}
                         </h2>
                         {post.top && (
@@ -59,7 +59,7 @@ export default async function BlogPage() {
                       </time>
                     </div>
                     {post.excerpt && (
-                      <p className="text-text-tertiary group-hover:text-text-secondary line-clamp-2 text-sm">
+                      <p className="text-text-tertiary line-clamp-2 text-sm">
                         {post.excerpt}
                       </p>
                     )}
