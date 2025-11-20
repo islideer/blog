@@ -1,6 +1,11 @@
 import createMDX from '@next/mdx'
+import bundleAnalyzer from '@next/bundle-analyzer'
 
 import type { NextConfig } from 'next'
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
@@ -19,4 +24,4 @@ const withMDX = createMDX({
   },
 })
 
-export default withMDX(nextConfig)
+export default withBundleAnalyzer(withMDX(nextConfig))

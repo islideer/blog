@@ -41,17 +41,25 @@ export function generateBlogSchema() {
  * Generate JSON-LD structured data for BlogPosting
  */
 export function generateBlogPostingSchema(post: Post) {
+  const wordCount = post.content
+    ? post.content.split(/\s+/).filter((word) => word.length > 0).length
+    : 0
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
+    alternativeHeadline: post.title,
     description: post.excerpt || post.title,
+    articleBody: post.content
+      ? post.content.substring(0, 500).replace(/[#*`]/g, '')
+      : post.excerpt,
     url: `${siteConfig.url}/${post.slug}`,
     datePublished: post.date,
     dateModified: post.date,
     author: {
       '@type': 'Person',
-      name: siteConfig.author.name,
+      name: post.author || siteConfig.author.name,
       url: siteConfig.author.github,
     },
     publisher: {
@@ -59,8 +67,16 @@ export function generateBlogPostingSchema(post: Post) {
       name: siteConfig.author.name,
       url: siteConfig.author.github,
     },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${siteConfig.url}/${post.slug}`,
+    },
     keywords: post.tags?.join(', '),
-    articleSection: post.tags?.[0],
+    articleSection: post.tags?.[0] || 'Blog',
+    wordCount: wordCount,
+    inLanguage: siteConfig.locale,
+    isFamilyFriendly: 'true',
+    isAccessibleForFree: 'true',
   }
 }
 
@@ -92,6 +108,8 @@ export function generateCanonicalUrl(path: string) {
  * Generate Open Graph metadata for a blog post
  */
 export function generatePostOpenGraph(post: Post) {
+  const ogImageUrl = `/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.excerpt || post.title)}`
+
   return {
     type: 'article' as const,
     title: post.title,
@@ -103,6 +121,14 @@ export function generatePostOpenGraph(post: Post) {
     modifiedTime: post.date,
     authors: [siteConfig.author.name],
     tags: post.tags,
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: post.title,
+      },
+    ],
   }
 }
 
@@ -110,10 +136,13 @@ export function generatePostOpenGraph(post: Post) {
  * Generate Twitter Card metadata for a blog post
  */
 export function generatePostTwitterCard(post: Post) {
+  const ogImageUrl = `/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.excerpt || post.title)}`
+
   return {
     card: 'summary_large_image' as const,
     title: post.title,
     description: post.excerpt || post.title,
     creator: siteConfig.author.twitter,
+    images: [ogImageUrl],
   }
 }

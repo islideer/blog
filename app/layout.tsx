@@ -38,21 +38,23 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    // images: [
-    //   {
-    //     url: '/og?title=Viki 写东西的地方&description=Less is more',
-    //     width: 1200,
-    //     height: 630,
-    //     alt: 'Viki 写东西的地方',
-    //   },
-    // ],
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(siteConfig.name)}&description=${encodeURIComponent(siteConfig.tagline)}`,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
     creator: siteConfig.author.twitter,
-    // images: ['/og?title=Viki%20写东西的地方&description=分享技术和日常'],
+    images: [
+      `/og?title=${encodeURIComponent(siteConfig.name)}&description=${encodeURIComponent(siteConfig.tagline)}`,
+    ],
   },
 }
 
@@ -64,6 +66,10 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" className="light" suppressHydrationWarning>
       <head>
+        {/* Preconnect to external domains for better performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -88,10 +94,20 @@ export default function RootLayout({
       </head>
       <body className="bg-bg-primary text-text-primary min-h-screen">
         <ScrollHeader />
+        {/* Skip to Main Content Link - for keyboard navigation */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:bg-bg-primary focus:text-text-primary focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:px-4 focus:py-2 focus:shadow-lg"
+        >
+          跳转到主要内容
+        </a>
         {/* Main Content Area */}
         <div className="flex min-h-screen flex-col lg:mx-auto lg:max-w-3xl">
           {/* Header - Sticky */}
-          <header className="border-border bg-bg-primary/80 sticky top-0 z-40 border-b backdrop-blur-sm">
+          <header
+            role="banner"
+            className="border-border bg-bg-primary/80 sticky top-0 z-40 border-b backdrop-blur-sm"
+          >
             <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
               <Link href="/" passHref className="no-underline">
                 <div>
@@ -102,7 +118,7 @@ export default function RootLayout({
                 </div>
               </Link>
 
-              <nav className="flex items-center space-x-4">
+              <nav role="navigation" aria-label="主导航" className="flex items-center space-x-4">
                 <Link
                   href="/archives"
                   className="text-text-secondary hover:text-text-primary"
@@ -121,10 +137,16 @@ export default function RootLayout({
           </header>
 
           {/* Main Content */}
-          <main className="mx-auto w-full flex-1 p-4 pb-8 sm:p-6 lg:p-8">{children}</main>
+          <main
+            id="main-content"
+            role="main"
+            className="mx-auto w-full flex-1 p-4 pb-8 sm:p-6 lg:p-8"
+          >
+            {children}
+          </main>
 
           {/* Footer */}
-          <footer className="border-border border-t">
+          <footer role="contentinfo" className="border-border border-t">
             <div className="mx-auto w-full p-4 sm:p-6 lg:p-8">
               <div className="flex flex-col items-center justify-between gap-4 text-sm sm:flex-row">
                 <div className="text-text-tertiary text-center sm:text-left">
