@@ -121,6 +121,12 @@ export default function RootLayout({
                   归档
                 </Link>
                 <Link
+                  href="/thoughts"
+                  className="text-text-secondary hover:text-text-primary text-sm"
+                >
+                  碎碎念
+                </Link>
+                <Link
                   href="/about"
                   className="text-text-secondary hover:text-text-primary text-sm"
                 >

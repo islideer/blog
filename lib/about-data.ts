@@ -34,7 +34,7 @@ export const aboutData: AboutData = {
   intro: {
     title: 'Viki',
     paragraphs: [
-      '我是一名 Web 前端工程师，目前在 SHEIN 工作。热爱 Web 技术，相信开源的力量。',
+      '一名 Web 前端工程师，就职于 [SHEIN](https://www.sheingroup.com/)，热爱 [Web 技术](https://developer.mozilla.org/zh-CN/docs/Web)，相信开源的力量。',
       '有幸与 Mio 相伴，一起享受真诚而简单的生活，朝着属于我们的小家努力。',
     ],
   },
@@ -42,7 +42,7 @@ export const aboutData: AboutData = {
     {
       date: '2019/11/16',
       description:
-        '加入南昌大学家园工作室（NCUHOME），在这里系统学习 Web 开发技术，从零开始接触前端世界。也是在这里，第一次遇见了 Mio。',
+        '加入 [南昌大学家园工作室（NCUHOME）](https://home.ncu.edu.cn/)，在这里系统学习 Web 开发技术，从零开始接触前端世界。也是在这里，第一次遇见了 Mio。',
     },
     {
       date: '2022/07/06',
@@ -57,7 +57,7 @@ export const aboutData: AboutData = {
     {
       date: '2023/07/10',
       description:
-        '入职 SHEIN，担任 Web 前端工程师。主要负责公共技术线的基础建设工作，致力于提升开发者体验和工程效率，在实践中不断学习和成长。',
+        '入职 [SHEIN](https://www.sheingroup.com/)，担任 Web 前端工程师。主要负责公共技术线的基础建设工作，致力于提升开发者体验和工程效率，在实践中不断学习和成长。',
     },
     {
       date: '2025/08/20',

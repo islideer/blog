@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import { renderMarkdownLinks } from '@/lib/markdown-utils'
 import type { TimelineItem } from '@/lib/about-data'
 
 interface AboutTimelineProps {
@@ -15,7 +16,7 @@ export function AboutTimeline({ items }: AboutTimelineProps) {
             <time className="text-text-tertiary shrink-0 font-mono text-sm sm:text-base">
               {dayjs(item.date).isValid() ? dayjs(item.date).format('YYYY/MM/DD') : item.date}
             </time>
-            <p className="text-text-secondary">{item.description}</p>
+            <p className="text-text-secondary">{renderMarkdownLinks(item.description)}</p>
           </div>
         ))}
         <div className="via-text-tertiary mt-2 h-0.5 w-12 bg-linear-to-r from-transparent to-transparent" />

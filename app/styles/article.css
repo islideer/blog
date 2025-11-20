@@ -32,7 +32,7 @@
   color: var(--color-text-primary);
   margin-top: 2em;
   margin-bottom: 0.75em;
-  scroll-margin-top: 4.5rem; /* 为固定头部留出空间 */
+  scroll-margin-top: 3rem; /* 为固定头部留出空间 */
   /* 防止标题孤行 */
   text-wrap: balance;
   /* 优化渲染性能 - 标题通常是关键内容 */
@@ -181,7 +181,9 @@
   -moz-osx-font-smoothing: grayscale;
   /* 禁用连字 - 内联代码通常不需要 */
   font-variant-ligatures: none;
-  font-feature-settings: 'liga' 0, 'calt' 0;
+  font-feature-settings:
+    'liga' 0,
+    'calt' 0;
 }
 
 /* 左侧反引号 */
@@ -264,12 +266,21 @@ html.light .prose-blog pre {
   font-family: var(--font-mono);
   /* 启用编程连字（ligatures）- 支持 Fira Code、JetBrains Mono 等 */
   font-variant-ligatures: common-ligatures;
-  font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
+  font-feature-settings:
+    'liga' 1,
+    'calt' 1,
+    'zero' 1;
   /* zero: 使用带斜线的 0 以区分字母 O */
   /* liga: 启用标准连字 */
   /* calt: 启用上下文替代（contextual alternates）*/
-  -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
-  -moz-font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
+  -webkit-font-feature-settings:
+    'liga' 1,
+    'calt' 1,
+    'zero' 1;
+  -moz-font-feature-settings:
+    'liga' 1,
+    'calt' 1,
+    'zero' 1;
 }
 
 /* Shiki 代码高亮 - 使用 CSS 变量 */
@@ -400,7 +411,7 @@ html.light .prose-blog .shiki span {
   /* 性能优化 */
   contain: layout style;
   /* 引用通常需要视觉区分 */
-  quotes: '"' '"' ''' ''';
+  quotes: '"' '"' '' ' ' '';
 }
 
 .prose-blog blockquote p {
@@ -439,12 +450,17 @@ html.light .prose-blog .shiki span {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     /* 滚动阴影提示 */
-    background: linear-gradient(90deg, var(--color-bg-primary) 30%, transparent),
+    background:
+      linear-gradient(90deg, var(--color-bg-primary) 30%, transparent),
       linear-gradient(90deg, transparent, var(--color-bg-primary) 70%) 100% 0,
       linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0, transparent 10%),
       linear-gradient(270deg, rgba(0, 0, 0, 0.1) 0, transparent 10%) 100% 0;
     background-repeat: no-repeat;
-    background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+    background-size:
+      40px 100%,
+      40px 100%,
+      14px 100%,
+      14px 100%;
     background-attachment: local, local, scroll, scroll;
   }
 }
@@ -498,10 +514,9 @@ html.light .prose-blog .shiki span {
 .prose-blog img {
   max-width: 100%;
   height: auto;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-xs);
   margin: 2em auto;
   display: block;
-  border: 1px solid var(--color-border);
   /* 防止布局偏移 */
   aspect-ratio: attr(width) / attr(height);
   /* 优化加载体验 */
@@ -565,7 +580,9 @@ html.light .prose-blog .shiki span {
   -moz-osx-font-smoothing: grayscale;
   /* 禁用连字 */
   font-variant-ligatures: none;
-  font-feature-settings: 'liga' 0, 'calt' 0;
+  font-feature-settings:
+    'liga' 0,
+    'calt' 0;
 }
 
 /* 标记/高亮 */
@@ -760,9 +777,18 @@ html.dark .prose-blog mark {
   -moz-osx-font-smoothing: grayscale;
   /* 启用编程连字 */
   font-variant-ligatures: common-ligatures;
-  font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
-  -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
-  -moz-font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
+  font-feature-settings:
+    'liga' 1,
+    'calt' 1,
+    'zero' 1;
+  -webkit-font-feature-settings:
+    'liga' 1,
+    'calt' 1,
+    'zero' 1;
+  -moz-font-feature-settings:
+    'liga' 1,
+    'calt' 1,
+    'zero' 1;
 }
 
 .code-block-line-content {
