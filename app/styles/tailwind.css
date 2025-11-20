@@ -20,12 +20,15 @@
   --color-border: oklch(0.9 0 0);
   --color-border-hover: oklch(0.8 0 0);
 
-  /* Custom Typography */
+  /* Custom Typography - System fonts with fallback optimization */
   --font-sans:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji';
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+  /* Programming fonts - Prioritize popular coding fonts */
   --font-mono:
-    'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    'Fira Code', 'JetBrains Mono', 'Cascadia Code', 'Source Code Pro', 'Menlo', 'Monaco',
+    'Consolas', 'Roboto Mono', 'Ubuntu Mono', 'SF Mono', ui-monospace, monospace;
 
   /* Custom Border Radius */
   --radius-xs: 0.25rem; /* 4px - for code blocks */

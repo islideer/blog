@@ -11,6 +11,7 @@ import {
   generatePostOpenGraph,
   generatePostTwitterCard,
 } from '@/lib/seo'
+import { OldPostBanner } from '@/components/old-post-banner'
 
 import type { Metadata } from 'next'
 
@@ -79,47 +80,56 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       />
 
       <article>
-      {/* Article Header */}
-      <header className="mb-8 sm:mb-12 space-y-4 sm:space-y-6">
-        <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-4xl md:text-5xl">
-          {post.title}
-        </h1>
+        {/* Article Header */}
+        <header className="mb-8 space-y-4 sm:mb-12 sm:space-y-6">
+          <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-4xl md:text-5xl">
+            {post.title}
+          </h1>
 
-        <time dateTime={post.date} className="text-text-tertiary block text-xs sm:text-sm">
-          {dayjs(post.date).year() === dayjs().year()
-            ? dayjs(post.date).format('MM 月 DD 日')
-            : dayjs(post.date).format('YYYY 年 MM 月 DD 日')}
-        </time>
-      </header>
-
-      {/* Article Content */}
-      <div className="prose-blog">
-        <MDXRemote source={post.content} options={mdxOptions} />
-      </div>
-
-      {/* Article End */}
-      <div className="border-border mt-16 border-t pt-8">
-        <p className="text-text-tertiary text-center text-sm">—— 本文完 ——</p>
-      </div>
-
-      {/* Recommended Posts */}
-      {recommendedPosts.length > 0 && (
-        <div className="mt-8 sm:mt-12 space-y-3 sm:space-y-4">
-          <h2 className="text-text-secondary text-base sm:text-lg font-medium">也可以看看</h2>
-          <div className="space-y-2 sm:space-y-3">
-            {recommendedPosts.map((recommendedPost) => (
-              <Link
-                key={recommendedPost.slug}
-                href={`/${recommendedPost.slug}`}
-                className="text-text-secondary hover:text-text-primary text-sm sm:text-base block"
-              >
-                {recommendedPost.title}
-              </Link>
-            ))}
+          <div className="text-text-tertiary flex flex-wrap items-baseline gap-x-2 gap-y-1 text-xs sm:text-sm">
+            <time dateTime={post.date}>
+              {dayjs(post.date).year() === dayjs().year()
+                ? dayjs(post.date).format('M 月 D 日')
+                : dayjs(post.date).format('YYYY 年 M 月 D 日')}
+            </time>
+            {post.readingTime && (
+              <>
+                <span>·</span>
+                <span>约 {post.readingTime.toLocaleString('zh-CN')} 分钟</span>
+              </>
+            )}
+            <OldPostBanner date={post.date} />
           </div>
+        </header>
+
+        {/* Article Content */}
+        <div className="prose-blog">
+          <MDXRemote source={post.content} options={mdxOptions} />
         </div>
-      )}
-    </article>
+
+        {/* Article End */}
+        <div className="border-border mt-16 border-t pt-8">
+          <p className="text-text-tertiary text-center text-sm">—— 本文完 ——</p>
+        </div>
+
+        {/* Recommended Posts */}
+        {recommendedPosts.length > 0 && (
+          <div className="mt-8 space-y-3 sm:mt-12 sm:space-y-4">
+            <h2 className="text-text-secondary text-base font-medium sm:text-lg">也可以看看</h2>
+            <div className="space-y-2 sm:space-y-3">
+              {recommendedPosts.map((recommendedPost) => (
+                <Link
+                  key={recommendedPost.slug}
+                  href={`/${recommendedPost.slug}`}
+                  className="text-text-secondary hover:text-text-primary block text-sm sm:text-base"
+                >
+                  {recommendedPost.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </article>
     </>
   )
 }

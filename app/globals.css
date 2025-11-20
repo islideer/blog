@@ -5,14 +5,20 @@
 /* Root styles with smooth theme transition */
 :root {
   color-scheme: light dark;
+  /* 防止字体加载导致的布局抖动 */
+  font-display: optional;
 }
 
 html {
-  scroll-padding-top: 3rem; /* 为 sticky header 预留空间 */
+  scroll-padding-top: 4rem; /* 为 sticky header 预留空间 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-y: scroll;
+  /* 防止移动端自动调整字体大小 */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   transition:
     color 0.3s ease,
     background-color 0.3s ease;
@@ -24,6 +30,10 @@ body {
   line-height: var(--leading-normal);
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
+  /* 防止移动端自动调整字体大小 */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   transition:
     color 0.3s ease,
     background-color 0.3s ease;
@@ -138,15 +148,45 @@ nav a:focus-visible {
   background: var(--color-text-tertiary);
 }
 
-/* Header scroll behavior */
+/* Header transition */
 header {
   transition:
-    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     color 0.3s ease,
     background-color 0.3s ease,
     border-color 0.3s ease;
 }
 
-header.header-hidden {
-  transform: translateY(-100%);
+/* Prevent layout shift from images and embeds */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure images have dimensions to prevent layout shift */
+img:not([width]):not([height]) {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/* Prevent content jumping during font load by reserving space */
+body {
+  /* Use dynamic viewport height on mobile, fallback to vh */
+  min-height: 100dvh;
+}
+
+/* Fallback for browsers that don't support dvh */
+@supports not (height: 100dvh) {
+  body {
+    min-height: 100vh;
+  }
+}
+
+/* Prevent iOS zoom on input focus */
+@media (max-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }

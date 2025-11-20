@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import './globals.css'
-import { ScrollHeader } from '@/components/scroll-header'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
@@ -55,6 +54,12 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" className="light" suppressHydrationWarning>
       <head>
+        {/* Viewport configuration for stable layout */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover"
+        />
+
         {/* Preconnect to external domains for better performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -82,7 +87,6 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-bg-primary text-text-primary min-h-screen">
-        <ScrollHeader />
         {/* Skip to Main Content Link - for keyboard navigation */}
         <a
           href="#main-content"
@@ -97,21 +101,29 @@ export default function RootLayout({
             role="banner"
             className="border-border bg-bg-primary/80 sticky top-0 z-40 border-b backdrop-blur-sm"
           >
-            <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
+            <div className="flex items-center justify-between px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
               <Link href="/" passHref className="no-underline">
                 <div>
-                  <h1 className="text-text-primary text-base font-semibold sm:text-lg">
+                  <h1 className="text-text-primary text-sm font-semibold sm:text-base">
                     {siteConfig.name}
                   </h1>
-                  <p className="text-text-tertiary hidden text-xs sm:block">{siteConfig.tagline}</p>
+                  <p className="text-text-tertiary hidden text-xs leading-tight sm:block">
+                    {siteConfig.tagline}
+                  </p>
                 </div>
               </Link>
 
-              <nav role="navigation" aria-label="主导航" className="flex items-center space-x-4">
-                <Link href="/archives" className="text-text-secondary hover:text-text-primary">
+              <nav role="navigation" aria-label="主导航" className="flex items-center space-x-3 sm:space-x-4">
+                <Link
+                  href="/archives"
+                  className="text-text-secondary hover:text-text-primary text-sm"
+                >
                   归档
                 </Link>
-                <Link href="/about" className="text-text-secondary hover:text-text-primary">
+                <Link
+                  href="/about"
+                  className="text-text-secondary hover:text-text-primary text-sm"
+                >
                   关于
                 </Link>
                 <ThemeToggle />

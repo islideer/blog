@@ -13,10 +13,41 @@ export interface PostMetadata {
   slug: string
   draft?: boolean
   top?: boolean
+  readingTime?: number
 }
 
 export interface Post extends PostMetadata {
   content: string
+}
+
+/**
+ * 计算阅读时间（分钟）
+ * 中文按每分钟 300-500 字计算，这里取 400 字/分钟
+ * 英文按每分钟 200-250 词计算，这里取 225 词/分钟
+ */
+function calculateReadingTime(content: string): number {
+  // 移除 Markdown 语法标记
+  const plainText = content
+    .replace(/^---[\s\S]*?---/m, '') // 移除 frontmatter
+    .replace(/```[\s\S]*?```/g, '') // 移除代码块
+    .replace(/`[^`]+`/g, '') // 移除行内代码
+    .replace(/#{1,6}\s/g, '') // 移除标题标记
+    .replace(/[*_~]/g, '') // 移除强调标记
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // 移除链接，保留文本
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '') // 移除图片
+
+  // 统计中文字符数
+  const chineseChars = (plainText.match(/[\u4e00-\u9fa5]/g) || []).length
+  // 统计英文单词数（简单按空格分割）
+  const englishWords = plainText
+    .replace(/[\u4e00-\u9fa5]/g, '')
+    .split(/\s+/)
+    .filter((word) => word.length > 0).length
+
+  // 计算阅读时间
+  const readingTime = Math.ceil(chineseChars / 400 + englishWords / 225)
+
+  return Math.max(1, readingTime) // 至少 1 分钟
 }
 
 /**
@@ -59,7 +90,7 @@ export async function getAllPosts(): Promise<PostMetadata[]> {
       const slug = fileName
       const fullPath = path.join(postsDirectory, relativePath)
       const fileContents = await fs.readFile(fullPath, 'utf8')
-      const { data } = matter(fileContents)
+      const { data, content } = matter(fileContents)
 
       return {
         slug,
@@ -70,6 +101,7 @@ export async function getAllPosts(): Promise<PostMetadata[]> {
         author: data.author || '',
         draft: data.draft || false,
         top: data.top || false,
+        readingTime: calculateReadingTime(content),
       }
     }),
   )
@@ -103,6 +135,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       author: data.author || '',
       draft: data.draft || false,
       content,
+      readingTime: calculateReadingTime(content),
     }
   } catch (error) {
     console.error(`Error reading post ${slug}:`, error)

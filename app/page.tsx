@@ -72,11 +72,19 @@ export default async function BlogPage() {
                           {post.title}
                         </h2>
                       </div>
-                      <time dateTime={post.date} className="text-text-tertiary shrink-0 text-xs">
-                        {dayjs(post.date).year() === dayjs().year()
-                          ? dayjs(post.date).format('MM-DD')
-                          : dayjs(post.date).format('YYYY-MM-DD')}
-                      </time>
+                      <div className="text-text-tertiary flex shrink-0 items-baseline gap-1.5 text-xs">
+                        <time dateTime={post.date}>
+                          {dayjs(post.date).year() === dayjs().year()
+                            ? dayjs(post.date).format('M.D')
+                            : dayjs(post.date).format('YYYY.M.D')}
+                        </time>
+                        {post.readingTime && (
+                          <>
+                            <span>·</span>
+                            <span>{post.readingTime.toLocaleString('zh-CN')} 分钟</span>
+                          </>
+                        )}
+                      </div>
                     </div>
                     {post.excerpt && (
                       <p className="text-text-tertiary line-clamp-2 text-sm leading-relaxed">
@@ -98,7 +106,7 @@ export default async function BlogPage() {
             href="/archives"
             className="text-text-secondary hover:text-text-primary text-link"
           >
-            查看全部文章 ({allPosts.length}) →
+            查看全部文章 ({allPosts.length.toLocaleString('zh-CN')}) →
           </Link>
         </div>
       )}

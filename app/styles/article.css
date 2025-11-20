@@ -7,7 +7,14 @@
   line-height: var(--leading-relaxed);
   color: var(--color-text-primary);
   max-width: 100%;
-  word-wrap: break-word;
+  /* 现代换行属性 */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  /* 优化文本渲染 */
+  text-rendering: optimizeLegibility;
+  /* 防止字体闪烁 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ============================================
@@ -25,7 +32,11 @@
   color: var(--color-text-primary);
   margin-top: 2em;
   margin-bottom: 0.75em;
-  scroll-margin-top: 5rem; /* 为固定头部留出空间 */
+  scroll-margin-top: 4.5rem; /* 为固定头部留出空间 */
+  /* 防止标题孤行 */
+  text-wrap: balance;
+  /* 优化渲染性能 - 标题通常是关键内容 */
+  contain: layout style;
 }
 
 .prose-blog h1:first-child,
@@ -99,6 +110,14 @@
 .prose-blog p {
   margin-bottom: 1.5em;
   line-height: var(--leading-relaxed);
+  /* 改善段落排版 - 更好的文本平衡 */
+  text-wrap: pretty;
+  /* 连字符断行（中文无影响，英文长单词更美观）*/
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  /* 优化孤行和寡行 */
+  orphans: 2;
+  widows: 2;
 }
 
 .prose-blog a {
@@ -106,10 +125,21 @@
   text-decoration: underline dashed;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
+  /* 平滑过渡 */
+  transition: text-decoration-style 0.2s ease;
+  /* 优化点击区域 */
+  padding: 0.125em 0;
 }
 
 .prose-blog a:hover {
   text-decoration-style: solid;
+}
+
+/* 提升焦点可见性（键盘导航） */
+.prose-blog a:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* External links with arrow icon */
@@ -139,20 +169,59 @@
 .prose-blog :not(pre) > code {
   font-family: var(--font-mono);
   font-size: 0.875em;
-  padding: 0.125em 0.375em;
-  background: var(--color-bg-tertiary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  padding: 0 0.25em;
+  background: none;
+  border: none;
   color: var(--color-text-primary);
   font-weight: 500;
   white-space: nowrap;
+  position: relative;
+  /* 优化字体渲染 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 禁用连字 - 内联代码通常不需要 */
+  font-variant-ligatures: none;
+  font-feature-settings: 'liga' 0, 'calt' 0;
+}
+
+/* 左侧反引号 */
+.prose-blog :not(pre) > code::before {
+  content: '`';
+  color: oklch(0.5 0 0); /* 中等灰色 - 日间模式 */
+  font-weight: 600;
+  margin-right: 0.125em;
+  opacity: 0.7;
+}
+
+/* 右侧反引号 */
+.prose-blog :not(pre) > code::after {
+  content: '`';
+  color: oklch(0.5 0 0); /* 中等灰色 - 日间模式 */
+  font-weight: 600;
+  margin-left: 0.125em;
+  opacity: 0.7;
+}
+
+/* 暗色模式下反引号颜色 - 更亮的灰色 */
+@media (prefers-color-scheme: dark) {
+  html:not(.light) .prose-blog :not(pre) > code::before,
+  html:not(.light) .prose-blog :not(pre) > code::after {
+    color: oklch(0.65 0 0); /* 较亮的灰色 - 暗色模式 */
+    opacity: 0.8;
+  }
+}
+
+html.dark .prose-blog :not(pre) > code::before,
+html.dark .prose-blog :not(pre) > code::after {
+  color: oklch(0.65 0 0); /* 较亮的灰色 - 暗色模式 */
+  opacity: 0.8;
 }
 
 /* Code block container */
 .prose-blog pre {
-  border: 1px solid var(--color-border);
+  border: none;
   border-radius: var(--radius-xs);
-  padding: 1rem 1.5rem; /* 恢复正常内边距 */
+  padding: 1rem 1.5rem;
   overflow-x: auto;
   margin: 2em 0;
   font-size: 0.875rem;
@@ -161,6 +230,10 @@
   -webkit-overflow-scrolling: touch;
   /* 明确设置背景色 - 使用 Shiki 的 CSS 变量 */
   background-color: var(--shiki-light-bg, #fafafa);
+  /* 优化字体渲染 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* 暗色模式 - 系统偏好 */
@@ -188,6 +261,15 @@ html.light .prose-blog pre {
   display: block;
   font-weight: 400;
   counter-reset: line;
+  font-family: var(--font-mono);
+  /* 启用编程连字（ligatures）- 支持 Fira Code、JetBrains Mono 等 */
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
+  /* zero: 使用带斜线的 0 以区分字母 O */
+  /* liga: 启用标准连字 */
+  /* calt: 启用上下文替代（contextual alternates）*/
+  -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
+  -moz-font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
 }
 
 /* Shiki 代码高亮 - 使用 CSS 变量 */
@@ -272,10 +354,14 @@ html.light .prose-blog .shiki span {
   margin: 0.5em 0;
   line-height: var(--leading-relaxed);
   padding-left: 0.25em;
+  /* 改善列表项排版 */
+  text-wrap: pretty;
 }
 
 .prose-blog li::marker {
   color: var(--color-text-secondary);
+  /* 标记符号使用表格数字（等宽） */
+  font-variant-numeric: tabular-nums;
 }
 
 .prose-blog ul ul,
@@ -309,6 +395,12 @@ html.light .prose-blog .shiki span {
   margin: 2em 0;
   color: var(--color-text-secondary);
   font-style: italic;
+  /* 改善引用排版 */
+  text-wrap: pretty;
+  /* 性能优化 */
+  contain: layout style;
+  /* 引用通常需要视觉区分 */
+  quotes: '"' '"' ''' ''';
 }
 
 .prose-blog blockquote p {
@@ -336,6 +428,25 @@ html.light .prose-blog .shiki span {
   overflow: hidden;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
+  /* 性能优化 */
+  contain: layout style;
+}
+
+/* 移动端表格滚动提示 */
+@media (max-width: 768px) {
+  .prose-blog table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* 滚动阴影提示 */
+    background: linear-gradient(90deg, var(--color-bg-primary) 30%, transparent),
+      linear-gradient(90deg, transparent, var(--color-bg-primary) 70%) 100% 0,
+      linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0, transparent 10%),
+      linear-gradient(270deg, rgba(0, 0, 0, 0.1) 0, transparent 10%) 100% 0;
+    background-repeat: no-repeat;
+    background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+    background-attachment: local, local, scroll, scroll;
+  }
 }
 
 .prose-blog thead {
@@ -391,6 +502,13 @@ html.light .prose-blog .shiki span {
   margin: 2em auto;
   display: block;
   border: 1px solid var(--color-border);
+  /* 防止布局偏移 */
+  aspect-ratio: attr(width) / attr(height);
+  /* 优化加载体验 */
+  background: var(--color-bg-secondary);
+  /* 性能优化 */
+  will-change: auto;
+  contain: layout;
 }
 
 .prose-blog figure {
@@ -442,6 +560,12 @@ html.light .prose-blog .shiki span {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   color: var(--color-text-primary);
+  /* 优化字体渲染 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 禁用连字 */
+  font-variant-ligatures: none;
+  font-feature-settings: 'liga' 0, 'calt' 0;
 }
 
 /* 标记/高亮 */
@@ -450,12 +574,40 @@ html.light .prose-blog .shiki span {
   padding: 0.125em 0.25em;
   border-radius: var(--radius-sm);
   color: var(--color-text-primary);
+  /* 使用混合模式增强视觉效果 */
+  mix-blend-mode: multiply;
+  /* 优化高亮文本可读性 */
+  text-decoration-skip-ink: auto;
+}
+
+/* 暗色模式下使用不同混合模式 */
+@media (prefers-color-scheme: dark) {
+  html:not(.light) .prose-blog mark {
+    mix-blend-mode: screen;
+  }
+}
+
+html.dark .prose-blog mark {
+  mix-blend-mode: screen;
 }
 
 /* 缩写 */
 .prose-blog abbr[title] {
   text-decoration: underline dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
   cursor: help;
+  /* 提升触摸目标区域 */
+  padding: 0.125em 0.25em;
+  margin: -0.125em -0.25em;
+  /* 键盘导航焦点 */
+  border-radius: 2px;
+}
+
+.prose-blog abbr[title]:hover,
+.prose-blog abbr[title]:focus {
+  background: var(--color-bg-tertiary);
+  text-decoration-style: solid;
 }
 
 /* ============================================
@@ -468,6 +620,8 @@ html.light .prose-blog .shiki span {
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+  /* 性能优化 */
+  contain: layout style;
 }
 
 .prose-blog summary {
@@ -475,16 +629,37 @@ html.light .prose-blog .shiki span {
   font-weight: 600;
   user-select: none;
   color: var(--color-text-primary);
+  /* 平滑过渡 */
+  transition: opacity 0.2s ease;
+  /* 提升触摸目标 */
+  padding: 0.25em 0;
+  margin: -0.25em 0;
+  /* 键盘导航 */
+  border-radius: var(--radius-sm);
 }
 
 .prose-blog summary:hover {
   opacity: 0.7;
 }
 
+.prose-blog summary:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 2px;
+}
+
 .prose-blog details[open] summary {
   margin-bottom: 1em;
   padding-bottom: 0.5em;
   border-bottom: 1px solid var(--color-border);
+}
+
+/* 添加展开/收起动画提示 */
+.prose-blog summary::marker {
+  transition: transform 0.2s ease;
+}
+
+.prose-blog details[open] > summary::marker {
+  transform: rotate(90deg);
 }
 
 /* ============================================
@@ -580,6 +755,14 @@ html.light .prose-blog .shiki span {
   font-size: 0.875rem;
   line-height: 1.7;
   color: var(--color-text-primary);
+  /* 优化字体渲染 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 启用编程连字 */
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
+  -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
+  -moz-font-feature-settings: 'liga' 1, 'calt' 1, 'zero' 1;
 }
 
 .code-block-line-content {

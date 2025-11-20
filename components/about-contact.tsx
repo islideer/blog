@@ -7,9 +7,7 @@ interface AboutContactProps {
 export function AboutContact({ links }: AboutContactProps) {
   return (
     <section className="space-y-6">
-      <h2 className="text-text-secondary text-sm font-semibold uppercase tracking-wider">
-        Contact
-      </h2>
+      <h2 className="text-text-secondary text-sm font-semibold tracking-wider uppercase">联系</h2>
       <div className="text-text-secondary flex flex-wrap gap-4 text-sm">
         {links.map((link, index) => (
           <a
@@ -17,7 +15,7 @@ export function AboutContact({ links }: AboutContactProps) {
             href={link.url}
             target={link.url.startsWith('http') ? '_blank' : undefined}
             rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-            className="underline decoration-text-tertiary underline-offset-4 transition-colors hover:text-text-primary hover:decoration-text-primary"
+            className="decoration-text-tertiary hover:text-text-primary hover:decoration-text-primary underline underline-offset-4 transition-colors"
           >
             {link.label}
           </a>

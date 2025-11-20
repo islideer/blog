@@ -47,17 +47,18 @@ export default async function ArchivesPage() {
 
   // 生成从最早文章到当前年份的完整年份列表
   const currentYear = dayjs().year()
-  const earliestYear = posts.length > 0 ? Math.min(...posts.map((p) => dayjs(p.date).year())) : currentYear
+  const earliestYear =
+    posts.length > 0 ? Math.min(...posts.map((p) => dayjs(p.date).year())) : currentYear
   const allYears = Array.from({ length: currentYear - earliestYear + 1 }, (_, i) => currentYear - i)
 
-  // 戏谑的空年份提示语
+  // 空年份提示语
   const emptyYearMessages = [
-    '这一年 Viki 太忙了，光顾着打游戏了 🎮',
-    '这一年 Viki 啥也没写，可能在思考人生 🤔',
-    '这一年 Viki 的产出为零，摸鱼冠军就是我 🐟',
-    '这一年 Viki 太菜了，一个字都憋不出来 😅',
-    '这一年 Viki 在休眠期，冬眠中... 💤',
-    '这一年 Viki 灵感枯竭，创作力归零 🌵',
+    '这一年专注于其他事情，暂未更新博客',
+    '这一年在积累经验，等待下次输出',
+    '这一年忙于工作与生活，博客暂停更新',
+    '这一年的想法还在酝酿中',
+    '这一年选择了沉淀与思考',
+    '这一年暂时放下了写作',
   ]
 
   const getEmptyYearMessage = (year: number) => {
@@ -72,17 +73,17 @@ export default async function ArchivesPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">{siteConfig.pages.archives.title}</h1>
         <p className="text-text-secondary">
-          共 {allPosts.length} 篇文章，按年份归档
+          共 {allPosts.length.toLocaleString('zh-CN')} 篇文章，按年份归档
         </p>
       </section>
 
       {/* Pinned Posts */}
       {pinnedPosts.length > 0 && (
         <section className="space-y-4">
-          <h2 className="text-text-primary text-xl sm:text-2xl font-bold">
+          <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
             置顶{' '}
-            <span className="text-text-tertiary text-base sm:text-lg font-normal">
-              ({pinnedPosts.length})
+            <span className="text-text-tertiary text-base font-normal sm:text-lg">
+              ({pinnedPosts.length.toLocaleString('zh-CN')})
             </span>
           </h2>
           <div
@@ -90,16 +91,24 @@ export default async function ArchivesPage() {
             style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
           >
             {pinnedPosts.map((post) => (
-              <article key={post.slug} className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-4 sm:py-1.5">
-                <time className="text-text-tertiary sm:w-24 shrink-0 text-xs sm:text-sm font-mono">
-                  {dayjs(post.date).format('YYYY-MM-DD')}
+              <article
+                key={post.slug}
+                className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-4 sm:py-1.5"
+              >
+                <time className="text-text-tertiary shrink-0 font-mono text-xs sm:w-24 sm:text-sm">
+                  {dayjs(post.date).format('YYYY.MM.DD')}
                 </time>
                 <Link
                   href={`/${post.slug}`}
-                  className="text-text-secondary hover:text-text-primary text-sm sm:text-base flex-1"
+                  className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
                 >
                   {post.title}
                 </Link>
+                {post.readingTime && (
+                  <span className="text-text-tertiary shrink-0 text-xs">
+                    {post.readingTime.toLocaleString('zh-CN')} 分钟
+                  </span>
+                )}
               </article>
             ))}
           </div>
@@ -114,10 +123,10 @@ export default async function ArchivesPage() {
 
           return (
             <div key={year} className="space-y-4 sm:space-y-6">
-              <h2 className="text-text-primary text-xl sm:text-2xl font-bold">
+              <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
                 {year}{' '}
-                <span className="text-text-tertiary text-base sm:text-lg font-normal">
-                  ({yearPosts.length})
+                <span className="text-text-tertiary text-base font-normal sm:text-lg">
+                  ({yearPosts.length.toLocaleString('zh-CN')})
                 </span>
               </h2>
               <div
@@ -125,7 +134,7 @@ export default async function ArchivesPage() {
                 style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
               >
                 {hasNoPosts ? (
-                  <p className="text-text-tertiary text-xs sm:text-sm italic opacity-60">
+                  <p className="text-text-tertiary text-xs italic opacity-60 sm:text-sm">
                     {getEmptyYearMessage(year)}
                   </p>
                 ) : (
@@ -134,15 +143,20 @@ export default async function ArchivesPage() {
                       key={post.slug}
                       className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-4 sm:py-1.5"
                     >
-                      <time className="text-text-tertiary sm:w-24 shrink-0 text-xs sm:text-sm font-mono">
-                        {dayjs(post.date).format('MM-DD')}
+                      <time className="text-text-tertiary shrink-0 font-mono text-xs sm:w-24 sm:text-sm">
+                        {dayjs(post.date).format('MM.DD')}
                       </time>
                       <Link
                         href={`/${post.slug}`}
-                        className="text-text-secondary hover:text-text-primary text-sm sm:text-base flex-1"
+                        className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
                       >
                         {post.title}
                       </Link>
+                      {post.readingTime && (
+                        <span className="text-text-tertiary shrink-0 text-xs">
+                          {post.readingTime.toLocaleString('zh-CN')} 分钟
+                        </span>
+                      )}
                     </article>
                   ))
                 )}
