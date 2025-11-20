@@ -4,6 +4,7 @@ title: 'Nginx 快速入门'
 date: 2020-02-14
 top_image: 'https://i.loli.net/2020/11/21/YCImdiJ4ovhqL1B.jpg'
 excerpt: '寒假学习之 Nginx 基础'
+draft: true
 ---
 
 

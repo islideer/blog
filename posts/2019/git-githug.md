@@ -4,6 +4,7 @@ title: 'Githug 小白指南'
 date: 2019-12-14
 top_image: 'https://i.loli.net/2020/11/21/3ygtAW8ESVJuMKH.jpg'
 excerpt: '写给刚入门的小白门看的 Githug 指南'
+draft: true
 ---
 
 ## 前言

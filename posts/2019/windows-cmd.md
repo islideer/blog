@@ -4,6 +4,7 @@ title: 'Windows 命令行基础知识'
 date: 2019-12-18
 top_image: 'https://i.loli.net/2020/11/21/Q7DG9uSYmPJXov8.jpg'
 excerpt: '总结了 Windows 命令行下的基本常识和常用命令，供参考'
+draft: true
 ---
 
 

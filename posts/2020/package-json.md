@@ -4,6 +4,7 @@ title: 'package.json 文件详解'
 date: 2020-04-23
 top_image: 'https://i.loli.net/2020/11/21/UHTc1bZPxszuQYa.png'
 excerpt: '简要介绍了 package.json 文件的常见字段及其意义'
+draft: true
 ---
 
 

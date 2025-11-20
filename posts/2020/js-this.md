@@ -4,6 +4,7 @@ title: '浅析 JavaScript 中 this 的指向问题'
 date: 2020-11-21
 top_image: 'https://i.loli.net/2020/11/21/fDXpUSTL6BciRtO.png'
 excerpt: 'JavaScript 之 this 指向判断'
+draft: true
 ---
 
 ## 说在前面

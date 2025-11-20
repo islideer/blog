@@ -4,6 +4,7 @@ title: '常用 npm 命令汇总'
 date: 2020-09-07
 top_image: 'https://i.loli.net/2020/11/21/1JObhHLDaNfFs3v.jpg'
 excerpt: '总结了一些常用的 npm 命令，方便自己日后翻阅。'
+draft: true
 ---
 
 

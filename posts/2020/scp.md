@@ -4,6 +4,7 @@ title: '使用 scp 命令跨服务器双向传输文件'
 date: 2020-02-14
 top_image: 'https://i.loli.net/2020/11/21/wYd3n5xtlVofF7E.jpg'
 excerpt: '通过 scp 命令能够高效率的向服务器传输文件以及文件夹'
+draft: true
 ---
 
 

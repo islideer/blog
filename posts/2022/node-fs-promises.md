@@ -4,6 +4,7 @@ title: 'Node.js 报错 Cannot find module ''''fs/promises'''''
 date: 2022-02-15
 top_image: 'https://s2.loli.net/2022/02/16/pmb43yIuZ5PETxU.png'
 excerpt: '运行 Node.js 项目时出现 Cannot find module ''''fs/promises'''' 报错'
+draft: true
 ---
 
 

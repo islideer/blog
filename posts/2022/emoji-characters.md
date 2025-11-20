@@ -2,7 +2,8 @@
 layout: 'post'
 title: '由 emoji 字符分割问题引发的对 emoji 的重新认识'
 date: 2022-12-02
-excerpt: '今天碰到一个挺奇怪的 emoji 字符分割问题，这篇文章简单介绍了下 emoji 并记录一下问题产生的原因和常见的解决方案。'
+excerpt: '这篇文章简单介绍了下 emoji 并记录一下字符异常分割问题产生的原因和常见的解决方案。'
+top: true
 ---
 
 
