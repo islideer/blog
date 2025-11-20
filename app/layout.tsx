@@ -113,13 +113,11 @@ export default function RootLayout({
                 </div>
               </Link>
 
-              <nav role="navigation" aria-label="主导航" className="flex items-center space-x-3 sm:space-x-4">
-                <Link
-                  href="/archives"
-                  className="text-text-secondary hover:text-text-primary text-sm"
-                >
-                  归档
-                </Link>
+              <nav
+                role="navigation"
+                aria-label="主导航"
+                className="flex items-center space-x-3 sm:space-x-4"
+              >
                 <Link
                   href="/thoughts"
                   className="text-text-secondary hover:text-text-primary text-sm"
@@ -127,9 +125,12 @@ export default function RootLayout({
                   碎碎念
                 </Link>
                 <Link
-                  href="/about"
+                  href="/archives"
                   className="text-text-secondary hover:text-text-primary text-sm"
                 >
+                  归档
+                </Link>
+                <Link href="/about" className="text-text-secondary hover:text-text-primary text-sm">
                   关于
                 </Link>
                 <ThemeToggle />
