@@ -86,16 +86,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {post.title}
           </h1>
 
-          <div className="text-text-tertiary flex flex-wrap items-baseline gap-x-2 gap-y-1 text-xs sm:text-sm">
-            <time dateTime={post.date}>
+          <div className="text-text-tertiary flex items-baseline gap-2 overflow-x-auto text-xs sm:text-sm">
+            <time dateTime={post.date} className="shrink-0">
               {dayjs(post.date).year() === dayjs().year()
                 ? dayjs(post.date).format('M 月 D 日')
                 : dayjs(post.date).format('YYYY 年 M 月 D 日')}
             </time>
             {post.readingTime && (
               <>
-                <span>·</span>
-                <span>约 {post.readingTime.toLocaleString('zh-CN')} 分钟</span>
+                <span className="shrink-0">·</span>
+                <span className="shrink-0">约 {post.readingTime.toLocaleString('zh-CN')} 分钟</span>
               </>
             )}
             <OldPostBanner date={post.date} />

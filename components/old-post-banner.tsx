@@ -17,9 +17,9 @@ export function OldPostBanner({ date }: OldPostBannerProps) {
 
   return (
     <>
-      <span>·</span>
-      <span className="text-text-secondary font-medium">
-        距本文发布已 {daysAgo.toLocaleString('zh-CN')} 天，请注意时效性
+      <span className="shrink-0">·</span>
+      <span className="text-text-tertiary shrink-0">
+        已发布 {daysAgo.toLocaleString('zh-CN')} 天，请注意时效性
       </span>
     </>
   )

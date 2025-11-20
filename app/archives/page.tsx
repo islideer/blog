@@ -73,7 +73,7 @@ export default async function ArchivesPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">{siteConfig.pages.archives.title}</h1>
         <p className="text-text-secondary">
-          共 {allPosts.length.toLocaleString('zh-CN')} 篇文章，按年份归档
+          共 {allPosts.length.toLocaleString('zh-CN')} 篇文章，按年份归档。
         </p>
       </section>
 
@@ -98,7 +98,12 @@ export default async function ArchivesPage() {
                 <div className="text-text-tertiary flex shrink-0 items-baseline gap-2 font-mono text-xs sm:w-24 sm:text-sm">
                   <time>{dayjs(post.date).format('YYYY.MM.DD')}</time>
                   {post.readingTime && (
-                    <span className="sm:hidden">{post.readingTime.toLocaleString('zh-CN')} 分钟</span>
+                    <>
+                      <span className="shrink-0 sm:hidden">·</span>
+                      <span className="sm:hidden">
+                        约 {post.readingTime.toLocaleString('zh-CN')} 分钟
+                      </span>
+                    </>
                   )}
                 </div>
                 <Link
@@ -108,9 +113,11 @@ export default async function ArchivesPage() {
                   {post.title}
                 </Link>
                 {post.readingTime && (
-                  <span className="text-text-tertiary hidden shrink-0 text-xs sm:inline">
-                    {post.readingTime.toLocaleString('zh-CN')} 分钟
-                  </span>
+                  <>
+                    <span className="text-text-tertiary hidden shrink-0 text-xs sm:inline">
+                      约 {post.readingTime.toLocaleString('zh-CN')} 分钟
+                    </span>
+                  </>
                 )}
               </article>
             ))}
@@ -149,7 +156,12 @@ export default async function ArchivesPage() {
                       <div className="text-text-tertiary flex shrink-0 items-baseline gap-2 font-mono text-xs sm:w-24 sm:text-sm">
                         <time>{dayjs(post.date).format('MM.DD')}</time>
                         {post.readingTime && (
-                          <span className="sm:hidden">{post.readingTime.toLocaleString('zh-CN')} 分钟</span>
+                          <>
+                            <span className="shrink-0 sm:hidden">·</span>
+                            <span className="sm:hidden">
+                              约 {post.readingTime.toLocaleString('zh-CN')} 分钟
+                            </span>
+                          </>
                         )}
                       </div>
                       <Link
@@ -159,9 +171,11 @@ export default async function ArchivesPage() {
                         {post.title}
                       </Link>
                       {post.readingTime && (
-                        <span className="text-text-tertiary hidden shrink-0 text-xs sm:inline">
-                          {post.readingTime.toLocaleString('zh-CN')} 分钟
-                        </span>
+                        <>
+                          <span className="text-text-tertiary hidden shrink-0 text-xs sm:inline">
+                            约 {post.readingTime.toLocaleString('zh-CN')} 分钟
+                          </span>
+                        </>
                       )}
                     </article>
                   ))
