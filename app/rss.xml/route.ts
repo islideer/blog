@@ -5,7 +5,7 @@ import { siteConfig } from '@/lib/config'
 export const dynamic = 'force-static'
 
 export async function GET() {
-  const posts = getAllPosts()
+  const posts = await getAllPosts()
 
   const feed = new Feed({
     title: siteConfig.name,

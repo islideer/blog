@@ -1,15 +1,17 @@
 ---
-layout: post
-title: 【已开源】现代化的高质量 React Hooks 库
+layout: 'post'
+title: '现代化的高质量 React Hooks 库（已开源）'
 date: 2024-07-04
-excerpt: '@shined/react-use 是一个对 SSR（服务端渲染）友好、全面且高度优化的 React Hooks 库，提供了灵活且高效的钩子解决方案。完全采用 TypeScript 开发，配备了包含丰富示例的交互式文档 🔥。'
+excerpt: '@shined/react-use 是一个对 SSR（服务端渲染）友好、全面且高度优化的 React Hooks 库，提供了灵活且高效的钩子解决方案。完全采用 TypeScript 开发，配备了包含丰富示例的交互式文档。'
+top: true
 ---
+
 
 ![shined-react-use-logo](https://s2.loli.net/2024/07/03/XjReoNwi5mI7MbO.png)
 
 ## 介绍
 
-`@shined/react-use` 是一个对 SSR（服务端渲染）友好、全面且高度优化的 React Hooks 库，提供了灵活且高效的钩子解决方案。完全采用 TypeScript 开发，配备了包含丰富示例的交互式文档 🔥。
+`@shined/react-use` 是一个对 SSR（服务端渲染）友好、全面且高度优化的 React Hooks 库，提供了灵活且高效的钩子解决方案。完全采用 TypeScript 开发，配备了包含丰富示例的交互式文档。
 
 主要受到 [VueUse](https://vueuse.org/) 的启发，同时也吸取了 [react-use](https://github.com/streamich/react-use)、[ahooks](https://ahooks.js.org/) 以及社区内许多其他优秀库的影响。特别感谢开源社区，尤其是上述库的作者们，感谢他们的杰出工作和灵感。
 

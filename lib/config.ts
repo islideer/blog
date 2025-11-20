@@ -80,9 +80,9 @@ export const siteConfig = {
       title: '博客',
       description: '所有博客文章列表',
       hero: {
-        title: '👋 你好,我是 Viki',
+        title: '你好，我是 Viki',
         description:
-          '我来自中国江西,是一个初来乍到的 Web 前端开发者 👨‍💻,也是 Node.js 和 TypeScript 的狂热爱好者 🥰,经常活跃在 GitHub 开源社区。想用代码遇见更多有趣的人、做更多有趣的事 🤗。',
+          '我来自中国江西，是 Web 前端开发者，也是 Node.js 和 TypeScript 的狂热爱好者，经常活跃在 GitHub 开源社区。想用代码遇见更多有趣的人、做更多有趣的事。',
       },
       postsToShow: 3,
     },

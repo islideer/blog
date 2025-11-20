@@ -1,10 +1,11 @@
 ---
-layout: post
-title: package.json 文件详解
+layout: 'post'
+title: 'package.json 文件详解'
 date: 2020-04-23
-top_image: https://i.loli.net/2020/11/21/UHTc1bZPxszuQYa.png
-excerpt: 简要介绍了 package.json 文件的常见字段及其意义
+top_image: 'https://i.loli.net/2020/11/21/UHTc1bZPxszuQYa.png'
+excerpt: '简要介绍了 package.json 文件的常见字段及其意义'
 ---
+
 
 此篇文章适合于对 `npm`, `node` 有一定了解，但不清楚 `package.json` 文件具体作用及其含义的读者
 

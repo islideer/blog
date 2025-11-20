@@ -1,9 +1,10 @@
 ---
-layout: post
-title: 让 TS 类型 "cat" | string 支持补全提示
+layout: 'post'
+title: '让 TS 类型 "cat" | string 支持补全提示'
 date: 2023-10-19
-excerpt: 在使用 TypeScript 时，让 TS 类型 "cat" | string 支持补全提示，可以通过定义一个联合类型来实现。
+excerpt: '在使用 TypeScript 时，让 TS 类型 "cat" | string 支持补全提示，可以通过定义一个联合类型来实现。'
 ---
+
 
 ## 问题描述
 

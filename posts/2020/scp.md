@@ -1,10 +1,11 @@
 ---
-layout: post
-title: 使用 scp 命令跨服务器双向传输文件
+layout: 'post'
+title: '使用 scp 命令跨服务器双向传输文件'
 date: 2020-02-14
-top_image: https://i.loli.net/2020/11/21/wYd3n5xtlVofF7E.jpg
-excerpt: 通过 scp 命令能够高效率的向服务器传输文件以及文件夹
+top_image: 'https://i.loli.net/2020/11/21/wYd3n5xtlVofF7E.jpg'
+excerpt: '通过 scp 命令能够高效率的向服务器传输文件以及文件夹'
 ---
+
 
 `scp` 是 **Secure Copy** 的简写，用于在 Linux 下进行远程拷贝文件的命令，和它类似的命令有 `cp`，不过 `cp` 只是在本机进行拷贝不能跨服务器，而且 `scp` 传输是加密的。
 

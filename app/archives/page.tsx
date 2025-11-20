@@ -9,8 +9,10 @@ export const metadata: Metadata = {
   description: siteConfig.pages.archives.description,
 }
 
-export default function ArchivesPage() {
-  const posts = getAllPosts()
+export default async function ArchivesPage() {
+  const allPosts = await getAllPosts()
+  const pinnedPosts = allPosts.filter((post) => post.top)
+  const posts = allPosts.filter((post) => !post.top)
 
   // 按年份分组
   const archivesByYear = posts.reduce(
@@ -51,8 +53,34 @@ export default function ArchivesPage() {
       {/* Header */}
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">{siteConfig.pages.archives.title}</h1>
-        <p className="text-text-secondary">共 {posts.length} 篇文章，按年份归档</p>
+        <p className="text-text-secondary">
+          共 {allPosts.length} 篇文章，按年份归档
+        </p>
       </section>
+
+      {/* Pinned Posts */}
+      {pinnedPosts.length > 0 && (
+        <section className="space-y-4">
+          <h2 className="text-text-primary text-2xl font-bold">
+            置顶 <span className="text-text-tertiary text-lg font-normal">({pinnedPosts.length})</span>
+          </h2>
+          <div className="space-y-1 border-l-2 pl-6" style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}>
+            {pinnedPosts.map((post) => (
+              <article key={post.slug} className="flex items-baseline gap-4 py-1.5">
+                <time className="text-text-tertiary w-24 shrink-0 text-sm font-mono">
+                  {dayjs(post.date).format('YYYY-MM-DD')}
+                </time>
+                <Link
+                  href={`/${post.slug}`}
+                  className="text-text-secondary hover:text-text-primary text-link flex-1"
+                >
+                  {post.title}
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Archives by Year */}
       <section className="space-y-12">
@@ -68,21 +96,20 @@ export default function ArchivesPage() {
                   ({yearPosts.length})
                 </span>
               </h2>
-              <div className="border-border space-y-1 border-l-2 pl-6">
+              <div className="space-y-1 border-l-2 pl-6" style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}>
                 {hasNoPosts ? (
                   <p className="text-text-tertiary text-sm italic opacity-60">{getEmptyYearMessage(year)}</p>
                 ) : (
                   yearPosts.map((post) => (
-                    <article key={post.slug}>
-                      <Link href={`/${post.slug}`} className="block hover:bg-bg-secondary py-1.5 px-2 -mx-2 rounded-xs">
-                        <div className="flex items-baseline gap-4">
-                          <time className="text-text-tertiary w-20 shrink-0 text-sm">
-                            {dayjs(post.date).format('MM-DD')}
-                          </time>
-                          <h3 className="text-text-primary text-base font-medium">
-                            {post.title}
-                          </h3>
-                        </div>
+                    <article key={post.slug} className="flex items-baseline gap-4 py-1.5">
+                      <time className="text-text-tertiary w-24 shrink-0 text-sm font-mono">
+                        {dayjs(post.date).format('MM-DD')}
+                      </time>
+                      <Link
+                        href={`/${post.slug}`}
+                        className="text-text-secondary hover:text-text-primary text-link flex-1"
+                      >
+                        {post.title}
                       </Link>
                     </article>
                   ))

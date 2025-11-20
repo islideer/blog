@@ -1,10 +1,11 @@
 ---
-layout: post
-title: setTimeout 初探
+layout: 'post'
+title: 'setTimeout 初探'
 date: 2020-04-02
-top_image: https://i.loli.net/2020/11/21/QLTeHUhrAOBCzER.jpg
-excerpt: 关于 setTimeout 函数的一些思考
+top_image: 'https://i.loli.net/2020/11/21/QLTeHUhrAOBCzER.jpg'
+excerpt: '关于 setTimeout 函数的一些思考'
 ---
+
 
 ## 写出下列三个循环的输出值，并解释原因
 

@@ -1,10 +1,11 @@
 ---
-layout: post
-title: Scoop —— 实用的 Windows “包管理”软件
+layout: 'post'
+title: 'Scoop —— 实用的 Windows “包管理”软件'
 date: 2020-09-20
-top_image: https://i.loli.net/2020/11/21/BZunq4vrKAHIj7P.png
-excerpt: 使用 Scoop 提升你的 Windows 开发体验
+top_image: 'https://i.loli.net/2020/11/21/BZunq4vrKAHIj7P.png'
+excerpt: '使用 Scoop 提升你的 Windows 开发体验'
 ---
+
 
 ## 前言
 

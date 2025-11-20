@@ -89,7 +89,7 @@ export default function RootLayout({
           {/* Header - Sticky */}
           <header className="border-border bg-bg-primary/80 sticky top-0 z-40 border-b backdrop-blur-sm">
             <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
-              <Link href="/" passHref>
+              <Link href="/" passHref className="no-underline">
                 <div>
                   <h1 className="text-text-primary text-base font-semibold sm:text-lg">
                     {siteConfig.name}
@@ -101,13 +101,13 @@ export default function RootLayout({
               <nav className="flex items-center space-x-4">
                 <Link
                   href="/archives"
-                  className="text-text-secondary hover:text-text-primary text-sm font-medium"
+                  className="text-text-secondary hover:text-text-primary"
                 >
                   归档
                 </Link>
                 <Link
                   href="/about"
-                  className="text-text-secondary hover:text-text-primary text-sm font-medium"
+                  className="text-text-secondary hover:text-text-primary"
                 >
                   关于
                 </Link>

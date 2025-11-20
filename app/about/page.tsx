@@ -57,7 +57,7 @@ export default function AboutPage() {
           {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js'].map((tech) => (
             <span
               key={tech}
-              className="bg-bg-secondary text-text-secondary rounded-full px-3 py-1 text-xs"
+              className="bg-bg-secondary text-text-secondary rounded-xs px-3 py-1 text-xs"
             >
               {tech}
             </span>

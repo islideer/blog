@@ -34,7 +34,7 @@ export function ThemeToggle() {
   // 避免服务端渲染不匹配
   if (!mounted) {
     return (
-      <button className="text-text-secondary hover:bg-bg-secondary h-9 w-9 rounded-md">
+      <button className="text-text-secondary hover:bg-bg-tertiary h-9 w-9 rounded-xs">
         <span className="sr-only">切换主题</span>
       </button>
     )
@@ -43,7 +43,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="text-text-secondary hover:bg-bg-secondary flex h-9 w-9 items-center justify-center rounded-md"
+      className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary flex h-9 w-9 items-center justify-center rounded-xs transition-colors"
       aria-label={theme === 'light' ? '切换到暗色模式' : '切换到亮色模式'}
       title={theme === 'light' ? '切换到暗色模式' : '切换到亮色模式'}
     >

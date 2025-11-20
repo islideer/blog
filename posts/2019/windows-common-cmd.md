@@ -1,10 +1,11 @@
 ---
-layout: post
-title: Windows 命令行基础知识
+layout: 'post'
+title: 'Windows 命令行基础知识'
 date: 2019-12-18
-top_image: https://i.loli.net/2020/11/21/Q7DG9uSYmPJXov8.jpg
-excerpt: 总结了 Windows 命令行下的基本常识和常用命令，便于日后翻阅
+top_image: 'https://i.loli.net/2020/11/21/Q7DG9uSYmPJXov8.jpg'
+excerpt: '总结了 Windows 命令行下的基本常识和常用命令，便于日后翻阅'
 ---
+
 
 使用 `help` + `命令名` 命令可以查看对应命令的详细用法
 

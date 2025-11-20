@@ -1,10 +1,11 @@
 ---
-layout: post
-title: 寒假学习计划和进度记录
+layout: 'post'
+title: '寒假学习计划和进度记录'
 date: 2020-01-10
-top_image: https://i.loli.net/2020/11/21/4k5bCawEFxysD9r.jpg
-excerpt: 这篇文章用于记录 2020 寒假的学习进度
+top_image: 'https://i.loli.net/2020/11/21/4k5bCawEFxysD9r.jpg'
+excerpt: '这篇文章用于记录 2020 寒假的学习进度'
 ---
+
 
 在 2020 年寒假开始的这天写下我的 2020 年寒假计划，希望自己能通过这个寒假的学习有所收获
 

@@ -35,28 +35,36 @@
 }
 
 .prose-blog h1 {
-  font-size: var(--font-size-3xl);
+  font-size: 2rem; /* 32px */
   margin-top: 0;
   margin-bottom: 1em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .prose-blog h2 {
-  font-size: var(--font-size-2xl);
+  font-size: 1.5rem; /* 24px */
   padding-bottom: 0.3em;
   border-bottom: 1px solid var(--color-border);
 }
 
 .prose-blog h3 {
-  font-size: var(--font-size-xl);
+  font-size: 1.25rem; /* 20px */
 }
 
 .prose-blog h4 {
-  font-size: var(--font-size-lg);
+  font-size: 1.125rem; /* 18px */
 }
 
-.prose-blog h5,
+.prose-blog h5 {
+  font-size: 1rem; /* 16px */
+}
+
 .prose-blog h6 {
-  font-size: var(--font-size-base);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* 标题锚点样式 */
@@ -107,13 +115,9 @@
 /* External links with arrow icon */
 .prose-blog a[target='_blank']::after {
   content: ' ↗';
-  text-decoration: underline dashed;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
-}
-
-.prose-blog a[target='_blank']:hover::after {
-  text-decoration-style: solid;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.6;
 }
 
 .prose-blog strong,

@@ -2,8 +2,25 @@ import rehypeShiki from '@shikijs/rehype'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeRaw from 'rehype-raw'
+import { visit } from 'unist-util-visit'
+import type { Element } from 'hast'
 
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
+
+// Rehype plugin to add target="_blank" to external links
+function rehypeExternalLinks() {
+  return (tree: any) => {
+    visit(tree, 'element', (node: Element) => {
+      if (node.tagName === 'a' && node.properties) {
+        const href = node.properties.href as string
+        if (href && href.startsWith('http')) {
+          node.properties.target = '_blank'
+          node.properties.rel = 'noopener noreferrer'
+        }
+      }
+    })
+  }
+}
 
 export const mdxOptions: MDXRemoteProps['options'] = {
   mdxOptions: {
@@ -33,6 +50,7 @@ export const mdxOptions: MDXRemoteProps['options'] = {
           },
         },
       ],
+      rehypeExternalLinks,
     ],
   },
 }

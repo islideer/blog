@@ -1,10 +1,11 @@
 ---
-layout: post
-title: CSS 选择器小归纳
+layout: 'post'
+title: 'CSS 选择器小归纳'
 date: 2022-02-16
-top_image: https://s2.loli.net/2022/02/16/6j3YWJQon472zxt.png
-excerpt: 选择器是 CSS 规则的一部分，位于 CSS 声明块前。
+top_image: 'https://s2.loli.net/2022/02/16/6j3YWJQon472zxt.png'
+excerpt: '选择器是 CSS 规则的一部分，位于 CSS 声明块前。'
 ---
+
 
 选择器是 `CSS` 规则的一部分，位于 `CSS` 声明块前。
 

@@ -1,10 +1,11 @@
 ---
-layout: post
-title: NCUHOME 研发组前端培训之 DOM 操作 & AJAX
+layout: 'post'
+title: 'NCUHOME 研发组前端培训之 DOM 操作 & AJAX'
 date: 2020-10-30
-top_image: https://i.loli.net/2020/10/24/erY2Oj4Z3TuIKBn.png
-excerpt: NCUHOME 研发组前端培训之 DOM 操作 & AJAX
+top_image: 'https://i.loli.net/2020/10/24/erY2Oj4Z3TuIKBn.png'
+excerpt: 'NCUHOME 研发组前端培训之 DOM 操作 & AJAX'
 ---
+
 
 > 主讲人: 19 级前端 Viki，时间:2020/10/30
 

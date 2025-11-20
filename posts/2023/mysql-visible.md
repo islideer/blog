@@ -1,10 +1,11 @@
 ---
-layout: post
-title: MySQL 5.7 版本不支持新版 VISIBLE 关键字
+layout: 'post'
+title: 'MySQL 5.7 版本不支持新版 VISIBLE 关键字'
 date: 2023-03-30
-top_image: https://s2.loli.net/2022/03/06/ed7FfCKA1ipN24r.png
-excerpt: 在写毕设项目过程中踩了个小坑。
+top_image: 'https://s2.loli.net/2022/03/06/ed7FfCKA1ipN24r.png'
+excerpt: '在写毕设项目过程中踩了个小坑。'
 ---
+
 
 以前很少跟数据库打交道，这阵子在写毕设，踩了一个 MySQL 版本兼容性的小坑。
 

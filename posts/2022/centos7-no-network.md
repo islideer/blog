@@ -1,9 +1,10 @@
 ---
-layout: post
-title: VMware 17 安装 CentOS 7 无法连接网络
+layout: 'post'
+title: 'VMware 17 安装 CentOS 7 无法连接网络'
 date: 2022-11-30
-excerpt: CentOS 默认不连接网络，需要在安装的时候连接，或者手动设置开机时自动连接。
+excerpt: 'CentOS 默认不连接网络，需要在安装的时候连接，或者手动设置开机时自动连接。'
 ---
+
 
 之前电脑 Win11 的一个大版本更新给我电脑干坏了，自从系统重装之后，就没怎么用过 VMware 了。
 

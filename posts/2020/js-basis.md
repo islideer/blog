@@ -1,10 +1,11 @@
 ---
-layout: post
-title: JavaScript 基础篇
+layout: 'post'
+title: 'JavaScript 基础篇'
 date: 2020-01-11
-top_image: https://i.loli.net/2020/11/21/2dmkoTYZnhjauOG.jpg
-excerpt: 寒假学习之 JavaScript基础篇
+top_image: 'https://i.loli.net/2020/11/21/2dmkoTYZnhjauOG.jpg'
+excerpt: '寒假学习之 JavaScript基础篇'
 ---
+
 
 ## JavaScript 语法标识符的命名规范
 

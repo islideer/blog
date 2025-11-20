@@ -1,9 +1,10 @@
 ---
-layout: post
-title: Git Submodules 备忘录
+layout: 'post'
+title: 'Git Submodules 备忘录'
 date: 2024-12-09
-excerpt: 这是一份给自己的、简单而又基础的 Git Submodules 备忘录。
+excerpt: '这是一份给自己的、简单而又基础的 Git Submodules 备忘录。'
 ---
+
 
 这是一份给自己的、简单而又基础的 Git Submodules 备忘录。 因为发现自己一到用的时候就忘了，结果就是一遍又一遍问 GPT...
 

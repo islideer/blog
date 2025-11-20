@@ -1,10 +1,11 @@
 ---
-layout: post
-title: 关于CentOS7中yum失效问题的解决方案
+layout: 'post'
+title: '关于 CentOS 7 中 yum 命令失效问题的解决方案'
 date: 2020-01-12
-top_image: https://i.loli.net/2020/11/21/o7sYJZVIuqMRpT3.jpg
-excerpt: 列出了CentOS7中yum失效问题的可能原因，给出了对应的解决方案
+top_image: 'https://i.loli.net/2020/11/21/o7sYJZVIuqMRpT3.jpg'
+excerpt: '列出了 CentOS 7 中 yum 命令失效问题的可能原因，给出了对应的解决方案'
 ---
+
 
 刚在虚拟机中安装完的 CentOS 7 的系统，可能出现**无法使用 yum 命令**的问题。可以使用下列方式进行尝试。
 

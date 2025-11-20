@@ -1,11 +1,12 @@
 ---
-layout: post
-title: 记一次使用 Python 爬取 B 站 up 主信息经历
+layout: 'post'
+title: '记一次使用 Python 爬取 B 站 up 主信息经历'
 date: 2020-11-29
 quicklink: true
-top_image: https://i.loli.net/2020/11/29/esjylJK4a256W3L.png
-excerpt: 非常简单的一个 Python 爬虫程序爬取 B 站 up 主的粉丝数和 up 主的 id，仅用于学习
+top_image: 'https://i.loli.net/2020/11/29/esjylJK4a256W3L.png'
+excerpt: '非常简单的一个 Python 爬虫程序爬取 B 站 up 主的粉丝数和 up 主的 id，仅用于学习'
 ---
+
 
 ## 需求
 

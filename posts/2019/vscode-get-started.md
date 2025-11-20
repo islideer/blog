@@ -1,10 +1,11 @@
 ---
-layout: post
-title: VScode新手指南
+layout: 'post'
+title: 'VScode新手指南'
 date: 2019-11-11
-top_image: https://i.loli.net/2020/11/21/twoxfVzsJkhNUdM.png
-excerpt: 简要介绍了VScode的一些快捷键以及常用插件
+top_image: 'https://i.loli.net/2020/11/21/twoxfVzsJkhNUdM.png'
+excerpt: '简要介绍了VScode的一些快捷键以及常用插件'
 ---
+
 
 ## 介绍
 

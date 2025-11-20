@@ -57,26 +57,27 @@ summary {
   transition: none !important;
 }
 
-/* External links with arrow icon and underline */
-a[target='_blank'] {
+/* Navigation and footer links with underline */
+nav a,
+footer a,
+a.text-link {
   text-decoration: underline dashed;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
 }
 
+nav a:hover,
+footer a:hover,
+a.text-link:hover {
+  text-decoration-style: solid;
+}
+
+/* External links with arrow icon */
 a[target='_blank']::after {
   content: ' ↗';
-  text-decoration: underline dashed;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
-}
-
-a[target='_blank']:hover {
-  text-decoration-style: solid;
-}
-
-a[target='_blank']:hover::after {
-  text-decoration-style: solid;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.6;
 }
 
 /* Selection styles */

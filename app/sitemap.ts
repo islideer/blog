@@ -4,8 +4,8 @@ import { siteConfig } from '@/lib/config'
 
 export const dynamic = 'force-static'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getAllPosts()
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await getAllPosts()
 
   // 静态页面
   const staticPages: MetadataRoute.Sitemap = [

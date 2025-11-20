@@ -1,10 +1,11 @@
 ---
-layout: post
-title: CSS 简写属性速览
+layout: 'post'
+title: 'CSS 简写属性速览'
 date: 2022-02-22
-top_image: https://s2.loli.net/2022/02/22/ZHKrAXWt8Mn7agf.png
-excerpt: 总结了常用的 CSS 简写属性，便于日后翻阅。
+top_image: 'https://s2.loli.net/2022/02/22/ZHKrAXWt8Mn7agf.png'
+excerpt: '总结了常用的 CSS 简写属性，便于日后翻阅。'
 ---
+
 
 ## 说在前面
 

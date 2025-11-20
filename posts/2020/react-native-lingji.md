@@ -1,10 +1,11 @@
 ---
-layout: post
-title: 2020-Hackthon 总结（RN 项目）
+layout: 'post'
+title: '2020-Hackthon 总结（RN 项目）'
 date: 2020-04-21
-top_image: https://i.loli.net/2020/11/21/3XTAsgFaRyBLvOz.png
-excerpt: 2020 年家园工作室 Hackthon 大赛 ReactNative 项目总结
+top_image: 'https://i.loli.net/2020/11/21/3XTAsgFaRyBLvOz.png'
+excerpt: '2020 年家园工作室 Hackthon 大赛 ReactNative 项目总结'
 ---
+
 
 ## 2020-Hackthon 总结(RN 项目)
 

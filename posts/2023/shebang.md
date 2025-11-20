@@ -1,9 +1,10 @@
 ---
-layout: post
-title: 什么是 Shebang (或 hashbang)
+layout: 'post'
+title: '什么是 Shebang (或 hashbang)'
 date: 2023-03-14
-excerpt: Shebang，也称为 hashbang 或 sha-bang，是一种在 Unix、Linux 和其他类 Unix 系统上...
+excerpt: 'Shebang，也称为 hashbang 或 sha-bang，是一种在 Unix、Linux 和其他类 Unix 系统上...'
 ---
+
 
 Shebang，也称为 hashbang 或 sha-bang，是一种在 Unix、Linux 和其他类 Unix 系统上的脚本中使用的特殊字符序列。它的作用是指定脚本应该由哪个解释器来解释执行。
 

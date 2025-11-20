@@ -1,11 +1,12 @@
 ---
-layout: post
-title: Python3 小白快速入门
+layout: 'post'
+title: 'Python3 小白快速入门'
 date: 2020-09-06
 quicklink: true
-top_image: https://i.loli.net/2020/11/21/AYtruLMBnKT4dJa.jpg
-excerpt: Python 是一种面向对象、解释型、动态数据类型的高级程序设计脚本语言，同时也是一种功能强大而完善的通用型语言。
+top_image: 'https://i.loli.net/2020/11/21/AYtruLMBnKT4dJa.jpg'
+excerpt: 'Python 是一种面向对象、解释型、动态数据类型的高级程序设计脚本语言，同时也是一种功能强大而完善的通用型语言。'
 ---
+
 
 ## Python 中的数据类型
 

@@ -1,10 +1,11 @@
 ---
-layout: post
-title: Linux 目录结构
+layout: 'post'
+title: 'Linux 目录结构'
 date: 2020-02-13
-top_image: https://i.loli.net/2020/11/21/sRP8uFdSz4XcVkI.png
-excerpt: 寒假学习之 Linux 目录结构
+top_image: 'https://i.loli.net/2020/11/21/sRP8uFdSz4XcVkI.png'
+excerpt: '寒假学习之 Linux 目录结构'
 ---
+
 
 ## 前言
 
