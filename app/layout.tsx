@@ -38,23 +38,12 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: `/og?title=${encodeURIComponent(siteConfig.name)}&description=${encodeURIComponent(siteConfig.tagline)}`,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
     creator: siteConfig.author.twitter,
-    images: [
-      `/og?title=${encodeURIComponent(siteConfig.name)}&description=${encodeURIComponent(siteConfig.tagline)}`,
-    ],
   },
 }
 

@@ -18,23 +18,12 @@ export const metadata: Metadata = {
     title: siteConfig.pages.archives.title,
     description: siteConfig.pages.archives.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: `/og?title=${encodeURIComponent(siteConfig.pages.archives.title)}&description=${encodeURIComponent(siteConfig.pages.archives.description)}`,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.pages.archives.title,
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.pages.archives.title,
     description: siteConfig.pages.archives.description,
     creator: siteConfig.author.twitter,
-    images: [
-      `/og?title=${encodeURIComponent(siteConfig.pages.archives.title)}&description=${encodeURIComponent(siteConfig.pages.archives.description)}`,
-    ],
   },
 }
 

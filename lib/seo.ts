@@ -108,8 +108,6 @@ export function generateCanonicalUrl(path: string) {
  * Generate Open Graph metadata for a blog post
  */
 export function generatePostOpenGraph(post: Post) {
-  const ogImageUrl = `/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.excerpt || post.title)}`
-
   return {
     type: 'article' as const,
     title: post.title,
@@ -121,14 +119,6 @@ export function generatePostOpenGraph(post: Post) {
     modifiedTime: post.date,
     authors: [siteConfig.author.name],
     tags: post.tags,
-    images: [
-      {
-        url: ogImageUrl,
-        width: 1200,
-        height: 630,
-        alt: post.title,
-      },
-    ],
   }
 }
 
@@ -136,13 +126,10 @@ export function generatePostOpenGraph(post: Post) {
  * Generate Twitter Card metadata for a blog post
  */
 export function generatePostTwitterCard(post: Post) {
-  const ogImageUrl = `/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.excerpt || post.title)}`
-
   return {
     card: 'summary_large_image' as const,
     title: post.title,
     description: post.excerpt || post.title,
     creator: siteConfig.author.twitter,
-    images: [ogImageUrl],
   }
 }
