@@ -11,6 +11,12 @@
 
     --color-border: oklch(0.28 0 0); /* Subtle dark border */
     --color-border-hover: oklch(0.4 0 0); /* Hover dark border */
+
+    /* Mio Says - Pink accents for dark mode */
+    --color-mio-pink: oklch(0.75 0.15 350); /* Soft pink for dark mode */
+    --color-mio-pink-muted: oklch(0.3 0.08 350); /* Very muted pink background */
+    --color-mio-border: oklch(0.35 0.12 350); /* Pink-tinted border */
+    --color-mio-bg: oklch(0.17 0.02 350); /* Subtle pink-tinted background */
   }
 }
 
@@ -26,6 +32,12 @@
 
   --color-border: oklch(0.28 0 0);
   --color-border-hover: oklch(0.4 0 0);
+
+  /* Mio Says - Pink accents for dark mode */
+  --color-mio-pink: oklch(0.75 0.15 350); /* Soft pink for dark mode */
+  --color-mio-pink-muted: oklch(0.3 0.08 350); /* Very muted pink background */
+  --color-mio-border: oklch(0.35 0.12 350); /* Pink-tinted border */
+  --color-mio-bg: oklch(0.17 0.02 350); /* Subtle pink-tinted background */
 }
 
 /* Manual light mode class */
@@ -40,4 +52,10 @@
 
   --color-border: oklch(0.88 0 0); /* Slightly darker border */
   --color-border-hover: oklch(0.75 0 0); /* Darker hover */
+
+  /* Mio Says - Pink accents for light mode */
+  --color-mio-pink: oklch(0.65 0.18 350); /* Vibrant pink for light mode */
+  --color-mio-pink-muted: oklch(0.92 0.05 350); /* Very light pink background */
+  --color-mio-border: oklch(0.8 0.12 350); /* Pink-tinted border */
+  --color-mio-bg: oklch(0.98 0.02 350); /* Subtle pink-tinted background */
 }

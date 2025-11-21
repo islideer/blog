@@ -13,11 +13,11 @@ export const pageMetadata = {
   },
   timeline: {
     title: '大事记',
-    description: '记录生活中的重要时刻和里程碑',
+    description: 'Viki 生活中的重要时刻和里程碑',
   },
   thoughts: {
     title: '碎碎念',
-    description: '记录生活中的点滴想法和碎碎念',
+    description: 'Viki 的碎碎念小角落，记录生活中的点滴想法和言论',
   },
   mioSays: {
     title: 'Mio 说',

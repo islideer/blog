@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? thoughts[0].content.length > 50
         ? `${thoughts[0].content.slice(0, 50)}...`
         : thoughts[0].content
-      : '记录生活中的点滴想法和瞬间灵感'
+      : '碎碎念小角落，记录生活中的点滴想法和言论'
 
   // 获取最新更新时间
   const lastUpdate = thoughts.length > 0 ? dayjs(thoughts[0].date).fromNow() : ''
@@ -88,7 +88,7 @@ export default async function ThoughtsPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">碎碎念</h1>
         <p className="text-text-secondary">
-          共 {thoughts.length.toLocaleString('zh-CN')} 条碎碎念，记录生活中的点滴想法。
+          Viki 的碎碎念小角落，共 {thoughts.length.toLocaleString('zh-CN')} 条，记录生活中的点滴想法和言论
         </p>
       </section>
 

@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? mioSays[0].content.length > 50
         ? `${mioSays[0].content.slice(0, 50)}...`
         : mioSays[0].content
-      : '这是专门开设给 Mio 的专属发言空间'
+      : '这里是开设给 Mio 的专属发言空间'
 
   // 获取最新更新时间
   const lastUpdate = mioSays.length > 0 ? dayjs(mioSays[0].date).fromNow() : ''
@@ -86,7 +86,9 @@ export default async function MioSaysPage() {
     <div className="space-y-12">
       {/* Header */}
       <section className="space-y-3">
-        <h1 className="text-3xl font-bold">Mio 说</h1>
+        <h1 className="text-3xl font-bold" style={{ color: 'var(--color-mio-pink)' }}>
+          Mio 说
+        </h1>
         <p className="text-text-secondary">
           这里是开设给 Mio 的专属发言空间，共 {mioSays.length.toLocaleString('zh-CN')} 条内容，Viki
           无权编辑。
@@ -95,10 +97,7 @@ export default async function MioSaysPage() {
 
       {/* Mio Says Timeline */}
       <section className="space-y-4">
-        <div
-          className="space-y-8 sm:border-l-2 sm:pl-6"
-          style={{ borderColor: 'rgba(255, 182, 193, 0.3)' }}
-        >
+        <div className="space-y-8 sm:border-l-2 sm:pl-6" style={{ borderColor: 'var(--color-mio-border)' }}>
           {mioSays.length === 0 ? (
             <p className="text-text-tertiary text-sm italic opacity-60">
               Mio 还没有说什么，敬请期待
@@ -110,13 +109,14 @@ export default async function MioSaysPage() {
                 className="space-y-2 pb-8"
                 style={{
                   borderBottom:
-                    index < mioSays.length - 1 ? '1px solid rgba(255, 182, 193, 0.2)' : 'none',
+                    index < mioSays.length - 1 ? `1px solid var(--color-mio-border)` : 'none',
                 }}
               >
                 {/* 日期时间 */}
                 <div className="flex items-center gap-2">
                   <svg
-                    className="text-text-tertiary size-3.5 shrink-0"
+                    className="size-3.5 shrink-0"
+                    style={{ color: 'var(--color-mio-pink)' }}
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -127,7 +127,8 @@ export default async function MioSaysPage() {
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                   </svg>
                   <time
-                    className="text-text-tertiary text-xs"
+                    className="text-xs"
+                    style={{ color: 'var(--color-mio-pink)' }}
                     title={dayjs(mioSay.date).format('YYYY/MM/DD HH:mm:ss ddd')}
                   >
                     发布于{' '}
@@ -148,7 +149,8 @@ export default async function MioSaysPage() {
                     {mioSay.images.map((image, index) => (
                       <div
                         key={index}
-                        className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border border-pink-200 dark:border-pink-900"
+                        className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border"
+                        style={{ borderColor: 'var(--color-mio-border)' }}
                       >
                         <Image
                           src={image}
