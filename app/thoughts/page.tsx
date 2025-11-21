@@ -12,37 +12,41 @@ import 'dayjs/locale/zh-cn'
 
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: '碎碎念',
-  description: '记录生活中的点滴想法和碎碎念',
-  alternates: {
-    canonical: generateCanonicalUrl('/thoughts'),
-  },
-  openGraph: {
-    type: 'website',
-    locale: siteConfig.locale.replace('-', '_'),
-    url: generateCanonicalUrl('/thoughts'),
+export async function generateMetadata(): Promise<Metadata> {
+  const thoughts = await getAllThoughts()
+
+  return {
     title: '碎碎念',
     description: '记录生活中的点滴想法和碎碎念',
-    siteName: siteConfig.name,
-    images: [
-      {
-        url: `${siteConfig.url}/api/og?title=${encodeURIComponent('碎碎念')}&subtitle=${encodeURIComponent('记录生活中的点滴想法')}&type=thoughts`,
-        width: 1200,
-        height: 630,
-        alt: '碎碎念',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: '碎碎念',
-    description: '记录生活中的点滴想法和碎碎念',
-    creator: siteConfig.author.twitter,
-    images: [
-      `${siteConfig.url}/api/og?title=${encodeURIComponent('碎碎念')}&subtitle=${encodeURIComponent('记录生活中的点滴想法')}&type=thoughts`,
-    ],
-  },
+    alternates: {
+      canonical: generateCanonicalUrl('/thoughts'),
+    },
+    openGraph: {
+      type: 'website',
+      locale: siteConfig.locale.replace('-', '_'),
+      url: generateCanonicalUrl('/thoughts'),
+      title: '碎碎念',
+      description: '记录生活中的点滴想法和碎碎念',
+      siteName: siteConfig.name,
+      images: [
+        {
+          url: `${siteConfig.url}/api/og?title=${encodeURIComponent('碎碎念')}&subtitle=${encodeURIComponent('记录生活中的点滴想法')}&type=thoughts&stats=${encodeURIComponent(`想法:${thoughts.length}`)}`,
+          width: 1200,
+          height: 630,
+          alt: '碎碎念',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: '碎碎念',
+      description: '记录生活中的点滴想法和碎碎念',
+      creator: siteConfig.author.twitter,
+      images: [
+        `${siteConfig.url}/api/og?title=${encodeURIComponent('碎碎念')}&subtitle=${encodeURIComponent('记录生活中的点滴想法')}&type=thoughts&stats=${encodeURIComponent(`想法:${thoughts.length}`)}`,
+      ],
+    },
+  }
 }
 
 export default async function ThoughtsPage() {

@@ -10,6 +10,7 @@ export async function GET(req: NextRequest) {
     const title = searchParams.get('title') || 'Viki 写东西的地方'
     const subtitle = searchParams.get('subtitle') || '分享技术和日常'
     const type = searchParams.get('type') || 'default'
+    const stats = searchParams.get('stats') || ''
 
     // 获取 icon 图片
     const iconUrl = new URL('/icon-192.png', req.url).href
@@ -25,24 +26,33 @@ export async function GET(req: NextRequest) {
             flexDirection: 'column',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
-            background: '#0d0d0d',
+            background: 'linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%)',
             padding: '80px',
             fontFamily: 'system-ui, -apple-system, sans-serif',
             position: 'relative',
           }}
         >
-          {/* 背景装饰 - 简约几何图形 */}
+          {/* 背景装饰 - 扁平几何图形 */}
           <div
             style={{
               position: 'absolute',
-              top: '0',
-              right: '0',
-              width: '400px',
-              height: '400px',
-              background:
-                'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%)',
+              top: '-100px',
+              right: '-100px',
+              width: '500px',
+              height: '500px',
+              background: 'rgba(255, 255, 255, 0.5)',
               borderRadius: '50%',
-              transform: 'translate(30%, -30%)',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '-80px',
+              left: '-80px',
+              width: '350px',
+              height: '350px',
+              background: 'rgba(0, 0, 0, 0.03)',
+              borderRadius: '50%',
             }}
           />
 
@@ -63,19 +73,19 @@ export async function GET(req: NextRequest) {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  fontSize: 24,
-                  color: '#a0a0a0',
-                  fontWeight: 500,
+                  gap: '12px',
+                  fontSize: 22,
+                  color: '#666666',
+                  fontWeight: 600,
                   letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
                 }}
               >
                 <div
                   style={{
-                    width: '4px',
-                    height: '24px',
-                    background: '#ffffff',
+                    width: '6px',
+                    height: '28px',
+                    background: '#1a1a1a',
+                    borderRadius: '3px',
                   }}
                 />
                 博客文章
@@ -87,22 +97,94 @@ export async function GET(req: NextRequest) {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  fontSize: 24,
-                  color: '#a0a0a0',
-                  fontWeight: 500,
+                  gap: '12px',
+                  fontSize: 22,
+                  color: '#666666',
+                  fontWeight: 600,
                   letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
                 }}
               >
                 <div
                   style={{
-                    width: '4px',
-                    height: '24px',
-                    background: '#ffffff',
+                    width: '6px',
+                    height: '28px',
+                    background: '#1a1a1a',
+                    borderRadius: '3px',
                   }}
                 />
                 碎碎念
+              </div>
+            )}
+
+            {type === 'posts' && (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  fontSize: 22,
+                  color: '#666666',
+                  fontWeight: 600,
+                  letterSpacing: '0.05em',
+                }}
+              >
+                <div
+                  style={{
+                    width: '6px',
+                    height: '28px',
+                    background: '#1a1a1a',
+                    borderRadius: '3px',
+                  }}
+                />
+                文章列表
+              </div>
+            )}
+
+            {type === 'timeline' && (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  fontSize: 22,
+                  color: '#666666',
+                  fontWeight: 600,
+                  letterSpacing: '0.05em',
+                }}
+              >
+                <div
+                  style={{
+                    width: '6px',
+                    height: '28px',
+                    background: '#1a1a1a',
+                    borderRadius: '3px',
+                  }}
+                />
+                大事记
+              </div>
+            )}
+
+            {type === 'about' && (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  fontSize: 22,
+                  color: '#666666',
+                  fontWeight: 600,
+                  letterSpacing: '0.05em',
+                }}
+              >
+                <div
+                  style={{
+                    width: '6px',
+                    height: '28px',
+                    background: '#1a1a1a',
+                    borderRadius: '3px',
+                  }}
+                />
+                关于
               </div>
             )}
 
@@ -111,7 +193,7 @@ export async function GET(req: NextRequest) {
               style={{
                 fontSize: 72,
                 fontWeight: 900,
-                color: '#ffffff',
+                color: '#1a1a1a',
                 lineHeight: 1.1,
                 letterSpacing: '-0.03em',
                 maxWidth: '90%',
@@ -125,13 +207,58 @@ export async function GET(req: NextRequest) {
               <div
                 style={{
                   fontSize: 32,
-                  color: '#a0a0a0',
+                  color: '#666666',
                   fontWeight: 400,
-                  maxWidth: '80%',
+                  maxWidth: '85%',
                   lineHeight: 1.4,
                 }}
               >
                 {subtitle}
+              </div>
+            )}
+
+            {/* 统计信息 */}
+            {stats && (
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '32px',
+                  marginTop: '16px',
+                }}
+              >
+                {stats.split('|').map((stat, index) => {
+                  const [label, value] = stat.split(':')
+                  return (
+                    <div
+                      key={index}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '4px',
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontSize: 40,
+                          fontWeight: 900,
+                          color: '#1a1a1a',
+                          lineHeight: 1,
+                        }}
+                      >
+                        {value}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: 18,
+                          color: '#888888',
+                          fontWeight: 500,
+                        }}
+                      >
+                        {label}
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             )}
           </div>
@@ -145,7 +272,7 @@ export async function GET(req: NextRequest) {
               width: '100%',
               marginTop: 'auto',
               zIndex: 1,
-              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+              borderTop: '2px solid rgba(0, 0, 0, 0.08)',
               paddingTop: '32px',
             }}
           >
@@ -153,8 +280,8 @@ export async function GET(req: NextRequest) {
             <div
               style={{
                 fontSize: 28,
-                color: '#ffffff',
-                fontWeight: 600,
+                color: '#1a1a1a',
+                fontWeight: 700,
                 letterSpacing: '-0.01em',
               }}
             >
@@ -177,7 +304,7 @@ export async function GET(req: NextRequest) {
                 height="80"
                 style={{
                   borderRadius: '16px',
-                  border: '2px solid rgba(255, 255, 255, 0.1)',
+                  border: '3px solid rgba(0, 0, 0, 0.1)',
                 }}
               />
             </div>

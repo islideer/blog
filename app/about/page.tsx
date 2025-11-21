@@ -21,12 +21,23 @@ export const metadata: Metadata = {
     title: siteConfig.pages.about.title,
     description: siteConfig.pages.about.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: `${siteConfig.url}/api/og?title=${encodeURIComponent(siteConfig.author.name)}&subtitle=${encodeURIComponent('前端开发者 · 开源爱好者')}&type=about&stats=${encodeURIComponent(`GitHub:@vikiboss`)}`,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.pages.about.title,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.pages.about.title,
     description: siteConfig.pages.about.description,
     creator: siteConfig.author.twitter,
+    images: [
+      `${siteConfig.url}/api/og?title=${encodeURIComponent(siteConfig.author.name)}&subtitle=${encodeURIComponent('前端开发者 · 开源爱好者')}&type=about&stats=${encodeURIComponent(`GitHub:@vikiboss`)}`,
+    ],
   },
 }
 

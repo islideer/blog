@@ -17,12 +17,23 @@ export const metadata: Metadata = {
     title: '大事记',
     description: '记录生活中的重要时刻和里程碑',
     siteName: siteConfig.name,
+    images: [
+      {
+        url: `${siteConfig.url}/api/og?title=${encodeURIComponent('大事记')}&subtitle=${encodeURIComponent('记录生活中的重要时刻')}&type=timeline&stats=${encodeURIComponent(`记录:${timelineData.length}`)}`,
+        width: 1200,
+        height: 630,
+        alt: '大事记',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: '大事记',
     description: '记录生活中的重要时刻和里程碑',
     creator: siteConfig.author.twitter,
+    images: [
+      `${siteConfig.url}/api/og?title=${encodeURIComponent('大事记')}&subtitle=${encodeURIComponent('记录生活中的重要时刻')}&type=timeline&stats=${encodeURIComponent(`记录:${timelineData.length}`)}`,
+    ],
   },
 }
 
