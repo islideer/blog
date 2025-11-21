@@ -6,7 +6,6 @@ excerpt: '这是一份给自己的、简单而又基础的 Git Submodules 备忘
 draft: true
 ---
 
-
 这是一份给自己的、简单而又基础的 Git Submodules 备忘录。 因为发现自己一到用的时候就忘了，结果就是一遍又一遍问 GPT...
 
 ## 克隆带有 Git Submodules 的仓库
@@ -42,7 +41,7 @@ git submodule update --init --recursive
 
 ```bash
 # 进入 Submodules 并拉取最新更改
-cd path/to/my-submodule 
+cd path/to/my-submodule
 git pull
 
 # 在主项目的跟路径下，保存提交

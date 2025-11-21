@@ -8,7 +8,6 @@ excerpt: 'Python 是一种面向对象、解释型、动态数据类型的高级
 draft: true
 ---
 
-
 ## Python 中的数据类型
 
 - Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。
@@ -18,7 +17,6 @@ draft: true
 ### 不可变数据
 
 1. `Number` 数字
-
    - `int` 整数 如：1，2，0，-43 （Python3 中的整数大小无限制）
    - `float` 小数 如：0.2，-54.0，15.9
    - `bool` 布尔数（1 代表 true，2 代表 false）如：false 或 true 之一

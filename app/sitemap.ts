@@ -54,7 +54,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const postPages: MetadataRoute.Sitemap = posts.map((post) => {
     const postDate = new Date(post.date)
     const now = new Date()
-    const daysSincePublished = Math.floor((now.getTime() - postDate.getTime()) / (1000 * 60 * 60 * 24))
+    const daysSincePublished = Math.floor(
+      (now.getTime() - postDate.getTime()) / (1000 * 60 * 60 * 24),
+    )
 
     // 根据文章新旧程度调整优先级
     // 新文章（30 天内）：0.9

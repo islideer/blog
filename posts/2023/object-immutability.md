@@ -6,7 +6,6 @@ excerpt: '当我们涉足 JavaScript 的世界时，我们会遇到 freeze、sea
 draft: true
 ---
 
-
 当我们涉足 JavaScript 的世界时，我们会遇到 `Object.freeze`、`Object.seal` 和 `Object.preventExtensions` 这三个神秘的伙伴。它们就像保护我们的对象免受外界伤害的护身符，但它们之间可是各有不同！
 
 ## Object.freeze()
@@ -16,10 +15,9 @@ draft: true
 可以用 `Object.isFrozen()` 来判断是否被 freeze 了。
 
 ```ts
-const icyObj = { chill: "frosty" };
-Object.freeze(icyObj);
+const icyObj = { chill: 'frosty' }
+Object.freeze(icyObj)
 ```
-
 
 ## Object.seal()
 
@@ -28,8 +26,8 @@ Object.freeze(icyObj);
 可以用 `Object.isSealed()` 来判断是否被 `seal` 了。
 
 ```ts
-const bulletproofObj = { strong: true };
-Object.seal(bulletproofObj);
+const bulletproofObj = { strong: true }
+Object.seal(bulletproofObj)
 ```
 
 ## Object.preventExtensions()
@@ -39,8 +37,8 @@ Object.seal(bulletproofObj);
 可以用 `Object.isExtensible()` 来判断是否被 `preventExtensions` 了。
 
 ```ts
-const extendableObj = { flexible: true };
-Object.preventExtensions(extendableObj);
+const extendableObj = { flexible: true }
+Object.preventExtensions(extendableObj)
 ```
 
 这些方法虽然冷门，但却能保护你的宝贝对象免受外界的破坏，请记住它们，就像是在寒冷的世界中给你的对象穿上了厚厚的保护衣！

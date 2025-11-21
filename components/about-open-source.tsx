@@ -31,7 +31,7 @@ export function AboutOpenSource({ data }: AboutOpenSourceProps) {
               <ul className="space-y-2">
                 {categoryProjects.map((project) => (
                   <li key={project.name} className="text-text-secondary">
-                    <div className="inline-flex items-baseline gap-2 flex-wrap">
+                    <div className="inline-flex flex-wrap items-baseline gap-2">
                       <a
                         href={project.url}
                         target="_blank"
@@ -41,7 +41,7 @@ export function AboutOpenSource({ data }: AboutOpenSourceProps) {
                         {project.name}
                       </a>
                       {project.status === 'archived' && (
-                        <span className="text-text-tertiary bg-bg-secondary px-1.5 py-0.5 rounded text-xs leading-none">
+                        <span className="text-text-tertiary bg-bg-secondary rounded px-1.5 py-0.5 text-xs leading-none">
                           已归档
                         </span>
                       )}

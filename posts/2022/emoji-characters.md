@@ -5,7 +5,6 @@ date: 2022-12-02
 excerpt: '这篇文章简单介绍了下 emoji 并记录一下字符异常分割问题产生的原因和常见的解决方案。'
 ---
 
-
 > 文章内容较多，如果只是寻找解决方案，请直接划到文末。
 
 谈到 `emoji` 想必我们都不陌生，它是一种广泛使用在网页和聊天上的表情符号，如 😂, 😄 等。
@@ -123,9 +122,9 @@ Array.from('👦🏾') // ['👦', '🏾']
 我们来试试 `Intl.Segmenter`。
 
 ```js
-const splitEmoji = string => {
+const splitEmoji = (string) => {
   const segment = new Intl.Segmenter().segment(string)
-  return [...segment].map(e => e.segment)
+  return [...segment].map((e) => e.segment)
 }
 
 splitEmoji('😴😄😃⛔🎠🚓🚇') // ['😴', '😄', '😃', '⛔', '🎠', '🚓', '🚇']

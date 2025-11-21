@@ -27,25 +27,17 @@ export async function GET(req: NextRequest) {
       (res) => res.arrayBuffer(),
     )
 
-    // 获取类型标签文本
-    const getTypeLabel = () => {
-      switch (type) {
-        case 'post':
-          return '博客文章'
-        case 'posts':
-          return '文章列表'
-        case 'thoughts':
-          return '碎碎念'
-        case 'mio-says':
-          return 'Mio 说'
-        case 'timeline':
-          return '大事记'
-        case 'about':
-          return '关于'
-        default:
-          return '博客'
-      }
+    // 类型标签映射
+    const typeLabelMap: Record<string, string> = {
+      post: '博客文章',
+      posts: '文章列表',
+      thoughts: '碎碎念',
+      'mio-says': 'Mio 说',
+      timeline: '大事记',
+      about: '关于',
+      default: '博客',
     }
+    const typeLabel = typeLabelMap[type] || '博客'
 
     return new ImageResponse(
       (
@@ -55,31 +47,31 @@ export async function GET(req: NextRequest) {
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
-            background: 'linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%)',
+            background: 'linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%)',
             position: 'relative',
             fontFamily: '"Noto Sans SC", "Source Han Sans SC", sans-serif',
           }}
         >
-          {/* 背景几何装饰 */}
+          {/* 背景几何装饰 - 更简洁 */}
           <div
             style={{
               position: 'absolute',
-              top: '-120px',
-              right: '-120px',
-              width: '480px',
-              height: '480px',
-              background: 'rgba(255, 255, 255, 0.6)',
+              top: '-100px',
+              right: '-100px',
+              width: '400px',
+              height: '400px',
+              background: 'rgba(255, 255, 255, 0.5)',
               borderRadius: '50%',
             }}
           />
           <div
             style={{
               position: 'absolute',
-              bottom: '-100px',
-              left: '-100px',
-              width: '380px',
-              height: '380px',
-              background: 'rgba(0, 0, 0, 0.04)',
+              bottom: '-80px',
+              left: '-80px',
+              width: '320px',
+              height: '320px',
+              background: 'rgba(0, 0, 0, 0.03)',
               borderRadius: '50%',
             }}
           />
@@ -89,7 +81,7 @@ export async function GET(req: NextRequest) {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              padding: '60px 80px',
+              padding: '64px 72px',
               height: '100%',
             }}
           >
@@ -97,9 +89,9 @@ export async function GET(req: NextRequest) {
             <div
               style={{
                 display: 'flex',
-                alignItems: 'flex-start',
+                alignItems: 'center',
                 justifyContent: 'space-between',
-                marginBottom: '36px',
+                marginBottom: '48px',
               }}
             >
               {/* 左侧：类型标签 */}
@@ -107,26 +99,26 @@ export async function GET(req: NextRequest) {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '12px',
+                  gap: '10px',
                 }}
               >
                 <div
                   style={{
-                    width: '5px',
-                    height: '28px',
+                    width: '4px',
+                    height: '24px',
                     background: '#1a1a1a',
                     borderRadius: '2px',
                   }}
                 />
                 <div
                   style={{
-                    fontSize: 22,
+                    fontSize: 20,
                     color: '#666666',
                     fontWeight: 600,
-                    letterSpacing: '0.02em',
+                    letterSpacing: '0.01em',
                   }}
                 >
-                  {getTypeLabel()}
+                  {typeLabel}
                 </div>
               </div>
 
@@ -135,9 +127,8 @@ export async function GET(req: NextRequest) {
                 <div
                   style={{
                     display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-end',
-                    gap: '6px',
+                    alignItems: 'center',
+                    gap: '16px',
                   }}
                 >
                   {date && (
@@ -151,51 +142,56 @@ export async function GET(req: NextRequest) {
                       {date}
                     </div>
                   )}
+                  {date && readingTime && (
+                    <div
+                      style={{
+                        width: '1px',
+                        height: '16px',
+                        background: '#d0d0d0',
+                      }}
+                    />
+                  )}
                   {readingTime && (
                     <div
                       style={{
-                        fontSize: 16,
-                        color: '#999999',
+                        fontSize: 18,
+                        color: '#888888',
                         fontWeight: 500,
                       }}
                     >
-                      阅读时长 {readingTime} 分钟
+                      {readingTime} 分钟
                     </div>
                   )}
                 </div>
               )}
             </div>
 
-            {/* 标题 */}
+            {/* 标题 - 优化字体大小和行高 */}
             <div
               style={{
-                fontSize: title.length > 30 ? 58 : title.length > 20 ? 64 : 72,
+                fontSize: title.length > 30 ? 52 : title.length > 20 ? 60 : 68,
                 fontWeight: 700,
                 color: '#1a1a1a',
-                lineHeight: 1.12,
-                letterSpacing: '-0.03em',
-                marginBottom: '24px',
-                display: '-webkit-box',
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: 'vertical',
+                lineHeight: 1.2,
+                letterSpacing: '-0.02em',
+                marginBottom: '20px',
+                maxHeight: '240px',
                 overflow: 'hidden',
               }}
             >
               {title}
             </div>
 
-            {/* 副标题 */}
+            {/* 副标题 - 优化字体大小 */}
             {subtitle && !postsCount && !thoughtsCount && !mioSaysCount && (
               <div
                 style={{
-                  fontSize: 28,
+                  fontSize: 24,
                   color: '#666666',
                   fontWeight: 400,
-                  lineHeight: 1.5,
+                  lineHeight: 1.6,
                   marginBottom: 'auto',
-                  display: '-webkit-box',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical',
+                  maxHeight: '80px',
                   overflow: 'hidden',
                 }}
               >
@@ -203,13 +199,13 @@ export async function GET(req: NextRequest) {
               </div>
             )}
 
-            {/* 首页统计信息 */}
+            {/* 首页统计信息 - 优化布局和字体 */}
             {type === 'default' && (postsCount || thoughtsCount || mioSaysCount) && (
               <div
                 style={{
                   display: 'flex',
-                  gap: '24px',
-                  marginTop: '20px',
+                  gap: '48px',
+                  marginTop: '16px',
                   marginBottom: 'auto',
                 }}
               >
@@ -218,12 +214,12 @@ export async function GET(req: NextRequest) {
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
-                      gap: '4px',
+                      gap: '6px',
                     }}
                   >
                     <div
                       style={{
-                        fontSize: 36,
+                        fontSize: 48,
                         fontWeight: 700,
                         color: '#1a1a1a',
                         lineHeight: 1,
@@ -233,7 +229,7 @@ export async function GET(req: NextRequest) {
                     </div>
                     <div
                       style={{
-                        fontSize: 16,
+                        fontSize: 18,
                         color: '#888888',
                         fontWeight: 500,
                       }}
@@ -247,12 +243,12 @@ export async function GET(req: NextRequest) {
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
-                      gap: '4px',
+                      gap: '6px',
                     }}
                   >
                     <div
                       style={{
-                        fontSize: 36,
+                        fontSize: 48,
                         fontWeight: 700,
                         color: '#1a1a1a',
                         lineHeight: 1,
@@ -262,7 +258,7 @@ export async function GET(req: NextRequest) {
                     </div>
                     <div
                       style={{
-                        fontSize: 16,
+                        fontSize: 18,
                         color: '#888888',
                         fontWeight: 500,
                       }}
@@ -276,12 +272,12 @@ export async function GET(req: NextRequest) {
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
-                      gap: '4px',
+                      gap: '6px',
                     }}
                   >
                     <div
                       style={{
-                        fontSize: 36,
+                        fontSize: 48,
                         fontWeight: 700,
                         color: '#1a1a1a',
                         lineHeight: 1,
@@ -291,7 +287,7 @@ export async function GET(req: NextRequest) {
                     </div>
                     <div
                       style={{
-                        fontSize: 16,
+                        fontSize: 18,
                         color: '#888888',
                         fontWeight: 500,
                       }}
@@ -303,14 +299,15 @@ export async function GET(req: NextRequest) {
               </div>
             )}
 
-            {/* 列表页更新时间 */}
+            {/* 列表页更新时间 - 优化字体 */}
             {(type === 'posts' || type === 'thoughts' || type === 'mio-says') && lastUpdate && (
               <div
                 style={{
-                  fontSize: 20,
+                  display: 'flex',
+                  fontSize: 18,
                   color: '#999999',
                   fontWeight: 500,
-                  marginTop: '16px',
+                  marginTop: '12px',
                   marginBottom: 'auto',
                 }}
               >
@@ -318,16 +315,15 @@ export async function GET(req: NextRequest) {
               </div>
             )}
 
-
-            {/* 底部区域 */}
+            {/* 底部区域 - 优化对齐和间距 */}
             <div
               style={{
                 marginTop: 'auto',
                 display: 'flex',
-                alignItems: 'flex-end',
+                alignItems: 'center',
                 justifyContent: 'space-between',
-                paddingTop: '32px',
-                borderTop: '2px solid rgba(0, 0, 0, 0.08)',
+                paddingTop: '40px',
+                borderTop: '1px solid rgba(0, 0, 0, 0.1)',
               }}
             >
               {/* 左侧：统计或域名 */}
@@ -342,7 +338,7 @@ export async function GET(req: NextRequest) {
                   <>
                     <div
                       style={{
-                        fontSize: 56,
+                        fontSize: 64,
                         fontWeight: 700,
                         color: '#1a1a1a',
                         lineHeight: 1,
@@ -352,20 +348,18 @@ export async function GET(req: NextRequest) {
                     </div>
                     <div
                       style={{
-                        fontSize: 20,
+                        fontSize: 22,
                         color: '#666666',
                         fontWeight: 600,
                       }}
                     >
-                      {type === 'posts' && '篇文章'}
-                      {type === 'thoughts' && '条想法'}
-                      {type === 'timeline' && '条记录'}
+                      {type === 'posts' ? '篇文章' : type === 'thoughts' ? '条想法' : '条记录'}
                     </div>
                   </>
                 ) : (
                   <div
                     style={{
-                      fontSize: 28,
+                      fontSize: 26,
                       color: '#1a1a1a',
                       fontWeight: 700,
                       letterSpacing: '-0.01em',
@@ -388,11 +382,11 @@ export async function GET(req: NextRequest) {
                 <img
                   src={`data:image/png;base64,${Buffer.from(iconData).toString('base64')}`}
                   alt="Blog Icon"
-                  width="80"
-                  height="80"
+                  width="72"
+                  height="72"
                   style={{
-                    borderRadius: '16px',
-                    border: '3px solid rgba(0, 0, 0, 0.1)',
+                    borderRadius: '14px',
+                    border: '2px solid rgba(0, 0, 0, 0.1)',
                   }}
                 />
               </div>

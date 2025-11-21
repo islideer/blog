@@ -7,7 +7,6 @@ excerpt: '分析深拷贝与浅拷贝的异同，并使用 JavaScript 进行代�
 draft: true
 ---
 
-
 ## JS 的数据类型
 
 我们知道，在 `JavaScript` 语言中，有**基本数据类型**和**引用数据类型**之分。
@@ -120,12 +119,12 @@ const obj = {
   a: new Date(),
   b: { c: new Set([1]), d: new Map([['a', 1]]) },
   e: { f: new Error('msg'), g: new RegExp('^obj$') },
-  h: e => console.log(e)
+  h: (e) => console.log(e),
 }
 
 // 这里我们采用上述的 deepClone 函数
 const obj2 = deepClone(obj)
-obj.b.c = e => console.log(e)
+obj.b.c = (e) => console.log(e)
 console.log(obj2)
 
 // 输出结果如下：
@@ -176,11 +175,11 @@ const obj = {
   a: new Date(),
   b: { c: new Set([1]), d: new Map([['a', 1]]) },
   e: { f: new Error('msg'), g: new RegExp('^obj$') },
-  h: e => console.log(e)
+  h: (e) => console.log(e),
 }
 
 const obj2 = deepClone(obj)
-obj.b.c = e => console.log(e)
+obj.b.c = (e) => console.log(e)
 console.log(obj2)
 
 // 输出结果如下：

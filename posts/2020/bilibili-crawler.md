@@ -7,7 +7,6 @@ top_image: 'https://i.loli.net/2020/11/29/esjylJK4a256W3L.png'
 excerpt: '非常简单的一个 Python 爬虫程序爬取 B 站 up 主的粉丝数和 up 主的 id，仅用于学习'
 ---
 
-
 ## 需求
 
 尽可能获取 B 站美食博主列表 按照粉丝数排序 最终目的是能找出粉丝数前列 up 主的 id 名

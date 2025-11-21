@@ -7,7 +7,6 @@ excerpt: '总结了常用的 CSS 简写属性，便于日后翻阅。'
 draft: true
 ---
 
-
 ## 说在前面
 
 > **简写属性**一词来源于 [CSS 的简写属性 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Shorthand_properties)
@@ -17,7 +16,6 @@ draft: true
 `CSS` 规范定义简写属性的目的在于将那些关于**同一主题**的**常见属性**的定义**集中**在一起。比如 `CSS` 的 `background` 属性就是一个简写属性，它可以定义 `background-color`、`background-image`、`background-repeat` 和 `background-position` 的值。类似地，最常见的字体相关的属性可以使用 `font` 的简写，盒子模型各方向的外边距（`margin`） 可以使用 `margin` 这个简写。
 
 > 所有 `CSS` 属性参考：[CSS 参考 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)
-
 
 ## 常用简写属性：
 
@@ -84,7 +82,7 @@ draft: true
   /* 背景颜色 */
   background-color: transparent;
   /* 背景图片 */
-  background-image: url("./img.png");
+  background-image: url('./img.png');
   /* 背景图片原点位置的背景相对区域 */
   background-origin: padding-box;
   /* 类比 margin 的顺序规则 */
@@ -125,7 +123,9 @@ draft: true
   font-family: Arial, sans-serif;
 
   /* 简写形式示例 */
-  font: italic bold 0.8em/1.2 Arial, sans-serif;
+  font:
+    italic bold 0.8em/1.2 Arial,
+    sans-serif;
 }
 ```
 

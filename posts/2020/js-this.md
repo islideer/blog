@@ -55,7 +55,6 @@ console.log(this) // window
 根据**调用对象**与 **JS 执行模式**决定
 
 - 普通函数调用:
-
   - 标准模式下: `this` 指向 `window`
   - 严格模式下: `this` 指向 `undefined`
 
@@ -94,7 +93,7 @@ foo() // undefined
 var obj = {
   foo: function () {
     console.log(this)
-  }
+  },
 }
 
 obj.foo() // obj
@@ -114,7 +113,7 @@ console.log(bar) // foo {bar: 2}
 ```js
 // 通过 call/apply 调用
 var obj = {
-  foo: 1
+  foo: 1,
 }
 
 function bar() {
@@ -129,7 +128,7 @@ bar.call(null) // undefined
 
 ```js
 var obj = {
-  foo: 1
+  foo: 1,
 }
 
 function bar() {
@@ -149,7 +148,7 @@ bark() // 2
 var bar = 100
 
 var obj = {
-  bar: 0
+  bar: 0,
 }
 
 function bark() {
@@ -172,7 +171,7 @@ bark.call(obj) // 0 (等待一秒) 100
 var count = 100
 
 var obj = {
-  count: 0
+  count: 0,
 }
 
 function foo() {

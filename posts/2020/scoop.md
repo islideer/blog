@@ -6,7 +6,6 @@ top_image: 'https://i.loli.net/2020/11/21/BZunq4vrKAHIj7P.png'
 excerpt: '使用 Scoop 提升你的 Windows 开发体验'
 ---
 
-
 ## 前言
 
 我们都知道 Linux 有包管理的概念，即：可以在命令行下通过一系列的指令来统一管理程序，常见的使用情景包括: 搜索、安装、更新、卸载等。macOS 也有类似的包管理器，如 `brew`，`homebrew` 等借助包管理器，我们可以达到统一管理常用软件的目的。

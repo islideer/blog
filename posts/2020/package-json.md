@@ -7,7 +7,6 @@ excerpt: '简要介绍了 package.json 文件的常见字段及其意义'
 draft: true
 ---
 
-
 此篇文章适合于对 `npm`, `node` 有一定了解，但不清楚 `package.json` 文件具体作用及其含义的读者
 
 ## package.json 文件是什么？
@@ -17,7 +16,6 @@ Node.js 项目遵循**模块化**架构，`package.json` 文件是用来**描述
 ## 直接上个实例
 
 `package.json` 文件本身是 `JSON` 文件，当然也遵循 `JSON` 的语法.
-
 
 ```json
 // package.json 文件内容

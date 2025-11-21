@@ -7,7 +7,6 @@ excerpt: '寒假学习之 JavaScript 错误处理'
 draft: true
 ---
 
-
 ## JavaScript 原生错误类型
 
 ### （1）SyntaxError
@@ -56,16 +55,16 @@ try {
 - 下面是示例
 
 ```js
-var txt = "";
+var txt = ''
 
 function message() {
   try {
-    allert("Welcome guest!");
+    allert('Welcome guest!')
   } catch (err) {
-    txt = "本页有一个错误。\n\n";
-    txt += "错误描述：" + err.message + "\n\n";
-    txt += "点击确定继续。\n\n";
-    alert(txt);
+    txt = '本页有一个错误。\n\n'
+    txt += '错误描述：' + err.message + '\n\n'
+    txt += '点击确定继续。\n\n'
+    alert(txt)
   }
 }
 ```
@@ -77,13 +76,13 @@ function message() {
 ```js
 function myFunction() {
   try {
-    var x = document.getElementById("demo").value;
-    if (x == "") throw "empty";
-    if (isNaN(x)) throw "not a number";
-    if (x > 10) throw "too high";
-    if (x < 5) throw "too low";
+    var x = document.getElementById('demo').value
+    if (x == '') throw 'empty'
+    if (isNaN(x)) throw 'not a number'
+    if (x > 10) throw 'too high'
+    if (x < 5) throw 'too low'
   } catch (err) {
-    console.log("error:", err);
+    console.log('error:', err)
   }
 }
 ```
@@ -92,12 +91,12 @@ function myFunction() {
 
 ```js
 try {
-  foo.bar();
+  foo.bar()
 } catch (e) {
   if (e instanceof EvalError) {
-    console.log(e.name + ": " + e.message);
+    console.log(e.name + ': ' + e.message)
   } else if (e instanceof RangeError) {
-    console.log(e.name + ": " + e.message);
+    console.log(e.name + ': ' + e.message)
   }
   // ...
 }
@@ -106,19 +105,19 @@ try {
 - 即使有 return 语句在前，finally 代码块依然会得到执行，且在其执行完毕后，才会显示 return 语句的值。
 
 ```js
-var count = 0;
+var count = 0
 
 function countUp() {
   try {
-    return count;
+    return count
   } finally {
-    count++;
+    count++
   }
 }
 
-countUp();
+countUp()
 // 0
-count;
+count
 // 1
 ```
 
@@ -129,14 +128,14 @@ count;
 ```js
 function cleansUp() {
   try {
-    throw new Error("出错了……");
-    console.log("此行不会执行");
+    throw new Error('出错了……')
+    console.log('此行不会执行')
   } finally {
-    console.log("完成清理工作");
+    console.log('完成清理工作')
   }
 }
 
-cleansUp();
+cleansUp()
 // 完成清理工作
 // Uncaught Error: 出错了……
 ```
@@ -148,26 +147,26 @@ cleansUp();
 ```js
 function f() {
   try {
-    console.log(0);
-    throw "bug";
+    console.log(0)
+    throw 'bug'
   } catch (e) {
-    console.log(1);
-    return true; // 这句原本会延迟到finally代码块结束再执行
-    console.log(2); // 不会运行
+    console.log(1)
+    return true // 这句原本会延迟到finally代码块结束再执行
+    console.log(2) // 不会运行
   } finally {
-    console.log(3);
-    return false; // 这句会覆盖掉前面那句return
-    console.log(4); // 不会运行
+    console.log(3)
+    return false // 这句会覆盖掉前面那句return
+    console.log(4) // 不会运行
   }
-  console.log(5); // 不会运行
+  console.log(5) // 不会运行
 }
 
-var result = f();
+var result = f()
 // 0
 // 1
 // 3
 
-result;
+result
 // false
 ```
 
@@ -176,20 +175,20 @@ result;
 ```js
 function f() {
   try {
-    throw "出错了！";
+    throw '出错了！'
   } catch (e) {
-    console.log("捕捉到内部错误");
-    throw e; // 这句原本会等到finally结束再执行
+    console.log('捕捉到内部错误')
+    throw e // 这句原本会等到finally结束再执行
   } finally {
-    return false; // 直接返回
+    return false // 直接返回
   }
 }
 
 try {
-  f();
+  f()
 } catch (e) {
   // 此处不会执行
-  console.log('caught outer "bogus"');
+  console.log('caught outer "bogus"')
 }
 ```
 

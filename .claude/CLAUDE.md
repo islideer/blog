@@ -53,6 +53,7 @@
    - ❌ 不加空格：`使用React开发`、`距今已365天`
 
 3. **示例对比**
+
    ```typescript
    // ❌ 错误
    本文发布于 2025 年 1 月 1 日,距今已 100 天,请注意。
@@ -274,7 +275,7 @@ Tailwind v4 使用 CSS-first 配置，不需要 `tailwind.config.ts`
 
 ## Markdown 文章格式
 
-```markdown
+````markdown
 ---
 layout: 'post'
 title: 文章标题
@@ -290,32 +291,34 @@ excerpt: 文章摘要，简短描述文章内容
 
 \```typescript
 function example() {
-  console.log('Hello World')
+console.log('Hello World')
 }
 \```
-```
+````
 
 ### Front Matter 字段说明
 
-| 字段 | 类型 | 必需 | 说明 |
-|------|------|------|------|
-| `layout` | string | ✅ | 布局类型（通常为 `'post'`）|
-| `title` | string | ✅ | 文章标题 |
-| `date` | string | ✅ | 发布日期（YYYY-MM-DD）|
-| `excerpt` | string | ✅ | 文章摘要（用于 SEO 和列表展示）|
-| `tags` | string[] | ❌ | 标签列表（可选）|
+| 字段      | 类型     | 必需 | 说明                            |
+| --------- | -------- | ---- | ------------------------------- |
+| `layout`  | string   | ✅   | 布局类型（通常为 `'post'`）     |
+| `title`   | string   | ✅   | 文章标题                        |
+| `date`    | string   | ✅   | 发布日期（YYYY-MM-DD）          |
+| `excerpt` | string   | ✅   | 文章摘要（用于 SEO 和列表展示） |
+| `tags`    | string[] | ❌   | 标签列表（可选）                |
 
 ## 常见任务
 
 ### 添加新文章
 
 1. 在 `posts/{年份}/` 创建新的 `.md` 文件
+
    ```bash
    # 例如
    posts/2025/my-new-post.md
    ```
 
 2. 添加 Front matter 元数据
+
    ```markdown
    ---
    layout: 'post'
@@ -359,11 +362,13 @@ export const siteConfig = {
 ### 添加新组件
 
 1. 在 `components/` 创建新文件（使用 kebab-case）
+
    ```bash
    components/my-new-component.tsx
    ```
 
 2. 如果需要交互，添加 `'use client'` 指令
+
    ```typescript
    'use client'
 

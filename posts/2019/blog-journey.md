@@ -48,7 +48,7 @@ excerpt: '记录我的博客行程轨迹。'
 - [首页被大量营销推广内容占领](https://github.com/Crossbell-Box/xLog/issues/2204)
 - [后台无法登录，文章无法导出](https://github.com/Crossbell-Box/xLog/issues/2250)
 - ...
- 
+
 等等问题，已经无法忍受，决定重新搭建博客。
 
 新博客使用 [Next.js 16](https://nextjs.org/) + [React 19](https://react.dev/) + [Tailwind CSS 4](https://tailwindcss.com/) + [Vercel](https://vercel.com/) 重新搭建和设计，内容已全数手工迁移至新博客 =.=。

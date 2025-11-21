@@ -6,7 +6,6 @@ top_image: 'https://s2.loli.net/2022/03/06/ed7FfCKA1ipN24r.png'
 excerpt: '在写毕设项目过程中踩了个小坑。'
 ---
 
-
 以前很少跟数据库打交道，这阵子在写毕设，踩了一个 MySQL 版本兼容性的小坑。
 
 我使用官方提供的 MySQL Workbench 工具设计好了表结构，导出 SQL 语句，就在执行脚本建表时，发现语句执行失败，提示存在语法错误。

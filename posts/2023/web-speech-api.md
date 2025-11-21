@@ -6,7 +6,6 @@ excerpt: 'Web Speech API 是一项现代 Web 技术，它允许我们在浏览�
 draft: true
 ---
 
-
 Web Speech API 是一项现代 Web 技术，它允许我们在浏览器中进行语音识别和文本转语音。
 
 ## 什么是 Web Speech API
@@ -83,7 +82,7 @@ recognition.addEventListener('start', () => {
   console.log('Speech recognition service has started')
 })
 
-recognition.addEventListener('result', e => {
+recognition.addEventListener('result', (e) => {
   const transcript = e.results[0][0].transcript
   console.log(transcript)
 })

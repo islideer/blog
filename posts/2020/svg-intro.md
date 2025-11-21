@@ -40,18 +40,10 @@ draft: true
 #### 一个简单的例子
 
 ```html
-<svg
-  version="1.1"
-  baseProfile="full"
-  width="300"
-  height="200"
-  mlns="http://www.w3.org/2000/svg"
->
+<svg version="1.1" baseProfile="full" width="300" height="200" mlns="http://www.w3.org/2000/svg">
   <rect width="100%" height="100%" fill="red" />
   <circle cx="150" cy="100" r="80" fill="green" />
-  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">
-    SVG
-  </text>
+  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
 </svg>
 ```
 
@@ -60,9 +52,11 @@ draft: true
 该图绘制流程包括以下几步：
 
 1. 从 SVG 根元素开始：
-  - 应舍弃来自 (X)HTML 的 doctype 声明，因为基于 SVG 的 DTD 验证导致的问题比它能解决的问题更多。
-  - `version`和`baseProfile`属性是必不可少的，供其它类型的验证方式确定 SVG 版本。
-  - 作为 XML 的一种方言，SVG 必须正确的绑定命名空间 （在 xmlns 属性中绑定）。
+
+- 应舍弃来自 (X)HTML 的 doctype 声明，因为基于 SVG 的 DTD 验证导致的问题比它能解决的问题更多。
+- `version`和`baseProfile`属性是必不可少的，供其它类型的验证方式确定 SVG 版本。
+- 作为 XML 的一种方言，SVG 必须正确的绑定命名空间 （在 xmlns 属性中绑定）。
+
 2. 绘制一个完全覆盖图像区域的矩形 ，把背景颜色设为红色。
 3. 一个半径 80px 的绿色圆圈绘制在红色矩形的正中央 （向右偏移 150px，向下偏移 100px）。
 4. 绘制文字“SVG”。文字被填充为白色， 通过设置居中的锚点把文字定位到期望的位置：在这种情况下，中心点应该对应于绿色圆圈的中点。还可以精细调整字体大小和垂直位置，确保最后的样式是美观的。
@@ -75,16 +69,9 @@ draft: true
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <circle
-  cx="100"
-  cy="50"
-  r="40"
-  stroke="black"
-  stroke-width="2"
-  fill="red"
-  />
+  <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
 </svg>
-  ```
+```
 
 可以像上述这样，直接将 svg 标签嵌入到 html 当中引入 svg 图片
 

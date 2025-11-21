@@ -7,7 +7,6 @@ excerpt: '寒假学习之 JavaScript基础篇'
 draft: true
 ---
 
-
 ## JavaScript 语法标识符的命名规范
 
 `JavaScript` 中使用变量来作为值的符号名。变量的名字又叫做**标识符**，他的命名需要遵守一定的规则:
@@ -27,7 +26,7 @@ draft: true
 单行注释用 `//这里是注释` ，多行注释用 `/*这里是注释*/` ，但是注意注释**不能嵌套使用**
 
 ```js
-var a = 6; //这是单行注释
+var a = 6 //这是单行注释
 
 /* 
 这是多行注释
@@ -54,7 +53,7 @@ while (!true) {
   // ... do something
 } //此处不加分号
 
-var i = 1;
+var i = 1
 for (; i < 10; i++) {
   // ... do something
 } //此处不加分号
@@ -83,32 +82,30 @@ function get(url) {
 3. `const` 声明一个**块作用域**的**只读常量**
 
 ```js
-var a = 1;
-var b;
+var a = 1
+var b
 
-let a = 1;
-let b;
+let a = 1
+let b
 
-const that = this;
-const c = 520;
+const that = this
+const c = 520
 ```
 
 ### 在 JavaScript，变量的声明也有三种方式
 
-1.**使用关键词** `var` 。例如 `var x = 42` 。这个语法可以用来声明**局部变量**和**全局变量**，是比较规范的声明方式
-2.**直接赋值**。例如 `a = 6` 。在函数外使用这种形式赋值，会产生一个全局变量。在严格模式下会产生错误。所以要**尽可能避免使用这种方式来声明变量**
-3.**使用关键词** `let` 。例如 `let y = 13` 。这个语法可以用来声明**块作用域**的**局部变量**
+1.**使用关键词** `var` 。例如 `var x = 42` 。这个语法可以用来声明**局部变量**和**全局变量**，是比较规范的声明方式2.**直接赋值**。例如 `a = 6` 。在函数外使用这种形式赋值，会产生一个全局变量。在严格模式下会产生错误。所以要**尽可能避免使用这种方式来声明变量** 3.**使用关键词** `let` 。例如 `let y = 13` 。这个语法可以用来声明**块作用域**的**局部变量**
 
 ### 关于 JavaScript 的变量提升
 
 - 在 `JavaScript` 中，你可以先使用变量然后再声明变量而不会引发异常。这个概念被叫做**变量提升**。
 
 ```js
-console.log(a); //undefined
-var a;
+console.log(a) //undefined
+var a
 
-console.log(b); //undefined
-var b = 3;
+console.log(b) //undefined
+var b = 3
 ```
 
 - 然而变量提升并不是什么好事，提升后的变量将返回 `undefined` 值。**当使用或引用某个变量之后，再在后面的语句中进行声明和初始化操作，这个被提升的变量仍将返回** `undefined`
@@ -120,14 +117,14 @@ var b = 3;
 > 即用 `function` 关键字直接定义的函数，可以直接通过数名 `( )` 的形式被引用，而通过变量定义的函数在引用时会被提升。
 
 ```js
-foo(); //520
+foo() //520
 function foo() {
-  return 520;
+  return 520
 }
-bar(); //Uncaught TypeError: bar is not a function
+bar() //Uncaught TypeError: bar is not a function
 var bar = function () {
-  return 666;
-};
+  return 666
+}
 ```
 
 ### 关于 var 和 let 在声明变量时的区别
@@ -140,40 +137,40 @@ var bar = function () {
 
 ```js
 //------全局定义，两者相同------
-var a = 1;
-let b = 1;
+var a = 1
+let b = 1
 
 //------let定义的全局对象不作为全局对象window的属------
-console.log(window.a); //1
-console.log(window.b); //undefined
+console.log(window.a) //1
+console.log(window.b) //undefined
 
 //------函数中定义变量，两者相同------
 function f() {
-  let bar = "hehe"; // 函数作用域中的变量
-  var foo = "lala"; // 函数作用域中的变量
+  let bar = 'hehe' // 函数作用域中的变量
+  var foo = 'lala' // 函数作用域中的变量
 }
 
 //------块作用域------
 function f1() {
   for (let i = 1; i < 5; i++) {
-    console.log(i); //1,2,3,4,5
+    console.log(i) //1,2,3,4,5
   }
-  console.log(i); //ReferenceError: i is not defined
+  console.log(i) //ReferenceError: i is not defined
 }
 
 function f2() {
   for (var i = 1; i < 5; i++) {
-    console.log(i); //1,2,3,4,5
+    console.log(i) //1,2,3,4,5
   }
-  console.log(i); //1,2,3,4,5
+  console.log(i) //1,2,3,4,5
 }
 
 //-------重新声明------
-let me = "foo";
-let me = "bar"; //SyntaxError: Identifier 'me' hasalready been declared
+let me = 'foo'
+let me = 'bar' //SyntaxError: Identifier 'me' hasalready been declared
 
-var me = "foo";
-var me = "bar"; //me被重新替代，var可以进行重复声明作，不报错
+var me = 'foo'
+var me = 'bar' //me被重新替代，var可以进行重复声明作，不报错
 ```
 
 ### JavaScript 的变量声明和引用问题
@@ -182,10 +179,10 @@ var me = "bar"; //me被重新替代，var可以进行重复声明作，不报错
 - 访问未声明的变量会抛出引用错误
 
 ```js
-console.log(a); //undefined
-var a;
+console.log(a) //undefined
+var a
 
-console.log(b); //b is not defined
+console.log(b) //b is not defined
 ```
 
 ### 关于 JavaScript 中的全局变量声明
@@ -210,7 +207,6 @@ console.log(b); //b is not defined
 - 最新的 ECMAScript 标准定义了 8 种数据类型：
 
 - 七种基本数据类型:
-
   1. `布尔值（Boolean）` ，有 2 个值分别是：true 和 false.
   2. `null` ， 一个表明 null 值的特殊关键字。
 
@@ -264,9 +260,9 @@ JavaScript语言不会把数字变为字符串。*/
 var poem = `Roses are red,
 Violets are blue.
 Sugar is sweet,
-and so is foo.`;
+and so is foo.`
 
-console.log(poem);
+console.log(poem)
 /*
 Roses are red,
 Violets are blue.
@@ -281,11 +277,11 @@ and so is foo.
 
 ```js
 let a =
-  "Hello \
+  'Hello \
 world \
-!";
+!'
 
-console.log(a); //Hello world !
+console.log(a) //Hello world !
 ```
 
 ## JavaScript 标准

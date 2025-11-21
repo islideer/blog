@@ -17,7 +17,7 @@ excerpt: '在升级到正式版的 Axios 1.2.1 之后发现了部分问题，记
 
 ```js
 axios.get(someApi, {
-  headers: { 'Accept-Encoding': 'gzip,deflate,compress' }
+  headers: { 'Accept-Encoding': 'gzip,deflate,compress' },
 })
 ```
 

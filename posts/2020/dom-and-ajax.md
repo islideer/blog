@@ -6,11 +6,9 @@ top_image: 'https://i.loli.net/2020/10/24/erY2Oj4Z3TuIKBn.png'
 excerpt: 'NCUHOME 研发组前端培训之 DOM 操作 & AJAX'
 ---
 
-
 > 主讲人: 19 级前端 Viki，时间:2020/10/30
 
 这篇文章是给 NCUHOME 研发组新生有关 `DOM` 操作和 `AJAX` 的培训文档，参考了 MDN 文档、《JavaScript 高级程序设计（第四版）》以及一些博客文章的相关内容。
-
 
 ## 预习部分
 
@@ -258,20 +256,17 @@ ES6 中的 6 是 ES 的版本标识，是 ES5 的下一个版本，在 2015 年�
 ## 课后学习、阅读资料:
 
 - 学习 JavaScript
-
   - [现代 JavaScript 教程](https://zh.javascript.info/)
   - 红宝书（《JavaScript 高级程序设计（第四版）》）
 
     > 大部分书籍的电子版可以在研发 QQ 群文件找到
 
 - 推荐学习
-
   - [Fetch - MDN](https://wiki.developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
   - [Axios - Github](https://www.npmjs.com/package/axios)
   - [Promise - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 - 推荐阅读
-
   - [浏览器的工作原理：新式网络浏览器幕后揭秘](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/#Introduction)
   - [JavaScript 语言的历史 - 阮一峰](https://javascript.ruanyifeng.com/introduction/history.html)
 

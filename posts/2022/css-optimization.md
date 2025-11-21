@@ -7,7 +7,6 @@ excerpt: '简单介绍了 CSS 的发展历史、样式隔离方案与常见的�
 draft: true
 ---
 
-
 CSS 的发展历程：
 
 - 手写原生 CSS 规则，代表：[`BEM` 命名法](http://getbem.com/introduction/)
@@ -103,13 +102,13 @@ module.exports = {
           options: {
             modules: {
               // 自定义 hash 名称，可用变量
-              localIdentName: '[path][name]__[local]--[hash:base64:5]'
-            }
-          }
-        }
-      }
-    ]
-  }
+              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+            },
+          },
+        },
+      },
+    ],
+  },
 }
 ```
 

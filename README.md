@@ -197,13 +197,14 @@ blog/
 
 1. 在 `posts/` 目录创建 Markdown 文件（建议按年份组织）:
 
-```markdown
-<!-- posts/2025/my-new-post.md -->
----
+````markdown
+## <!-- posts/2025/my-new-post.md -->
+
 layout: 'post'
 title: 文章标题
 date: 2025-11-20
 excerpt: 文章摘要，简短描述文章内容
+
 ---
 
 # 文章内容
@@ -214,22 +215,22 @@ excerpt: 文章摘要，简短描述文章内容
 
 \```typescript
 function example() {
-  console.log('Hello World')
+console.log('Hello World')
 }
 \```
-```
+````
 
 2. 文章会自动出现在首页和文章页
 
 ### Front Matter 字段
 
-| 字段 | 类型 | 必需 | 说明 |
-|------|------|------|------|
-| `layout` | string | ✅ | 布局类型（通常为 `'post'`）|
-| `title` | string | ✅ | 文章标题 |
-| `date` | string | ✅ | 发布日期（YYYY-MM-DD）|
-| `excerpt` | string | ✅ | 文章摘要（用于 SEO 和列表展示）|
-| `tags` | string[] | ❌ | 标签列表（可选）|
+| 字段      | 类型     | 必需 | 说明                            |
+| --------- | -------- | ---- | ------------------------------- |
+| `layout`  | string   | ✅   | 布局类型（通常为 `'post'`）     |
+| `title`   | string   | ✅   | 文章标题                        |
+| `date`    | string   | ✅   | 发布日期（YYYY-MM-DD）          |
+| `excerpt` | string   | ✅   | 文章摘要（用于 SEO 和列表展示） |
+| `tags`    | string[] | ❌   | 标签列表（可选）                |
 
 ---
 
@@ -326,6 +327,7 @@ export const siteConfig = {
    - ❌ 不加空格：`使用React开发`、`距今已365天`
 
 3. **示例对比**
+
    ```typescript
    // ❌ 错误
    本文发布于 2025 年 1 月 1 日,距今已 100 天,请注意。

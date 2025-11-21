@@ -6,11 +6,11 @@
     --color-bg-tertiary: oklch(0.22 0 0); /* Medium dark gray */
 
     --color-text-primary: oklch(0.98 0 0); /* Brighter white */
-    --color-text-secondary: oklch(0.70 0 0); /* Lighter gray */
-    --color-text-tertiary: oklch(0.50 0 0); /* Medium gray */
+    --color-text-secondary: oklch(0.7 0 0); /* Lighter gray */
+    --color-text-tertiary: oklch(0.5 0 0); /* Medium gray */
 
     --color-border: oklch(0.28 0 0); /* Subtle dark border */
-    --color-border-hover: oklch(0.40 0 0); /* Hover dark border */
+    --color-border-hover: oklch(0.4 0 0); /* Hover dark border */
   }
 }
 
@@ -21,11 +21,11 @@
   --color-bg-tertiary: oklch(0.22 0 0);
 
   --color-text-primary: oklch(0.98 0 0);
-  --color-text-secondary: oklch(0.70 0 0);
-  --color-text-tertiary: oklch(0.50 0 0);
+  --color-text-secondary: oklch(0.7 0 0);
+  --color-text-tertiary: oklch(0.5 0 0);
 
   --color-border: oklch(0.28 0 0);
-  --color-border-hover: oklch(0.40 0 0);
+  --color-border-hover: oklch(0.4 0 0);
 }
 
 /* Manual light mode class */

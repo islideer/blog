@@ -5,7 +5,6 @@ date: 2022-12-31
 excerpt: 'Adobe 早在 2020 年底就宣布 Flash 结束了它使命，但是我们有时仍有使用 Flash 的需求...'
 ---
 
-
 ## Flash 和浏览器现状
 
 据 [Adobe 官网描述](https://www.adobe.com/products/flashplayer/end-of-life.html)，**Adobe 在 2020 年 12 月 31 日之后不再支持 Flash Player**，并从 2021 年 1 月 12 日开始阻止 Flash 内容在 Flash Player 中运行。**各大主流浏览器（Chrome, Edge, FireFox 等）也相继在新版本中停止了对 Flash 的支持**，并且无法通过常规方式手动开启 Flash。

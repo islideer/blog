@@ -105,10 +105,7 @@ export default async function BlogPage() {
         {/* Show more link if there are more posts than postsToShow */}
         {allPosts.length > siteConfig.home.postsToShow && (
           <div className="flex justify-center pt-4">
-            <Link
-              href="/posts"
-              className="text-text-secondary hover:text-text-primary text-link"
-            >
+            <Link href="/posts" className="text-text-secondary hover:text-text-primary text-link">
               查看全部文章 ({allPosts.length.toLocaleString('zh-CN')}) →
             </Link>
           </div>

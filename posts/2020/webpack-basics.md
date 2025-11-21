@@ -7,7 +7,6 @@ excerpt: '本文简要地讲解了 webpack 4.x 的入门知识，适合想了解
 draft: true
 ---
 
-
 本篇文章简要地讲解了 `webpack 4.x` 的入门知识，适合想了解、学习 `webpack` 的小白
 
 ### 引文
@@ -92,20 +91,20 @@ module.exports = {
       {
         test: /\.css$/, // 使用正则对文件后缀名进行匹配，区分不同的文件
         // 在'use'数组里配置专门处理匹配到的文件类型所需的loader
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
-};
+}
 ```
 
 ##### 使用示例
 
 ```js
 // index.js
-import "./style.css";
+import './style.css'
 
-console.log("css file has been loaded successfully!");
+console.log('css file has been loaded successfully!')
 ```
 
 ```css
@@ -141,25 +140,25 @@ module.exports = {
     rules: [
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"],
+        use: ['file-loader'],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ["file-loader"],
+        use: ['file-loader'],
       },
     ],
   },
-};
+}
 ```
 
 然后就可以像引入其他模块一样引入图片和字体资源并使用了，示例如下
 
 ```js
 // index.js
-import MyImage from "./assests/dog.png";
+import MyImage from './assests/dog.png'
 
-let ImageElement = document.createElement("img");
-ImageElemegt.src = MyImage; // or ImageElement.setAttribute('src', MyImage);
+let ImageElement = document.createElement('img')
+ImageElemegt.src = MyImage // or ImageElement.setAttribute('src', MyImage);
 ```
 
 ## HtmlWebpackPlugin
@@ -180,24 +179,24 @@ npm install --save-dev  html-webpack-plugin
 
 ```js
 // webpack.config.js
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    app: "./src/index.js",
-    print: "./src/print.js",
+    app: './src/index.js',
+    print: './src/print.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Output Management",
+      title: 'Output Management',
     }),
   ],
   output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
-};
+}
 ```
 
 `HtmlWebpackPlugin` 会默认生成新 `index.html` 文件，并用新生成的 `index.html` 文件，把原来的替换。
@@ -231,9 +230,9 @@ npm install --save-dev webpack-dev-server
 // webpack.config.json
 module.exports = {
   devServer: {
-    contentBase: "./dist",
+    contentBase: './dist',
   },
-};
+}
 ```
 
 以上配置告知 `webpack-dev-server`，在 `localhost:8080` 下建立服务，并将 `dist` 目录下的文件作为可访问文件（无特殊指明，默认加载目录下的`index.html`文件）。
@@ -261,10 +260,10 @@ module.exports = {
 // webpack.config.json
 module.exports = {
   devServer: {
-    contentBase: "./dist",
+    contentBase: './dist',
     hot: true, // 👈 关键在这
   },
-};
+}
 ```
 
 > 它（HMR）与观察模式的区别在于：观察模式每次在文件更改后重新编译并更新文件，而模块热替换则不重新编译，只是热替换改动的模块

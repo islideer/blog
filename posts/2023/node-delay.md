@@ -6,13 +6,12 @@ excerpt: '在实际开发中，经常遇到需要在异步操作里进行 “延
 draft: true
 ---
 
-
 ## 前言
 
 在实际开发中，经常遇到需要在异步操作里进行 “延时” 操作的情况，通常会编写类似于以下的 util 函数来进行处理。
 
 ```ts
-const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const delay = (ms: number) => new Promise((r) => setTimeout(r, ms))
 ```
 
 这很好，很简洁，也完美的贴合了我们的需求。但是，如果你的代码跑在纯 node 环境下，有一个新的替代方案可以考虑。
@@ -30,14 +29,14 @@ const sayHi = async () => {
 
 const doSomethingAsync = async () => {
   console.log('yolo!')
-  
+
   await setTimeout(1000)
 
   await sayHi()
 
-  const res = await setTimeout(1000, 'result');
+  const res = await setTimeout(1000, 'result')
 
-  console.log("res is: ", res)
+  console.log('res is: ', res)
 }
 
 doSomethingAsync()

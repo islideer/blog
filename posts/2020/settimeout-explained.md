@@ -7,28 +7,27 @@ excerpt: '关于 setTimeout 函数的一些思考'
 draft: true
 ---
 
-
 ## 写出下列三个循环的输出值，并解释原因
 
 ```js
 for (var i = 0; i < 10; i++) {
   setTimeout(() => {
-    console.log(i);
-  });
+    console.log(i)
+  })
 }
 
 for (var i = 0; i < 10; i++) {
-  (function (i) {
+  ;(function (i) {
     setTimeout(() => {
-      console.log(i);
-    });
-  })(i);
+      console.log(i)
+    })
+  })(i)
 }
 
 for (let i = 0; i < 10; i++) {
   setTimeout(() => {
-    console.log(i);
-  });
+    console.log(i)
+  })
 }
 ```
 

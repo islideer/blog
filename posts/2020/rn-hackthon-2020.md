@@ -52,13 +52,11 @@ excerpt: '2020 年家园工作室 Hackthon 大赛 React Native 项目总结'
 用户登陆成功后通过 redux-persist 持久化储存登录信息。在 App 启动时使用 redux-persist 获取登陆信息、判断登录状态并据此设定 navigator 的初始路由跳到相应页面
 
 ```tsx
-import { store } from "./redux/store";
+import { store } from './redux/store'
 
-const isLogin = store.getState().userInfo.token ? true : false;
+const isLogin = store.getState().userInfo.token ? true : false
 
-<Navigator initialRouteName={isLogin ? "home" : "auth"}>
-  {/* ... screens */}
-</Navigator>;
+;<Navigator initialRouteName={isLogin ? 'home' : 'auth'}>{/* ... screens */}</Navigator>
 ```
 
 ##### 全局路由管理
@@ -66,17 +64,17 @@ const isLogin = store.getState().userInfo.token ? true : false;
 通过入口 router 文件引入项目所有的 screen 组件并用一个 navigator 预设的 BottomTab 管理实现管理全局路由的目的，
 
 ```tsx
-import { createStackNavigator } from "@react-navigation/stack";
-import HomeRouter from "./screen";
+import { createStackNavigator } from '@react-navigation/stack'
+import HomeRouter from './screen'
 // import ...
 
-const AppNavigator = createStackNavigator();
-const { Screen, Navigator } = AppNavigator;
+const AppNavigator = createStackNavigator()
+const { Screen, Navigator } = AppNavigator
 
-<Navigator>
+;<Navigator>
   <Screen name="Home" component={HomeRouter} />
   {/* ... other screens */}
-</Navigator>;
+</Navigator>
 ```
 
 ##### 页面切换效果
@@ -84,22 +82,18 @@ const { Screen, Navigator } = AppNavigator;
 使用 react-navigation 提供的水平切换和淡入淡出的预设切换动画
 
 ```tsx
-import { TransitionPresets } from "@react-navigation/stack";
-import HomeRouter from "./screen";
+import { TransitionPresets } from '@react-navigation/stack'
+import HomeRouter from './screen'
 
 const animatons = {
   slide: TransitionPresets.SlideFromRightIOS,
   fade: TransitionPresets.FadeFromBottomAndroid,
-};
+}
 
-<Navigator screenOptions={{ ...animatons.slide }}>
-  <Screen
-    name="Home"
-    component={HomeRouter}
-    options={{ ...animatons.fade }}
-  />
+;<Navigator screenOptions={{ ...animatons.slide }}>
+  <Screen name="Home" component={HomeRouter} options={{ ...animatons.fade }} />
   {/* ... screens */}
-</Navigator>;
+</Navigator>
 ```
 
 ##### 路由跳转及传参
@@ -110,52 +104,44 @@ const animatons = {
 
 ```tsx
 // Home.tsx
-import React from "react";
-import { Text } from "react-native";
+import React from 'react'
+import { Text } from 'react-native'
 
 const Home: React.FC = ({ navigation }) => {
-  return (
-    <Text onPress={() => navigation.navigate("About", { msg: "success!" })}>
-      To About
-    </Text>
-  );
-};
+  return <Text onPress={() => navigation.navigate('About', { msg: 'success!' })}>To About</Text>
+}
 
 // About.tsx
-import React from "react";
-import { Text } from "react-native";
+import React from 'react'
+import { Text } from 'react-native'
 
 const About: React.FC = ({ route }) => {
-  return <Text>{route.params.msg}</Text>;
-};
+  return <Text>{route.params.msg}</Text>
+}
 ```
 
 ##### 使用相关的 Hooks 来实现
 
 ```tsx
 // Home.tsx
-import React from "react";
-import { Text } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import React from 'react'
+import { Text } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 const Home: React.FC = () => {
-  const navigation = useNavigation();
-  return (
-    <Text onPress={() => navigation.navigate("About", { msg: "success!" })}>
-      To About
-    </Text>
-  );
-};
+  const navigation = useNavigation()
+  return <Text onPress={() => navigation.navigate('About', { msg: 'success!' })}>To About</Text>
+}
 
 // About.tsx
-import React from "react";
-import { Text } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import React from 'react'
+import { Text } from 'react-native'
+import { useRoute } from '@react-navigation/native'
 
 const About: React.FC = () => {
-  const route = useRoute();
-  return <Text>{route.params.msg}</Text>;
-};
+  const route = useRoute()
+  return <Text>{route.params.msg}</Text>
+}
 ```
 
 > 2020.4.21 待续
