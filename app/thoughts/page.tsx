@@ -21,11 +21,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const thoughts = await getAllThoughts()
 
-  // 获取最新碎碎念内容（截断到 50 字）
+  // 获取最新碎碎念内容（截断到 80 字）
   const latestContent =
     thoughts.length > 0
-      ? thoughts[0].content.length > 50
-        ? `${thoughts[0].content.slice(0, 50)}...`
+      ? thoughts[0].content.length > 80
+        ? `${thoughts[0].content.slice(0, 80)}...`
         : thoughts[0].content
       : '碎碎念小角落，记录生活中的点滴想法和言论'
 

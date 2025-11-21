@@ -21,11 +21,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const mioSays = await getAllMioSays()
 
-  // 获取最新 Mio 说内容（截断到 50 字）
+  // 获取最新 Mio 说内容（截断到 80 字）
   const latestContent =
     mioSays.length > 0
       ? mioSays[0].content.length > 50
-        ? `${mioSays[0].content.slice(0, 50)}...`
+        ? `${mioSays[0].content.slice(0, 80)}...`
         : mioSays[0].content
       : '这里是开设给 Mio 的专属发言空间'
 
