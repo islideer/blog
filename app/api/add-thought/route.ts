@@ -3,6 +3,7 @@ import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import { Octokit } from '@octokit/rest'
 import { NextRequest, NextResponse } from 'next/server'
+import { formatText } from '@/lib/text-formatter'
 
 // 配置 dayjs 使用时区插件
 dayjs.extend(utc)
@@ -78,7 +79,7 @@ export async function POST(req: NextRequest) {
     const newThought: Thought = {
       id: newId,
       date: dayjs(body.date).tz('Asia/Shanghai').format('YYYY-MM-DDTHH:mm:ssZ'),
-      content: body.content?.trim() ?? '',
+      content: formatText(body.content?.trim() ?? ''),
     }
 
     // 添加图片（如果有）

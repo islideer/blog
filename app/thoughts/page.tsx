@@ -88,7 +88,8 @@ export default async function ThoughtsPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">碎碎念</h1>
         <p className="text-text-secondary">
-          Viki 的碎碎念小角落，共 {thoughts.length.toLocaleString('zh-CN')} 条，记录生活中的点滴想法和言论
+          Viki 的碎碎念小角落，共 {thoughts.length.toLocaleString('zh-CN')}{' '}
+          条，记录生活中的点滴想法和言论
         </p>
       </section>
 

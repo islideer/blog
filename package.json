@@ -11,6 +11,9 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
     "test:add-thought": "node --experimental-strip-types scripts/test-add-thought.ts"
   },
   "dependencies": {
@@ -39,16 +42,20 @@
     "@next/bundle-analyzer": "^16.0.3",
     "@tailwindcss/postcss": "^4.1.16",
     "@tailwindcss/typography": "^0.5.19",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
     "@types/node": "^22.19.0",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9.39.1",
     "eslint-config-next": "^16.0.1",
+    "jsdom": "^27.2.0",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "tailwindcss": "^4.1.16",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.12"
   },
   "prettier": {
     "semi": false,
