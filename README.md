@@ -387,11 +387,6 @@ export const siteConfig = {
 - [Tailwind CSS](https://tailwindcss.com/) - 实用优先的 CSS 框架
 - [Shiki](https://shiki.style/) - 美观的代码高亮
 
-### 灵感
-
-- [Lee Robinson's Blog](https://leerob.io/)
-- [Josh Comeau's Blog](https://www.joshwcomeau.com/)
-
 ---
 
 ## 📧 联系
