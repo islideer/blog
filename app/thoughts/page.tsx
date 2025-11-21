@@ -13,13 +13,30 @@ import 'dayjs/locale/zh-cn'
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
+  dayjs.locale('zh-cn')
+  dayjs.extend(utc)
+  dayjs.extend(timezone)
+  dayjs.extend(relativeTime)
+
   const thoughts = await getAllThoughts()
+
+  // 获取最新碎碎念内容（截断到 50 字）
+  const latestContent =
+    thoughts.length > 0
+      ? thoughts[0].content.length > 50
+        ? `${thoughts[0].content.slice(0, 50)}...`
+        : thoughts[0].content
+      : '记录生活中的点滴想法和瞬间灵感'
+
+  // 获取最新更新时间
+  const lastUpdate = thoughts.length > 0 ? dayjs(thoughts[0].date).fromNow() : ''
 
   const ogImageParams = new URLSearchParams({
     title: '碎碎念',
-    subtitle: '记录生活中的点滴想法和瞬间灵感',
+    subtitle: latestContent,
     type: 'thoughts',
     count: thoughts.length.toString(),
+    lastUpdate: lastUpdate,
   })
 
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`

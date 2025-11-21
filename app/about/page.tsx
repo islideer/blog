@@ -10,7 +10,7 @@ import type { Metadata } from 'next'
 
 const ogImageParams = new URLSearchParams({
   title: siteConfig.author.name,
-  subtitle: '前端开发者 · 开源爱好者 · 终身学习者',
+  subtitle: '前端开发者，热衷于开源和技术分享，相信技术改变世界',
   type: 'about',
 })
 

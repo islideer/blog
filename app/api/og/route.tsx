@@ -12,8 +12,11 @@ export async function GET(req: NextRequest) {
     const type = searchParams.get('type') || 'default'
     const date = searchParams.get('date') || ''
     const readingTime = searchParams.get('readingTime') || ''
-    const tags = searchParams.get('tags') || ''
     const count = searchParams.get('count') || ''
+    const lastUpdate = searchParams.get('lastUpdate') || ''
+    const postsCount = searchParams.get('postsCount') || ''
+    const thoughtsCount = searchParams.get('thoughtsCount') || ''
+    const mioSaysCount = searchParams.get('mioSaysCount') || ''
 
     // 获取 icon 图片
     const iconUrl = new URL('/icon-192.png', req.url).href
@@ -24,14 +27,6 @@ export async function GET(req: NextRequest) {
       (res) => res.arrayBuffer(),
     )
 
-    // 解析标签
-    const tagList = tags
-      ? tags
-          .split(',')
-          .filter((t) => t.trim())
-          .slice(0, 5)
-      : []
-
     // 获取类型标签文本
     const getTypeLabel = () => {
       switch (type) {
@@ -41,6 +36,8 @@ export async function GET(req: NextRequest) {
           return '文章列表'
         case 'thoughts':
           return '碎碎念'
+        case 'mio-says':
+          return 'Mio 说'
         case 'timeline':
           return '大事记'
         case 'about':
@@ -188,14 +185,14 @@ export async function GET(req: NextRequest) {
             </div>
 
             {/* 副标题 */}
-            {subtitle && (
+            {subtitle && !postsCount && !thoughtsCount && !mioSaysCount && (
               <div
                 style={{
                   fontSize: 28,
                   color: '#666666',
                   fontWeight: 400,
                   lineHeight: 1.5,
-                  marginBottom: tagList.length > 0 ? '28px' : 'auto',
+                  marginBottom: 'auto',
                   display: '-webkit-box',
                   WebkitLineClamp: 2,
                   WebkitBoxOrient: 'vertical',
@@ -206,40 +203,126 @@ export async function GET(req: NextRequest) {
               </div>
             )}
 
-            {/* 标签区域（仅文章页显示） */}
-            {type === 'post' && tagList.length > 0 && (
+            {/* 首页统计信息 */}
+            {type === 'default' && (postsCount || thoughtsCount || mioSaysCount) && (
               <div
                 style={{
                   display: 'flex',
-                  gap: '12px',
-                  flexWrap: 'wrap',
-                  marginTop: 'auto',
-                  marginBottom: '20px',
+                  gap: '24px',
+                  marginTop: '20px',
+                  marginBottom: 'auto',
                 }}
               >
-                {tagList.map((tag, index) => (
+                {postsCount && (
                   <div
-                    key={index}
                     style={{
-                      background: '#ffffff',
-                      padding: '8px 18px',
-                      borderRadius: '20px',
-                      fontSize: 16,
-                      color: '#444444',
-                      fontWeight: 600,
-                      border: '1.5px solid #e0e0e0',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '4px',
                     }}
                   >
-                    {tag}
+                    <div
+                      style={{
+                        fontSize: 36,
+                        fontWeight: 700,
+                        color: '#1a1a1a',
+                        lineHeight: 1,
+                      }}
+                    >
+                      {postsCount}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 16,
+                        color: '#888888',
+                        fontWeight: 500,
+                      }}
+                    >
+                      篇文章
+                    </div>
                   </div>
-                ))}
+                )}
+                {thoughtsCount && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '4px',
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontSize: 36,
+                        fontWeight: 700,
+                        color: '#1a1a1a',
+                        lineHeight: 1,
+                      }}
+                    >
+                      {thoughtsCount}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 16,
+                        color: '#888888',
+                        fontWeight: 500,
+                      }}
+                    >
+                      条碎碎念
+                    </div>
+                  </div>
+                )}
+                {mioSaysCount && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '4px',
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontSize: 36,
+                        fontWeight: 700,
+                        color: '#1a1a1a',
+                        lineHeight: 1,
+                      }}
+                    >
+                      {mioSaysCount}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 16,
+                        color: '#888888',
+                        fontWeight: 500,
+                      }}
+                    >
+                      条 Mio 说
+                    </div>
+                  </div>
+                )}
               </div>
             )}
+
+            {/* 列表页更新时间 */}
+            {(type === 'posts' || type === 'thoughts' || type === 'mio-says') && lastUpdate && (
+              <div
+                style={{
+                  fontSize: 20,
+                  color: '#999999',
+                  fontWeight: 500,
+                  marginTop: '16px',
+                  marginBottom: 'auto',
+                }}
+              >
+                上次更新于 {lastUpdate}
+              </div>
+            )}
+
 
             {/* 底部区域 */}
             <div
               style={{
-                marginTop: tagList.length > 0 ? '0' : 'auto',
+                marginTop: 'auto',
                 display: 'flex',
                 alignItems: 'flex-end',
                 justifyContent: 'space-between',

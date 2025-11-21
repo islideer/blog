@@ -13,13 +13,30 @@ import 'dayjs/locale/zh-cn'
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
+  dayjs.locale('zh-cn')
+  dayjs.extend(utc)
+  dayjs.extend(timezone)
+  dayjs.extend(relativeTime)
+
   const mioSays = await getAllMioSays()
+
+  // 获取最新 Mio 说内容（截断到 50 字）
+  const latestContent =
+    mioSays.length > 0
+      ? mioSays[0].content.length > 50
+        ? `${mioSays[0].content.slice(0, 50)}...`
+        : mioSays[0].content
+      : '这是专门开设给 Mio 的专属发言空间'
+
+  // 获取最新更新时间
+  const lastUpdate = mioSays.length > 0 ? dayjs(mioSays[0].date).fromNow() : ''
 
   const ogImageParams = new URLSearchParams({
     title: 'Mio 说',
-    subtitle: '这是专门开设给 Mio 的专属发言空间，Viki 无权编辑。',
+    subtitle: latestContent,
     type: 'mio-says',
     count: mioSays.length.toString(),
+    lastUpdate: lastUpdate,
   })
 
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`

@@ -2,18 +2,28 @@ import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
 import Link from 'next/link'
 import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import 'dayjs/locale/zh-cn'
 import { generateCanonicalUrl } from '@/lib/seo'
 import type { Metadata } from 'next'
 
+dayjs.locale('zh-cn')
+dayjs.extend(relativeTime)
+
 export async function generateMetadata(): Promise<Metadata> {
   const allPosts = await getAllPosts()
-  const subtitle = `记录技术思考和生活感悟，持续更新中`
+  const subtitle = `共 ${allPosts.length} 篇文章，记录技术思考和生活感悟`
+
+  // 获取最新文章的更新时间
+  const lastUpdateDate = allPosts.length > 0 ? dayjs(allPosts[0].date) : dayjs()
+  const lastUpdate = lastUpdateDate.fromNow()
 
   const ogImageParams = new URLSearchParams({
     title: siteConfig.pages.posts.title,
     subtitle: subtitle,
     type: 'posts',
     count: allPosts.length.toString(),
+    lastUpdate: lastUpdate,
   })
 
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`

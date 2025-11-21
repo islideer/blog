@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 const ogImageParams = new URLSearchParams({
   title: '大事记',
-  subtitle: '记录生活中的重要时刻和里程碑',
+  subtitle: `共 ${timelineData.length} 条记录，记录生活中的重要时刻和里程碑`,
   type: 'timeline',
   count: timelineData.length.toString(),
 })

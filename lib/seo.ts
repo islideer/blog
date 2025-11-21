@@ -122,7 +122,6 @@ export function generatePostOpenGraph(post: Post) {
     type: 'post',
     date: formattedDate,
     readingTime: post.readingTime?.toString() || '',
-    tags: post.tags?.join(',') || '',
   })
 
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
@@ -167,7 +166,6 @@ export function generatePostTwitterCard(post: Post) {
     type: 'post',
     date: formattedDate,
     readingTime: post.readingTime?.toString() || '',
-    tags: post.tags?.join(',') || '',
   })
 
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`

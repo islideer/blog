@@ -5,58 +5,78 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { Analytics } from '@vercel/analytics/next'
+import { getAllPosts } from '@/lib/posts'
+import { getAllThoughts } from '@/lib/thoughts'
+import { getAllMioSays } from '@/lib/mio-says'
 
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  authors: [{ name: siteConfig.author.name, url: siteConfig.author.github }],
-  keywords: siteConfig.keywords,
-  creator: siteConfig.author.name,
-  publisher: siteConfig.author.name,
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-icon.png',
-  },
-  manifest: '/manifest.json',
-  alternates: {
-    canonical: generateCanonicalUrl('/'),
-  },
-  openGraph: {
-    type: siteConfig.openGraph.type,
-    locale: siteConfig.locale.replace('-', '_'),
-    url: siteConfig.url,
+export async function generateMetadata(): Promise<Metadata> {
+  const [posts, thoughts, mioSays] = await Promise.all([
+    getAllPosts(),
+    getAllThoughts(),
+    getAllMioSays(),
+  ])
+
+  const ogImageParams = new URLSearchParams({
     title: siteConfig.name,
+    subtitle: siteConfig.description,
+    type: 'default',
+    postsCount: posts.length.toString(),
+    thoughtsCount: thoughts.length.toString(),
+    mioSaysCount: mioSays.length.toString(),
+  })
+
+  const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
+
+  return {
+    metadataBase: new URL(siteConfig.url),
+    title: {
+      default: siteConfig.name,
+      template: `%s | ${siteConfig.name}`,
+    },
     description: siteConfig.description,
-    siteName: siteConfig.name,
-    images: [
-      {
-        url: `${siteConfig.url}/api/og?title=${encodeURIComponent(siteConfig.name)}&subtitle=${encodeURIComponent(siteConfig.description)}`,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: siteConfig.name,
-    description: siteConfig.description,
-    creator: siteConfig.author.twitter,
-    images: [
-      `${siteConfig.url}/api/og?title=${encodeURIComponent(siteConfig.name)}&subtitle=${encodeURIComponent(siteConfig.description)}`,
-    ],
-  },
+    authors: [{ name: siteConfig.author.name, url: siteConfig.author.github }],
+    keywords: siteConfig.keywords,
+    creator: siteConfig.author.name,
+    publisher: siteConfig.author.name,
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    icons: {
+      icon: '/favicon.ico',
+      apple: '/apple-icon.png',
+    },
+    manifest: '/manifest.json',
+    alternates: {
+      canonical: generateCanonicalUrl('/'),
+    },
+    openGraph: {
+      type: siteConfig.openGraph.type,
+      locale: siteConfig.locale.replace('-', '_'),
+      url: siteConfig.url,
+      title: siteConfig.name,
+      description: siteConfig.description,
+      siteName: siteConfig.name,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: siteConfig.name,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: siteConfig.name,
+      description: siteConfig.description,
+      creator: siteConfig.author.twitter,
+      images: [ogImageUrl],
+    },
+  }
 }
 
 export default function RootLayout({
