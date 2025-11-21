@@ -11,14 +11,14 @@ dayjs.extend(timezone)
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
 
-interface Thought {
+interface MioSay {
   id: string
   date: string
   content: string
   images?: string[]
 }
 
-interface AddThoughtRequest {
+interface AddMioSayRequest {
   date?: string
   content?: string
   images?: string[]
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const body: AddThoughtRequest = await req.json()
+    const body: AddMioSayRequest = await req.json()
 
     // 验证内容：至少要有文本或图片之一
     const hasContent = body.content && body.content.trim() !== ''
@@ -58,11 +58,11 @@ export async function POST(req: NextRequest) {
     const owner = process.env.GITHUB_OWNER || 'vikiboss'
     const repo = process.env.GITHUB_REPO || 'blog'
 
-    // 读取现有 thoughts.json
+    // 读取现有 mio-says.json
     const { data: fileData } = await octokit.repos.getContent({
       owner,
       repo,
-      path: 'data/thoughts.json',
+      path: 'data/mio-says.json',
     })
 
     if (!('content' in fileData)) {
@@ -71,11 +71,11 @@ export async function POST(req: NextRequest) {
 
     // 解析现有数据
     const fileContent = Buffer.from(fileData.content, 'base64').toString('utf-8')
-    const thoughts: Thought[] = JSON.parse(fileContent)
+    const mioSays: MioSay[] = JSON.parse(fileContent)
 
-    // 创建新 thought
-    const newId = String(Math.max(0, ...thoughts.map((t) => Number(t.id))) + 1)
-    const newThought: Thought = {
+    // 创建新 mio-say
+    const newId = String(Math.max(0, ...mioSays.map((m) => Number(m.id))) + 1)
+    const newMioSay: MioSay = {
       id: newId,
       date: dayjs(body.date).tz('Asia/Shanghai').format('YYYY-MM-DDTHH:mm:ssZ'),
       content: body.content?.trim() ?? '',
@@ -83,19 +83,19 @@ export async function POST(req: NextRequest) {
 
     // 添加图片（如果有）
     if (hasImages) {
-      newThought.images = body.images
+      newMioSay.images = body.images
     }
 
     // 添加到数组开头
-    thoughts.unshift(newThought)
+    mioSays.unshift(newMioSay)
 
     // 提交到 GitHub
     await octokit.repos.createOrUpdateFileContents({
       owner,
       repo,
-      path: 'data/thoughts.json',
-      message: `chore: add thought #${newId} via API`,
-      content: Buffer.from(JSON.stringify(thoughts, null, 2) + '\n').toString('base64'),
+      path: 'data/mio-says.json',
+      message: `chore: add mio-say #${newId} via API`,
+      content: Buffer.from(JSON.stringify(mioSays, null, 2) + '\n').toString('base64'),
       sha: fileData.sha,
       branch: 'main',
     })
@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       ok: true,
       id: newId,
-      thought: newThought,
+      mioSay: newMioSay,
     })
   } catch (error) {
     console.error('Error processing request:', error)
@@ -126,7 +126,7 @@ export async function GET(req: NextRequest) {
 
   return NextResponse.json({
     ok: true,
-    message: 'Add thought API is ready',
+    message: 'Add mio-say API is ready',
     timestamp: new Date().toISOString(),
   })
 }

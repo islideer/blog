@@ -141,6 +141,12 @@ export default function RootLayout({
                   碎碎念
                 </Link>
                 <Link
+                  href="/mio-says"
+                  className="text-text-secondary hover:text-text-primary text-sm"
+                >
+                  Mio 说
+                </Link>
+                <Link
                   href="/timeline"
                   className="text-text-secondary hover:text-text-primary text-sm"
                 >

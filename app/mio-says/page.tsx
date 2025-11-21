@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
-import { getAllThoughts } from '@/lib/thoughts'
+import { getAllMioSays } from '@/lib/mio-says'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/markdown-utils'
 
@@ -13,83 +13,85 @@ import 'dayjs/locale/zh-cn'
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const thoughts = await getAllThoughts()
+  const mioSays = await getAllMioSays()
 
   const ogImageParams = new URLSearchParams({
-    title: '碎碎念',
-    subtitle: '记录生活中的点滴想法和瞬间灵感',
-    type: 'thoughts',
-    count: thoughts.length.toString(),
+    title: 'Mio 说',
+    subtitle: '这是专门开设给 Mio 的专属发言空间，Viki 无权编辑。',
+    type: 'mio-says',
+    count: mioSays.length.toString(),
   })
 
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
 
   return {
-    title: '碎碎念',
-    description: '记录生活中的点滴想法和碎碎念',
+    title: 'Mio 说',
+    description: '这是专门开设给 Mio 的专属发言空间，Viki 无权编辑。',
     alternates: {
-      canonical: generateCanonicalUrl('/thoughts'),
+      canonical: generateCanonicalUrl('/mio-says'),
     },
     openGraph: {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
-      url: generateCanonicalUrl('/thoughts'),
-      title: '碎碎念',
-      description: '记录生活中的点滴想法和碎碎念',
+      url: generateCanonicalUrl('/mio-says'),
+      title: 'Mio 说',
+      description: '这是专门开设给 Mio 的专属发言空间，Viki 无权编辑。',
       siteName: siteConfig.name,
       images: [
         {
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: '碎碎念',
+          alt: 'Mio 说',
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: '碎碎念',
-      description: '记录生活中的点滴想法和碎碎念',
+      title: 'Mio 说',
+      description: '这是专门开设给 Mio 的专属发言空间，Viki 无权编辑。',
       creator: siteConfig.author.twitter,
       images: [ogImageUrl],
     },
   }
 }
 
-export default async function ThoughtsPage() {
+export default async function MioSaysPage() {
   dayjs.locale('zh-cn')
   dayjs.extend(utc)
   dayjs.extend(timezone)
   dayjs.extend(relativeTime)
 
-  const thoughts = await getAllThoughts()
+  const mioSays = await getAllMioSays()
 
   return (
     <div className="space-y-12">
       {/* Header */}
       <section className="space-y-3">
-        <h1 className="text-3xl font-bold">碎碎念</h1>
+        <h1 className="text-3xl font-bold">Mio 说</h1>
         <p className="text-text-secondary">
-          共 {thoughts.length.toLocaleString('zh-CN')} 条碎碎念，记录生活中的点滴想法。
+          这是专门开设给 Mio 的专属发言空间，共 {mioSays.length.toLocaleString('zh-CN')} 条内容，Viki 无权编辑。
         </p>
       </section>
 
-      {/* Thoughts Timeline */}
+      {/* Mio Says Timeline */}
       <section className="space-y-4">
         <div
           className="space-y-8 sm:border-l-2 sm:pl-6"
-          style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
+          style={{ borderColor: 'rgba(255, 182, 193, 0.3)' }}
         >
-          {thoughts.length === 0 ? (
-            <p className="text-text-tertiary text-sm italic opacity-60">还没有碎碎念，快来记录吧</p>
+          {mioSays.length === 0 ? (
+            <p className="text-text-tertiary text-sm italic opacity-60">
+              Mio 还没有说什么，敬请期待
+            </p>
           ) : (
-            thoughts.map((thought, index) => (
+            mioSays.map((mioSay, index) => (
               <article
-                key={thought.id}
+                key={mioSay.id}
                 className="space-y-2 pb-8"
                 style={{
                   borderBottom:
-                    index < thoughts.length - 1 ? '1px solid rgba(128, 128, 128, 0.1)' : 'none',
+                    index < mioSays.length - 1 ? '1px solid rgba(255, 182, 193, 0.2)' : 'none',
                 }}
               >
                 {/* 日期时间 */}
@@ -107,34 +109,34 @@ export default async function ThoughtsPage() {
                   </svg>
                   <time
                     className="text-text-tertiary text-xs"
-                    title={dayjs(thought.date).format('YYYY/MM/DD HH:mm:ss ddd')}
+                    title={dayjs(mioSay.date).format('YYYY/MM/DD HH:mm:ss ddd')}
                   >
                     发布于{' '}
-                    {dayjs().diff(dayjs(thought.date), 'year') >= 1
-                      ? dayjs(thought.date).format('YYYY/MM/DD HH:mm:ss ddd')
-                      : dayjs(thought.date).fromNow()}
+                    {dayjs().diff(dayjs(mioSay.date), 'year') >= 1
+                      ? dayjs(mioSay.date).format('YYYY/MM/DD HH:mm:ss ddd')
+                      : dayjs(mioSay.date).fromNow()}
                   </time>
                 </div>
 
                 {/* 文本内容 */}
-                {thought.content && thought.content.trim() !== '' && (
-                  <p className="text-sm leading-relaxed">{renderMarkdown(thought.content)}</p>
+                {mioSay.content && mioSay.content.trim() !== '' && (
+                  <p className="text-sm leading-relaxed">{renderMarkdown(mioSay.content)}</p>
                 )}
 
                 {/* 图片 */}
-                {thought.images && thought.images.length > 0 && (
+                {mioSay.images && mioSay.images.length > 0 && (
                   <div className="grid grid-cols-1 gap-2 pt-1 sm:grid-cols-2">
-                    {thought.images.map((image, index) => (
+                    {mioSay.images.map((image, index) => (
                       <div
                         key={index}
-                        className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border border-zinc-200 dark:border-zinc-700"
+                        className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border border-pink-200 dark:border-pink-900"
                       >
                         <Image
                           src={image}
                           alt={
-                            thought.content && thought.content.trim() !== ''
-                              ? `${thought.content.slice(0, 20)}... 的图片 ${index + 1}`
-                              : `碎碎念图片 ${index + 1}`
+                            mioSay.content && mioSay.content.trim() !== ''
+                              ? `${mioSay.content.slice(0, 20)}... 的图片 ${index + 1}`
+                              : `Mio 说图片 ${index + 1}`
                           }
                           width={800}
                           height={600}
