@@ -10,11 +10,45 @@ export async function GET(req: NextRequest) {
     const title = searchParams.get('title') || 'Viki 写东西的地方'
     const subtitle = searchParams.get('subtitle') || '分享技术和日常'
     const type = searchParams.get('type') || 'default'
-    const stats = searchParams.get('stats') || ''
+    const date = searchParams.get('date') || ''
+    const readingTime = searchParams.get('readingTime') || ''
+    const tags = searchParams.get('tags') || ''
+    const count = searchParams.get('count') || ''
 
     // 获取 icon 图片
     const iconUrl = new URL('/icon-192.png', req.url).href
     const iconData = await fetch(iconUrl).then((res) => res.arrayBuffer())
+
+    // 加载 Noto Sans SC 常用字字体（7.9MB，确保显示正确的简体中文字形）
+    const fontData = await fetch(new URL('/fonts/SourceHanSansSC-Regular.otf', req.url)).then(
+      (res) => res.arrayBuffer(),
+    )
+
+    // 解析标签
+    const tagList = tags
+      ? tags
+          .split(',')
+          .filter((t) => t.trim())
+          .slice(0, 5)
+      : []
+
+    // 获取类型标签文本
+    const getTypeLabel = () => {
+      switch (type) {
+        case 'post':
+          return '博客文章'
+        case 'posts':
+          return '文章列表'
+        case 'thoughts':
+          return '碎碎念'
+        case 'timeline':
+          return '大事记'
+        case 'about':
+          return '关于'
+        default:
+          return '博客'
+      }
+    }
 
     return new ImageResponse(
       (
@@ -24,179 +58,130 @@ export async function GET(req: NextRequest) {
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
             background: 'linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%)',
-            padding: '80px',
-            fontFamily: 'system-ui, -apple-system, sans-serif',
             position: 'relative',
+            fontFamily: '"Noto Sans SC", "Source Han Sans SC", sans-serif',
           }}
         >
-          {/* 背景装饰 - 扁平几何图形 */}
+          {/* 背景几何装饰 */}
           <div
             style={{
               position: 'absolute',
-              top: '-100px',
-              right: '-100px',
-              width: '500px',
-              height: '500px',
-              background: 'rgba(255, 255, 255, 0.5)',
+              top: '-120px',
+              right: '-120px',
+              width: '480px',
+              height: '480px',
+              background: 'rgba(255, 255, 255, 0.6)',
               borderRadius: '50%',
             }}
           />
           <div
             style={{
               position: 'absolute',
-              bottom: '-80px',
-              left: '-80px',
-              width: '350px',
-              height: '350px',
-              background: 'rgba(0, 0, 0, 0.03)',
+              bottom: '-100px',
+              left: '-100px',
+              width: '380px',
+              height: '380px',
+              background: 'rgba(0, 0, 0, 0.04)',
               borderRadius: '50%',
             }}
           />
 
-          {/* 主要内容 */}
+          {/* 主要内容区域 */}
           <div
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '24px',
-              flex: 1,
-              justifyContent: 'center',
-              zIndex: 1,
+              padding: '60px 80px',
+              height: '100%',
             }}
           >
-            {/* 类型标签 */}
-            {type === 'post' && (
+            {/* 顶部区域：类型标签 + 元信息 */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                justifyContent: 'space-between',
+                marginBottom: '36px',
+              }}
+            >
+              {/* 左侧：类型标签 */}
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
-                  fontSize: 22,
-                  color: '#666666',
-                  fontWeight: 600,
-                  letterSpacing: '0.05em',
                 }}
               >
                 <div
                   style={{
-                    width: '6px',
+                    width: '5px',
                     height: '28px',
                     background: '#1a1a1a',
-                    borderRadius: '3px',
+                    borderRadius: '2px',
                   }}
                 />
-                博客文章
+                <div
+                  style={{
+                    fontSize: 22,
+                    color: '#666666',
+                    fontWeight: 600,
+                    letterSpacing: '0.02em',
+                  }}
+                >
+                  {getTypeLabel()}
+                </div>
               </div>
-            )}
 
-            {type === 'thoughts' && (
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  fontSize: 22,
-                  color: '#666666',
-                  fontWeight: 600,
-                  letterSpacing: '0.05em',
-                }}
-              >
+              {/* 右侧：文章元信息（仅文章页显示） */}
+              {type === 'post' && (date || readingTime) && (
                 <div
                   style={{
-                    width: '6px',
-                    height: '28px',
-                    background: '#1a1a1a',
-                    borderRadius: '3px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-end',
+                    gap: '6px',
                   }}
-                />
-                碎碎念
-              </div>
-            )}
-
-            {type === 'posts' && (
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  fontSize: 22,
-                  color: '#666666',
-                  fontWeight: 600,
-                  letterSpacing: '0.05em',
-                }}
-              >
-                <div
-                  style={{
-                    width: '6px',
-                    height: '28px',
-                    background: '#1a1a1a',
-                    borderRadius: '3px',
-                  }}
-                />
-                文章列表
-              </div>
-            )}
-
-            {type === 'timeline' && (
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  fontSize: 22,
-                  color: '#666666',
-                  fontWeight: 600,
-                  letterSpacing: '0.05em',
-                }}
-              >
-                <div
-                  style={{
-                    width: '6px',
-                    height: '28px',
-                    background: '#1a1a1a',
-                    borderRadius: '3px',
-                  }}
-                />
-                大事记
-              </div>
-            )}
-
-            {type === 'about' && (
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  fontSize: 22,
-                  color: '#666666',
-                  fontWeight: 600,
-                  letterSpacing: '0.05em',
-                }}
-              >
-                <div
-                  style={{
-                    width: '6px',
-                    height: '28px',
-                    background: '#1a1a1a',
-                    borderRadius: '3px',
-                  }}
-                />
-                关于
-              </div>
-            )}
+                >
+                  {date && (
+                    <div
+                      style={{
+                        fontSize: 18,
+                        color: '#888888',
+                        fontWeight: 500,
+                      }}
+                    >
+                      {date}
+                    </div>
+                  )}
+                  {readingTime && (
+                    <div
+                      style={{
+                        fontSize: 16,
+                        color: '#999999',
+                        fontWeight: 500,
+                      }}
+                    >
+                      阅读时长 {readingTime} 分钟
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
 
             {/* 标题 */}
             <div
               style={{
-                fontSize: 72,
-                fontWeight: 900,
+                fontSize: title.length > 30 ? 58 : title.length > 20 ? 64 : 72,
+                fontWeight: 700,
                 color: '#1a1a1a',
-                lineHeight: 1.1,
+                lineHeight: 1.12,
                 letterSpacing: '-0.03em',
-                maxWidth: '90%',
+                marginBottom: '24px',
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
               }}
             >
               {title}
@@ -206,107 +191,128 @@ export async function GET(req: NextRequest) {
             {subtitle && (
               <div
                 style={{
-                  fontSize: 32,
+                  fontSize: 28,
                   color: '#666666',
                   fontWeight: 400,
-                  maxWidth: '85%',
-                  lineHeight: 1.4,
+                  lineHeight: 1.5,
+                  marginBottom: tagList.length > 0 ? '28px' : 'auto',
+                  display: '-webkit-box',
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
                 }}
               >
                 {subtitle}
               </div>
             )}
 
-            {/* 统计信息 */}
-            {stats && (
+            {/* 标签区域（仅文章页显示） */}
+            {type === 'post' && tagList.length > 0 && (
               <div
                 style={{
                   display: 'flex',
-                  gap: '32px',
-                  marginTop: '16px',
+                  gap: '12px',
+                  flexWrap: 'wrap',
+                  marginTop: 'auto',
+                  marginBottom: '20px',
                 }}
               >
-                {stats.split('|').map((stat, index) => {
-                  const [label, value] = stat.split(':')
-                  return (
-                    <div
-                      key={index}
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '4px',
-                      }}
-                    >
-                      <div
-                        style={{
-                          fontSize: 40,
-                          fontWeight: 900,
-                          color: '#1a1a1a',
-                          lineHeight: 1,
-                        }}
-                      >
-                        {value}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: 18,
-                          color: '#888888',
-                          fontWeight: 500,
-                        }}
-                      >
-                        {label}
-                      </div>
-                    </div>
-                  )
-                })}
+                {tagList.map((tag, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      background: '#ffffff',
+                      padding: '8px 18px',
+                      borderRadius: '20px',
+                      fontSize: 16,
+                      color: '#444444',
+                      fontWeight: 600,
+                      border: '1.5px solid #e0e0e0',
+                    }}
+                  >
+                    {tag}
+                  </div>
+                ))}
               </div>
             )}
-          </div>
 
-          {/* 底部信息 */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              width: '100%',
-              marginTop: 'auto',
-              zIndex: 1,
-              borderTop: '2px solid rgba(0, 0, 0, 0.08)',
-              paddingTop: '32px',
-            }}
-          >
-            {/* 左侧：网站名称 */}
+            {/* 底部区域 */}
             <div
               style={{
-                fontSize: 28,
-                color: '#1a1a1a',
-                fontWeight: 700,
-                letterSpacing: '-0.01em',
-              }}
-            >
-              blog.viki.moe
-            </div>
-
-            {/* 右侧：Icon */}
-            <div
-              style={{
+                marginTop: tagList.length > 0 ? '0' : 'auto',
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+                alignItems: 'flex-end',
+                justifyContent: 'space-between',
+                paddingTop: '32px',
+                borderTop: '2px solid rgba(0, 0, 0, 0.08)',
               }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`data:image/png;base64,${Buffer.from(iconData).toString('base64')}`}
-                alt="Blog Icon"
-                width="80"
-                height="80"
+              {/* 左侧：统计或域名 */}
+              <div
                 style={{
-                  borderRadius: '16px',
-                  border: '3px solid rgba(0, 0, 0, 0.1)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
                 }}
-              />
+              >
+                {count ? (
+                  <>
+                    <div
+                      style={{
+                        fontSize: 56,
+                        fontWeight: 700,
+                        color: '#1a1a1a',
+                        lineHeight: 1,
+                      }}
+                    >
+                      {count}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 20,
+                        color: '#666666',
+                        fontWeight: 600,
+                      }}
+                    >
+                      {type === 'posts' && '篇文章'}
+                      {type === 'thoughts' && '条想法'}
+                      {type === 'timeline' && '条记录'}
+                    </div>
+                  </>
+                ) : (
+                  <div
+                    style={{
+                      fontSize: 28,
+                      color: '#1a1a1a',
+                      fontWeight: 700,
+                      letterSpacing: '-0.01em',
+                    }}
+                  >
+                    blog.viki.moe
+                  </div>
+                )}
+              </div>
+
+              {/* 右侧：头像 */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`data:image/png;base64,${Buffer.from(iconData).toString('base64')}`}
+                  alt="Blog Icon"
+                  width="80"
+                  height="80"
+                  style={{
+                    borderRadius: '16px',
+                    border: '3px solid rgba(0, 0, 0, 0.1)',
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -314,6 +320,14 @@ export async function GET(req: NextRequest) {
       {
         width: 1200,
         height: 630,
+        fonts: [
+          {
+            name: 'Noto Sans SC',
+            data: fontData,
+            style: 'normal',
+            weight: 400,
+          },
+        ],
       },
     )
   } catch (error) {

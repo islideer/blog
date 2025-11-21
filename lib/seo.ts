@@ -108,7 +108,24 @@ export function generateCanonicalUrl(path: string) {
  * Generate Open Graph metadata for a blog post
  */
 export function generatePostOpenGraph(post: Post) {
-  const ogImageUrl = `${siteConfig.url}/api/og?title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent(post.excerpt || '')}&type=post`
+  // 格式化日期
+  const formattedDate = new Date(post.date).toLocaleDateString('zh-CN', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+
+  // 构建 OG 图片 URL，包含更多信息
+  const ogImageParams = new URLSearchParams({
+    title: post.title,
+    subtitle: post.excerpt || '',
+    type: 'post',
+    date: formattedDate,
+    readingTime: post.readingTime?.toString() || '',
+    tags: post.tags?.join(',') || '',
+  })
+
+  const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
 
   return {
     type: 'article' as const,
@@ -136,7 +153,24 @@ export function generatePostOpenGraph(post: Post) {
  * Generate Twitter Card metadata for a blog post
  */
 export function generatePostTwitterCard(post: Post) {
-  const ogImageUrl = `${siteConfig.url}/api/og?title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent(post.excerpt || '')}&type=post`
+  // 格式化日期
+  const formattedDate = new Date(post.date).toLocaleDateString('zh-CN', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+
+  // 构建 OG 图片 URL，包含更多信息
+  const ogImageParams = new URLSearchParams({
+    title: post.title,
+    subtitle: post.excerpt || '',
+    type: 'post',
+    date: formattedDate,
+    readingTime: post.readingTime?.toString() || '',
+    tags: post.tags?.join(',') || '',
+  })
+
+  const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
 
   return {
     card: 'summary_large_image' as const,

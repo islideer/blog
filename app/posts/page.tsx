@@ -7,7 +7,16 @@ import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
   const allPosts = await getAllPosts()
-  const stats = `共 ${allPosts.length} 篇文章`
+  const subtitle = `记录技术思考和生活感悟，持续更新中`
+
+  const ogImageParams = new URLSearchParams({
+    title: siteConfig.pages.posts.title,
+    subtitle: subtitle,
+    type: 'posts',
+    count: allPosts.length.toString(),
+  })
+
+  const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
 
   return {
     title: siteConfig.pages.posts.title,
@@ -24,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       images: [
         {
-          url: `${siteConfig.url}/api/og?title=${encodeURIComponent(siteConfig.pages.posts.title)}&subtitle=${encodeURIComponent(stats)}&type=posts&stats=${encodeURIComponent(`文章:${allPosts.length}`)}`,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: siteConfig.pages.posts.title,
@@ -36,9 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: siteConfig.pages.posts.title,
       description: siteConfig.pages.posts.description,
       creator: siteConfig.author.twitter,
-      images: [
-        `${siteConfig.url}/api/og?title=${encodeURIComponent(siteConfig.pages.posts.title)}&subtitle=${encodeURIComponent(stats)}&type=posts&stats=${encodeURIComponent(`文章:${allPosts.length}`)}`,
-      ],
+      images: [ogImageUrl],
     },
   }
 }

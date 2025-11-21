@@ -15,6 +15,15 @@ import type { Metadata } from 'next'
 export async function generateMetadata(): Promise<Metadata> {
   const thoughts = await getAllThoughts()
 
+  const ogImageParams = new URLSearchParams({
+    title: '碎碎念',
+    subtitle: '记录生活中的点滴想法和瞬间灵感',
+    type: 'thoughts',
+    count: thoughts.length.toString(),
+  })
+
+  const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
+
   return {
     title: '碎碎念',
     description: '记录生活中的点滴想法和碎碎念',
@@ -30,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       images: [
         {
-          url: `${siteConfig.url}/api/og?title=${encodeURIComponent('碎碎念')}&subtitle=${encodeURIComponent('记录生活中的点滴想法')}&type=thoughts&stats=${encodeURIComponent(`想法:${thoughts.length}`)}`,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: '碎碎念',
@@ -42,9 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: '碎碎念',
       description: '记录生活中的点滴想法和碎碎念',
       creator: siteConfig.author.twitter,
-      images: [
-        `${siteConfig.url}/api/og?title=${encodeURIComponent('碎碎念')}&subtitle=${encodeURIComponent('记录生活中的点滴想法')}&type=thoughts&stats=${encodeURIComponent(`想法:${thoughts.length}`)}`,
-      ],
+      images: [ogImageUrl],
     },
   }
 }

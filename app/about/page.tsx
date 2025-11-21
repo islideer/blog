@@ -8,6 +8,14 @@ import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
+const ogImageParams = new URLSearchParams({
+  title: siteConfig.author.name,
+  subtitle: '前端开发者 · 开源爱好者 · 终身学习者',
+  type: 'about',
+})
+
+const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
+
 export const metadata: Metadata = {
   title: siteConfig.pages.about.title,
   description: siteConfig.pages.about.description,
@@ -23,7 +31,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: `${siteConfig.url}/api/og?title=${encodeURIComponent(siteConfig.author.name)}&subtitle=${encodeURIComponent('前端开发者 · 开源爱好者')}&type=about&stats=${encodeURIComponent(`GitHub:@vikiboss`)}`,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: siteConfig.pages.about.title,
@@ -35,9 +43,7 @@ export const metadata: Metadata = {
     title: siteConfig.pages.about.title,
     description: siteConfig.pages.about.description,
     creator: siteConfig.author.twitter,
-    images: [
-      `${siteConfig.url}/api/og?title=${encodeURIComponent(siteConfig.author.name)}&subtitle=${encodeURIComponent('前端开发者 · 开源爱好者')}&type=about&stats=${encodeURIComponent(`GitHub:@vikiboss`)}`,
-    ],
+    images: [ogImageUrl],
   },
 }
 
