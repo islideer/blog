@@ -149,30 +149,36 @@ export default function RootLayout({
               <nav
                 role="navigation"
                 aria-label="主导航"
-                className="flex items-center space-x-2 sm:space-x-4"
+                className="flex items-center gap-1.5 sm:gap-4"
               >
-                <Link href="/posts" className="text-text-secondary hover:text-text-primary text-sm">
+                <Link
+                  href="/posts"
+                  className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
+                >
                   文章
                 </Link>
                 <Link
                   href="/thoughts"
-                  className="text-text-secondary hover:text-text-primary text-sm"
+                  className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
                 >
                   碎碎念
                 </Link>
                 <Link
                   href="/mio-says"
-                  className="text-text-secondary hover:text-text-primary text-sm"
+                  className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
                 >
                   Mio 说
                 </Link>
                 <Link
                   href="/timeline"
-                  className="text-text-secondary hover:text-text-primary text-sm"
+                  className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
                 >
                   大事记
                 </Link>
-                <Link href="/about" className="text-text-secondary hover:text-text-primary text-sm">
+                <Link
+                  href="/about"
+                  className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
+                >
                   关于
                 </Link>
                 <ThemeToggle />
