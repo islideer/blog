@@ -35,19 +35,14 @@ function getServerSnapshot() {
 export function RelativeTime({ date, className, style }: RelativeTimeProps) {
   const isClient = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
   const dateObj = dayjs(date)
+  const formatted = dateObj.format('YYYY/MM/DD HH:mm:ss ddd')
   const isOldPost = dayjs().diff(dateObj, 'year') >= 1
 
   // 显示相对时间（客户端 + 非旧文章）或绝对时间（服务端 + 旧文章）
-  const displayText =
-    isClient && !isOldPost ? dateObj.fromNow() : dateObj.format('YYYY/MM/DD HH:mm:ss ddd')
+  const displayText = isClient && !isOldPost ? dateObj.fromNow() : formatted
 
   return (
-    <time
-      className={className}
-      style={style}
-      dateTime={date}
-      title={dateObj.format('YYYY/MM/DD HH:mm:ss ddd')}
-    >
+    <time className={className} dateTime={date} style={style} title={formatted}>
       发布于 {displayText}
     </time>
   )

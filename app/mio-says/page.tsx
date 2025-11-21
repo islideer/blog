@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? mioSays[0].content.length > 80
         ? `${mioSays[0].content.slice(0, 80)}...`
         : mioSays[0].content
-      : '这里是开设给 Mio 的专属发言空间'
+      : '开设给 Mio 的专属发言空间'
 
   // 获取最新更新时间（使用绝对时间，避免缓存问题）
   const lastUpdate = mioSays.length > 0 ? dayjs(mioSays[0].date).format('YYYY/MM/DD HH:mm') : ''
@@ -71,14 +71,25 @@ export default async function MioSaysPage() {
   return (
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
-      <section className="space-y-3">
-        <h1 className="text-3xl font-bold" style={{ color: 'var(--color-mio-pink)' }}>
-          Mio 说
-        </h1>
-        <p className="text-text-secondary">
-          这里是开设给 Mio 的专属发言空间，共 {mioSays.length.toLocaleString('zh-CN')} 条内容，Viki
-          无权编辑。
-        </p>
+      <section className="flex flex-row gap-6 sm:items-start sm:justify-between">
+        <div className="flex-1 space-y-3">
+          <h1 className="text-3xl font-bold" style={{ color: 'var(--color-mio-pink)' }}>
+            Mio 说
+          </h1>
+          <p className="text-text-secondary">
+            {`开设给 Mio 的专属发言空间，Viki 无编辑权限，共 ${mioSays.length.toLocaleString('zh-CN')} 条内容。`}
+          </p>
+        </div>
+        <div className="shrink-0 self-end">
+          <Image
+            src="https://s2.loli.net/2025/11/21/CcTp4FnkGH6dO1g.png"
+            alt="Mio with Viki"
+            width={160}
+            height={100}
+            className="h-auto w-32 rounded-lg sm:w-40"
+            priority
+          />
+        </div>
       </section>
 
       {/* Mio Says Timeline */}

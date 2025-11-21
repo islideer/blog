@@ -7,7 +7,6 @@
 
 一个基于 **Next.js 16**、**React 19** 和 **Tailwind CSS v4** 构建的现代化个人博客。
 
-
 > 生活需要记录
 
 ![screenshot](./docs/screenshot.png)
@@ -235,11 +234,11 @@ console.log('Hello World')
 
 | 字段      | 类型     | 必需 | 说明                            |
 | --------- | -------- | ---- | ------------------------------- |
-| `layout`  | string   | ✅    | 布局类型（通常为 `'post'`）     |
-| `title`   | string   | ✅    | 文章标题                        |
-| `date`    | string   | ✅    | 发布日期（YYYY-MM-DD）          |
-| `excerpt` | string   | ✅    | 文章摘要（用于 SEO 和列表展示） |
-| `tags`    | string[] | ❌    | 标签列表（可选）                |
+| `layout`  | string   | ✅   | 布局类型（通常为 `'post'`）     |
+| `title`   | string   | ✅   | 文章标题                        |
+| `date`    | string   | ✅   | 发布日期（YYYY-MM-DD）          |
+| `excerpt` | string   | ✅   | 文章摘要（用于 SEO 和列表展示） |
+| `tags`    | string[] | ❌   | 标签列表（可选）                |
 
 ---
 

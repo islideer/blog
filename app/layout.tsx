@@ -108,6 +108,7 @@ export default function RootLayout({
                   const theme = savedTheme || systemTheme;
                   document.documentElement.classList.remove('light', 'dark');
                   document.documentElement.classList.add(theme);
+                  document.documentElement.setAttribute('data-theme', theme);
                 } catch (e) {}
               })();
             `,
