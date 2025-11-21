@@ -6,34 +6,34 @@
     "stars": "4K+"
   },
   {
-    "name": "@shined/react-use",
+    "name": "React Use",
     "url": "https://github.com/sheinsight/react-use",
     "description": "SSR 友好的 React Hooks 库"
   },
   {
-    "name": "@shined/reactive",
+    "name": "Reactive",
     "url": "https://github.com/sheinsight/reactive",
-    "description": "JavaScript 响应式状态管理"
+    "description": "JavaScript 响应式状态管理库"
   },
   {
-    "name": "guitar-studio",
+    "name": "Guitar Studio",
     "url": "https://github.com/vikiboss/guitar-studio",
     "description": "多合一吉他工具：调音、和弦、节奏"
   },
   {
-    "name": "react-online",
+    "name": "React Online",
     "url": "https://github.com/vikiboss/react-online",
     "description": "React 在线编辑器，轻量、原生、支持 ESM、TypeScript、Tailwind CSS"
   },
   {
-    "name": "deno-functions",
+    "name": "Deno Functions",
     "url": "https://github.com/vikiboss/deno-functions",
     "description": "一系列实用的 Serverless 函数，实用可靠，部署在 Deno Deploy"
   },
   {
-    "name": "face",
+    "name": "Face",
     "url": "https://github.com/vikiboss/face",
-    "description": "QQ 表情包静态资源"
+    "description": "QQ 黄脸表情包系列静态资源、API"
   },
   {
     "name": "v50",
@@ -48,7 +48,7 @@
   {
     "name": "gs-helper",
     "url": "https://github.com/vikiboss/gs-helper",
-    "description": "写给原神玩家的小工具（已归档）"
+    "description": "写给原神玩家的 PC 端小工具（已归档）"
   },
   {
     "name": "BaidupanPlaySpeedControl",

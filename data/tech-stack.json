@@ -12,5 +12,7 @@
   "Next.js",
   "Tailwind CSS",
   "NestJS",
-  "Prisma"
+  "Prisma",
+  "Koa",
+  "express"
 ]
