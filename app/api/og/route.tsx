@@ -2,7 +2,7 @@ import { siteConfig } from '@/lib/config'
 import { ImageResponse } from '@vercel/og'
 import { NextRequest } from 'next/server'
 
-// Edge Runtime（部署后使用，本地可能需要重启开发服务器）
+export const dynamic = 'force-dynamic'
 export const runtime = 'edge'
 
 export async function GET(req: NextRequest) {
