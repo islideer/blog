@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? mioSays[0].content.length > 80
         ? `${mioSays[0].content.slice(0, 80)}...`
         : mioSays[0].content
-      : '开设给 Mio 的专属发言空间'
+      : 'Mio 的专属发言空间'
 
   // 获取最新更新时间（使用绝对时间，避免缓存问题）
   const lastUpdate = mioSays.length > 0 ? dayjs(mioSays[0].date).format('YYYY/MM/DD HH:mm') : ''
@@ -77,7 +77,7 @@ export default async function MioSaysPage() {
             Mio 说
           </h1>
           <p className="text-text-secondary">
-            {`开设给 Mio 的专属发言空间，Viki 无编辑权限，共 ${mioSays.length.toLocaleString('zh-CN')} 条内容。`}
+            {`Mio 的专属发言空间，Viki 无编辑权限，共 ${mioSays.length.toLocaleString('zh-CN')} 条内容。`}
           </p>
         </div>
         <div className="shrink-0 self-end">

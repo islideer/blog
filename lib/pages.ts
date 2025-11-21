@@ -21,6 +21,6 @@ export const pageMetadata = {
   },
   mioSays: {
     title: 'Mio 说',
-    description: '开设给 Mio 的专属发言空间，Viki 无权编辑',
+    description: 'Mio 的专属发言空间，Viki 无权编辑',
   },
 } as const
