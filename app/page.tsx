@@ -13,7 +13,7 @@ export default async function BlogPage() {
   const regularPosts = allPosts.filter((post) => !post.top)
 
   // 显示数量 = 所有置顶文章 + 配置的普通文章数量
-  const displayPosts = [...pinnedPosts, ...regularPosts.slice(0, siteConfig.pages.home.postsToShow)]
+  const displayPosts = [...pinnedPosts, ...regularPosts.slice(0, siteConfig.home.postsToShow)]
 
   return (
     <>
@@ -30,9 +30,9 @@ export default async function BlogPage() {
       <div className="space-y-8 sm:space-y-12">
         {/* Hero Section */}
         <section className="space-y-2 sm:space-y-4">
-          <h1 className="text-3xl font-bold sm:text-4xl">{siteConfig.pages.home.hero.title}</h1>
+          <h1 className="text-3xl font-bold sm:text-4xl">{siteConfig.home.hero.title}</h1>
           <div className="text-text-secondary text-base leading-relaxed sm:text-lg">
-            {siteConfig.pages.home.hero.paragraphs.map((paragraph, index) => (
+            {siteConfig.home.hero.paragraphs.map((paragraph: string, index: number) => (
               <p key={index}>{renderMarkdown(paragraph)}</p>
             ))}
           </div>
@@ -103,7 +103,7 @@ export default async function BlogPage() {
         )}
 
         {/* Show more link if there are more posts than postsToShow */}
-        {allPosts.length > siteConfig.pages.home.postsToShow && (
+        {allPosts.length > siteConfig.home.postsToShow && (
           <div className="flex justify-center pt-4">
             <Link
               href="/posts"

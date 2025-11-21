@@ -3,6 +3,7 @@ import { siteConfig } from '@/lib/config'
 import { getAllMioSays } from '@/lib/mio-says'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/markdown-utils'
+import { pageMetadata } from '@/lib/pages'
 
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -32,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const lastUpdate = mioSays.length > 0 ? dayjs(mioSays[0].date).fromNow() : ''
 
   const ogImageParams = new URLSearchParams({
-    title: 'Mio 说',
+    title: pageMetadata.mioSays.title,
     subtitle: latestContent,
     type: 'mio-says',
     count: mioSays.length.toString(),
@@ -42,8 +43,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
 
   return {
-    title: 'Mio 说',
-    description: '这是专门开设给 Mio 的专属发言空间，Viki 无权编辑。',
+    title: pageMetadata.mioSays.title,
+    description: pageMetadata.mioSays.description,
     alternates: {
       canonical: generateCanonicalUrl('/mio-says'),
     },
@@ -51,22 +52,22 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
       url: generateCanonicalUrl('/mio-says'),
-      title: 'Mio 说',
-      description: '这是专门开设给 Mio 的专属发言空间，Viki 无权编辑。',
+      title: pageMetadata.mioSays.title,
+      description: pageMetadata.mioSays.description,
       siteName: siteConfig.name,
       images: [
         {
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: 'Mio 说',
+          alt: pageMetadata.mioSays.title,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Mio 说',
-      description: '这是专门开设给 Mio 的专属发言空间，Viki 无权编辑。',
+      title: pageMetadata.mioSays.title,
+      description: pageMetadata.mioSays.description,
       creator: siteConfig.author.twitter,
       images: [ogImageUrl],
     },
@@ -87,7 +88,7 @@ export default async function MioSaysPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">Mio 说</h1>
         <p className="text-text-secondary">
-          这是专门开设给 Mio 的专属发言空间，共 {mioSays.length.toLocaleString('zh-CN')} 条内容，Viki 无权编辑。
+          这里是开设给 Mio 的专属发言空间，共 {mioSays.length.toLocaleString('zh-CN')} 条内容，Viki 无权编辑。
         </p>
       </section>
 

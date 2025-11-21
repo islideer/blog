@@ -76,28 +76,12 @@ export const siteConfig = {
     },
   },
 
-  // 页面配置
-  pages: {
-    home: {
-      title: '博客',
-      description: '所有博客文章列表',
-      hero: {
-        title: '你好，我是 Viki',
-        paragraphs: about.intro.paragraphs,
-      } as { title: string; paragraphs: string[] },
-      postsToShow: 3,
-    },
-    posts: {
-      title: '文章',
-      description: '按年份分组展示的所有文章',
-    },
-    timeline: {
-      title: '大事记',
-      description: '记录生活中的重要时刻和里程碑',
-    },
-    about: {
-      title: '关于',
-      description: '关于 Viki 和这个博客',
-    },
+  // 首页配置
+  home: {
+    postsToShow: 3, // 首页显示的文章数量（不含置顶）
+    hero: {
+      title: '你好，我是 Viki',
+      paragraphs: about.intro.paragraphs,
+    } as { title: string; paragraphs: string[] },
   },
 } as const

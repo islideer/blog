@@ -1,5 +1,6 @@
 import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
+import { pageMetadata } from '@/lib/pages'
 import Link from 'next/link'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
@@ -19,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const lastUpdate = lastUpdateDate.fromNow()
 
   const ogImageParams = new URLSearchParams({
-    title: siteConfig.pages.posts.title,
+    title: pageMetadata.posts.title,
     subtitle: subtitle,
     type: 'posts',
     count: allPosts.length.toString(),
@@ -29,8 +30,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
 
   return {
-    title: siteConfig.pages.posts.title,
-    description: siteConfig.pages.posts.description,
+    title: pageMetadata.posts.title,
+    description: pageMetadata.posts.description,
     alternates: {
       canonical: generateCanonicalUrl('/posts'),
     },
@@ -38,22 +39,22 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
       url: generateCanonicalUrl('/posts'),
-      title: siteConfig.pages.posts.title,
-      description: siteConfig.pages.posts.description,
+      title: pageMetadata.posts.title,
+      description: pageMetadata.posts.description,
       siteName: siteConfig.name,
       images: [
         {
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: siteConfig.pages.posts.title,
+          alt: pageMetadata.posts.title,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: siteConfig.pages.posts.title,
-      description: siteConfig.pages.posts.description,
+      title: pageMetadata.posts.title,
+      description: pageMetadata.posts.description,
       creator: siteConfig.author.twitter,
       images: [ogImageUrl],
     },
@@ -104,7 +105,7 @@ export default async function PostsPage() {
     <div className="space-y-12">
       {/* Header */}
       <section className="space-y-3">
-        <h1 className="text-3xl font-bold">{siteConfig.pages.posts.title}</h1>
+        <h1 className="text-3xl font-bold">{pageMetadata.posts.title}</h1>
         <p className="text-text-secondary">
           共 {allPosts.length.toLocaleString('zh-CN')} 篇文章，按年份分组展示。
         </p>

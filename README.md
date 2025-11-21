@@ -26,7 +26,7 @@
 - **Markdown 文章** - 支持 `.md` 文件，按年份组织（2019-2025）
 - **语法高亮** - 基于 Shiki 的精美代码高亮
 - **Front Matter** - 灵活的文章元数据（标题、日期、摘要、标签等）
-- **多页面支持** - 首页、文章列表、文章页、大事记、关于页
+- **多页面支持** - 首页、文章列表、文章页、大事记、碎碎念、Mio 说、关于页
 
 ### 🎨 设计与体验
 
@@ -141,6 +141,7 @@ blog/
 │   ├── posts/page.tsx            # 文章页面（按年份分组）
 │   ├── timeline/page.tsx         # 大事记页面
 │   ├── thoughts/page.tsx         # 碎碎念页面
+│   ├── mio-says/page.tsx         # Mio 说页面
 │   ├── about/page.tsx            # 关于页面
 │   ├── api/og/route.tsx          # OG 图片生成 API
 │   ├── globals.css               # 全局样式
@@ -158,9 +159,11 @@ blog/
 │   └── old-post-banner.tsx       # 旧文章提示横幅
 ├── lib/                          # 工具库
 │   ├── config.ts                 # 站点配置
+│   ├── pages.ts                  # 页面元数据配置
 │   ├── about.ts                  # 关于页面数据
 │   ├── posts.ts                  # 文章处理逻辑
 │   ├── thoughts.ts               # 碎碎念数据
+│   ├── mio-says.ts               # Mio 说数据
 │   ├── timeline.ts               # 大事记数据
 │   ├── seo.ts                    # SEO 工具函数
 │   ├── mdx.ts                    # MDX 配置

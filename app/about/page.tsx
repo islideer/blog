@@ -4,6 +4,7 @@ import { AboutOpenSource } from '@/components/about-open-source'
 import { AboutTechStack } from '@/components/about-tech-stack'
 import { about } from '@/lib/about'
 import { siteConfig } from '@/lib/config'
+import { pageMetadata } from '@/lib/pages'
 import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
@@ -17,8 +18,8 @@ const ogImageParams = new URLSearchParams({
 const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
 
 export const metadata: Metadata = {
-  title: siteConfig.pages.about.title,
-  description: siteConfig.pages.about.description,
+  title: pageMetadata.about.title,
+  description: pageMetadata.about.description,
   alternates: {
     canonical: generateCanonicalUrl('/about'),
   },
@@ -26,22 +27,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
     url: generateCanonicalUrl('/about'),
-    title: siteConfig.pages.about.title,
-    description: siteConfig.pages.about.description,
+    title: pageMetadata.about.title,
+    description: pageMetadata.about.description,
     siteName: siteConfig.name,
     images: [
       {
         url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: siteConfig.pages.about.title,
+        alt: pageMetadata.about.title,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.pages.about.title,
-    description: siteConfig.pages.about.description,
+    title: pageMetadata.about.title,
+    description: pageMetadata.about.description,
     creator: siteConfig.author.twitter,
     images: [ogImageUrl],
   },

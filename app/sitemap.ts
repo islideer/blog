@@ -39,8 +39,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${siteConfig.url}/thoughts`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.5, // 中等优先级
+      changeFrequency: 'hourly', // 小时级别更新
+      priority: 0.6, // 中高优先级（频繁更新）
+    },
+    {
+      url: `${siteConfig.url}/mio-says`,
+      lastModified: new Date(),
+      changeFrequency: 'hourly', // 小时级别更新
+      priority: 0.6, // 中高优先级（频繁更新）
     },
   ]
 

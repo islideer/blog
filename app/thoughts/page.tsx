@@ -3,6 +3,7 @@ import { siteConfig } from '@/lib/config'
 import { getAllThoughts } from '@/lib/thoughts'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/markdown-utils'
+import { pageMetadata } from '@/lib/pages'
 
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -32,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const lastUpdate = thoughts.length > 0 ? dayjs(thoughts[0].date).fromNow() : ''
 
   const ogImageParams = new URLSearchParams({
-    title: '碎碎念',
+    title: pageMetadata.thoughts.title,
     subtitle: latestContent,
     type: 'thoughts',
     count: thoughts.length.toString(),
@@ -42,8 +43,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
 
   return {
-    title: '碎碎念',
-    description: '记录生活中的点滴想法和碎碎念',
+    title: pageMetadata.thoughts.title,
+    description: pageMetadata.thoughts.description,
     alternates: {
       canonical: generateCanonicalUrl('/thoughts'),
     },
@@ -51,22 +52,22 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
       url: generateCanonicalUrl('/thoughts'),
-      title: '碎碎念',
-      description: '记录生活中的点滴想法和碎碎念',
+      title: pageMetadata.thoughts.title,
+      description: pageMetadata.thoughts.description,
       siteName: siteConfig.name,
       images: [
         {
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: '碎碎念',
+          alt: pageMetadata.thoughts.title,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: '碎碎念',
-      description: '记录生活中的点滴想法和碎碎念',
+      title: pageMetadata.thoughts.title,
+      description: pageMetadata.thoughts.description,
       creator: siteConfig.author.twitter,
       images: [ogImageUrl],
     },

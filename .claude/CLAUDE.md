@@ -32,7 +32,9 @@
 - **文章目录** - `posts/` 按年份组织（2019-2025）
 - **Markdown 格式** - 使用 `.md` 文件，不是 MDX
 - **Front Matter** - 包含 layout、title、date、excerpt 等字段
-- **多页面** - 首页、文章页、大事记、碎碎念、关于
+- **多页面** - 首页、文章页、大事记、碎碎念、Mio 说、关于
+- **碎碎念** - 记录生活中的点滴想法（小时级别更新）
+- **Mio 说** - 专门开设给 Mio 的专属发言空间（小时级别更新，Viki 无权编辑）
 
 ## 代码风格规范
 
@@ -112,6 +114,7 @@ blog/
 │   ├── posts/page.tsx            # 文章页面（按年份分组）
 │   ├── timeline/page.tsx         # 大事记页面
 │   ├── thoughts/page.tsx         # 碎碎念页面
+│   ├── mio-says/page.tsx         # Mio 说页面
 │   ├── about/page.tsx            # 关于页面
 │   ├── api/og/route.tsx          # OG 图片生成 API
 │   ├── globals.css               # 全局样式
@@ -129,9 +132,11 @@ blog/
 │   └── old-post-banner.tsx       # 旧文章提示横幅
 ├── lib/                          # 工具库
 │   ├── config.ts                 # 站点配置
+│   ├── pages.ts                  # 页面元数据配置
 │   ├── about.ts                  # 关于页面数据
 │   ├── posts.ts                  # 文章处理逻辑
 │   ├── thoughts.ts               # 碎碎念数据
+│   ├── mio-says.ts               # Mio 说数据
 │   ├── timeline.ts               # 大事记数据
 │   ├── seo.ts                    # SEO 工具函数
 │   ├── mdx.ts                    # MDX 配置

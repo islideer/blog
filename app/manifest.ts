@@ -47,6 +47,20 @@ export default function manifest(): MetadataRoute.Manifest {
         icons: [{ src: '/icon-192.png', sizes: '192x192' }],
       },
       {
+        name: '碎碎念',
+        short_name: '碎碎念',
+        description: '记录生活中的点滴想法',
+        url: '/thoughts',
+        icons: [{ src: '/icon-192.png', sizes: '192x192' }],
+      },
+      {
+        name: 'Mio 说',
+        short_name: 'Mio 说',
+        description: 'Mio 的专属发言空间',
+        url: '/mio-says',
+        icons: [{ src: '/icon-192.png', sizes: '192x192' }],
+      },
+      {
         name: '关于',
         short_name: '关于',
         description: '了解更多关于 Viki',
