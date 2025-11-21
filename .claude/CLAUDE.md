@@ -125,6 +125,7 @@ blog/
 │   └── manifest.ts               # PWA Manifest
 ├── components/                   # React 组件（kebab-case）
 │   ├── theme-toggle.tsx          # 主题切换组件
+│   ├── google-analytics.tsx      # Google Analytics 组件
 │   ├── about-intro.tsx           # 关于页面简介
 │   ├── about-contact.tsx         # 关于页面联系方式
 │   ├── about-tech-stack.tsx      # 关于页面技术栈
@@ -349,6 +350,11 @@ export const siteConfig = {
     github: 'https://github.com/vikiboss',
   },
 
+  // Google Analytics
+  analytics: {
+    googleAnalyticsId: 'G-YCP5HPQZXN',
+  },
+
   // ... 更多配置
 }
 ```
@@ -481,6 +487,12 @@ function Component({ items }: { items: string[] }) {
 文件：`components/old-post-banner.tsx`
 
 自动检测文章发布时间，超过 365 天显示提示横幅。
+
+### Google Analytics
+
+文件：`components/google-analytics.tsx`
+
+自动追踪页面浏览和路由变化，提供访问统计和用户行为分析。配置项位于 `lib/config.ts` 的 `analytics.googleAnalyticsId`。
 
 ## 部署
 

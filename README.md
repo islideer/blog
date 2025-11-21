@@ -43,6 +43,7 @@
 - **RSS Feed** - 完整的 RSS 2.0 支持（`/rss`）
 - **Robots.txt** - 搜索引擎爬虫配置
 - **PWA Manifest** - 渐进式 Web 应用支持
+- **Google Analytics** - 访问统计和用户行为分析
 
 ---
 
@@ -68,6 +69,7 @@
 - **[Feed](https://github.com/jpmonette/feed)** - RSS/Atom feed 生成
 - **[@vercel/og](https://vercel.com/docs/functions/og-image-generation)** - OG 图片生成
 - **[@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)** - 打包分析
+- **[Google Analytics](https://analytics.google.com/)** - 网站访问统计
 
 ### 开发工具
 
@@ -251,6 +253,11 @@ export const siteConfig = {
     name: 'Viki',
     email: 'hi@viki.moe',
     github: 'https://github.com/vikiboss',
+  },
+
+  // Google Analytics
+  analytics: {
+    googleAnalyticsId: 'G-YCP5HPQZXN',
   },
 
   // ... 更多配置

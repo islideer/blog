@@ -2,6 +2,7 @@ import './globals.css'
 
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { GoogleAnalytics } from '@/components/google-analytics'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { Analytics } from '@vercel/analytics/next'
@@ -241,6 +242,7 @@ export default function RootLayout({
         </div>
 
         <Analytics />
+        <GoogleAnalytics gaId={siteConfig.analytics.googleAnalyticsId} />
       </body>
     </html>
   )

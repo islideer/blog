@@ -84,4 +84,9 @@ export const siteConfig = {
       paragraphs: about.intro.paragraphs,
     } as { title: string; paragraphs: string[] },
   },
+
+  // Google Analytics
+  analytics: {
+    googleAnalyticsId: 'G-YCP5HPQZXN',
+  },
 } as const
