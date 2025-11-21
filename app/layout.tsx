@@ -2,7 +2,7 @@ import './globals.css'
 
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { GoogleAnalytics } from '@/components/google-analytics'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { Analytics } from '@vercel/analytics/next'
