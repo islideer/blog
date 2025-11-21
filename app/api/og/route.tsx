@@ -145,6 +145,7 @@ export async function GET(req: NextRequest) {
                   {readingTime && (
                     <div
                       style={{
+                        display: 'flex',
                         fontSize: 18,
                         color: '#888888',
                         fontWeight: 500,
