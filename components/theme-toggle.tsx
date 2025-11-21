@@ -33,7 +33,7 @@ export function ThemeToggle() {
   // 避免服务端渲染不匹配
   if (!mounted) {
     return (
-      <button className="text-text-secondary hover:bg-bg-tertiary h-9 w-9 rounded-xs">
+      <button className="text-text-secondary hover:bg-bg-tertiary h-7 w-7 rounded-xs sm:h-8 sm:w-8">
         <span className="sr-only">切换主题</span>
       </button>
     )
@@ -42,7 +42,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary flex h-9 w-9 items-center justify-center rounded-xs transition-colors"
+      className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary flex h-7 w-7 items-center justify-center rounded-xs transition-colors sm:h-8 sm:w-8"
       aria-label={theme === 'light' ? '切换到暗色模式' : '切换到亮色模式'}
       title={theme === 'light' ? '切换到暗色模式' : '切换到亮色模式'}
     >
@@ -50,14 +50,15 @@ export function ThemeToggle() {
         // Moon 图标（暗色模式）
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
+          width="16"
+          height="16"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          className="sm:h-[18px] sm:w-[18px]"
         >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
@@ -65,14 +66,15 @@ export function ThemeToggle() {
         // Sun 图标（亮色模式）
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
+          width="16"
+          height="16"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          className="sm:h-[18px] sm:w-[18px]"
         >
           <circle cx="12" cy="12" r="5" />
           <line x1="12" y1="1" x2="12" y2="3" />

@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
-      url: `${siteConfig.url}/archives`,
+      url: `${siteConfig.url}/posts`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,

@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {post.readingTime && (
               <>
                 <span className="shrink-0">·</span>
-                <span className="shrink-0">约 {post.readingTime.toLocaleString('zh-CN')} 分钟</span>
+                <span className="shrink-0">{post.readingTime.toLocaleString('zh-CN')} 分钟</span>
               </>
             )}
             <OldPostBanner date={post.date} />

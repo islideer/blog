@@ -1,4 +1,4 @@
-import type { AboutData } from '@/lib/about-data'
+import type { AboutData } from '@/lib/about'
 
 interface AboutOpenSourceProps {
   data: AboutData['openSource']

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "60s",
+    "url": "https://github.com/vikiboss/60s",
+    "description": "60 秒资讯、API 聚合服务",
+    "stars": "4K+"
+  },
+  {
+    "name": "@shined/react-use",
+    "url": "https://github.com/sheinsight/react-use",
+    "description": "SSR 友好的 React Hooks 库"
+  },
+  {
+    "name": "@shined/reactive",
+    "url": "https://github.com/sheinsight/reactive",
+    "description": "JavaScript 响应式状态管理"
+  },
+  {
+    "name": "guitar-studio",
+    "url": "https://github.com/vikiboss/guitar-studio",
+    "description": "多合一吉他工具：调音、和弦、节奏"
+  },
+  {
+    "name": "react-online",
+    "url": "https://github.com/vikiboss/react-online",
+    "description": "React 在线编辑器，轻量、原生、支持 ESM、TypeScript、Tailwind CSS"
+  },
+  {
+    "name": "deno-functions",
+    "url": "https://github.com/vikiboss/deno-functions",
+    "description": "一系列实用的 Serverless 函数，实用可靠，部署在 Deno Deploy"
+  },
+  {
+    "name": "face",
+    "url": "https://github.com/vikiboss/face",
+    "description": "QQ 表情包静态资源"
+  },
+  {
+    "name": "v50",
+    "url": "https://github.com/vikiboss/v50",
+    "description": "KFC 疯狂星期四文案数据、API"
+  },
+  {
+    "name": "ncu-auto-login-script",
+    "url": "https://github.com/vikiboss/ncu-auto-login-script",
+    "description": "南昌大学（NCU）校园网自动登录脚本"
+  },
+  {
+    "name": "gs-helper",
+    "url": "https://github.com/vikiboss/gs-helper",
+    "description": "写给原神玩家的小工具（已归档）"
+  },
+  {
+    "name": "BaidupanPlaySpeedControl",
+    "url": "https://github.com/vikiboss/BaidupanPlaySpeedControl",
+    "description": "适用于百度网盘的视频倍速播放脚本（已归档）"
+  }
+]

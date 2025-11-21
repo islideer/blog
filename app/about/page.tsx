@@ -2,8 +2,7 @@ import { AboutContact } from '@/components/about-contact'
 import { AboutIntro } from '@/components/about-intro'
 import { AboutOpenSource } from '@/components/about-open-source'
 import { AboutTechStack } from '@/components/about-tech-stack'
-import { AboutTimeline } from '@/components/about-timeline'
-import { aboutData } from '@/lib/about-data'
+import { about } from '@/lib/about'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
 
@@ -33,12 +32,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-2xl space-y-12 sm:space-y-16 py-12">
-      <AboutIntro title={aboutData.intro.title} paragraphs={aboutData.intro.paragraphs} />
-      <AboutTimeline items={aboutData.timeline} />
-      <AboutOpenSource data={aboutData.openSource} />
-      <AboutTechStack technologies={aboutData.techStack} />
-      <AboutContact links={aboutData.contact} />
+    <div className="mx-auto max-w-2xl space-y-12 py-8 sm:space-y-16 sm:py-12">
+      <AboutIntro title={about.intro.title} paragraphs={about.intro.paragraphs} />
+      <AboutOpenSource data={about.openSource} />
+      <AboutTechStack technologies={about.techStack} />
+      <AboutContact links={about.contact} />
     </div>
   )
 }

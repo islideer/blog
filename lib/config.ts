@@ -3,7 +3,7 @@
  * 统一管理网站的基本信息、元数据和常量
  */
 
-import { aboutData } from './about-data'
+import { about } from './about'
 
 export const siteConfig = {
   // 基本信息
@@ -26,7 +26,7 @@ export const siteConfig = {
   // 社交链接
   links: {
     github: 'https://github.com/vikiboss',
-    rss: '/rss.xml',
+    rss: '/rss',
   },
 
   // SEO 关键词
@@ -83,13 +83,17 @@ export const siteConfig = {
       description: '所有博客文章列表',
       hero: {
         title: '你好，我是 Viki',
-        paragraphs: aboutData.intro.paragraphs,
+        paragraphs: about.intro.paragraphs,
       } as { title: string; paragraphs: string[] },
       postsToShow: 3,
     },
-    archives: {
-      title: '归档',
-      description: '按年份归档的所有文章',
+    posts: {
+      title: '文章',
+      description: '按年份分组展示的所有文章',
+    },
+    timeline: {
+      title: '大事记',
+      description: '记录生活中的重要时刻和里程碑',
     },
     about: {
       title: '关于',

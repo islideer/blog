@@ -1,4 +1,4 @@
-import type { ContactLink } from '@/lib/about-data'
+import type { ContactLink } from '@/lib/about'
 
 interface AboutContactProps {
   links: ContactLink[]

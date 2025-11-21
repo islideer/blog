@@ -1,0 +1,12 @@
+{
+  "intro": {
+    "title": "Viki",
+    "paragraphs": [
+      "一名 Web 前端工程师，就职于 [SHEIN](https://www.sheingroup.com/)，热爱 [Web 技术](https://developer.mozilla.org/zh-CN/docs/Web)，相信开源的力量。",
+      "有幸与 Mio 相伴，一起享受真诚而简单的生活，朝着属于我们的小家努力。"
+    ]
+  },
+  "openSource": {
+    "moreLink": "https://github.com/vikiboss?tab=repositories"
+  }
+}

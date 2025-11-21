@@ -1,10 +1,14 @@
-import dayjs from 'dayjs'
-import 'dayjs/locale/zh-cn'
 import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
 import { getAllThoughts } from '@/lib/thoughts'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/markdown-utils'
+
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import 'dayjs/locale/zh-cn'
 
 import type { Metadata } from 'next'
 
@@ -43,6 +47,10 @@ export const metadata: Metadata = {
 
 export default async function ThoughtsPage() {
   dayjs.locale('zh-cn')
+  dayjs.extend(utc)
+  dayjs.extend(timezone)
+  dayjs.extend(relativeTime)
+
   const thoughts = await getAllThoughts()
 
   return (
@@ -86,8 +94,14 @@ export default async function ThoughtsPage() {
                   >
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                   </svg>
-                  <time className="text-text-tertiary text-xs">
-                    发布于 {dayjs(thought.date).format('YYYY.MM.DD HH:mm ddd')}
+                  <time
+                    className="text-text-tertiary text-xs"
+                    title={dayjs(thought.date).format('YYYY/MM/DD HH:mm:ss ddd')}
+                  >
+                    发布于{' '}
+                    {dayjs().diff(dayjs(thought.date), 'year') >= 1
+                      ? dayjs(thought.date).format('YYYY/MM/DD HH:mm:ss ddd')
+                      : dayjs(thought.date).fromNow()}
                   </time>
                 </div>
 

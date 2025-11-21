@@ -1,5 +1,6 @@
-import Link from 'next/link'
 import './globals.css'
+
+import Link from 'next/link'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
@@ -128,8 +129,11 @@ export default function RootLayout({
               <nav
                 role="navigation"
                 aria-label="主导航"
-                className="flex items-center space-x-3 sm:space-x-4"
+                className="flex items-center space-x-2 sm:space-x-4"
               >
+                <Link href="/posts" className="text-text-secondary hover:text-text-primary text-sm">
+                  文章
+                </Link>
                 <Link
                   href="/thoughts"
                   className="text-text-secondary hover:text-text-primary text-sm"
@@ -137,10 +141,10 @@ export default function RootLayout({
                   碎碎念
                 </Link>
                 <Link
-                  href="/archives"
+                  href="/timeline"
                   className="text-text-secondary hover:text-text-primary text-sm"
                 >
-                  归档
+                  大事记
                 </Link>
                 <Link href="/about" className="text-text-secondary hover:text-text-primary text-sm">
                   关于

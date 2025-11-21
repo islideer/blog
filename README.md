@@ -51,7 +51,7 @@
 - **语法高亮** - Shiki 提供精美代码高亮
 - **Front Matter** - 灵活的文章元数据
 - **标签系统** - 文章分类和筛选
-- **归档页面** - 按年份组织文章
+- **文章页面** - 按年份组织文章
 - **推荐文章** - 基于标签的相关文章推荐
 
 ### 🔧 开发体验
@@ -166,14 +166,14 @@ blog/
 │   ├── (post)/                   # 文章路由组
 │   │   ├── page.tsx              # 首页(文章列表)
 │   │   └── [slug]/page.tsx       # 文章详情页
-│   ├── archives/                 # 归档页面
+│   ├── posts/                    # 文章页面
 │   ├── about/                    # 关于页面
 │   ├── og/                       # OG 图片生成 API
 │   ├── layout.tsx                # 根布局
 │   ├── globals.css               # 全局样式
 │   ├── sitemap.ts                # 动态 Sitemap
 │   ├── robots.ts                 # Robots.txt
-│   ├── rss.xml/route.ts          # RSS Feed
+│   ├── rss/route.ts          # RSS Feed
 │   ├── manifest.ts               # PWA Manifest
 │   └── styles/                   # 样式文件
 │       ├── tailwind.css          # Tailwind 配置

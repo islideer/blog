@@ -6,34 +6,34 @@ import { generateCanonicalUrl } from '@/lib/seo'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: siteConfig.pages.archives.title,
-  description: siteConfig.pages.archives.description,
+  title: siteConfig.pages.posts.title,
+  description: siteConfig.pages.posts.description,
   alternates: {
-    canonical: generateCanonicalUrl('/archives'),
+    canonical: generateCanonicalUrl('/posts'),
   },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
-    url: generateCanonicalUrl('/archives'),
-    title: siteConfig.pages.archives.title,
-    description: siteConfig.pages.archives.description,
+    url: generateCanonicalUrl('/posts'),
+    title: siteConfig.pages.posts.title,
+    description: siteConfig.pages.posts.description,
     siteName: siteConfig.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.pages.archives.title,
-    description: siteConfig.pages.archives.description,
+    title: siteConfig.pages.posts.title,
+    description: siteConfig.pages.posts.description,
     creator: siteConfig.author.twitter,
   },
 }
 
-export default async function ArchivesPage() {
+export default async function PostsPage() {
   const allPosts = await getAllPosts()
   const pinnedPosts = allPosts.filter((post) => post.top)
   const posts = allPosts.filter((post) => !post.top)
 
   // 按年份分组
-  const archivesByYear = posts.reduce(
+  const postsByYear = posts.reduce(
     (acc, post) => {
       const year = dayjs(post.date).year()
       if (!acc[year]) {
@@ -71,9 +71,9 @@ export default async function ArchivesPage() {
     <div className="space-y-12">
       {/* Header */}
       <section className="space-y-3">
-        <h1 className="text-3xl font-bold">{siteConfig.pages.archives.title}</h1>
+        <h1 className="text-3xl font-bold">{siteConfig.pages.posts.title}</h1>
         <p className="text-text-secondary">
-          共 {allPosts.length.toLocaleString('zh-CN')} 篇文章，按年份归档。
+          共 {allPosts.length.toLocaleString('zh-CN')} 篇文章，按年份分组展示。
         </p>
       </section>
 
@@ -101,7 +101,7 @@ export default async function ArchivesPage() {
                     <>
                       <span className="shrink-0 sm:hidden">·</span>
                       <span className="sm:hidden">
-                        约 {post.readingTime.toLocaleString('zh-CN')} 分钟
+                        {post.readingTime.toLocaleString('zh-CN')} 分钟
                       </span>
                     </>
                   )}
@@ -115,7 +115,7 @@ export default async function ArchivesPage() {
                 {post.readingTime && (
                   <>
                     <span className="text-text-tertiary hidden shrink-0 text-xs sm:inline">
-                      约 {post.readingTime.toLocaleString('zh-CN')} 分钟
+                      {post.readingTime.toLocaleString('zh-CN')} 分钟
                     </span>
                   </>
                 )}
@@ -125,10 +125,10 @@ export default async function ArchivesPage() {
         </section>
       )}
 
-      {/* Archives by Year */}
+      {/* Posts by Year */}
       <section className="space-y-12">
         {allYears.map((year) => {
-          const yearPosts = archivesByYear[year] || []
+          const yearPosts = postsByYear[year] || []
           const hasNoPosts = yearPosts.length === 0
 
           return (
@@ -159,7 +159,7 @@ export default async function ArchivesPage() {
                           <>
                             <span className="shrink-0 sm:hidden">·</span>
                             <span className="sm:hidden">
-                              约 {post.readingTime.toLocaleString('zh-CN')} 分钟
+                              {post.readingTime.toLocaleString('zh-CN')} 分钟
                             </span>
                           </>
                         )}
@@ -173,7 +173,7 @@ export default async function ArchivesPage() {
                       {post.readingTime && (
                         <>
                           <span className="text-text-tertiary hidden shrink-0 text-xs sm:inline">
-                            约 {post.readingTime.toLocaleString('zh-CN')} 分钟
+                            {post.readingTime.toLocaleString('zh-CN')} 分钟
                           </span>
                         </>
                       )}
