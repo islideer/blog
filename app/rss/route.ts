@@ -13,11 +13,15 @@ export async function GET() {
     id: siteConfig.url,
     link: siteConfig.url,
     language: siteConfig.language,
+    image: `${siteConfig.url}/apple-icon.png`, // RSS 阅读器显示的图片
     favicon: `${siteConfig.url}/favicon.ico`,
-    copyright: `© ${new Date().getFullYear()} ${siteConfig.author.name}. 所有文章均遵循 ${siteConfig.copyright.license.name} 协议，转载请注明出处。`,
+    copyright: `© ${siteConfig.copyright.year.start}-${new Date().getFullYear()} ${siteConfig.author.name}. 所有文章均遵循 ${siteConfig.copyright.license.name} 协议，转载请注明出处。`,
     updated: new Date(posts[0]?.date || Date.now()),
+    generator: 'Next.js 16 + Feed', // 生成器信息
     feedLinks: {
       rss2: `${siteConfig.url}${siteConfig.links.rss}`,
+      json: `${siteConfig.url}/feed.json`, // 可选：JSON Feed
+      atom: `${siteConfig.url}/atom.xml`, // 可选：Atom Feed
     },
     author: {
       name: siteConfig.author.name,
@@ -26,13 +30,16 @@ export async function GET() {
     },
   })
 
-  posts.forEach((post) => {
+  // 只包含最新的 20 篇文章（博客最佳实践）
+  const recentPosts = posts.slice(0, 20)
+
+  recentPosts.forEach((post) => {
     feed.addItem({
       title: post.title,
       id: `${siteConfig.url}/${post.slug}`,
       link: `${siteConfig.url}/${post.slug}`,
       description: post.excerpt,
-      content: post.excerpt,
+      content: post.excerpt, // 可以考虑添加完整内容
       author: [
         {
           name: siteConfig.author.name,
@@ -41,14 +48,18 @@ export async function GET() {
         },
       ],
       date: new Date(post.date),
-      category: post.tags?.map((tag) => ({ name: tag })),
+      published: new Date(post.date), // 发布日期
+      category: post.tags?.map((tag) => ({ name: tag })) || [],
+      // 添加文章的 GUID，确保唯一性
+      guid: `${siteConfig.url}/${post.slug}`,
     })
   })
 
   return new Response(feed.rss2(), {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+      // 缓存 1 小时，对于博客来说足够了
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
     },
   })
 }

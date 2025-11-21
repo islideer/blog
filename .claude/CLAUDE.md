@@ -1,23 +1,38 @@
 # Claude Code 开发指导
 
-这是一个基于 Next.js 16 + React 19 + Tailwind CSS v4 构建的现代化博客项目。
+这是 Viki 的个人博客，基于 Next.js 16 + React 19 + Tailwind CSS v4 构建的现代化博客项目。
 
 ## 核心原则
 
 1. **现代化优先** - 只支持现代浏览器，大胆使用最新 Web 标准
-2. **性能至上** - 静态生成，追求极致性能
-3. **实验性** - 作为新技术的实验场
-4. **简洁性** - 代码风格简洁，易于阅读
+2. **性能至上** - 混合渲染（静态生成 + 动态 API），追求极致性能
+3. **内容为王** - 专注于写作和内容展示
+4. **简洁性** - 代码风格简洁，易于阅读和维护
 
 ## 技术栈
 
-- **Next.js 16** - App Router + 静态导出
-- **React 19** - Server Components + 新 Hooks
-- **Tailwind CSS v4** - CSS-first 配置
-- **TypeScript 5.7+** - 类型安全
-- **MDX** - 增强的 Markdown
-- **pnpm 10.20.0+** - 包管理器
+- **Next.js 16** - App Router + 混合渲染
+- **React 19** - Server Components + React Compiler
+- **Tailwind CSS v4** - CSS-first 配置，OKLCH 色彩
+- **TypeScript 5.9+** - 类型安全
+- **Markdown** - 文章格式（.md 文件）
+- **pnpm 10.22.0+** - 包管理器
 - **dayjs** - 时间处理库
+
+## 项目特点
+
+### 渲染模式
+
+- **静态生成** - 文章页面、列表页面静态生成
+- **动态 API** - OG 图片、RSS Feed 等动态路由
+- **不使用 `output: 'export'`** - 支持混合模式，保留 API Routes
+
+### 内容组织
+
+- **文章目录** - `posts/` 按年份组织（2019-2025）
+- **Markdown 格式** - 使用 `.md` 文件，不是 MDX
+- **Front Matter** - 包含 layout、title、date、excerpt 等字段
+- **多页面** - 首页、文章页、大事记、碎碎念、关于
 
 ## 代码风格规范
 
@@ -47,18 +62,19 @@
 ### 文件命名
 
 - 组件文件必须使用 `kebab-case`
-  - ✅ `header.tsx`, `footer.tsx`, `view-transitions-demo.tsx`
-  - ❌ `Header.tsx`, `Footer.tsx`, `ViewTransitionsDemo.tsx`
+  - ✅ `theme-toggle.tsx`, `about-intro.tsx`, `old-post-banner.tsx`
+  - ❌ `ThemeToggle.tsx`, `AboutIntro.tsx`, `OldPostBanner.tsx`
 
 ### Prettier 配置
 
 ```json
 {
-  "semi": false, // 不使用分号
-  "singleQuote": true, // 单引号
-  "trailingComma": "all", // 所有地方添加尾随逗号
-  "tabWidth": 2, // 2空格缩进
-  "printWidth": 100 // 100字符行宽
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "printWidth": 100,
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
 ```
 
@@ -88,27 +104,52 @@ export function MyComponent({ name }: { name: string }) {
 
 ```
 blog/
-├── app/                      # Next.js App Router
-│   ├── layout.tsx           # 根布局
-│   ├── page.tsx             # 首页
-│   ├── blog/                # 博客页面
-│   │   ├── page.tsx         # 文章列表
-│   │   └── [slug]/page.tsx  # 文章详情
-│   ├── experiments/         # 实验区
-│   │   ├── view-transitions/
-│   │   ├── react-19-features/
-│   │   └── modern-css/
-│   └── about/               # 关于页面
-├── components/              # 组件 (kebab-case)
-│   ├── header.tsx
-│   └── footer.tsx
-├── content/                 # 内容目录
-│   └── posts/               # MDX 文章
-├── lib/                     # 工具库
-│   └── posts.ts             # 文章处理逻辑
-└── .claude/                 # Claude Code 配置
-    ├── CODE_STYLE.md        # 详细代码风格指南
-    └── CLAUDE.md            # 本文件
+├── app/                          # Next.js App Router
+│   ├── [slug]/page.tsx           # 文章详情页（动态路由）
+│   ├── page.tsx                  # 首页（文章列表）
+│   ├── layout.tsx                # 根布局
+│   ├── not-found.tsx             # 404 页面
+│   ├── posts/page.tsx            # 文章页面（按年份分组）
+│   ├── timeline/page.tsx         # 大事记页面
+│   ├── thoughts/page.tsx         # 碎碎念页面
+│   ├── about/page.tsx            # 关于页面
+│   ├── api/og/route.tsx          # OG 图片生成 API
+│   ├── globals.css               # 全局样式
+│   ├── sitemap.ts                # 动态 Sitemap
+│   ├── robots.ts                 # Robots.txt
+│   ├── rss/route.ts              # RSS Feed
+│   └── manifest.ts               # PWA Manifest
+├── components/                   # React 组件（kebab-case）
+│   ├── theme-toggle.tsx          # 主题切换组件
+│   ├── about-intro.tsx           # 关于页面简介
+│   ├── about-contact.tsx         # 关于页面联系方式
+│   ├── about-tech-stack.tsx      # 关于页面技术栈
+│   ├── about-open-source.tsx     # 关于页面开源项目
+│   ├── timeline-view.tsx         # 大事记视图
+│   └── old-post-banner.tsx       # 旧文章提示横幅
+├── lib/                          # 工具库
+│   ├── config.ts                 # 站点配置
+│   ├── about.ts                  # 关于页面数据
+│   ├── posts.ts                  # 文章处理逻辑
+│   ├── thoughts.ts               # 碎碎念数据
+│   ├── timeline.ts               # 大事记数据
+│   ├── seo.ts                    # SEO 工具函数
+│   ├── mdx.ts                    # MDX 配置
+│   └── markdown-utils.tsx        # Markdown 处理工具
+├── posts/                        # 文章内容（.md）
+│   ├── 2019/                     # 按年份组织
+│   ├── 2020/
+│   ├── 2021/
+│   ├── 2022/
+│   ├── 2023/
+│   ├── 2024/
+│   └── 2025/
+├── data/                         # 数据文件
+├── public/                       # 静态资源
+│   ├── favicon.ico
+│   └── apple-icon.png
+└── .claude/                      # Claude Code 配置
+    └── CLAUDE.md                 # 本文件
 ```
 
 ## 开发工作流
@@ -128,7 +169,7 @@ pnpm dev  # 使用 Turbopack，极速热更新
 ### 构建
 
 ```bash
-pnpm build  # 静态导出到 out/ 目录
+pnpm build  # 混合渲染，静态页面 + 动态 API
 ```
 
 ### 类型检查
@@ -137,28 +178,40 @@ pnpm build  # 静态导出到 out/ 目录
 pnpm type-check
 ```
 
+### 代码格式化
+
+```bash
+pnpm format
+```
+
 ## Next.js 约定
 
-### Server Components (默认)
+### Server Components（默认）
 
 ```typescript
 // app/page.tsx - Server Component
-export default function Page() {
-  return <div>Server Component</div>
+export default async function Page() {
+  const posts = await getAllPosts()
+  return <div>{/* 渲染文章列表 */}</div>
 }
 ```
 
-### Client Components (需要交互时)
+### Client Components（需要交互时）
 
 ```typescript
-// components/counter.tsx
+// components/theme-toggle.tsx
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-export function Counter() {
-  const [count, setCount] = useState(0)
-  return <button onClick={() => setCount((c) => c + 1)}>{count}</button>
+export function ThemeToggle() {
+  const [theme, setTheme] = useState('light')
+
+  useEffect(() => {
+    // 主题切换逻辑
+  }, [theme])
+
+  return <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>切换主题</button>
 }
 ```
 
@@ -176,14 +229,16 @@ export const metadata: Metadata = {
 ### 动态路由
 
 ```typescript
-// app/blog/[slug]/page.tsx
+// app/[slug]/page.tsx
 export async function generateStaticParams() {
-  return [{ slug: 'post-1' }, { slug: 'post-2' }]
+  const posts = await getAllPosts()
+  return posts.map((post) => ({ slug: post.slug }))
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  return <div>{slug}</div>
+  const post = await getPostBySlug(slug)
+  return <article>{/* 渲染文章 */}</article>
 }
 ```
 
@@ -196,8 +251,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-@theme {
-  --color-primary: oklch(0.6 0.2 200);
+/* 自定义 CSS 变量 */
+:root {
+  --color-text-primary: oklch(0.08 0 0);
+  --color-bg-primary: oklch(1 0 0);
+}
+
+.dark {
+  --color-text-primary: oklch(0.98 0 0);
+  --color-bg-primary: oklch(0.12 0 0);
 }
 ```
 
@@ -205,44 +267,105 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
 Tailwind v4 使用 CSS-first 配置，不需要 `tailwind.config.ts`
 
-## MDX 文章格式
+## Markdown 文章格式
 
-```yaml
+```markdown
 ---
+layout: 'post'
 title: 文章标题
-date: 2025-11-06
-excerpt: 文章摘要
-tags:
-  - React
-  - TypeScript
-author: 作者名
+date: 2024-07-04
+excerpt: 文章摘要，简短描述文章内容
 ---
+
 # 文章内容
 
-这里是 MDX 内容，可以使用 React 组件。
+这里是 Markdown 内容。
+
+## 代码示例
+
+\```typescript
+function example() {
+  console.log('Hello World')
+}
+\```
 ```
+
+### Front Matter 字段说明
+
+| 字段 | 类型 | 必需 | 说明 |
+|------|------|------|------|
+| `layout` | string | ✅ | 布局类型（通常为 `'post'`）|
+| `title` | string | ✅ | 文章标题 |
+| `date` | string | ✅ | 发布日期（YYYY-MM-DD）|
+| `excerpt` | string | ✅ | 文章摘要（用于 SEO 和列表展示）|
+| `tags` | string[] | ❌ | 标签列表（可选）|
 
 ## 常见任务
 
 ### 添加新文章
 
-1. 在 `content/posts/` 创建新的 `.mdx` 文件
+1. 在 `posts/{年份}/` 创建新的 `.md` 文件
+   ```bash
+   # 例如
+   posts/2025/my-new-post.md
+   ```
+
 2. 添加 Front matter 元数据
+   ```markdown
+   ---
+   layout: 'post'
+   title: 我的新文章
+   date: 2025-11-20
+   excerpt: 这是一篇关于...的文章
+   ---
+   ```
+
 3. 编写 Markdown 内容
+
 4. 构建后会自动生成静态页面
 
-### 添加新实验
+### 修改站点配置
 
-1. 在 `app/experiments/` 创建新目录
-2. 添加 `page.tsx` 文件
-3. 在 `app/experiments/page.tsx` 中添加链接
-4. 如需交互，创建 client component
+编辑 `lib/config.ts`:
+
+```typescript
+export const siteConfig = {
+  name: 'Viki 写东西的地方',
+  shortName: 'Viki',
+  description: '分享技术和日常',
+  url: 'https://blog.viki.moe',
+
+  author: {
+    name: 'Viki',
+    email: 'hi@viki.moe',
+    github: 'https://github.com/vikiboss',
+  },
+
+  // ... 更多配置
+}
+```
 
 ### 修改样式
 
 1. 全局样式：编辑 `app/globals.css`
 2. 组件样式：使用 Tailwind 类名
-3. 自定义主题：在 `globals.css` 中使用 `@theme`
+3. 主题颜色：在 `globals.css` 中修改 CSS 变量
+
+### 添加新组件
+
+1. 在 `components/` 创建新文件（使用 kebab-case）
+   ```bash
+   components/my-new-component.tsx
+   ```
+
+2. 如果需要交互，添加 `'use client'` 指令
+   ```typescript
+   'use client'
+
+   export function MyNewComponent() {
+     // 组件逻辑
+   }
+   ```
 
 ## React 19 特性
 
@@ -251,8 +374,12 @@ author: 作者名
 ```typescript
 import { use } from 'react'
 
-function Component({ dataPromise }) {
-  const data = use(dataPromise)
+async function getData() {
+  return fetch('/api/data').then((r) => r.json())
+}
+
+function Component() {
+  const data = use(getData())
   return <div>{data}</div>
 }
 ```
@@ -262,50 +389,13 @@ function Component({ dataPromise }) {
 ```typescript
 import { useOptimistic } from 'react'
 
-function Component({ items }) {
+function Component({ items }: { items: string[] }) {
   const [optimisticItems, addOptimistic] = useOptimistic(
     items,
-    (state, newItem) => [...state, newItem]
+    (state, newItem: string) => [...state, newItem],
   )
-  return <ul>{optimisticItems.map(...)}</ul>
-}
-```
 
-## 现代 Web 特性
-
-### View Transitions
-
-```typescript
-'use client'
-
-function handleClick() {
-  if (document.startViewTransition) {
-    document.startViewTransition(() => {
-      // 更新 DOM
-    })
-  }
-}
-```
-
-### Container Queries
-
-```css
-.container {
-  container-type: inline-size;
-}
-
-@container (min-width: 400px) {
-  .child {
-    font-size: 1.5rem;
-  }
-}
-```
-
-### :has() 选择器
-
-```css
-.card:has(img) {
-  display: grid;
+  return <ul>{optimisticItems.map((item) => <li key={item}>{item}</li>)}</ul>
 }
 ```
 
@@ -315,29 +405,90 @@ function handleClick() {
 
 - 运行 `pnpm type-check` 查看类型错误
 - 使用 VSCode 的 TypeScript 插件
+- 检查 `tsconfig.json` 配置
 
 ### 构建错误
 
-- 检查 MDX Front matter 格式
+- 检查 Markdown Front matter 格式
 - 确保所有文件名符合 kebab-case 规范
 - 检查 import 路径是否正确
+- 查看 `next.config.ts` 配置
 
 ### 样式问题
 
 - 检查 Tailwind 类名是否正确
 - 使用浏览器开发工具检查 CSS
 - 确认 `globals.css` 中的 `@import "tailwindcss"` 存在
+- 检查 CSS 变量是否正确定义
+
+### 性能问题
+
+- 运行 `pnpm analyze` 查看打包分析
+- 检查是否有不必要的客户端组件
+- 确保图片已优化
+- 使用 React DevTools Profiler
 
 ## 最佳实践
 
 1. **优先使用 Server Components** - 除非需要交互
-2. **使用 TypeScript** - 所有文件使用 `.tsx` 扩展名
+2. **使用 TypeScript** - 所有文件使用 `.tsx` 或 `.ts` 扩展名
 3. **遵循 Prettier 规范** - 提交前格式化代码
 4. **kebab-case 文件名** - 所有组件文件
 5. **单引号、无分号、尾随逗号** - 代码风格
 6. **使用 dayjs** - 时间处理
-7. **现代 CSS** - 使用最新特性
-8. **实验新特性** - 大胆尝试新 Web 标准
+7. **OKLCH 色彩** - 颜色定义
+8. **盘古之白** - 中英文混排空格
+9. **中文标点** - 中文内容使用中文标点符号
+
+## 特殊功能
+
+### OG 图片生成
+
+文件：`app/api/og/route.tsx`
+
+自动为每篇文章生成 Open Graph 图片，用于社交媒体分享。
+
+### RSS Feed
+
+文件：`app/rss/route.ts`
+
+自动生成 RSS 2.0 格式的订阅源，包含所有已发布文章。
+
+### 大事记
+
+文件：`app/timeline/page.tsx`
+
+展示重要时刻和里程碑，数据存储在 `lib/timeline.ts`。
+
+### 碎碎念
+
+文件：`app/thoughts/page.tsx`
+
+短想法和随笔，数据存储在 `lib/thoughts.ts`。
+
+### 旧文章提示
+
+文件：`components/old-post-banner.tsx`
+
+自动检测文章发布时间，超过 365 天显示提示横幅。
+
+## 部署
+
+### Vercel（推荐）
+
+1. 连接 GitHub 仓库
+2. 自动检测 Next.js 项目
+3. 自动部署
+
+### 环境变量
+
+```bash
+# 生产环境
+NODE_ENV=production
+
+# 可选：启用打包分析
+ANALYZE=true
+```
 
 ## 参考资源
 
@@ -345,12 +496,15 @@ function handleClick() {
 - [React 19 文档](https://react.dev)
 - [Tailwind CSS v4 文档](https://tailwindcss.com)
 - [MDN Web Docs](https://developer.mozilla.org)
-- [Can I Use](https://caniuse.com) - 检查浏览器支持
+- [盘古之白](https://github.com/vinta/pangu.js)
 
 ## 注意事项
 
 - ⚠️ 不支持旧版浏览器
 - ⚠️ 组件文件必须使用 kebab-case
-- ⚠️ 必须使用 pnpm 作为包管理器
+- ⚠️ 必须使用 pnpm 作为包管理器（10.22.0+）
 - ⚠️ 严格遵循 Prettier 配置
+- ⚠️ 严格遵循中文排版规范（盘古之白）
 - ⚠️ 使用 dayjs 处理时间，不使用其他库
+- ⚠️ 文章使用 .md 格式，不是 .mdx
+- ⚠️ Front Matter 必须包含 layout、title、date、excerpt 字段
