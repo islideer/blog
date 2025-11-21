@@ -72,7 +72,7 @@ export function AboutOpenSource({ data }: AboutOpenSourceProps) {
           rel="noopener noreferrer"
           className="text-text-secondary hover:text-text-primary inline-block text-sm transition-colors"
         >
-          探索更多 →
+          探索更多
         </a>
       </div>
     </section>
