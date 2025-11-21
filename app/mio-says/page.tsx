@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const lastUpdate = mioSays.length > 0 ? dayjs(mioSays[0].date).fromNow() : ''
 
   const ogImageParams = new URLSearchParams({
-    title: `${pageMetadata.mioSays.title} | ${siteConfig.name}`,
+    title: pageMetadata.mioSays.title,
     subtitle: latestContent,
     type: 'mio-says',
     count: mioSays.length.toString(),

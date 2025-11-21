@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pages'
 import type { Metadata } from 'next'
 
 const ogImageParams = new URLSearchParams({
-  title: `${pageMetadata.timeline.title} | ${siteConfig.name}`,
+  title: pageMetadata.timeline.title,
   subtitle: `共 ${timelineData.length} 条记录，${pageMetadata.timeline.description}`,
   type: 'timeline',
   count: timelineData.length.toString(),

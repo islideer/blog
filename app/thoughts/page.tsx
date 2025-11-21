@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const lastUpdate = thoughts.length > 0 ? dayjs(thoughts[0].date).fromNow() : ''
 
   const ogImageParams = new URLSearchParams({
-    title: `${pageMetadata.thoughts.title} | ${siteConfig.name}`,
+    title: pageMetadata.thoughts.title,
     subtitle: latestContent,
     type: 'thoughts',
     count: thoughts.length.toString(),

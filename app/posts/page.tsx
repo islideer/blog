@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const lastUpdate = lastUpdateDate.fromNow()
 
   const ogImageParams = new URLSearchParams({
-    title: `${pageMetadata.posts.title} | ${siteConfig.name}`,
+    title: pageMetadata.posts.title,
     subtitle: subtitle,
     type: 'posts',
     count: allPosts.length.toString(),

@@ -1,3 +1,4 @@
+import { siteConfig } from '@/lib/config'
 import { ImageResponse } from '@vercel/og'
 import { NextRequest } from 'next/server'
 
@@ -27,17 +28,7 @@ export async function GET(req: NextRequest) {
       (res) => res.arrayBuffer(),
     )
 
-    // 类型标签映射
-    const typeLabelMap: Record<string, string> = {
-      post: '博客文章',
-      posts: '文章列表',
-      thoughts: '碎碎念',
-      'mio-says': 'Mio 说',
-      timeline: '大事记',
-      about: '关于',
-      default: '博客',
-    }
-    const typeLabel = typeLabelMap[type] || '博客'
+    const typeLabel = siteConfig.name
 
     return new ImageResponse(
       (
