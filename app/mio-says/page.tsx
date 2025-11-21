@@ -1,36 +1,27 @@
+import dayjs from 'dayjs'
 import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
 import { getAllMioSays } from '@/lib/mio-says'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/markdown-utils'
 import { pageMetadata } from '@/lib/pages'
-
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import 'dayjs/locale/zh-cn'
+import { RelativeTime } from '@/components/relative-time'
 
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
-  dayjs.locale('zh-cn')
-  dayjs.extend(utc)
-  dayjs.extend(timezone)
-  dayjs.extend(relativeTime)
-
   const mioSays = await getAllMioSays()
 
   // 获取最新 Mio 说内容（截断到 80 字）
   const latestContent =
     mioSays.length > 0
-      ? mioSays[0].content.length > 50
+      ? mioSays[0].content.length > 80
         ? `${mioSays[0].content.slice(0, 80)}...`
         : mioSays[0].content
       : '这里是开设给 Mio 的专属发言空间'
 
-  // 获取最新更新时间
-  const lastUpdate = mioSays.length > 0 ? dayjs(mioSays[0].date).fromNow() : ''
+  // 获取最新更新时间（使用绝对时间，避免缓存问题）
+  const lastUpdate = mioSays.length > 0 ? dayjs(mioSays[0].date).format('YYYY/MM/DD HH:mm') : ''
 
   const ogImageParams = new URLSearchParams({
     title: pageMetadata.mioSays.title,
@@ -75,11 +66,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function MioSaysPage() {
-  dayjs.locale('zh-cn')
-  dayjs.extend(utc)
-  dayjs.extend(timezone)
-  dayjs.extend(relativeTime)
-
   const mioSays = await getAllMioSays()
 
   return (
@@ -129,16 +115,11 @@ export default async function MioSaysPage() {
                   >
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                   </svg>
-                  <time
+                  <RelativeTime
+                    date={mioSay.date}
                     className="text-xs"
                     style={{ color: 'var(--color-mio-pink)' }}
-                    title={dayjs(mioSay.date).format('YYYY/MM/DD HH:mm:ss ddd')}
-                  >
-                    发布于{' '}
-                    {dayjs().diff(dayjs(mioSay.date), 'year') >= 1
-                      ? dayjs(mioSay.date).format('YYYY/MM/DD HH:mm:ss ddd')
-                      : dayjs(mioSay.date).fromNow()}
-                  </time>
+                  />
                 </div>
 
                 {/* 文本内容 */}

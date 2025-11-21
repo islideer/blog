@@ -1,24 +1,15 @@
 import Image from 'next/image'
+import dayjs from 'dayjs'
 import { siteConfig } from '@/lib/config'
 import { getAllThoughts } from '@/lib/thoughts'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/markdown-utils'
 import { pageMetadata } from '@/lib/pages'
-
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import 'dayjs/locale/zh-cn'
+import { RelativeTime } from '@/components/relative-time'
 
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
-  dayjs.locale('zh-cn')
-  dayjs.extend(utc)
-  dayjs.extend(timezone)
-  dayjs.extend(relativeTime)
-
   const thoughts = await getAllThoughts()
 
   // 获取最新碎碎念内容（截断到 80 字）
@@ -29,8 +20,8 @@ export async function generateMetadata(): Promise<Metadata> {
         : thoughts[0].content
       : '碎碎念小角落，记录生活中的点滴想法和言论'
 
-  // 获取最新更新时间
-  const lastUpdate = thoughts.length > 0 ? dayjs(thoughts[0].date).fromNow() : ''
+  // 获取最新更新时间（使用绝对时间，避免缓存问题）
+  const lastUpdate = thoughts.length > 0 ? dayjs(thoughts[0].date).format('YYYY/MM/DD HH:mm') : ''
 
   const ogImageParams = new URLSearchParams({
     title: pageMetadata.thoughts.title,
@@ -75,11 +66,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ThoughtsPage() {
-  dayjs.locale('zh-cn')
-  dayjs.extend(utc)
-  dayjs.extend(timezone)
-  dayjs.extend(relativeTime)
-
   const thoughts = await getAllThoughts()
 
   return (
@@ -124,15 +110,7 @@ export default async function ThoughtsPage() {
                   >
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                   </svg>
-                  <time
-                    className="text-text-tertiary text-xs"
-                    title={dayjs(thought.date).format('YYYY/MM/DD HH:mm:ss ddd')}
-                  >
-                    发布于{' '}
-                    {dayjs().diff(dayjs(thought.date), 'year') >= 1
-                      ? dayjs(thought.date).format('YYYY/MM/DD HH:mm:ss ddd')
-                      : dayjs(thought.date).fromNow()}
-                  </time>
+                  <RelativeTime date={thought.date} className="text-text-tertiary text-xs" />
                 </div>
 
                 {/* 文本内容 */}
