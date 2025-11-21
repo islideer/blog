@@ -112,24 +112,19 @@ export default async function MioSaysPage() {
                     index < mioSays.length - 1 ? `1px solid var(--color-mio-border)` : 'none',
                 }}
               >
-                {/* 日期时间 */}
+                {/* 序号和日期时间 */}
                 <div className="flex items-center gap-2">
-                  <svg
-                    className="size-3.5 shrink-0"
-                    style={{ color: 'var(--color-mio-pink)' }}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    viewBox="0 0 24 24"
+                  <span
+                    className="font-mono text-xs font-semibold"
+                    style={{ color: 'var(--color-mio-pink)', opacity: 0.7 }}
                   >
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                  </svg>
+                    #{mioSay.id}
+                  </span>
+                  <span style={{ color: 'var(--color-mio-pink)', opacity: 0.4 }}>·</span>
                   <RelativeTime
                     date={mioSay.date}
                     className="text-xs"
-                    style={{ color: 'var(--color-mio-pink)' }}
+                    style={{ color: 'var(--color-mio-pink)', opacity: 0.7 }}
                   />
                 </div>
 

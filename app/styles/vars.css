@@ -17,6 +17,12 @@
     --color-mio-pink-muted: oklch(0.3 0.08 350); /* Very muted pink background */
     --color-mio-border: oklch(0.35 0.12 350); /* Pink-tinted border */
     --color-mio-bg: oklch(0.17 0.02 350); /* Subtle pink-tinted background */
+
+    /* Thoughts - Blue accents for dark mode */
+    --color-viki-blue: oklch(0.7 0.15 240); /* Soft blue for dark mode */
+    --color-viki-blue-muted: oklch(0.3 0.08 240); /* Very muted blue background */
+    --color-viki-border: oklch(0.35 0.12 240); /* Blue-tinted border */
+    --color-viki-bg: oklch(0.17 0.02 240); /* Subtle blue-tinted background */
   }
 }
 
@@ -38,6 +44,12 @@
   --color-mio-pink-muted: oklch(0.3 0.08 350); /* Very muted pink background */
   --color-mio-border: oklch(0.35 0.12 350); /* Pink-tinted border */
   --color-mio-bg: oklch(0.17 0.02 350); /* Subtle pink-tinted background */
+
+  /* Thoughts - Blue accents for dark mode */
+  --color-viki-blue: oklch(0.7 0.15 240); /* Soft blue for dark mode */
+  --color-viki-blue-muted: oklch(0.3 0.08 240); /* Very muted blue background */
+  --color-viki-border: oklch(0.35 0.12 240); /* Blue-tinted border */
+  --color-viki-bg: oklch(0.17 0.02 240); /* Subtle blue-tinted background */
 }
 
 /* Manual light mode class */
@@ -58,4 +70,10 @@
   --color-mio-pink-muted: oklch(0.92 0.05 350); /* Very light pink background */
   --color-mio-border: oklch(0.8 0.12 350); /* Pink-tinted border */
   --color-mio-bg: oklch(0.98 0.02 350); /* Subtle pink-tinted background */
+
+  /* Thoughts - Blue accents for light mode */
+  --color-viki-blue: oklch(0.6 0.18 240); /* Vibrant blue for light mode */
+  --color-viki-blue-muted: oklch(0.92 0.05 240); /* Very light blue background */
+  --color-viki-border: oklch(0.75 0.12 240); /* Blue-tinted border */
+  --color-viki-bg: oklch(0.98 0.02 240); /* Subtle blue-tinted background */
 }

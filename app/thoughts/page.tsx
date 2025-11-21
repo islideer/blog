@@ -97,20 +97,13 @@ export default async function ThoughtsPage() {
                     index < thoughts.length - 1 ? '1px solid rgba(128, 128, 128, 0.1)' : 'none',
                 }}
               >
-                {/* 日期时间 */}
+                {/* 序号和日期时间 */}
                 <div className="flex items-center gap-2">
-                  <svg
-                    className="text-text-tertiary size-3.5 shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                  </svg>
-                  <RelativeTime date={thought.date} className="text-text-tertiary text-xs" />
+                  <span className="text-text-secondary font-mono text-xs font-semibold">
+                    #{thought.id}
+                  </span>
+                  <span className="text-text-tertiary opacity-50">·</span>
+                  <RelativeTime date={thought.date} className="text-text-secondary text-xs" />
                 </div>
 
                 {/* 文本内容 */}
