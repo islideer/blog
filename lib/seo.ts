@@ -48,12 +48,10 @@ export function generateBlogPostingSchema(post: Post) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    headline: post.title,
-    alternativeHeadline: post.title,
+    headline: `${post.title} | ${siteConfig.name}`,
+    alternativeHeadline: `${post.title} | ${siteConfig.name}`,
     description: post.excerpt || post.title,
-    articleBody: post.content
-      ? post.content.substring(0, 500).replace(/[#*`]/g, '')
-      : post.excerpt,
+    articleBody: post.content ? post.content.substring(0, 500).replace(/[#*`]/g, '') : post.excerpt,
     url: `${siteConfig.url}/${post.slug}`,
     datePublished: post.date,
     dateModified: post.date,
@@ -117,7 +115,7 @@ export function generatePostOpenGraph(post: Post) {
 
   // 构建 OG 图片 URL，包含更多信息
   const ogImageParams = new URLSearchParams({
-    title: post.title,
+    title: `${post.title} | ${siteConfig.name}`,
     subtitle: post.excerpt || '',
     type: 'post',
     date: formattedDate,
@@ -128,7 +126,7 @@ export function generatePostOpenGraph(post: Post) {
 
   return {
     type: 'article' as const,
-    title: post.title,
+    title: `${post.title} | ${siteConfig.name}`,
     description: post.excerpt || post.title,
     url: `${siteConfig.url}/${post.slug}`,
     siteName: siteConfig.name,
@@ -142,7 +140,7 @@ export function generatePostOpenGraph(post: Post) {
         url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: post.title,
+        alt: `${post.title} | ${siteConfig.name}`,
       },
     ],
   }

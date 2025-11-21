@@ -20,8 +20,8 @@ export async function GET() {
     generator: 'Next.js 16 + Feed', // 生成器信息
     feedLinks: {
       rss2: `${siteConfig.url}${siteConfig.links.rss}`,
-      json: `${siteConfig.url}/feed.json`, // 可选：JSON Feed
-      atom: `${siteConfig.url}/atom.xml`, // 可选：Atom Feed
+      // json: `${siteConfig.url}/feed.json`, // 可选：JSON Feed
+      // atom: `${siteConfig.url}/atom.xml`, // 可选：Atom Feed
     },
     author: {
       name: siteConfig.author.name,

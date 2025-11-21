@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const lastUpdate = thoughts.length > 0 ? dayjs(thoughts[0].date).fromNow() : ''
 
   const ogImageParams = new URLSearchParams({
-    title: pageMetadata.thoughts.title,
+    title: `${pageMetadata.thoughts.title} | ${siteConfig.name}`,
     subtitle: latestContent,
     type: 'thoughts',
     count: thoughts.length.toString(),
@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
       url: generateCanonicalUrl('/thoughts'),
-      title: pageMetadata.thoughts.title,
+      title: `${pageMetadata.thoughts.title} | ${siteConfig.name}`,
       description: pageMetadata.thoughts.description,
       siteName: siteConfig.name,
       images: [
@@ -60,13 +60,13 @@ export async function generateMetadata(): Promise<Metadata> {
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: pageMetadata.thoughts.title,
+          alt: `${pageMetadata.thoughts.title} | ${siteConfig.name}`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: pageMetadata.thoughts.title,
+      title: `${pageMetadata.thoughts.title} | ${siteConfig.name}`,
       description: pageMetadata.thoughts.description,
       creator: siteConfig.author.twitter,
       images: [ogImageUrl],

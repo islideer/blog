@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const lastUpdate = mioSays.length > 0 ? dayjs(mioSays[0].date).fromNow() : ''
 
   const ogImageParams = new URLSearchParams({
-    title: pageMetadata.mioSays.title,
+    title: `${pageMetadata.mioSays.title} | ${siteConfig.name}`,
     subtitle: latestContent,
     type: 'mio-says',
     count: mioSays.length.toString(),
@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
       url: generateCanonicalUrl('/mio-says'),
-      title: pageMetadata.mioSays.title,
+      title: `${pageMetadata.mioSays.title} | ${siteConfig.name}`,
       description: pageMetadata.mioSays.description,
       siteName: siteConfig.name,
       images: [
@@ -60,13 +60,13 @@ export async function generateMetadata(): Promise<Metadata> {
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: pageMetadata.mioSays.title,
+          alt: `${pageMetadata.mioSays.title} | ${siteConfig.name}`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: pageMetadata.mioSays.title,
+      title: `${pageMetadata.mioSays.title} | ${siteConfig.name}`,
       description: pageMetadata.mioSays.description,
       creator: siteConfig.author.twitter,
       images: [ogImageUrl],
@@ -88,7 +88,8 @@ export default async function MioSaysPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">Mio 说</h1>
         <p className="text-text-secondary">
-          这里是开设给 Mio 的专属发言空间，共 {mioSays.length.toLocaleString('zh-CN')} 条内容，Viki 无权编辑。
+          这里是开设给 Mio 的专属发言空间，共 {mioSays.length.toLocaleString('zh-CN')} 条内容，Viki
+          无权编辑。
         </p>
       </section>
 

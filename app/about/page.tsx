@@ -10,7 +10,7 @@ import { generateCanonicalUrl } from '@/lib/seo'
 import type { Metadata } from 'next'
 
 const ogImageParams = new URLSearchParams({
-  title: siteConfig.author.name,
+  title: `${siteConfig.author.name} | ${siteConfig.name}`,
   subtitle: '前端开发者，热衷于开源和技术分享，相信技术改变世界',
   type: 'about',
 })
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
     url: generateCanonicalUrl('/about'),
-    title: pageMetadata.about.title,
+    title: `${pageMetadata.about.title} | ${siteConfig.name}`,
     description: pageMetadata.about.description,
     siteName: siteConfig.name,
     images: [
@@ -35,13 +35,13 @@ export const metadata: Metadata = {
         url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: pageMetadata.about.title,
+        alt: `${pageMetadata.about.title} | ${siteConfig.name}`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: pageMetadata.about.title,
+    title: `${pageMetadata.about.title} | ${siteConfig.name}`,
     description: pageMetadata.about.description,
     creator: siteConfig.author.twitter,
     images: [ogImageUrl],

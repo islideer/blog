@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const lastUpdate = lastUpdateDate.fromNow()
 
   const ogImageParams = new URLSearchParams({
-    title: pageMetadata.posts.title,
+    title: `${pageMetadata.posts.title} | ${siteConfig.name}`,
     subtitle: subtitle,
     type: 'posts',
     count: allPosts.length.toString(),
@@ -39,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
       url: generateCanonicalUrl('/posts'),
-      title: pageMetadata.posts.title,
+      title: `${pageMetadata.posts.title} | ${siteConfig.name}`,
       description: pageMetadata.posts.description,
       siteName: siteConfig.name,
       images: [
@@ -47,13 +47,13 @@ export async function generateMetadata(): Promise<Metadata> {
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: pageMetadata.posts.title,
+          alt: `${pageMetadata.posts.title} | ${siteConfig.name}`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: pageMetadata.posts.title,
+      title: `${pageMetadata.posts.title} | ${siteConfig.name}`,
       description: pageMetadata.posts.description,
       creator: siteConfig.author.twitter,
       images: [ogImageUrl],
@@ -67,17 +67,7 @@ export default async function PostsPage() {
   const posts = allPosts.filter((post) => !post.top)
 
   // 按年份分组
-  const postsByYear = posts.reduce(
-    (acc, post) => {
-      const year = dayjs(post.date).year()
-      if (!acc[year]) {
-        acc[year] = []
-      }
-      acc[year].push(post)
-      return acc
-    },
-    {} as Record<number, typeof posts>,
-  )
+  const postsByYear = Object.groupBy(posts, (post) => dayjs(post.date).year())
 
   // 生成从最早文章到当前年份的完整年份列表
   const currentYear = dayjs().year()

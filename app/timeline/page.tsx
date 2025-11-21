@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/pages'
 import type { Metadata } from 'next'
 
 const ogImageParams = new URLSearchParams({
-  title: pageMetadata.timeline.title,
+  title: `${pageMetadata.timeline.title} | ${siteConfig.name}`,
   subtitle: `共 ${timelineData.length} 条记录，${pageMetadata.timeline.description}`,
   type: 'timeline',
   count: timelineData.length.toString(),
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
     url: generateCanonicalUrl('/timeline'),
-    title: pageMetadata.timeline.title,
+    title: `${pageMetadata.timeline.title} | ${siteConfig.name}`,
     description: pageMetadata.timeline.description,
     siteName: siteConfig.name,
     images: [
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
         url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: pageMetadata.timeline.title,
+        alt: `${pageMetadata.timeline.title} | ${siteConfig.name}`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: pageMetadata.timeline.title,
+    title: `${pageMetadata.timeline.title} | ${siteConfig.name}`,
     description: pageMetadata.timeline.description,
     creator: siteConfig.author.twitter,
     images: [ogImageUrl],
@@ -52,8 +52,7 @@ export default function TimelinePage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">大事记</h1>
         <p className="text-text-secondary">
-          共 {timelineData.length.toLocaleString('zh-CN')}{' '}
-          条记录，记录生活中的重要时刻和里程碑。
+          共 {timelineData.length.toLocaleString('zh-CN')} 条记录，记录生活中的重要时刻和里程碑。
         </p>
       </section>
 
