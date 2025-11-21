@@ -27,7 +27,7 @@ export default async function BlogPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
 
-      <div className="space-y-8 sm:space-y-12">
+      <div className="space-y-8 py-8 sm:py-12 sm:space-y-12">
         {/* Hero Section */}
         <section className="space-y-2 sm:space-y-4">
           <h1 className="text-3xl font-bold sm:text-4xl">{siteConfig.home.hero.title}</h1>

@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <article>
+      <article className="py-8 sm:py-12">
         {/* Article Header */}
         <header className="mb-8 space-y-4 sm:mb-12 sm:space-y-6">
           <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-4xl md:text-5xl">

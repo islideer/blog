@@ -83,7 +83,7 @@ export default async function MioSaysPage() {
   const mioSays = await getAllMioSays()
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
         <h1 className="text-3xl font-bold" style={{ color: 'var(--color-mio-pink)' }}>
@@ -97,7 +97,10 @@ export default async function MioSaysPage() {
 
       {/* Mio Says Timeline */}
       <section className="space-y-4">
-        <div className="space-y-8 sm:border-l-2 sm:pl-6" style={{ borderColor: 'var(--color-mio-border)' }}>
+        <div
+          className="space-y-8 sm:border-l-2 sm:pl-6"
+          style={{ borderColor: 'var(--color-mio-border)' }}
+        >
           {mioSays.length === 0 ? (
             <p className="text-text-tertiary text-sm italic opacity-60">
               Mio 还没有说什么，敬请期待

@@ -83,7 +83,7 @@ export default async function ThoughtsPage() {
   const thoughts = await getAllThoughts()
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">碎碎念</h1>
