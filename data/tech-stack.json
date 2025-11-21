@@ -1,18 +1,90 @@
-[
-  "HTML5",
-  "CSS3",
-  "JavaScript",
-  "TypeScript",
-  "Node.js",
-  "Bun",
-  "Deno",
-  "React",
-  "Electron",
-  "React Native",
-  "Next.js",
-  "Tailwind CSS",
-  "NestJS",
-  "Prisma",
-  "Koa",
-  "express"
-]
+{
+  "languages": [
+    {
+      "name": "TypeScript",
+      "description": "类型安全的 JavaScript 超集",
+      "link": "https://www.typescriptlang.org/"
+    },
+    {
+      "name": "JavaScript",
+      "description": "Web 开发的核心语言",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+    },
+    {
+      "name": "HTML5",
+      "description": "现代 Web 标准标记语言",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+    },
+    {
+      "name": "CSS3",
+      "description": "现代样式表语言",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+    }
+  ],
+  "frontend": [
+    {
+      "name": "React",
+      "description": "用于构建用户界面的 JavaScript 库",
+      "link": "https://react.dev/"
+    },
+    {
+      "name": "Next.js",
+      "description": "React 生产级全栈框架",
+      "link": "https://nextjs.org/"
+    },
+    {
+      "name": "Tailwind CSS",
+      "description": "实用优先的 CSS 框架",
+      "link": "https://tailwindcss.com/"
+    }
+  ],
+  "backend": [
+    {
+      "name": "Node.js",
+      "description": "基于 Chrome V8 的 JavaScript 运行时",
+      "link": "https://nodejs.org/"
+    },
+    {
+      "name": "Bun",
+      "description": "极速的 JavaScript 运行时与工具集",
+      "link": "https://bun.sh/"
+    },
+    {
+      "name": "Deno",
+      "description": "安全的 JavaScript 和 TypeScript 运行时",
+      "link": "https://deno.com/"
+    },
+    {
+      "name": "NestJS",
+      "description": "渐进式 Node.js 企业级框架",
+      "link": "https://nestjs.com/"
+    },
+    {
+      "name": "Koa",
+      "description": "新一代 Node.js Web 框架",
+      "link": "https://koajs.com/"
+    },
+    {
+      "name": "Express",
+      "description": "Node.js 经典 Web 框架",
+      "link": "https://expressjs.com/"
+    },
+    {
+      "name": "Prisma",
+      "description": "下一代 TypeScript ORM",
+      "link": "https://www.prisma.io/"
+    }
+  ],
+  "crossPlatform": [
+    {
+      "name": "Electron",
+      "description": "使用 Web 技术构建桌面应用",
+      "link": "https://www.electronjs.org/"
+    },
+    {
+      "name": "React Native",
+      "description": "使用 React 构建原生移动应用",
+      "link": "https://reactnative.dev/"
+    }
+  ]
+}

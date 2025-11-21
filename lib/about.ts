@@ -7,13 +7,36 @@ export interface OpenSourceProject {
   name: string
   url: string
   description: string
-  displayName?: string
+  tags: string[]
+  status: 'active' | 'archived'
   stars?: string
+  homepage?: string
+}
+
+export interface ProjectsData {
+  libraries: OpenSourceProject[]
+  tools: OpenSourceProject[]
+  services: OpenSourceProject[]
+  scripts: OpenSourceProject[]
+  applications: OpenSourceProject[]
 }
 
 export interface ContactLink {
   label: string
   url: string
+}
+
+export interface TechStackItem {
+  name: string
+  description: string
+  link: string
+}
+
+export interface TechStackData {
+  languages: TechStackItem[]
+  frontend: TechStackItem[]
+  backend: TechStackItem[]
+  crossPlatform: TechStackItem[]
 }
 
 export interface AboutData {
@@ -22,20 +45,20 @@ export interface AboutData {
     paragraphs: string[]
   }
   openSource: {
-    projects: OpenSourceProject[]
+    projects: ProjectsData
     moreLink: string
   }
-  techStack: string[]
+  techStack: TechStackData
   contact: ContactLink[]
 }
 
 export const about: AboutData = {
   intro: aboutData.intro,
   openSource: {
-    projects: projectsData,
+    projects: projectsData as ProjectsData,
     moreLink: aboutData.openSource.moreLink,
   },
-  techStack: techStackData,
+  techStack: techStackData as TechStackData,
   contact: contactData,
 }
 
