@@ -6,10 +6,10 @@ interface AboutOpenSourceProps {
 
 const categoryNames: Record<keyof ProjectsData, string> = {
   libraries: '类库',
+  applications: '应用',
   tools: '工具',
   services: '服务',
   scripts: '脚本',
-  applications: '应用',
 }
 
 export function AboutOpenSource({ data }: AboutOpenSourceProps) {

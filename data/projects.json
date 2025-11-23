@@ -15,6 +15,25 @@
       "homepage": "https://sheinsight.github.io/reactive/"
     }
   ],
+  "applications": [
+    {
+      "name": "Viki 写东西的地方",
+      "url": "https://github.com/vikiboss/blog",
+      "description": "你现在看到的这个博客。基于 Next.js 与 Tailwind CSS 构建。",
+      "status": "active"
+    },
+    {
+      "name": "Stardust（星尘）",
+      "url": "https://github.com/vikiboss/stardust",
+      "description": "写给 VRChat 玩家的 PC 端小工具（WIP）"
+    },
+    {
+      "name": "原神助手",
+      "url": "https://github.com/vikiboss/gs-helper",
+      "description": "写给原神玩家的 PC 端小工具",
+      "status": "archived"
+    }
+  ],
   "tools": [
     {
       "name": "React Online",
@@ -26,14 +45,14 @@
     {
       "name": "Guitar Studio",
       "url": "https://github.com/vikiboss/guitar-studio",
-      "description": "多合一吉他工具：调音、和弦、节奏",
+      "description": "多合一吉他工具：调音、和弦、节奏（WIP）",
       "status": "active",
       "homepage": "https://guitar.viki.moe/"
     }
   ],
   "services": [
     {
-      "name": "60s",
+      "name": "60s API",
       "url": "https://github.com/vikiboss/60s",
       "description": "60 秒资讯、API 聚合服务",
       "status": "active",
@@ -73,19 +92,6 @@
       "name": "BaidupanPlaySpeedControl",
       "url": "https://github.com/vikiboss/BaidupanPlaySpeedControl",
       "description": "适用于百度网盘的视频倍速播放脚本",
-      "status": "archived"
-    }
-  ],
-  "applications": [
-    {
-      "name": "Stardust（星尘）",
-      "url": "https://github.com/vikiboss/stardust",
-      "description": "写给 VRChat 玩家的 PC 端小工具（半成品）"
-    },
-    {
-      "name": "原神助手",
-      "url": "https://github.com/vikiboss/gs-helper",
-      "description": "写给原神玩家的 PC 端小工具",
       "status": "archived"
     }
   ]
