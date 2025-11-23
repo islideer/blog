@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { getAllPosts } from '@/lib/posts'
 import { getAllThoughts } from '@/lib/thoughts'
 import { getAllMioSays } from '@/lib/mio-says'
+import { Footer } from '@/components/footer'
 
 import type { Metadata } from 'next'
 
@@ -198,48 +199,7 @@ export default function RootLayout({
           </main>
 
           {/* Footer */}
-          <footer role="contentinfo" className="border-border border-t">
-            <div className="mx-auto w-full p-4 sm:p-6 lg:p-8">
-              <div className="flex flex-col items-center justify-between gap-4 text-sm sm:flex-row">
-                <div className="text-text-tertiary text-center sm:text-left">
-                  <p>
-                    © {siteConfig.copyright.year.start}-{siteConfig.copyright.year.end}{' '}
-                    {siteConfig.author.name}.
-                    <br className="sm:hidden" /> 文章以{' '}
-                    <a
-                      href={siteConfig.copyright.license.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-text-secondary"
-                    >
-                      {siteConfig.copyright.license.name}
-                    </a>{' '}
-                    协议共享，转载请注明出处。
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <a
-                    href={siteConfig.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-text-secondary hover:text-text-primary"
-                  >
-                    GitHub
-                  </a>
-                  <a
-                    href={siteConfig.links.rss}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-text-secondary hover:text-text-primary"
-                    title="RSS 订阅"
-                  >
-                    RSS
-                  </a>
-                </div>
-              </div>
-            </div>
-          </footer>
+          <Footer />
         </div>
 
         <Analytics />
