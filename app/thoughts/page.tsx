@@ -3,7 +3,7 @@ import { dayjs } from '@/lib/dayjs'
 import { siteConfig } from '@/lib/config'
 import { getAllThoughts } from '@/lib/thoughts'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { renderMarkdown } from '@/lib/markdown-utils'
+import { renderMarkdown } from '@/lib/inline-md'
 import { pageMetadata } from '@/lib/pages'
 import { RelativeTime } from '@/components/relative-time'
 

@@ -391,7 +391,81 @@ html.light .prose-blog .shiki span {
 
 /* 任务列表 */
 .prose-blog input[type='checkbox'] {
-  margin-right: 0.5em;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1.125em;
+  height: 1.125em;
+  margin-right: 0.625em;
+  border: 2px solid var(--color-border-hover);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  background: var(--color-bg-primary);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.prose-blog input[type='checkbox']:hover {
+  border-color: var(--color-text-secondary);
+}
+
+.prose-blog input[type='checkbox']:checked {
+  background: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+
+.prose-blog input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  left: 0.25em;
+  top: 0.0625em;
+  width: 0.375em;
+  height: 0.625em;
+  border: solid var(--color-bg-primary);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.prose-blog input[type='checkbox']:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 2px;
+}
+
+/* 任务列表项样式优化 */
+.prose-blog li:has(> input[type='checkbox']) {
+  list-style: none;
+  margin-left: -2em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+/* 任务列表项的文本内容 */
+.prose-blog li:has(> input[type='checkbox']) > p {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+/* 嵌套列表重置样式 - 确保嵌套列表显示在新行 */
+.prose-blog li:has(> input[type='checkbox']) > ul,
+.prose-blog li:has(> input[type='checkbox']) > ol {
+  flex-basis: 100%;
+  margin: 0.25em 0 0 0;
+  padding-left: 2em;
+}
+
+/* 重置嵌套列表项的样式 */
+.prose-blog li:has(> input[type='checkbox']) > ul li,
+.prose-blog li:has(> input[type='checkbox']) > ol li {
+  display: list-item;
+  margin: 0.25em 0;
+  margin-left: 0;
+  list-style: disc;
 }
 
 /* ============================================

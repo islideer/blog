@@ -1,4 +1,4 @@
-import { renderMarkdown } from '@/lib/markdown-utils'
+import { renderMarkdown } from '@/lib/inline-md'
 
 interface AboutIntroProps {
   title: string

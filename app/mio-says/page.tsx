@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
 import { getAllMioSays } from '@/lib/mio-says'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { renderMarkdown } from '@/lib/markdown-utils'
+import { renderMarkdown } from '@/lib/inline-md'
 import { pageMetadata } from '@/lib/pages'
 import { RelativeTime } from '@/components/relative-time'
 

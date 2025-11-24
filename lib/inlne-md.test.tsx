@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { renderMarkdown } from './markdown-utils'
+import { renderMarkdown } from './inline-md'
 
 describe('renderMarkdown', () => {
   describe('基础功能', () => {

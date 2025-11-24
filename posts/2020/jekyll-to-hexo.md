@@ -3,10 +3,7 @@ title: '写的东西 の 搬家记录（Jekyll 到 Hexo）'
 date: 2020-03-23
 top_image: 'https://i.loli.net/2020/11/21/QJqGlbrP1RiYhIL.png'
 excerpt: '记录博客从 Jekyll 迁移到 Hexo 的过程，包括主题定制、图床选择和评论系统配置'
-draft: true
 ---
-
-![hexo-logo.png](https://i.loli.net/2020/11/21/QJqGlbrP1RiYhIL.png)
 
 ## 好累 o((>ω< ))o
 
