@@ -278,7 +278,6 @@ Tailwind v4 使用 CSS-first 配置，不需要 `tailwind.config.ts`
 
 ````markdown
 ---
-layout: 'post'
 title: 文章标题
 date: 2024-07-04
 excerpt: 文章摘要，简短描述文章内容

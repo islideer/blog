@@ -13,6 +13,7 @@ export interface PostMetadata {
   slug: string
   draft?: boolean
   top?: boolean
+  topImage?: string
   readingTime?: number
 }
 
@@ -101,6 +102,7 @@ export async function getAllPosts(): Promise<PostMetadata[]> {
         author: data.author || '',
         draft: data.draft || false,
         top: data.top || false,
+        topImage: data.top_image || undefined,
         readingTime: calculateReadingTime(content),
       }
     }),
@@ -138,6 +140,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       tags: data.tags || [],
       author: data.author || '',
       draft: data.draft || false,
+      topImage: data.top_image || undefined,
       content,
       readingTime: calculateReadingTime(content),
     }

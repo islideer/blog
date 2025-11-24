@@ -208,7 +208,6 @@ blog/
 ````markdown
 ## <!-- posts/2025/my-new-post.md -->
 
-layout: 'post'
 title: 文章标题
 date: 2025-11-20
 excerpt: 文章摘要，简短描述文章内容

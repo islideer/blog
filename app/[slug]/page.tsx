@@ -1,6 +1,7 @@
 import { dayjs } from '@/lib/dayjs'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { mdxOptions } from '@/lib/mdx'
 import { getPostBySlug, getAllPostSlugs, getAllPosts } from '@/lib/posts'
@@ -112,6 +113,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             )}
             <OldPostBanner date={post.date} />
           </div>
+
+          {/* Top Image */}
+          {post.topImage && (
+            <div className="-mx-4 mt-6 overflow-hidden sm:mx-0 sm:mt-8 sm:rounded-sm">
+              <Image
+                src={post.topImage}
+                alt={post.title}
+                width={1200}
+                height={630}
+                className="h-auto w-full"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              />
+            </div>
+          )}
         </header>
 
         {/* Article Content */}
