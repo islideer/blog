@@ -115,25 +115,33 @@ export default async function ThoughtsPage() {
                 {/* 图片 */}
                 {thought.images && thought.images.length > 0 && (
                   <div className="grid grid-cols-1 gap-2 pt-1 sm:grid-cols-2">
-                    {thought.images.map((image, index) => (
-                      <div
-                        key={index}
-                        className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border border-zinc-200 dark:border-zinc-700"
-                      >
-                        <Image
-                          src={image}
-                          alt={
-                            thought.content && thought.content.trim() !== ''
-                              ? `${thought.content.slice(0, 20)}... 的图片 ${index + 1}`
-                              : `碎碎念图片 ${index + 1}`
-                          }
-                          width={800}
-                          height={600}
-                          className="h-auto max-h-full w-full object-contain"
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                        />
-                      </div>
-                    ))}
+                    {thought.images.map((image, imageIndex) => {
+                      // 前 3 条内容的第一张图片优先加载,其他懒加载
+                      const shouldPriority = index < 3 && imageIndex === 0
+                      const loadingStrategy = shouldPriority ? undefined : 'lazy'
+
+                      return (
+                        <div
+                          key={imageIndex}
+                          className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border border-zinc-200 dark:border-zinc-700"
+                        >
+                          <Image
+                            src={image}
+                            alt={
+                              thought.content && thought.content.trim() !== ''
+                                ? `${thought.content.slice(0, 20)}... 的图片 ${imageIndex + 1}`
+                                : `碎碎念图片 ${imageIndex + 1}`
+                            }
+                            width={800}
+                            height={600}
+                            className="h-auto max-h-full w-full object-contain"
+                            sizes="(max-width: 640px) 100vw, 50vw"
+                            priority={shouldPriority}
+                            loading={loadingStrategy}
+                          />
+                        </div>
+                      )
+                    })}
                   </div>
                 )}
               </article>

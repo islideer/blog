@@ -137,26 +137,34 @@ export default async function MioSaysPage() {
                 {/* 图片 */}
                 {mioSay.images && mioSay.images.length > 0 && (
                   <div className="grid grid-cols-1 gap-2 pt-1 sm:grid-cols-2">
-                    {mioSay.images.map((image, index) => (
-                      <div
-                        key={index}
-                        className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border"
-                        style={{ borderColor: 'var(--color-mio-border)' }}
-                      >
-                        <Image
-                          src={image}
-                          alt={
-                            mioSay.content && mioSay.content.trim() !== ''
-                              ? `${mioSay.content.slice(0, 20)}... 的图片 ${index + 1}`
-                              : `Mio 说图片 ${index + 1}`
-                          }
-                          width={800}
-                          height={600}
-                          className="h-auto max-h-full w-full object-contain"
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                        />
-                      </div>
-                    ))}
+                    {mioSay.images.map((image, imageIndex) => {
+                      // 前 3 条内容的第一张图片优先加载,其他懒加载
+                      const shouldPriority = index < 3 && imageIndex === 0
+                      const loadingStrategy = shouldPriority ? undefined : 'lazy'
+
+                      return (
+                        <div
+                          key={imageIndex}
+                          className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border"
+                          style={{ borderColor: 'var(--color-mio-border)' }}
+                        >
+                          <Image
+                            src={image}
+                            alt={
+                              mioSay.content && mioSay.content.trim() !== ''
+                                ? `${mioSay.content.slice(0, 20)}... 的图片 ${imageIndex + 1}`
+                                : `Mio 说图片 ${imageIndex + 1}`
+                            }
+                            width={800}
+                            height={600}
+                            className="h-auto max-h-full w-full object-contain"
+                            sizes="(max-width: 640px) 100vw, 50vw"
+                            priority={shouldPriority}
+                            loading={loadingStrategy}
+                          />
+                        </div>
+                      )
+                    })}
                   </div>
                 )}
               </article>

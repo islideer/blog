@@ -288,6 +288,7 @@ describe('SEO Functions', () => {
 
     it('应该处理没有 excerpt 的文章', () => {
       const postWithoutExcerpt = { ...mockPost, excerpt: undefined }
+      // @ts-expect-error for test
       const og = generatePostOpenGraph(postWithoutExcerpt)
 
       expect(og.description).toBe('测试文章')
@@ -328,6 +329,7 @@ describe('SEO Functions', () => {
 
     it('应该处理没有 excerpt 的文章', () => {
       const postWithoutExcerpt = { ...mockPost, excerpt: undefined }
+      // @ts-expect-error for test
       const card = generatePostTwitterCard(postWithoutExcerpt)
 
       expect(card.description).toBe('测试文章')
