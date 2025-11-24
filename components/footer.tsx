@@ -27,7 +27,7 @@ function LicenseText() {
 
 function SocialLinks({ center = false }: { center?: boolean }) {
   return (
-    <div className={`flex items-center gap-4${center ? 'justify-center' : ''}`}>
+    <div className={`flex items-center gap-4 ${center ? 'justify-center' : ''}`}>
       <a
         href={siteConfig.links.github}
         target="_blank"
