@@ -7,64 +7,55 @@ excerpt: '整理了 CSS 元素居中的 5 种实现方式，以及 Flex、Grid �
 
 ## CSS 元素居中
 
+下面是一个使用 Flex 布局实现元素居中的示例，灰色容器中的白色方块通过 CSS 实现了水平和垂直居中：
+
 <style>
   .demo-container {
     width: 100%;
     max-width: 400px;
     height: 300px;
     margin: 24px auto;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background-color: rgba(128, 128, 128, 0.1);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 4px;
     /* 使用 Flex 布局实现子元素水平和垂直居中 */
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .demo-container::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #4facfe);
-    border-radius: 12px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: -1;
-  }
-
-  .demo-container:hover::before {
-    opacity: 0.6;
   }
 
   .demo-box {
     width: 120px;
     height: 120px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: rgba(128, 128, 128, 0.05);
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
-    font-weight: 600;
-    color: #667eea;
-    transition: transform 0.3s;
-  }
-
-  .demo-box:hover {
-    transform: scale(1.05);
   }
 </style>
 
 <div class="demo-container">
   <div class="demo-box">居中元素</div>
 </div>
+
+对应的关键代码如下：
+
+```css
+.demo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+```
+
+```html
+<div class="demo-container">
+  <div class="demo-box">居中元素</div>
+</div>
+```
 
 实现 CSS 元素**水平、垂直**居中的方式有很多，下面介绍几种常用方法：
 
