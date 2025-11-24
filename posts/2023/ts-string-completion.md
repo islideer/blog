@@ -1,47 +1,69 @@
 ---
 title: '让 TS 类型 "cat" | string 支持补全提示'
 date: 2023-10-19
-excerpt: '在使用 TypeScript 时，让 TS 类型 "cat" | string 支持补全提示，可以通过定义一个联合类型来实现。'
+excerpt: '在 TypeScript 中定义联合类型时，如何让字面量类型在 IDE 中获得智能补全提示？本文介绍两种实用的解决方案。'
 ---
 
 ## 问题描述
 
-考察以下 TS 类型。
+在日常开发中，我们经常会遇到这样的场景：既想要几个固定的字面量值，又想保留字符串类型的灵活性。
+
+比如定义一个动物类型：
 
 ```ts
 type Animal = 'cat' | 'dog' | string
 ```
 
-正常情况下，我们可能会按上面的方式来写，但是这在 vscode 上得不到良好的补全提示。
+按理说，这个类型定义应该能让我们在输入时看到 `'cat'` 和 `'dog'` 的补全提示。但实际上：
 
 ```ts
-const animal: Animal = '' // 输入引号后没有补全提示
+const animal: Animal = '' // 输入引号后没有任何补全提示
 ```
+
+**为什么会这样？**
+
+这是因为 `string` 类型会"吞掉"所有的字面量类型。在 TypeScript 的类型系统中，`'cat'` 和 `'dog'` 都是 `string` 的子类型，所以整个联合类型会被简化为 `string`，字面量类型就失去了意义。
 
 ## 解决方案
 
-为了解决这个问题可以采取以下两种方式来实现。
+有两种巧妙的方式可以解决这个问题，它们的核心思路都是：**让 `string` 类型变得"不那么纯粹"，从而保留字面量类型的存在感**。
+
+### 方案一：使用 `string & {}`
 
 ```ts
-// 方案一 使用 `string & {}` 替代 `stirng`
 type Animal = 'cat' | 'dog' | (string & {})
-
-// 方案二 使用 Omit 手动从 `string` 中排除类型
-type Animal = 'cat' | 'dog' | Omit<string, 'cat' | 'dog'>
-
-const animal: Animal = '' // 输入引号后可以看到正确的补全提示
 ```
 
-## 结果#
+这个方案利用了交叉类型的特性。`string & {}` 在类型层面上等价于 `string`，但它会"欺骗" TypeScript 的类型简化机制，让编译器认为这是一个不同的类型，从而保留字面量类型的补全提示。
 
-### 之前（没有补全提示）
+### 方案二：使用 `Omit` 排除类型
+
+```ts
+type Animal = 'cat' | 'dog' | Omit<string, 'cat' | 'dog'>
+```
+
+这个方案的思路是显式地"从 `string` 中排除已有的字面量类型"。虽然从实际效果上看，`Omit<string, 'cat' | 'dog'>` 仍然等价于 `string`（毕竟你无法真正从一个基础类型中排除某些值），但这同样能够保留补全提示。
+
+两种方案都能正常工作，选择哪一种主要看个人喜好。我个人更倾向于**方案一**，因为它更简洁。
+
+```ts
+const animal: Animal = '' // 现在输入引号后可以看到 'cat' 和 'dog' 的补全提示了！
+```
+
+## 效果对比
+
+### 优化前（没有补全提示）
 
 ![no-completion](https://s2.loli.net/2025/11/19/Uebrph2gZRfJVdE.png)
 
-### 之后（完善的补全提示）
+### 优化后（完美的补全提示）
 
 ![with-completion-1](https://s2.loli.net/2025/11/19/XeviQjFsHDbRhmn.png)
 
 ![with-completion-2](https://s2.loli.net/2025/11/19/wivfsRGpydTxOSj.png)
+
+## 小结
+
+这个技巧虽然看起来有点"绕"，但在实际项目中非常实用。特别是在定义一些既有固定选项、又允许自定义值的配置项时，这种写法能大大提升开发体验。
 
 Cheers! 🍻
