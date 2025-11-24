@@ -10,6 +10,7 @@ const ogImageParams = new URLSearchParams({
   subtitle: `共 ${timelineData.length} 条记录，${pageMetadata.timeline.description}`,
   type: 'timeline',
   count: timelineData.length.toString(),
+  v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
 })
 
 const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`

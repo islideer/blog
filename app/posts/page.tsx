@@ -21,6 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
     type: 'posts',
     count: allPosts.length.toString(),
     lastUpdate: lastUpdate,
+    v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
   })
 
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`

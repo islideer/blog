@@ -13,6 +13,7 @@ const ogImageParams = new URLSearchParams({
   title: siteConfig.author.name,
   subtitle: '前端开发者，热衷于开源和技术分享，相信技术改变世界',
   type: 'about',
+  v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
 })
 
 const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`

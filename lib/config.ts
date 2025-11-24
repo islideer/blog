@@ -74,6 +74,8 @@ export const siteConfig = {
       width: 1200,
       height: 630,
     },
+    // OG 图片版本号，更新后修改此值以强制刷新缓存
+    version: 1,
   },
 
   // 首页配置

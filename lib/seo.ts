@@ -120,6 +120,7 @@ export function generatePostOpenGraph(post: Post) {
     type: 'post',
     date: formattedDate,
     readingTime: post.readingTime?.toString() || '',
+    v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
   })
 
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
@@ -164,6 +165,7 @@ export function generatePostTwitterCard(post: Post) {
     type: 'post',
     date: formattedDate,
     readingTime: post.readingTime?.toString() || '',
+    v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
   })
 
   const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
