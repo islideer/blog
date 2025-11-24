@@ -106,7 +106,13 @@ export async function getAllPosts(): Promise<PostMetadata[]> {
     }),
   )
 
-  return allPostsData.filter((post) => !post.draft).toSorted((a, b) => (a.date < b.date ? 1 : -1))
+  // 开发模式下显示所有文章（包括草稿），生产环境下过滤草稿
+  const isDevelopment = process.env.NODE_ENV === 'development'
+  const filteredPosts = isDevelopment
+    ? allPostsData
+    : allPostsData.filter((post) => !post.draft)
+
+  return filteredPosts.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {

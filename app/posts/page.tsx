@@ -126,12 +126,19 @@ export default async function PostsPage() {
                     </>
                   )}
                 </div>
-                <Link
-                  href={`/${post.slug}`}
-                  className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
-                >
-                  {post.title}
-                </Link>
+                <div className="flex flex-1 items-center gap-2">
+                  {post.draft && (
+                    <span className="text-text-tertiary bg-bg-tertiary rounded-xs shrink-0 px-1.5 py-0.5 text-xs font-medium">
+                      草稿
+                    </span>
+                  )}
+                  <Link
+                    href={`/${post.slug}`}
+                    className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
+                  >
+                    {post.title}
+                  </Link>
+                </div>
                 {post.readingTime && (
                   <>
                     <span className="text-text-tertiary hidden shrink-0 text-xs sm:inline">
@@ -184,12 +191,19 @@ export default async function PostsPage() {
                           </>
                         )}
                       </div>
-                      <Link
-                        href={`/${post.slug}`}
-                        className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
-                      >
-                        {post.title}
-                      </Link>
+                      <div className="flex flex-1 items-center gap-2">
+                        {post.draft && (
+                          <span className="text-text-tertiary bg-bg-tertiary rounded-xs shrink-0 px-1.5 py-0.5 text-xs font-medium">
+                            草稿
+                          </span>
+                        )}
+                        <Link
+                          href={`/${post.slug}`}
+                          className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
+                        >
+                          {post.title}
+                        </Link>
+                      </div>
                       {post.readingTime && (
                         <>
                           <span className="text-text-tertiary hidden shrink-0 text-xs sm:inline">

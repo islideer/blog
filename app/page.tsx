@@ -71,6 +71,11 @@ export default async function BlogPage() {
                               <path d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z" />
                             </svg>
                           )}
+                          {post.draft && (
+                            <span className="text-text-tertiary bg-bg-tertiary rounded-xs shrink-0 px-1.5 py-0.5 text-xs font-medium">
+                              草稿
+                            </span>
+                          )}
                           <h2 className="text-text-primary truncate text-base font-medium group-hover:underline sm:text-lg md:text-xl">
                             {post.title}
                           </h2>

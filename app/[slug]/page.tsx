@@ -82,9 +82,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <article className="py-8 sm:py-12">
         {/* Article Header */}
         <header className="mb-8 space-y-4 sm:mb-12 sm:space-y-6">
-          <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-4xl md:text-5xl">
-            {post.title}
-          </h1>
+          <div className="space-y-3">
+            <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-4xl md:text-5xl">
+              {post.title}
+            </h1>
+            {post.draft && (
+              <div className="inline-flex items-center gap-2">
+                <span className="text-text-tertiary bg-bg-tertiary rounded-xs px-2 py-1 text-xs font-medium sm:text-sm">
+                  草稿
+                </span>
+                <span className="text-text-tertiary text-xs sm:text-sm">
+                  此文章尚未正式发布，仅在开发环境可见
+                </span>
+              </div>
+            )}
+          </div>
 
           <div className="text-text-tertiary flex items-baseline gap-2 overflow-x-auto text-xs sm:text-sm">
             <time dateTime={post.date} className="shrink-0">
