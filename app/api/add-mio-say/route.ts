@@ -1,13 +1,7 @@
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
+import { dayjs } from '@/lib/dayjs'
 import { Octokit } from '@octokit/rest'
 import { NextRequest, NextResponse } from 'next/server'
 import { formatText } from '@/lib/text-formatter'
-
-// 配置 dayjs 使用时区插件
-dayjs.extend(utc)
-dayjs.extend(timezone)
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'

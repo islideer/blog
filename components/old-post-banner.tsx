@@ -1,4 +1,4 @@
-import dayjs from 'dayjs'
+import { dayjs } from '@/lib/dayjs'
 
 interface OldPostBannerProps {
   date: string
@@ -11,7 +11,7 @@ export function OldPostBanner({ date }: OldPostBannerProps) {
   const daysAgo = now.diff(publishDate, 'day')
 
   // 只在文章发布超过 1 年时显示
-  if (yearsAgo < 1) {
+  if (yearsAgo <= 1) {
     return null
   }
 

@@ -1,4 +1,4 @@
-import dayjs from 'dayjs'
+import { dayjs } from '@/lib/dayjs'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'

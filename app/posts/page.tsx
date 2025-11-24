@@ -1,15 +1,11 @@
+import Link from 'next/link'
+import { dayjs } from '@/lib/dayjs'
 import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
 import { pageMetadata } from '@/lib/pages'
-import Link from 'next/link'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import 'dayjs/locale/zh-cn'
 import { generateCanonicalUrl } from '@/lib/seo'
-import type { Metadata } from 'next'
 
-dayjs.locale('zh-cn')
-dayjs.extend(relativeTime)
+import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
   const allPosts = await getAllPosts()

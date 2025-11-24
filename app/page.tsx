@@ -1,8 +1,8 @@
 import Link from 'next/link'
+import { dayjs } from '@/lib/dayjs'
 import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
 import { renderMarkdown } from '@/lib/markdown-utils'
-import dayjs from 'dayjs'
 import { generateBlogSchema, generateOrganizationSchema } from '@/lib/seo'
 
 export default async function BlogPage() {

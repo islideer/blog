@@ -161,7 +161,7 @@ export default function() {
 - 统一时间格式化方式
 
 ```typescript
-import dayjs from 'dayjs'
+import { dayjs } from '@/lib/dayjs'
 
 // ✅ 正确
 const formatted = dayjs(date).format('YYYY-MM-DD')

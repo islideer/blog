@@ -1,5 +1,6 @@
-import dayjs from 'dayjs'
+import { dayjs } from '@/lib/dayjs'
 import { renderMarkdown } from '@/lib/markdown-utils'
+
 import type { TimelineItem } from '@/lib/timeline'
 
 interface TimelineViewProps {

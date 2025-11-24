@@ -13,8 +13,8 @@ export function AboutContact({ links }: AboutContactProps) {
           <a
             key={index}
             href={link.url}
-            target={link.url.startsWith('http') ? '_blank' : undefined}
-            rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
             className="decoration-text-tertiary hover:text-text-primary hover:decoration-text-primary underline underline-offset-4 transition-colors"
           >
             {link.label}
