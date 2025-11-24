@@ -1,21 +1,57 @@
 ---
 title: 'VMware 17 安装 CentOS 7 无法连接网络'
 date: 2022-11-30
-excerpt: 'CentOS 默认不连接网络，需要在安装的时候连接，或者手动设置开机时自动连接。'
+excerpt: '记录 CentOS 7 在 VMware 虚拟机中无法联网的问题，以及通过修改网络配置文件解决的方法。'
 ---
 
-之前电脑 Win11 的一个大版本更新给我电脑干坏了，自从系统重装之后，就没怎么用过 VMware 了。发现 VMware 最近出了 17 新版本，兼容 Win11，就整了一个，然后下了一个 CentOS 7 的镜像，但是安装完发现连不上网络。
+之前电脑的一次 Win11 大版本更新把系统搞坏了，重装之后就没怎么用过 VMware。最近发现 VMware 出了 17 新版本，兼容 Win11，就下载安装了一个，顺便下了个 CentOS 7 的镜像。结果安装完发现连不上网络。
 
-## 可能的原因
+## 问题原因
 
-CentOS 默认是不连接网络的，需要在安装的时候（GUI 界面）手动选择连接网络。应该是我忘了勾选 =.=
+CentOS 7 默认不会在启动时自动连接网络。在安装系统时，需要在图形界面中手动勾选「自动连接网络」选项。应该是我当时忘了勾选这个选项了 =.=
 
 ## 解决方案
 
-如果安装的时候选忘了勾选咋整？我知道你很急，但你先别急。
+如果安装的时候忘了勾选怎么办？我知道你很急，但你先别急。
 
-使用 `vi` 编辑 `/etc/sysconfig/network-scripts/ifcfg-ens33` 文件，将 `ONBOOT` 改为 `yes`，然后保存并退出就好啦！
+### 步骤 1：修改网络配置文件
 
-好吧，其实改完了还不行，你得让这个改动生效。
+使用 `vi` 编辑器打开网络配置文件：
 
-你可以通过 `service network restart` 命令重启网络服务，或者输入 `reboot` 重启 CentOS。
+```bash
+vi /etc/sysconfig/network-scripts/ifcfg-ens33
+```
+
+找到 `ONBOOT` 配置项，将其值改为 `yes`：
+
+```bash
+ONBOOT=yes
+```
+
+然后保存并退出（按 `Esc`，输入 `:wq`，回车）。
+
+> **注意**：网络接口名称可能不同，常见的有 `ifcfg-ens33`、`ifcfg-eth0` 等，可以通过 `ls /etc/sysconfig/network-scripts/` 命令查看具体的文件名。
+
+### 步骤 2：让配置生效
+
+修改完配置文件后，需要重启网络服务使其生效。你可以选择以下两种方式之一：
+
+**方式 1：重启网络服务（推荐）**
+
+```bash
+service network restart
+```
+
+或者使用 systemctl 命令：
+
+```bash
+systemctl restart network
+```
+
+**方式 2：重启系统**
+
+```bash
+reboot
+```
+
+重启完成后，CentOS 就可以正常联网啦！可以通过 `ping baidu.com` 命令测试网络连接是否正常。

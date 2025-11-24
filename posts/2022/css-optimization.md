@@ -1,56 +1,65 @@
 ---
 title: 'CSS 样式隔离与性能优化'
 date: 2022-02-21
-top_image: 'https://s2.loli.net/2022/02/21/N6ljREPqY9n4wes.png'
 excerpt: '简单介绍了 CSS 的发展历史、样式隔离方案与常见的性能优化手段。'
 ---
 
-CSS 的发展历程：
+## CSS 的发展历程
 
-- 手写原生 CSS 规则，代表：[`BEM` 命名法](http://getbem.com/introduction/)
-- 预处理器 [`Sass`](https://sass-lang.com/)、[`Less`](https://lesscss.org/) 和 [`Stylus`](https://stylus-lang.com/) 等
-- 后处理器 [`PostCSS`](https://postcss.org/)，插件式，如 [`autoprefix`](https://github.com/postcss/autoprefixer)
-- `CSS Modules`，需要搭配 [`webpack`](https://webpack.js.org/)、[`Gulp`](https://gulpjs.com/) 或 [`Parcel`](https://parceljs.org/) 等构建工具
-- `CSS in JS`，代表：基于 `React` 的 [`styled-component`](https://github.com/styled-components/styled-components)
+CSS 从诞生到现在，经历了多个发展阶段，每个阶段都在尝试解决不同的问题：
 
-原生的 CSS 规则是全局生效的。为了避免样式冲突，出现了很多种解决方案。
+- **手写原生 CSS** - 使用 [BEM 命名法](http://getbem.com/introduction/)等规范来约束命名
+- **预处理器时代** - [Sass](https://sass-lang.com/)、[Less](https://lesscss.org/) 和 [Stylus](https://stylus-lang.com/) 等工具让 CSS 编写更高效
+- **后处理器出现** - [PostCSS](https://postcss.org/) 以插件的方式提供各种功能，如 [autoprefixer](https://github.com/postcss/autoprefixer) 自动添加浏览器前缀
+- **模块化方案** - CSS Modules 需要搭配 [webpack](https://webpack.js.org/)、[Gulp](https://gulpjs.com/) 或 [Parcel](https://parceljs.org/) 等构建工具使用
+- **CSS in JS** - 将样式写在 JS 中，代表作是基于 React 的 [styled-components](https://github.com/styled-components/styled-components)
+
+原生 CSS 的一个大问题是**样式全局生效**，很容易造成命名冲突。为了解决这个问题，社区提出了各种样式隔离方案。
+
+## 样式隔离方案
 
 ### BEM 命名法
 
-为了从开发层面上避免命名冲突问题，同时让类名更有意义，获得更多的描述和更加清晰的结构，从其名字可以知道某个标记的含义，让 CSS 更具可读性，出现了 `BEM` （即：`Block`、`Element`、`Modifier`，由 Yandex 团队提出）前端 CSS 命名规范：
+BEM 是由 Yandex 团队提出的一套 CSS 命名规范，全称是 Block（块）、Element（元素）、Modifier（修饰符）。通过规范的命名约定，让类名更有意义，从名字就能看出元素的含义和结构层次。
 
-- `-` 中划线：仅作连字符使用，表示某个块、子元素的**多单词**之间的连接记号
-- `__` 双下划线：双下划线用来连接块和块的子元素
-- `--` 双中划线：双中划线用来描述、修饰元素的状态、种类等
+BEM 的核心规则如下：
+
+- **单中划线 `-`** - 仅作为连字符，连接块或元素名称中的多个单词
+- **双下划线 `__`** - 连接块和块的子元素
+- **双中划线 `--`** - 描述元素的状态或变体
+
+举个例子：
 
 ```css
-/* Block 可以理解为开发的单个组件、模块（Component） */
+/* Block：可以理解为一个组件或模块 */
 .article-detail {
   display: flex;
 }
 
-/* Element 是 Block 的组成部分 */
+/* Element：Block 的组成部分 */
 .article-detail__button {
   width: 120px;
   height: 36px;
 }
 
-/* Modifier 用来描述、修饰元素的状态、种类等 */
+/* Modifier：描述元素的状态或变体 */
 .article-detail__button--primary {
   color: #fff;
   background-color: #3af;
 }
 ```
 
-但缺点也很明显，`BEM` 命名方式手写很繁琐，开发效率低，难以维护。
+虽然 BEM 能有效避免样式冲突，但缺点也很明显：类名写起来很繁琐，开发效率不高，维护成本也比较大。
 
 ### CSS Modules
 
-`CSS Modules` 实质上还是 CSS 文件，它不能单独使用，需要搭配打包构建工具使用。它赋予了原生 CSS 许多新的[特性](https://github.com/css-modules/css-modules)：
+CSS Modules 本质上还是 CSS 文件，但需要配合构建工具（如 webpack）使用。它为原生 CSS 增加了很多实用的[特性](https://github.com/css-modules/css-modules)：
 
-- 支持显式的编写**局部**与**全局** CSS 规则
-- 允许以**模块**的方式被加载和使用到 `JS` 文件当中
-- 打包时会将类名转换成**哈希值**，杜绝 CSS 类名冲突
+- **作用域控制** - 默认样式是局部作用域，也可以显式声明全局样式
+- **模块化导入** - 可以像 JS 模块一样被导入和使用
+- **自动哈希** - 打包时会将类名转换为哈希值，彻底避免类名冲突
+
+代码示例：
 
 ```css
 /* style.css */
@@ -58,35 +67,40 @@ CSS 的发展历程：
   color: green;
   background: red;
 }
+
 .otherClassName {
-  /* 支持样式组合（composes） */
+  /* 样式组合：继承 className 的样式 */
   composes: className;
   color: yellow;
 }
-.otherClassName {
-  /* 支持从其他文件导入 */
-  composes: className from './style.css';
-}
-/* 以上样式，默认是局部作用域 */
 
-/* 局部作用域 */
-:local(p) {
+.anotherClassName {
+  /* 从其他文件导入样式 */
+  composes: className from './base.css';
+}
+
+/* 默认是局部作用域，也可以显式声明 */
+:local(.localClass) {
   color: #333;
 }
+
 /* 全局作用域 */
-:global(p) {
-  color: #333;
+:global(.globalClass) {
+  color: #666;
 }
 ```
+
+在 JS 中这样使用：
 
 ```js
 import styles from './style.css'
-// import { className } from "./style.css";
-element.innerHTML = '<div class="' + styles.className + '">'
-// element.innerHTML = '<div class="' + styles['class-name'] + '">';
+
+element.innerHTML = `<div class="${styles.className}"></div>`
+// 如果类名包含中划线，使用方括号语法
+element.innerHTML = `<div class="${styles['class-name']}"></div>`
 ```
 
-搭配 `webpack` 使用，配置如下：
+在 webpack 中的配置：
 
 ```js
 // webpack.config.js
@@ -99,7 +113,7 @@ module.exports = {
           loader: 'css-loader',
           options: {
             modules: {
-              // 自定义 hash 名称，可用变量
+              // 自定义哈希格式，可以使用多种变量
               localIdentName: '[path][name]__[local]--[hash:base64:5]',
             },
           },
@@ -110,82 +124,100 @@ module.exports = {
 }
 ```
 
-打包后的效果（类名被转换为自定义的哈希名称格式）：
+打包后，类名会被转换为哈希值：
 
 ```css
+/* 原来的 .className 变成了 */
 ._2DHwuiHWMnKTOYG45T0x34 {
   color: red;
 }
 
+/* 原来的 .otherClassName 变成了 */
 ._10B-buq6_BEOTOl9urIjf8 {
   background-color: blue;
 }
 ```
 
-### Sass、Less 和 Stylus
+### CSS 预处理器
 
-为了方便前端开发人员编写 CSS，出现了很多**预处理器**：
+为了让 CSS 编写更加高效和灵活，社区开发了很多 **CSS 预处理器**：
 
-- [`Sass`](https://sass-lang.com/)
-- [`Less`](https://lesscss.org/)
-- [`Stylus`](https://stylus-lang.com/)
+- [Sass](https://sass-lang.com/) - 最流行的 CSS 预处理器
+- [Less](https://lesscss.org/) - 语法接近 CSS，学习成本低
+- [Stylus](https://stylus-lang.com/) - 语法最灵活，可省略大括号和分号
 
-总的来说，他们除了部分语法和特性的差异之外，大都具有以下特征：
+这些预处理器虽然语法有些差异，但核心功能大同小异：
 
-- 默认局部作用域
-- 支持嵌套规则
-- 支持样式组合、继承
-- 支持同一预处理器的外部样式文件引入（`@import`）
-- 允许使用变量、函数（颜色函数等）
-- 打包编译会将类名做哈希处理，不存在冲突问题
+- **嵌套规则** - 可以像 HTML 层级一样嵌套编写样式
+- **变量支持** - 定义颜色、尺寸等可复用的变量
+- **函数功能** - 提供颜色处理、数学计算等内置函数
+- **样式继承** - 支持 `@extend` 或 `@mixin` 等复用机制
+- **文件导入** - 使用 `@import` 引入其他预处理器文件
+- **高级特性** - 条件语句、循环语句等编程能力
 
-除了这些，不同的预处理器还具有**条件语句**、**循环语句**等不同的特性，详情参考对应预处理器文档。
+需要注意的是，`@import` 的行为取决于导入的文件类型：
 
-这里需要注意一点，如果 `@import` 引入的是原生的 CSS 格式文件，那就会额外产生 `http` 请求。
+- **导入原生 CSS 文件**（如 `reset.css`）- 会产生额外的 HTTP 请求
+- **导入预处理器文件**（如 `.scss`、`.less`、`.styl`）- 编译时会被合并，不产生额外请求
 
-而预处理器中的 `@import` 只要是引入对应预处理器的文件，是在语法语义层面引入，而不是引入原生 CSS，那就会在打包编译时被处理，最后只生成一个 CSS 文件，**不会**增加 `http` 请求。
+示例代码：
 
 ```css
-/* 引入原生 CSS，会增加 http 请求 */
+/* ❌ 导入原生 CSS，会产生 HTTP 请求 */
 @import 'reset.css';
 
-/* 预处理器格式，less 为对应预处理器的文件拓展名，如 scss，styl */
+/* ✅ 导入预处理器文件，编译时合并，不产生额外请求 */
+
 /* body.less */
 body {
   background: #eee;
 }
+
 /* style.less */
-@import 'body.less';
+@import 'body.less'; /* 编译时会被合并到一个文件 */
 ```
 
 ### PostCSS
 
-随着前端工程化的不断发展，越来越多的工具被开发出来，希望把所有重复性的工作都交给构建工具去完成，在 CSS 领域，`PostCSS` 兴起了。
+随着前端工程化的发展，PostCSS 应运而生。有人这样形容它：
 
-关于 `PostCSS`，有一句话我觉得说的非常在理：
+> PostCSS 就是 CSS 界的 Babel。
 
-> `PostCSS` 可以被称为 CSS 界的 `Babel`。
+PostCSS 通过解析 CSS 代码生成抽象语法树（AST），然后对 AST 进行各种转换处理，最终生成新的 CSS 代码。它本身只是一个平台，真正的功能来自于各种插件。
 
-`PostCSS` 通过分析 CSS 的语法树（`AST`），并对分析结果进行处理来完成一系列在前端开发者看来十分繁琐复杂的工作。常见的使用场景有：
+常见的应用场景：
 
-- 搭配语言语法校验工具实现语法错误检测，如 [stylelint](https://stylelint.io/)
-- 将 CSS 下一代版本的语法规则做**转译**（`Transpilers`）和**兼容**（`polyfill`）处理
-- 搭配插件实现特定功能，比如使用 [`autoprefix`](https://github.com/postcss/autoprefixer) 实现自动添加浏览器前缀的功能
+- **语法校验** - 配合 [stylelint](https://stylelint.io/) 检测 CSS 语法错误
+- **自动补全** - 使用 [autoprefixer](https://github.com/postcss/autoprefixer) 自动添加浏览器前缀
+- **语法转译** - 将 CSS 新特性转译为兼容旧浏览器的代码
 
-## 关于 CSS 层面的性能优化
+## CSS 性能优化
 
-常见的 CSS 性能优化的方式：
+除了样式隔离，性能优化也是 CSS 开发中很重要的一环。下面是一些实用的优化建议：
 
-- **减少文件拆分**，请求多个 CSS 文件时会受到网络因素的制约
-- 减少 CSS 嵌套，建议不超过三层
-- 删除不必要的 CSS 选择器，合理选用 CSS 选择器，比如：**id 选择器**前无需再添加其他选择器
-- 多复用同类元素的样式，如 `button`、`input` 元素等
-- 减少**通配选择器**（`*`）与**属性选择器**（`[name=nav]`）的使用，这类选择器通常需要遍历所有元素
-- 删除**无效、重复**的样式，比如：部分属性拥有继承的特点，如果父元素定义了，子元素就无需再次设置
-- 分离页面间公共的 CSS 规则成单独的 CSS 文件，比如 `normalize.css`，浏览器只需加载一次（下次使用缓存）
-- 多使用 `CSS Sprite`（或者叫做**精灵图**、**雪碧图**），减少图片、图标的请求次数
-- 使用 CSS 压缩工具或者项目的编译打包工具对 CSS 进行压缩优化处理
-- 减少 `@import` 的使用，会产生额外的请求且会影响加载的顺序（CSS 预处理语言除外）
-- 减少**大幅频繁**的**布局重排**（窗口、元素、文字的大小改变、布局切换、尺寸计算等），减少渲染消耗
-- 避免使用 `JS` 改变单条 CSS 样式，如是必要，可以先定义 CSS 类，然后通过改变类名来改变样式
-- 减少使用**复杂、性能要求高**的 CSS 动画
+### 文件和网络优化
+
+- **合并 CSS 文件** - 减少 HTTP 请求次数，多个小文件合并成一个大文件
+- **提取公共样式** - 将多个页面共用的样式（如 `normalize.css`）独立出来，利用浏览器缓存
+- **使用 CSS Sprite** - 将多个小图标合并成一张大图（精灵图/雪碧图），减少图片请求
+- **压缩 CSS 代码** - 使用构建工具压缩 CSS，去除空格、注释等
+- **避免使用 `@import`** - 会产生额外的 HTTP 请求并阻塞渲染（预处理器中的 `@import` 除外）
+
+### 选择器优化
+
+- **控制嵌套层级** - CSS 选择器嵌套不超过 3 层，避免过深的层级
+- **合理使用选择器** - ID 选择器前不需要再加其他选择器（如 `div#header` 应写成 `#header`）
+- **减少通配符使用** - 通配选择器 `*` 和属性选择器 `[name=nav]` 性能较差，会遍历所有元素
+- **删除无效选择器** - 清理未使用的 CSS 规则
+
+### 样式复用
+
+- **提取公共样式** - 相似元素（如 `button`、`input`）复用相同的样式类
+- **利用继承特性** - 如果父元素已定义可继承属性（如 `color`、`font-family`），子元素无需重复设置
+- **删除重复样式** - 避免在多处定义相同的样式规则
+
+### 渲染性能
+
+- **减少重排（Reflow）** - 避免频繁修改元素的几何属性（宽高、位置等），批量修改 DOM
+- **用类名替代行内样式** - 避免用 JS 逐条修改样式，应先定义 CSS 类，然后修改 `className`
+- **优化动画性能** - 少用复杂的 CSS 动画，优先使用 `transform` 和 `opacity`（这两个属性不会触发重排）
