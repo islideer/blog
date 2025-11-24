@@ -3,7 +3,7 @@ import { ImageResponse } from '@vercel/og'
 import { NextRequest } from 'next/server'
 
 export const dynamic = 'force-dynamic'
-export const runtime = 'nodejs'
+export const runtime = 'edge'
 
 // OG 图使用绝对时间，可以安全缓存
 export const revalidate = 86400 // 缓存 24 小时
