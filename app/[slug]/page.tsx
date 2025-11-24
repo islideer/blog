@@ -13,6 +13,8 @@ import {
   generatePostTwitterCard,
 } from '@/lib/seo'
 import { OldPostBanner } from '@/components/old-post-banner'
+import { DraftBadge } from '@/components/draft-badge'
+import { ReadingTime } from '@/components/reading-time'
 
 import type { Metadata } from 'next'
 
@@ -89,9 +91,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </h1>
             {post.draft && (
               <div className="inline-flex items-center gap-2">
-                <span className="text-text-tertiary bg-bg-tertiary rounded-xs px-2 py-1 text-xs font-medium sm:text-sm">
-                  草稿
-                </span>
+                <DraftBadge />
                 <span className="text-text-tertiary text-xs sm:text-sm">
                   此文章尚未正式发布，仅在开发环境可见
                 </span>
@@ -108,7 +108,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {post.readingTime && (
               <>
                 <span className="shrink-0">·</span>
-                <span className="shrink-0">{post.readingTime.toLocaleString('zh-CN')} 分钟</span>
+                <span className="shrink-0">
+                  <ReadingTime minutes={post.readingTime} />
+                </span>
               </>
             )}
             <OldPostBanner date={post.date} />
@@ -146,13 +148,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <h2 className="text-text-secondary text-base font-medium sm:text-lg">也可以看看</h2>
             <div className="space-y-2 sm:space-y-3">
               {recommendedPosts.map((recommendedPost) => (
-                <Link
-                  key={recommendedPost.slug}
-                  href={`/${recommendedPost.slug}`}
-                  className="text-text-secondary hover:text-text-primary block text-sm sm:text-base"
-                >
-                  {recommendedPost.title}
-                </Link>
+                <div key={recommendedPost.slug} className="flex items-center gap-2">
+                  {recommendedPost.draft && <DraftBadge />}
+                  <Link
+                    href={`/${recommendedPost.slug}`}
+                    className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
+                  >
+                    {recommendedPost.title}
+                  </Link>
+                </div>
               ))}
             </div>
           </div>
