@@ -60,7 +60,6 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${pageMetadata.mioSays.title} | ${siteConfig.name}`,
       description: pageMetadata.mioSays.description,
-      creator: siteConfig.author.twitter,
       images: [ogImageUrl],
     },
   }

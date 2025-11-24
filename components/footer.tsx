@@ -1,10 +1,9 @@
 import { siteConfig } from '@/lib/config'
 
 function CopyrightText() {
-  const currentYear = new Date().getFullYear()
   return (
     <span>
-      © {siteConfig.copyright.year.start}-{currentYear} {siteConfig.author.name}
+      © {siteConfig.copyright.year.start}-{siteConfig.copyright.year.end} {siteConfig.author.name}
     </span>
   )
 }
@@ -28,7 +27,7 @@ function LicenseText() {
 
 function SocialLinks({ center = false }: { center?: boolean }) {
   return (
-    <div className={`flex items-center gap-4${center ? ' justify-center' : ''}`}>
+    <div className={`flex items-center gap-4${center ? 'justify-center' : ''}`}>
       <a
         href={siteConfig.links.github}
         target="_blank"
@@ -65,7 +64,7 @@ export function Footer() {
           </div>
         </div>
         {/* 桌面端布局 */}
-        <div className="hidden sm:flex sm:flex-row sm:items-center sm:justify-between gap-4 text-sm">
+        <div className="hidden gap-4 text-sm sm:flex sm:flex-row sm:items-center sm:justify-between">
           <div className="text-text-tertiary text-left">
             <CopyrightText />
             <br className="sm:hidden" />

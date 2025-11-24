@@ -14,6 +14,9 @@ vi.mock('./config', () => ({
       github: 'https://github.com/vikiboss',
       twitter: '@vikiboss',
     },
+    openGraph: {
+      version: 1,
+    },
   },
 }))
 
@@ -189,10 +192,26 @@ describe('SEO Functions', () => {
             '@type': 'ListItem',
             position: 3,
             name: '测试文章',
-            item: 'https://blog.viki.moe/posts/test-post',
+            // 最后一个元素不应该有 item 字段（符合 Google 最佳实践）
           },
         ],
       })
+    })
+
+    it('应该将相对 URL 转换为绝对 URL', () => {
+      const items = [
+        { name: '首页', url: '/' },
+        { name: '文章', url: '/posts' },
+        { name: '测试文章', url: '/posts/test-post' },
+      ]
+
+      const schema = generateBreadcrumbSchema(items)
+
+      // 前两个元素应该有完整的 URL
+      expect(schema.itemListElement[0].item).toBe('https://blog.viki.moe/')
+      expect(schema.itemListElement[1].item).toBe('https://blog.viki.moe/posts')
+      // 最后一个元素不应该有 item 字段
+      expect(schema.itemListElement[2]).not.toHaveProperty('item')
     })
 
     it('应该正确设置 position 序号', () => {
@@ -205,6 +224,30 @@ describe('SEO Functions', () => {
 
       expect(schema.itemListElement[0].position).toBe(1)
       expect(schema.itemListElement[1].position).toBe(2)
+    })
+
+    it('最后一个元素不应该包含 item 字段', () => {
+      const items = [
+        { name: '首页', url: '/' },
+        { name: '当前页面', url: '/current' },
+      ]
+
+      const schema = generateBreadcrumbSchema(items)
+
+      // 第一个元素应该有 item
+      expect(schema.itemListElement[0]).toHaveProperty('item')
+      // 最后一个元素不应该有 item
+      expect(schema.itemListElement[1]).not.toHaveProperty('item')
+    })
+
+    it('应该处理单个元素', () => {
+      const items = [{ name: '首页', url: '/' }]
+
+      const schema = generateBreadcrumbSchema(items)
+
+      // 如果只有一个元素，它就是最后一个，不应该有 item
+      expect(schema.itemListElement[0]).not.toHaveProperty('item')
+      expect(schema.itemListElement[0].name).toBe('首页')
     })
 
     it('应该处理空数组', () => {
@@ -316,7 +359,6 @@ describe('SEO Functions', () => {
       expect(card.card).toBe('summary_large_image')
       expect(card.title).toBe('测试文章 - Viki 写东西的地方')
       expect(card.description).toBe('这是一篇测试文章')
-      expect(card.creator).toBe('@vikiboss')
     })
 
     it('应该生成 Twitter Card 图片 URL', () => {

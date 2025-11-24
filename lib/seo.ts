@@ -10,7 +10,7 @@ export function generateOrganizationSchema() {
     '@type': 'Person',
     name: siteConfig.author.name,
     url: siteConfig.url,
-    sameAs: [siteConfig.author.github, siteConfig.author.twitter],
+    sameAs: [siteConfig.author.github],
   }
 }
 
@@ -80,17 +80,29 @@ export function generateBlogPostingSchema(post: Post) {
 
 /**
  * Generate JSON-LD structured data for BreadcrumbList
+ * @see https://developers.google.com/search/docs/appearance/structured-data/breadcrumb
  */
 export function generateBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.name,
-      item: item.url,
-    })),
+    itemListElement: items.map((item, index) => {
+      // 确保 URL 是完整的绝对 URL
+      const fullUrl = item.url.startsWith('http')
+        ? item.url
+        : `${siteConfig.url}${item.url.startsWith('/') ? item.url : `/${item.url}`}`
+
+      // 最后一个元素（当前页面）不需要 item 字段
+      const isLast = index === items.length - 1
+
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        // 只有非最后一个元素才包含 item 字段
+        ...(isLast ? {} : { item: fullUrl }),
+      }
+    }),
   }
 }
 
@@ -174,7 +186,6 @@ export function generatePostTwitterCard(post: Post) {
     card: 'summary_large_image' as const,
     title: `${post.title} - ${siteConfig.name}`,
     description: post.excerpt || post.title,
-    creator: siteConfig.author.twitter,
     images: [ogImageUrl],
   }
 }

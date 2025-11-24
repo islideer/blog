@@ -15,7 +15,7 @@ export async function GET() {
     language: siteConfig.language,
     image: `${siteConfig.url}/apple-icon.png`, // RSS 阅读器显示的图片
     favicon: `${siteConfig.url}/favicon.ico`,
-    copyright: `© ${siteConfig.copyright.year.start}-${new Date().getFullYear()} ${siteConfig.author.name}. 所有文章均遵循 ${siteConfig.copyright.license.name} 协议，转载请注明出处。`,
+    copyright: `© ${siteConfig.copyright.year.start}-${siteConfig.copyright.year.end} ${siteConfig.author.name}. 所有文章均遵循 ${siteConfig.copyright.license.name} 协议，转载请注明出处。`,
     updated: new Date(posts[0]?.date || Date.now()),
     generator: 'Next.js 16 + Feed', // 生成器信息
     feedLinks: {

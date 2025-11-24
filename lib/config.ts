@@ -9,7 +9,7 @@ export const siteConfig = {
   // 基本信息
   name: 'Viki 写东西的地方',
   shortName: 'Viki',
-  description: '分享技术和日常',
+  description: 'Viki 的个人博客，记录前端开发与生活点滴。',
   tagline: '生活需要记录',
   url: 'https://blog.viki.moe',
   locale: 'zh-CN',
@@ -19,8 +19,8 @@ export const siteConfig = {
   author: {
     name: 'Viki',
     email: 'hi@viki.moe',
+    homepage: 'https://viki.moe',
     github: 'https://github.com/vikiboss',
-    twitter: '@vikiboss',
   },
 
   // 社交链接
@@ -45,7 +45,7 @@ export const siteConfig = {
   copyright: {
     year: {
       start: 2019,
-      end: 'PRESENT',
+      end: new Date().getFullYear(),
     },
     license: {
       name: 'CC BY-SA 4.0',

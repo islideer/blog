@@ -76,7 +76,6 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: siteConfig.name,
       description: siteConfig.description,
-      creator: siteConfig.author.twitter,
       images: [ogImageUrl],
     },
   }

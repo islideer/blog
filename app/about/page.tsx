@@ -44,7 +44,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${pageMetadata.about.title} | ${siteConfig.name}`,
     description: pageMetadata.about.description,
-    creator: siteConfig.author.twitter,
     images: [ogImageUrl],
   },
 }
