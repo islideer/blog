@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: '如何优雅的畅玩 4399 等 Flash 游戏'
 date: 2022-12-31
 excerpt: 'Adobe 早在 2020 年底就宣布 Flash 结束了它使命，但是我们有时仍有使用 Flash 的需求...'

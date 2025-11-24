@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: 'webpack 4.x 基础'
 date: 2020-08-20
 top_image: 'https://i.loli.net/2020/11/21/ePLUKyEQr2NDxko.jpg'

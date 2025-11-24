@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: 'Hello World'
 date: 2019-11-08
 excerpt: '记录我的博客行程轨迹。'

@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: 'CSS 样式隔离与性能优化'
 date: 2022-02-21
 top_image: 'https://s2.loli.net/2022/02/21/N6ljREPqY9n4wes.png'

@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: '公网访问 TP-LINK 路由管理页绕过 tplogin.cn 跳转'
 date: 2024-09-30
 excerpt: '先说解决方案，通过 nginx 配置代理并利用其替换功能修改前端页面里写死的判别逻辑即可。'

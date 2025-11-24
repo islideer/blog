@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: '寒假学习计划和进度记录'
 date: 2020-01-10
 top_image: 'https://i.loli.net/2020/11/21/4k5bCawEFxysD9r.jpg'

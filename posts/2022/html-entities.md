@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: '浅谈 HTML 中的字符实体（如 `&nbsp;`, `&lt;` 等）'
 date: 2022-12-25
 excerpt: '本文将讨论 HTML 中诸如 `&nbsp;`, `&lt;` 等实体符号的相关知识。'

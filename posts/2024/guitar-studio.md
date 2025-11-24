@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: 'Guitar Studio! （吉他工作室）'
 date: 2024-01-12
 excerpt: '🎸 + 🌐 = your all-in-one guitar online toolkit.'

@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: 'VMware 17 安装 CentOS 7 无法连接网络'
 date: 2022-11-30
 excerpt: 'CentOS 默认不连接网络，需要在安装的时候连接，或者手动设置开机时自动连接。'

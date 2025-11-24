@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: '记录 Axios 的 `Z_BUF_ERROR` BUG'
 date: 2022-12-25
 excerpt: '在升级到正式版的 Axios 1.2.1 之后发现了部分问题，记录一下。'

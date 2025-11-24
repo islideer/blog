@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: 'CSS 选择器小归纳'
 date: 2022-02-16
 top_image: 'https://s2.loli.net/2022/02/16/6j3YWJQon472zxt.png'

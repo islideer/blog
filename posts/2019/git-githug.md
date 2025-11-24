@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: 'Githug 通关指南：55 关 Git 实战闯关攻略'
 date: 2019-12-14
 top_image: 'https://i.loli.net/2020/11/21/3ygtAW8ESVJuMKH.jpg'

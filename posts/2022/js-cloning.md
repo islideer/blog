@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: '简单实现一下 JavaScript 中的深拷贝与浅拷贝'
 date: 2022-03-06
 top_image: 'https://s2.loli.net/2022/03/06/ed7FfCKA1ipN24r.png'

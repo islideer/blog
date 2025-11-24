@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: '每一个前端都应该了解的常见 Linux 命令'
 date: 2023-02-14
 excerpt: '什么？你连基本的 Linux 操作还不会？要不我们重开吧。'

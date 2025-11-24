@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: 'JavaScript 的函数参数竟然能相互访问到？'
 date: 2023-11-04
 excerpt: '是的，别骂了，我很菜，我在大惊小怪 😩。'

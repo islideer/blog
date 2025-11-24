@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: 'JavaScript 正则的高级用法'
 date: 2022-12-26
 excerpt: '记录一些 JavaScript 正则的高级用法，便于自己日后翻阅复习。'

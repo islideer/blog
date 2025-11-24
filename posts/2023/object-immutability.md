@@ -1,5 +1,4 @@
 ---
-layout: 'post'
 title: 'Object 方法：`freeze` vs `seal` vs `preventExtensions`'
 date: 2023-11-07
 excerpt: '当我们涉足 JavaScript 的世界时，我们会遇到 freeze、seal和preventExtensions这三个神秘的伙伴。它们就像保护我们的对象免受外界伤害的护身符，但它们之间可是各有不同！'
