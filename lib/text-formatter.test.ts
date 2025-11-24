@@ -176,6 +176,32 @@ describe('formatText', () => {
     })
   })
 
+  describe('换行符统一', () => {
+    it('应该将 Windows 换行符（\\r\\n）统一为 \\n', () => {
+      const input = '第一行\r\n第二行\r\n第三行'
+      const expected = '第一行\n第二行\n第三行'
+      expect(formatText(input)).toBe(expected)
+    })
+
+    it('应该将旧版 Mac 换行符（\\r）统一为 \\n', () => {
+      const input = '第一行\r第二行\r第三行'
+      const expected = '第一行\n第二行\n第三行'
+      expect(formatText(input)).toBe(expected)
+    })
+
+    it('应该同时处理混合的换行符', () => {
+      const input = '第一行\r\n第二行\r第三行\n第四行'
+      const expected = '第一行\n第二行\n第三行\n第四行'
+      expect(formatText(input)).toBe(expected)
+    })
+
+    it('应该在统一换行符后正确应用其他格式化规则', () => {
+      const input = '使用react开发\r\n学习typescript\r访问github'
+      const expected = '使用 React 开发\n学习 TypeScript\n访问 GitHub'
+      expect(formatText(input)).toBe(expected)
+    })
+  })
+
   describe('边界情况', () => {
     it('应该处理只有空格的字符串', () => {
       expect(formatText('   ')).toBe('   ')

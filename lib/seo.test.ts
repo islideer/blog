@@ -41,7 +41,7 @@ describe('SEO Functions', () => {
         '@type': 'Person',
         name: 'Viki',
         url: 'https://blog.viki.moe',
-        sameAs: ['https://github.com/vikiboss', '@vikiboss'],
+        sameAs: ['https://github.com/vikiboss'],
       })
     })
 
