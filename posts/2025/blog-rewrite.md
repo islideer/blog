@@ -56,12 +56,12 @@ draft: true
 
 ```css
 /* 亮色模式 */
---color-bg-primary: oklch(1 0 0);        /* 纯白 */
---color-text-primary: oklch(0.15 0 0);   /* 深灰 */
+--color-bg-primary: oklch(1 0 0); /* 纯白 */
+--color-text-primary: oklch(0.15 0 0); /* 深灰 */
 
 /* 暗色模式 */
---color-bg-primary: oklch(0.15 0 0);     /* 深黑 */
---color-text-primary: oklch(0.98 0 0);   /* 亮白 */
+--color-bg-primary: oklch(0.15 0 0); /* 深黑 */
+--color-text-primary: oklch(0.98 0 0); /* 亮白 */
 ```
 
 ### 阅读体验优先
@@ -96,7 +96,7 @@ draft: true
 ```typescript
 // next.config.ts
 const nextConfig: NextConfig = {
-  reactCompiler: true,  // 启用 React 编译器
+  reactCompiler: true, // 启用 React 编译器
   reactStrictMode: true,
 }
 ```
@@ -112,12 +112,12 @@ const nextConfig: NextConfig = {
 
 ```html
 <script>
-  (function() {
-    const savedTheme = localStorage.getItem('theme');
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    const theme = savedTheme || systemTheme;
-    document.documentElement.classList.add(theme);
-  })();
+  ;(function () {
+    const savedTheme = localStorage.getItem('theme')
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    const theme = savedTheme || systemTheme
+    document.documentElement.classList.add(theme)
+  })()
 </script>
 ```
 

@@ -128,7 +128,7 @@ export default async function PostsPage() {
                 </div>
                 <div className="flex flex-1 items-center gap-2">
                   {post.draft && (
-                    <span className="text-text-tertiary bg-bg-tertiary rounded-xs shrink-0 px-1.5 py-0.5 text-xs font-medium">
+                    <span className="text-text-tertiary bg-bg-tertiary shrink-0 rounded-xs px-1.5 py-0.5 text-xs font-medium">
                       草稿
                     </span>
                   )}
@@ -193,7 +193,7 @@ export default async function PostsPage() {
                       </div>
                       <div className="flex flex-1 items-center gap-2">
                         {post.draft && (
-                          <span className="text-text-tertiary bg-bg-tertiary rounded-xs shrink-0 px-1.5 py-0.5 text-xs font-medium">
+                          <span className="text-text-tertiary bg-bg-tertiary shrink-0 rounded-xs px-1.5 py-0.5 text-xs font-medium">
                             草稿
                           </span>
                         )}
