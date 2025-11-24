@@ -78,10 +78,11 @@ function restoreMarkdown(text: string, placeholders: MarkdownPlaceholder[]): str
 
 /**
  * 格式化文本内容
- * 1. 提取并保护 Markdown 标记
- * 2. 使用 pangu 进行中英文混排格式化（盘古之白）
- * 3. 统一名词大小写
- * 4. 恢复 Markdown 标记
+ * 1. 统一换行符
+ * 2. 提取并保护 Markdown 标记
+ * 3. 使用 pangu 进行中英文混排格式化（盘古之白）
+ * 4. 统一名词大小写
+ * 5. 恢复 Markdown 标记
  *
  * @param text - 要格式化的文本
  * @returns 格式化后的文本
@@ -91,20 +92,23 @@ export function formatText(text: string): string {
     return text
   }
 
-  // 1. 提取 Markdown 标记
-  const { text: textWithoutMd, placeholders } = extractMarkdown(text)
+  // 1. 统一换行符为 \n。 兼容 iOS 下 SB QQ 的独一份 \r 换行符
+  const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n')
 
-  // 2. 使用 pangu 格式化中英文混排
+  // 2. 提取 Markdown 标记
+  const { text: textWithoutMd, placeholders } = extractMarkdown(normalized)
+
+  // 3. 使用 pangu 格式化中英文混排
   let formatted = pangu.spacingText(textWithoutMd)
 
-  // 3. 统一名词大小写
+  // 4. 统一名词大小写
   // 使用正则替换，确保只替换完整单词，不影响单词的一部分
   Object.entries(nameNormalizeMap).forEach(([pattern, replacement]) => {
     const regex = new RegExp(`\\b${pattern}\\b`, 'gi')
     formatted = formatted.replace(regex, replacement)
   })
 
-  // 4. 恢复 Markdown 标记
+  // 5. 恢复 Markdown 标记
   formatted = restoreMarkdown(formatted, placeholders)
 
   return formatted
