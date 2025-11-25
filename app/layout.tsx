@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: generateCanonicalUrl('/'),
     },
     openGraph: {
-      type: siteConfig.openGraph.type,
+      type: siteConfig.openGraph.type as 'website',
       locale: siteConfig.locale.replace('-', '_'),
       url: siteConfig.url,
       title: siteConfig.name,

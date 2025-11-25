@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { OgImageTemplate } from '@/components/og-image-template'
-import { pageMetadata } from '@/lib/pages'
+import { pageMetadata } from '@/lib/config'
 import { getAllPosts } from '@/lib/posts'
 import { dayjs } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'

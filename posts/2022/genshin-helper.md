@@ -1,7 +1,13 @@
 ---
 title: '爆肝数月后，我写了一个开源原神工具《原神助手》'
 date: 2022-11-26
-excerpt: '一次契机，我接触到了原神，随后一发不可收拾，再到后面开发了一个 PC 端的小工具……'
+tags:
+  - 'Electron'
+  - 'React'
+  - '开源'
+  - '原神'
+  - '项目'
+excerpt: '基于 Electron + React 开发的开源原神工具「原神助手」幕后故事。分享从游戏入坑到独立开发跨平台工具的心路历程，以及祈愿分析、实时便签等核心功能介绍。'
 ---
 
 <img src="https://s2.loli.net/2025/11/19/ubfBFP34JXIAeTN.png" alt="genshin" style="max-height: 400px" />

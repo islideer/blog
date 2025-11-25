@@ -1,8 +1,8 @@
 import { ImageResponse } from 'next/og'
 import { OgImageTemplate } from '@/components/og-image-template'
-import { pageMetadata } from '@/lib/pages'
+import { pageMetadata } from '@/lib/config'
 import { siteConfig } from '@/lib/config'
-import { about } from '@/lib/about'
+import { about } from '@/lib/data'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 

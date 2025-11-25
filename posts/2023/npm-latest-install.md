@@ -1,7 +1,13 @@
 ---
 title: '频繁发布 npm 包时如何确保始终安装最新版本'
 date: 2023-03-26
-excerpt: '由于缓存和网络延迟的影响，在安装和更新的时候，可能安装的不是最新版本的 npm 包。'
+excerpt: '频繁发布 npm 包时，受缓存影响可能无法安装最新版本。本文介绍使用 --prefer-online 标志和配置 .npmrc 文件两种方法，确保始终获取最新发布的 npm 包。'
+tags:
+  - 'npm'
+  - 'Node.js'
+  - 'package.json'
+  - 'DevOps'
+  - '包管理'
 ---
 
 ## 问题背景

@@ -2,7 +2,13 @@
 title: 'Githug 通关指南：55 关 Git 实战闯关攻略'
 date: 2019-12-14
 top_image: 'https://i.loli.net/2020/11/21/3ygtAW8ESVJuMKH.jpg'
-excerpt: '通过 Githug 游戏掌握 Git，从安装配置到全部 55 关详细攻略，涵盖分支管理、冲突解决等实战技巧'
+tags:
+  - 'Git'
+  - 'Githug'
+  - 'CLI'
+  - '教程'
+  - '版本控制'
+excerpt: '通过 Githug 游戏化学习 Git，从安装配置到全部 55 关详细攻略。涵盖分支管理、冲突解决、Rebase 等实战技巧，助你轻松掌握版本控制核心技能。'
 ---
 
 ## 前言

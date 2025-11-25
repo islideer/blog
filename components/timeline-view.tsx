@@ -1,7 +1,7 @@
 import { dayjs } from '@/lib/dayjs'
 import { renderMarkdown } from '@/lib/inline-md'
 
-import type { TimelineItem } from '@/lib/timeline'
+import type { TimelineItem } from '@/lib/data'
 
 interface TimelineViewProps {
   items: TimelineItem[]

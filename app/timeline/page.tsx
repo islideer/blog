@@ -1,8 +1,8 @@
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { timelineData } from '@/lib/timeline'
+import { timelineData } from '@/lib/data'
 import { TimelineView } from '@/components/timeline-view'
-import { pageMetadata } from '@/lib/pages'
+import { pageMetadata } from '@/lib/config'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {

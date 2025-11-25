@@ -2,6 +2,7 @@ import { dayjs } from '@/lib/dayjs'
 import { Octokit } from '@octokit/rest'
 import { NextRequest, NextResponse } from 'next/server'
 import { formatText } from '@/lib/text-formatter'
+import { siteConfig } from '@/lib/config'
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
@@ -90,8 +91,8 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ typ
       auth: process.env.GITHUB_TOKEN,
     })
 
-    const owner = process.env.GITHUB_OWNER || 'vikiboss'
-    const repo = process.env.GITHUB_REPO || 'blog'
+    const owner = process.env.GITHUB_OWNER || siteConfig.githubUser
+    const repo = process.env.GITHUB_REPO || siteConfig.githubRepo
 
     // 读取现有文件
     const { data: fileData } = await octokit.repos.getContent({

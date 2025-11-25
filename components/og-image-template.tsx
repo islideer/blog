@@ -151,7 +151,7 @@ export function OgImageTemplate({
               letterSpacing: '-0.01em',
             }}
           >
-            blog.viki.moe
+            {siteConfig.url.replace(/^https?:\/\//, '')}
           </div>
 
           {/* 右侧：头像 */}

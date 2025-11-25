@@ -1,4 +1,4 @@
-import type { TechStackData } from '@/lib/about'
+import type { TechStackData } from '@/lib/data'
 
 interface AboutTechStackProps {
   technologies: TechStackData

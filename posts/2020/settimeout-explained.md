@@ -2,7 +2,13 @@
 title: 'setTimeout 初探'
 date: 2020-04-02
 top_image: 'https://i.loli.net/2020/11/21/QLTeHUhrAOBCzER.jpg'
-excerpt: '探索 setTimeout 在不同环境和作用域下的行为差异，理解闭包和变量声明的影响'
+tags:
+  - 'JavaScript'
+  - '作用域'
+  - '面试'
+  - '闭包'
+  - '事件循环'
+excerpt: '深入解析 JavaScript 中 setTimeout 在循环中的经典面试题。探讨 var、let 声明及 IIFE 对作用域的影响，分析浏览器与 Node.js 环境下的输出差异及底层原理。'
 ---
 
 ## 问题

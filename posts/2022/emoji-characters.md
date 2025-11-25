@@ -1,7 +1,13 @@
 ---
 title: '由 emoji 字符分割问题引发的对 emoji 的重新认识'
 date: 2022-12-02
-excerpt: '介绍 emoji 的基本概念和 Unicode 编码规范，探讨字符分割异常问题的成因和解决方案。'
+tags:
+  - 'JavaScript'
+  - 'Emoji'
+  - 'Unicode'
+  - 'String'
+  - 'Intl'
+excerpt: '深入探讨 JavaScript 中 Emoji 字符分割异常的成因。解析 Unicode 编码规范、零宽连字（ZWJ）与肤色修饰符原理，并提供基于 Intl.Segmenter 的完美解决方案。'
 ---
 
 > 文章内容较多，如果只是寻找解决方案，请直接划到文末。

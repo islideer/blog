@@ -2,7 +2,13 @@
 title: 'MySQL 5.7 版本不支持新版 VISIBLE 关键字'
 date: 2023-03-30
 top_image: 'https://s2.loli.net/2022/03/06/ed7FfCKA1ipN24r.png'
-excerpt: '使用 MySQL Workbench 时遇到的版本兼容性问题及解决方案。'
+tags:
+  - 'MySQL'
+  - '数据库'
+  - '解决方案'
+  - '版本控制'
+  - 'Workbench'
+excerpt: '解决 MySQL Workbench 导出的 SQL 脚本在 MySQL 5.7 中报错 "syntax error near VISIBLE" 的问题。分析版本兼容性原因，并提供修改 SQL 及调整工具设置的解决方案。'
 ---
 
 ## 问题背景

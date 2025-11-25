@@ -1,7 +1,13 @@
 ---
 title: '什么是 Shebang (或 Hashbang)'
 date: 2023-03-14
-excerpt: 'Shebang 是脚本文件第一行的特殊字符序列（#!），用于指定脚本由哪个解释器执行。本文介绍 Shebang 的基本用法、常见形式以及为什么推荐使用 env 方式。'
+excerpt: 'Shebang (#!) 是脚本文件首行的特殊字符序列，用于指定解释器。本文详解 Shebang 的工作原理、常见写法，以及为何推荐使用 #!/usr/bin/env 以提高跨平台兼容性。'
+tags:
+  - Linux
+  - Shell
+  - Node.js
+  - Python
+  - 脚本
 ---
 
 Shebang，也称为 Hashbang 或 Sha-bang，是一种在 Unix、Linux 和类 Unix 系统上广泛使用的特殊字符序列。它的作用是告诉操作系统，这个脚本文件应该用哪个解释器来执行。

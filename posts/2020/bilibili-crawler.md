@@ -3,7 +3,13 @@ title: '记一次使用 Python 爬取 B 站 UP 主信息的经历'
 date: 2020-11-29
 quicklink: true
 top_image: 'https://i.loli.net/2020/11/29/esjylJK4a256W3L.png'
-excerpt: '一个简单的 Python 爬虫程序，用于爬取 B 站 UP 主的粉丝数和 UID，仅用于学习'
+tags:
+  - 'Python'
+  - 'Bilibili'
+  - 'Selenium'
+  - '爬虫'
+  - '数据分析'
+excerpt: '使用 Python 编写的 B 站爬虫实战教程。结合 Selenium 和 BeautifulSoup，实现对美食区 UP 主粉丝数、UID 等数据的抓取与分析，包含反爬虫策略应对。'
 ---
 
 ## 需求

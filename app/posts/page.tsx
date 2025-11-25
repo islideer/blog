@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import { dayjs } from '@/lib/dayjs'
-import { getAllPosts } from '@/lib/posts'
-import { siteConfig } from '@/lib/config'
-import { pageMetadata } from '@/lib/pages'
-import { generateCanonicalUrl } from '@/lib/seo'
-import { DraftBadge } from '@/components/draft-badge'
 import { PostDate } from '@/components/post-date'
+import { siteConfig } from '@/lib/config'
+import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
+import { getAllPosts } from '@/lib/posts'
+import { pageMetadata } from '@/lib/config'
+import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 

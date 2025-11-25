@@ -2,7 +2,13 @@
 title: 'webpack 4.x 基础'
 date: 2020-08-20
 top_image: 'https://i.loli.net/2020/11/21/ePLUKyEQr2NDxko.jpg'
-excerpt: '本文简要讲解了 webpack 4.x 的入门知识，适合想了解和学习 webpack 的新手朋友'
+tags:
+  - 'Webpack'
+  - 'JavaScript'
+  - '构建工具'
+  - '前端'
+  - '配置'
+excerpt: 'Webpack 4.x 入门指南。从基础安装、配置文件编写，到 CSS/图片资源加载、HtmlWebpackPlugin 插件使用，以及 HMR 热替换和 Tree Shaking 等核心概念的简要讲解。'
 ---
 
 本文简要讲解了 webpack 4.x 的入门知识，适合想了解和学习 webpack 的新手朋友。

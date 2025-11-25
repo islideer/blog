@@ -1,7 +1,14 @@
 ---
 title: 'Guitar Studio! （吉他工作室）'
 date: 2024-01-12
-excerpt: 一个开源的在线吉他工具箱，调音器、节拍器、和弦库... 让练琴变得更简单！
+excerpt: 'Guitar Studio 是一个开源的在线吉他工具箱，集成了调音器、节拍器、和弦库等实用功能。基于 React + TypeScript + Vite 开发，旨在让练琴变得更简单高效。'
+tags:
+  - Project
+  - React
+  - TypeScript
+  - 音乐
+  - 开源
+  - 吉他
 ---
 
 ![guitar-studio](https://s2.loli.net/2025/11/19/fpWaixzZGSovCmE.png)

@@ -1,7 +1,13 @@
 ---
 title: '记录 Axios 的 `Z_BUF_ERROR` Bug'
 date: 2022-12-25
-excerpt: '升级到 Axios 1.2.1 之后遇到的 Z_BUF_ERROR 问题记录。'
+tags:
+  - 'Axios'
+  - 'Bug'
+  - 'JavaScript'
+  - 'Node.js'
+  - '开源'
+excerpt: '记录 Axios 1.2.x 版本中遇到的 Z_BUF_ERROR 问题。分析 Brotli 解压缩在处理空响应时的 Bug 成因，提供临时解决方案并追踪官方修复进展。'
 ---
 
 在 Axios 的 1.2.0 版本中，不少人遇到了 `Z_BUF_ERROR` 的问题。

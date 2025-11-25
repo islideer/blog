@@ -2,7 +2,13 @@
 title: '关于 CentOS 7 中 yum 命令失效问题的解决方案'
 date: 2020-01-12
 top_image: 'https://i.loli.net/2020/11/21/o7sYJZVIuqMRpT3.jpg'
-excerpt: '列出了 CentOS 7 中 yum 命令失效问题的可能原因，给出了对应的解决方案'
+tags:
+  - 'Linux'
+  - 'CentOS'
+  - 'Yum'
+  - '网络'
+  - '解决方案'
+excerpt: '解决 CentOS 7 系统中 yum 命令失效的常见问题。详细分析网卡未启动和 yum 源配置错误两种原因，并提供启用网卡自启动及修改镜像源的完整解决方案。'
 ---
 
 刚在虚拟机中安装完 CentOS 7 系统后，可能会遇到**无法使用 yum 命令**的问题。本文提供两种解决方案。

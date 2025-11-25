@@ -1,7 +1,12 @@
 ---
 title: '现代化的高质量 React Hooks 库（已开源）'
 date: 2024-07-04
-excerpt: '@shined/react-use 是一个对 SSR 友好、全面且高度优化的 React Hooks 库，提供灵活高效的钩子解决方案。完全采用 TypeScript 开发，配备包含丰富示例的交互式文档。'
+excerpt: '@shined/react-use 是一个现代化、SSR 友好且高度优化的 React Hooks 库。本文介绍其设计理念、核心特性（如安全状态、稳定引用）以及背后的工程化实践。'
+tags:
+  - React
+  - Hooks
+  - 开源
+  - TypeScript
 ---
 
 ![shined-react-use-logo](https://s2.loli.net/2024/07/03/XjReoNwi5mI7MbO.png)

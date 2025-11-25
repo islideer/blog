@@ -1,21 +1,27 @@
 ---
-title: '2020 Hackthon 总结（RN 项目）'
+title: '2020 Hackathon 总结（RN 项目）'
 date: 2020-04-21
 top_image: 'https://i.loli.net/2020/11/21/3XTAsgFaRyBLvOz.png'
-excerpt: '2020 年家园工作室 Hackthon 大赛 React Native 项目总结，记录踩坑与成长'
+tags:
+  - 'React Native'
+  - 'Hackathon'
+  - 'TypeScript'
+  - '移动开发'
+  - '项目总结'
+excerpt: '2020 年家园工作室 Hackathon 大赛 React Native 项目复盘。总结从零开始构建同人创作平台 App 的技术选型、路由管理、状态验证等实战经验与踩坑记录。'
 ---
 
-## 2020 Hackthon 总结（RN 项目）
+## 2020 Hackathon 总结（RN 项目）
 
 ### 前言
 
-这次家园举办的 **2020 Hackthon 大赛**主题是「故事」，经过团队讨论，我们最终的想法是做一个**以同人内容为主的创作平台**。经过思考后，我选用了 React Native，一来是因为 App 是一个还没接触过的新领域，二来是因为 RN 基于 React 语法，最近刚学的 React 也可以从中得到实践。
+这次家园举办的 **2020 Hackathon 大赛**主题是「故事」，经过团队讨论，我们最终的想法是做一个**以同人内容为主的创作平台**。经过思考后，我选用了 React Native，一来是因为 App 是一个还没接触过的新领域，二来是因为 RN 基于 React 语法，最近刚学的 React 也可以从中得到实践。
 
 比赛持续了 17 天，最终成果却很一般（悲伤辣么大）。在这个过程中，由于很多都是新学的技术，而且用的 RN 还是处于公测期的最新版本，踩了不少坑。这篇博客主要是记录学习 RN 的一个艰辛但难忘的过程，同时也给后来的同学一个参考。
 
 文章分为两部分内容：
 
-- **第一部分**：对这次 Hackthon 整个项目的剖析，包括用到的一些开源库、新的语法写法以及踩过的坑等等
+- **第一部分**：对这次 Hackathon 整个项目的剖析，包括用到的一些开源库、新的语法写法以及踩过的坑等等
 - **第二部分**：自己在这个比赛过程中的一些心得体会
 
 本文代码示例只关注核心部分，不保证其完整性。
@@ -45,7 +51,7 @@ excerpt: '2020 年家园工作室 Hackthon 大赛 React Native 项目总结，�
 - `react-native-material-ripple` - 实现 Material Design 波纹反馈效果
 - `react-native-elements` - 常用的 RN UI 组件库
 
-> 引用的所有开源库及版本信息详见项目的 [package.json](https://github.com/Vikiboss/2020-hackthon/blob/master/package.json) 文件
+> 引用的所有开源库及版本信息详见项目的 [package.json](https://github.com/Vikiboss/2020-hackathon/blob/master/package.json) 文件
 
 #### 项目简析
 

@@ -1,7 +1,14 @@
 ---
 title: 'Hello World'
 date: 2019-11-08
-excerpt: '记录我的博客行程轨迹。'
+tags:
+  - 'Blog'
+  - 'Hexo'
+  - 'Next.js'
+  - 'Jekyll'
+  - '博客'
+  - '迁移'
+excerpt: '记录我的博客从 Jekyll 到 Hexo，再到 xLog，最终迁移至 Next.js 的完整历程。分享技术选型背后的思考与折腾经历，见证个人博客的演进之路。'
 ---
 
 ## 2019.11.8

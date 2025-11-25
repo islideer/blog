@@ -1,7 +1,12 @@
 ---
 title: 'Git Submodules 备忘录'
 date: 2024-12-09
-excerpt: '一份简单实用的 Git Submodules 备忘录，覆盖常见操作场景和命令。'
+excerpt: '一份简单实用的 Git Submodules 备忘录，涵盖克隆、添加、更新、修改地址及删除子模块等常见操作场景，助你轻松管理项目依赖。'
+tags:
+  - Git
+  - DevOps
+  - 运维
+  - 版本控制
 ---
 
 这是一份给自己的、简单而又基础的 Git Submodules 备忘录。因为发现自己一到用的时候就忘了，结果就是一遍又一遍问 GPT……

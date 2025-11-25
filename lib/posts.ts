@@ -90,6 +90,7 @@ export async function getAllPosts(): Promise<PostMetadata[]> {
       const fileName = path.basename(relativePath, path.extname(relativePath))
       const slug = fileName
       const fullPath = path.join(postsDirectory, relativePath)
+
       const fileContents = await fs.readFile(fullPath, 'utf8')
       const { data, content } = matter(fileContents)
 

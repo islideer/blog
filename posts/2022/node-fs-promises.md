@@ -1,7 +1,13 @@
 ---
 title: "Node.js 报错 Cannot find module 'fs/promises'"
 date: 2022-02-15
-excerpt: '运行 Node.js 项目时出现 Cannot find module "fs/promises" 报错的原因和解决方案'
+tags:
+  - 'Node.js'
+  - '错误处理'
+  - '文件系统'
+  - '版本控制'
+  - '后端'
+excerpt: "解决 Node.js 报错 \"Cannot find module 'fs/promises'\" 的完整指南。分析 Node.js 版本差异导致的模块引用问题，提供升级版本与修改引用方式两种解决方案。"
 ---
 
 ## 问题产生原因

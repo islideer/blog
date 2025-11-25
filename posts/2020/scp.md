@@ -2,7 +2,13 @@
 title: '使用 scp 命令跨服务器双向传输文件'
 date: 2020-02-14
 top_image: 'https://i.loli.net/2020/11/21/wYd3n5xtlVofF7E.jpg'
-excerpt: '通过 scp 命令能够高效地在本地与服务器之间传输文件和文件夹'
+tags:
+  - 'Linux'
+  - 'SSH'
+  - 'SCP'
+  - '命令行'
+  - '服务器'
+excerpt: '详解 Linux 系统中 scp 命令的使用方法。涵盖本地与远程服务器之间的文件及文件夹双向传输、端口指定、压缩传输等实用技巧，助你高效管理服务器文件。'
 ---
 
 ## 什么是 SCP

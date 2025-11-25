@@ -2,7 +2,13 @@
 title: 'Scoop —— 实用的 Windows "包管理"软件'
 date: 2020-09-20
 top_image: 'https://i.loli.net/2020/11/21/BZunq4vrKAHIj7P.png'
-excerpt: '使用 Scoop 提升你的 Windows 开发体验，告别繁琐的软件管理'
+tags:
+  - 'Windows'
+  - 'Scoop'
+  - 'CLI'
+  - '命令行'
+  - '包管理'
+excerpt: 'Windows 平台优秀的命令行包管理工具 Scoop 使用指南。告别繁琐的软件安装流程，通过简单的命令实现软件的搜索、安装、更新与版本管理，打造高效开发环境。'
 ---
 
 ## 前言

@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
-import { mioSaysData } from '@/lib/mio-says'
+import { mioSaysData } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/inline-md'
-import { pageMetadata } from '@/lib/pages'
+import { pageMetadata } from '@/lib/config'
 import { RelativeTime } from '@/components/relative-time'
 
 import type { Metadata } from 'next'
