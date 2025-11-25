@@ -47,9 +47,19 @@ export default async function Image({ params }: Props) {
       (
         <OgImageTemplate
           title="文章未找到"
-          subtitle="该文章不存在或已被删除"
-          type="post"
           iconData={iconData}
+          bodyContent={
+            <div
+              style={{
+                display: 'flex',
+                fontSize: 24,
+                color: '#666666',
+                fontWeight: 400,
+              }}
+            >
+              该文章不存在或已被删除
+            </div>
+          }
         />
       ),
       options,
@@ -57,17 +67,74 @@ export default async function Image({ params }: Props) {
   }
 
   // 格式化日期
-  const formattedDate = dayjs(post.date).format('YYYY.MM.DD')
+  const formattedDate = dayjs(post.date).format('YYYY 年 MM 月 DD 日')
 
   return new ImageResponse(
     (
       <OgImageTemplate
         title={post.title}
-        subtitle={post.excerpt}
-        type="post"
-        date={formattedDate}
-        readingTime={post.readingTime}
         iconData={Buffer.from(iconData)}
+        metaContent={
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '16px',
+            }}
+          >
+            {/* 发布日期 */}
+            <div
+              style={{
+                fontSize: 18,
+                color: '#888888',
+                fontWeight: 500,
+              }}
+            >
+              {formattedDate}
+            </div>
+
+            {/* 分隔线 */}
+            {post.readingTime && (
+              <div
+                style={{
+                  width: '1px',
+                  height: '16px',
+                  background: '#d0d0d0',
+                }}
+              />
+            )}
+
+            {/* 阅读时间 */}
+            {post.readingTime && (
+              <div
+                style={{
+                  fontSize: 18,
+                  color: '#888888',
+                  fontWeight: 500,
+                }}
+              >
+                {`${post.readingTime} 分钟`}
+              </div>
+            )}
+          </div>
+        }
+        bodyContent={
+          post.excerpt && (
+            <div
+              style={{
+                display: 'flex',
+                fontSize: 22,
+                color: '#666666',
+                fontWeight: 400,
+                lineHeight: 1.6,
+                maxHeight: '120px',
+                overflow: 'hidden',
+              }}
+            >
+              {post.excerpt}
+            </div>
+          )
+        }
       />
     ),
     options,

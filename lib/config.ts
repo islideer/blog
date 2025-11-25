@@ -11,7 +11,7 @@ export const siteConfig = {
   shortName: 'Viki',
   description: 'Viki 的个人博客，记录前端开发与生活点滴。',
   tagline: '生活需要记录',
-  url: 'https://blog.viki.moe',
+  url: process.env.NODE_ENV === 'production' ? 'https://blog.viki.moe' : 'http://localhost:3000',
   locale: 'zh-CN',
   language: 'zh-CN',
 

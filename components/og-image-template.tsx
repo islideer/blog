@@ -2,37 +2,23 @@ import { siteConfig } from '@/lib/config'
 
 interface OgImageTemplateProps {
   title: string
-  subtitle?: string
-  type?: 'home' | 'post' | 'page'
-  date?: string
-  readingTime?: number
-  // 首页统计数据
-  postsCount?: number
-  thoughtsCount?: number
-  mioSaysCount?: number
   iconData: Buffer | ArrayBuffer
+  // 右上角元信息区域（可选）
+  metaContent?: React.ReactNode
+  // 标题下方的内容区域（可选）
+  bodyContent?: React.ReactNode
 }
 
 export function OgImageTemplate({
   title,
-  subtitle,
-  type = 'page',
-  date,
-  readingTime,
-  postsCount,
-  thoughtsCount,
-  mioSaysCount,
   iconData,
+  metaContent,
+  bodyContent,
 }: OgImageTemplateProps) {
-  const typeLabel = siteConfig.name
-
   const base64Icon =
     iconData instanceof ArrayBuffer
       ? Buffer.from(iconData).toString('base64')
       : iconData.toString('base64')
-
-  // 是否显示统计数据（仅首页）
-  const showStats = type === 'home' && (postsCount || thoughtsCount || mioSaysCount)
 
   return (
     <div
@@ -81,7 +67,7 @@ export function OgImageTemplate({
           height: '100%',
         }}
       >
-        {/* 顶部区域：类型标签 + 元信息 */}
+        {/* 顶部区域：站点名称 + 右侧元信息 */}
         <div
           style={{
             display: 'flex',
@@ -90,7 +76,7 @@ export function OgImageTemplate({
             marginBottom: '48px',
           }}
         >
-          {/* 左侧：类型标签 */}
+          {/* 左侧：站点名称 */}
           <div
             style={{
               display: 'flex',
@@ -116,55 +102,12 @@ export function OgImageTemplate({
                 letterSpacing: '0.01em',
               }}
             >
-              {typeLabel}
+              {siteConfig.name}
             </div>
           </div>
 
-          {/* 右侧：文章元信息（仅文章页显示） */}
-          {type === 'post' && (date || readingTime) && (
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '16px',
-              }}
-            >
-              {date && (
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 18,
-                    color: '#888888',
-                    fontWeight: 500,
-                  }}
-                >
-                  {date}
-                </div>
-              )}
-              {date && readingTime && (
-                <div
-                  style={{
-                    display: 'flex',
-                    width: '1px',
-                    height: '16px',
-                    background: '#d0d0d0',
-                  }}
-                />
-              )}
-              {readingTime && (
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 18,
-                    color: '#888888',
-                    fontWeight: 500,
-                  }}
-                >
-                  {readingTime} 分钟
-                </div>
-              )}
-            </div>
-          )}
+          {/* 右侧：元信息插槽 */}
+          {metaContent}
         </div>
 
         {/* 标题 */}
@@ -176,7 +119,7 @@ export function OgImageTemplate({
             color: '#1a1a1a',
             lineHeight: 1.2,
             letterSpacing: '-0.02em',
-            marginBottom: '20px',
+            marginBottom: '24px',
             maxHeight: '240px',
             overflow: 'hidden',
           }}
@@ -184,129 +127,8 @@ export function OgImageTemplate({
           {title}
         </div>
 
-        {/* 副标题（非统计数据模式） */}
-        {subtitle && !showStats && (
-          <div
-            style={{
-              display: 'flex',
-              fontSize: 24,
-              color: '#666666',
-              fontWeight: 400,
-              lineHeight: 1.6,
-              marginBottom: 'auto',
-              maxHeight: '80px',
-              overflow: 'hidden',
-            }}
-          >
-            {subtitle}
-          </div>
-        )}
-
-        {/* 首页统计信息 */}
-        {showStats && (
-          <div
-            style={{
-              display: 'flex',
-              gap: '48px',
-              marginTop: '16px',
-              marginBottom: 'auto',
-            }}
-          >
-            {postsCount !== undefined && (
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '6px',
-                }}
-              >
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 48,
-                    fontWeight: 700,
-                    color: '#1a1a1a',
-                    lineHeight: 1,
-                  }}
-                >
-                  {postsCount}
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 18,
-                    color: '#888888',
-                    fontWeight: 500,
-                  }}
-                >
-                  篇文章
-                </div>
-              </div>
-            )}
-            {thoughtsCount !== undefined && (
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '6px',
-                }}
-              >
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 48,
-                    fontWeight: 700,
-                    color: '#1a1a1a',
-                    lineHeight: 1,
-                  }}
-                >
-                  {thoughtsCount}
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 18,
-                    color: '#888888',
-                    fontWeight: 500,
-                  }}
-                >
-                  条碎碎念
-                </div>
-              </div>
-            )}
-            {mioSaysCount !== undefined && (
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '6px',
-                }}
-              >
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 48,
-                    fontWeight: 700,
-                    color: '#1a1a1a',
-                    lineHeight: 1,
-                  }}
-                >
-                  {mioSaysCount}
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 18,
-                    color: '#888888',
-                    fontWeight: 500,
-                  }}
-                >
-                  条 Mio 说
-                </div>
-              </div>
-            )}
-          </div>
-        )}
+        {/* 标题下方内容插槽 */}
+        {bodyContent}
 
         {/* 底部区域 */}
         <div

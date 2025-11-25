@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og'
 import { OgImageTemplate } from '@/components/og-image-template'
 import { pageMetadata } from '@/lib/pages'
+import { timelineData } from '@/lib/timeline'
+import { dayjs } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
@@ -17,8 +19,16 @@ export async function generateAlt(): Promise<string> {
 }
 
 export default async function Image() {
-  const fontData = await readFile(join(process.cwd(), 'assets/fonts/SourceHanSansSC-Regular.otf'))
-  const iconData = await readFile(join(process.cwd(), 'public/icon-192.png'))
+  const [fontData, iconData] = await Promise.all([
+    readFile(join(process.cwd(), 'assets/fonts/SourceHanSansSC-Regular.otf')),
+    readFile(join(process.cwd(), 'public/icon-192.png')),
+  ])
+
+  // 获取时间范围
+  const dates = timelineData.map((item) => dayjs(item.date))
+  const earliestYear = dates.length > 0 ? Math.min(...dates.map((d) => d.year())) : 0
+  const latestYear = dates.length > 0 ? Math.max(...dates.map((d) => d.year())) : 0
+  const timeRange = earliestYear > 0 ? `${earliestYear} - ${latestYear}` : ''
 
   const options = {
     ...size,
@@ -36,9 +46,80 @@ export default async function Image() {
     (
       <OgImageTemplate
         title={pageMetadata.timeline.title}
-        subtitle={pageMetadata.timeline.description}
-        type="page"
         iconData={Buffer.from(iconData)}
+        metaContent={
+          timeRange && (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 18,
+                  color: '#888888',
+                  fontWeight: 500,
+                }}
+              >
+                {timeRange}
+              </div>
+            </div>
+          )
+        }
+        bodyContent={
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px',
+            }}
+          >
+            {/* 副标题 */}
+            <div
+              style={{
+                display: 'flex',
+                fontSize: 22,
+                color: '#666666',
+                fontWeight: 400,
+                lineHeight: 1.4,
+              }}
+            >
+              {pageMetadata.timeline.description}
+            </div>
+
+            {/* 统计数据：横向布局 */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'baseline',
+                gap: '12px',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  fontSize: 48,
+                  fontWeight: 700,
+                  color: '#1a1a1a',
+                  lineHeight: 1,
+                }}
+              >
+                {timelineData.length}
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  fontSize: 18,
+                  color: '#888888',
+                  fontWeight: 500,
+                }}
+              >
+                个重要时刻
+              </div>
+            </div>
+          </div>
+        }
       />
     ),
     options,

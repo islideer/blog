@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og'
 import { OgImageTemplate } from '@/components/og-image-template'
 import { pageMetadata } from '@/lib/pages'
+import { getAllMioSays } from '@/lib/mio-says'
+import { dayjs } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
@@ -17,8 +19,15 @@ export async function generateAlt(): Promise<string> {
 }
 
 export default async function Image() {
-  const fontData = await readFile(join(process.cwd(), 'assets/fonts/SourceHanSansSC-Regular.otf'))
-  const iconData = await readFile(join(process.cwd(), 'public/icon-192.png'))
+  const [mioSays, fontData, iconData] = await Promise.all([
+    getAllMioSays(),
+    readFile(join(process.cwd(), 'assets/fonts/SourceHanSansSC-Regular.otf')),
+    readFile(join(process.cwd(), 'public/icon-192.png')),
+  ])
+
+  // 获取最新 Mio 说的更新时间
+  const latestMioSay = mioSays[0]
+  const lastUpdated = latestMioSay ? dayjs(latestMioSay.date).format('MM 月 DD 日 HH:mm') : ''
 
   const options = {
     ...size,
@@ -36,9 +45,80 @@ export default async function Image() {
     (
       <OgImageTemplate
         title={pageMetadata.mioSays.title}
-        subtitle={pageMetadata.mioSays.description}
-        type="page"
         iconData={Buffer.from(iconData)}
+        metaContent={
+          lastUpdated && (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 18,
+                  color: '#888888',
+                  fontWeight: 500,
+                }}
+              >
+                {`最后更新：${lastUpdated}`}
+              </div>
+            </div>
+          )
+        }
+        bodyContent={
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px',
+            }}
+          >
+            {/* 副标题 */}
+            <div
+              style={{
+                display: 'flex',
+                fontSize: 22,
+                color: '#666666',
+                fontWeight: 400,
+                lineHeight: 1.4,
+              }}
+            >
+              {pageMetadata.mioSays.description}
+            </div>
+
+            {/* 统计数据：横向布局 */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'baseline',
+                gap: '12px',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  fontSize: 48,
+                  fontWeight: 700,
+                  color: '#1a1a1a',
+                  lineHeight: 1,
+                }}
+              >
+                {mioSays.length}
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  fontSize: 18,
+                  color: '#888888',
+                  fontWeight: 500,
+                }}
+              >
+                条 Mio 说
+              </div>
+            </div>
+          </div>
+        }
       />
     ),
     options,

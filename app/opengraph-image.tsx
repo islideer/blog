@@ -4,6 +4,7 @@ import { siteConfig } from '@/lib/config'
 import { getAllPosts } from '@/lib/posts'
 import { getAllThoughts } from '@/lib/thoughts'
 import { getAllMioSays } from '@/lib/mio-says'
+import { dayjs } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
@@ -28,6 +29,16 @@ export default async function Image() {
     readFile(join(process.cwd(), 'public/icon-192.png')),
   ])
 
+  // 获取最新更新时间（从文章、碎碎念、Mio 说中取最新）
+  const allDates = [
+    ...posts.map((p) => p.date),
+    ...thoughts.map((t) => t.date),
+    ...mioSays.map((m) => m.date),
+  ].filter(Boolean)
+
+  const latestDate = allDates.length > 0 ? allDates.sort().reverse()[0] : null
+  const lastUpdated = latestDate ? dayjs(latestDate).format('YYYY 年 MM 月 DD 日') : ''
+
   const options = {
     ...size,
     fonts: [
@@ -44,12 +55,151 @@ export default async function Image() {
     (
       <OgImageTemplate
         title={siteConfig.name}
-        subtitle={siteConfig.description}
-        type="home"
-        postsCount={posts.length}
-        thoughtsCount={thoughts.length}
-        mioSaysCount={mioSays.length}
         iconData={Buffer.from(iconData)}
+        metaContent={
+          lastUpdated && (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 18,
+                  color: '#888888',
+                  fontWeight: 500,
+                }}
+              >
+                {`最后更新：${lastUpdated}`}
+              </div>
+            </div>
+          )
+        }
+        bodyContent={
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px',
+            }}
+          >
+            {/* 描述 */}
+            <div
+              style={{
+                display: 'flex',
+                fontSize: 22,
+                color: '#666666',
+                fontWeight: 400,
+                lineHeight: 1.4,
+              }}
+            >
+              {siteConfig.description}
+            </div>
+
+            {/* 统计数据：横向排列，数字在前描述在后，底部对齐 */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'baseline',
+                gap: '32px',
+              }}
+            >
+              {/* 文章数 */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: '12px',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    fontSize: 48,
+                    fontWeight: 700,
+                    color: '#1a1a1a',
+                    lineHeight: 1,
+                  }}
+                >
+                  {posts.length}
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    fontSize: 18,
+                    color: '#888888',
+                    fontWeight: 500,
+                  }}
+                >
+                  篇文章
+                </div>
+              </div>
+
+              {/* 碎碎念数 */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: '12px',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    fontSize: 48,
+                    fontWeight: 700,
+                    color: '#1a1a1a',
+                    lineHeight: 1,
+                  }}
+                >
+                  {thoughts.length}
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    fontSize: 18,
+                    color: '#888888',
+                    fontWeight: 500,
+                  }}
+                >
+                  条碎碎念
+                </div>
+              </div>
+
+              {/* Mio 说数 */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: '12px',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    fontSize: 48,
+                    fontWeight: 700,
+                    color: '#1a1a1a',
+                    lineHeight: 1,
+                  }}
+                >
+                  {mioSays.length}
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    fontSize: 18,
+                    color: '#888888',
+                    fontWeight: 500,
+                  }}
+                >
+                  条 Mio 说
+                </div>
+              </div>
+            </div>
+          </div>
+        }
       />
     ),
     options,

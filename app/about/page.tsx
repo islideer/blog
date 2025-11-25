@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-2xl space-y-12 py-8 sm:space-y-16 sm:py-12">
+    <div className="space-y-12 py-8 sm:space-y-16 sm:py-12">
       <AboutIntro title={about.intro.title} paragraphs={about.intro.paragraphs} />
       <AboutOpenSource data={about.openSource} />
       <AboutTechStack technologies={about.techStack} />

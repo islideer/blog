@@ -57,7 +57,7 @@ export default async function ThoughtsPage() {
       {/* Thoughts Timeline */}
       <section className="space-y-4">
         <div
-          className="space-y-8 sm:border-l-2 sm:pl-6"
+          className="space-y-8 border-l-2 pl-4 sm:pl-6"
           style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
         >
           {thoughts.length === 0 ? (
