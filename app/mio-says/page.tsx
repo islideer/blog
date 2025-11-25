@@ -3,15 +3,15 @@ import { siteConfig } from '@/lib/config'
 import { mioSays } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/inline-md'
-import { pageMetadata } from '@/lib/config'
+import { pagesData } from '@/lib/config'
 import { RelativeTime } from '@/components/relative-time'
 
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: pageMetadata.mioSays.title,
-    description: pageMetadata.mioSays.description,
+    title: pagesData.mioSays.title,
+    description: pagesData.mioSays.description,
     alternates: {
       canonical: generateCanonicalUrl('/mio-says'),
     },
@@ -19,22 +19,22 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
       url: generateCanonicalUrl('/mio-says'),
-      title: `${pageMetadata.mioSays.title} | ${siteConfig.name}`,
-      description: pageMetadata.mioSays.description,
+      title: `${pagesData.mioSays.title} | ${siteConfig.name}`,
+      description: pagesData.mioSays.description,
       siteName: siteConfig.name,
       images: [
         {
           url: '/mio-says/opengraph-image',
           width: 1200,
           height: 630,
-          alt: pageMetadata.mioSays.title,
+          alt: pagesData.mioSays.title,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${pageMetadata.mioSays.title} | ${siteConfig.name}`,
-      description: pageMetadata.mioSays.description,
+      title: `${pagesData.mioSays.title} | ${siteConfig.name}`,
+      description: pagesData.mioSays.description,
       images: ['/mio-says/opengraph-image'],
     },
   }

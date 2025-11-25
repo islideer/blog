@@ -168,3 +168,84 @@ export async function getAllPostSlugs(): Promise<string[]> {
 
   return slugsWithDraft.filter((item) => !item.draft).map((item) => item.slug)
 }
+
+/**
+ * 计算两个标签数组的相似度（Jaccard 相似系数）
+ */
+function calculateTagSimilarity(tags1: string[] = [], tags2: string[] = []): number {
+  if (tags1.length === 0 || tags2.length === 0) return 0
+
+  const set1 = new Set(tags1)
+  const set2 = new Set(tags2)
+  const intersection = new Set([...set1].filter((tag) => set2.has(tag)))
+  const union = new Set([...set1, ...set2])
+
+  return intersection.size / union.size
+}
+
+/**
+ * 获取推荐文章
+ * 策略：基于多维度评分的智能推荐算法
+ * - 标签相似度（40%）：优先推荐标签相似的文章
+ * - 时间新鲜度（30%）：倾向推荐较新的文章
+ * - 时间接近度（20%）：推荐发布时间相近的文章
+ * - 确定性随机（10%）：基于 slug 的伪随机性
+ */
+export async function getRecommendedPosts(
+  currentSlug: string,
+  count: number = 5,
+): Promise<PostMetadata[]> {
+  const allPosts = await getAllPosts()
+  const currentPost = allPosts.find((p) => p.slug === currentSlug)
+
+  if (!currentPost) {
+    return allPosts.slice(0, count)
+  }
+
+  const otherPosts = allPosts.filter((p) => p.slug !== currentSlug)
+
+  if (otherPosts.length === 0) {
+    return []
+  }
+
+  // 计算每篇文章的推荐分数
+  const currentDate = new Date(currentPost.date).getTime()
+  const now = Date.now()
+  const seed = currentSlug.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
+
+  const scoredPosts = otherPosts.map((post, index) => {
+    // 1. 标签相似度分数（0-1）
+    const tagSimilarity = calculateTagSimilarity(currentPost.tags, post.tags)
+
+    // 2. 时间新鲜度分数（0-1）：越新的文章分数越高
+    const postDate = new Date(post.date).getTime()
+    const daysSincePublish = (now - postDate) / (1000 * 60 * 60 * 24)
+    const freshnessScore = Math.max(0, 1 - daysSincePublish / 365) // 1 年后衰减到 0
+
+    // 3. 时间接近度分数（0-1）：发布时间越接近当前文章分数越高
+    const timeDiff = Math.abs(postDate - currentDate)
+    const daysDiff = timeDiff / (1000 * 60 * 60 * 24)
+    const proximityScore = Math.max(0, 1 - daysDiff / 365) // 相差 1 年衰减到 0
+
+    // 4. 确定性随机分数（0-1）：基于 slug 的伪随机
+    const randomScore = (((seed + index) * 9301 + 49297) % 233280) / 233280
+
+    // 综合评分（加权平均）
+    const totalScore =
+      tagSimilarity * 0.4 + freshnessScore * 0.3 + proximityScore * 0.2 + randomScore * 0.1
+
+    return {
+      post,
+      score: totalScore,
+    }
+  })
+
+  // 按分数降序排序，取前 N 篇
+  const recommended = scoredPosts
+    .toSorted((a, b) => b.score - a.score)
+    .slice(0, count)
+    .map(({ post }) => post)
+
+  // 最终按发布时间倒序排列
+  return recommended.toSorted((a, b) => (a.date < b.date ? 1 : -1))
+}

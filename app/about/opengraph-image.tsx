@@ -1,7 +1,6 @@
 import { ImageResponse } from 'next/og'
-import { OgImageTemplate } from '@/components/og-image-template'
-import { pageMetadata } from '@/lib/config'
-import { siteConfig } from '@/lib/config'
+import { OgImageStatsItem, OgImageTemplate } from '@/components/og-image-template'
+import { pagesData } from '@/lib/config'
 import { about } from '@/lib/data'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -15,7 +14,7 @@ export const dynamic = 'force-static'
 export const contentType = 'image/png'
 
 export async function generateAlt(): Promise<string> {
-  return pageMetadata.about.title
+  return pagesData.about.title
 }
 
 export default async function Image() {
@@ -27,6 +26,12 @@ export default async function Image() {
   // 统计开源项目数量
   const projectsCount = Object.values(about.openSource.projects).reduce(
     (total, projects) => total + projects.length,
+    0,
+  )
+
+  // 统计技术栈数量
+  const techStackCount = Object.values(about.techStack).reduce(
+    (total, category) => total + category.length,
     0,
   )
 
@@ -45,7 +50,7 @@ export default async function Image() {
   return new ImageResponse(
     (
       <OgImageTemplate
-        title={pageMetadata.about.title}
+        title={pagesData.about.title}
         iconData={Buffer.from(iconData)}
         bodyContent={
           <div
@@ -65,72 +70,22 @@ export default async function Image() {
                 lineHeight: 1.4,
               }}
             >
-              {pageMetadata.about.description}
+              {pagesData.about.description}
             </div>
 
-            {/* 个人信息和统计：数字在前描述在后，底部对齐 */}
+            {/* 统计数据：横向布局 */}
             <div
               style={{
                 display: 'flex',
                 alignItems: 'baseline',
-                gap: '24px',
+                gap: '60px',
               }}
             >
-              {/* 名字 */}
-              <div
-                style={{
-                  display: 'flex',
-                  fontSize: 48,
-                  fontWeight: 700,
-                  color: '#1a1a1a',
-                  lineHeight: 1,
-                }}
-              >
-                {siteConfig.author.name}
-              </div>
-              {/* 职业 */}
-              <div
-                style={{
-                  display: 'flex',
-                  fontSize: 18,
-                  color: '#888888',
-                  fontWeight: 500,
-                }}
-              >
-                前端工程师
-              </div>
-              {/* 分隔符 */}
-              <div
-                style={{
-                  display: 'flex',
-                  fontSize: 18,
-                  color: '#cccccc',
-                }}
-              >
-                ·
-              </div>
+              {/* 技术栈数量 */}
+              <OgImageStatsItem number={techStackCount} label="个技术栈" />
+
               {/* 开源项目数 */}
-              <div
-                style={{
-                  display: 'flex',
-                  fontSize: 48,
-                  fontWeight: 700,
-                  color: '#1a1a1a',
-                  lineHeight: 1,
-                }}
-              >
-                {projectsCount}
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  fontSize: 18,
-                  color: '#888888',
-                  fontWeight: 500,
-                }}
-              >
-                个开源项目
-              </div>
+              <OgImageStatsItem number={projectsCount} label="个开源项目" />
             </div>
           </div>
         }

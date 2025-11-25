@@ -7,10 +7,13 @@ import siteData from '@/data/site.json'
 import pagesData from '@/data/pages.json'
 import { about } from './data'
 
+const url =
+  process.env.NODE_ENV === 'production' ? 'https://blog.viki.moe' : 'http://localhost:3000'
+
 // 重新组装配置，处理动态内容和引用
 export const siteConfig = {
   ...siteData,
-  url: process.env.NODE_ENV === 'production' ? 'https://blog.viki.moe' : 'http://localhost:3000',
+  url,
   copyright: {
     ...siteData.copyright,
     year: {
@@ -29,7 +32,7 @@ export const siteConfig = {
   keywords: siteData.keywords as string[],
 } as const
 
-export const pageMetadata = pagesData
+export { pagesData }
 
 export type SiteConfig = typeof siteConfig
-export type PageMetadata = typeof pageMetadata
+export type PageData = typeof pagesData

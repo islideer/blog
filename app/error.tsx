@@ -25,17 +25,12 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
       <p className="text-text-tertiary mb-8 text-xs sm:text-sm">{error.message || '未知错误'}</p>
 
       {/* 操作按钮 */}
-      <div className="flex items-center gap-4">
-        <button
-          onClick={reset}
-          className="text-text-secondary hover:text-text-primary rounded-lg border border-gray-200 px-4 py-2 text-sm transition-colors dark:border-gray-800"
-        >
+      <div className="flex items-center gap-2 text-sm sm:gap-4">
+        <button onClick={reset} className="text-text-secondary hover:text-text-primary">
           重试
         </button>
-        <Link
-          href="/"
-          className="text-text-secondary hover:text-text-primary rounded-lg border border-gray-200 px-4 py-2 text-sm transition-colors dark:border-gray-800"
-        >
+        <span className="text-text-tertiary">·</span>
+        <Link href="/" className="text-text-secondary hover:text-text-primary">
           回到首页
         </Link>
       </div>

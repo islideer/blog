@@ -1,10 +1,10 @@
-import { ImageResponse } from 'next/og'
-import { OgImageTemplate } from '@/components/og-image-template'
-import { pageMetadata } from '@/lib/config'
-import { getAllPosts } from '@/lib/posts'
-import { dayjs } from '@/lib/dayjs'
-import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { readFile } from 'node:fs/promises'
+import { formatDate } from '@/lib/dayjs'
+import { getAllPosts } from '@/lib/posts'
+import { pagesData } from '@/lib/config'
+import { ImageResponse } from 'next/og'
+import { OgImageStatsItem, OgImageTemplate } from '@/components/og-image-template'
 
 export const size = {
   width: 1200,
@@ -15,7 +15,7 @@ export const dynamic = 'force-static'
 export const contentType = 'image/png'
 
 export async function generateAlt(): Promise<string> {
-  return pageMetadata.posts.title
+  return pagesData.posts.title
 }
 
 export default async function Image() {
@@ -27,7 +27,7 @@ export default async function Image() {
 
   // 获取最新文章日期
   const latestPost = posts[0]
-  const lastUpdated = latestPost ? dayjs(latestPost.date).format('YYYY 年 MM 月 DD 日') : ''
+  const lastUpdated = latestPost ? formatDate(latestPost.date) : ''
 
   const options = {
     ...size,
@@ -44,7 +44,7 @@ export default async function Image() {
   return new ImageResponse(
     (
       <OgImageTemplate
-        title={pageMetadata.posts.title}
+        title={pagesData.posts.title}
         iconData={Buffer.from(iconData)}
         metaContent={
           lastUpdated && (
@@ -61,7 +61,7 @@ export default async function Image() {
                   fontWeight: 500,
                 }}
               >
-                {`最后更新：${lastUpdated}`}
+                {`更新于 ${lastUpdated}`}
               </div>
             </div>
           )
@@ -84,7 +84,7 @@ export default async function Image() {
                 lineHeight: 1.4,
               }}
             >
-              {pageMetadata.posts.description}
+              {pagesData.posts.description}
             </div>
 
             {/* 统计数据：横向布局 */}
@@ -92,30 +92,11 @@ export default async function Image() {
               style={{
                 display: 'flex',
                 alignItems: 'baseline',
-                gap: '12px',
+                gap: '60px',
               }}
             >
-              <div
-                style={{
-                  display: 'flex',
-                  fontSize: 48,
-                  fontWeight: 700,
-                  color: '#1a1a1a',
-                  lineHeight: 1,
-                }}
-              >
-                {posts.length}
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  fontSize: 18,
-                  color: '#888888',
-                  fontWeight: 500,
-                }}
-              >
-                篇文章
-              </div>
+              {/* 文章数 */}
+              <OgImageStatsItem number={posts.length} label="篇文章" />
             </div>
           </div>
         }

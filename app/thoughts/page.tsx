@@ -3,15 +3,15 @@ import { siteConfig } from '@/lib/config'
 import { thoughts } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/inline-md'
-import { pageMetadata } from '@/lib/config'
+import { pagesData } from '@/lib/config'
 import { RelativeTime } from '@/components/relative-time'
 
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: pageMetadata.thoughts.title,
-    description: pageMetadata.thoughts.description,
+    title: pagesData.thoughts.title,
+    description: pagesData.thoughts.description,
     alternates: {
       canonical: generateCanonicalUrl('/thoughts'),
     },
@@ -19,22 +19,22 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
       url: generateCanonicalUrl('/thoughts'),
-      title: `${pageMetadata.thoughts.title} | ${siteConfig.name}`,
-      description: pageMetadata.thoughts.description,
+      title: `${pagesData.thoughts.title} | ${siteConfig.name}`,
+      description: pagesData.thoughts.description,
       siteName: siteConfig.name,
       images: [
         {
           url: '/thoughts/opengraph-image',
           width: 1200,
           height: 630,
-          alt: pageMetadata.thoughts.title,
+          alt: pagesData.thoughts.title,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${pageMetadata.thoughts.title} | ${siteConfig.name}`,
-      description: pageMetadata.thoughts.description,
+      title: `${pagesData.thoughts.title} | ${siteConfig.name}`,
+      description: pagesData.thoughts.description,
       images: ['/thoughts/opengraph-image'],
     },
   }

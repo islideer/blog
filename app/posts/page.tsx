@@ -5,15 +5,15 @@ import { siteConfig } from '@/lib/config'
 import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
 import { getAllPosts } from '@/lib/posts'
-import { pageMetadata } from '@/lib/config'
+import { pagesData } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: pageMetadata.posts.title,
-    description: pageMetadata.posts.description,
+    title: pagesData.posts.title,
+    description: pagesData.posts.description,
     alternates: {
       canonical: generateCanonicalUrl('/posts'),
     },
@@ -21,22 +21,22 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
       url: generateCanonicalUrl('/posts'),
-      title: `${pageMetadata.posts.title} | ${siteConfig.name}`,
-      description: pageMetadata.posts.description,
+      title: `${pagesData.posts.title} | ${siteConfig.name}`,
+      description: pagesData.posts.description,
       siteName: siteConfig.name,
       images: [
         {
           url: '/posts/opengraph-image',
           width: 1200,
           height: 630,
-          alt: pageMetadata.posts.title,
+          alt: pagesData.posts.title,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${pageMetadata.posts.title} | ${siteConfig.name}`,
-      description: pageMetadata.posts.description,
+      title: `${pagesData.posts.title} | ${siteConfig.name}`,
+      description: pagesData.posts.description,
       images: ['/posts/opengraph-image'],
     },
   }
@@ -76,7 +76,7 @@ export default async function PostsPage() {
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
-        <h1 className="text-3xl font-bold">{pageMetadata.posts.title}</h1>
+        <h1 className="text-3xl font-bold">{pagesData.posts.title}</h1>
         <p className="text-text-secondary">
           共 {allPosts.length.toLocaleString('zh-CN')} 篇文章，按年份分组展示。
         </p>

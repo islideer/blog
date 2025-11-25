@@ -1,5 +1,5 @@
 ---
-title: '2020 Hackathon 总结（RN 项目）'
+title: '2020 Hackathon React Native 项目总结'
 date: 2020-04-21
 top_image: 'https://i.loli.net/2020/11/21/3XTAsgFaRyBLvOz.png'
 tags:

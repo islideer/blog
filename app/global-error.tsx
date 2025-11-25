@@ -37,16 +37,17 @@ export default function GlobalError({
           </p>
 
           {/* 操作按钮 */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 text-sm sm:gap-4">
             <button
               onClick={reset}
-              className="rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-600 transition-colors hover:text-gray-900 dark:border-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
+              className="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
             >
               重试
             </button>
+            <span className="text-gray-400 dark:text-gray-600">·</span>
             <Link
               href="/"
-              className="rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-600 transition-colors hover:text-gray-900 dark:border-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
+              className="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
             >
               回到首页
             </Link>

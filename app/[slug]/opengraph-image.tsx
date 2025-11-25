@@ -1,4 +1,4 @@
-import { dayjs } from '@/lib/dayjs'
+import { formatDate } from '@/lib/dayjs'
 import { ImageResponse } from 'next/og'
 import { OgImageTemplate } from '@/components/og-image-template'
 import { getPostBySlug } from '@/lib/posts'
@@ -67,7 +67,7 @@ export default async function Image({ params }: Props) {
   }
 
   // 格式化日期
-  const formattedDate = dayjs(post.date).format('YYYY 年 MM 月 DD 日')
+  const formattedDate = formatDate(post.date)
 
   return new ImageResponse(
     (

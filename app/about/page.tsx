@@ -4,14 +4,14 @@ import { AboutOpenSource } from '@/components/about-open-source'
 import { AboutTechStack } from '@/components/about-tech-stack'
 import { about } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
-import { pageMetadata } from '@/lib/config'
+import { pagesData } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: pageMetadata.about.title,
-  description: pageMetadata.about.description,
+  title: pagesData.about.title,
+  description: pagesData.about.description,
   alternates: {
     canonical: generateCanonicalUrl('/about'),
   },
@@ -19,22 +19,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
     url: generateCanonicalUrl('/about'),
-    title: `${pageMetadata.about.title} | ${siteConfig.name}`,
-    description: pageMetadata.about.description,
+    title: `${pagesData.about.title} | ${siteConfig.name}`,
+    description: pagesData.about.description,
     siteName: siteConfig.name,
     images: [
       {
         url: '/about/opengraph-image',
         width: 1200,
         height: 630,
-        alt: pageMetadata.about.title,
+        alt: pagesData.about.title,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${pageMetadata.about.title} | ${siteConfig.name}`,
-    description: pageMetadata.about.description,
+    title: `${pagesData.about.title} | ${siteConfig.name}`,
+    description: pagesData.about.description,
     images: ['/about/opengraph-image'],
   },
 }

@@ -9,6 +9,40 @@ interface OgImageTemplateProps {
   bodyContent?: React.ReactNode
 }
 
+export function OgImageStatsItem({ number, label }: { number: number; label: string }) {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'baseline',
+        gap: '12px',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          fontSize: 60,
+          fontWeight: 700,
+          color: '#1a1a1a',
+          lineHeight: 1,
+        }}
+      >
+        {number.toLocaleString('zh-CN')}
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          fontSize: 24,
+          color: '#888888',
+          fontWeight: 500,
+        }}
+      >
+        {label}
+      </div>
+    </div>
+  )
+}
+
 export function OgImageTemplate({
   title,
   iconData,

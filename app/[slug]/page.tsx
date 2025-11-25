@@ -1,10 +1,9 @@
 import { dayjs } from '@/lib/dayjs'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { mdxOptions } from '@/lib/mdx'
-import { getPostBySlug, getAllPostSlugs, getAllPosts } from '@/lib/posts'
+import { getPostBySlug, getAllPostSlugs, getRecommendedPosts } from '@/lib/posts'
 import {
   generateBlogPostingSchema,
   generateBreadcrumbSchema,
@@ -15,6 +14,7 @@ import {
 import { OldPostBanner } from '@/components/old-post-banner'
 import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
+import { RecommendedPosts } from '@/components/recommended-posts'
 
 import type { Metadata } from 'next'
 
@@ -59,9 +59,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound()
   }
 
-  // 获取推荐文章（最近的3篇，排除当前文章）
-  const allPosts = await getAllPosts()
-  const recommendedPosts = allPosts.filter((p) => p.slug !== slug).slice(0, 3)
+  // 获取推荐文章：最新 3 篇 + 伪随机 2 篇
+  const recommendedPosts = await getRecommendedPosts(slug, 5)
 
   // 生成结构化数据
   const blogPostingSchema = generateBlogPostingSchema(post)
@@ -143,24 +142,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         {/* Recommended Posts */}
-        {recommendedPosts.length > 0 && (
-          <div className="mt-8 space-y-3 sm:mt-12 sm:space-y-4">
-            <h2 className="text-text-secondary text-base font-medium sm:text-lg">也可以看看</h2>
-            <div className="space-y-2 sm:space-y-3">
-              {recommendedPosts.map((recommendedPost) => (
-                <div key={recommendedPost.slug} className="flex items-center gap-2">
-                  {recommendedPost.draft && <DraftBadge />}
-                  <Link
-                    href={`/${recommendedPost.slug}`}
-                    className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
-                  >
-                    {recommendedPost.title}
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        <RecommendedPosts posts={recommendedPosts} />
       </article>
     </>
   )

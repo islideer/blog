@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og'
-import { OgImageTemplate } from '@/components/og-image-template'
+import { OgImageStatsItem, OgImageTemplate } from '@/components/og-image-template'
 import { siteConfig } from '@/lib/config'
 import { getAllPosts } from '@/lib/posts'
 import { thoughts, mioSays, timeline } from '@/lib/data'
@@ -72,7 +72,7 @@ export default async function Image() {
                   fontWeight: 500,
                 }}
               >
-                {`最后更新：${lastUpdated}`}
+                {`更新于 ${lastUpdated}`}
               </div>
             </div>
           )
@@ -82,7 +82,7 @@ export default async function Image() {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '20px',
+              gap: '36px',
             }}
           >
             {/* 描述 */}
@@ -103,132 +103,20 @@ export default async function Image() {
               style={{
                 display: 'flex',
                 alignItems: 'baseline',
-                gap: '32px',
+                gap: '60px',
               }}
             >
               {/* 文章数 */}
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  gap: '12px',
-                }}
-              >
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 48,
-                    fontWeight: 700,
-                    color: '#1a1a1a',
-                    lineHeight: 1,
-                  }}
-                >
-                  {posts.length}
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 18,
-                    color: '#888888',
-                    fontWeight: 500,
-                  }}
-                >
-                  篇文章
-                </div>
-              </div>
+              <OgImageStatsItem number={posts.length} label="篇文章" />
 
               {/* 碎碎念数 */}
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  gap: '12px',
-                }}
-              >
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 48,
-                    fontWeight: 700,
-                    color: '#1a1a1a',
-                    lineHeight: 1,
-                  }}
-                >
-                  {thoughts.length}
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 18,
-                    color: '#888888',
-                    fontWeight: 500,
-                  }}
-                >
-                  条碎碎念
-                </div>
-              </div>
+              <OgImageStatsItem number={thoughts.length} label="条碎碎念" />
 
               {/* Mio 说数 */}
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  gap: '12px',
-                }}
-              >
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 48,
-                    fontWeight: 700,
-                    color: '#1a1a1a',
-                    lineHeight: 1,
-                  }}
-                >
-                  {mioSays.length}
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 18,
-                    color: '#888888',
-                    fontWeight: 500,
-                  }}
-                >
-                  条 Mio 说
-                </div>
-              </div>
+              <OgImageStatsItem number={mioSays.length} label="条 Mio 说" />
 
               {/* 大事记数 */}
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  gap: '12px',
-                }}
-              >
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 48,
-                    fontWeight: 700,
-                    color: '#1a1a1a',
-                    lineHeight: 1,
-                  }}
-                >
-                  {timeline.length}
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    fontSize: 18,
-                    color: '#888888',
-                    fontWeight: 500,
-                  }}
-                >
-                  件大事记
-                </div>
-              </div>
+              <OgImageStatsItem number={timeline.length} label="件大事记" />
             </div>
           </div>
         }

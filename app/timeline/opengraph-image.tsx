@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
-import { OgImageTemplate } from '@/components/og-image-template'
-import { pageMetadata } from '@/lib/config'
+import { OgImageStatsItem, OgImageTemplate } from '@/components/og-image-template'
+import { pagesData } from '@/lib/config'
 import { timeline } from '@/lib/data'
 import { dayjs } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
@@ -15,7 +15,7 @@ export const dynamic = 'force-static'
 export const contentType = 'image/png'
 
 export async function generateAlt(): Promise<string> {
-  return pageMetadata.timeline.title
+  return pagesData.timeline.title
 }
 
 export default async function Image() {
@@ -45,7 +45,7 @@ export default async function Image() {
   return new ImageResponse(
     (
       <OgImageTemplate
-        title={pageMetadata.timeline.title}
+        title={pagesData.timeline.title}
         iconData={Buffer.from(iconData)}
         metaContent={
           timeRange && (
@@ -85,7 +85,7 @@ export default async function Image() {
                 lineHeight: 1.4,
               }}
             >
-              {pageMetadata.timeline.description}
+              {pagesData.timeline.description}
             </div>
 
             {/* 统计数据：横向布局 */}
@@ -93,30 +93,11 @@ export default async function Image() {
               style={{
                 display: 'flex',
                 alignItems: 'baseline',
-                gap: '12px',
+                gap: '60px',
               }}
             >
-              <div
-                style={{
-                  display: 'flex',
-                  fontSize: 48,
-                  fontWeight: 700,
-                  color: '#1a1a1a',
-                  lineHeight: 1,
-                }}
-              >
-                {timeline.length}
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  fontSize: 18,
-                  color: '#888888',
-                  fontWeight: 500,
-                }}
-              >
-                个重要时刻
-              </div>
+              {/* 大事记数 */}
+              <OgImageStatsItem number={timeline.length} label="件大事记" />
             </div>
           </div>
         }
