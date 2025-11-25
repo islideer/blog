@@ -74,7 +74,7 @@ export function TimelineView({ items }: TimelineViewProps) {
                     className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-4 sm:py-1.5"
                   >
                     {formattedDate && (
-                      <time className="text-text-tertiary shrink-0 text-xs sm:w-24 sm:text-sm">
+                      <time className="text-text-tertiary shrink-0 text-xs sm:w-12 sm:text-sm">
                         {formattedDate}
                       </time>
                     )}
