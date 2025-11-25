@@ -5,16 +5,6 @@ import { TimelineView } from '@/components/timeline-view'
 import { pageMetadata } from '@/lib/pages'
 import type { Metadata } from 'next'
 
-const ogImageParams = new URLSearchParams({
-  title: pageMetadata.timeline.title,
-  subtitle: `共 ${timelineData.length} 条记录，${pageMetadata.timeline.description}`,
-  type: 'timeline',
-  count: timelineData.length.toString(),
-  v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
-})
-
-const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
-
 export const metadata: Metadata = {
   title: pageMetadata.timeline.title,
   description: pageMetadata.timeline.description,
@@ -30,10 +20,10 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: ogImageUrl,
+        url: '/timeline/opengraph-image',
         width: 1200,
         height: 630,
-        alt: `${pageMetadata.timeline.title} | ${siteConfig.name}`,
+        alt: pageMetadata.timeline.title,
       },
     ],
   },
@@ -41,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${pageMetadata.timeline.title} | ${siteConfig.name}`,
     description: pageMetadata.timeline.description,
-    images: [ogImageUrl],
+    images: ['/timeline/opengraph-image'],
   },
 }
 

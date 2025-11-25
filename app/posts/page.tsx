@@ -11,24 +11,6 @@ import { ReadingTime } from '@/components/reading-time'
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const allPosts = await getAllPosts()
-  const subtitle = `共 ${allPosts.length} 篇文章，记录技术思考和生活感悟`
-
-  // 获取最新文章的更新时间
-  const lastUpdateDate = allPosts.length > 0 ? dayjs(allPosts[0].date) : dayjs()
-  const lastUpdate = lastUpdateDate.fromNow()
-
-  const ogImageParams = new URLSearchParams({
-    title: pageMetadata.posts.title,
-    subtitle: subtitle,
-    type: 'posts',
-    count: allPosts.length.toString(),
-    lastUpdate: lastUpdate,
-    v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
-  })
-
-  const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
-
   return {
     title: pageMetadata.posts.title,
     description: pageMetadata.posts.description,
@@ -44,10 +26,10 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       images: [
         {
-          url: ogImageUrl,
+          url: '/posts/opengraph-image',
           width: 1200,
           height: 630,
-          alt: `${pageMetadata.posts.title} | ${siteConfig.name}`,
+          alt: pageMetadata.posts.title,
         },
       ],
     },
@@ -55,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${pageMetadata.posts.title} | ${siteConfig.name}`,
       description: pageMetadata.posts.description,
-      images: [ogImageUrl],
+      images: ['/posts/opengraph-image'],
     },
   }
 }

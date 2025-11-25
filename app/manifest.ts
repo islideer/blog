@@ -61,6 +61,13 @@ export default function manifest(): MetadataRoute.Manifest {
         icons: [{ src: '/icon-192.png', sizes: '192x192' }],
       },
       {
+        name: '大事记',
+        short_name: '大事记',
+        description: '记录重要时刻和里程碑',
+        url: '/timeline',
+        icons: [{ src: '/icon-192.png', sizes: '192x192' }],
+      },
+      {
         name: '关于',
         short_name: '关于',
         description: '了解更多关于 Viki',

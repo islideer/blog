@@ -6,32 +6,11 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { Analytics } from '@vercel/analytics/next'
-import { getAllPosts } from '@/lib/posts'
-import { getAllThoughts } from '@/lib/thoughts'
-import { getAllMioSays } from '@/lib/mio-says'
 import { Footer } from '@/components/footer'
 
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const [posts, thoughts, mioSays] = await Promise.all([
-    getAllPosts(),
-    getAllThoughts(),
-    getAllMioSays(),
-  ])
-
-  const ogImageParams = new URLSearchParams({
-    title: siteConfig.name,
-    subtitle: siteConfig.description,
-    type: 'default',
-    postsCount: posts.length.toString(),
-    thoughtsCount: thoughts.length.toString(),
-    mioSaysCount: mioSays.length.toString(),
-    v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
-  })
-
-  const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
-
   return {
     metadataBase: new URL(siteConfig.url),
     title: {
@@ -65,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       images: [
         {
-          url: ogImageUrl,
+          url: '/opengraph-image',
           width: 1200,
           height: 630,
           alt: siteConfig.name,
@@ -76,7 +55,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: siteConfig.name,
       description: siteConfig.description,
-      images: [ogImageUrl],
+      images: ['/opengraph-image'],
     },
   }
 }

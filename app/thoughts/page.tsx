@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { dayjs } from '@/lib/dayjs'
 import { siteConfig } from '@/lib/config'
 import { getAllThoughts } from '@/lib/thoughts'
 import { generateCanonicalUrl } from '@/lib/seo'
@@ -10,30 +9,6 @@ import { RelativeTime } from '@/components/relative-time'
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const thoughts = await getAllThoughts()
-
-  // 获取最新碎碎念内容（截断到 80 字）
-  const latestContent =
-    thoughts.length > 0
-      ? thoughts[0].content.length > 80
-        ? `${thoughts[0].content.slice(0, 80)}...`
-        : thoughts[0].content
-      : '碎碎念小角落，记录生活中的点滴想法和言论'
-
-  // 获取最新更新时间（使用绝对时间，避免缓存问题）
-  const lastUpdate = thoughts.length > 0 ? dayjs(thoughts[0].date).format('YYYY/MM/DD HH:mm') : ''
-
-  const ogImageParams = new URLSearchParams({
-    title: pageMetadata.thoughts.title,
-    subtitle: latestContent,
-    type: 'thoughts',
-    count: thoughts.length.toString(),
-    lastUpdate: lastUpdate,
-    v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
-  })
-
-  const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
-
   return {
     title: pageMetadata.thoughts.title,
     description: pageMetadata.thoughts.description,
@@ -49,10 +24,10 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       images: [
         {
-          url: ogImageUrl,
+          url: '/thoughts/opengraph-image',
           width: 1200,
           height: 630,
-          alt: `${pageMetadata.thoughts.title} | ${siteConfig.name}`,
+          alt: pageMetadata.thoughts.title,
         },
       ],
     },
@@ -60,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${pageMetadata.thoughts.title} | ${siteConfig.name}`,
       description: pageMetadata.thoughts.description,
-      images: [ogImageUrl],
+      images: ['/thoughts/opengraph-image'],
     },
   }
 }

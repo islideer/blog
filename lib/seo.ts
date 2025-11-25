@@ -118,24 +118,7 @@ export function generateCanonicalUrl(path: string) {
  * Generate Open Graph metadata for a blog post
  */
 export function generatePostOpenGraph(post: Post) {
-  // 格式化日期
-  const formattedDate = new Date(post.date).toLocaleDateString('zh-CN', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
-
-  // 构建 OG 图片 URL，包含更多信息
-  const ogImageParams = new URLSearchParams({
-    title: post.title,
-    subtitle: post.excerpt || '',
-    type: 'post',
-    date: formattedDate,
-    readingTime: post.readingTime?.toString() || '',
-    v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
-  })
-
-  const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
+  const ogImageUrl = `${siteConfig.url}/${post.slug}/opengraph-image`
 
   return {
     type: 'article' as const,
@@ -163,24 +146,7 @@ export function generatePostOpenGraph(post: Post) {
  * Generate Twitter Card metadata for a blog post
  */
 export function generatePostTwitterCard(post: Post) {
-  // 格式化日期
-  const formattedDate = new Date(post.date).toLocaleDateString('zh-CN', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
-
-  // 构建 OG 图片 URL，包含更多信息
-  const ogImageParams = new URLSearchParams({
-    title: post.title,
-    subtitle: post.excerpt || '',
-    type: 'post',
-    date: formattedDate,
-    readingTime: post.readingTime?.toString() || '',
-    v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
-  })
-
-  const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
+  const ogImageUrl = `${siteConfig.url}/${post.slug}/opengraph-image`
 
   return {
     card: 'summary_large_image' as const,

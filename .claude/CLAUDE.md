@@ -526,6 +526,6 @@ ANALYZE=true
 - ⚠️ 必须使用 pnpm 作为包管理器（10.22.0+）
 - ⚠️ 严格遵循 Prettier 配置
 - ⚠️ 严格遵循中文排版规范（盘古之白）
-- ⚠️ 使用 dayjs 处理时间，不使用其他库
+- ⚠️ 使用 dayjs 处理时间，不使用其他库 (import { dayjs } from '@/lib/dayjs')
 - ⚠️ 文章使用 .md 格式，不是 .mdx
 - ⚠️ Front Matter 必须包含 layout、title、date、excerpt 字段

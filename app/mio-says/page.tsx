@@ -1,4 +1,3 @@
-import { dayjs } from '@/lib/dayjs'
 import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
 import { getAllMioSays } from '@/lib/mio-says'
@@ -10,30 +9,6 @@ import { RelativeTime } from '@/components/relative-time'
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const mioSays = await getAllMioSays()
-
-  // 获取最新 Mio 说内容（截断到 80 字）
-  const latestContent =
-    mioSays.length > 0
-      ? mioSays[0].content.length > 80
-        ? `${mioSays[0].content.slice(0, 80)}...`
-        : mioSays[0].content
-      : 'Mio 的专属发言空间'
-
-  // 获取最新更新时间（使用绝对时间，避免缓存问题）
-  const lastUpdate = mioSays.length > 0 ? dayjs(mioSays[0].date).format('YYYY/MM/DD HH:mm') : ''
-
-  const ogImageParams = new URLSearchParams({
-    title: pageMetadata.mioSays.title,
-    subtitle: latestContent,
-    type: 'mio-says',
-    count: mioSays.length.toString(),
-    lastUpdate: lastUpdate,
-    v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
-  })
-
-  const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
-
   return {
     title: pageMetadata.mioSays.title,
     description: pageMetadata.mioSays.description,
@@ -49,10 +24,10 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       images: [
         {
-          url: ogImageUrl,
+          url: '/mio-says/opengraph-image',
           width: 1200,
           height: 630,
-          alt: `${pageMetadata.mioSays.title} | ${siteConfig.name}`,
+          alt: pageMetadata.mioSays.title,
         },
       ],
     },
@@ -60,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${pageMetadata.mioSays.title} | ${siteConfig.name}`,
       description: pageMetadata.mioSays.description,
-      images: [ogImageUrl],
+      images: ['/mio-says/opengraph-image'],
     },
   }
 }

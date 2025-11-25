@@ -9,15 +9,6 @@ import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
-const ogImageParams = new URLSearchParams({
-  title: siteConfig.author.name,
-  subtitle: '前端开发者，热衷于开源和技术分享，相信技术改变世界',
-  type: 'about',
-  v: siteConfig.openGraph.version.toString(), // 版本号用于缓存控制
-})
-
-const ogImageUrl = `${siteConfig.url}/api/og?${ogImageParams.toString()}`
-
 export const metadata: Metadata = {
   title: pageMetadata.about.title,
   description: pageMetadata.about.description,
@@ -33,10 +24,10 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: ogImageUrl,
+        url: '/about/opengraph-image',
         width: 1200,
         height: 630,
-        alt: `${pageMetadata.about.title} | ${siteConfig.name}`,
+        alt: pageMetadata.about.title,
       },
     ],
   },
@@ -44,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${pageMetadata.about.title} | ${siteConfig.name}`,
     description: pageMetadata.about.description,
-    images: [ogImageUrl],
+    images: ['/about/opengraph-image'],
   },
 }
 
