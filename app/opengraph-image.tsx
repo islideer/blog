@@ -2,8 +2,9 @@ import { ImageResponse } from 'next/og'
 import { OgImageTemplate } from '@/components/og-image-template'
 import { siteConfig } from '@/lib/config'
 import { getAllPosts } from '@/lib/posts'
-import { getAllThoughts } from '@/lib/thoughts'
-import { getAllMioSays } from '@/lib/mio-says'
+import { thoughtsData } from '@/lib/thoughts'
+import { mioSaysData } from '@/lib/mio-says'
+import { timelineData } from '@/lib/timeline'
 import { dayjs } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -21,23 +22,28 @@ export async function generateAlt(): Promise<string> {
 }
 
 export default async function Image() {
-  const [posts, thoughts, mioSays, fontData, iconData] = await Promise.all([
+  const [posts, fontData, iconData] = await Promise.all([
     getAllPosts(),
-    getAllThoughts(),
-    getAllMioSays(),
     readFile(join(process.cwd(), 'assets/fonts/SourceHanSansSC-Regular.otf')),
     readFile(join(process.cwd(), 'public/icon-192.png')),
   ])
 
-  // 获取最新更新时间（从文章、碎碎念、Mio 说中取最新）
+  const thoughts = thoughtsData
+  const mioSays = mioSaysData
+
+  // 获取最新更新时间（从文章、碎碎念、Mio 说、大事记中取最新）
   const allDates = [
     ...posts.map((p) => p.date),
     ...thoughts.map((t) => t.date),
     ...mioSays.map((m) => m.date),
-  ].filter(Boolean)
+    ...timelineData.map((t) => t.date),
+  ]
+    .filter(Boolean)
+    .map((date) => dayjs(date)) // 统一转换为 dayjs 对象
+    .toSorted((a, b) => b.valueOf() - a.valueOf()) // 按时间戳降序排序
 
-  const latestDate = allDates.length > 0 ? allDates.sort().reverse()[0] : null
-  const lastUpdated = latestDate ? dayjs(latestDate).format('YYYY 年 MM 月 DD 日') : ''
+  const latestDate = allDates.at(0)
+  const lastUpdated = latestDate ? latestDate.format('YYYY 年 MM 月 DD 日') : ''
 
   const options = {
     ...size,
@@ -195,6 +201,37 @@ export default async function Image() {
                   }}
                 >
                   条 Mio 说
+                </div>
+              </div>
+
+              {/* 大事记数 */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: '12px',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    fontSize: 48,
+                    fontWeight: 700,
+                    color: '#1a1a1a',
+                    lineHeight: 1,
+                  }}
+                >
+                  {timelineData.length}
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    fontSize: 18,
+                    color: '#888888',
+                    fontWeight: 500,
+                  }}
+                >
+                  件大事记
                 </div>
               </div>
             </div>

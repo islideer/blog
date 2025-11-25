@@ -109,23 +109,27 @@ AI 主要帮助生成重复性的样板内容、调试技术问题、优化细�
 有些优化可能不容易被注意到，但它们确实存在：
 
 **视觉细节**：
+
 - 所有外链都会自动添加 ↗ 图标，提示这是一个外部链接
 - 链接使用虚线下划线，鼠标悬停时切换为实线
 - 主题切换时没有闪烁，过渡非常平滑（使用 [CSS 过渡动画](https://developer.mozilla.org/docs/Web/CSS/transition)）
 - 超过一年的旧文章会自动显示提示横幅，告知读者内容可能过时
 
 **内容体验**：
+
 - 每篇文章都会自动计算阅读时间（按平均阅读速度计算）
 - 代码块使用 [Shiki](https://shiki.style) 实现精确的语法高亮，支持多种主题
 - 图片自动优化为 [WebP](https://developers.google.com/speed/webp) 格式，并根据设备屏幕尺寸响应式加载
 - 支持 [PWA](https://web.dev/progressive-web-apps)，可以"添加到主屏幕"，像原生应用一样使用
 
 **文本处理**：
+
 - 自动为中英文混排添加空格（[盘古之白](https://github.com/vinta/pangu.js)），让排版更舒适
 - 自动规范化专有名词的大小写（比如 React、Next.js、TypeScript）
 - 保护 [Markdown](https://www.markdownguide.org) 语法不被格式化破坏，支持加粗、链接等格式
 
 **SEO 优化**：
+
 - 自动生成站点地图（[Sitemap](https://www.sitemaps.org)）和 [Robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
 - 动态生成 [RSS](https://www.rssboard.org/rss-specification) 订阅源，方便 RSS 阅读器订阅
 - 每篇文章自动生成 [Open Graph](https://ogp.me) 图片，社交媒体分享时有精美预览

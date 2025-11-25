@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { OgImageTemplate } from '@/components/og-image-template'
 import { pageMetadata } from '@/lib/pages'
-import { getAllMioSays } from '@/lib/mio-says'
+import { mioSaysData } from '@/lib/mio-says'
 import { dayjs } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -19,11 +19,13 @@ export async function generateAlt(): Promise<string> {
 }
 
 export default async function Image() {
-  const [mioSays, fontData, iconData] = await Promise.all([
-    getAllMioSays(),
+  const [fontData, iconData] = await Promise.all([
     readFile(join(process.cwd(), 'assets/fonts/SourceHanSansSC-Regular.otf')),
     readFile(join(process.cwd(), 'public/icon-192.png')),
   ])
+
+  // 按日期从新到旧排序
+  const mioSays = mioSaysData.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 
   // 获取最新 Mio 说的更新时间
   const latestMioSay = mioSays[0]

@@ -49,16 +49,16 @@ Shebang 不仅限于 Bash，它适用于所有需要解释器的脚本语言，�
 
 以下是各种脚本语言常用的 Shebang 写法：
 
-| 脚本类型 | Shebang 示例 |
-|---------|-------------|
-| Bash | `#!/bin/bash` |
-| Shell | `#!/bin/sh` |
-| Python 2.x | `#!/usr/bin/python` |
+| 脚本类型   | Shebang 示例         |
+| ---------- | -------------------- |
+| Bash       | `#!/bin/bash`        |
+| Shell      | `#!/bin/sh`          |
+| Python 2.x | `#!/usr/bin/python`  |
 | Python 3.x | `#!/usr/bin/python3` |
-| Node.js | `#!/usr/bin/node` |
-| Perl | `#!/usr/bin/perl` |
-| Ruby | `#!/usr/bin/ruby` |
-| PHP | `#!/usr/bin/php` |
+| Node.js    | `#!/usr/bin/node`    |
+| Perl       | `#!/usr/bin/perl`    |
+| Ruby       | `#!/usr/bin/ruby`    |
+| PHP        | `#!/usr/bin/php`     |
 
 **注意**：这些路径假设解释器安装在标准位置。不同的系统（如 macOS、Ubuntu、CentOS）可能将解释器安装在不同的路径。如果你的脚本在其他机器上无法运行，可能需要检查解释器的实际路径。
 
@@ -73,6 +73,7 @@ Shebang 不仅限于 Bash，它适用于所有需要解释器的脚本语言，�
 **1. 跨平台兼容性更好**
 
 不同操作系统的解释器路径可能不同：
+
 - macOS 可能是 `/usr/local/bin/node`
 - Ubuntu 可能是 `/usr/bin/node`
 - 通过 nvm 安装可能是 `~/.nvm/versions/node/v20.0.0/bin/node`
@@ -90,6 +91,7 @@ Shebang 不仅限于 Bash，它适用于所有需要解释器的脚本语言，�
 ### 注意事项
 
 使用 `#!/usr/bin/env node` 时，要确保：
+
 - Node.js 已正确安装
 - Node.js 可执行文件在 PATH 环境变量中
 

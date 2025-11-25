@@ -45,4 +45,4 @@ excerpt: 一个开源的在线吉他工具箱，调音器、节拍器、和弦�
 - 在线访问：https://guitar.viki.moe
 - GitHub 仓库：https://github.com/vikiboss/guitar-studio
 
-虽然功能还没完全做完，但不妨碍你现在就去体验一下嘛~ 
+虽然功能还没完全做完，但不妨碍你现在就去体验一下嘛~

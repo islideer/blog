@@ -379,8 +379,7 @@ describe('renderMarkdown', () => {
     })
 
     it('应该正确处理连续的不同类型的标记', () => {
-      const text =
-        '**粗体***斜体*`代码`[链接](https://example.com)~~删除~~**粗体2***斜体2*`代码2`'
+      const text = '**粗体***斜体*`代码`[链接](https://example.com)~~删除~~**粗体2***斜体2*`代码2`'
       const result = renderMarkdown(text)
       const { container } = render(<>{result}</>)
 

@@ -63,8 +63,8 @@ module.exports = {
     // 指定输出的信息：文件名、路径等
     filename: 'main.js',
     // 使用 path 来更合理地指定输出文件的路径
-    path: path.resolve(__dirname, 'dist')
-  }
+    path: path.resolve(__dirname, 'dist'),
+  },
 }
 ```
 
@@ -89,10 +89,10 @@ module.exports = {
       {
         test: /\.css$/, // 使用正则对文件后缀名进行匹配，区分不同的文件
         // 在 use 数组里配置专门处理匹配到的文件类型所需的 loader
-        use: ['style-loader', 'css-loader']
-      }
-    ]
-  }
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
 }
 ```
 
@@ -138,14 +138,14 @@ module.exports = {
     rules: [
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
+        use: ['file-loader'],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader']
-      }
-    ]
-  }
+        use: ['file-loader'],
+      },
+    ],
+  },
 }
 ```
 
@@ -183,17 +183,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: {
     app: './src/index.js',
-    print: './src/print.js'
+    print: './src/print.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Output Management'
-    })
+      title: 'Output Management',
+    }),
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  }
+    path: path.resolve(__dirname, 'dist'),
+  },
 }
 ```
 
@@ -228,8 +228,8 @@ npm install --save-dev webpack-dev-server
 // webpack.config.js
 module.exports = {
   devServer: {
-    contentBase: './dist'
-  }
+    contentBase: './dist',
+  },
 }
 ```
 
@@ -259,8 +259,8 @@ module.exports = {
 module.exports = {
   devServer: {
     contentBase: './dist',
-    hot: true // 👈 关键在这
-  }
+    hot: true, // 👈 关键在这
+  },
 }
 ```
 
@@ -277,10 +277,7 @@ module.exports = {
 ```json
 // package.json
 {
-  "sideEffects": [
-    "./src/some-side-effectful-file.js",
-    "*.css"
-  ]
+  "sideEffects": ["./src/some-side-effectful-file.js", "*.css"]
 }
 ```
 

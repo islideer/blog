@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
-import { getAllMioSays } from '@/lib/mio-says'
+import { mioSaysData } from '@/lib/mio-says'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/inline-md'
 import { pageMetadata } from '@/lib/pages'
@@ -41,7 +41,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function MioSaysPage() {
-  const mioSays = await getAllMioSays()
+  // 按日期从新到旧排序
+  const mioSays = mioSaysData.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 
   return (
     <div className="space-y-12 py-8 sm:py-12">
