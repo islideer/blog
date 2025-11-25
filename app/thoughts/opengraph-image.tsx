@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { OgImageTemplate } from '@/components/og-image-template'
 import { pageMetadata } from '@/lib/config'
-import { thoughtsData } from '@/lib/data'
+import { thoughts } from '@/lib/data'
 import { dayjs } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -25,10 +25,10 @@ export default async function Image() {
   ])
 
   // 按日期从新到旧排序
-  const thoughts = thoughtsData.toSorted((a, b) => (a.date < b.date ? 1 : -1))
+  const sortedThoughts = thoughts.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 
   // 获取最新碎碎念的更新时间
-  const latestThought = thoughts[0]
+  const latestThought = sortedThoughts[0]
   const lastUpdated = latestThought ? dayjs(latestThought.date).format('MM 月 DD 日 HH:mm') : ''
 
   const options = {

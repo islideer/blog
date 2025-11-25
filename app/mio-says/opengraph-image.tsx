@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { OgImageTemplate } from '@/components/og-image-template'
 import { pageMetadata } from '@/lib/config'
-import { mioSaysData } from '@/lib/data'
+import { mioSays } from '@/lib/data'
 import { dayjs } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -25,10 +25,10 @@ export default async function Image() {
   ])
 
   // 按日期从新到旧排序
-  const mioSays = mioSaysData.toSorted((a, b) => (a.date < b.date ? 1 : -1))
+  const sortedMioSays = mioSays.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 
   // 获取最新 Mio 说的更新时间
-  const latestMioSay = mioSays[0]
+  const latestMioSay = sortedMioSays[0]
   const lastUpdated = latestMioSay ? dayjs(latestMioSay.date).format('MM 月 DD 日 HH:mm') : ''
 
   const options = {

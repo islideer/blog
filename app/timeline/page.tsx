@@ -1,6 +1,6 @@
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { timelineData } from '@/lib/data'
+import { timeline } from '@/lib/data'
 import { TimelineView } from '@/components/timeline-view'
 import { pageMetadata } from '@/lib/config'
 import type { Metadata } from 'next'
@@ -42,12 +42,12 @@ export default function TimelinePage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">大事记</h1>
         <p className="text-text-secondary">
-          共 {timelineData.length.toLocaleString('zh-CN')} 条记录，记录生活中的重要时刻和里程碑。
+          共 {timeline.length.toLocaleString('zh-CN')} 条记录，记录生活中的重要时刻和里程碑。
         </p>
       </section>
 
       {/* Timeline Content */}
-      <TimelineView items={timelineData} />
+      <TimelineView items={timeline} />
     </div>
   )
 }

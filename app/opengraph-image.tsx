@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 import { OgImageTemplate } from '@/components/og-image-template'
 import { siteConfig } from '@/lib/config'
 import { getAllPosts } from '@/lib/posts'
-import { thoughtsData, mioSaysData, timelineData } from '@/lib/data'
+import { thoughts, mioSays, timeline } from '@/lib/data'
 import { dayjs } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -26,15 +26,12 @@ export default async function Image() {
     readFile(join(process.cwd(), 'public/icon-192.png')),
   ])
 
-  const thoughts = thoughtsData
-  const mioSays = mioSaysData
-
   // 获取最新更新时间（从文章、碎碎念、Mio 说、大事记中取最新）
   const allDates = [
     ...posts.map((p) => p.date),
     ...thoughts.map((t) => t.date),
     ...mioSays.map((m) => m.date),
-    ...timelineData.map((t) => t.date),
+    ...timeline.map((t) => t.date),
   ]
     .filter(Boolean)
     .map((date) => dayjs(date)) // 统一转换为 dayjs 对象
@@ -219,7 +216,7 @@ export default async function Image() {
                     lineHeight: 1,
                   }}
                 >
-                  {timelineData.length}
+                  {timeline.length}
                 </div>
                 <div
                   style={{

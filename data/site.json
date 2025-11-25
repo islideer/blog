@@ -42,7 +42,7 @@
     }
   },
   "pwa": {
-    "display": "standalone"
+    "display": "standalone" 
   },
   "openGraph": {
     "type": "website",

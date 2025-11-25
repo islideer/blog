@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
-import { thoughtsData } from '@/lib/data'
+import { thoughts } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/inline-md'
 import { pageMetadata } from '@/lib/config'
@@ -42,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ThoughtsPage() {
   // 按日期从新到旧排序
-  const thoughts = thoughtsData.toSorted((a, b) => (a.date < b.date ? 1 : -1))
+  const sortedThoughts = thoughts.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 
   return (
     <div className="space-y-12 py-8 sm:py-12">
@@ -51,7 +51,7 @@ export default async function ThoughtsPage() {
         <h1 className="text-3xl font-bold">碎碎念</h1>
         <p className="text-text-secondary">
           Viki 的碎碎念小角落，记录生活中的点滴想法和言论，共{' '}
-          {thoughts.length.toLocaleString('zh-CN')} 条内容。
+          {sortedThoughts.length.toLocaleString('zh-CN')} 条内容。
         </p>
       </section>
 
@@ -61,16 +61,18 @@ export default async function ThoughtsPage() {
           className="space-y-8 border-l-2 pl-4 sm:pl-6"
           style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
         >
-          {thoughts.length === 0 ? (
+          {sortedThoughts.length === 0 ? (
             <p className="text-text-tertiary text-sm italic opacity-60">还没有碎碎念，快来记录吧</p>
           ) : (
-            thoughts.map((thought, index) => (
+            sortedThoughts.map((thought, index) => (
               <article
                 key={thought.id}
                 className="space-y-2 pb-8"
                 style={{
                   borderBottom:
-                    index < thoughts.length - 1 ? '1px solid rgba(128, 128, 128, 0.1)' : 'none',
+                    index < sortedThoughts.length - 1
+                      ? '1px solid rgba(128, 128, 128, 0.1)'
+                      : 'none',
                 }}
               >
                 {/* 序号和日期时间 */}

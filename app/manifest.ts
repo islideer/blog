@@ -10,7 +10,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description: siteConfig.description,
     start_url: '/',
     scope: '/', // 应用范围
-    display: siteConfig.pwa.display,
+    display: siteConfig.pwa.display as 'standalone',
     orientation: 'portrait-primary', // 首选竖屏方向
     background_color: siteConfig.theme.background.light,
     theme_color: siteConfig.theme.background.dark,

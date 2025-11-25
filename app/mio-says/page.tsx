@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
-import { mioSaysData } from '@/lib/data'
+import { mioSays } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { renderMarkdown } from '@/lib/inline-md'
 import { pageMetadata } from '@/lib/config'
@@ -42,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function MioSaysPage() {
   // 按日期从新到旧排序
-  const mioSays = mioSaysData.toSorted((a, b) => (a.date < b.date ? 1 : -1))
+  const sortedMioSays = mioSays.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 
   return (
     <div className="space-y-12 py-8 sm:py-12">
@@ -53,7 +53,7 @@ export default async function MioSaysPage() {
             Mio 说
           </h1>
           <p className="text-text-secondary">
-            {`Mio 的专属发言空间，Viki 无编辑权限，共 ${mioSays.length.toLocaleString('zh-CN')} 条内容。`}
+            {`Mio 的专属发言空间，Viki 无编辑权限，共 ${sortedMioSays.length.toLocaleString('zh-CN')} 条内容。`}
           </p>
         </div>
         <div className="shrink-0 self-end">
@@ -74,18 +74,18 @@ export default async function MioSaysPage() {
           className="space-y-8 border-l-2 pl-4 sm:pl-6"
           style={{ borderColor: 'var(--color-mio-border)' }}
         >
-          {mioSays.length === 0 ? (
+          {sortedMioSays.length === 0 ? (
             <p className="text-text-tertiary text-sm italic opacity-60">
               Mio 还没有说什么，敬请期待
             </p>
           ) : (
-            mioSays.map((mioSay, index) => (
+            sortedMioSays.map((mioSay, index) => (
               <article
                 key={mioSay.id}
                 className="space-y-2 pb-8"
                 style={{
                   borderBottom:
-                    index < mioSays.length - 1 ? `1px solid var(--color-mio-border)` : 'none',
+                    index < sortedMioSays.length - 1 ? `1px solid var(--color-mio-border)` : 'none',
                 }}
               >
                 {/* 序号和日期时间 */}

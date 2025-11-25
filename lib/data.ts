@@ -1,7 +1,8 @@
+import contact from '@/data/contact.json'
+import projects from '@/data/projects.json'
+import techStack from '@/data/tech-stack.json'
+
 import aboutData from '@/data/about.json'
-import projectsData from '@/data/projects.json'
-import techStackData from '@/data/tech-stack.json'
-import contactData from '@/data/contact.json'
 import mioSaysData from '@/data/mio-says.json'
 import thoughtsData from '@/data/thoughts.json'
 import timelineData from '@/data/timeline.json'
@@ -83,23 +84,15 @@ export interface TimelineItem {
 export const about: AboutData = {
   intro: aboutData.intro,
   openSource: {
-    projects: projectsData as ProjectsData,
+    projects: projects as ProjectsData,
     moreLink: aboutData.openSource.moreLink,
   },
-  techStack: techStackData as TechStackData,
-  contact: contactData,
+  techStack: techStack as TechStackData,
+  contact: contact,
 }
 
 export const mioSays: MioSay[] = mioSaysData
 export const thoughts: Thought[] = thoughtsData
 export const timeline: TimelineItem[] = timelineData
 
-export { 
-  projectsData as projects, 
-  techStackData as techStack, 
-  contactData as contact,
-  // Aliases for backward compatibility
-  mioSays as mioSaysData,
-  thoughts as thoughtsData,
-  timeline as timelineData
-}
+export { projects, techStack, contact }

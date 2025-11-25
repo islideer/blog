@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { OgImageTemplate } from '@/components/og-image-template'
 import { pageMetadata } from '@/lib/config'
-import { timelineData } from '@/lib/data'
+import { timeline } from '@/lib/data'
 import { dayjs } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -25,7 +25,7 @@ export default async function Image() {
   ])
 
   // 获取时间范围
-  const dates = timelineData.map((item) => dayjs(item.date))
+  const dates = timeline.map((item) => dayjs(item.date))
   const earliestYear = dates.length > 0 ? Math.min(...dates.map((d) => d.year())) : 0
   const latestYear = dates.length > 0 ? Math.max(...dates.map((d) => d.year())) : 0
   const timeRange = earliestYear > 0 ? `${earliestYear} - ${latestYear}` : ''
@@ -105,7 +105,7 @@ export default async function Image() {
                   lineHeight: 1,
                 }}
               >
-                {timelineData.length}
+                {timeline.length}
               </div>
               <div
                 style={{
