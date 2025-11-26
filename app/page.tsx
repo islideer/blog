@@ -62,15 +62,19 @@ export default async function BlogPage() {
                     className="group active:bg-bg-secondary -mx-4 block px-4 py-3 no-underline transition-colors sm:mx-0 sm:px-0 sm:py-4 sm:active:bg-transparent"
                   >
                     <article className="space-y-2">
-                      <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                        <div className="flex min-w-0 flex-1 items-center gap-2">
-                          {post.top && <PinIcon />}
-                          {post.draft && <DraftBadge />}
-                          <h2 className="text-text-primary truncate text-base font-medium group-hover:underline sm:text-lg md:text-xl">
+                      <div className="flex flex-col gap-2 sm:items-baseline sm:justify-between sm:gap-4">
+                        <div className="flex min-w-0 flex-1 items-start gap-2">
+                          {(post.top || post.draft) && (
+                            <div className="flex shrink-0 items-center gap-2 pt-0.5">
+                              {post.top && <PinIcon />}
+                              {post.draft && <DraftBadge />}
+                            </div>
+                          )}
+                          <h2 className="text-text-primary flex-1 text-base leading-snug font-medium group-hover:underline sm:text-lg md:text-xl">
                             {post.title}
                           </h2>
                         </div>
-                        <div className="text-text-tertiary flex shrink-0 items-baseline gap-1.5 text-xs">
+                        <div className="text-text-tertiary flex shrink-0 items-baseline gap-1.5 text-sm">
                           <PostDate date={post.date} format="short" />
                           {post.readingTime && (
                             <>

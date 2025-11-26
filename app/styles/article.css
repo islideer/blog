@@ -229,8 +229,8 @@ html.dark .prose-blog :not(pre) > code::after {
   line-height: 1.6;
   position: relative;
   -webkit-overflow-scrolling: touch;
-  /* 明确设置背景色 - 使用 Shiki 的 CSS 变量 */
-  background-color: var(--shiki-light-bg, #fafafa);
+  /* 使用自定义背景色确保与页面背景形成对比 */
+  background-color: var(--color-code-bg);
   /* 优化字体渲染 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -240,18 +240,18 @@ html.dark .prose-blog :not(pre) > code::after {
 /* 暗色模式 - 系统偏好 */
 @media (prefers-color-scheme: dark) {
   html:not(.light) .prose-blog pre {
-    background-color: var(--shiki-dark-bg, #282c34);
+    background-color: var(--color-code-bg);
   }
 }
 
 /* 暗色模式 - 手动设置 */
 html.dark .prose-blog pre {
-  background-color: var(--shiki-dark-bg, #282c34);
+  background-color: var(--color-code-bg);
 }
 
 /* 亮色模式 - 手动设置（覆盖系统暗色偏好） */
 html.light .prose-blog pre {
-  background-color: var(--shiki-light-bg, #fafafa);
+  background-color: var(--color-code-bg);
 }
 
 .prose-blog pre code {

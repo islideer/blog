@@ -111,11 +111,11 @@ export default async function PostsPage() {
                     </>
                   )}
                 </div>
-                <div className="flex flex-1 items-center gap-2">
-                  {post.draft && <DraftBadge />}
+                <div className="flex flex-1 items-start gap-2">
+                  {post.draft && <DraftBadge className="mt-0.5" />}
                   <Link
                     href={`/${post.slug}`}
-                    className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
+                    className="text-text-secondary hover:text-text-primary flex-1 text-sm leading-snug sm:text-base"
                   >
                     {post.title}
                   </Link>
@@ -170,11 +170,11 @@ export default async function PostsPage() {
                           </>
                         )}
                       </div>
-                      <div className="flex flex-1 items-center gap-2">
-                        {post.draft && <DraftBadge />}
+                      <div className="flex flex-1 items-start gap-2">
+                        {post.draft && <DraftBadge className="mt-0.5" />}
                         <Link
                           href={`/${post.slug}`}
-                          className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
+                          className="text-text-secondary hover:text-text-primary flex-1 text-sm leading-snug sm:text-base"
                         >
                           {post.title}
                         </Link>
