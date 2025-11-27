@@ -308,8 +308,7 @@ describe('SEO Functions', () => {
       const og = generatePostOpenGraph(mockPost)
 
       expect(og.images).toHaveLength(1)
-      expect(og.images[0].url).toContain('/api/og?')
-      expect(og.images[0].url).toContain('title=')
+      expect(og.images[0].url).toBe('https://blog.viki.moe/test-post/opengraph-image')
       expect(og.images[0].width).toBe(1200)
       expect(og.images[0].height).toBe(630)
     })
@@ -365,8 +364,7 @@ describe('SEO Functions', () => {
       const card = generatePostTwitterCard(mockPost)
 
       expect(card.images).toHaveLength(1)
-      expect(card.images[0]).toContain('/api/og?')
-      expect(card.images[0]).toContain('title=')
+      expect(card.images[0]).toBe('https://blog.viki.moe/test-post/opengraph-image')
     })
 
     it('应该处理没有 excerpt 的文章', () => {
