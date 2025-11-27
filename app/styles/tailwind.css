@@ -24,13 +24,18 @@
 
   /* Custom Typography - System fonts with fallback optimization */
   --font-sans:
-    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial,
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --font-serif:
+    'Merriweather', 'Georgia', 'Cambria', 'Times New Roman', Times, 'Songti SC', 'SimSun', serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   /* Programming fonts - Prioritize popular coding fonts */
   --font-mono:
-    'Fira Code', 'JetBrains Mono', 'Cascadia Code', 'Source Code Pro', 'Menlo', 'Monaco',
-    'Consolas', 'Roboto Mono', 'Ubuntu Mono', 'SF Mono', ui-monospace, monospace;
+    'FiraCode Nerd Font', 'Fira Code', 'JetBrains Mono', 'Cascadia Code', 'Source Code Pro',
+    'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 
   /* Custom Border Radius */
   --radius-xs: 0.25rem; /* 4px - for code blocks */
