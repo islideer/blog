@@ -215,32 +215,11 @@ body {
 /* 左侧反引号 */
 .inline-code::before {
   content: '`';
-  color: oklch(0.5 0 0); /* 中等灰色 - 日间模式 */
   font-weight: 600;
-  margin-right: 0.125em;
-  opacity: 0.7;
 }
 
 /* 右侧反引号 */
 .inline-code::after {
   content: '`';
-  color: oklch(0.5 0 0); /* 中等灰色 - 日间模式 */
   font-weight: 600;
-  margin-left: 0.125em;
-  opacity: 0.7;
-}
-
-/* 暗色模式下反引号颜色 - 更亮的灰色 */
-@media (prefers-color-scheme: dark) {
-  html:not(.light) .inline-code::before,
-  html:not(.light) .inline-code::after {
-    color: oklch(0.65 0 0); /* 较亮的灰色 - 暗色模式 */
-    opacity: 0.8;
-  }
-}
-
-html.dark .inline-code::before,
-html.dark .inline-code::after {
-  color: oklch(0.65 0 0); /* 较亮的灰色 - 暗色模式 */
-  opacity: 0.8;
 }

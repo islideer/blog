@@ -37,6 +37,7 @@
   text-wrap: balance;
   /* 优化渲染性能 - 标题通常是关键内容 */
   contain: layout style;
+  position: relative;
 }
 
 .prose-blog h1:first-child,
@@ -80,27 +81,40 @@
 
 /* 标题锚点样式 */
 .prose-blog .heading-anchor {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  position: relative;
-}
-
-.prose-blog .heading-anchor:hover {
-  opacity: 1;
-}
-
-.prose-blog .heading-anchor::before {
-  content: '#';
   position: absolute;
-  left: -1.2em;
+  top: 0;
+  left: -1.5em;
+  /* 使用 Flexbox 布局确保锚点符号与标题第一行文字垂直居中 */
+  /* 高度设为 1.3em (对应 var(--leading-tight)) 以匹配标题行高 */
+  height: 1.3em;
+  width: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
   color: var(--color-text-tertiary);
   opacity: 0;
   font-weight: 400;
+  transition: opacity 0.2s ease;
+  user-select: none;
 }
 
-.prose-blog .heading-anchor:hover::before {
+/* Show anchor when hovering the heading */
+.prose-blog h1:hover .heading-anchor,
+.prose-blog h2:hover .heading-anchor,
+.prose-blog h3:hover .heading-anchor,
+.prose-blog h4:hover .heading-anchor,
+.prose-blog h5:hover .heading-anchor,
+.prose-blog h6:hover .heading-anchor {
   opacity: 1;
+}
+
+/* Style anchor on hover */
+.prose-blog .heading-anchor:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--color-text-primary);
 }
 
 /* ============================================
@@ -188,34 +202,13 @@
 /* 左侧反引号 */
 .prose-blog :not(pre) > code::before {
   content: '`';
-  color: oklch(0.5 0 0); /* 中等灰色 - 日间模式 */
   font-weight: 600;
-  margin-right: 0.125em;
-  opacity: 0.7;
 }
 
 /* 右侧反引号 */
 .prose-blog :not(pre) > code::after {
   content: '`';
-  color: oklch(0.5 0 0); /* 中等灰色 - 日间模式 */
   font-weight: 600;
-  margin-left: 0.125em;
-  opacity: 0.7;
-}
-
-/* 暗色模式下反引号颜色 - 更亮的灰色 */
-@media (prefers-color-scheme: dark) {
-  html:not(.light) .prose-blog :not(pre) > code::before,
-  html:not(.light) .prose-blog :not(pre) > code::after {
-    color: oklch(0.65 0 0); /* 较亮的灰色 - 暗色模式 */
-    opacity: 0.8;
-  }
-}
-
-html.dark .prose-blog :not(pre) > code::before,
-html.dark .prose-blog :not(pre) > code::after {
-  color: oklch(0.65 0 0); /* 较亮的灰色 - 暗色模式 */
-  opacity: 0.8;
 }
 
 /* Code block container */

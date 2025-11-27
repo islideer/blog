@@ -1,27 +1,11 @@
 import rehypeShiki from '@shikijs/rehype'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeExternalLinks from 'rehype-external-links'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
-import { visit } from 'unist-util-visit'
-import type { Element } from 'hast'
 
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
-
-// Rehype plugin to add target="_blank" to external links
-function rehypeExternalLinks() {
-  return (tree: any) => {
-    visit(tree, 'element', (node: Element) => {
-      if (node.tagName === 'a' && node.properties) {
-        const href = node.properties.href as string
-        if (href && href.startsWith('http')) {
-          node.properties.target = '_blank'
-          node.properties.rel = 'noopener noreferrer'
-        }
-      }
-    })
-  }
-}
 
 export const mdxOptions: MDXRemoteProps['options'] = {
   mdxOptions: {
@@ -49,13 +33,25 @@ export const mdxOptions: MDXRemoteProps['options'] = {
       [
         rehypeAutolinkHeadings,
         {
-          behavior: 'wrap',
+          behavior: 'prepend',
           properties: {
             className: ['heading-anchor'],
+            ariaHidden: true,
+            tabIndex: -1,
+          },
+          content: {
+            type: 'text',
+            value: '#',
           },
         },
       ],
-      rehypeExternalLinks,
+      [
+        rehypeExternalLinks,
+        {
+          target: '_blank',
+          rel: ['noopener', 'noreferrer'],
+        },
+      ],
     ],
   },
 }
