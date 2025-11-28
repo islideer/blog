@@ -55,18 +55,9 @@ TypeScript 在 [TC39](https://tc39.es/) 批准 [类字段提案](https://github.
 'key' in {} // false
 'key' in { key: undefined } // true
 Reflect.has({}, 'key') // false
-Reflect.has(
-  { key: undefined },
-  'key',
-)(
-  // true
-  {},
-)
-  .hasOwnProperty('key')(
-    // false
-    { key: undefined },
-  )
-  .hasOwnProperty('key') // true
+Reflect.has({ key: undefined }, 'key') // true
+;({}).hasOwnProperty('key') // false
+;({ key: undefined }).hasOwnProperty('key') // true
 ```
 
 注：[`hasOwnProperty`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) 只检查自有属性，而 `Reflect.has` 和 `in` 操作符会检查整个原型链。
