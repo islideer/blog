@@ -99,7 +99,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Analytics />
           <GoogleAnalytics gaId={siteConfig.analytics.google} />
-          <div className="flex min-h-screen min-w-lg flex-col sm:mx-auto sm:max-w-3xl">
+          <div className="flex min-h-screen min-w-md flex-col sm:mx-auto sm:max-w-3xl">
             <SiteHeader />
             <main className="flex-1">
               <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">{children}</div>
