@@ -1,14 +1,25 @@
 import './globals.css'
 
-import Link from 'next/link'
-import { ThemeToggle } from '@/components/theme-toggle'
+import { SiteHeader } from '@/components/site-header'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { Analytics } from '@vercel/analytics/next'
 import { Footer } from '@/components/footer'
+import { ThemeProvider } from '@/components/theme-provider'
 
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: siteConfig.theme.background.light },
+    { media: '(prefers-color-scheme: dark)', color: siteConfig.theme.background.dark },
+  ],
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -31,7 +42,6 @@ export async function generateMetadata(): Promise<Metadata> {
       icon: '/favicon.ico',
       apple: '/apple-icon.png',
     },
-    manifest: '/manifest.json',
     alternates: {
       canonical: generateCanonicalUrl('/'),
     },
@@ -66,34 +76,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="zh-CN" className="light" suppressHydrationWarning>
+    <html lang="zh-CN" suppressHydrationWarning>
       <head>
-        {/* Viewport configuration for stable layout */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover"
-        />
-
         {/* Preconnect to external domains for better performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://i.loli.net" />
+        <link rel="dns-prefetch" href="https://i.loli.net" />
+        <link rel="preconnect" href="https://s2.loli.net" />
+        <link rel="dns-prefetch" href="https://s2.loli.net" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const savedTheme = localStorage.getItem('theme');
-                  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  const theme = savedTheme || systemTheme;
-                  document.documentElement.classList.remove('light', 'dark');
-                  document.documentElement.classList.add(theme);
-                  document.documentElement.setAttribute('data-theme', theme);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -101,88 +95,18 @@ export default function RootLayout({
           href={siteConfig.links.rss}
         />
       </head>
-      <body className="bg-bg-primary text-text-primary min-h-screen">
-        {/* Skip to Main Content Link - for keyboard navigation */}
-        <a
-          href="#main-content"
-          className="focus:bg-bg-primary focus:text-text-primary sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:px-4 focus:py-2 focus:shadow-lg"
-        >
-          跳转到主要内容
-        </a>
-        {/* Main Content Area */}
-        <div className="flex min-h-screen flex-col lg:mx-auto lg:max-w-3xl">
-          {/* Header - Sticky */}
-          <header
-            role="banner"
-            className="border-border bg-bg-primary/80 sticky top-0 z-40 border-b backdrop-blur-sm"
-          >
-            <div className="flex items-center justify-between px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
-              <Link href="/" passHref className="no-underline">
-                <div>
-                  <h1 className="text-text-primary text-sm font-semibold sm:text-base">
-                    {siteConfig.name}
-                  </h1>
-                  <p className="text-text-tertiary hidden text-xs leading-tight sm:block">
-                    {siteConfig.tagline}
-                  </p>
-                </div>
-              </Link>
-
-              <nav
-                role="navigation"
-                aria-label="主导航"
-                className="flex items-center gap-1.5 sm:gap-4"
-              >
-                <Link
-                  href="/posts"
-                  className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
-                >
-                  文章
-                </Link>
-                <Link
-                  href="/thoughts"
-                  className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
-                >
-                  碎碎念
-                </Link>
-                <Link
-                  href="/mio-says"
-                  className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
-                >
-                  Mio 说
-                </Link>
-                <Link
-                  href="/timeline"
-                  className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
-                >
-                  大事记
-                </Link>
-                <Link
-                  href="/about"
-                  className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
-                >
-                  关于
-                </Link>
-                <ThemeToggle />
-              </nav>
-            </div>
-          </header>
-
-          {/* Main Content */}
-          <main
-            id="main-content"
-            role="main"
-            className="mx-auto w-full flex-1 p-4 pb-8 sm:p-6 lg:p-8"
-          >
-            {children}
-          </main>
-
-          {/* Footer */}
-          <Footer />
-        </div>
-
-        <Analytics />
-        <GoogleAnalytics gaId={siteConfig.analytics.googleAnalyticsId} />
+      <body className="bg-bg-primary text-text-primary font-sans antialiased transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <Analytics />
+          <GoogleAnalytics gaId={siteConfig.analytics.google} />
+          <div className="flex min-h-screen flex-col sm:mx-auto sm:max-w-3xl min-w-lg">
+            <SiteHeader />
+            <main className="flex-1">
+              <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">{children}</div>
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )

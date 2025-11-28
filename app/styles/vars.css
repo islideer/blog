@@ -1,90 +1,83 @@
-/* Dark mode - respond to both system preference and manual toggle */
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    --color-bg-primary: oklch(0.16 0 0); /* Deeper dark background - richer black tone */
-    --color-bg-secondary: oklch(0.19 0 0); /* Slightly lighter - maintains hierarchy */
-    --color-bg-tertiary: oklch(0.22 0 0); /* Medium dark gray - clear layering */
+/* Default Light Mode */
+:root {
+  /* Base Backgrounds */
+  --color-bg-primary: oklch(0.99 0 0);      /* Pure/Near White */
+  --color-bg-secondary: oklch(0.97 0 0);    /* Very Light Gray */
+  --color-bg-tertiary: oklch(0.95 0 0);     /* Light Gray */
+  --color-bg-quaternary: oklch(0.93 0 0);   /* Distinct Gray */
 
-    --color-text-primary: oklch(0.94 0 0); /* Brighter white - improved contrast */
-    --color-text-secondary: oklch(0.70 0 0); /* Lighter gray - better readability */
-    --color-text-tertiary: oklch(0.54 0 0); /* Medium gray - sufficient contrast */
+  /* Text Colors */
+  --color-text-primary: oklch(0.20 0 0);    /* Near Black - High Contrast */
+  --color-text-secondary: oklch(0.45 0 0);  /* Dark Gray - Medium Contrast */
+  --color-text-tertiary: oklch(0.65 0 0);   /* Light Gray - Low Contrast */
 
-    --color-border: oklch(0.28 0 0); /* Adjusted border - visible but subtle */
-    --color-border-hover: oklch(0.38 0 0); /* Hover border - clear feedback */
+  /* Borders */
+  --color-border: oklch(0.92 0 0);          /* Subtle Border */
+  --color-border-hover: oklch(0.80 0 0);    /* Hover State */
 
-    /* Code block background - lighter for better code readability */
-    --color-code-bg: oklch(0.21 0 0); /* Distinct from page, better contrast */
+  /* Code Blocks */
+  --color-code-bg: oklch(0.96 0 0);
+  --color-code-text: oklch(0.25 0 0);
 
-    /* Mio Says - Pink accents for dark mode */
-    --color-mio-pink: oklch(0.76 0.16 350); /* Slightly brighter pink */
-    --color-mio-pink-muted: oklch(0.26 0.09 350); /* Adjusted muted pink */
-    --color-mio-border: oklch(0.34 0.13 350); /* Pink-tinted border */
-    --color-mio-bg: oklch(0.17 0.02 350); /* Deeper pink-tinted background */
+  /* Selection */
+  --color-selection-bg: oklch(0.2 0 0 / 0.15);
 
-    /* Thoughts - Blue accents for dark mode */
-    --color-viki-blue: oklch(0.72 0.16 240); /* Slightly brighter blue */
-    --color-viki-blue-muted: oklch(0.26 0.09 240); /* Adjusted muted blue */
-    --color-viki-border: oklch(0.34 0.13 240); /* Blue-tinted border */
-    --color-viki-bg: oklch(0.17 0.02 240); /* Deeper blue-tinted background */
-  }
+  /* Accents - Brand Colors */
+  --color-accent: oklch(0.55 0.2 260);      /* Primary Brand Color */
+  --color-accent-foreground: oklch(1 0 0);
+
+  /* Mio Says - Pink Theme */
+  --color-mio-pink: oklch(0.65 0.18 350);
+  --color-mio-pink-muted: oklch(0.96 0.02 350);
+  --color-mio-border: oklch(0.90 0.05 350);
+  --color-mio-bg: oklch(0.99 0.01 350);
+
+  /* Thoughts - Blue Theme */
+  --color-viki-blue: oklch(0.6 0.18 240);
+  --color-viki-blue-muted: oklch(0.96 0.02 240);
+  --color-viki-border: oklch(0.90 0.05 240);
+  --color-viki-bg: oklch(0.99 0.01 240);
 }
 
-/* Manual dark mode class */
+/* Dark Mode */
 :root.dark {
-  --color-bg-primary: oklch(0.16 0 0); /* Deeper dark background - richer black tone */
-  --color-bg-secondary: oklch(0.19 0 0); /* Slightly lighter - maintains hierarchy */
-  --color-bg-tertiary: oklch(0.22 0 0); /* Medium dark gray - clear layering */
+  /* Base Backgrounds */
+  --color-bg-primary: oklch(0.12 0 0);      /* Deep Dark */
+  --color-bg-secondary: oklch(0.16 0 0);    /* Dark Gray */
+  --color-bg-tertiary: oklch(0.20 0 0);     /* Medium Dark */
+  --color-bg-quaternary: oklch(0.24 0 0);   /* Lighter Dark */
 
-  --color-text-primary: oklch(0.94 0 0); /* Brighter white - improved contrast */
-  --color-text-secondary: oklch(0.70 0 0); /* Lighter gray - better readability */
-  --color-text-tertiary: oklch(0.54 0 0); /* Medium gray - sufficient contrast */
+  /* Text Colors */
+  --color-text-primary: oklch(0.95 0 0);    /* Near White */
+  --color-text-secondary: oklch(0.70 0 0);  /* Light Gray */
+  --color-text-tertiary: oklch(0.50 0 0);   /* Dim Gray */
 
-  --color-border: oklch(0.28 0 0); /* Adjusted border - visible but subtle */
-  --color-border-hover: oklch(0.38 0 0); /* Hover border - clear feedback */
+  /* Borders */
+  --color-border: oklch(0.22 0 0);
+  --color-border-hover: oklch(0.35 0 0);
 
-  /* Code block background - lighter for better code readability */
-  --color-code-bg: oklch(0.21 0 0); /* Distinct from page, better contrast */
+  /* Code Blocks */
+  --color-code-bg: oklch(0.25 0 0);
+  --color-code-text: oklch(0.90 0 0);
 
-  /* Mio Says - Pink accents for dark mode */
-  --color-mio-pink: oklch(0.76 0.16 350); /* Slightly brighter pink */
-  --color-mio-pink-muted: oklch(0.26 0.09 350); /* Adjusted muted pink */
-  --color-mio-border: oklch(0.34 0.13 350); /* Pink-tinted border */
-  --color-mio-bg: oklch(0.17 0.02 350); /* Deeper pink-tinted background */
+  /* Selection */
+  --color-selection-bg: oklch(0.9 0 0 / 0.25);
 
-  /* Thoughts - Blue accents for dark mode */
-  --color-viki-blue: oklch(0.72 0.16 240); /* Slightly brighter blue */
-  --color-viki-blue-muted: oklch(0.26 0.09 240); /* Adjusted muted blue */
-  --color-viki-border: oklch(0.34 0.13 240); /* Blue-tinted border */
-  --color-viki-bg: oklch(0.17 0.02 240); /* Deeper blue-tinted background */
-}
+  /* Accents */
+  --color-accent: oklch(0.65 0.2 260);
+  --color-accent-foreground: oklch(1 0 0);
 
-/* Manual light mode class */
-:root.light {
-  --color-bg-primary: oklch(0.98 0 0); /* Softer white - reduces glare */
-  --color-bg-secondary: oklch(0.96 0 0);
-  --color-bg-tertiary: oklch(0.94 0 0);
+  /* Mio Says - Pink Theme (Dark) */
+  --color-mio-pink: oklch(0.75 0.16 350);
+  --color-mio-pink-muted: oklch(0.20 0.05 350);
+  --color-mio-border: oklch(0.25 0.08 350);
+  --color-mio-bg: oklch(0.14 0.02 350);
 
-  --color-text-primary: oklch(0.25 0 0); /* Balanced contrast - comfortable reading */
-  --color-text-secondary: oklch(0.48 0 0); /* Good contrast ratio */
-  --color-text-tertiary: oklch(0.62 0 0); /* Subtle but readable */
-
-  --color-border: oklch(0.86 0 0); /* Subtle separation */
-  --color-border-hover: oklch(0.72 0 0); /* Clear hover state */
-
-  /* Code block background - lighter and softer */
-  --color-code-bg: oklch(0.95 0 0); /* Soft light gray, not too dark */
-
-  /* Mio Says - Pink accents for light mode */
-  --color-mio-pink: oklch(0.65 0.18 350); /* Vibrant pink for light mode */
-  --color-mio-pink-muted: oklch(0.92 0.05 350); /* Very light pink background */
-  --color-mio-border: oklch(0.8 0.12 350); /* Pink-tinted border */
-  --color-mio-bg: oklch(0.98 0.02 350); /* Subtle pink-tinted background */
-
-  /* Thoughts - Blue accents for light mode */
-  --color-viki-blue: oklch(0.6 0.18 240); /* Vibrant blue for light mode */
-  --color-viki-blue-muted: oklch(0.92 0.05 240); /* Very light blue background */
-  --color-viki-border: oklch(0.75 0.12 240); /* Blue-tinted border */
-  --color-viki-bg: oklch(0.98 0.02 240); /* Subtle blue-tinted background */
+  /* Thoughts - Blue Theme (Dark) */
+  --color-viki-blue: oklch(0.70 0.16 240);
+  --color-viki-blue-muted: oklch(0.20 0.05 240);
+  --color-viki-border: oklch(0.25 0.08 240);
+  --color-viki-bg: oklch(0.14 0.02 240);
 }
 
 /* ============================================

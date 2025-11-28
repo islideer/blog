@@ -37,8 +37,8 @@
   "theme": {
     "defaultMode": "light",
     "background": {
-      "light": "#ffffff",
-      "dark": "#000000"
+      "light": "#fcfcfc",
+      "dark": "#1f1f1f"
     }
   },
   "pwa": {
@@ -57,6 +57,6 @@
     "heroTitle": "你好，我是 Viki"
   },
   "analytics": {
-    "googleAnalyticsId": "G-YCP5HPQZXN"
+    "google": "G-YCP5HPQZXN"
   }
 }

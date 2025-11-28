@@ -33,7 +33,7 @@ export default async function BlogPage() {
       <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
         {/* Hero Section */}
         <section className="space-y-2 sm:space-y-4">
-          <h1 className="text-3xl font-bold sm:text-4xl">{siteConfig.home.hero.title}</h1>
+          <h2 className="text-3xl font-bold sm:text-4xl">{siteConfig.home.hero.title}</h2>
           <div className="text-text-secondary text-base leading-relaxed sm:text-lg">
             {siteConfig.home.hero.paragraphs.map((paragraph: string, index: number) => (
               <p key={index}>{renderMarkdown(paragraph)}</p>

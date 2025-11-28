@@ -14,9 +14,9 @@ export default function NotFound() {
         <div className="text-text-tertiary text-[100px] leading-none font-black opacity-5 sm:text-[140px]">
           404
         </div>
-        <div className="text-text-primary absolute inset-0 flex items-center justify-center text-3xl font-bold text-nowrap sm:text-4xl">
+        <h1 className="text-text-primary absolute inset-0 flex items-center justify-center text-3xl font-bold text-nowrap sm:text-4xl">
           这里什么都没有
-        </div>
+        </h1>
       </div>
 
       {/* 描述文本 */}

@@ -19,6 +19,18 @@ You are an expert AI programming assistant working on a Next.js 16 + React 19 + 
 -   **Package Manager**: pnpm 10.22.0+
 -   **Utilities**: dayjs (Time manipulation)
 
+## Design System
+
+-   **Style**: Flat design, minimalist.
+-   **Color Palette**: Strict Black/White/Gray scale for UI.
+    -   Avoid shadows (`box-shadow: none`).
+    -   Use borders and background colors for separation.
+-   **Typography**: System fonts stack with optimized reading experience.
+-   **Shapes**: Small border radius (2px - 6px).
+    -   `xs`: 2px
+    -   `sm`: 4px
+    -   `md`: 6px
+
 ## Code Style & Conventions
 
 ### File Naming

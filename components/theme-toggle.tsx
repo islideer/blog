@@ -1,6 +1,7 @@
 'use client'
 
-import { useLayoutEffect, useState, useSyncExternalStore } from 'react'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 // Moon 图标（暗色模式）
 const MoonIcon = () => (
@@ -46,64 +47,15 @@ const SunIcon = () => (
   </svg>
 )
 
-const emptySubscribe = () => () => {}
-
-const getSnapshot = () => {
-  return typeof window !== 'undefined' ? 'client' : 'server'
-}
-
-const getServerSnapshot = () => {
-  return 'server'
-}
-
 export function ThemeToggle() {
-  const mounted = useSyncExternalStore(emptySubscribe, getSnapshot, getServerSnapshot)
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    if (typeof window === 'undefined') return 'light'
-
-    // 优先读取 localStorage
-    const stored = localStorage.getItem('theme')
-    if (stored === 'light' || stored === 'dark') {
-      return stored
-    }
-
-    // 其次检测系统偏好
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    return prefersDark ? 'dark' : 'light'
-  })
-
-  // 监听系统主题变化
-  useLayoutEffect(() => {
-    if (typeof window === 'undefined') return
-
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      // 只有当 localStorage 没有设置时，才跟随系统主题
-      const stored = localStorage.getItem('theme')
-
-      if (!stored) {
-        const newTheme = e.matches ? 'dark' : 'light'
-        setTheme(newTheme)
-        document.documentElement.classList.remove('light', 'dark')
-        document.documentElement.classList.add(newTheme)
-      }
-    }
-
-    mediaQuery.addEventListener('change', handleChange)
-    return () => mediaQuery.removeEventListener('change', handleChange)
+  useEffect(() => {
+    setMounted(true)
   }, [])
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-    localStorage.setItem('theme', newTheme)
-    document.documentElement.classList.remove('light', 'dark')
-    document.documentElement.classList.add(newTheme)
-  }
-
-  if (mounted === 'server') {
+  if (!mounted) {
     return (
       <button
         className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-xs transition-colors sm:mr-0 sm:h-8 sm:w-8"
@@ -116,14 +68,18 @@ export function ThemeToggle() {
     )
   }
 
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
+  }
+
   return (
     <button
       onClick={toggleTheme}
       className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-xs transition-colors sm:mr-0 sm:h-8 sm:w-8"
-      aria-label={theme === 'light' ? '切换到暗色模式' : '切换到亮色模式'}
-      title={theme === 'light' ? '切换到暗色模式' : '切换到亮色模式'}
+      aria-label={resolvedTheme === 'light' ? '切换到暗色模式' : '切换到亮色模式'}
+      title={resolvedTheme === 'light' ? '切换到暗色模式' : '切换到亮色模式'}
     >
-      {theme === 'light' ? <MoonIcon /> : <SunIcon />}
+      {resolvedTheme === 'light' ? <MoonIcon /> : <SunIcon />}
     </button>
   )
 }
