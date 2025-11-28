@@ -59,7 +59,7 @@ export default async function BlogPage() {
                   <Link
                     key={post.slug}
                     href={`/${post.slug}`}
-                    className="group active:bg-bg-secondary -mx-4 block px-4 py-3 no-underline transition-colors sm:mx-0 sm:px-0 sm:py-4 sm:active:bg-transparent"
+                    className="group active:bg-bg-secondary -mx-4 block px-4 py-3 no-underline sm:mx-0 sm:px-0 sm:py-4 sm:active:bg-transparent"
                   >
                     <article className="space-y-2">
                       <div className="flex flex-col gap-2 sm:items-baseline sm:justify-between sm:gap-4">

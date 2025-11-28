@@ -48,7 +48,7 @@ function parseInlineMarkdown(text: string, lineIndex: number): ReactNode[] {
           href={linkMatch[2]}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-text-primary underline underline-offset-2 transition-colors"
+          className="hover:text-text-primary underline underline-offset-2"
         >
           {linkMatch[1]}
         </a>,

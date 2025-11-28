@@ -2,7 +2,7 @@
 @import './styles/vars.css';
 @import './styles/article.css';
 
-/* Root styles with smooth theme transition */
+/* Root styles */
 :root {
   color-scheme: light dark;
   /* 防止字体加载导致的布局抖动 */
@@ -15,7 +15,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-y: scroll;
-  
+
   /* 滚动条样式 */
   scrollbar-gutter: stable;
 }
@@ -30,9 +30,6 @@ body {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease;
 }
 
 /* Custom Scrollbar */
@@ -54,17 +51,6 @@ body {
   background: var(--color-text-tertiary);
 }
 
-/* Smooth theme transitions for color-using elements (except interactive elements) */
-body *:not(a):not(button):not(input):not(textarea):not([role='button']):not(header):not(article),
-footer,
-main,
-nav {
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease,
-    border-color 0.3s ease;
-}
-
 /* Link Styles */
 a:not(.no-underline) {
   text-decoration: underline;
@@ -72,7 +58,6 @@ a:not(.no-underline) {
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
   text-decoration-color: var(--color-border-hover);
-  transition: text-decoration-color 0.2s ease !important;
 }
 
 a:not(.no-underline):hover {
@@ -106,17 +91,6 @@ a[target='_blank']:not(.no-icon)::after {
   outline: 2px solid var(--color-text-primary);
   outline-offset: 2px;
   border-radius: 2px;
-}
-
-/* Smooth theme transitions for color-using elements (except interactive elements) */
-body *:not(a):not(button):not(input):not(textarea):not([role='button']):not(header):not(article),
-footer,
-main,
-nav {
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease,
-    border-color 0.3s ease;
 }
 
 /* All links with dashed underline, except no-underline class */
@@ -187,25 +161,15 @@ nav a:focus-visible {
 
 ::-webkit-scrollbar-track {
   background: var(--color-bg-secondary);
-  transition: background-color 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-border-hover);
   border-radius: 3px;
-  transition: background-color 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-tertiary);
-}
-
-/* Header transition */
-header {
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease,
-    border-color 0.3s ease;
 }
 
 /* Prevent layout shift from images and embeds */

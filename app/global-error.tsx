@@ -40,14 +40,14 @@ export default function GlobalError({
           <div className="flex items-center gap-2 text-sm sm:gap-4">
             <button
               onClick={reset}
-              className="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+              className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
             >
               重试
             </button>
             <span className="text-gray-400 dark:text-gray-600">·</span>
             <Link
               href="/"
-              className="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+              className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
             >
               回到首页
             </Link>

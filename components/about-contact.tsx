@@ -15,7 +15,7 @@ export function AboutContact({ links }: AboutContactProps) {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="decoration-text-tertiary hover:text-text-primary hover:decoration-text-primary underline underline-offset-4 transition-colors"
+            className="decoration-text-tertiary hover:text-text-primary hover:decoration-text-primary underline underline-offset-4"
           >
             {link.label}
           </a>

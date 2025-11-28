@@ -22,16 +22,16 @@ class Foo {
   field?: number
 
   check() {
-    return "field" in this
+    return 'field' in this
   }
 }
 
 const foo = new Foo()
 
 if (foo.check()) {
-  console.log("field exists on foo")
+  console.log('field exists on foo')
 } else {
-  throw new Error("field does not exist on foo")
+  throw new Error('field does not exist on foo')
 }
 ```
 
@@ -55,9 +55,18 @@ TypeScript 在 [TC39](https://tc39.es/) 批准 [类字段提案](https://github.
 'key' in {} // false
 'key' in { key: undefined } // true
 Reflect.has({}, 'key') // false
-Reflect.has({ key: undefined }, 'key') // true
-({}).hasOwnProperty('key') // false
-({ key: undefined }).hasOwnProperty('key') // true
+Reflect.has(
+  { key: undefined },
+  'key',
+)(
+  // true
+  {},
+)
+  .hasOwnProperty('key')(
+    // false
+    { key: undefined },
+  )
+  .hasOwnProperty('key') // true
 ```
 
 注：[`hasOwnProperty`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) 只检查自有属性，而 `Reflect.has` 和 `in` 操作符会检查整个原型链。
@@ -111,16 +120,16 @@ class Foo {
   field?: number
 
   check() {
-    return "field" in this
+    return 'field' in this
   }
 }
 
 const foo = new Foo()
 
 if (foo.check()) {
-  console.log("field exists on foo")
+  console.log('field exists on foo')
 } else {
-  throw new Error("field does not exist on foo")
+  throw new Error('field does not exist on foo')
 }
 ```
 
@@ -147,7 +156,7 @@ if (foo.check()) {
 ```json
 {
   "compilerOptions": {
-    "target": "ES2022"  // 或更高版本，会自动启用
+    "target": "ES2022" // 或更高版本，会自动启用
   }
 }
 ```
@@ -170,12 +179,12 @@ if (foo.check()) {
 
 ```typescript
 // ❌ 不推荐：
-'field' in this               // 不同配置下结果不同
-Reflect.has(this, 'field')    // 不同配置下结果不同
+'field' in this // 不同配置下结果不同
+Reflect.has(this, 'field') // 不同配置下结果不同
 
 // ✅ 推荐：
-this.field !== undefined      // 直接检查值
-typeof this.field !== 'undefined'  // 类型检查
+this.field !== undefined // 直接检查值
+typeof this.field !== 'undefined' // 类型检查
 ```
 
 ## 总结

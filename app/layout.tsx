@@ -95,11 +95,11 @@ export default function RootLayout({
           href={siteConfig.links.rss}
         />
       </head>
-      <body className="bg-bg-primary text-text-primary font-sans antialiased transition-colors duration-300">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body className="bg-bg-primary text-text-primary font-sans antialiased duration-300">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Analytics />
           <GoogleAnalytics gaId={siteConfig.analytics.google} />
-          <div className="flex min-h-screen flex-col sm:mx-auto sm:max-w-3xl min-w-lg">
+          <div className="flex min-h-screen min-w-lg flex-col sm:mx-auto sm:max-w-3xl">
             <SiteHeader />
             <main className="flex-1">
               <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">{children}</div>

@@ -28,11 +28,11 @@ export function AboutTechStack({ technologies }: AboutTechStackProps) {
                     href={tech.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-text-primary inline-flex items-baseline gap-2 transition-colors"
+                    className="hover:text-text-primary items-baseline"
                   >
                     <span className="font-medium">{tech.name}</span>
-                    <span className="text-text-tertiary text-sm">— {tech.description}</span>
                   </a>
+                  <span className="text-text-tertiary text-sm"> — {tech.description}</span>
                 </li>
               ))}
             </ul>

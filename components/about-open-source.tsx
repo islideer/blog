@@ -36,7 +36,7 @@ export function AboutOpenSource({ data }: AboutOpenSourceProps) {
                         href={project.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-text-primary font-medium transition-colors"
+                        className="hover:text-text-primary font-medium"
                       >
                         {project.name}
                       </a>
@@ -53,7 +53,7 @@ export function AboutOpenSource({ data }: AboutOpenSourceProps) {
                           href={project.homepage}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-text-tertiary hover:text-text-secondary text-xs transition-colors"
+                          className="text-text-tertiary hover:text-text-secondary text-xs"
                         >
                           主页
                         </a>
@@ -70,7 +70,7 @@ export function AboutOpenSource({ data }: AboutOpenSourceProps) {
           href={moreLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-text-secondary hover:text-text-primary inline-block text-sm transition-colors"
+          className="text-text-secondary hover:text-text-primary inline-block text-sm"
         >
           探索更多
         </a>

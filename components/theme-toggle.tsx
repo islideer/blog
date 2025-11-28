@@ -1,7 +1,7 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
 // Moon 图标（暗色模式）
 const MoonIcon = () => (
@@ -47,18 +47,20 @@ const SunIcon = () => (
   </svg>
 )
 
+const emptySubscribe = () => () => {}
+
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  )
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
+  if (!mounted || !resolvedTheme) {
     return (
       <button
-        className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-xs transition-colors sm:mr-0 sm:h-8 sm:w-8"
+        className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-xs sm:mr-0 sm:h-8 sm:w-8"
         aria-label="切换主题"
         title="切换主题"
         disabled
@@ -75,7 +77,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-xs transition-colors sm:mr-0 sm:h-8 sm:w-8"
+      className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-xs sm:mr-0 sm:h-8 sm:w-8"
       aria-label={resolvedTheme === 'light' ? '切换到暗色模式' : '切换到亮色模式'}
       title={resolvedTheme === 'light' ? '切换到暗色模式' : '切换到亮色模式'}
     >

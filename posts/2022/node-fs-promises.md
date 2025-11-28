@@ -7,7 +7,7 @@ tags:
   - '文件系统'
   - '版本控制'
   - '后端'
-excerpt: "解决 Node.js 报错 \"Cannot find module 'fs/promises'\" 的完整指南。分析 Node.js 版本差异导致的模块引用问题，提供升级版本与修改引用方式两种解决方案。"
+excerpt: '解决 Node.js 报错 "Cannot find module ''fs/promises''" 的完整指南。分析 Node.js 版本差异导致的模块引用问题，提供升级版本与修改引用方式两种解决方案。'
 ---
 
 ## 问题产生原因

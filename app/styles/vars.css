@@ -1,19 +1,19 @@
 /* Default Light Mode */
 :root {
   /* Base Backgrounds */
-  --color-bg-primary: oklch(0.99 0 0);      /* Pure/Near White */
-  --color-bg-secondary: oklch(0.97 0 0);    /* Very Light Gray */
-  --color-bg-tertiary: oklch(0.95 0 0);     /* Light Gray */
-  --color-bg-quaternary: oklch(0.93 0 0);   /* Distinct Gray */
+  --color-bg-primary: oklch(0.99 0 0); /* Pure/Near White */
+  --color-bg-secondary: oklch(0.97 0 0); /* Very Light Gray */
+  --color-bg-tertiary: oklch(0.95 0 0); /* Light Gray */
+  --color-bg-quaternary: oklch(0.93 0 0); /* Distinct Gray */
 
   /* Text Colors */
-  --color-text-primary: oklch(0.20 0 0);    /* Near Black - High Contrast */
-  --color-text-secondary: oklch(0.45 0 0);  /* Dark Gray - Medium Contrast */
-  --color-text-tertiary: oklch(0.65 0 0);   /* Light Gray - Low Contrast */
+  --color-text-primary: oklch(0.2 0 0); /* Near Black - High Contrast */
+  --color-text-secondary: oklch(0.45 0 0); /* Dark Gray - Medium Contrast */
+  --color-text-tertiary: oklch(0.65 0 0); /* Light Gray - Low Contrast */
 
   /* Borders */
-  --color-border: oklch(0.92 0 0);          /* Subtle Border */
-  --color-border-hover: oklch(0.80 0 0);    /* Hover State */
+  --color-border: oklch(0.92 0 0); /* Subtle Border */
+  --color-border-hover: oklch(0.8 0 0); /* Hover State */
 
   /* Code Blocks */
   --color-code-bg: oklch(0.96 0 0);
@@ -23,34 +23,34 @@
   --color-selection-bg: oklch(0.2 0 0 / 0.15);
 
   /* Accents - Brand Colors */
-  --color-accent: oklch(0.55 0.2 260);      /* Primary Brand Color */
+  --color-accent: oklch(0.55 0.2 260); /* Primary Brand Color */
   --color-accent-foreground: oklch(1 0 0);
 
   /* Mio Says - Pink Theme */
   --color-mio-pink: oklch(0.65 0.18 350);
   --color-mio-pink-muted: oklch(0.96 0.02 350);
-  --color-mio-border: oklch(0.90 0.05 350);
+  --color-mio-border: oklch(0.9 0.05 350);
   --color-mio-bg: oklch(0.99 0.01 350);
 
   /* Thoughts - Blue Theme */
   --color-viki-blue: oklch(0.6 0.18 240);
   --color-viki-blue-muted: oklch(0.96 0.02 240);
-  --color-viki-border: oklch(0.90 0.05 240);
+  --color-viki-border: oklch(0.9 0.05 240);
   --color-viki-bg: oklch(0.99 0.01 240);
 }
 
 /* Dark Mode */
 :root.dark {
   /* Base Backgrounds */
-  --color-bg-primary: oklch(0.12 0 0);      /* Deep Dark */
-  --color-bg-secondary: oklch(0.16 0 0);    /* Dark Gray */
-  --color-bg-tertiary: oklch(0.20 0 0);     /* Medium Dark */
-  --color-bg-quaternary: oklch(0.24 0 0);   /* Lighter Dark */
+  --color-bg-primary: oklch(0.12 0 0); /* Deep Dark */
+  --color-bg-secondary: oklch(0.16 0 0); /* Dark Gray */
+  --color-bg-tertiary: oklch(0.2 0 0); /* Medium Dark */
+  --color-bg-quaternary: oklch(0.24 0 0); /* Lighter Dark */
 
   /* Text Colors */
-  --color-text-primary: oklch(0.95 0 0);    /* Near White */
-  --color-text-secondary: oklch(0.70 0 0);  /* Light Gray */
-  --color-text-tertiary: oklch(0.50 0 0);   /* Dim Gray */
+  --color-text-primary: oklch(0.95 0 0); /* Near White */
+  --color-text-secondary: oklch(0.7 0 0); /* Light Gray */
+  --color-text-tertiary: oklch(0.5 0 0); /* Dim Gray */
 
   /* Borders */
   --color-border: oklch(0.22 0 0);
@@ -58,7 +58,7 @@
 
   /* Code Blocks */
   --color-code-bg: oklch(0.25 0 0);
-  --color-code-text: oklch(0.90 0 0);
+  --color-code-text: oklch(0.9 0 0);
 
   /* Selection */
   --color-selection-bg: oklch(0.9 0 0 / 0.25);
@@ -69,13 +69,13 @@
 
   /* Mio Says - Pink Theme (Dark) */
   --color-mio-pink: oklch(0.75 0.16 350);
-  --color-mio-pink-muted: oklch(0.20 0.05 350);
+  --color-mio-pink-muted: oklch(0.2 0.05 350);
   --color-mio-border: oklch(0.25 0.08 350);
   --color-mio-bg: oklch(0.14 0.02 350);
 
   /* Thoughts - Blue Theme (Dark) */
-  --color-viki-blue: oklch(0.70 0.16 240);
-  --color-viki-blue-muted: oklch(0.20 0.05 240);
+  --color-viki-blue: oklch(0.7 0.16 240);
+  --color-viki-blue-muted: oklch(0.2 0.05 240);
   --color-viki-border: oklch(0.25 0.08 240);
   --color-viki-bg: oklch(0.14 0.02 240);
 }

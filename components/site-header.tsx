@@ -27,11 +27,7 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <nav
-          role="navigation"
-          aria-label="主导航"
-          className="flex items-center gap-1.5 sm:gap-4"
-        >
+        <nav role="navigation" aria-label="主导航" className="flex items-center gap-1.5 sm:gap-4">
           <Link
             href="/posts"
             className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
