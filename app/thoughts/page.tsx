@@ -94,7 +94,9 @@ export default async function ThoughtsPage() {
 
                 {/* 图片 */}
                 {thought.images && thought.images.length > 0 && (
-                  <div className="grid grid-cols-1 gap-2 pt-1 sm:grid-cols-2">
+                  <div
+                    className={`grid grid-cols-1 gap-2 pt-1 ${thought.images.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-md'}`}
+                  >
                     {thought.images.map((image, imageIndex) => {
                       // 前 3 条内容的第一张图片优先加载,其他懒加载
                       const shouldPriority = index < 3 && imageIndex === 0
@@ -103,6 +105,7 @@ export default async function ThoughtsPage() {
                         <div
                           key={imageIndex}
                           className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border border-zinc-200 dark:border-zinc-700"
+                          style={{ backgroundColor: 'var(--color-image-bg)' }}
                         >
                           <LazyImage
                             src={image}

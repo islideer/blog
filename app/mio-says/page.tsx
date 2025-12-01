@@ -115,7 +115,9 @@ export default async function MioSaysPage() {
 
                 {/* 图片 */}
                 {mioSay.images && mioSay.images.length > 0 && (
-                  <div className="grid grid-cols-1 gap-2 pt-1 sm:grid-cols-2">
+                  <div
+                    className={`grid grid-cols-1 gap-2 pt-1 ${mioSay.images.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-md'}`}
+                  >
                     {mioSay.images.map((image, imageIndex) => {
                       // 前 3 条内容的第一张图片优先加载,其他懒加载
                       const shouldPriority = index < 3 && imageIndex === 0
@@ -124,7 +126,10 @@ export default async function MioSaysPage() {
                         <div
                           key={imageIndex}
                           className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border"
-                          style={{ borderColor: 'var(--color-mio-border)' }}
+                          style={{
+                            borderColor: 'var(--color-mio-border)',
+                            backgroundColor: 'var(--color-image-bg)',
+                          }}
                         >
                           <LazyImage
                             src={image}

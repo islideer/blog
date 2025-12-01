@@ -32,6 +32,9 @@
   --color-mio-border: oklch(0.9 0.05 350);
   --color-mio-bg: oklch(0.99 0.01 350);
 
+  /* Image Background */
+  --color-image-bg: oklch(0.5 0 0 / 0.1);
+
   /* Thoughts - Blue Theme */
   --color-viki-blue: oklch(0.6 0.18 240);
   --color-viki-blue-muted: oklch(0.96 0.02 240);
@@ -72,6 +75,9 @@
   --color-mio-pink-muted: oklch(0.2 0.05 350);
   --color-mio-border: oklch(0.25 0.08 350);
   --color-mio-bg: oklch(0.14 0.02 350);
+
+  /* Image Background */
+  --color-image-bg: oklch(0.5 0 0 / 0.1);
 
   /* Thoughts - Blue Theme (Dark) */
   --color-viki-blue: oklch(0.7 0.16 240);
