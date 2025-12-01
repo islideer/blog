@@ -1,5 +1,13 @@
 [
   {
+    "id": "18",
+    "date": "2025-12-01T19:15:24+08:00",
+    "content": "原来幸运咖也是蜜雪旗下的。🤔",
+    "images": [
+      "https://s2.loli.net/2025/12/01/gdoCeAjQBNXIvfE.png"
+    ]
+  },
+  {
     "id": "17",
     "date": "2025-12-01T18:06:06+08:00",
     "content": "早在 20 年初就了解到 [Ink](https://github.com/vadimdemedes/ink) （中文意为「墨水」）这个「React in Terminal」库，它提供了一个终端渲染器，类似终端下的 [react-dom](https://github.com/facebook/react/tree/main/packages/react-dom)，通过 React 来开发终端程序。包括 GitHub 的 CLI [gh](https://github.com/cli/cli) 和 CloudFlare 的 [Wrangler](https://github.com/cloudflare/workers-sdk) 在内的很多早期知名的 CLI 项目都基于它开发，非常看好。\n\n出于兴趣，在 24 年也基于它写过一个终端 QQ，叫 [Chatee](https://github.com/vikiboss/chatee)，~~用来摸鱼的~~，但随着 [ICQQ](https://github.com/icqqjs/icqq) 的闭源和 QQ 协议的更新，已经基本废弃了。\n\n25 年 2 月，基于 Ink 的 [Claude Code](https://claude.com/product/claude-code) 发布，Ink 也被更多人熟知。随之而来的是 [Gemini CLI](https://github.com/google-gemini/gemini-cli) 等一批基于 Ink 的终端应用，Ink 生态也逐渐活跃起来，非常感慨。截止 25 年 12 月，Ink 已收获 33K+ Star，[npm](https://www.npmjs.com/package/ink) 周下载量 200 万 +。"
