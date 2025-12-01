@@ -1,6 +1,6 @@
+import Image from 'next/image'
 import { dayjs } from '@/lib/dayjs'
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { mdxOptions } from '@/lib/mdx'
 import { getPostBySlug, getAllPostSlugs, getRecommendedPosts } from '@/lib/posts'
