@@ -2,7 +2,8 @@ import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
 import { thoughts } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { renderMarkdown } from '@/lib/inline-md'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { mdxOptionsWithBreaks } from '@/lib/mdx'
 import { pagesData } from '@/lib/config'
 import { RelativeTime } from '@/components/relative-time'
 
@@ -86,7 +87,9 @@ export default async function ThoughtsPage() {
 
                 {/* 文本内容 */}
                 {thought.content && thought.content.trim() !== '' && (
-                  <p className="text-sm leading-relaxed">{renderMarkdown(thought.content)}</p>
+                  <div className="prose-blog prose-blog-small">
+                    <MDXRemote source={thought.content} options={mdxOptionsWithBreaks} />
+                  </div>
                 )}
 
                 {/* 图片 */}

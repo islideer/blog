@@ -1,5 +1,6 @@
 import { dayjs } from '@/lib/dayjs'
-import { renderMarkdown } from '@/lib/inline-md'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { mdxOptionsWithBreaks } from '@/lib/mdx'
 
 import type { TimelineItem } from '@/lib/data'
 
@@ -78,9 +79,9 @@ export function TimelineView({ items }: TimelineViewProps) {
                         {formattedDate}
                       </time>
                     )}
-                    <p className="text-text-secondary flex-1 text-sm leading-relaxed sm:text-base">
-                      {renderMarkdown(item.description)}
-                    </p>
+                    <div className="text-text-secondary flex-1 text-sm leading-relaxed sm:text-base prose prose-sm max-w-none dark:prose-invert">
+                      <MDXRemote source={item.description} options={mdxOptionsWithBreaks} />
+                    </div>
                   </article>
                 )
               })}

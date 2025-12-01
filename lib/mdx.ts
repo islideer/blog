@@ -4,6 +4,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
+import remarkBreaks from 'remark-breaks'
 
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
 
@@ -53,5 +54,13 @@ export const mdxOptions: MDXRemoteProps['options'] = {
         },
       ],
     ],
+  },
+}
+
+export const mdxOptionsWithBreaks: MDXRemoteProps['options'] = {
+  ...mdxOptions,
+  mdxOptions: {
+    ...mdxOptions?.mdxOptions,
+    remarkPlugins: [...(mdxOptions?.mdxOptions?.remarkPlugins || []), remarkBreaks],
   },
 }

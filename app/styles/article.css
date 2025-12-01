@@ -17,6 +17,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Smaller font override for thoughts and mio-says */
+.prose-blog-small {
+  font-size: var(--font-size-xs);
+}
+
 /* ============================================
    Headings with Anchor Links
    ============================================ */

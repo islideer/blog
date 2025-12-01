@@ -98,11 +98,11 @@
   {
     "id": "2",
     "date": "2025-11-14T09:30:00+08:00",
-    "content": "除了常见的 CPU、GPU、APU 处理器之外，还有 NPU、TPU、DSP、FPGA。\n\nCPU：万能管家，什么都管但速度一般。\nGPU：画图专家，擅长同时处理千万件小事。\nAPU：经济实用，CPU + GPU 的平价组合。\nNPU：AI 保姆，专门伺候人工智能。\nTPU：谷歌家的 AI 天才。\nDSP：信号美容师，让音视频更完美。\nFPGA：万能变身器，想要什么功能现场定制。"
+    "content": "除了常见的 CPU、GPU、APU 处理器之外，还有 NPU、TPU、DSP、FPGA。\n\n- **CPU**：万能管家，什么都管但速度一般。\n- **GPU**：画图专家，擅长同时处理千万件小事。\n- **APU**：经济实用，CPU + GPU 的平价组合。\n- **NPU**：AI 保姆，专门伺候人工智能。\n- **TPU**：谷歌家的 AI 天才。\n- **DSP**：信号美容师，让音视频更完美。\n- **FPGA**：万能变身器，想要什么功能现场定制。"
   },
   {
     "id": "1",
     "date": "2025-11-14T09:28:00+08:00",
-    "content": "使用 CSS 样式 `{ all: unset }` 可以快速重置 `<button>` 元素的样式。相比于 `<div role=\"button\" tabindex=\"0\">` 进行样式重置，更加语义化且易于维护。"
+    "content": "使用 CSS 样式可以快速重置 `<button>` 元素的样式：\n\n```diff\n- button { /* 默认浏览器样式 */ }\n+ button { all: unset; }\n```\n\n相比于 `<div role=\"button\" tabindex=\"0\">` 进行样式重置，更加语义化且易于维护。"
   }
 ]

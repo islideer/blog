@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
-import { renderMarkdown } from '@/lib/inline-md'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { mdxOptionsWithBreaks } from '@/lib/mdx'
 import { generateBlogSchema, generateOrganizationSchema } from '@/lib/seo'
 import { DraftBadge } from '@/components/draft-badge'
 import { PinIcon } from '@/components/pin-icon'
@@ -36,7 +37,9 @@ export default async function BlogPage() {
           <h2 className="text-3xl font-bold sm:text-4xl">{siteConfig.home.hero.title}</h2>
           <div className="text-text-secondary text-base leading-relaxed sm:text-lg">
             {siteConfig.home.hero.paragraphs.map((paragraph: string, index: number) => (
-              <p key={index}>{renderMarkdown(paragraph)}</p>
+              <div key={index} className="prose prose-sm max-w-none dark:prose-invert">
+                <MDXRemote source={paragraph} options={mdxOptionsWithBreaks} />
+              </div>
             ))}
           </div>
         </section>

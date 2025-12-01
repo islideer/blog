@@ -2,7 +2,8 @@ import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
 import { mioSays } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { renderMarkdown } from '@/lib/inline-md'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { mdxOptionsWithBreaks } from '@/lib/mdx'
 import { pagesData } from '@/lib/config'
 import { RelativeTime } from '@/components/relative-time'
 
@@ -106,7 +107,9 @@ export default async function MioSaysPage() {
 
                 {/* 文本内容 */}
                 {mioSay.content && mioSay.content.trim() !== '' && (
-                  <p className="text-sm leading-relaxed">{renderMarkdown(mioSay.content)}</p>
+                  <div className="prose-blog prose-blog-small">
+                    <MDXRemote source={mioSay.content} options={mdxOptionsWithBreaks} />
+                  </div>
                 )}
 
                 {/* 图片 */}
