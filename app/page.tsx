@@ -35,12 +35,11 @@ export default async function BlogPage() {
         {/* Hero Section */}
         <section className="space-y-2 sm:space-y-4">
           <h2 className="text-3xl font-bold sm:text-4xl">{siteConfig.home.hero.title}</h2>
-          <div className="text-text-secondary text-base leading-relaxed sm:text-lg">
-            {siteConfig.home.hero.paragraphs.map((paragraph: string, index: number) => (
-              <div key={index} className="prose prose-sm max-w-none dark:prose-invert">
-                <MDXRemote source={paragraph} options={mdxOptionsWithBreaks} />
-              </div>
-            ))}
+          <div className="prose text-text-secondary">
+            <MDXRemote
+              source={siteConfig.home.hero.paragraphs.join('\n')}
+              options={mdxOptionsWithBreaks}
+            />
           </div>
         </section>
 
@@ -48,8 +47,8 @@ export default async function BlogPage() {
           <div className="py-12 text-center">
             <p className="text-text-secondary mb-4 text-xl">暂无文章</p>
             <p className="text-text-tertiary">
-              请在 <code className="bg-bg-tertiary rounded-xs px-2 py-1">content/posts</code>{' '}
-              目录添加 Markdown 文件
+              请在 <code className="bg-bg-tertiary rounded-xs px-2 py-1">posts</code> 目录添加
+              Markdown 文件
             </p>
           </div>
         ) : (

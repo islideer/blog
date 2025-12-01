@@ -132,7 +132,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </header>
 
         {/* Article Content */}
-        <div className="prose-blog">
+        <div className="prose">
           <MDXRemote source={post.content} options={mdxOptions} />
         </div>
 

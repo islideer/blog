@@ -79,7 +79,7 @@ export function TimelineView({ items }: TimelineViewProps) {
                         {formattedDate}
                       </time>
                     )}
-                    <div className="text-text-secondary flex-1 text-sm leading-relaxed sm:text-base prose prose-sm max-w-none dark:prose-invert">
+                    <div className="prose text-text-secondary">
                       <MDXRemote source={item.description} options={mdxOptionsWithBreaks} />
                     </div>
                   </article>

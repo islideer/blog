@@ -1,8 +1,8 @@
 ---
-title: "使用 smee-it 解决本地接收 GitHub Webhook 的难题"
+title: '使用 smee-it 解决本地接收 GitHub Webhook 的难题'
 date: 2025-11-28
-tags: ["TypeScript", "Webhook", "GitHub", "开源"]
-excerpt: "介绍 smee-it，一个简洁、类型安全的 smee.io 客户端，用于在本地接收 GitHub Webhook 等事件。"
+tags: ['TypeScript', 'Webhook', 'GitHub', '开源']
+excerpt: '介绍 smee-it，一个简洁、类型安全的 smee.io 客户端，用于在本地接收 GitHub Webhook 等事件。'
 ---
 
 开发 [GitHub App](https://docs.github.com/zh/apps) 或 Bot 的时候，总会遇到一个很头疼的问题：怎么在本地接收 [Webhook](https://docs.github.com/zh/webhooks)？

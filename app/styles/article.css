@@ -1,862 +1,274 @@
 /* ============================================
-   Article Prose Styles - Modern & Readable
+   Article Prose Styles - Customizing Tailwind Typography
    ============================================ */
 
-.prose-blog {
-  font-size: var(--font-size-lg);
-  line-height: var(--leading-relaxed);
-  color: var(--color-text-primary);
+/* Customize the default prose class to match blog design */
+.prose {
+  /* Map Tailwind Typography variables to our CSS variables */
+  --tw-prose-body: var(--color-text-primary);
+  --tw-prose-headings: var(--color-text-primary);
+  --tw-prose-lead: var(--color-text-secondary);
+  --tw-prose-links: var(--color-text-primary);
+  --tw-prose-bold: var(--color-text-primary);
+  --tw-prose-counters: var(--color-text-secondary);
+  --tw-prose-bullets: var(--color-text-secondary);
+  --tw-prose-hr: var(--color-border);
+  --tw-prose-quotes: var(--color-text-secondary);
+  --tw-prose-quote-borders: var(--color-border-hover);
+  --tw-prose-captions: var(--color-text-secondary);
+  --tw-prose-code: var(--color-text-primary);
+  --tw-prose-pre-code: var(--color-code-text);
+  --tw-prose-pre-bg: var(--color-code-bg);
+  --tw-prose-th-borders: var(--color-border);
+  --tw-prose-td-borders: var(--color-border);
+
+  /* Dark mode mapping */
+  --tw-prose-invert-body: var(--color-text-primary);
+  --tw-prose-invert-headings: var(--color-text-primary);
+  --tw-prose-invert-lead: var(--color-text-secondary);
+  --tw-prose-invert-links: var(--color-text-primary);
+  --tw-prose-invert-bold: var(--color-text-primary);
+  --tw-prose-invert-counters: var(--color-text-secondary);
+  --tw-prose-invert-bullets: var(--color-text-secondary);
+  --tw-prose-invert-hr: var(--color-border);
+  --tw-prose-invert-quotes: var(--color-text-secondary);
+  --tw-prose-invert-quote-borders: var(--color-border-hover);
+  --tw-prose-invert-captions: var(--color-text-secondary);
+  --tw-prose-invert-code: var(--color-text-primary);
+  --tw-prose-invert-pre-code: var(--color-code-text);
+  --tw-prose-invert-pre-bg: var(--color-code-bg);
+  --tw-prose-invert-th-borders: var(--color-border);
+  --tw-prose-invert-td-borders: var(--color-border);
+
+  /* Typography Overrides */
   max-width: 100%;
-  /* 现代换行属性 */
   overflow-wrap: break-word;
-  word-break: break-word;
-  /* 优化文本渲染 */
   text-rendering: optimizeLegibility;
-  /* 防止字体闪烁 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smaller font override for thoughts and mio-says */
-.prose-blog-small {
-  font-size: var(--font-size-xs);
-}
-
-/* ============================================
-   Headings with Anchor Links
-   ============================================ */
-
-.prose-blog h1,
-.prose-blog h2,
-.prose-blog h3,
-.prose-blog h4,
-.prose-blog h5,
-.prose-blog h6 {
-  font-weight: 600;
-  line-height: var(--leading-tight);
-  color: var(--color-text-primary);
-  margin-top: 2em;
-  margin-bottom: 0.75em;
-  scroll-margin-top: 5rem; /* 为固定头部留出空间 */
-  /* 防止标题孤行 */
-  text-wrap: balance;
-  /* 优化渲染性能 - 标题通常是关键内容 */
-  contain: layout style;
-  position: relative;
-}
-
-.prose-blog h1:first-child,
-.prose-blog h2:first-child,
-.prose-blog h3:first-child {
-  margin-top: 0;
-}
-
-.prose-blog h1 {
-  font-size: 2rem; /* 32px */
-  margin-top: 0;
-  margin-bottom: 1em;
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.prose-blog h2 {
-  font-size: 1.5rem; /* 24px */
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.prose-blog h3 {
-  font-size: 1.25rem; /* 20px */
-}
-
-.prose-blog h4 {
-  font-size: 1.125rem; /* 18px */
-}
-
-.prose-blog h5 {
-  font-size: 1rem; /* 16px */
-}
-
-.prose-blog h6 {
-  font-size: 0.875rem; /* 14px */
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* 标题锚点样式 */
-.prose-blog .heading-anchor {
-  position: absolute;
-  top: 0;
-  left: -1.2em;
-  /* 使用 Flexbox 布局确保锚点符号与标题第一行文字垂直居中 */
-  /* 高度设为 1.3em (对应 var(--leading-tight)) 以匹配标题行高 */
-  height: 1.3em;
-  width: 1.2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-decoration: none;
-  color: var(--color-text-tertiary);
-  opacity: 0;
-  font-weight: 400;
-  user-select: none;
-}
-
-/* Show anchor when hovering the heading */
-.prose-blog h1:hover .heading-anchor,
-.prose-blog h2:hover .heading-anchor,
-.prose-blog h3:hover .heading-anchor,
-.prose-blog h4:hover .heading-anchor,
-.prose-blog h5:hover .heading-anchor,
-.prose-blog h6:hover .heading-anchor {
-  opacity: 1;
-}
-
-/* Style anchor on hover */
-.prose-blog .heading-anchor:hover {
-  text-decoration: underline;
-  cursor: pointer;
-  color: var(--color-text-primary);
-}
-
-/* ============================================
-   Typography
-   ============================================ */
-
-.prose-blog p {
-  margin-bottom: 1.5em;
-  line-height: var(--leading-relaxed);
-  /* 改善段落排版 - 更好的文本平衡 */
+/* Paragraphs */
+.prose p {
   text-wrap: pretty;
-  /* 连字符断行（中文无影响，英文长单词更美观）*/
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  /* 优化孤行和寡行 */
   orphans: 2;
   widows: 2;
 }
 
-.prose-blog a {
-  color: var(--color-text-primary);
-  text-decoration: underline dashed;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
-  /* 优化点击区域 */
-  padding: 0.125em 0;
-}
-
-.prose-blog a:hover {
-  text-decoration-style: solid;
-}
-
-/* 提升焦点可见性（键盘导航） */
-.prose-blog a:focus-visible {
-  outline: 2px solid var(--color-text-primary);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-/* External links with arrow icon */
-.prose-blog a[target='_blank']::after {
-  content: ' ↗';
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.prose-blog strong,
-.prose-blog b {
-  font-weight: 600;
-  color: var(--color-text-primary);
-}
-
-.prose-blog em,
-.prose-blog i {
-  font-style: italic;
-}
-
 /* ============================================
-   Code Blocks with Shiki Syntax Highlighting
+   Custom Elements & Overrides
    ============================================ */
 
-/* Inline code */
-.prose-blog :not(pre) > code {
-  font-family: var(--font-mono);
-  font-size: 0.875em;
-  padding: 0 0.25em;
-  background: none;
-  border: none;
+/* Links */
+.prose a {
+  text-decoration: underline dashed;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+}
+
+.prose a:hover {
+  text-decoration-style: solid;
   color: var(--color-text-primary);
-  font-weight: 500;
-  white-space: nowrap;
+}
+
+/* Headings */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-weight: 600;
+  scroll-margin-top: 5rem;
   position: relative;
-  /* 优化字体渲染 */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* 禁用连字 - 内联代码通常不需要 */
-  font-variant-ligatures: none;
-  font-feature-settings:
-    'liga' 0,
-    'calt' 0;
+  text-wrap: balance;
 }
 
-/* 左侧反引号 */
-.prose-blog :not(pre) > code::before {
-  content: '`';
-  font-weight: 600;
+/* Heading Anchors */
+.prose .heading-anchor {
+  position: absolute;
+  left: -1.2em;
+  padding-right: 0.2em;
+  opacity: 0;
+  text-decoration: none;
+  color: var(--color-text-tertiary);
+  font-weight: 400;
+  user-select: none;
+  transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  top: 0;
 }
 
-/* 右侧反引号 */
-.prose-blog :not(pre) > code::after {
-  content: '`';
-  font-weight: 600;
+.prose h1:hover .heading-anchor,
+.prose h2:hover .heading-anchor,
+.prose h3:hover .heading-anchor,
+.prose h4:hover .heading-anchor {
+  opacity: 1;
 }
 
-/* Code block container */
-.prose-blog pre {
-  border: none;
+.prose .heading-anchor:hover {
+  text-decoration: underline;
+  color: var(--color-text-primary);
+}
+
+/* Images */
+.prose img {
   border-radius: var(--radius-md);
+  background-color: var(--color-bg-secondary);
+}
+
+/* Code Blocks */
+.prose pre {
+  border-radius: var(--radius-md);
+  background-color: var(--color-code-bg);
   padding: 1rem 1.5rem;
   overflow-x: auto;
-  margin: 2em 0;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  position: relative;
-  -webkit-overflow-scrolling: touch;
-  /* 使用自定义背景色确保与页面背景形成对比 */
-  background-color: var(--color-code-bg);
-  /* 优化字体渲染 */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
-/* 暗色模式 - 系统偏好 */
-@media (prefers-color-scheme: dark) {
-  html:not(.light) .prose-blog pre {
-    background-color: var(--color-code-bg);
-  }
-}
-
-/* 暗色模式 - 手动设置 */
-html.dark .prose-blog pre {
-  background-color: var(--color-code-bg);
-}
-
-/* 亮色模式 - 手动设置（覆盖系统暗色偏好） */
-html.light .prose-blog pre {
-  background-color: var(--color-code-bg);
-}
-
-.prose-blog pre code {
-  background: none !important;
-  border: none;
-  padding: 0;
-  font-size: inherit;
-  display: block;
-  font-weight: 400;
-  counter-reset: line;
-  font-family: var(--font-mono);
-  /* 启用编程连字（ligatures）- 支持 Fira Code、JetBrains Mono 等 */
-  font-variant-ligatures: common-ligatures;
-  font-feature-settings:
-    'liga' 1,
-    'calt' 1,
-    'zero' 1;
-  /* zero: 使用带斜线的 0 以区分字母 O */
-  /* liga: 启用标准连字 */
-  /* calt: 启用上下文替代（contextual alternates）*/
-  -webkit-font-feature-settings:
-    'liga' 1,
-    'calt' 1,
-    'zero' 1;
-  -moz-font-feature-settings:
-    'liga' 1,
-    'calt' 1,
-    'zero' 1;
-}
-
-/* Shiki 代码高亮 - 使用 CSS 变量 */
-/* 默认显示亮色主题 */
-.prose-blog .shiki,
-.prose-blog .shiki span {
-  color: var(--shiki-light);
-  background-color: transparent; /* 背景由 pre 控制 */
-}
-
-/* 暗色模式 - 系统偏好 */
-@media (prefers-color-scheme: dark) {
-  html:not(.light) .prose-blog .shiki,
-  html:not(.light) .prose-blog .shiki span {
-    color: var(--shiki-dark);
-  }
-}
-
-/* 暗色模式 - 手动设置 */
-html.dark .prose-blog .shiki,
-html.dark .prose-blog .shiki span {
-  color: var(--shiki-dark);
-}
-
-/* 亮色模式 - 手动设置（覆盖系统暗色偏好） */
-html.light .prose-blog .shiki,
-html.light .prose-blog .shiki span {
-  color: var(--shiki-light);
-}
-
-/* Shiki 代码高亮行 */
-.prose-blog pre code .highlighted {
-  background: rgba(128, 128, 128, 0.1);
-  border-left: 3px solid var(--color-text-primary);
-  padding-left: 0.75rem;
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
-  padding-right: 1.5rem;
-  display: block;
-}
-
-/* 代码块滚动条 */
-.prose-blog pre::-webkit-scrollbar {
+/* Code Block Scrollbar - Hide by default, show on hover */
+.prose pre::-webkit-scrollbar {
   height: 6px;
 }
 
-.prose-blog pre::-webkit-scrollbar-track {
-  background: var(--color-bg-tertiary);
+.prose pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.prose pre::-webkit-scrollbar-thumb {
+  background-color: transparent;
   border-radius: 3px;
 }
 
-.prose-blog pre::-webkit-scrollbar-thumb {
-  background: var(--color-border-hover);
-  border-radius: 3px;
+.prose pre:hover::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
 }
 
-.prose-blog pre::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-tertiary);
+.prose pre:hover::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-tertiary);
 }
 
-/* ============================================
-   Lists
-   ============================================ */
-
-.prose-blog ul,
-.prose-blog ol {
-  margin: 1.5em 0;
-  padding-left: 2em;
+/* Inline Code */
+.prose :not(pre) > code {
+  font-weight: 500;
+  background: transparent;
+  padding: 0 0.2em;
+  border-radius: var(--radius-sm);
 }
 
-.prose-blog ul {
-  list-style-type: disc;
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: '`';
+  opacity: 0.8;
 }
 
-.prose-blog ol {
-  list-style-type: decimal;
+/* Blockquotes */
+.prose blockquote {
+  font-style: italic;
+  border-left-width: 4px;
+  border-left-color: var(--color-border-hover);
+  background: var(--color-bg-secondary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 0.5em 1em 0.5em 1.5em;
 }
 
-.prose-blog li {
-  margin: 0.5em 0;
-  line-height: var(--leading-relaxed);
-  padding-left: 0.25em;
-  /* 改善列表项排版 */
-  text-wrap: pretty;
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after {
+  content: none;
 }
 
-.prose-blog li::marker {
-  color: var(--color-text-secondary);
-  /* 标记符号使用表格数字（等宽） */
-  font-variant-numeric: tabular-nums;
+/* Tables */
+.prose table {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
 }
 
-.prose-blog ul ul,
-.prose-blog ol ul,
-.prose-blog ul ol,
-.prose-blog ol ol {
-  margin: 0.5em 0;
+.prose thead {
+  background: var(--color-bg-secondary);
 }
 
-.prose-blog ul ul {
-  list-style-type: circle;
+.prose th,
+.prose td {
+  padding: 0.75em 1em;
 }
 
-.prose-blog ul ul ul {
-  list-style-type: square;
+/* Task Lists */
+.prose li:has(input[type='checkbox']) {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
 }
 
-/* 任务列表 */
-.prose-blog input[type='checkbox'] {
+.prose input[type='checkbox'] {
+  margin-top: 0.3em;
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 1.125em;
-  height: 1.125em;
-  margin-right: 0.625em;
+  width: 1.1em;
+  height: 1.1em;
   border: 2px solid var(--color-border-hover);
   border-radius: var(--radius-xs);
   cursor: pointer;
   position: relative;
   flex-shrink: 0;
-  background: var(--color-bg-primary);
 }
 
-.prose-blog input[type='checkbox']:hover {
-  border-color: var(--color-text-secondary);
-}
-
-.prose-blog input[type='checkbox']:checked {
+.prose input[type='checkbox']:checked {
   background: var(--color-text-primary);
   border-color: var(--color-text-primary);
 }
 
-.prose-blog input[type='checkbox']:checked::after {
+.prose input[type='checkbox']:checked::after {
   content: '';
   position: absolute;
   left: 0.25em;
-  top: 0.0625em;
-  width: 0.375em;
-  height: 0.625em;
+  top: 0.05em;
+  width: 0.35em;
+  height: 0.6em;
   border: solid var(--color-bg-primary);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
 
-.prose-blog input[type='checkbox']:focus-visible {
-  outline: 2px solid var(--color-text-primary);
-  outline-offset: 2px;
-}
-
-/* 任务列表项样式优化 */
-.prose-blog li:has(> input[type='checkbox']) {
-  list-style: none;
-  margin-left: -2em;
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  flex-wrap: wrap;
-}
-
-/* 任务列表项的文本内容 */
-.prose-blog li:has(> input[type='checkbox']) > p {
-  margin: 0;
-  flex: 1;
-  min-width: 0;
-}
-
-/* 嵌套列表重置样式 - 确保嵌套列表显示在新行 */
-.prose-blog li:has(> input[type='checkbox']) > ul,
-.prose-blog li:has(> input[type='checkbox']) > ol {
-  flex-basis: 100%;
-  margin: 0.25em 0 0 0;
-  padding-left: 2em;
-}
-
-/* 重置嵌套列表项的样式 */
-.prose-blog li:has(> input[type='checkbox']) > ul li,
-.prose-blog li:has(> input[type='checkbox']) > ol li {
-  display: list-item;
-  margin: 0.25em 0;
-  margin-left: 0;
-  list-style: disc;
-}
-
-/* ============================================
-   Blockquotes
-   ============================================ */
-
-.prose-blog blockquote {
-  border-left: 4px solid var(--color-border-hover);
-  padding: 0.5em 1em 0.5em 1.5em;
-  margin: 2em 0;
-  color: var(--color-text-secondary);
-  background: var(--color-bg-secondary);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  font-style: italic;
-  /* 改善引用排版 */
-  text-wrap: pretty;
-  /* 性能优化 */
-  contain: layout style;
-  /* 引用通常需要视觉区分 */
-  quotes: '"' '"' '' ' ' '';
-}
-
-.prose-blog blockquote p {
-  margin: 0.5em 0;
-}
-
-.prose-blog blockquote > :first-child {
-  margin-top: 0;
-}
-
-.prose-blog blockquote > :last-child {
-  margin-bottom: 0;
-}
-
-/* ============================================
-   Tables
-   ============================================ */
-
-.prose-blog table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2em 0;
-  font-size: var(--font-size-base);
-  line-height: var(--leading-normal);
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  /* 性能优化 */
-  contain: layout style;
-}
-
-/* 移动端表格滚动提示 */
-@media (max-width: 768px) {
-  .prose-blog table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    /* 滚动阴影提示 */
-    background:
-      linear-gradient(90deg, var(--color-bg-primary) 30%, transparent),
-      linear-gradient(90deg, transparent, var(--color-bg-primary) 70%) 100% 0,
-      linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0, transparent 10%),
-      linear-gradient(270deg, rgba(0, 0, 0, 0.1) 0, transparent 10%) 100% 0;
-    background-repeat: no-repeat;
-    background-size:
-      40px 100%,
-      40px 100%,
-      14px 100%,
-      14px 100%;
-    background-attachment: local, local, scroll, scroll;
-  }
-}
-
-.prose-blog thead {
-  background: var(--color-bg-secondary);
-}
-
-.prose-blog th {
-  font-weight: 600;
-  text-align: left;
-  padding: 0.75em 1em;
-  border-bottom: 2px solid var(--color-border);
-  color: var(--color-text-primary);
-}
-
-.prose-blog td {
-  padding: 0.75em 1em;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.prose-blog tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.prose-blog tbody tr:hover {
-  background: var(--color-bg-secondary);
-}
-
-/* 表格响应式滚动 */
-.prose-blog table-wrapper {
-  overflow-x: auto;
-  margin: 2em 0;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* ============================================
-   Horizontal Rules
-   ============================================ */
-
-.prose-blog hr {
-  border: none;
-  border-top: 1px solid var(--color-border);
-  margin: 3em 0;
-}
-
-/* ============================================
-   Images
-   ============================================ */
-
-.prose-blog img {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius-md);
-  margin: 2em auto;
-  display: block;
-  /* 防止布局偏移 */
-  aspect-ratio: attr(width) / attr(height);
-  /* 优化加载体验 */
-  background: var(--color-bg-secondary);
-  /* 性能优化 */
-  will-change: auto;
-  contain: layout;
-}
-
-.prose-blog figure {
-  margin: 2em 0;
-}
-
-.prose-blog figcaption {
-  text-align: center;
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  margin-top: 0.75em;
-  font-style: italic;
-}
-
-/* ============================================
-   Special Elements
-   ============================================ */
-
-/* 删除线 */
-.prose-blog del,
-.prose-blog s {
-  text-decoration: line-through;
-  color: var(--color-text-tertiary);
-}
-
-/* 下标和上标 */
-.prose-blog sub,
-.prose-blog sup {
-  font-size: 0.75em;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-.prose-blog sup {
-  top: -0.5em;
-}
-
-.prose-blog sub {
-  bottom: -0.25em;
-}
-
-/* 键盘按键 */
-.prose-blog kbd {
-  font-family: var(--font-mono);
-  font-size: 0.875em;
-  padding: 0.125em 0.375em;
-  background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  color: var(--color-text-primary);
-  /* 优化字体渲染 */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* 禁用连字 */
-  font-variant-ligatures: none;
-  font-feature-settings:
-    'liga' 0,
-    'calt' 0;
-}
-
-/* 标记/高亮 */
-.prose-blog mark {
-  background: rgba(128, 128, 128, 0.2);
-  padding: 0.125em 0.25em;
-  border-radius: var(--radius-sm);
-  color: var(--color-text-primary);
-  /* 使用混合模式增强视觉效果 */
-  mix-blend-mode: multiply;
-  /* 优化高亮文本可读性 */
-  text-decoration-skip-ink: auto;
-}
-
-/* 暗色模式下使用不同混合模式 */
-@media (prefers-color-scheme: dark) {
-  html:not(.light) .prose-blog mark {
-    mix-blend-mode: screen;
-  }
-}
-
-html.dark .prose-blog mark {
-  mix-blend-mode: screen;
-}
-
-/* 缩写 */
-.prose-blog abbr[title] {
-  text-decoration: underline dotted;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-  cursor: help;
-  /* 提升触摸目标区域 */
-  padding: 0.125em 0.25em;
-  margin: -0.125em -0.25em;
-  /* 键盘导航焦点 */
-  border-radius: 2px;
-}
-
-.prose-blog abbr[title]:hover,
-.prose-blog abbr[title]:focus {
-  background: var(--color-bg-tertiary);
-  text-decoration-style: solid;
-}
-
-/* ============================================
-   Details/Summary (折叠面板)
-   ============================================ */
-
-.prose-blog details {
-  margin: 1.5em 0;
-  padding: 1em;
+/* Details/Summary */
+.prose details {
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  /* 性能优化 */
-  contain: layout style;
+  padding: 0.5em 1em;
 }
 
-.prose-blog summary {
+.prose summary {
   cursor: pointer;
   font-weight: 600;
-  user-select: none;
-  color: var(--color-text-primary);
-  /* 提升触摸目标 */
-  padding: 0.25em 0;
-  margin: -0.25em 0;
-  /* 键盘导航 */
-  border-radius: var(--radius-sm);
 }
 
-.prose-blog summary:hover {
-  opacity: 0.7;
+/* Shiki Dual Theme Support */
+.prose pre {
+  background-color: var(--color-code-bg);
+  color: var(--shiki-light);
 }
 
-.prose-blog summary:focus-visible {
-  outline: 2px solid var(--color-text-primary);
-  outline-offset: 2px;
+.prose pre span {
+  color: var(--shiki-light);
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+  text-decoration: var(--shiki-light-text-decoration);
 }
 
-.prose-blog details[open] summary {
-  margin-bottom: 1em;
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid var(--color-border);
+html.dark .prose pre {
+  background-color: var(--color-code-bg);
+  color: var(--shiki-dark);
 }
 
-/* 添加展开/收起动画提示 */
-.prose-blog summary::marker {
-  transition: transform 0.2s ease;
-}
-
-.prose-blog details[open] > summary::marker {
-  transform: rotate(90deg);
-}
-
-/* ============================================
-   Footnotes (脚注)
-   ============================================ */
-
-.prose-blog .footnotes {
-  margin-top: 3em;
-  padding-top: 2em;
-  border-top: 1px solid var(--color-border);
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-}
-
-.prose-blog .footnotes ol {
-  padding-left: 1.5em;
-}
-
-.prose-blog .footnote-backref {
-  text-decoration: none;
-  margin-left: 0.25em;
-}
-
-/* ============================================
-   Accessibility & Print
-   ============================================ */
-
-/* 辅助功能 - 屏幕阅读器专用内容 */
-.prose-blog .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* 打印优化 */
-@media print {
-  .prose-blog {
-    font-size: 12pt;
-    line-height: 1.5;
-    color: #000;
-  }
-
-  .prose-blog a {
-    text-decoration: underline;
-    color: #000;
-  }
-
-  .prose-blog pre {
-    border: 1px solid #ccc;
-    page-break-inside: avoid;
-  }
-
-  .prose-blog img {
-    max-width: 100% !important;
-    page-break-inside: avoid;
-  }
-}
-
-/* ============================================
-   Custom Code Block Component
-   ============================================ */
-
-.code-block-wrapper {
-  margin: 2em 0;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  background: var(--color-code-bg);
-}
-
-/* 代码内容区域 */
-.code-block-content {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.code-block-pre {
-  margin: 0;
-  padding: 0;
-  background: var(--color-code-bg);
-  overflow: visible;
-}
-
-.code-block-code {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  line-height: 1.7;
-  color: var(--color-code-text);
-  /* 优化字体渲染 */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* 启用编程连字 */
-  font-variant-ligatures: common-ligatures;
-  font-feature-settings:
-    'liga' 1,
-    'calt' 1,
-    'zero' 1;
-  -webkit-font-feature-settings:
-    'liga' 1,
-    'calt' 1,
-    'zero' 1;
-  -moz-font-feature-settings:
-    'liga' 1,
-    'calt' 1,
-    'zero' 1;
-}
-
-.code-block-line-content {
-  padding: 0 1.5rem 0 1rem;
-  color: var(--color-code-text);
-  white-space: pre;
-  word-break: break-all;
-  word-wrap: break-word;
+html.dark .prose pre span {
+  color: var(--shiki-dark);
+  font-style: var(--shiki-dark-font-style);
+  font-weight: var(--shiki-dark-font-weight);
+  text-decoration: var(--shiki-dark-text-decoration);
 }

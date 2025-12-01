@@ -108,7 +108,7 @@ export default async function MioSaysPage() {
 
                 {/* 文本内容 */}
                 {mioSay.content && mioSay.content.trim() !== '' && (
-                  <div className="prose-blog prose-blog-small">
+                  <div className="prose prose-sm">
                     <MDXRemote source={mioSay.content} options={mdxOptionsWithBreaks} />
                   </div>
                 )}

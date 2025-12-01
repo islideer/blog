@@ -59,7 +59,7 @@ export default async function ThoughtsPage() {
       {/* Thoughts Timeline */}
       <section className="space-y-4">
         <div
-          className="space-y-8 sm:border-l-2 sm:pl-4 sm:pl-6"
+          className="space-y-8 sm:border-l-2 sm:pl-6"
           style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
         >
           {sortedThoughts.length === 0 ? (
@@ -81,13 +81,13 @@ export default async function ThoughtsPage() {
                   <span className="text-text-secondary font-mono text-xs font-semibold">
                     #{thought.id}
                   </span>
-                  <span className="text-text-tertiary opacity-50">·</span>
+                  <span className="text-text-tertiary opacity-60">·</span>
                   <RelativeTime date={thought.date} className="text-text-secondary text-xs" />
                 </div>
 
                 {/* 文本内容 */}
                 {thought.content && thought.content.trim() !== '' && (
-                  <div className="prose-blog prose-blog-small">
+                  <div className="prose prose-sm">
                     <MDXRemote source={thought.content} options={mdxOptionsWithBreaks} />
                   </div>
                 )}
