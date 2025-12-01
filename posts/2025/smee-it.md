@@ -7,20 +7,21 @@ excerpt: '介绍 smee-it，一个简洁、类型安全的 smee.io 客户端，�
 
 开发 [GitHub App](https://docs.github.com/zh/apps) 或 Bot 的时候，总会遇到一个很头疼的问题：怎么在本地接收 [Webhook](https://docs.github.com/zh/webhooks)？
 
-GitHub 要给你发消息，但你的开发机器在本地网络里，没有公网 IP，GitHub 根本找不到你。以前大家可能会用 [ngrok](https://ngrok.com)、[frp](https://github.com/fatedier/frp) 或者 [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/) 这类内网穿透工具，但它们要么有速率限制，要么需要额外配置，总感觉为了测试一个 Webhook 就搞这么复杂有点大材小用。
+GitHub 要给你发消息，但你的开发机器在本地网络里，没有公网 IP，GitHub 根本找不到你。GitHub 官方也不提供 WebSocket 方案，无法直接本地监听事件。
 
-后来发现了 [smee.io](https://smee.io) 这个服务，思路挺聪明的：你在 smee.io 上获取一个专属的频道 URL，把这个 URL 配置成 Webhook 的目标地址，GitHub 就会把消息发到 smee.io，然后你的本地客户端通过 [SSE (Server-Sent Events)](https://developer.mozilla.org/zh-CN/docs/Web/API/Server-sent_events) 实时接收。不需要公网 IP，也不用部署任何服务。
+后来发现了 [smee.io](https://smee.io) 这个服务，思路挺聪明的：你在 smee.io 上获取一个专属的频道 URL，把这个 URL 配置成 Webhook 的目标地址，GitHub 就会把消息发到 smee.io，然后你的本地客户端通过 [SSE (Server-Sent Events)](https://developer.mozilla.org/zh-CN/docs/Web/API/Server-sent_events) 实时接收。不需要公网 IP，也不用部署任何服务。SSE 类似于单向的 WebSocket，浏览器和 Node.js 都原生支持。
 
-不过 [smee-client](https://github.com/probot/smee-client) 这个客户端用起来有点不太顺手。它的设计思路是收到事件后转发到本地的 HTTP 服务器，也就是说你还得跑一个 HTTP 服务来接收转发的请求。如果只是想快速看看 Webhook 的内容，这就有点繁琐了。而且它的 TypeScript 类型也不太完善。
+不过 [smee-client](https://github.com/probot/smee-client) 这个客户端用起来有点不太顺手。它的设计思路是收到事件后转发到本地的 HTTP 服务器，也就是说你可能还得跑一个 HTTP 服务来接收转发的请求。如果只是想快速看看 Webhook 的内容，这就有点繁琐了。而且它的 TypeScript 类型也不太完善。
 
-## 所以写了 smee-it
+## smee-it
 
-于是我写了 [smee-it](https://github.com/vikiboss/smee-it)，核心想法很简单：不强制转发到 HTTP 服务器，直接通过事件订阅拿数据。
+于是我写了 [smee-it](https://github.com/vikiboss/smee-it)，核心想法很简单：利用 smee.io 提供的 SSE 接口来本地接收 Webhook 事件，但不强制转发到 HTTP 服务器，直接通过事件订阅拿数据。提供类似 WebSocket 的实时事件流效果的同时，不需要额外部署本地或者远程 HTTP 服务，大大简化了 Webhook 使用流程。
 
 ```ts
 import { SmeeClient } from 'smee-it'
 
-const client = new SmeeClient('https://smee.io/your-channel')
+// 替换成你的频道 URL，可以在 https://smee.io 创建
+const client = new SmeeClient('https://smee.io/your-channel') 
 
 client.on('message', (event) => {
   console.log('收到 Webhook:', event.body)
@@ -85,10 +86,6 @@ CI/CD 用的 [GitHub Actions](https://github.com/features/actions)，代码提�
 
 ```bash
 pnpm add smee-it
-# 或者
-npm install smee-it
-# 或者
-yarn add smee-it
 ```
 
 **相关链接：**
