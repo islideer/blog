@@ -73,7 +73,7 @@ export default async function MioSaysPage() {
       {/* Mio Says Timeline */}
       <section className="space-y-4">
         <div
-          className="space-y-8 sm:border-l-2 sm:pl-4 sm:pl-6"
+          className="space-y-8 sm:border-l-2 sm:pl-6"
           style={{ borderColor: 'var(--color-mio-border)' }}
         >
           {sortedMioSays.length === 0 ? (

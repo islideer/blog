@@ -22,7 +22,7 @@ export function LazyImage(props: ImageProps) {
       },
       {
         rootMargin: '200px',
-      }
+      },
     )
 
     if (containerRef.current) {
@@ -51,7 +51,7 @@ export function LazyImage(props: ImageProps) {
   return (
     <div
       ref={containerRef}
-      className={`${className || ''} bg-zinc-100 dark:bg-zinc-800 animate-pulse`}
+      className={`${className || ''} animate-pulse bg-zinc-100 dark:bg-zinc-800`}
       style={{
         aspectRatio: width && height ? `${width} / ${height}` : undefined,
       }}
