@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { LazyImage } from '@/components/lazy-image'
 import { siteConfig } from '@/lib/config'
 import { thoughts } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
@@ -59,7 +59,7 @@ export default async function ThoughtsPage() {
       {/* Thoughts Timeline */}
       <section className="space-y-4">
         <div
-          className="space-y-8 border-l-2 pl-4 sm:pl-6"
+          className="space-y-8 sm:border-l-2 sm:pl-4 sm:pl-6"
           style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
         >
           {sortedThoughts.length === 0 ? (
@@ -98,14 +98,13 @@ export default async function ThoughtsPage() {
                     {thought.images.map((image, imageIndex) => {
                       // 前 3 条内容的第一张图片优先加载,其他懒加载
                       const shouldPriority = index < 3 && imageIndex === 0
-                      const loadingStrategy = shouldPriority ? undefined : 'lazy'
 
                       return (
                         <div
                           key={imageIndex}
                           className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border border-zinc-200 dark:border-zinc-700"
                         >
-                          <Image
+                          <LazyImage
                             src={image}
                             alt={
                               thought.content && thought.content.trim() !== ''
@@ -117,7 +116,6 @@ export default async function ThoughtsPage() {
                             className="h-auto max-h-full w-full object-contain"
                             sizes="(max-width: 640px) 100vw, 50vw"
                             priority={shouldPriority}
-                            loading={loadingStrategy}
                           />
                         </div>
                       )
