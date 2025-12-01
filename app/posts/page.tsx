@@ -78,7 +78,7 @@ export default async function PostsPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">{pagesData.posts.title}</h1>
         <p className="text-text-secondary">
-          共 {allPosts.length.toLocaleString('zh-CN')} 篇文章，按年份分组展示。
+          技术文章与生活随笔，共 {allPosts.length.toLocaleString('zh-CN')} 篇，按年份分组展示。
         </p>
       </section>
 

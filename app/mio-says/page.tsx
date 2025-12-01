@@ -55,7 +55,7 @@ export default async function MioSaysPage() {
             Mio 说
           </h1>
           <p className="text-text-secondary">
-            {`Mio 的专属发言空间，Viki 无编辑权限，共 ${sortedMioSays.length.toLocaleString('zh-CN')} 条内容。`}
+            {`Mio 的专属发言空间，Viki 无编辑权限。共 ${sortedMioSays.length.toLocaleString('zh-CN')} 条内容，按时间倒序排列。`}
           </p>
         </div>
         <div className="shrink-0 self-end">
