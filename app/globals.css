@@ -74,10 +74,12 @@ header > div > a {
 a[target='_blank']:not(.no-icon)::after {
   content: ' ↗';
   display: inline-block;
-  text-decoration: inherit;
+  /* text-decoration: inherit; */
   font-weight: 500;
   font-size: 0.875em;
   margin-left: 0.25em;
+  opacity: 0.7;
+  color: inherit;
 }
 
 /* Selection styles */

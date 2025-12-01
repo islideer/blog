@@ -248,6 +248,19 @@
   font-weight: 600;
 }
 
+/* 优化删除线和斜体样式 */
+.prose del, .prose s, .prose strike {
+  color: var(--color-text-primary);
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.prose em, .prose i {
+  color: var(--color-text-primary);
+  opacity: 0.8;
+  font-style: italic;
+}
+
 /* Shiki Dual Theme Support */
 .prose pre {
   background-color: var(--color-code-bg);
