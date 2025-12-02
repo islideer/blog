@@ -10,7 +10,7 @@
 }
 
 html {
-  scroll-padding-top: 30vh; /* 为 sticky header 和图片懒加载预留足够空间 */
+  scroll-padding-top: 100px; /* 为 sticky header 和图片懒加载预留足够空间 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -254,4 +254,25 @@ body {
   100% {
     background-color: transparent;
   }
+}
+
+/* React Medium Image Zoom Styles */
+[data-rmiz-modal-overlay='visible'] {
+  background-color: var(--color-bg-primary) !important;
+}
+
+[data-rmiz-btn-unzoom] {
+  background-color: var(--color-bg-secondary) !important;
+  color: var(--color-text-primary) !important;
+  border-radius: 50%;
+}
+
+[data-rmiz-btn-zoom] {
+  display: none;
+}
+
+/* Ensure Zoom wrapper takes full width */
+[data-rmiz] {
+  width: 100%;
+  display: block;
 }

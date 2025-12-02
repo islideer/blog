@@ -127,7 +127,7 @@ export default async function MioSaysPage() {
                       return (
                         <div
                           key={imageIndex}
-                          className="flex max-h-80 max-w-full items-center justify-center overflow-hidden rounded border"
+                          className="flex max-w-full items-center justify-center overflow-hidden rounded border"
                           style={{
                             borderColor: 'var(--color-mio-border)',
                             backgroundColor: 'var(--color-image-bg)',
@@ -141,8 +141,8 @@ export default async function MioSaysPage() {
                                 : `Mio 说图片 ${imageIndex + 1}`
                             }
                             width={540}
-                            height={320}
-                            className="h-auto max-h-full w-full object-contain"
+                            height={304}
+                            className="w-full"
                             sizes="(max-width: 640px) 100vw, 50vw"
                             preload={shouldPriority}
                           />

@@ -107,7 +107,7 @@ export default async function ThoughtsPage() {
                       return (
                         <div
                           key={imageIndex}
-                          className="flex max-h-80 max-w-full items-center justify-center overflow-hidden rounded border border-zinc-200 dark:border-zinc-700"
+                          className="flex max-w-full items-center justify-center overflow-hidden rounded border border-zinc-200 dark:border-zinc-700"
                           style={{ backgroundColor: 'var(--color-image-bg)' }}
                         >
                           <LazyImage
@@ -117,9 +117,9 @@ export default async function ThoughtsPage() {
                                 ? `${thought.content.slice(0, 20)}... 的图片 ${imageIndex + 1}`
                                 : `碎碎念图片 ${imageIndex + 1}`
                             }
-                            width={540}
-                            height={320}
-                            className="h-auto max-h-full w-full object-contain"
+                            width={800}
+                            height={600}
+                            className="w-full"
                             sizes="(max-width: 640px) 100vw, 50vw"
                             preload={shouldPriority}
                           />
