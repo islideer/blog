@@ -10,7 +10,7 @@
 }
 
 html {
-  scroll-padding-top: 5rem; /* 为 sticky header 预留空间 */
+  scroll-padding-top: 30vh; /* 为 sticky header 和图片懒加载预留足够空间 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -203,9 +203,9 @@ body {
   }
 }
 
-/* Thought anchor highlight animation - blinks twice */
-.highlight-anchor {
-  animation: highlight-pulse 1.6s ease-in-out;
+/* Anchor target highlight animation - blinks twice */
+:target {
+  animation: highlight-pulse 2s ease-in-out;
   border-radius: var(--radius-sm);
 }
 
@@ -231,7 +231,7 @@ body {
 }
 
 /* Dark mode highlight */
-:root.dark .highlight-anchor {
+:root.dark :target {
   animation: highlight-pulse-dark 1.6s ease-in-out;
 }
 
@@ -247,59 +247,6 @@ body {
   }
   50% {
     background-color: oklch(0.7 0 0 / 0.15);
-  }
-  70% {
-    background-color: transparent;
-  }
-  100% {
-    background-color: transparent;
-  }
-}
-
-/* Mio-specific highlight - blinks twice */
-.highlight-anchor-mio {
-  animation: highlight-pulse-mio 1.6s ease-in-out;
-  border-radius: var(--radius-sm);
-}
-
-@keyframes highlight-pulse-mio {
-  0% {
-    background-color: transparent;
-  }
-  10% {
-    background-color: oklch(0.65 0.18 350 / 0.2);
-  }
-  30% {
-    background-color: transparent;
-  }
-  50% {
-    background-color: oklch(0.65 0.18 350 / 0.15);
-  }
-  70% {
-    background-color: transparent;
-  }
-  100% {
-    background-color: transparent;
-  }
-}
-
-/* Dark mode Mio highlight */
-:root.dark .highlight-anchor-mio {
-  animation: highlight-pulse-mio-dark 1.6s ease-in-out;
-}
-
-@keyframes highlight-pulse-mio-dark {
-  0% {
-    background-color: transparent;
-  }
-  10% {
-    background-color: oklch(0.75 0.16 350 / 0.25);
-  }
-  30% {
-    background-color: transparent;
-  }
-  50% {
-    background-color: oklch(0.75 0.16 350 / 0.18);
   }
   70% {
     background-color: transparent;

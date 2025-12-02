@@ -96,14 +96,15 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-bg-primary text-text-primary font-sans antialiased duration-300">
+        <Analytics />
+        <GoogleAnalytics gaId={siteConfig.analytics.google} />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Analytics />
-          <GoogleAnalytics gaId={siteConfig.analytics.google} />
           <div className="flex min-h-screen min-w-sm flex-col sm:mx-auto sm:max-w-3xl">
             <SiteHeader />
             <main className="flex-1">
