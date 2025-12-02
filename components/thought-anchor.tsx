@@ -51,23 +51,39 @@ export function ThoughtScrollContainer({
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const hash = window.location.hash.slice(1)
-    if (hash) {
-      // 延迟执行以确保 DOM 已渲染
-      const timer = setTimeout(() => {
-        const element = document.getElementById(`thought-${hash}`)
-        if (element) {
-          element.scrollIntoView({ behavior: 'instant', block: 'center' })
-          // 添加高亮效果（闪两下）
-          const highlightClass = variant === 'mio' ? 'highlight-anchor-mio' : 'highlight-anchor'
-          element.classList.add(highlightClass)
-          setTimeout(() => {
-            element.classList.remove(highlightClass)
-          }, 1600)
-        }
-      }, 100)
+    const scrollToHash = (behavior: ScrollBehavior = 'instant') => {
+      const hash = window.location.hash.slice(1)
 
-      return () => clearTimeout(timer)
+      if (!hash) return
+
+      // 延迟执行以确保 DOM 已渲染
+      setTimeout(() => {
+        const element = document.getElementById(`thought-${hash}`)
+
+        if (!element) return
+
+        element.scrollIntoView({ behavior, block: 'start' })
+
+        // 添加高亮效果（闪两下）
+        const highlightClass = variant === 'mio' ? 'highlight-anchor-mio' : 'highlight-anchor'
+        element.classList.add(highlightClass)
+
+        setTimeout(() => {
+          element.classList.remove(highlightClass)
+        }, 1600)
+      }, 100)
+    }
+
+    // 初始加载时检查 hash
+    scrollToHash()
+
+    const onHashChange = () => scrollToHash('smooth')
+
+    // 监听 hash 变化（页面内链接跳转）
+    window.addEventListener('hashchange', onHashChange)
+
+    return () => {
+      window.removeEventListener('hashchange', onHashChange)
     }
   }, [variant])
 
