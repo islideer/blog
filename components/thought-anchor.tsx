@@ -57,7 +57,7 @@ export function ThoughtScrollContainer({
       const timer = setTimeout(() => {
         const element = document.getElementById(`thought-${hash}`)
         if (element) {
-          element.scrollIntoView({ behavior: 'instant', block: 'start' })
+          element.scrollIntoView({ behavior: 'instant', block: 'center' })
           // 添加高亮效果（闪两下）
           const highlightClass = variant === 'mio' ? 'highlight-anchor-mio' : 'highlight-anchor'
           element.classList.add(highlightClass)
