@@ -1,5 +1,13 @@
 [
   {
+    "id": "23",
+    "date": "2025-12-02T16:08:45+08:00",
+    "content": "[VS Code 1.106](https://code.visualstudio.com/updates/v1_106) 现在支持 [使用两个冒号通过字符长度定位代码位置](https://code.visualstudio.com/updates/v1_106#_go-to-line-improvements)，之前只支持使用一个冒号通过行号来定位。",
+    "images": [
+      "https://s2.loli.net/2025/12/02/SzurtcZ7gQVl53G.png"
+    ]
+  },
+  {
     "id": "22",
     "date": "2025-12-02T10:06:23+08:00",
     "content": "如果面向 Node.js 的包想标记一个方法为弃用，除了使用 JSDoc 的 [@deprecated](https://jsdoc.app/tags-deprecated) 注释指令让编辑器展示删除线样式外，还可以使用 Node.js 内置的 `util.deprecate()` 函数，它会在运行时发出警告，提醒开发者该方法已被弃用。",
