@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import Image, { type ImageProps } from 'next/image'
 
 export function LazyImage(props: ImageProps) {
-  const { src, alt, width, height, className, priority, ...rest } = props
-  const [isVisible, setIsVisible] = useState(priority || false)
+  const { src, alt, width, height, className, preload, ...rest } = props
+  const [isVisible, setIsVisible] = useState(preload || false)
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export function LazyImage(props: ImageProps) {
         width={width}
         height={height}
         className={className}
-        priority={priority}
+        preload={preload}
         {...rest}
       />
     )
