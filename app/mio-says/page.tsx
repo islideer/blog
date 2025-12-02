@@ -7,6 +7,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { mdxOptionsWithBreaks } from '@/lib/mdx'
 import { pagesData } from '@/lib/config'
 import { RelativeTime } from '@/components/relative-time'
+import { ThoughtAnchor, ThoughtScrollContainer } from '@/components/thought-anchor'
 
 import type { Metadata } from 'next'
 
@@ -55,7 +56,7 @@ export default async function MioSaysPage() {
             Mio 说
           </h1>
           <p className="text-text-secondary">
-            {`Mio 的专属发言空间，Viki 无编辑权限。共 ${sortedMioSays.length.toLocaleString('zh-CN')} 条内容，按时间倒序排列。`}
+            {`Mio 的专属发言空间，Viki 无编辑权限。共 ${sortedMioSays.length.toLocaleString('zh-CN')} 条内容。`}
           </p>
         </div>
         <div className="shrink-0 self-end">
@@ -72,87 +73,93 @@ export default async function MioSaysPage() {
 
       {/* Mio Says Timeline */}
       <section className="space-y-4">
-        <div
-          className="space-y-8 sm:border-l-2 sm:pl-6"
-          style={{ borderColor: 'var(--color-mio-border)' }}
-        >
-          {sortedMioSays.length === 0 ? (
-            <p className="text-text-tertiary text-sm italic opacity-60">
-              Mio 还没有说什么，敬请期待
-            </p>
-          ) : (
-            sortedMioSays.map((mioSay, index) => (
-              <article
-                key={mioSay.id}
-                className="space-y-2 pb-8"
-                style={{
-                  borderBottom:
-                    index < sortedMioSays.length - 1 ? `1px solid var(--color-mio-border)` : 'none',
-                }}
-              >
-                {/* 序号和日期时间 */}
-                <div className="flex items-center gap-2">
-                  <span
-                    className="font-mono text-xs font-semibold"
-                    style={{ color: 'var(--color-mio-pink)', opacity: 0.7 }}
-                  >
-                    #{mioSay.id}
-                  </span>
-                  <span style={{ color: 'var(--color-mio-pink)', opacity: 0.4 }}>·</span>
-                  <RelativeTime
-                    date={mioSay.date}
-                    className="text-xs"
-                    style={{ color: 'var(--color-mio-pink)', opacity: 0.7 }}
-                  />
-                </div>
-
-                {/* 文本内容 */}
-                {mioSay.content && mioSay.content.trim() !== '' && (
-                  <div className="prose prose-sm">
-                    <MDXRemote source={mioSay.content} options={mdxOptionsWithBreaks} />
+        <ThoughtScrollContainer variant="mio">
+          <div
+            className="space-y-8 sm:border-l-2 sm:pl-6"
+            style={{ borderColor: 'var(--color-mio-border)' }}
+          >
+            {sortedMioSays.length === 0 ? (
+              <p className="text-text-tertiary text-sm italic opacity-60">
+                Mio 还没有说什么，敬请期待
+              </p>
+            ) : (
+              sortedMioSays.map((mioSay, index) => (
+                <article
+                  key={mioSay.id}
+                  id={`thought-${mioSay.id}`}
+                  className="space-y-2 pb-8"
+                  style={{
+                    borderBottom:
+                      index < sortedMioSays.length - 1
+                        ? `1px solid var(--color-mio-border)`
+                        : 'none',
+                  }}
+                >
+                  {/* 序号和日期时间 */}
+                  <div className="flex items-center gap-2">
+                    <ThoughtAnchor
+                      id={mioSay.id}
+                      basePath="/mio-says"
+                      variant="mio"
+                      className="opacity-70 hover:opacity-100"
+                      style={{ color: 'var(--color-mio-pink)' }}
+                    />
+                    <span style={{ color: 'var(--color-mio-pink)', opacity: 0.4 }}>·</span>
+                    <RelativeTime
+                      date={mioSay.date}
+                      className="text-xs"
+                      style={{ color: 'var(--color-mio-pink)', opacity: 0.7 }}
+                    />
                   </div>
-                )}
 
-                {/* 图片 */}
-                {mioSay.images && mioSay.images.length > 0 && (
-                  <div
-                    className={`grid grid-cols-1 gap-2 pt-1 ${mioSay.images.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-md'}`}
-                  >
-                    {mioSay.images.map((image, imageIndex) => {
-                      // 前 3 条内容的第一张图片优先加载,其他懒加载
-                      const shouldPriority = index < 3 && imageIndex === 0
+                  {/* 文本内容 */}
+                  {mioSay.content && mioSay.content.trim() !== '' && (
+                    <div className="prose prose-sm">
+                      <MDXRemote source={mioSay.content} options={mdxOptionsWithBreaks} />
+                    </div>
+                  )}
 
-                      return (
-                        <div
-                          key={imageIndex}
-                          className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border"
-                          style={{
-                            borderColor: 'var(--color-mio-border)',
-                            backgroundColor: 'var(--color-image-bg)',
-                          }}
-                        >
-                          <LazyImage
-                            src={image}
-                            alt={
-                              mioSay.content && mioSay.content.trim() !== ''
-                                ? `${mioSay.content.slice(0, 20)}... 的图片 ${imageIndex + 1}`
-                                : `Mio 说图片 ${imageIndex + 1}`
-                            }
-                            width={800}
-                            height={600}
-                            className="h-auto max-h-full w-full object-contain"
-                            sizes="(max-width: 640px) 100vw, 50vw"
-                            priority={shouldPriority}
-                          />
-                        </div>
-                      )
-                    })}
-                  </div>
-                )}
-              </article>
-            ))
-          )}
-        </div>
+                  {/* 图片 */}
+                  {mioSay.images && mioSay.images.length > 0 && (
+                    <div
+                      className={`grid grid-cols-1 gap-2 pt-1 ${mioSay.images.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-md'}`}
+                    >
+                      {mioSay.images.map((image, imageIndex) => {
+                        // 前 3 条内容的第一张图片优先加载,其他懒加载
+                        const shouldPriority = index < 3 && imageIndex === 0
+
+                        return (
+                          <div
+                            key={imageIndex}
+                            className="flex max-h-[600px] max-w-full items-center justify-center overflow-hidden rounded border"
+                            style={{
+                              borderColor: 'var(--color-mio-border)',
+                              backgroundColor: 'var(--color-image-bg)',
+                            }}
+                          >
+                            <LazyImage
+                              src={image}
+                              alt={
+                                mioSay.content && mioSay.content.trim() !== ''
+                                  ? `${mioSay.content.slice(0, 20)}... 的图片 ${imageIndex + 1}`
+                                  : `Mio 说图片 ${imageIndex + 1}`
+                              }
+                              width={800}
+                              height={600}
+                              className="h-auto max-h-full w-full object-contain"
+                              sizes="(max-width: 640px) 100vw, 50vw"
+                              priority={shouldPriority}
+                            />
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )}
+                </article>
+              ))
+            )}
+          </div>
+        </ThoughtScrollContainer>
       </section>
     </div>
   )
