@@ -1,5 +1,13 @@
 [
   {
+    "id": "20",
+    "date": "2025-12-02T09:19:36+08:00",
+    "content": "Node.js, Yes! ✌️\n\n```diff\n- node --disable-warning=ExperimentalWarning --experimental-transform-types index.ts\n+ node index.ts\n```",
+    "images": [
+      "https://s2.loli.net/2025/12/02/EJKi51WC7c4fGZs.png"
+    ]
+  },
+  {
     "id": "19",
     "date": "2025-12-02T08:43:15+08:00",
     "content": "`<Tooltip />` 这种组件确实非常不友好，在规范的 Web 开发中很可能出现过度使用、误用、可访问性差、信息隐藏和不确定性等问题。 GitHub 官方的 [Primer 设计系统](https://primer.style/) 有提到 [Tooltip 的替代方案](https://primer.style/product/components/tooltip/guidelines/#alternatives-to-tooltips)。另可参考这篇博客 [Tooltip Components Should Not Exist](https://tkdodo.eu/blog/tooltip-components-should-not-exist)。"
