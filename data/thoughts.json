@@ -2,7 +2,7 @@
   {
     "id": "23",
     "date": "2025-12-02T16:08:45+08:00",
-    "content": "[VS Code 1.106](https://code.visualstudio.com/updates/v1_106) 现在支持 [使用两个冒号通过字符长度定位代码位置](https://code.visualstudio.com/updates/v1_106#_go-to-line-improvements)，之前只支持使用一个冒号通过行号来定位。",
+    "content": "[VS Code 1.106](https://code.visualstudio.com/updates/v1_106) 现在支持 [使用两个冒号通过字符长度定位代码位置](https://code.visualstudio.com/updates/v1_106#_go-to-line-improvements)，之前只支持使用一个冒号通过行号来定位。\n\nVS Code 近期还支持了 [私有扩展市场](https://code.visualstudio.com/blogs/2025/11/18/PrivateMarketplace) 功能。",
     "images": [
       "https://s2.loli.net/2025/12/02/SzurtcZ7gQVl53G.png"
     ]
@@ -58,7 +58,7 @@
   {
     "id": "15",
     "date": "2025-12-01T09:12:24+08:00",
-    "content": "一些常见的 ECMAScript 规范与 JavaScript / TypeScript 运行时的兼容性、API 对比工具网站：\n\n- [ECMAScript Compatibility Table](https://compat-table.github.io/compat-table/es6/): 各平台、浏览器等对 ECMAScript 规范全面兼容情况表格。\n- [Node.js Support Table](https://node.green/): 仅 Node.js 不同版本对 ECMAScript 规范版本的支持情况表格。\n- [Runtime Compatibility](https://runtime-compat.unjs.io/): 不同 JavaScript 运行时的 API 差异表格，如 [CloudFlare Workerd](https://github.com/cloudflare/workerd) 等。\n- [JavaScript Engine Zoo](https://zoo.js.org/): 全面的 JavaScript 引擎对比表格，涵盖大小、性能、语法支持情况等维度。"
+    "content": "一些常见的 ECMAScript 规范与运行时的兼容性、API 对比工具网站：\n\n- [ECMAScript Compatibility Table](https://compat-table.github.io/compat-table/es6/): 各平台、浏览器等对 ECMAScript 规范全面兼容情况表格。\n- [Node.js Support Table](https://node.green/): 仅 Node.js 不同版本对 ECMAScript 规范版本的支持情况表格。\n- [Runtime Compatibility](https://runtime-compat.unjs.io/): 不同 JavaScript 运行时的 API 差异表格，如 [CloudFlare Workerd](https://github.com/cloudflare/workerd) 等。\n- [JavaScript Engine Zoo](https://zoo.js.org/): 全面的 JavaScript 引擎对比表格，涵盖大小、性能、语法支持情况等维度。"
   },
   {
     "id": "14",
@@ -71,7 +71,7 @@
   {
     "id": "13",
     "date": "2025-11-28T07:39:58+08:00",
-    "content": "[Major 第一阶段作业](#8) 开局 3-0、0-3 炸差不多了还能救回来是我没想到的 😂。LVG 和 RA 怎么双双 0-3 回家，一图都没赢啊？？~~RNM 退钱 😡~~。Faze 依旧地狱归来 👻。菊花果然被淘汰了，~~真给力啊 (๑¯◡¯๑)，不救我的 3-0 那就直接淘汰让其他人作业都爆炸吧。💥 ~~ 后面就看天禄了，加油加油 💪。",
+    "content": "[Major 第一阶段作业](#8) 开局 3-0、0-3 炸差不多了还能救回来是我没想到的 😂。LVG 和 RA 怎么双双 0-3 回家，一图都没赢啊？？~~RNM 退钱 😡~~。Faze 依旧地狱归来 👻。菊花果然被淘汰了，~~真给力啊 (๑¯◡¯๑)，不救我的 3-0 那就直接淘汰让其他人作业都爆炸吧。💥 ~~ 后面就看天禄了，加油。",
     "images": [
       "https://s2.loli.net/2025/11/28/hKwMScrjY6tZb9A.png"
     ]
@@ -95,7 +95,7 @@
   {
     "id": "10",
     "date": "2025-11-24T16:31:03+08:00",
-    "content": "压力我，小心我变爆米花蹦你 🍿",
+    "content": "压力我，小心我变爆米花蹦你。",
     "images": [
       "https://s2.loli.net/2025/11/24/VkusTFzYUdPe9MJ.jpg"
     ]
