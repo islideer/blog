@@ -18,7 +18,7 @@ excerpt: '绕过 B 站网页端「应版权方要求，本片仅支持 App 观�
 
 > 应版权方要求，本片仅支持 App 观看，请使用哔哩哔哩 App 扫描二维码
 
-<img src="https://s2.loli.net/2023/03/26/oOPmKYyMViXnRlj.png" style="max-width: 360px" />
+![B 站仅支持 App 观看提示](https://s2.loli.net/2023/03/26/oOPmKYyMViXnRlj.png)
 
 我第一次看到这个提示，原来 B 站还有这种限制的吗？（思索）
 
@@ -35,4 +35,4 @@ excerpt: '绕过 B 站网页端「应版权方要求，本片仅支持 App 观�
 
 就这样，好像也没什么困难的 XD。
 
-<img src="https://s2.loli.net/2023/03/26/Gu2JhxELwFPn74b.png" style="max-width: 540px" />
+![操作步骤](https://s2.loli.net/2023/03/26/Gu2JhxELwFPn74b.png)

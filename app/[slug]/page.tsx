@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { dayjs } from '@/lib/dayjs'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -15,6 +14,7 @@ import { OldPostBanner } from '@/components/old-post-banner'
 import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
 import { RecommendedPosts } from '@/components/recommended-posts'
+import { ZoomImage } from '@/components/zoom-image'
 
 import type { Metadata } from 'next'
 
@@ -118,7 +118,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Top Image */}
           {post.topImage && (
             <div className="-mx-4 mt-6 overflow-hidden sm:mx-0 sm:mt-8 sm:rounded-sm">
-              <Image
+              <ZoomImage
                 src={post.topImage}
                 alt={post.title}
                 width={1200}
@@ -133,7 +133,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         {/* Article Content */}
         <div className="prose">
-          <MDXRemote source={post.content} options={mdxOptions} />
+          <MDXRemote source={post.content} options={mdxOptions} components={{ img: ZoomImage }} />
         </div>
 
         {/* Article End */}

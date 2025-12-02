@@ -262,13 +262,12 @@ body {
 }
 
 [data-rmiz-btn-unzoom] {
-  background-color: var(--color-bg-secondary) !important;
-  color: var(--color-text-primary) !important;
-  border-radius: 50%;
+  display: none !important;
 }
 
-[data-rmiz-btn-zoom] {
-  display: none;
+[data-rmiz-modal-img] {
+  border-radius: var(--radius-md);
+  border-color: var(--color-border);
 }
 
 /* Ensure Zoom wrapper takes full width */

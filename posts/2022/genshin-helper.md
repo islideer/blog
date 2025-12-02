@@ -1,5 +1,5 @@
 ---
-title: '爆肝数月后，我写了一个开源原神工具《原神助手》'
+title: '爆肝数月后，我写了一个开源原神工具「原神助手」'
 date: 2022-11-26
 tags:
   - 'Electron'
@@ -8,11 +8,10 @@ tags:
   - '原神'
   - '项目'
 excerpt: '基于 Electron + React 开发的开源原神工具「原神助手」幕后故事。分享从游戏入坑到独立开发跨平台工具的心路历程，以及祈愿分析、实时便签等核心功能介绍。'
+top_image: 'https://s2.loli.net/2025/11/19/ubfBFP34JXIAeTN.png'
 ---
 
-<img src="https://s2.loli.net/2025/11/19/ubfBFP34JXIAeTN.png" alt="genshin" style="max-height: 400px" />
-
-> [《原神》](https://ys.mihoyo.com/) 是由 [米哈游](https://mihoyo.com/) 公司制作发行的一款开放世界冒险游戏。
+> [「原神」](https://ys.mihoyo.com/) 是由 [米哈游](https://mihoyo.com/) 公司制作发行的一款开放世界冒险游戏。
 
 ## 我与原神
 
@@ -61,7 +60,7 @@ excerpt: '基于 Electron + React 开发的开源原神工具「原神助手」�
 - 原神材料日历
 - 多账户支持并可快速切换
 
-<img src="https://s2.loli.net/2022/11/03/ycCK9j6usTDGw4x.png" style="max-height: 480px"/>
+![Genshin Helper UI](https://s2.loli.net/2022/11/03/ycCK9j6usTDGw4x.png)
 
 ## 欢迎下载使用
 
