@@ -1,5 +1,14 @@
 [
   {
+    "id": "21",
+    "date": "2025-12-02T09:50:50+08:00",
+    "content": "继 npm 支持 [Provenance](https://docs.npmjs.com/generating-provenance-statements) 以验证发布来源之后，又支持了 [Trusted Publisher](https://docs.npmjs.com/trusted-publishers) 以配置 [OIDC](https://docs.github.com/en/actions/concepts/security/openid-connect#overview-of-openid-connect-oidc) 来支持「无 Token 发布」，也是对近期 [npm 包供应链攻击频发](https://socket.dev/blog/shai-hulud-strikes-again-v2) 而强制使用有到期时间的 Token 的一种用户体验和安全双保障的改进措施。",
+    "images": [
+      "https://s2.loli.net/2025/12/02/9BqA6TjDovuPlK7.png",
+      "https://s2.loli.net/2025/12/02/WLUuJqxoyl5OZYv.png"
+    ]
+  },
+  {
     "id": "20",
     "date": "2025-12-02T09:19:36+08:00",
     "content": "Node.js, Yes! ✌️\n\n```diff\n- node --disable-warning=ExperimentalWarning --experimental-transform-types index.ts\n+ node index.ts\n```",
