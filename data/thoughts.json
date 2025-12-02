@@ -1,5 +1,13 @@
 [
   {
+    "id": "22",
+    "date": "2025-12-02T10:06:23+08:00",
+    "content": "如果面向 Node.js 的包想标记一个方法为弃用，除了使用 JSDoc 的 [@deprecated](https://jsdoc.app/tags-deprecated) 注释指令让编辑器展示删除线样式外，还可以使用 Node.js 内置的 `util.deprecate()` 函数，它会在运行时发出警告，提醒开发者该方法已被弃用。",
+    "images": [
+      "https://s2.loli.net/2025/12/02/uGOlpdeHEIJshLV.png"
+    ]
+  },
+  {
     "id": "21",
     "date": "2025-12-02T09:50:50+08:00",
     "content": "继 npm 支持 [Provenance](https://docs.npmjs.com/generating-provenance-statements) 以验证发布来源之后，又支持了 [Trusted Publisher](https://docs.npmjs.com/trusted-publishers) 以配置 [OIDC](https://docs.github.com/en/actions/concepts/security/openid-connect#overview-of-openid-connect-oidc) 来支持「无 Token 发布」，也是对近期 [npm 包供应链攻击频发](https://socket.dev/blog/shai-hulud-strikes-again-v2) 而强制使用有到期时间的 Token 的一种用户体验和安全双保障的改进措施。",
