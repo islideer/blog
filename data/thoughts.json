@@ -1,5 +1,10 @@
 [
   {
+    "id": "26",
+    "date": "2025-12-03T15:07:06+08:00",
+    "content": "这两年 JSON 给我 import 爽了，马上也可以 import [text](https://github.com/tc39/proposal-import-text) 和 [bytes](https://github.com/tc39/proposal-import-bytes) 了 🤩。\n\n```ts\nimport obj from \"path/to/file.json\" with { type: \"json\" }\n\nimport text from \"path/to/file.txt\" with { type: \"text\" }\nimport uint8array from \"path/to/file.txt\" with { type: \"bytes\" }\n```"
+  },
+  {
     "id": "25",
     "date": "2025-12-03T11:28:34+08:00",
     "content": "关于 `<input type=\"number\" />` 的一些笔记：\n\n- 设置 [appearance](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/appearance) 移除默认增减按钮\n- 默认整数，通过 [max](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes/max)、[min](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes/min)、[step](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes/step) 控制范围和步长\n- 通过 [stepUp()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/stepUp) 和 [stepDown()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/stepDown) 实例方法增减数值\n- 设置 [onwheel](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/wheel_event#%E8%AF%AD%E6%B3%95) 属性会开启「滚轮调整数值」功能\n- [inputmode=\"numeric\"](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inputMode#numeric) 移动端仅含数字键盘\n- [inputmode=\"decimal\"](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inputMode#decimal) 移动端数字键盘含小数点\n- [value](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/value) 是字符串类型，[valueAsNumber](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/valueAsNumber) 是数值类型，类似的还有 [valueAsDate](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/valueAsDate)\n- 无效时 `value` 为空字符，`valueAsNumber` 为 `NaN`\n- 通过 [input.validity.[ValidityState]](https://developer.mozilla.org/zh-CN/docs/Web/API/ValidityState) 检查输入合法性\n- 通过 [list](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/input#list) 属性 和 [\\<datalist\\>](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist) 实现预设值功能\n- 卡号、编码和验证码等场景更适合 `<input type=\"text\" inputmode=\"numeric\" pattern=\"\\d+\" />`\n- 期望以 `0` 开头时不要使用 `type=\"number\"`"
@@ -8,19 +13,25 @@
     "id": "24",
     "date": "2025-12-03T10:34:57+08:00",
     "content": "[Bun 宣布加入 Anthropic](https://bun.sh/blog/bun-joins-anthropic)，但其核心路线不变，变的是 [Claude Code](https://claude.com/product/claude-code) 及其 [SDK](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk) 因 Bun 团队而受益。Bun 在 22 年暑假发布了 v0.1.0，开始在前端领域掀起大浪。比较认同 Bun 的核心理念，性能、效率、Just Work，只是目前 Bun 在生态和兼容性上仍需完善。",
-    "images": ["https://s2.loli.net/2025/12/03/lN3kzVZOdAwom7P.png"]
+    "images": [
+      "https://s2.loli.net/2025/12/03/lN3kzVZOdAwom7P.png"
+    ]
   },
   {
     "id": "23",
     "date": "2025-12-02T16:08:45+08:00",
     "content": "[VS Code 1.106](https://code.visualstudio.com/updates/v1_106) 现在支持 [使用两个冒号通过字符长度定位代码位置](https://code.visualstudio.com/updates/v1_106#_go-to-line-improvements)。对比来说，之前只支持使用一个冒号通过行号来定位。近期还支持了 [私有扩展市场](https://code.visualstudio.com/blogs/2025/11/18/PrivateMarketplace) 功能。",
-    "images": ["https://s2.loli.net/2025/12/02/SzurtcZ7gQVl53G.png"]
+    "images": [
+      "https://s2.loli.net/2025/12/02/SzurtcZ7gQVl53G.png"
+    ]
   },
   {
     "id": "22",
     "date": "2025-12-02T10:06:23+08:00",
     "content": "如果面向 Node.js 的包想标记一个方法为弃用，除了使用 JSDoc 的 [@deprecated](https://jsdoc.app/tags-deprecated) 注释指令让编辑器展示删除线样式外，还可以使用 Node.js 内置的 `util.deprecate()` 函数，它会在运行时发出警告，提醒开发者该方法已被弃用。",
-    "images": ["https://s2.loli.net/2025/12/02/uGOlpdeHEIJshLV.png"]
+    "images": [
+      "https://s2.loli.net/2025/12/02/uGOlpdeHEIJshLV.png"
+    ]
   },
   {
     "id": "21",
@@ -35,7 +46,9 @@
     "id": "20",
     "date": "2025-12-02T09:19:36+08:00",
     "content": "Node.js, Yes! ✌️\n\n```diff\n- node --disable-warning=ExperimentalWarning --experimental-transform-types index.ts\n+ node index.ts\n```",
-    "images": ["https://s2.loli.net/2025/12/02/EJKi51WC7c4fGZs.png"]
+    "images": [
+      "https://s2.loli.net/2025/12/02/EJKi51WC7c4fGZs.png"
+    ]
   },
   {
     "id": "19",
@@ -46,7 +59,9 @@
     "id": "18",
     "date": "2025-12-01T19:15:24+08:00",
     "content": "原来 [幸运咖](https://www.xingyunka.com/) 也是蜜雪旗下的。🤔",
-    "images": ["https://s2.loli.net/2025/12/01/kSh3OIKse6AyJWP.jpg"]
+    "images": [
+      "https://s2.loli.net/2025/12/01/kSh3OIKse6AyJWP.jpg"
+    ]
   },
   {
     "id": "17",
@@ -67,31 +82,41 @@
     "id": "14",
     "date": "2025-11-29T12:56:47+08:00",
     "content": "第二阶段，和 Mio 一起选的，希望能过～",
-    "images": ["https://s2.loli.net/2025/11/29/7b4o5On2qtzUydc.png"]
+    "images": [
+      "https://s2.loli.net/2025/11/29/7b4o5On2qtzUydc.png"
+    ]
   },
   {
     "id": "13",
     "date": "2025-11-28T07:39:58+08:00",
     "content": "[Major 第一阶段作业](#8) 开局 3-0、0-3 炸差不多了还能救回来是我没想到的 😂。LVG 和 RA 怎么双双 0-3 回家，一图都没赢啊？？~~RNM 退钱 😡~~。Faze 依旧地狱归来 👻。菊花果然被淘汰了，~~真给力啊 (๑¯◡¯๑)，不救我的 3-0 那就直接淘汰让其他人作业都爆炸吧。💥 ~~ 后面就看天禄了，加油。",
-    "images": ["https://s2.loli.net/2025/11/28/hKwMScrjY6tZb9A.png"]
+    "images": [
+      "https://s2.loli.net/2025/11/28/hKwMScrjY6tZb9A.png"
+    ]
   },
   {
     "id": "12",
     "date": "2025-11-26T11:43:29+08:00",
     "content": "通过修改 [NITZ](https://zh.wikipedia.org/wiki/NITZ)（网络标识和时区）下发规则实现的运营商名称广告和百度地图的路面广告一样流氓。🤷",
-    "images": ["https://s2.loli.net/2025/11/26/XfeyrcaRpFnl9Qm.jpg"]
+    "images": [
+      "https://s2.loli.net/2025/11/26/XfeyrcaRpFnl9Qm.jpg"
+    ]
   },
   {
     "id": "11",
     "date": "2025-11-25T09:14:40+08:00",
     "content": "建议全世界奶茶店都学习一下这种糖分标注。每次看到「不额外加糖」都得想一想到底是多少糖。😑",
-    "images": ["https://s2.loli.net/2025/11/25/VW9PFa8IAoYZ526.jpg"]
+    "images": [
+      "https://s2.loli.net/2025/11/25/VW9PFa8IAoYZ526.jpg"
+    ]
   },
   {
     "id": "10",
     "date": "2025-11-24T16:31:03+08:00",
     "content": "压力我，小心我变爆米花蹦你。",
-    "images": ["https://s2.loli.net/2025/11/24/VkusTFzYUdPe9MJ.jpg"]
+    "images": [
+      "https://s2.loli.net/2025/11/24/VkusTFzYUdPe9MJ.jpg"
+    ]
   },
   {
     "id": "9",
@@ -102,25 +127,33 @@
     "id": "8",
     "date": "2025-11-23T11:02:44+08:00",
     "content": "交作业交作业，LVG 加油 (ง・_・)ง",
-    "images": ["https://s2.loli.net/2025/11/24/RMQFKgDvWqdt5kz.png"]
+    "images": [
+      "https://s2.loli.net/2025/11/24/RMQFKgDvWqdt5kz.png"
+    ]
   },
   {
     "id": "7",
     "date": "2025-11-21T17:29:13+08:00",
     "content": "开个「Mio 说」板块，应该不会被说成公开秀恩爱吧，大概。💖",
-    "images": ["https://s2.loli.net/2025/11/24/V3hI4JCAkOMibFW.gif"]
+    "images": [
+      "https://s2.loli.net/2025/11/24/V3hI4JCAkOMibFW.gif"
+    ]
   },
   {
     "id": "6",
     "date": "2025-11-20T21:30:24+08:00",
     "content": "博客重构到晚上九点半才下班，果然摸鱼是第一生产力。~~卡点打卡拒被动加班，摸鱼拿钱做人生赢家。~~",
-    "images": ["https://s2.loli.net/2025/11/20/6MyODHfBjalk2pi.jpg"]
+    "images": [
+      "https://s2.loli.net/2025/11/20/6MyODHfBjalk2pi.jpg"
+    ]
   },
   {
     "id": "5",
     "date": "2025-11-20T20:50:27+08:00",
     "content": "测试一下发布碎碎念的 API 以及 Markdown 渲染格式是否正常。\n- 这是 **加粗**\n- 这是 *斜体*\n- 这是 ~~删除线~~\n- 这是 [链接](https://blog.viki.moe)\n- 这是 `code`\n\n下面是代码块。\n\n```ts\nconst message = \"Hello world!\"\n```\n\n下面是测试图片。",
-    "images": ["https://s2.loli.net/2025/11/24/IQ8CxRO49U2lrMV.png"]
+    "images": [
+      "https://s2.loli.net/2025/11/24/IQ8CxRO49U2lrMV.png"
+    ]
   },
   {
     "id": "4",
