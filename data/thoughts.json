@@ -1,5 +1,13 @@
 [
   {
+    "id": "27",
+    "date": "2025-12-03T15:35:14+08:00",
+    "content": "通过 Mac 系统内置的「音频 MIDI 设置」APP，可以添加并配置「多输出设备」，实现同时输出到多个音频设备的效果。\n\n如果家里有多台音响设备，就可以营造更好的环绕声效果。或者如果你有对象，可以同时输出到两台蓝牙耳机，方便一起听音乐或看电影。",
+    "images": [
+      "https://s2.loli.net/2025/12/03/lWVOEXrpfPqYUF2.png"
+    ]
+  },
+  {
     "id": "26",
     "date": "2025-12-03T15:07:06+08:00",
     "content": "这两年 JSON 给我 import 爽了，马上也可以 import [text](https://github.com/tc39/proposal-import-text) 和 [bytes](https://github.com/tc39/proposal-import-bytes) 了 🤩。\n\n```ts\nimport obj from \"path/to/file.json\" with { type: \"json\" }\n\nimport text from \"path/to/file.txt\" with { type: \"text\" }\nimport uint8array from \"path/to/file.txt\" with { type: \"bytes\" }\n```"
