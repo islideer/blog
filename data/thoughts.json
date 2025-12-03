@@ -1,5 +1,10 @@
 [
   {
+    "id": "25",
+    "date": "2025-12-03T11:28:34+08:00",
+    "content": "关于 `<input type=\"number\" />` 的一些笔记：\n\n- 通过设置自身或者伪元素的 [appearance](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/appearance) 可以移除默认增减按钮\n- 默认只允许整数，可以通过 `max`、`min`、`step` 控制输入范围和小数步长 \n- `input` 实例支持 [stepUp()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/stepUp) 和 [stepDown()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/stepDown) 方法编程式增减数值\n- 添加 `onwheel` 属性会开启「通过滚轮来调整数值」的功能\n- 设置 [inputmode=\"numeric\"](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inputMode#numeric) 让移动设备弹出仅含数字的键盘\n- 设置 [inputmode=\"decimal\"](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inputMode#decimal) 让移动设备弹出含小数点的数字键盘\n- [value](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/value) 是字符串类型，[valueAsNumber](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/valueAsNumber) 是数值类型，类似的还有 [valueAsDate](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/valueAsDate)\n- 无效输入时，`value` 为空字符串，`valueAsNumber` 为 `NaN`\n- 可以通过 [input.validity.[ValidityState]](https://developer.mozilla.org/zh-CN/docs/Web/API/ValidityState) 检查输入合法性\n- 通过 `<input list=\"price\">` 和 [<datalist id=\"price\">](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist) 可以实现预设选项功能\n- 卡号、邮政编码、一次性验证码等场景，更适合使用 `<input type=\"text\" inputmode=\"numeric\" />`\n- 如果数值可能以 `0` 开头，不要使用 `<input type=\"number\" />`"
+  },
+  {
     "id": "24",
     "date": "2025-12-03T10:34:57+08:00",
     "content": "[Bun 宣布加入 Anthropic](https://bun.sh/blog/bun-joins-anthropic)，但其核心路线不变，变的是 [Claude Code](https://claude.com/product/claude-code) 及其 [SDK](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk) 因 Bun 团队而受益。Bun 在 22 年暑假发布了 v0.1.0，开始在前端领域掀起大浪。比较认同 Bun 的核心理念，性能、效率、Just Work，只是目前 Bun 在生态和兼容性上仍需完善。",
