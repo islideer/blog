@@ -98,7 +98,7 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <button
-        className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-xs sm:mr-0 sm:h-8 sm:w-8"
+        className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-sm sm:mr-0 sm:h-8 sm:w-8"
         aria-label="切换主题"
         title="切换主题"
         disabled
@@ -129,7 +129,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-xs sm:mr-0 sm:h-8 sm:w-8"
+      className="text-text-secondary hover:bg-bg-tertiary hover:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-sm sm:mr-0 sm:h-8 sm:w-8"
       aria-label={`当前：${themeLabels[currentTheme]}，点击切换到${themeLabels[nextTheme]}`}
       title={`当前：${themeLabels[currentTheme]}，点击切换到${themeLabels[nextTheme]}`}
     >

@@ -212,7 +212,7 @@
   width: 1.1em;
   height: 1.1em;
   border: 2px solid var(--color-border-hover);
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   position: relative;
   flex-shrink: 0;

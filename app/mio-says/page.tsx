@@ -64,7 +64,7 @@ export default async function MioSaysPage() {
             alt="Mio with Viki"
             width={160}
             height={100}
-            className="h-auto w-32 rounded-lg sm:w-40"
+            className="h-auto w-32 rounded-md sm:w-40"
             priority
           />
         </div>
@@ -127,7 +127,7 @@ export default async function MioSaysPage() {
                       return (
                         <div
                           key={imageIndex}
-                          className="flex max-w-full items-center justify-center overflow-hidden rounded border"
+                          className="flex max-w-full items-center justify-center overflow-hidden rounded-md border"
                           style={{
                             borderColor: 'var(--color-mio-border)',
                             backgroundColor: 'var(--color-image-bg)',

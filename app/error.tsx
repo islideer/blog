@@ -28,7 +28,7 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
       <div className="flex items-center gap-2 text-sm sm:gap-4">
         <button
           onClick={reset}
-          className="rounded-sm bg-zinc-200/40 px-3 py-1 text-zinc-900 hover:bg-zinc-200/80 dark:bg-zinc-800/60 dark:text-zinc-100 dark:hover:bg-zinc-800"
+          className="rounded-md bg-zinc-200/40 px-3 py-1 text-zinc-900 hover:bg-zinc-200/80 dark:bg-zinc-800/60 dark:text-zinc-100 dark:hover:bg-zinc-800"
         >
           重试
         </button>

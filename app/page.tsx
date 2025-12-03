@@ -47,7 +47,7 @@ export default async function BlogPage() {
           <div className="py-12 text-center">
             <p className="text-text-secondary mb-4 text-xl">暂无文章</p>
             <p className="text-text-tertiary">
-              请在 <code className="bg-bg-tertiary rounded-xs px-2 py-1">posts</code> 目录添加
+              请在 <code>posts</code> 目录添加
               Markdown 文件
             </p>
           </div>

@@ -1,7 +1,7 @@
 /* Anchor target highlight animation - blinks twice */
 :target {
   animation: highlight-pulse 2s ease-in-out;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 /* Dark mode highlight */

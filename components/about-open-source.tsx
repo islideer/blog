@@ -41,7 +41,7 @@ export function AboutOpenSource({ data }: AboutOpenSourceProps) {
                         {project.name}
                       </a>
                       {project.status === 'archived' && (
-                        <span className="text-text-tertiary bg-bg-secondary rounded px-1.5 py-0.5 text-xs leading-none">
+                        <span className="text-text-tertiary bg-bg-secondary rounded-sm px-1.5 py-0.5 text-xs leading-none">
                           已归档
                         </span>
                       )}

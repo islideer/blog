@@ -107,7 +107,7 @@ export default async function ThoughtsPage() {
                       return (
                         <div
                           key={imageIndex}
-                          className="flex max-w-full items-center justify-center overflow-hidden rounded border border-zinc-200 dark:border-zinc-700"
+                          className="flex max-w-full items-center justify-center overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-700"
                           style={{ backgroundColor: 'var(--color-image-bg)' }}
                         >
                           <LazyImage

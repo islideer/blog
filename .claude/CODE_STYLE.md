@@ -110,7 +110,7 @@ export default function() {
 - 使用 `@theme` 定义主题变量
 - 使用 `@plugin` 引入插件
 - 简化类名，比如:
-  - The class `rounded-[var(--radius-sm)]` can be written as `rounded-sm` (suggestCanonicalClasses)
+  - The class `rounded-[var(--radius-md)]` can be written as `rounded-md` (suggestCanonicalClasses)
   - The class `text-[var(--color-text-tertiary)]` can be written as `text-text-tertiary` (suggestCanonicalClasses)
   - The class `bg-[var(--color-bg-primary)]` can be written as `bg-bg-primary` (suggestCanonicalClasses)
 
