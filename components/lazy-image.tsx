@@ -35,7 +35,7 @@ export function LazyImage(props: ImageProps) {
     return () => observer.disconnect()
   }, [isVisible])
 
-  const imageClasses = `w-full object-cover aspect-video ${className || ''}`
+  const imageClasses = `w-full object-contain ${className || ''}`
 
   if (isVisible) {
     return (

@@ -119,7 +119,7 @@ export default async function ThoughtsPage() {
                             }
                             width={800}
                             height={600}
-                            className={`w-full ${thought.images?.length && thought.images?.length === 1 ? 'aspect-auto!' : 'aspect-video!'}`}
+                            className="w-full"
                             sizes="(max-width: 640px) 100vw, 50vw"
                             preload={shouldPriority}
                           />
