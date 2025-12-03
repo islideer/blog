@@ -77,15 +77,15 @@ export default async function ThoughtsPage() {
                 }}
               >
                 {/* 序号和日期时间 */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 text-xs">
                   <a
                     href={`#${thought.id}`}
-                    className="cursor-pointer font-mono text-xs font-semibold no-underline hover:underline"
+                    className="cursor-pointer font-mono font-semibold no-underline hover:underline"
                   >
                     #{thought.id}
                   </a>
-                  <span className="text-text-tertiary opacity-60">·</span>
-                  <RelativeTime date={thought.date} className="text-text-secondary text-xs" />
+                  <span className="text-text-secondary">·</span>
+                  <RelativeTime date={thought.date} className="text-text-secondary" />
                 </div>
 
                 {/* 文本内容 */}

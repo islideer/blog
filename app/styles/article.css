@@ -81,9 +81,13 @@
 .prose h5,
 .prose h6 {
   font-weight: 600;
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 5em;
   position: relative;
   text-wrap: balance;
+}
+
+.prose-sm li {
+  padding-inline-start: 0.2em;
 }
 
 /* Heading Anchors */
@@ -249,13 +253,16 @@
 }
 
 /* 优化删除线和斜体样式 */
-.prose del, .prose s, .prose strike {
+.prose del,
+.prose s,
+.prose strike {
   color: var(--color-text-primary);
   opacity: 0.6;
   text-decoration: line-through;
 }
 
-.prose em, .prose i {
+.prose em,
+.prose i {
   color: var(--color-text-primary);
   opacity: 0.8;
   font-style: italic;

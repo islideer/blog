@@ -92,20 +92,16 @@ export default async function MioSaysPage() {
                 }}
               >
                 {/* 序号和日期时间 */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 text-xs">
                   <a
                     href={`#${mioSay.id}`}
                     style={{ color: 'var(--color-mio-pink)' }}
-                    className="cursor-pointer font-mono text-xs font-semibold no-underline hover:underline"
+                    className="cursor-pointer font-mono font-semibold no-underline hover:underline"
                   >
                     #{mioSay.id}
                   </a>
-                  <span style={{ color: 'var(--color-mio-pink)', opacity: 0.4 }}>·</span>
-                  <RelativeTime
-                    date={mioSay.date}
-                    className="text-xs"
-                    style={{ color: 'var(--color-mio-pink)', opacity: 0.7 }}
-                  />
+                  <span style={{ color: 'var(--color-mio-pink)' }}>·</span>
+                  <RelativeTime date={mioSay.date} style={{ color: 'var(--color-mio-pink)' }} />
                 </div>
 
                 {/* 文本内容 */}
