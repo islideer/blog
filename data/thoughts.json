@@ -2,7 +2,7 @@
   {
     "id": "24",
     "date": "2025-12-03T10:34:57+08:00",
-    "content": "[Bun 加入 Anthropic](https://bun.sh/blog/bun-joins-anthropic)。Bun 核心路线不变，变的是 Claude Code 及其 SDK 因 Bun 团队而获益。",
+    "content": "[Bun 宣布加入 Anthropic](https://bun.sh/blog/bun-joins-anthropic)，但其核心路线不变，变的是 Claude Code 及其 SDK 因 Bun 团队而获益。从 22 年暑假开始关注，从那时发布的 Bun v0.1.0 起，开始在前端领域掀起大浪。比较认同 Bun 的核心理念，性能、效率、Just Work，只是目前 Bun 在生态和兼容性上仍需完善。",
     "images": [
       "https://s2.loli.net/2025/12/03/lN3kzVZOdAwom7P.png"
     ]
