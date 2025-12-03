@@ -51,7 +51,10 @@ function SocialLinks({ center = false }: { center?: boolean }) {
 
 export function Footer() {
   return (
-    <footer role="contentinfo" className="border-border border-t">
+    <footer
+      role="contentinfo"
+      className="border-border border-t sm:opacity-60 sm:hover:opacity-100"
+    >
       <div className="mx-auto w-full p-4 sm:p-6 lg:p-8">
         {/* 移动端布局 */}
         <div className="flex flex-col gap-4 text-sm sm:hidden">

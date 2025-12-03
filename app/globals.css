@@ -1,6 +1,7 @@
+@import './styles/animation.css';
+@import './styles/article.css';
 @import './styles/tailwind.css';
 @import './styles/vars.css';
-@import './styles/article.css';
 
 /* Root styles */
 :root {
@@ -10,7 +11,7 @@
 }
 
 html {
-  scroll-padding-top: 100px; /* 为 sticky header 和图片懒加载预留足够空间 */
+  scroll-padding-top: 8rem; /* 为 sticky header 和图片懒加载预留足够空间 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -200,59 +201,6 @@ body {
   select,
   textarea {
     font-size: 16px !important;
-  }
-}
-
-/* Anchor target highlight animation - blinks twice */
-:target {
-  animation: highlight-pulse 2s ease-in-out;
-  border-radius: var(--radius-sm);
-}
-
-@keyframes highlight-pulse {
-  0% {
-    background-color: transparent;
-  }
-  10% {
-    background-color: oklch(0.5 0 0 / 0.2);
-  }
-  30% {
-    background-color: transparent;
-  }
-  50% {
-    background-color: oklch(0.5 0 0 / 0.15);
-  }
-  70% {
-    background-color: transparent;
-  }
-  100% {
-    background-color: transparent;
-  }
-}
-
-/* Dark mode highlight */
-:root.dark :target {
-  animation: highlight-pulse-dark 1.6s ease-in-out;
-}
-
-@keyframes highlight-pulse-dark {
-  0% {
-    background-color: transparent;
-  }
-  10% {
-    background-color: oklch(0.7 0 0 / 0.2);
-  }
-  30% {
-    background-color: transparent;
-  }
-  50% {
-    background-color: oklch(0.7 0 0 / 0.15);
-  }
-  70% {
-    background-color: transparent;
-  }
-  100% {
-    background-color: transparent;
   }
 }
 

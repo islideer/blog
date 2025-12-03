@@ -13,7 +13,7 @@ export function SiteHeader() {
   return (
     <header
       role="banner"
-      className="border-border bg-bg-primary/80 sticky top-0 z-40 border-b backdrop-blur-sm"
+      className="group border-border bg-bg-primary/80 sticky top-0 z-40 border-b backdrop-blur-sm"
     >
       <div className="flex items-center justify-between px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
         <Link href="/" passHref className="no-underline">
@@ -27,7 +27,7 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <nav role="navigation" aria-label="主导航" className="flex items-center gap-1.5 sm:gap-4">
+        <nav role="navigation" aria-label="主导航" className="flex items-center gap-1.5 sm:gap-4 sm:opacity-60 sm:group-hover:opacity-100">
           <Link
             href="/posts"
             className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
