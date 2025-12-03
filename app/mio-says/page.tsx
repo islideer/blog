@@ -142,7 +142,7 @@ export default async function MioSaysPage() {
                             }
                             width={540}
                             height={304}
-                            className="w-full"
+                            className={`w-full ${mioSay.images?.length && mioSay.images?.length === 1 ? 'aspect-auto!' : 'aspect-video!'}`}
                             sizes="(max-width: 640px) 100vw, 50vw"
                             preload={shouldPriority}
                           />
