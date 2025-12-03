@@ -1,5 +1,10 @@
 [
   {
+    "id": "28",
+    "date": "2025-12-03T16:08:55+08:00",
+    "content": "接 [#16](#16)，以下类型解决了 [Omit](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys) 的在复杂 [联合类型](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) 下的局限性。\n\n- 通过 `K extends keyof T` 来确保 K 必须是 T 的键之一。\n- 通过 [分布式条件类型](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types) 来处理联合类型情况下的 T。\n- `DistributiveOmit<A | B, K>` 实际上等价于 `Omit<A, K> | Omit<B, K>`，而不是 `Omit<A | B, K>`。\n\n```ts\ntype DistributiveOmit<T, K extends keyof T> = T extends any ? Omit<T, K> : never;\n\ntype TypeBase = { name: string; };\ntype TypeA = TypeBase & { type: 'A' };\ntype TypeB = TypeBase & { type: 'B' };\n\ntype Result = DistributiveOmit<TypeA | TypeB, 'name'>;\n// Result => { type: 'A' } | { type: 'B' }\n\ntype BrokenResult = Omit<TypeA | TypeB, 'name'>;\n// BrokenResult => { type: 'A' | 'B' }\n```"
+  },
+  {
     "id": "27",
     "date": "2025-12-03T15:35:14+08:00",
     "content": "通过 Mac 系统内置的「音频 MIDI 设置」APP，可以添加并配置「多输出设备」，实现同时输出到多个音频设备的效果。如果你家里有多台音响设备，就可以营造更好的环绕声效果。或者如果你有对象，可以同时输出到两台蓝牙耳机，方便一起听音乐或看电影。",
