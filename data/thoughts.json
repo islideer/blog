@@ -1,5 +1,10 @@
 [
   {
+    "id": "37",
+    "date": "2025-12-04T16:24:58+08:00",
+    "content": "发现了一个挺有想法的浏览器插件 [Ad Break](https://chromewebstore.google.com/detail/ad-break/mopgmfkfbapimnldmcpghiinjcmkiecf)。正如其名称一样，它用小游戏来覆盖广告界面让用户玩游戏休息一下（Break），不仅能够低成本地解决「广告越来越难屏蔽」的问题，还不影响作者的广告收益，最终减少了用户的广告厌恶感，算是一个双赢的方案。同时，它也保留了时间进度和跳过广告的功能，如果用户不想玩游戏也可以仅显示空白界面。"
+  },
+  {
     "id": "36",
     "date": "2025-12-04T15:29:10+08:00",
     "content": "原来 JavaScript 还支持这种语法，真第一次见... 参考 [Static initialization blocks](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)（静态初始化块）。\n\n```ts\nclass AppConfig {\n  static platform;\n  static config;\n  static {\n    this.platform = typeof window === 'undefined' ? 'server': 'client';\n    try {\n      this.config = JSON.parse(localStorage.getItem('config'));\n    } catch {\n      this.config = {};\n    }\n  }\n}\n```"
