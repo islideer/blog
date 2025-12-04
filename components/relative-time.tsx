@@ -1,8 +1,8 @@
 'use client'
 
 import { dayjs } from '@/lib/dayjs'
-import { useState } from 'react'
-import { useIntervalFn } from '@shined/react-use'
+import { useState, useSyncExternalStore } from 'react'
+import { useIntervalFn, useUpdateEffect } from '@shined/react-use'
 // import { useSyncExternalStore } from 'react'
 
 interface RelativeTimeProps {
@@ -11,22 +11,22 @@ interface RelativeTimeProps {
   style?: React.CSSProperties
 }
 
-// function subscribe() {
-//   return () => {}
-// }
+function subscribe() {
+  return () => {}
+}
 
-// function getSnapshot() {
-//   return true
-// }
+function getSnapshot() {
+  return true
+}
 
-// function getServerSnapshot() {
-//   return false
-// }
+function getServerSnapshot() {
+  return false
+}
 
-// // 检测是否在客户端
-// function useIsClient() {
-//   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
-// }
+// 检测是否在客户端
+function useIsClient() {
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
+}
 
 /**
  * 客户端时间显示组件
@@ -34,6 +34,7 @@ interface RelativeTimeProps {
  * 解决 SSR 缓存导致的时间显示问题
  */
 export function RelativeTime({ date, className, style }: RelativeTimeProps) {
+  const isClient = useIsClient()
   const dateObj = dayjs(date).tz('Asia/Shanghai')
   const isSameYear = dayjs().isSame(dateObj, 'year')
   const fullFormatted = dateObj.format('YYYY-MM-DD HH:mm ddd')
@@ -43,14 +44,13 @@ export function RelativeTime({ date, className, style }: RelativeTimeProps) {
 
   const [fromNowStr, setFromNowStr] = useState(fromNow.match(/^\d+/) ? ` ${fromNow}` : fromNow)
 
-  useIntervalFn(
-    () => {
-      const newFromNow = dateObj.fromNow()
-      setFromNowStr(newFromNow.match(/^\d+/) ? ` ${newFromNow}` : newFromNow)
-    },
-    10_000,
-    { immediateCallback: true },
-  )
+  const updateTime = () => {
+    const newFromNow = dateObj.fromNow()
+    setFromNowStr(newFromNow.match(/^\d+/) ? ` ${newFromNow}` : newFromNow)
+  }
+
+  useIntervalFn(updateTime, 10_000)
+  useUpdateEffect(updateTime, [isClient])
 
   const displayContent = isOldPost ? (
     formatted
