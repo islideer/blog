@@ -17,6 +17,9 @@ importers:
       '@shikijs/rehype':
         specifier: ^3.19.0
         version: 3.19.0
+      '@shined/react-use':
+        specifier: ^1.13.1
+        version: 1.13.1(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
@@ -951,6 +954,26 @@ packages:
 
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
+
+  '@shined/react-use@1.13.1':
+    resolution: {integrity: sha512-6s9tmx7Y/c7UD0RnUHwV9lChxH4COP1imX8wiIdbV2MClQuT40+DYEJaEzFTIvs7Ze4TAhOGtgYVB+bPEeyCVg==}
+    peerDependencies:
+      '@types/react': '>= 16.8.0'
+      '@types/react-dom': '>= 16.8.0'
+      '@types/web-bluetooth': '*'
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+      '@types/web-bluetooth':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   '@shuding/opentype.js@1.4.0-beta.0':
     resolution: {integrity: sha512-3NgmNyH3l/Hv6EvsWJbsvpcpUba6R8IREQ83nH83cyakCw7uM1arZKNfHwv1Wz6jgqrF/j4x5ELvR6PnK9nTcA==}
@@ -4352,6 +4375,13 @@ snapshots:
       '@types/hast': 3.0.4
 
   '@shikijs/vscode-textmate@10.0.2': {}
+
+  '@shined/react-use@1.13.1(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)':
+    optionalDependencies:
+      '@types/react': 19.2.7
+      '@types/react-dom': 19.2.3(@types/react@19.2.7)
+      react: 19.2.1
+      react-dom: 19.2.1(react@19.2.1)
 
   '@shuding/opentype.js@1.4.0-beta.0':
     dependencies:

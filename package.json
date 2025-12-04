@@ -20,6 +20,7 @@
     "@next/third-parties": "^16.0.7",
     "@octokit/rest": "^22.0.1",
     "@shikijs/rehype": "^3.19.0",
+    "@shined/react-use": "^1.13.1",
     "@types/hast": "^3.0.4",
     "@vercel/analytics": "^1.6.1",
     "@vercel/og": "^0.8.5",

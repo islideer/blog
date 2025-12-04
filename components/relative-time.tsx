@@ -1,6 +1,8 @@
 'use client'
 
 import { dayjs } from '@/lib/dayjs'
+import { useState } from 'react'
+import { useIntervalFn } from '@shined/react-use'
 // import { useSyncExternalStore } from 'react'
 
 interface RelativeTimeProps {
@@ -37,9 +39,14 @@ export function RelativeTime({ date, className, style }: RelativeTimeProps) {
   const fullFormatted = dateObj.format('YYYY-MM-DD HH:mm ddd')
   const formatted = isSameYear ? dateObj.format('MM-DD HH:mm ddd') : fullFormatted
   const isOldPost = dayjs().diff(dateObj, 'year') >= 1
-
   const fromNow = dateObj.fromNow()
-  const fromNowStr = fromNow.match(/^\d+/) ? ` ${fromNow}` : fromNow
+
+  const [fromNowStr, setFromNowStr] = useState(fromNow.match(/^\d+/) ? ` ${fromNow}` : fromNow)
+
+  useIntervalFn(() => {
+    const newFromNow = dateObj.fromNow()
+    setFromNowStr(newFromNow.match(/^\d+/) ? ` ${newFromNow}` : newFromNow)
+  }, 10_000)
 
   const displayContent = isOldPost ? (
     formatted
