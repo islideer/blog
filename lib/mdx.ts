@@ -5,6 +5,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
+import remarkSpoiler from './remark-spoiler'
 
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
 
@@ -15,6 +16,8 @@ export const mdxOptions: MDXRemoteProps['options'] = {
     remarkPlugins: [
       // 添加 GFM 支持（表格、删除线、任务列表等）
       remarkGfm,
+      // 添加剧透语法支持 ||text||
+      remarkSpoiler,
     ],
     rehypePlugins: [
       // 添加 rehype-raw 来处理原始 HTML

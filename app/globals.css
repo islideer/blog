@@ -204,6 +204,53 @@ body {
   }
 }
 
+/* ============================================
+   Global Spoiler Styles - ||spoiler text||
+   Works both inside and outside .prose
+   ============================================ */
+
+/* Default (hidden) state */
+.spoiler {
+  /* 背景色条效果 */
+  background-color: var(--color-text-primary);
+  /* 文字颜色与背景相同，实现隐藏效果 */
+  color: transparent;
+  /* 圆角 */
+  border-radius: 2px;
+  /* 内边距让背景更明显 */
+  padding: 0.1em 0.3em;
+  /* 平滑过渡 */
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  /* 阻止文本选择（防止通过选中看到内容） */
+  user-select: none;
+  /* 光标提示 */
+  cursor: pointer;
+}
+
+/* Hover state - reveal content */
+.spoiler:hover,
+.spoiler:focus {
+  /* 悬浮时显示半透明背景 */
+  background-color: var(--color-bg-tertiary);
+  /* 显示正常文本颜色 */
+  color: var(--color-text-primary);
+  /* 允许选择文本 */
+  user-select: text;
+}
+
+/* 暗色模式下的调整 */
+html.dark .spoiler {
+  background-color: var(--color-text-secondary);
+}
+
+html.dark .spoiler:hover,
+html.dark .spoiler:focus {
+  background-color: var(--color-bg-quaternary);
+  color: var(--color-text-primary);
+}
+
 /* React Medium Image Zoom Styles */
 [data-rmiz-modal-overlay='visible'] {
   background-color: var(--color-bg-primary) !important;
