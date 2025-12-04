@@ -233,11 +233,11 @@ console.log('Hello World')
 
 | 字段      | 类型     | 必需 | 说明                            |
 | --------- | -------- | ---- | ------------------------------- |
-| `layout`  | string   | ✅   | 布局类型（通常为 `'post'`）     |
-| `title`   | string   | ✅   | 文章标题                        |
-| `date`    | string   | ✅   | 发布日期（YYYY-MM-DD）          |
-| `excerpt` | string   | ✅   | 文章摘要（用于 SEO 和列表展示） |
-| `tags`    | string[] | ❌   | 标签列表（可选）                |
+| `layout`  | string   | ✅    | 布局类型（通常为 `'post'`）     |
+| `title`   | string   | ✅    | 文章标题                        |
+| `date`    | string   | ✅    | 发布日期（YYYY-MM-DD）          |
+| `excerpt` | string   | ✅    | 文章摘要（用于 SEO 和列表展示） |
+| `tags`    | string[] | ❌    | 标签列表（可选）                |
 
 ---
 
@@ -340,13 +340,12 @@ export const siteConfig = {
 
 3. **示例对比**
 
-   ```typescript
-   // ❌ 错误
-   本文发布于 2025 年 1 月 1 日,距今已 100 天,请注意。
-
-   // ✅ 正确
-   本文发布于 2025 年 1 月 1 日，距今已 100 天，请注意。
-   ```
+```typescript
+// ❌ 错误
+本文发布于 2025 年 1 月 1 日,距今已 100 天,请注意。
+// ✅ 正确
+本文发布于 2025 年 1 月 1 日，距今已 100 天，请注意。
+```
 
 ### 文件命名
 

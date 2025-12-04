@@ -2,7 +2,7 @@
   {
     "id": "36",
     "date": "2025-12-04T15:29:10+08:00",
-    "content": "原来 JavaScript 还支持这种语法... 第一次见... 参考 [Static initialization blocks](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)（静态初始化块）。\n\n```ts\nclass AppConfig {\n  static config;\n  static platform;\n  \n  static {\n    this.platform = typeof window === 'undefined' ? 'server': 'client';\n\n    try {\n      this.config = JSON.parse(localStorage.getItem('config'));\n    } catch {\n      this.config = {};\n    }\n  }\n}\n```"
+    "content": "原来 JavaScript 还支持这种语法，真第一次见... 参考 [Static initialization blocks](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)（静态初始化块）。\n\n```ts\nclass AppConfig {\n  static platform;\n  static config;\n  static {\n    this.platform = typeof window === 'undefined' ? 'server': 'client';\n    try {\n      this.config = JSON.parse(localStorage.getItem('config'));\n    } catch {\n      this.config = {};\n    }\n  }\n}\n```"
   },
   {
     "id": "35",
