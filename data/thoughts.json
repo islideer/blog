@@ -7,7 +7,10 @@
   {
     "id": "31",
     "date": "2025-12-04T08:05:50+08:00",
-    "content": "没想到 [React](https://react.dev/) 也整了个致命漏洞，还挺严重的。\n\n> React 19 版本正式引入的 [RSC](https://react.dev/reference/rsc/server-components) (React Server Component) 存在致命 RCE（Remote Code Execution，远程代码执行）[漏洞](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components#vulnerability-overviews)，评分 10.0。攻击者可在服务端执行任意危险代码，覆盖 19.0, 19.1, 19.2 等版本，影响了包括 [Next.js](https://nextjs.org/), [Waku](https://waku.gg/), [React Router](https://reactrouter.com/) 等在内的主流前端框架，只有「仅客户端应用」幸免。参考 [CVE-2025-55182](https://vercel.com/changelog/cve-2025-55182) 和 [React 官方公告](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)。"
+    "content": "没想到 [React](https://react.dev/) 也整了个致命漏洞，还挺严重的。\n\n> React 19 版本正式引入的 [RSC](https://react.dev/reference/rsc/server-components) (React Server Component) 存在致命 RCE（Remote Code Execution，远程代码执行）[漏洞](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components#vulnerability-overviews)，评分 10.0。攻击者可在服务端执行任意危险代码，覆盖 19.0, 19.1, 19.2 等版本，影响了包括 [Next.js](https://nextjs.org/), [Waku](https://waku.gg/), [React Router](https://reactrouter.com/) 等在内的主流前端框架，只有「仅客户端应用」幸免。参考 [CVE-2025-55182](https://vercel.com/changelog/cve-2025-55182) 和 [React 官方公告](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)。",
+    "images": [
+      "https://s2.loli.net/2025/12/04/zN7B3ZYhSeI6gQD.png"
+    ]
   },
   {
     "id": "30",
