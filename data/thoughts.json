@@ -2,7 +2,7 @@
   {
     "id": "35",
     "date": "2025-12-04T14:47:30+08:00",
-    "content": "CSS 自定义属性 (CSS Custom Properties) 和 CSS 变量 (CSS Variables) 本质是同一个东西，只是叫法不同。通俗叫 CSS 变量，因为其用法类似于编程语言中的变量，强调的是它的功能，存储和复用值，类似编程语言中的变量概念。但在正式场合、技术文档中，一般叫 CSS 自定义属性，强调的是它在 CSS 中的本质，是一种特殊的属性（以 -- 开头）。"
+    "content": "CSS 自定义属性 (CSS Custom Properties) 和 CSS 变量 (CSS Variables) 本质是 [同一个东西](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/--*)，只是叫法不同。日常交流叫 CSS 变量，因为其用法类似于编程语言中的变量，强调的是它的功能，存储和复用值，类似编程语言中的变量概念。但在正式场合、技术文档中，一般叫 CSS 自定义属性，强调的是它在 CSS 中的本质，是一种特殊的属性（以 `--` 开头）。"
   },
   {
     "id": "34",
