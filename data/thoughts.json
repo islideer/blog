@@ -1,5 +1,10 @@
 [
   {
+    "id": "31",
+    "date": "2025-12-04T08:05:50+08:00",
+    "content": "[React Server Component](https://react.dev/reference/rsc/server-components) (RSC) 存在 [致命 RCE 漏洞](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)，评分 10.0，攻击者可在服务端执行任意危险代码，影响覆盖 19.0, 19.1, 19.2 版本，仅客户端程序不受影响。 参考 [#CVE-2025-55182](https://vercel.com/changelog/cve-2025-55182)。\n\n没想到 React 也整了个致命漏洞，还挺严重的。"
+  },
+  {
     "id": "30",
     "date": "2025-12-03T20:48:15+08:00",
     "content": "TC39 成员 [Marco Ippolito](https://github.com/marco-ippolito)最近分享了一篇 [将 TypeScript 带到 Node.js 的故事](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping)，挺有意思的。他最近正在推进 [--experimental-config-fileconfig](https://nodejs.org/api/cli.html#--experimental-config-fileconfig)。没想到的是，开源大神 [Anthony Fu](https://github.com/antfu) 竟然还 [赞助](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping#:~:text=Two%20hundred%20fifty%20from%20Anthony%20Fu) 了他。"
