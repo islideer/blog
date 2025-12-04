@@ -1,9 +1,8 @@
 'use client'
 
 import { dayjs } from '@/lib/dayjs'
-import { useState, useSyncExternalStore } from 'react'
-import { useIntervalFn, useUpdateEffect } from '@shined/react-use'
-// import { useSyncExternalStore } from 'react'
+import { useNow } from '@shined/react-use'
+import { useSyncExternalStore } from 'react'
 
 interface RelativeTimeProps {
   date: string
@@ -36,35 +35,29 @@ function useIsClient() {
 export function RelativeTime({ date, className, style }: RelativeTimeProps) {
   const isClient = useIsClient()
   const dateObj = dayjs(date).tz('Asia/Shanghai')
-  const isSameYear = dayjs().isSame(dateObj, 'year')
   const fullFormatted = dateObj.format('YYYY-MM-DD HH:mm ddd')
+
+  const now = useNow({ interval: 1000 })
+
+  const isSameYear = dayjs(now).isSame(dateObj, 'year')
   const formatted = isSameYear ? dateObj.format('MM-DD HH:mm ddd') : fullFormatted
-  const isOldPost = dayjs().diff(dateObj, 'year') >= 1
-  const fromNow = dateObj.fromNow()
-
-  const [fromNowStr, setFromNowStr] = useState(fromNow.match(/^\d+/) ? ` ${fromNow}` : fromNow)
-
-  const updateTime = () => {
-    const newFromNow = dateObj.fromNow()
-    setFromNowStr(newFromNow.match(/^\d+/) ? ` ${newFromNow}` : newFromNow)
-  }
-
-  useIntervalFn(updateTime, 10_000)
-  useUpdateEffect(updateTime, [isClient])
-
-  const displayContent = isOldPost ? (
-    formatted
-  ) : (
-    <span className="inline-flex items-center gap-2" suppressHydrationWarning>
-      发布于{fromNowStr}
-      <span>·</span>
-      {formatted}
-    </span>
-  )
+  const isOldPost = dayjs(now).diff(dateObj, 'year') >= 1
+  const fromNow = dateObj.from(now)
+  const fromNowStr = fromNow.match(/^\d/) ? ` ${fromNow}` : fromNow
 
   return (
     <time className={className} dateTime={date} style={style} title={fullFormatted}>
-      {displayContent}
+      <span className="inline-flex items-center gap-2" suppressHydrationWarning>
+        {isClient && !isOldPost ? (
+          <>
+            {`发布于${fromNowStr}`}
+            <span>·</span>
+            {formatted}
+          </>
+        ) : (
+          `发布于${formatted}`
+        )}
+      </span>
     </time>
   )
 }
