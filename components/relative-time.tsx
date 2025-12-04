@@ -43,10 +43,14 @@ export function RelativeTime({ date, className, style }: RelativeTimeProps) {
 
   const [fromNowStr, setFromNowStr] = useState(fromNow.match(/^\d+/) ? ` ${fromNow}` : fromNow)
 
-  useIntervalFn(() => {
-    const newFromNow = dateObj.fromNow()
-    setFromNowStr(newFromNow.match(/^\d+/) ? ` ${newFromNow}` : newFromNow)
-  }, 10_000)
+  useIntervalFn(
+    () => {
+      const newFromNow = dateObj.fromNow()
+      setFromNowStr(newFromNow.match(/^\d+/) ? ` ${newFromNow}` : newFromNow)
+    },
+    10_000,
+    { immediateCallback: true },
+  )
 
   const displayContent = isOldPost ? (
     formatted
