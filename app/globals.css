@@ -212,17 +212,13 @@ body {
 /* Default (hidden) state */
 .spoiler {
   /* 背景色条效果 */
-  background-color: var(--color-text-primary);
+  background-color: var(--color-text-secondary);
   /* 文字颜色与背景相同，实现隐藏效果 */
   color: transparent;
   /* 圆角 */
   border-radius: 2px;
   /* 内边距让背景更明显 */
   padding: 0.1em 0.3em;
-  /* 平滑过渡 */
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
   /* 阻止文本选择（防止通过选中看到内容） */
   user-select: none;
   /* 光标提示 */
