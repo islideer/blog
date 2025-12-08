@@ -9,7 +9,6 @@ tags:
   - '前端开发'
   - '项目实战'
 top_image: 'https://s2.loli.net/2025/12/08/4arLDptGVYHuwc3.png'
-draft: true
 ---
 
 [Counter-Strike 2](https://www.counter-strike.net/)（反恐精英 2，也称 CS2） 是由 Valve 开发并发行的一款在线射击游戏，是 Counter-Strike: Global Offensive（反恐精英：全球攻势，也称 CSGO）的续作。CS2 采用全新的起源 2（Source2）引擎开发，不仅推出了新式烟雾弹和子刷新频率构架等更新，游戏的画质也得到了大幅升级、地图也翻新制作，是 [Steam 上最热门的游戏](https://store.steampowered.com/charts/mostplayed)。
