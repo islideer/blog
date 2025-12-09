@@ -1,5 +1,10 @@
 [
   {
+    "id": "43",
+    "date": "2025-12-09T20:28:22+08:00",
+    "content": "[Zig](https://ziglang.org/) 项目（Bun 的主要开发语言）因 GitHub 工程衰退和 CI 系统崩溃而将代码仓库 [迁移至 Codeberg](https://ziglang.org/news/migrating-from-github-to-codeberg/)，建议捐赠者转向 Every.org。"
+  },
+  {
     "id": "42",
     "date": "2025-12-09T20:09:53+08:00",
     "content": "最近在 npm 生态链中传播的 [Shai-Hulud 2.0 蠕虫病毒](https://securitylabs.datadoghq.com/articles/shai-hulud-2.0-npm-worm/#overview-of-an-npm-worm) 的攻击步骤。",
