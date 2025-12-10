@@ -271,7 +271,7 @@ html.dark .spoiler:focus {
 .image-wrapper {
   &::before,
   img {
-    grid-area: 1/ 1;
+    grid-area: 1/1;
   }
 
   &::before {
