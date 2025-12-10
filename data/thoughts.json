@@ -1,5 +1,10 @@
 [
   {
+    "id": "47",
+    "date": "2025-12-10T08:46:51+08:00",
+    "content": "当子元素滚动到边缘时继续滚动，这个时候父元素的滚动行为可以通过 CSS 属性 [overscroll-behavior](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/overscroll-behavior) 来控制，即：浏览器在到达滚动区域边界时的行为。这种滚动行为的默认链式表现，也叫 [滚动链](https://developer.mozilla.org/zh-CN/docs/Glossary/Scroll_chaining)。"
+  },
+  {
     "id": "46",
     "date": "2025-12-10T08:20:27+08:00",
     "content": "[depx.co](https://depx.co/badge) 这个服务可以让你生成指定 npm 包的依赖数的 Badge 图，适合大小敏感、关心依赖数的项目展示在 README 里。比如下面这个 Badge 展示了 Vue 依赖数。\n\n[![dependencies](https://depx.co/api/badge/vue)](https://depx.co/pkg/vue)"
