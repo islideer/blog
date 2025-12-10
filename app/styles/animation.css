@@ -1,12 +1,11 @@
 /* Anchor target highlight animation - blinks twice */
 :target {
-  animation: highlight-pulse 2s ease-in-out;
-  border-radius: var(--radius-md);
+  animation: highlight-pulse 3s ease-in-out;
 }
 
 /* Dark mode highlight */
-:root.dark :target {
-  animation: highlight-pulse-dark 2s ease-in-out;
+.dark :target {
+  animation: highlight-pulse-dark 3s ease-in-out;
 }
 
 @keyframes highlight-pulse {

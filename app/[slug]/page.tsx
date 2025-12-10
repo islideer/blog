@@ -14,7 +14,7 @@ import { OldPostBanner } from '@/components/old-post-banner'
 import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
 import { RecommendedPosts } from '@/components/recommended-posts'
-import { ZoomImage } from '@/components/zoom-image'
+import { ZoomImageForArticle } from '@/components/zoom-image'
 
 import type { Metadata } from 'next'
 
@@ -118,11 +118,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Top Image */}
           {post.topImage && (
             <div className="-mx-4 mt-6 overflow-hidden sm:mx-0 sm:mt-8 sm:rounded-md">
-              <ZoomImage
+              <ZoomImageForArticle
                 src={post.topImage}
                 alt={post.title}
-                width={1200}
-                height={630}
                 className="h-auto w-full"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
@@ -133,7 +131,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         {/* Article Content */}
         <div className="prose">
-          <MDXRemote source={post.content} options={mdxOptions} components={{ img: ZoomImage }} />
+          <MDXRemote
+            source={post.content}
+            options={mdxOptions}
+            components={{ img: ZoomImageForArticle }}
+          />
         </div>
 
         {/* Article End */}
