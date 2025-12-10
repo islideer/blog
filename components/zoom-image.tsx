@@ -24,17 +24,17 @@ export function ZoomImage(props: typeof Image extends React.ComponentType<infer 
 
   return (
     <Zoom zoomMargin={zoomMargin}>
-      <div style={{ background: `url('${props.src}') 50% / cover` }} className="flex rounded-md">
+      <div
+        style={{ background: `url('${props.src}') 50% / cover` }}
+        className="image-wrapper grid rounded-md"
+      >
         <Image
           {...props}
           src={props.src}
           width={props.width ?? 800}
-          height={props.height ?? 600}
-          className={`h-auto w-full rounded-md ${props.className || ''}`}
+          height={props.height ?? 450}
+          className={`z-1 h-auto w-full rounded-md ${props.className || ''}`}
           alt={props.alt}
-          style={{
-            backdropFilter: 'blur(8px) brightness(0.8) contrast(0.7)',
-          }}
         />
       </div>
     </Zoom>
@@ -52,7 +52,7 @@ export function ZoomImageForArticle(
         {...props}
         src={props.src}
         width={props.width ?? 800}
-        height={props.height ?? 600}
+        height={props.height ?? 450}
         className={`h-auto w-full rounded-md ${props.className || ''}`}
         alt={props.alt}
       />

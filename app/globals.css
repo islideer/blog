@@ -266,3 +266,16 @@ html.dark .spoiler:focus {
   width: 100%;
   display: block;
 }
+
+/* image wrapper inside Zoom */
+.image-wrapper {
+  &::before,
+  img {
+    grid-area: 1/ 1;
+  }
+
+  &::before {
+    backdrop-filter: blur(8px) brightness(0.8) contrast(0.7);
+    content: '';
+  }
+}

@@ -35,7 +35,7 @@ export function LazyImage(props: ImageProps) {
     return () => observer.disconnect()
   }, [isVisible])
 
-  const imageClasses = `w-full aspect-4/3 object-contain ${className || ''}`
+  const imageClasses = `w-full aspect-video object-contain ${className || ''}`
 
   if (isVisible) {
     return (
@@ -54,7 +54,7 @@ export function LazyImage(props: ImageProps) {
   return (
     <div
       ref={containerRef}
-      className={`${className || ''} aspect-4/3 w-full animate-pulse bg-zinc-100 dark:bg-zinc-800`}
+      className={`${className || ''} aspect-video w-full animate-pulse bg-zinc-100 dark:bg-zinc-800`}
     />
   )
 }
