@@ -72,7 +72,7 @@ header > div > a {
 }
 
 /* External links with arrow icon */
-a[target='_blank']:not(.no-icon)::after {
+a[target='_blank']:not(.no-icon):not(:has(> img))::after {
   content: ' ↗';
   display: inline-block;
   /* text-decoration: inherit; */

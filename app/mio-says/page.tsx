@@ -85,7 +85,7 @@ export default async function MioSaysPage() {
               <article
                 key={mioSay.id}
                 id={mioSay.id}
-                className="space-y-2 pb-8"
+                className="space-y-2 pb-4 sm:pb-6"
                 style={{
                   borderBottom:
                     index < sortedMioSays.length - 1 ? `1px solid var(--color-mio-border)` : 'none',

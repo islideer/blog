@@ -68,7 +68,7 @@ export default async function ThoughtsPage() {
               <article
                 key={thought.id}
                 id={thought.id}
-                className="space-y-2 pb-8"
+                className="space-y-2 pb-4 sm:pb-6"
                 style={{
                   borderBottom:
                     index < sortedThoughts.length - 1
