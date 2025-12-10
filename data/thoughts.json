@@ -1,5 +1,10 @@
 [
   {
+    "id": "46",
+    "date": "2025-12-10T08:20:27+08:00",
+    "content": "[depx.co](https://depx.co/badge) 这个服务可以让你生成指定 npm 包的依赖数的 badge 图，适合大小敏感、关心依赖数的项目展示在 README 里。\n\n比如下图展示了 Vue 依赖数的 badge：\n\n[![dependencies](https://depx.co/api/badge/vue)](https://depx.co/pkg/vue)"
+  },
+  {
     "id": "45",
     "date": "2025-12-09T23:10:49+08:00",
     "content": "拭目以待。",
