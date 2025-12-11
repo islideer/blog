@@ -17,6 +17,12 @@
   ],
   "applications": [
     {
+      "name": "Major Winner",
+      "url": "https://github.com/vikiboss/major-winner",
+      "description": "各主播、职业选手、解说员的 CS2 Major 竞猜结果跟踪 & 排行一览",
+      "status": "active"
+    },
+    {
       "name": "Viki 写东西的地方",
       "url": "https://github.com/vikiboss/blog",
       "description": "你现在看到的这个博客。基于 Next.js 与 Tailwind CSS 构建。",
