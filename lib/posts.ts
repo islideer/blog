@@ -15,13 +15,12 @@ export interface PostMetadata {
   draft?: boolean
   top?: boolean
   topImage?: string
-  readingTime?: number
+  readingTime: number
 }
 
 export interface Post extends PostMetadata {
   content: string
 }
-
 
 /**
  * 递归获取目录下所有 .md 和 .mdx 文件的相对路径

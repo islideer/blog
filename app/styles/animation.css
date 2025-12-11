@@ -1,3 +1,12 @@
+/* View Transition animations */
+::view-transition-old(.transform) {
+  animation-duration: 300ms;
+}
+
+::view-transition-new(.transform) {
+  animation-duration: 300ms;
+}
+
 /* Anchor target highlight animation - blinks twice */
 :target {
   animation: highlight-pulse 2s ease-in-out;

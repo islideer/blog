@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@next/third-parties':
         specifier: ^16.0.7
-        version: 16.0.7(next@16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react@19.2.1)
+        version: 16.0.7(next@16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)
       '@octokit/rest':
         specifier: ^22.0.1
         version: 22.0.1
@@ -19,13 +19,13 @@ importers:
         version: 3.19.0
       '@shined/react-use':
         specifier: ^1.13.1
-        version: 1.13.1(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+        version: 1.13.1(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
       '@vercel/analytics':
         specifier: ^1.6.1
-        version: 1.6.1(next@16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react@19.2.1)
+        version: 1.6.1(next@16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)
       '@vercel/og':
         specifier: ^0.8.5
         version: 0.8.5
@@ -40,25 +40,25 @@ importers:
         version: 4.0.3
       next:
         specifier: ^16.0.7
-        version: 16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+        version: 16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)
       next-mdx-remote:
         specifier: ^5.0.0
-        version: 5.0.0(@types/react@19.2.7)(react@19.2.1)
+        version: 5.0.0(@types/react@19.2.7)(react@19.3.0-canary-d763f313-20251210)
       next-themes:
         specifier: ^0.4.6
-        version: 0.4.6(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+        version: 0.4.6(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)
       pangu:
         specifier: ^7.2.0
         version: 7.2.0
       react:
-        specifier: ^19.2.1
-        version: 19.2.1
+        specifier: 19.3.0-canary-d763f313-20251210
+        version: 19.3.0-canary-d763f313-20251210
       react-dom:
-        specifier: ^19.2.1
-        version: 19.2.1(react@19.2.1)
+        specifier: 19.3.0-canary-d763f313-20251210
+        version: 19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210)
       react-medium-image-zoom:
         specifier: ^5.4.0
-        version: 5.4.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+        version: 5.4.0(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)
       rehype-autolink-headings:
         specifier: ^7.1.0
         version: 7.1.0
@@ -95,7 +95,7 @@ importers:
         version: 3.1.1
       '@mdx-js/react':
         specifier: ^3.1.1
-        version: 3.1.1(@types/react@19.2.7)(react@19.2.1)
+        version: 3.1.1(@types/react@19.2.7)(react@19.3.0-canary-d763f313-20251210)
       '@next/bundle-analyzer':
         specifier: ^16.0.7
         version: 16.0.7
@@ -110,7 +110,7 @@ importers:
         version: 6.9.1
       '@testing-library/react':
         specifier: ^16.3.0
-        version: 16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+        version: 16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)
       '@types/mdast':
         specifier: ^4.0.4
         version: 4.0.4
@@ -2988,10 +2988,10 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  react-dom@19.2.1:
-    resolution: {integrity: sha512-ibrK8llX2a4eOskq1mXKu/TGZj9qzomO+sNfO98M6d9zIPOEhlBkMkBUBLd1vgS0gQsLDBzA+8jJBVXDnfHmJg==}
+  react-dom@19.3.0-canary-d763f313-20251210:
+    resolution: {integrity: sha512-loJ3Y0TFRxwbNl+YA8ra1F0gDYIzJXXAVfe6hPwv8SKkV8eTWBP449oy5CqupcxjDy+4o730euIBTOZDTIQKvQ==}
     peerDependencies:
-      react: ^19.2.1
+      react: 19.3.0-canary-d763f313-20251210
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -3005,8 +3005,8 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  react@19.2.1:
-    resolution: {integrity: sha512-DGrYcCWK7tvYMnWh79yrPHt+vdx9tY+1gPZa7nJQtO/p8bLTDaHp4dzwEhQB7pZ4Xe3ok4XKuEPrVuc+wlpkmw==}
+  react@19.3.0-canary-d763f313-20251210:
+    resolution: {integrity: sha512-XOiCIlc4XiIkKMnnZ8O6Z7yX3Ou1/Ix5MEZG0rPduJPX6pqNZaY679pKlJVUHE4qyqPdYHuwECDerI+jkfeHAQ==}
     engines: {node: '>=0.10.0'}
 
   recma-build-jsx@1.0.0:
@@ -3141,8 +3141,8 @@ packages:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
     engines: {node: '>=v12.22.7'}
 
-  scheduler@0.27.0:
-    resolution: {integrity: sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==}
+  scheduler@0.28.0-canary-d763f313-20251210:
+    resolution: {integrity: sha512-Wvi6OlrTVL/PVxHeZmC+pjwfP68DC99Tsnq6jQiBozXlexKz+gcPtAAe6LhJvyS2A5U1TLBO4zxfJHkIKzxtEw==}
 
   section-matter@1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
@@ -4130,11 +4130,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/react@3.1.1(@types/react@19.2.7)(react@19.2.1)':
+  '@mdx-js/react@3.1.1(@types/react@19.2.7)(react@19.3.0-canary-d763f313-20251210)':
     dependencies:
       '@types/mdx': 2.0.13
       '@types/react': 19.2.7
-      react: 19.2.1
+      react: 19.3.0-canary-d763f313-20251210
 
   '@napi-rs/wasm-runtime@0.2.12':
     dependencies:
@@ -4180,10 +4180,10 @@ snapshots:
   '@next/swc-win32-x64-msvc@16.0.7':
     optional: true
 
-  '@next/third-parties@16.0.7(next@16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react@19.2.1)':
+  '@next/third-parties@16.0.7(next@16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)':
     dependencies:
-      next: 16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
-      react: 19.2.1
+      next: 16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)
+      react: 19.3.0-canary-d763f313-20251210
       third-party-capital: 1.0.20
 
   '@nodelib/fs.scandir@2.1.5':
@@ -4376,12 +4376,12 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@shined/react-use@1.13.1(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)':
+  '@shined/react-use@1.13.1(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)':
     optionalDependencies:
       '@types/react': 19.2.7
       '@types/react-dom': 19.2.3(@types/react@19.2.7)
-      react: 19.2.1
-      react-dom: 19.2.1(react@19.2.1)
+      react: 19.3.0-canary-d763f313-20251210
+      react-dom: 19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210)
 
   '@shuding/opentype.js@1.4.0-beta.0':
     dependencies:
@@ -4488,12 +4488,12 @@ snapshots:
       picocolors: 1.1.1
       redent: 3.0.0
 
-  '@testing-library/react@16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)':
+  '@testing-library/react@16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@testing-library/dom': 10.4.1
-      react: 19.2.1
-      react-dom: 19.2.1(react@19.2.1)
+      react: 19.3.0-canary-d763f313-20251210
+      react-dom: 19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210)
     optionalDependencies:
       '@types/react': 19.2.7
       '@types/react-dom': 19.2.3(@types/react@19.2.7)
@@ -4707,10 +4707,10 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.11.1':
     optional: true
 
-  '@vercel/analytics@1.6.1(next@16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react@19.2.1)':
+  '@vercel/analytics@1.6.1(next@16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)':
     optionalDependencies:
-      next: 16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
-      react: 19.2.1
+      next: 16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210)
+      react: 19.3.0-canary-d763f313-20251210
 
   '@vercel/og@0.8.5':
     dependencies:
@@ -6620,12 +6620,12 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-mdx-remote@5.0.0(@types/react@19.2.7)(react@19.2.1):
+  next-mdx-remote@5.0.0(@types/react@19.2.7)(react@19.3.0-canary-d763f313-20251210):
     dependencies:
       '@babel/code-frame': 7.27.1
       '@mdx-js/mdx': 3.1.1
-      '@mdx-js/react': 3.1.1(@types/react@19.2.7)(react@19.2.1)
-      react: 19.2.1
+      '@mdx-js/react': 3.1.1(@types/react@19.2.7)(react@19.3.0-canary-d763f313-20251210)
+      react: 19.3.0-canary-d763f313-20251210
       unist-util-remove: 3.1.1
       vfile: 6.0.3
       vfile-matter: 5.0.1
@@ -6633,20 +6633,20 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  next-themes@0.4.6(react-dom@19.2.1(react@19.2.1))(react@19.2.1):
+  next-themes@0.4.6(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210):
     dependencies:
-      react: 19.2.1
-      react-dom: 19.2.1(react@19.2.1)
+      react: 19.3.0-canary-d763f313-20251210
+      react-dom: 19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210)
 
-  next@16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1):
+  next@16.0.7(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210):
     dependencies:
       '@next/env': 16.0.7
       '@swc/helpers': 0.5.15
       caniuse-lite: 1.0.30001759
       postcss: 8.4.31
-      react: 19.2.1
-      react-dom: 19.2.1(react@19.2.1)
-      styled-jsx: 5.1.6(@babel/core@7.28.5)(react@19.2.1)
+      react: 19.3.0-canary-d763f313-20251210
+      react-dom: 19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210)
+      styled-jsx: 5.1.6(@babel/core@7.28.5)(react@19.3.0-canary-d763f313-20251210)
     optionalDependencies:
       '@next/swc-darwin-arm64': 16.0.7
       '@next/swc-darwin-x64': 16.0.7
@@ -6835,21 +6835,21 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  react-dom@19.2.1(react@19.2.1):
+  react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210):
     dependencies:
-      react: 19.2.1
-      scheduler: 0.27.0
+      react: 19.3.0-canary-d763f313-20251210
+      scheduler: 0.28.0-canary-d763f313-20251210
 
   react-is@16.13.1: {}
 
   react-is@17.0.2: {}
 
-  react-medium-image-zoom@5.4.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1):
+  react-medium-image-zoom@5.4.0(react-dom@19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210))(react@19.3.0-canary-d763f313-20251210):
     dependencies:
-      react: 19.2.1
-      react-dom: 19.2.1(react@19.2.1)
+      react: 19.3.0-canary-d763f313-20251210
+      react-dom: 19.3.0-canary-d763f313-20251210(react@19.3.0-canary-d763f313-20251210)
 
-  react@19.2.1: {}
+  react@19.3.0-canary-d763f313-20251210: {}
 
   recma-build-jsx@1.0.0:
     dependencies:
@@ -7112,7 +7112,7 @@ snapshots:
     dependencies:
       xmlchars: 2.2.0
 
-  scheduler@0.27.0: {}
+  scheduler@0.28.0-canary-d763f313-20251210: {}
 
   section-matter@1.0.0:
     dependencies:
@@ -7324,10 +7324,10 @@ snapshots:
     dependencies:
       inline-style-parser: 0.2.7
 
-  styled-jsx@5.1.6(@babel/core@7.28.5)(react@19.2.1):
+  styled-jsx@5.1.6(@babel/core@7.28.5)(react@19.3.0-canary-d763f313-20251210):
     dependencies:
       client-only: 0.0.1
-      react: 19.2.1
+      react: 19.3.0-canary-d763f313-20251210
     optionalDependencies:
       '@babel/core': 7.28.5
 

@@ -1,3 +1,5 @@
+import { ViewTransition } from 'react'
+
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
@@ -47,8 +49,7 @@ export default async function BlogPage() {
           <div className="py-12 text-center">
             <p className="text-text-secondary mb-4 text-xl">暂无文章</p>
             <p className="text-text-tertiary">
-              请在 <code>posts</code> 目录添加
-              Markdown 文件
+              请在 <code>posts</code> 目录添加 Markdown 文件
             </p>
           </div>
         ) : (
@@ -72,18 +73,23 @@ export default async function BlogPage() {
                               {post.draft && <DraftBadge />}
                             </div>
                           )}
-                          <h2 className="text-text-primary flex-1 text-base leading-snug font-medium group-hover:underline sm:text-lg md:text-xl">
-                            {post.title}
-                          </h2>
+                          <ViewTransition name={`post-title-${post.slug}`} default="transform">
+                            <h2 className="text-text-primary flex-1 text-base leading-snug font-medium group-hover:underline sm:text-lg md:text-xl">
+                              {post.title}
+                            </h2>
+                          </ViewTransition>
                         </div>
                         <div className="text-text-tertiary flex shrink-0 items-baseline gap-1.5 text-sm">
-                          <PostDate date={post.date} format="short" />
-                          {post.readingTime && (
-                            <>
-                              <span>·</span>
-                              <ReadingTime minutes={post.readingTime} />
-                            </>
-                          )}
+                          <ViewTransition name={`post-date-${post.slug}`} default="transform">
+                            <PostDate date={post.date} format="short" />
+                          </ViewTransition>
+                          <span>·</span>
+                          <ViewTransition
+                            name={`post-reading-time-${post.slug}`}
+                            default="transform"
+                          >
+                            <ReadingTime minutes={post.readingTime} />
+                          </ViewTransition>
                         </div>
                       </div>
                       {post.excerpt && (

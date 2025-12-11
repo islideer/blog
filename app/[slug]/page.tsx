@@ -1,3 +1,5 @@
+import { ViewTransition } from 'react'
+
 import { dayjs } from '@/lib/dayjs'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -89,9 +91,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Article Header */}
         <header className="mb-8 space-y-4 sm:mb-12 sm:space-y-6">
           <div className="space-y-3">
-            <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-4xl md:text-5xl">
-              {post.title}
-            </h1>
+            <ViewTransition name={`post-title-${post.slug}`} default="transform">
+              <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-4xl md:text-5xl">
+                {post.title}
+              </h1>
+            </ViewTransition>
             {post.draft && (
               <div className="inline-flex items-center gap-2">
                 <DraftBadge />
@@ -102,20 +106,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             )}
           </div>
 
-          <div className="text-text-tertiary flex items-baseline gap-1 sm:gap-2 overflow-x-auto text-xs sm:text-sm">
-            <time dateTime={post.date} className="shrink-0">
-              {dayjs(post.date).year() === dayjs().year()
-                ? dayjs(post.date).format('M 月 D 日')
-                : dayjs(post.date).format('YYYY 年 M 月 D 日')}
-            </time>
-            {post.readingTime && (
-              <>
-                <span className="shrink-0">·</span>
-                <span className="shrink-0">
-                  <ReadingTime minutes={post.readingTime} />
-                </span>
-              </>
-            )}
+          <div className="text-text-tertiary flex items-baseline gap-1 overflow-x-auto text-xs sm:gap-2 sm:text-sm">
+            <ViewTransition name={`post-date-${post.slug}`} default="transform">
+              <time dateTime={post.date} className="shrink-0">
+                {dayjs(post.date).year() === dayjs().year()
+                  ? dayjs(post.date).format('M 月 D 日')
+                  : dayjs(post.date).format('YYYY 年 M 月 D 日')}
+              </time>
+            </ViewTransition>
+
+            <span className="shrink-0">·</span>
+            <span className="shrink-0">
+              <ViewTransition name={`post-reading-time-${post.slug}`} default="transform">
+                <ReadingTime minutes={post.readingTime} />
+              </ViewTransition>
+            </span>
+
             <span className="shrink-0">·</span>
             <span className="shrink-0">{wordCount.toLocaleString('zh-CN')} 字</span>
             <OldPostBanner date={post.date} />
