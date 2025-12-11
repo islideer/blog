@@ -1,18 +1,36 @@
 {
   "libraries": [
     {
-      "name": "React Use",
+      "name": "smee-it",
+      "url": "https://github.com/vikiboss/smee-it",
+      "description": "A lightweight smee.io client for receiving webhooks locally via SSE.",
+      "status": "active"
+    },
+    {
+      "name": "miovo",
+      "url": "https://github.com/vikiboss/miovo",
+      "description": "Type-safe, dependency-free, modern utility library for JavaScript and TypeScript",
+      "status": "active"
+    },
+    {
+      "name": "@shined/react-use",
       "url": "https://github.com/sheinsight/react-use",
       "description": "SSR 友好的 React Hooks 库",
       "status": "active",
       "homepage": "https://sheinsight.github.io/react-use/"
     },
     {
-      "name": "Reactive",
+      "name": "@shined/reactive",
       "url": "https://github.com/sheinsight/reactive",
       "description": "JavaScript 响应式状态管理库",
       "status": "active",
       "homepage": "https://sheinsight.github.io/reactive/"
+    },
+    {
+      "name": "KiviBot",
+      "url": "https://npm.im/kivibot",
+      "description": "基于 OICQ 和 ICQQ 的 QQ 机器人框架（已闭源）",
+      "status": "archived"
     }
   ],
   "applications": [
@@ -32,16 +50,9 @@
     {
       "name": "Stardust（星尘）",
       "url": "https://github.com/vikiboss/stardust",
-      "description": "写给 VRChat 玩家的 PC 端小工具（WIP），VRC 已半弃坑"
+      "description": "写给 VRChat 玩家的 PC 端小工具（WIP），VRC 已半弃坑",
+      "status": "active"
     },
-    {
-      "name": "原神助手",
-      "url": "https://github.com/vikiboss/gs-helper",
-      "description": "写给原神玩家的 PC 端小工具，再也不用拿出手机打开米游社啦",
-      "status": "archived"
-    }
-  ],
-  "tools": [
     {
       "name": "React Online",
       "url": "https://github.com/vikiboss/react-online",
@@ -55,6 +66,32 @@
       "description": "多合一吉他工具：调音、和弦、节奏（WIP）",
       "status": "active",
       "homepage": "https://guitar.viki.moe/"
+    },
+    {
+      "name": "Chat One",
+      "url": "https://github.com/vikiboss/chat-one",
+      "description": "All-in-one OneBot (V11, Forward WS) Chat Platform. For KiviBot.",
+      "status": "active",
+      "homepage": "https://chat-one.viki.moe/"
+    },
+    {
+      "name": "原神助手",
+      "url": "https://github.com/vikiboss/gs-helper",
+      "description": "写给原神玩家的 PC 端小工具，再也不用拿出手机打开米游社啦",
+      "status": "archived"
+    },
+    {
+      "name": "听雨",
+      "url": "https://github.com/vikiboss/ting",
+      "description": "静下来，专注一会 / Slow down and focus for a while.",
+      "homepage": "https://ting.viki.moe/",
+      "status": "active"
+    },
+    {
+      "name": "aiueo",
+      "url": "https://github.com/vikiboss/aiueo",
+      "description": "用来给日语初学者练习假名（五十音）的 Python 小应用",
+      "status": "active"
     }
   ],
   "services": [
@@ -89,6 +126,18 @@
     }
   ],
   "scripts": [
+    {
+      "name": "booth-price-cny",
+      "url": "https://github.com/vikiboss/booth-price-cny",
+      "description": "显示 booth.pm 上日元价格对应的人民币价格",
+      "status": "active"
+    },
+    {
+      "name": "star-rail-gacha-export",
+      "url": "https://github.com/vikiboss/star-rail-gacha-export",
+      "description": "「崩坏：星穹铁道」跃迁记录导出脚本，导出的 JSON 格式符合 SRGF v1.0 规范。",
+      "status": "archived"
+    },
     {
       "name": "ncu-auto-login-script",
       "url": "https://github.com/vikiboss/ncu-auto-login-script",
