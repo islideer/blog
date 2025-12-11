@@ -33,13 +33,7 @@ Major 竞猜凭借着它 3000 万+ 月活的庞大玩家群体基础，和它本
 
 我选用了 [Next.js](https://nextjs.org/) 作为项目框架，花了几天和 [Claude Code](https://www.claude.com/product/claude-code) 斗智斗勇，又当产品又当设计还修 bug，然后手动识别和填充了十几位主播的竞猜数据，终于取得了阶段性进展，目前已经可用并上线了。
 
-![major-winner-1](https://s2.loli.net/2025/12/08/6i9RlOunH1aTXxD.png)
-
-![major-winner-2](https://s2.loli.net/2025/12/08/oFCU3khv98xHyzK.png)
-
-![major-winner-3](https://s2.loli.net/2025/12/08/HONU81gZdynYiLP.png)
-
-![major-winner-4](https://s2.loli.net/2025/12/08/lqfYCO3peayLS6B.png)
+![major-winner](https://s2.loli.net/2025/12/11/c567EkBWbfYV9Xm.png)
 
 目前支持的功能包括：比赛进度展示、主播竞猜排行、主播阶段作业查询、队伍晋级情况等。功能还比较基础，但已经能大幅提升参考和跟踪 Major 竞猜进度的效率。如果后续有时间和精力，我还会继续完善更多功能。
 
