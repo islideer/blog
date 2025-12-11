@@ -270,7 +270,7 @@ html.dark .spoiler:focus {
 /* image wrapper inside Zoom */
 .image-wrapper {
   display: grid;
-  /* background: var(--bg); */
+  /* background: var(--bg) 50% / cover; */
 
   &::before,
   img {

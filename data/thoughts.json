@@ -7,9 +7,9 @@
   {
     "id": "50",
     "date": "2025-12-10T17:17:42+08:00",
-    "content": "几行 CSS 实现的带有模糊背景的固定比例图片效果。目前已经应用到「碎碎念」和「Mio 说」板块的图片元素，这是为了统一图片高度防止加载过程中的布局抖动而采取的一种妥协方案。\n\n```tsx\nexport function App() {\n  return (\n    <div style={{ display: \"flex\", flexWrap: 'wrap', gap: 12 }}>\n      {images.map((url, index) => (\n        <div\n          key={url}\n          style={{\n            display: \"flex\",\n            width: \"min(100%, 20em)\",\n            background: `url('${url}') 50% / cover`\n          }}\n        >\n          <img\n            src={url}\n            alt={`image ${index}`}\n            style={{\n              width: \"100%\",\n              aspectRatio: 16 / 9,\n              objectFit: \"contain\",\n              backdropFilter: \"blur(8px) brightness(0.8) contrast(0.7)\"\n            }}\n          />\n        </div>\n      ))}\n    </div>\n  );\n}\n```",
+    "content": "几行 CSS 实现的带有模糊背景的固定比例图片效果，核心代码如下。目前已经应用到「碎碎念」和「Mio 说」板块的图片元素，这是为了统一图片高度防止加载过程中的布局抖动而采取的一种妥协方案。\n\n```css\n.image-wrapper {\n  display: grid;\n  /* background: var(--bg) 50% / cover; */\n\n  &::before,\n  img {\n    z-index: 1;\n    grid-area: 1/1;\n    aspect-ratio: 16 / 9;\n    object-fit: contain;\n  }\n\n  &::before {\n    backdrop-filter: blur(8px) brightness(0.8) contrast(0.7);\n    content: '';\n  }\n}\n```",
     "images": [
-      "https://s2.loli.net/2025/12/10/hgtpdbYBfkz3sw7.png"
+      "https://s2.loli.net/2025/12/11/XRi7YNxwqPTvE6Z.png"
     ]
   },
   {
