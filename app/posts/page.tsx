@@ -4,9 +4,10 @@ import { PostDate } from '@/components/post-date'
 import { siteConfig } from '@/lib/config'
 import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
-import { getAllPosts } from '@/lib/posts'
+import { getAllPosts, getAllPostsWithContent } from '@/lib/posts'
 import { pagesData } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
+import { countWords } from '@/lib/word-count'
 
 import type { Metadata } from 'next'
 
@@ -44,8 +45,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PostsPage() {
   const allPosts = await getAllPosts()
+  const allPostsWithContent = await getAllPostsWithContent()
   const pinnedPosts = allPosts.filter((post) => post.top)
   const posts = allPosts.filter((post) => !post.top)
+
+  // 计算总字数
+  const totalWords = allPostsWithContent.reduce((sum, post) => {
+    return sum + countWords(post.content)
+  }, 0)
 
   // 按年份分组
   const postsByYear = Object.groupBy(posts, (post) => dayjs(post.date).year())
@@ -78,7 +85,7 @@ export default async function PostsPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">{pagesData.posts.title}</h1>
         <p className="text-text-secondary">
-          技术文章与生活随笔，共 {allPosts.length.toLocaleString('zh-CN')} 篇，按年份分组展示。
+          {`技术文章与生活随笔，共 ${allPosts.length.toLocaleString('zh-CN')} 篇，累计 ${totalWords.toLocaleString('zh-CN')} 字，按年份分组展示。`}
         </p>
       </section>
 

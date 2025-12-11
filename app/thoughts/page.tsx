@@ -6,6 +6,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { mdxOptionsWithBreaks } from '@/lib/mdx'
 import { pagesData } from '@/lib/config'
 import { RelativeTime } from '@/components/relative-time'
+import { countWords } from '@/lib/word-count'
 
 import type { Metadata } from 'next'
 
@@ -45,13 +46,17 @@ export default async function ThoughtsPage() {
   // 按日期从新到旧排序
   const sortedThoughts = thoughts.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 
+  const totalWords = sortedThoughts.reduce((sum, thought) => {
+    return sum + (thought.content ? countWords(thought.content) : 0)
+  }, 0)
+
   return (
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">碎碎念</h1>
         <p className="text-text-secondary">
-          {`Viki 的碎碎念小角落，记录生活中的点滴想法和言论，共 ${sortedThoughts.length.toLocaleString('zh-CN')} 条内容。`}
+          {`Viki 的碎碎念小角落，记录生活中的点滴想法和言论，共 ${sortedThoughts.length.toLocaleString('zh-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-CN')} 字。`}
         </p>
       </section>
 

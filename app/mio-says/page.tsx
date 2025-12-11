@@ -7,6 +7,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { mdxOptionsWithBreaks } from '@/lib/mdx'
 import { pagesData } from '@/lib/config'
 import { RelativeTime } from '@/components/relative-time'
+import { countWords } from '@/lib/word-count'
 
 import type { Metadata } from 'next'
 
@@ -46,6 +47,10 @@ export default async function MioSaysPage() {
   // 按日期从新到旧排序
   const sortedMioSays = mioSays.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 
+  const totalWords = sortedMioSays.reduce((sum, mioSay) => {
+    return sum + (mioSay.content ? countWords(mioSay.content) : 0)
+  }, 0)
+
   return (
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
@@ -55,7 +60,7 @@ export default async function MioSaysPage() {
             Mio 说
           </h1>
           <p className="text-text-secondary">
-            {`Mio 的专属发言空间，Viki 无编辑权限。共 ${sortedMioSays.length.toLocaleString('zh-CN')} 条内容。`}
+            {`Mio 的专属发言空间，Viki 无编辑权限。共 ${sortedMioSays.length.toLocaleString('zh-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-CN')} 字。`}
           </p>
         </div>
         <div className="shrink-0 self-end">

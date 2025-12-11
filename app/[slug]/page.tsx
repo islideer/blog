@@ -15,6 +15,7 @@ import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
 import { RecommendedPosts } from '@/components/recommended-posts'
 import { ZoomImageForArticle } from '@/components/zoom-image'
+import { countWords } from '@/lib/word-count'
 
 import type { Metadata } from 'next'
 
@@ -58,6 +59,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (!post) {
     notFound()
   }
+
+  // 计算文章字数
+  const wordCount = countWords(post.content)
 
   // 获取推荐文章：最新 3 篇 + 伪随机 2 篇
   const recommendedPosts = await getRecommendedPosts(slug, 5)
@@ -112,6 +116,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </span>
               </>
             )}
+            <span className="shrink-0">·</span>
+            <span className="shrink-0">{wordCount.toLocaleString('zh-CN')} 字</span>
             <OldPostBanner date={post.date} />
           </div>
 
