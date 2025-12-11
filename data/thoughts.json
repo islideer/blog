@@ -1,5 +1,10 @@
 [
   {
+    "id": "51",
+    "date": "2025-12-11T10:22:20+08:00",
+    "content": "使用原生 CSS 属性 [content-visibility: auto](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/content-visibility) 开启 [尺寸局限](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Containment) 并搭配 [contain-intrinsic-size](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/contain-intrinsic-size) 指定尺寸局限尺寸，可以大幅提升长页面渲染性能，被认为是传统虚拟滚动的现代化可选方案。一些区别:\n\n1. 它避免了大量的 JavaScript 计算和事件监听，性能开销比传统方案更低\n2. 它并非传统虚拟滚动，只是跳过不可见部分的渲染，依然存在于 DOM 结构和无障碍树中\n3. 正因为第二点，所以没渲染的部分仍然可以被 Ctrl + F 搜索到\n4. 它不仅针对列表，也适用于任何长页面内容，场景更加通用\n5. 它在 2024 年进入基线特性，整体来说兼容性不错，但仍有部分老旧浏览器不支持"
+  },
+  {
     "id": "50",
     "date": "2025-12-10T17:17:42+08:00",
     "content": "几行 CSS 实现的带有模糊背景的固定比例图片效果。目前已经应用到「碎碎念」和「Mio 说」板块的图片元素，这是为了统一图片高度防止加载过程中的布局抖动而采取的一种妥协方案。\n\n```tsx\nexport function App() {\n  return (\n    <div style={{ display: \"flex\", flexWrap: 'wrap', gap: 12 }}>\n      {images.map((url, index) => (\n        <div\n          key={url}\n          style={{\n            display: \"flex\",\n            width: \"min(100%, 20em)\",\n            background: `url('${url}') 50% / cover`\n          }}\n        >\n          <img\n            src={url}\n            alt={`image ${index}`}\n            style={{\n              width: \"100%\",\n              aspectRatio: 16 / 9,\n              objectFit: \"contain\",\n              backdropFilter: \"blur(8px) brightness(0.8) contrast(0.7)\"\n            }}\n          />\n        </div>\n      ))}\n    </div>\n  );\n}\n```",
