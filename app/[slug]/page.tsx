@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             )}
           </div>
 
-          <div className="text-text-tertiary flex items-baseline gap-2 overflow-x-auto text-xs sm:text-sm">
+          <div className="text-text-tertiary flex items-baseline gap-1 sm:gap-2 overflow-x-auto text-xs sm:text-sm">
             <time dateTime={post.date} className="shrink-0">
               {dayjs(post.date).year() === dayjs().year()
                 ? dayjs(post.date).format('M 月 D 日')
