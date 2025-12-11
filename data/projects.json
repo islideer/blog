@@ -20,23 +20,24 @@
       "name": "Major Winner",
       "url": "https://github.com/vikiboss/major-winner",
       "description": "各主播、职业选手、解说员的 CS2 Major 竞猜结果跟踪 & 排行一览",
-      "status": "active"
+      "status": "active",
+      "homepage": "https://major.viki.moe/"
     },
     {
       "name": "Viki 写东西的地方",
       "url": "https://github.com/vikiboss/blog",
-      "description": "你现在看到的这个博客。基于 Next.js 与 Tailwind CSS 构建。",
+      "description": "你现在看到的这个博客。基于 Next.js 与 Tailwind CSS 构建",
       "status": "active"
     },
     {
       "name": "Stardust（星尘）",
       "url": "https://github.com/vikiboss/stardust",
-      "description": "写给 VRChat 玩家的 PC 端小工具（WIP）"
+      "description": "写给 VRChat 玩家的 PC 端小工具（WIP），VRC 已半弃坑"
     },
     {
       "name": "原神助手",
       "url": "https://github.com/vikiboss/gs-helper",
-      "description": "写给原神玩家的 PC 端小工具",
+      "description": "写给原神玩家的 PC 端小工具，再也不用拿出手机打开米游社啦",
       "status": "archived"
     }
   ],
