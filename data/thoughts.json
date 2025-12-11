@@ -135,7 +135,7 @@
   {
     "id": "30",
     "date": "2025-12-03T20:48:15+08:00",
-    "content": "TC39 成员 [Marco Ippolito](https://github.com/marco-ippolito)最近分享了一篇 [将 TypeScript 带到 Node.js 的故事](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping)，挺有意思的。他最近正在推进 [--experimental-config-fileconfig](https://nodejs.org/api/cli.html#--experimental-config-fileconfig)。没想到的是，开源大神 [Anthony Fu](https://github.com/antfu) 竟然还 [赞助](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping#:~:text=Two%20hundred%20fifty%20from%20Anthony%20Fu) 了他。"
+    "content": "TC39 成员 [Marco Ippolito](https://github.com/marco-ippolito)最近分享了一篇 *[将 TypeScript 带到 Node.js 的故事](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping)*，挺有意思的。他最近正在推进 [--experimental-config-fileconfig](https://nodejs.org/api/cli.html#--experimental-config-fileconfig)。没想到的是，开源大神 [Anthony Fu](https://github.com/antfu) 竟然还 [赞助](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping#:~:text=Two%20hundred%20fifty%20from%20Anthony%20Fu) 了他。"
   },
   {
     "id": "29",
@@ -212,7 +212,7 @@
   {
     "id": "19",
     "date": "2025-12-02T08:43:15+08:00",
-    "content": "`<Tooltip />` 这种组件确实非常不友好，在规范的 Web 开发中很可能出现过度使用、误用、可访问性差、信息隐藏和不确定性等问题。 GitHub 官方的 [Primer 设计系统](https://primer.style/) 有提到 [Tooltip 的替代方案](https://primer.style/product/components/tooltip/guidelines/#alternatives-to-tooltips)。另可参考这篇博客 [Tooltip Components Should Not Exist](https://tkdodo.eu/blog/tooltip-components-should-not-exist)。"
+    "content": "`<Tooltip />` 这种组件确实非常不友好，在规范的 Web 开发中很可能出现过度使用、误用、可访问性差、信息隐藏和不确定性等问题。 GitHub 官方的 [Primer 设计系统](https://primer.style/) 有提到 [Tooltip 的替代方案](https://primer.style/product/components/tooltip/guidelines/#alternatives-to-tooltips)。另可参考这篇博客 *[Tooltip Components Should Not Exist](https://tkdodo.eu/blog/tooltip-components-should-not-exist)*。"
   },
   {
     "id": "18",
@@ -326,7 +326,7 @@
   {
     "id": "3",
     "date": "2025-11-15T08:37:00+08:00",
-    "content": "最近看到一篇文章: [High-Performance Syntax Highlighting with CSS Highlights API](https://pavi2410.com/blog/high-performance-syntax-highlighting-with-css-highlights-api/)，并了解到了 [CSS.highlights](https://developer.mozilla.org/zh-CN/docs/Web/API/Highlight) API。这种高亮方式通过消除对包裹 DOM 元素的需求，提供更高的性能，同时让代码更简洁、更易维护，对于代码高亮来说是一个颠覆性的创新。"
+    "content": "最近看到一篇文章: *[High-Performance Syntax Highlighting with CSS Highlights API](https://pavi2410.com/blog/high-performance-syntax-highlighting-with-css-highlights-api/)*，并了解到了 [CSS.highlights](https://developer.mozilla.org/zh-CN/docs/Web/API/Highlight) API。这种高亮方式通过消除对包裹 DOM 元素的需求，提供更高的性能，同时让代码更简洁、更易维护，对于代码高亮来说是一个颠覆性的创新。"
   },
   {
     "id": "2",
@@ -336,6 +336,6 @@
   {
     "id": "1",
     "date": "2025-11-14T09:28:00+08:00",
-    "content": "使用 CSS 样式可以快速重置按钮样式，相比于 `div` 方案更加语义化且易于维护。\n\n```diff\n- <div role=\"button\" tabindex=\"0\" />\n+ <button /> + { all: unset; }\n```"
+    "content": "使用 `all: unset` 可以快速重置按钮样式，相比于 `div` 方案更加语义化且易于维护。\n\n```diff\n- <div role=\"button\" tabindex=\"0\" />\n+ <button /> + { all: unset; }\n```"
   }
 ]
