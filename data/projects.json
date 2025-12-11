@@ -37,14 +37,14 @@
     {
       "name": "Major Winner",
       "url": "https://github.com/vikiboss/major-winner",
-      "description": "各主播、职业选手、解说员的 CS2 Major 竞猜结果跟踪 & 排行一览",
+      "description": "主播/职业选手/解说员的 CS2 Major 竞猜结果跟踪 & 排行一览",
       "status": "active",
       "homepage": "https://major.viki.moe/"
     },
     {
       "name": "Viki 写东西的地方",
       "url": "https://github.com/vikiboss/blog",
-      "description": "你现在看到的这个博客。基于 Next.js 与 Tailwind CSS 构建",
+      "description": "你现在看到的这个博客，基于 Next.js 与 Tailwind CSS 构建",
       "status": "active"
     },
     {
@@ -75,9 +75,15 @@
       "homepage": "https://chat-one.viki.moe/"
     },
     {
+      "name": "Chatee",
+      "url": "https://github.com/vikiboss/chatee",
+      "description": "A simple terminal chat app, powered by React, ink and ICQQ.",
+      "status": "archived"
+    },
+    {
       "name": "原神助手",
       "url": "https://github.com/vikiboss/gs-helper",
-      "description": "写给原神玩家的 PC 端小工具，再也不用拿出手机打开米游社啦",
+      "description": "写给原神玩家的 PC 端小工具：祈愿分析、便签状态和获取游戏详细数据",
       "status": "archived"
     },
     {

@@ -135,7 +135,7 @@
   {
     "id": "30",
     "date": "2025-12-03T20:48:15+08:00",
-    "content": "TC39 成员 [Marco Ippolito](https://github.com/marco-ippolito)最近分享了一篇 *[将 TypeScript 带到 Node.js 的故事](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping)*，挺有意思的。他最近正在推进 [--experimental-config-fileconfig](https://nodejs.org/api/cli.html#--experimental-config-fileconfig)。没想到的是，开源大神 [Anthony Fu](https://github.com/antfu) 竟然还 [赞助](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping#:~:text=Two%20hundred%20fifty%20from%20Anthony%20Fu) 了他。"
+    "content": "TC39 成员 [Marco Ippolito](https://github.com/marco-ippolito)最近分享了一篇 *[我在夏天发布了类型剥离功能](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping)*，讲述了将 TypeScript 带到 Node.js 的故事，挺有意思的。他最近正在推进 [--experimental-config-fileconfig](https://nodejs.org/api/cli.html#--experimental-config-fileconfig)。没想到的是，开源大神 [Anthony Fu](https://github.com/antfu) 竟然还 [赞助](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping#:~:text=Two%20hundred%20fifty%20from%20Anthony%20Fu) 了他。"
   },
   {
     "id": "29",
@@ -248,7 +248,7 @@
   {
     "id": "13",
     "date": "2025-11-28T07:39:58+08:00",
-    "content": "[Major 第一阶段作业](#8) 开局 3-0、0-3 炸差不多了还能救回来是我没想到的 😂。LVG 和 RA 怎么双双 0-3 回家，一图都没赢啊？？~~RNM 退钱 😡~~。Faze 依旧地狱归来 👻。菊花果然被淘汰了，~~真给力啊 (๑¯◡¯๑)，不救我的 3-0 那就直接淘汰让其他人作业都爆炸吧。💥 ~~ 后面就看天禄了，加油。",
+    "content": "[Major 第一阶段作业](#8) 开局 3-0、0-3 炸差不多了还能救回来是我没想到的 😂。LVG 和 RA 怎么双双 0-3 回家，一图都没赢啊？？~~RNM 退钱 😡~~。Faze 依旧地狱归来 👻。菊花果然被淘汰了，~~真给力啊 (๑¯◡¯๑)，不救我的 3-0 那就直接淘汰让其他人作业都爆炸吧~~。💥 后面就看天禄了，加油。",
     "images": [
       "https://s2.loli.net/2025/11/28/hKwMScrjY6tZb9A.png"
     ]
