@@ -1,5 +1,13 @@
 [
   {
+    "id": "55",
+    "date": "2025-12-11T18:02:36+08:00",
+    "content": "基于 [ViewTransition API](https://developer.mozilla.org/zh-CN/docs/Web/API/View_Transition_API) 实现的页面同一内容自然过渡效果，要求较新的浏览器版本，鸽了好久，终于有机会给博客整上了 🤤",
+    "images": [
+      "https://s2.loli.net/2025/12/11/pxStD3roO95PuBq.gif"
+    ]
+  },
+  {
     "id": "54",
     "date": "2025-12-11T16:33:39+08:00",
     "content": "存档一下随机结果，看看是随机对的多还是自己选对的多。",
