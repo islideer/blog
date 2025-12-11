@@ -2,7 +2,7 @@
   {
     "id": "53",
     "date": "2025-12-11T14:26:47+08:00",
-    "content": "Francisco Miranda 构建了一个完全流式传输、即时加载的 [GitHub 仓库视图](https://wtbb.vercel.app/)，保留了原生浏览器搜索功能，移除了蓝色加载条，体验比原版快得多，如 [Next.js 的仓库主页](https://wtbb.vercel.app/vercel/next.js)。之前发的 [CSS 原生的长页面渲染优化](https://blog.viki.moe/thoughts#51) 灵感正来源此项目。"
+    "content": "Francisco Miranda 构建了一个完全流式传输、即时加载的 [GitHub 仓库视图](https://wtbb.vercel.app/)，保留了原生浏览器搜索功能，移除了蓝色加载条，体验比原版快得多，如 [Next.js 的仓库主页](https://wtbb.vercel.app/vercel/next.js)。之前发的 [CSS 原生的长页面渲染优化](#51) 灵感正来源此项目。"
   },
   {
     "id": "52",
