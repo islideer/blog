@@ -1,5 +1,13 @@
 [
   {
+    "id": "58",
+    "date": "2025-12-13T18:27:20+08:00",
+    "content": "也是上过荣耀王者的人了，Mio 是真的 C",
+    "images": [
+      "https://s2.loli.net/2025/12/13/pOAstwlQgBG9y1C.jpg"
+    ]
+  },
+  {
     "id": "57",
     "date": "2025-12-12T17:14:01+08:00",
     "content": "一种主动缓解 npm 包供应链攻击的可选方案，通过 `--before` 标志安装指定日期之前发布的包版本，让整个 npm 生态有时间来响应和修复潜在的安全问题。pnpm 也提供了 [minimumReleaseAge](https://pnpm.io/settings#minimumreleaseage) 配置来达到类似目的。\n\n```bash\nnpm install express --before=\"$(date -v -7d)\"\n```"
