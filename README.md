@@ -66,14 +66,16 @@
 
 - **[gray-matter](https://github.com/jonschlinkert/gray-matter)** - Front matter 解析
 - **[Shiki](https://shiki.style/)** - 代码语法高亮
-- **[rehype](https://github.com/rehypejs/rehype)** - HTML 处理
-- **[next-mdx-remote](https://github.com/hashicorp/next-mdx-remote)** - MDX 支持
+- **[unified](https://unifiedjs.com/)** - Markdown 处理生态系统
+- **[remark](https://github.com/remarkjs/remark)** - Markdown 解析器
+- **[rehype](https://github.com/rehypejs/rehype)** - HTML 处理器
 
 ### 工具库
 
 - **[dayjs](https://day.js.org/)** - 日期处理
 - **[Feed](https://github.com/jpmonette/feed)** - RSS/Atom feed 生成
 - **[@vercel/og](https://vercel.com/docs/functions/og-image-generation)** - OG 图片生成
+- **[medium-zoom](https://github.com/francoischalifour/medium-zoom)** - 图片缩放
 - **[@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)** - 打包分析
 - **[Google Analytics](https://analytics.google.com/)** - 网站访问统计
 
@@ -158,24 +160,27 @@ blog/
 │   ├── rss/route.ts              # RSS Feed
 │   └── manifest.ts               # PWA Manifest
 ├── components/                   # React 组件（kebab-case）
+│   ├── article-content.tsx       # 文章内容渲染
+│   ├── article-images.tsx        # 文章图片缩放
+│   ├── markdown-lite.tsx         # 轻量 Markdown 渲染
+│   ├── thought-card.tsx          # 碎碎念卡片
+│   ├── thoughts-list.tsx         # 碎碎念列表
 │   ├── theme-toggle.tsx          # 主题切换组件
-│   ├── about-intro.tsx           # 关于页面简介
-│   ├── about-contact.tsx         # 关于页面联系方式
-│   ├── about-tech-stack.tsx      # 关于页面技术栈
-│   ├── about-open-source.tsx     # 关于页面开源项目
 │   ├── timeline-view.tsx         # 大事记视图
-│   └── old-post-banner.tsx       # 旧文章提示横幅
+│   ├── old-post-banner.tsx       # 旧文章提示横幅
+│   ├── lazy-image.tsx            # 图片懒加载
+│   ├── zoom-image.tsx            # 图片缩放
+│   └── ...                       # 其他组件
 ├── lib/                          # 工具库
 │   ├── config.ts                 # 站点配置
-│   ├── pages.ts                  # 页面元数据配置
-│   ├── about.ts                  # 关于页面数据
+│   ├── data.ts                   # 数据导出（加载 data/*.json）
 │   ├── posts.ts                  # 文章处理逻辑
-│   ├── thoughts.ts               # 碎碎念数据
-│   ├── mio-says.ts               # Mio 说数据
-│   ├── timeline.ts               # 大事记数据
+│   ├── markdown.ts               # Markdown 解析器（unified + Shiki）
 │   ├── seo.ts                    # SEO 工具函数
-│   ├── mdx.ts                    # MDX 配置
-│   └── markdown-utils.tsx        # Markdown 处理工具
+│   ├── dayjs.ts                  # 日期处理
+│   ├── reading-time.ts           # 阅读时间计算
+│   ├── word-count.ts             # 字数统计
+│   └── remark-spoiler.ts         # 剧透语法插件
 ├── posts/                        # 文章内容（.md）
 │   ├── 2019/                     # 按年份组织
 │   ├── 2020/

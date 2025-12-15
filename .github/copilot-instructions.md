@@ -16,8 +16,9 @@ You are an expert AI programming assistant working on a Next.js 16 + React 19 + 
 - **Styling**: Tailwind CSS v4 (CSS-first config, OKLCH colors)
 - **Language**: TypeScript 5.9+
 - **Content**: Markdown (`.md` files)
+- **Markdown Processing**: unified ecosystem (remark + rehype + Shiki)
 - **Package Manager**: pnpm 10.22.0+
-- **Utilities**: dayjs (Time manipulation)
+- **Utilities**: dayjs (Time manipulation), medium-zoom (Image zoom)
 
 ## Design System
 
@@ -66,11 +67,34 @@ You are an expert AI programming assistant working on a Next.js 16 + React 19 + 
 
 - `app/`: Next.js App Router pages and layouts.
 - `components/`: React components (kebab-case).
+  - `article-content.tsx`: Blog post Markdown rendering (Server Component).
+  - `markdown-lite.tsx`: Lightweight Markdown rendering (Server Component).
+  - `thought-card.tsx`: Thought/Mio-says card component.
+  - `thoughts-list.tsx`: Thoughts list with CSS content-visibility optimization.
 - `lib/`: Utility functions and configurations.
   - `lib/config.ts`: Site configuration (loads from `data/site.json`).
   - `lib/data.ts`: Static data exports (loads from `data/*.json`).
+  - `lib/markdown.ts`: Markdown parser (unified + Shiki).
 - `data/`: Static JSON data files (site config, pages metadata, etc.).
 - `posts/`: Markdown content organized by year.
+
+## Markdown Rendering
+
+The project uses **unified ecosystem** instead of next-mdx-remote:
+
+```typescript
+// For blog articles (with heading anchors)
+import { ArticleContent } from '@/components/article-content'
+<ArticleContent content={post.content} />
+
+// For short content like thoughts (with line breaks)
+import { MarkdownLite } from '@/components/markdown-lite'
+<MarkdownLite content={thought.content} />
+```
+
+Key files:
+- `lib/markdown.ts`: Core parser with `parseMarkdown()` and `parseArticle()`.
+- Plugins: remark-gfm, remark-spoiler (||text||), rehype-shiki, rehype-slug.
 
 ## Data Management
 
