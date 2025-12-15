@@ -1,5 +1,10 @@
 [
   {
+    "id": "63",
+    "date": "2025-12-15T18:04:31+08:00",
+    "content": "之前有提到 [无 token 的 npm 包发布方案](#21)，今天下午尝试了之后，踩了几个坑卡了好久，记下来长个记性。😭\n\n1. 只有最新的 npm 才支持，需要在 GitHb Workflow 里加一个将 npm 升级到最新版本的步骤\n2. pnpm publish 底层直接调用的 npm publish 命令，升级 pnpm 版本无法解决问题\n2. 确保 GitHb Workflow 文件名无误（注意扩展名是 yml 还是 yaml）\n3. GitHb Workflow 要开启 id token 写权限"
+  },
+  {
     "id": "62",
     "date": "2025-12-15T12:37:16+08:00",
     "content": "😎",
