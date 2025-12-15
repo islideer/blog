@@ -10,7 +10,7 @@
   {
     "id": "61",
     "date": "2025-12-15T10:52:25+08:00",
-    "content": "12 月 4 号爆出的 [React RSC 漏洞](#31) 虽然修了，但只修了一点点... -_-||| 被发现还 [存在 Dos 和源码泄漏问题](https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components)。手快的人（比如我）还得再把 React 相关包升级到 19.2.3 及以上版本才行。"
+    "content": "12 月 4 号爆出的 [React RSC 漏洞](#31) 虽然修了，但只修了一点点... -_-||| 被发现还 [存在 DoS 和源码泄漏问题](https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components)。手快的人（比如我）还得再把 React 相关包升级到 19.2.3 及以上版本才行。"
   },
   {
     "id": "60",
