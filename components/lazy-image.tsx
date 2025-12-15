@@ -4,8 +4,6 @@ import { ZoomImage } from './zoom-image'
 import { useState, useEffect, useRef } from 'react'
 import { type ImageProps } from 'next/image'
 
-import 'react-medium-image-zoom/dist/styles.css'
-
 export function LazyImage(props: ImageProps) {
   const { src, alt, width, height, className, preload, ...rest } = props
   const [isVisible, setIsVisible] = useState(preload || false)

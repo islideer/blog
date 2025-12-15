@@ -1,13 +1,10 @@
 import Image from 'next/image'
-import { LazyImage } from '@/components/lazy-image'
 import { siteConfig } from '@/lib/config'
 import { mioSays } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { mdxOptionsWithBreaks } from '@/lib/mdx'
 import { pagesData } from '@/lib/config'
-import { RelativeTime } from '@/components/relative-time'
 import { countWords } from '@/lib/word-count'
+import { ThoughtsList } from '@/components/thoughts-list'
 
 import type { Metadata } from 'next'
 
@@ -78,83 +75,15 @@ export default async function MioSaysPage() {
       {/* Mio Says Timeline */}
       <section className="space-y-4">
         <div
-          className="space-y-8 sm:border-l-2 sm:pl-6"
+          className="sm:border-l-2 sm:pl-6"
           style={{ borderColor: 'var(--color-mio-border)' }}
         >
-          {sortedMioSays.length === 0 ? (
-            <p className="text-text-tertiary text-sm italic opacity-60">
-              Mio 还没有说什么，敬请期待
-            </p>
-          ) : (
-            sortedMioSays.map((mioSay, index) => (
-              <article
-                key={mioSay.id}
-                id={mioSay.id}
-                className="space-y-2 pb-4 sm:pb-6"
-                style={{
-                  borderBottom:
-                    index < sortedMioSays.length - 1 ? `1px solid var(--color-mio-border)` : 'none',
-                }}
-              >
-                {/* 序号和日期时间 */}
-                <div className="flex items-center gap-2 text-xs">
-                  <a
-                    href={`#${mioSay.id}`}
-                    style={{ color: 'var(--color-mio-pink)' }}
-                    className="cursor-pointer font-mono font-semibold no-underline hover:underline"
-                  >
-                    #{mioSay.id}
-                  </a>
-                  <span style={{ color: 'var(--color-mio-pink)' }}>·</span>
-                  <RelativeTime date={mioSay.date} style={{ color: 'var(--color-mio-pink)' }} />
-                </div>
-
-                {/* 文本内容 */}
-                {mioSay.content && mioSay.content.trim() !== '' && (
-                  <div className="prose prose-sm">
-                    <MDXRemote source={mioSay.content} options={mdxOptionsWithBreaks} />
-                  </div>
-                )}
-
-                {/* 图片 */}
-                {mioSay.images && mioSay.images.length > 0 && (
-                  <div
-                    className={`grid grid-cols-1 gap-2 pt-1 ${mioSay.images.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-md'}`}
-                  >
-                    {mioSay.images.map((image, imageIndex) => {
-                      // 前 3 条内容的第一张图片优先加载,其他懒加载
-                      const shouldPriority = index < 3 && imageIndex === 0
-
-                      return (
-                        <div
-                          key={imageIndex}
-                          className="flex max-w-full items-center justify-center overflow-hidden rounded-md border"
-                          style={{
-                            borderColor: 'var(--color-mio-border)',
-                            backgroundColor: 'var(--color-image-bg)',
-                          }}
-                        >
-                          <LazyImage
-                            src={image}
-                            alt={
-                              mioSay.content && mioSay.content.trim() !== ''
-                                ? `${mioSay.content.slice(0, 20)}... 的图片 ${imageIndex + 1}`
-                                : `Mio 说图片 ${imageIndex + 1}`
-                            }
-                            width={540}
-                            height={304}
-                            className="w-full"
-                            sizes="(max-width: 640px) 100vw, 50vw"
-                            preload={shouldPriority}
-                          />
-                        </div>
-                      )
-                    })}
-                  </div>
-                )}
-              </article>
-            ))
-          )}
+          <ThoughtsList
+            thoughts={sortedMioSays}
+            mioTheme
+            emptyMessage="Mio 还没有说什么，敬请期待"
+            contentPrefix="Mio 说"
+          />
         </div>
       </section>
     </div>

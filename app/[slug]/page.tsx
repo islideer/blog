@@ -2,8 +2,6 @@ import { ViewTransition } from 'react'
 
 import { dayjs } from '@/lib/dayjs'
 import { notFound } from 'next/navigation'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { mdxOptions } from '@/lib/mdx'
 import { getPostBySlug, getAllPostSlugs, getRecommendedPosts } from '@/lib/posts'
 import {
   generateBlogPostingSchema,
@@ -17,6 +15,7 @@ import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
 import { RecommendedPosts } from '@/components/recommended-posts'
 import { ZoomImageForArticle } from '@/components/zoom-image'
+import { ArticleContent } from '@/components/article-content'
 import { countWords } from '@/lib/word-count'
 
 import type { Metadata } from 'next'
@@ -142,13 +141,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </header>
 
         {/* Article Content */}
-        <div className="prose">
-          <MDXRemote
-            source={post.content}
-            options={mdxOptions}
-            components={{ img: ZoomImageForArticle }}
-          />
-        </div>
+        <ArticleContent content={post.content} />
 
         {/* Article End */}
         <div className="border-border mt-16 border-t pt-8">

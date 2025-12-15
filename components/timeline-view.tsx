@@ -1,6 +1,5 @@
 import { dayjs } from '@/lib/dayjs'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { mdxOptionsWithBreaks } from '@/lib/mdx'
+import { MarkdownLite } from '@/components/markdown-lite'
 
 import type { TimelineItem } from '@/lib/data'
 
@@ -8,7 +7,7 @@ interface TimelineViewProps {
   items: TimelineItem[]
 }
 
-export function TimelineView({ items }: TimelineViewProps) {
+export async function TimelineView({ items }: TimelineViewProps) {
   // 按年份分组（使用现代化的 Object.groupBy）
   const timelineByYear = Object.groupBy(items, (item) => {
     const date = dayjs(item.date)
@@ -79,8 +78,8 @@ export function TimelineView({ items }: TimelineViewProps) {
                         {formattedDate}
                       </time>
                     )}
-                    <div className="prose text-text-secondary">
-                      <MDXRemote source={item.description} options={mdxOptionsWithBreaks} />
+                    <div className="text-text-secondary">
+                      <MarkdownLite content={item.description} />
                     </div>
                   </article>
                 )

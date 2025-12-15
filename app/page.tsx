@@ -3,8 +3,7 @@ import { ViewTransition } from 'react'
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { mdxOptionsWithBreaks } from '@/lib/mdx'
+import { MarkdownLite } from '@/components/markdown-lite'
 import { generateBlogSchema, generateOrganizationSchema } from '@/lib/seo'
 import { DraftBadge } from '@/components/draft-badge'
 import { PinIcon } from '@/components/pin-icon'
@@ -37,11 +36,8 @@ export default async function BlogPage() {
         {/* Hero Section */}
         <section className="space-y-2 sm:space-y-4">
           <h2 className="text-3xl font-bold sm:text-4xl">{siteConfig.home.hero.title}</h2>
-          <div className="prose text-text-secondary">
-            <MDXRemote
-              source={siteConfig.home.hero.paragraphs.join('\n')}
-              options={mdxOptionsWithBreaks}
-            />
+          <div className="text-text-secondary">
+            <MarkdownLite content={siteConfig.home.hero.paragraphs.join('\n')} />
           </div>
         </section>
 

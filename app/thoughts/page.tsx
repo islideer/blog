@@ -1,12 +1,9 @@
-import { LazyImage } from '@/components/lazy-image'
 import { siteConfig } from '@/lib/config'
 import { thoughts } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { mdxOptionsWithBreaks } from '@/lib/mdx'
 import { pagesData } from '@/lib/config'
-import { RelativeTime } from '@/components/relative-time'
 import { countWords } from '@/lib/word-count'
+import { ThoughtsList } from '@/components/thoughts-list'
 
 import type { Metadata } from 'next'
 
@@ -63,79 +60,14 @@ export default async function ThoughtsPage() {
       {/* Thoughts Timeline */}
       <section className="space-y-4">
         <div
-          className="space-y-8 sm:border-l-2 sm:pl-6"
+          className="sm:border-l-2 sm:pl-6"
           style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
         >
-          {sortedThoughts.length === 0 ? (
-            <p className="text-text-tertiary text-sm italic opacity-60">还没有碎碎念，快来记录吧</p>
-          ) : (
-            sortedThoughts.map((thought, index) => (
-              <article
-                key={thought.id}
-                id={thought.id}
-                className="space-y-2 pb-4 sm:pb-6"
-                style={{
-                  borderBottom:
-                    index < sortedThoughts.length - 1
-                      ? '1px solid rgba(128, 128, 128, 0.1)'
-                      : 'none',
-                }}
-              >
-                {/* 序号和日期时间 */}
-                <div className="flex items-center gap-2 text-xs">
-                  <a
-                    href={`#${thought.id}`}
-                    className="cursor-pointer font-mono font-semibold no-underline hover:underline"
-                  >
-                    #{thought.id}
-                  </a>
-                  <span className="text-text-secondary">·</span>
-                  <RelativeTime date={thought.date} className="text-text-secondary" />
-                </div>
-
-                {/* 文本内容 */}
-                {thought.content && thought.content.trim() !== '' && (
-                  <div className="prose prose-sm">
-                    <MDXRemote source={thought.content} options={mdxOptionsWithBreaks} />
-                  </div>
-                )}
-
-                {/* 图片 */}
-                {thought.images && thought.images.length > 0 && (
-                  <div
-                    className={`grid grid-cols-1 gap-2 pt-1 ${thought.images.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-md'}`}
-                  >
-                    {thought.images.map((image, imageIndex) => {
-                      // 前 3 条内容的第一张图片优先加载,其他懒加载
-                      const shouldPriority = index < 3 && imageIndex === 0
-
-                      return (
-                        <div
-                          key={imageIndex}
-                          className="flex max-w-full items-center justify-center overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-700"
-                          style={{ backgroundColor: 'var(--color-image-bg)' }}
-                        >
-                          <LazyImage
-                            src={image}
-                            alt={
-                              thought.content && thought.content.trim() !== ''
-                                ? `${thought.content.slice(0, 20)}... 的图片 ${imageIndex + 1}`
-                                : `碎碎念图片 ${imageIndex + 1}`
-                            }
-                            width={800}
-                            height={600}
-                            className="w-full"
-                            sizes="(max-width: 640px) 100vw, 50vw"
-                            preload={shouldPriority}
-                          />
-                        </div>
-                      )
-                    })}
-                  </div>
-                )}
-              </article>
-            ))
-          )}
+          <ThoughtsList
+            thoughts={sortedThoughts}
+            emptyMessage="还没有碎碎念，快来记录吧"
+            contentPrefix="碎碎念"
+          />
         </div>
       </section>
     </div>
