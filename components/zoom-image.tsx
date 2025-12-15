@@ -30,7 +30,7 @@ export function ZoomImage(props: typeof Image extends React.ComponentType<infer 
   return (
     <div
       style={{ background: `url('${props.src}') 50% / cover` }}
-      className="image-wrapper rounded-md"
+      className={`image-wrapper h-auto w-full rounded-md ${props.className || ''}`}
     >
       <Image
         {...props}
