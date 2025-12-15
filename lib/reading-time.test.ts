@@ -238,7 +238,8 @@ function test() {
     })
 
     it('应该忽略 frontmatter', () => {
-      const markdown = `---
+      const markdown =
+        `---
 title: Test Article
 date: 2024-01-01
 tags: [test, article]

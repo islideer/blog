@@ -21,7 +21,7 @@ GitHub 要给你发消息，但你的开发机器在本地网络里，没有公�
 import { SmeeClient } from 'smee-it'
 
 // 替换成你的频道 URL，可以在 https://smee.io 创建
-const client = new SmeeClient('https://smee.io/your-channel') 
+const client = new SmeeClient('https://smee.io/your-channel')
 
 client.on('message', (event) => {
   console.log('收到 Webhook:', event.body)

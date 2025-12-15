@@ -9,9 +9,10 @@
  * - Type-safe implementation with TypeScript
  * - Works with remark-gfm, rehype-raw and other plugins
  */
-import type { Root, Parent, PhrasingContent, Text, Html } from 'mdast'
-import type { Plugin } from 'unified'
 import { visit } from 'unist-util-visit'
+
+import type { Root, Parent, Html, PhrasingContent, Text } from 'mdast'
+import type { Plugin } from 'unified'
 
 /** Plugin options */
 export interface RemarkSpoilerOptions {

@@ -43,66 +43,64 @@ export default async function Image() {
   }
 
   return new ImageResponse(
-    (
-      <OgImageTemplate
-        title={pagesData.timeline.title}
-        iconData={Buffer.from(iconData)}
-        metaContent={
-          timeRange && (
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 18,
-                  color: '#888888',
-                  fontWeight: 500,
-                }}
-              >
-                {timeRange}
-              </div>
-            </div>
-          )
-        }
-        bodyContent={
+    <OgImageTemplate
+      title={pagesData.timeline.title}
+      iconData={Buffer.from(iconData)}
+      metaContent={
+        timeRange && (
           <div
             style={{
               display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
+              alignItems: 'center',
             }}
           >
-            {/* 副标题 */}
             <div
               style={{
-                display: 'flex',
-                fontSize: 22,
-                color: '#666666',
-                fontWeight: 400,
-                lineHeight: 1.4,
+                fontSize: 18,
+                color: '#888888',
+                fontWeight: 500,
               }}
             >
-              {pagesData.timeline.description}
-            </div>
-
-            {/* 统计数据：横向布局 */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                gap: '60px',
-              }}
-            >
-              {/* 大事记数 */}
-              <OgImageStatsItem number={timeline.length} label="件大事记" />
+              {timeRange}
             </div>
           </div>
-        }
-      />
-    ),
+        )
+      }
+      bodyContent={
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+          }}
+        >
+          {/* 副标题 */}
+          <div
+            style={{
+              display: 'flex',
+              fontSize: 22,
+              color: '#666666',
+              fontWeight: 400,
+              lineHeight: 1.4,
+            }}
+          >
+            {pagesData.timeline.description}
+          </div>
+
+          {/* 统计数据：横向布局 */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'baseline',
+              gap: '60px',
+            }}
+          >
+            {/* 大事记数 */}
+            <OgImageStatsItem number={timeline.length} label="件大事记" />
+          </div>
+        </div>
+      }
+    />,
     options,
   )
 }

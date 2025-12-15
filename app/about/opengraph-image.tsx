@@ -48,49 +48,47 @@ export default async function Image() {
   }
 
   return new ImageResponse(
-    (
-      <OgImageTemplate
-        title={pagesData.about.title}
-        iconData={Buffer.from(iconData)}
-        bodyContent={
+    <OgImageTemplate
+      title={pagesData.about.title}
+      iconData={Buffer.from(iconData)}
+      bodyContent={
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+          }}
+        >
+          {/* 描述 */}
           <div
             style={{
               display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
+              fontSize: 22,
+              color: '#666666',
+              fontWeight: 400,
+              lineHeight: 1.4,
             }}
           >
-            {/* 描述 */}
-            <div
-              style={{
-                display: 'flex',
-                fontSize: 22,
-                color: '#666666',
-                fontWeight: 400,
-                lineHeight: 1.4,
-              }}
-            >
-              {pagesData.about.description}
-            </div>
-
-            {/* 统计数据：横向布局 */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                gap: '60px',
-              }}
-            >
-              {/* 技术栈数量 */}
-              <OgImageStatsItem number={techStackCount} label="个技术栈" />
-
-              {/* 开源项目数 */}
-              <OgImageStatsItem number={projectsCount} label="个开源项目" />
-            </div>
+            {pagesData.about.description}
           </div>
-        }
-      />
-    ),
+
+          {/* 统计数据：横向布局 */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'baseline',
+              gap: '60px',
+            }}
+          >
+            {/* 技术栈数量 */}
+            <OgImageStatsItem number={techStackCount} label="个技术栈" />
+
+            {/* 开源项目数 */}
+            <OgImageStatsItem number={projectsCount} label="个开源项目" />
+          </div>
+        </div>
+      }
+    />,
     options,
   )
 }

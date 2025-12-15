@@ -53,75 +53,73 @@ export default async function Image() {
   }
 
   return new ImageResponse(
-    (
-      <OgImageTemplate
-        title={siteConfig.name}
-        iconData={Buffer.from(iconData)}
-        metaContent={
-          lastUpdated && (
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 18,
-                  color: '#888888',
-                  fontWeight: 500,
-                }}
-              >
-                {`更新于 ${lastUpdated}`}
-              </div>
-            </div>
-          )
-        }
-        bodyContent={
+    <OgImageTemplate
+      title={siteConfig.name}
+      iconData={Buffer.from(iconData)}
+      metaContent={
+        lastUpdated && (
           <div
             style={{
               display: 'flex',
-              flexDirection: 'column',
-              gap: '36px',
+              alignItems: 'center',
             }}
           >
-            {/* 描述 */}
             <div
               style={{
-                display: 'flex',
-                fontSize: 22,
-                color: '#666666',
-                fontWeight: 400,
-                lineHeight: 1.4,
+                fontSize: 18,
+                color: '#888888',
+                fontWeight: 500,
               }}
             >
-              {siteConfig.description}
-            </div>
-
-            {/* 统计数据：横向排列，数字在前描述在后，底部对齐 */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                gap: '60px',
-              }}
-            >
-              {/* 文章数 */}
-              <OgImageStatsItem number={posts.length} label="篇文章" />
-
-              {/* 碎碎念数 */}
-              <OgImageStatsItem number={thoughts.length} label="条碎碎念" />
-
-              {/* Mio 说数 */}
-              <OgImageStatsItem number={mioSays.length} label="条 Mio 说" />
-
-              {/* 大事记数 */}
-              <OgImageStatsItem number={timeline.length} label="件大事记" />
+              {`更新于 ${lastUpdated}`}
             </div>
           </div>
-        }
-      />
-    ),
+        )
+      }
+      bodyContent={
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '36px',
+          }}
+        >
+          {/* 描述 */}
+          <div
+            style={{
+              display: 'flex',
+              fontSize: 22,
+              color: '#666666',
+              fontWeight: 400,
+              lineHeight: 1.4,
+            }}
+          >
+            {siteConfig.description}
+          </div>
+
+          {/* 统计数据：横向排列，数字在前描述在后，底部对齐 */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'baseline',
+              gap: '60px',
+            }}
+          >
+            {/* 文章数 */}
+            <OgImageStatsItem number={posts.length} label="篇文章" />
+
+            {/* 碎碎念数 */}
+            <OgImageStatsItem number={thoughts.length} label="条碎碎念" />
+
+            {/* Mio 说数 */}
+            <OgImageStatsItem number={mioSays.length} label="条 Mio 说" />
+
+            {/* 大事记数 */}
+            <OgImageStatsItem number={timeline.length} label="件大事记" />
+          </div>
+        </div>
+      }
+    />,
     options,
   )
 }

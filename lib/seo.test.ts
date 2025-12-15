@@ -384,6 +384,7 @@ describe('SEO Functions', () => {
         date: '2024-01-01',
         excerpt: 'Test',
         content: 'Test',
+        readingTime: 1,
       }
 
       const baseUrl = 'https://blog.viki.moe'
@@ -400,6 +401,7 @@ describe('SEO Functions', () => {
         date: '2024-01-01',
         excerpt: 'Test',
         content: 'Test',
+        readingTime: 1,
       }
 
       expect(generateOrganizationSchema()['@context']).toBe('https://schema.org')

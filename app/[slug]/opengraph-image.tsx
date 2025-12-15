@@ -44,24 +44,22 @@ export default async function Image({ params }: Props) {
 
   if (!post) {
     return new ImageResponse(
-      (
-        <OgImageTemplate
-          title="文章未找到"
-          iconData={iconData}
-          bodyContent={
-            <div
-              style={{
-                display: 'flex',
-                fontSize: 24,
-                color: '#666666',
-                fontWeight: 400,
-              }}
-            >
-              该文章不存在或已被删除
-            </div>
-          }
-        />
-      ),
+      <OgImageTemplate
+        title="文章未找到"
+        iconData={iconData}
+        bodyContent={
+          <div
+            style={{
+              display: 'flex',
+              fontSize: 24,
+              color: '#666666',
+              fontWeight: 400,
+            }}
+          >
+            该文章不存在或已被删除
+          </div>
+        }
+      />,
       options,
     )
   }
@@ -70,19 +68,41 @@ export default async function Image({ params }: Props) {
   const formattedDate = formatDate(post.date)
 
   return new ImageResponse(
-    (
-      <OgImageTemplate
-        title={post.title}
-        iconData={Buffer.from(iconData)}
-        metaContent={
+    <OgImageTemplate
+      title={post.title}
+      iconData={Buffer.from(iconData)}
+      metaContent={
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '16px',
+          }}
+        >
+          {/* 发布日期 */}
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '16px',
+              fontSize: 18,
+              color: '#888888',
+              fontWeight: 500,
             }}
           >
-            {/* 发布日期 */}
+            {formattedDate}
+          </div>
+
+          {/* 分隔线 */}
+          {post.readingTime && (
+            <div
+              style={{
+                width: '1px',
+                height: '16px',
+                background: '#d0d0d0',
+              }}
+            />
+          )}
+
+          {/* 阅读时间 */}
+          {post.readingTime && (
             <div
               style={{
                 fontSize: 18,
@@ -90,53 +110,29 @@ export default async function Image({ params }: Props) {
                 fontWeight: 500,
               }}
             >
-              {formattedDate}
+              {`${post.readingTime} 分钟`}
             </div>
-
-            {/* 分隔线 */}
-            {post.readingTime && (
-              <div
-                style={{
-                  width: '1px',
-                  height: '16px',
-                  background: '#d0d0d0',
-                }}
-              />
-            )}
-
-            {/* 阅读时间 */}
-            {post.readingTime && (
-              <div
-                style={{
-                  fontSize: 18,
-                  color: '#888888',
-                  fontWeight: 500,
-                }}
-              >
-                {`${post.readingTime} 分钟`}
-              </div>
-            )}
+          )}
+        </div>
+      }
+      bodyContent={
+        post.excerpt && (
+          <div
+            style={{
+              display: 'flex',
+              fontSize: 22,
+              color: '#666666',
+              fontWeight: 400,
+              lineHeight: 1.6,
+              maxHeight: '120px',
+              overflow: 'hidden',
+            }}
+          >
+            {post.excerpt}
           </div>
-        }
-        bodyContent={
-          post.excerpt && (
-            <div
-              style={{
-                display: 'flex',
-                fontSize: 22,
-                color: '#666666',
-                fontWeight: 400,
-                lineHeight: 1.6,
-                maxHeight: '120px',
-                overflow: 'hidden',
-              }}
-            >
-              {post.excerpt}
-            </div>
-          )
-        }
-      />
-    ),
+        )
+      }
+    />,
     options,
   )
 }

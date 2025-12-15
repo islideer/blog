@@ -44,66 +44,64 @@ export default async function Image() {
   }
 
   return new ImageResponse(
-    (
-      <OgImageTemplate
-        title={pagesData.mioSays.title}
-        iconData={Buffer.from(iconData)}
-        metaContent={
-          lastUpdated && (
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 18,
-                  color: '#888888',
-                  fontWeight: 500,
-                }}
-              >
-                {`更新于 ${lastUpdated}`}
-              </div>
-            </div>
-          )
-        }
-        bodyContent={
+    <OgImageTemplate
+      title={pagesData.mioSays.title}
+      iconData={Buffer.from(iconData)}
+      metaContent={
+        lastUpdated && (
           <div
             style={{
               display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
+              alignItems: 'center',
             }}
           >
-            {/* 副标题 */}
             <div
               style={{
-                display: 'flex',
-                fontSize: 22,
-                color: '#666666',
-                fontWeight: 400,
-                lineHeight: 1.4,
+                fontSize: 18,
+                color: '#888888',
+                fontWeight: 500,
               }}
             >
-              {pagesData.mioSays.description}
-            </div>
-
-            {/* 统计数据：横向布局 */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                gap: '60px',
-              }}
-            >
-              {/* Mio 说数 */}
-              <OgImageStatsItem number={mioSays.length} label="条 Mio 说" />
+              {`更新于 ${lastUpdated}`}
             </div>
           </div>
-        }
-      />
-    ),
+        )
+      }
+      bodyContent={
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+          }}
+        >
+          {/* 副标题 */}
+          <div
+            style={{
+              display: 'flex',
+              fontSize: 22,
+              color: '#666666',
+              fontWeight: 400,
+              lineHeight: 1.4,
+            }}
+          >
+            {pagesData.mioSays.description}
+          </div>
+
+          {/* 统计数据：横向布局 */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'baseline',
+              gap: '60px',
+            }}
+          >
+            {/* Mio 说数 */}
+            <OgImageStatsItem number={mioSays.length} label="条 Mio 说" />
+          </div>
+        </div>
+      }
+    />,
     options,
   )
 }
