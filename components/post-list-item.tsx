@@ -29,7 +29,7 @@ export function PostListItem({ post }: PostListItemProps) {
         <ReadingTime minutes={post.readingTime} />
         {post.draft && (
           <>
-            <span className="shrink-0">·</span>
+            <span className="shrink-0 sm:hidden">·</span>
             {<DraftBadge className="inline sm:hidden" />}
           </>
         )}
