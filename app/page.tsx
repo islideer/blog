@@ -36,9 +36,11 @@ export default async function BlogPage() {
         {/* Hero Section */}
         <section className="space-y-2 sm:space-y-4">
           <h2 className="text-3xl font-bold sm:text-4xl">{siteConfig.home.hero.title}</h2>
-          <div className="text-text-secondary">
-            <MarkdownLite content={siteConfig.home.hero.paragraphs.join('\n')} />
-          </div>
+          <MarkdownLite
+            size="md"
+            className="text-text-secondary!"
+            content={siteConfig.home.hero.paragraphs.join('\n')}
+          />
         </section>
 
         {displayPosts.length === 0 ? (

@@ -78,9 +78,11 @@ export async function TimelineView({ items }: TimelineViewProps) {
                         {formattedDate}
                       </time>
                     )}
-                    <div className="text-text-secondary">
-                      <MarkdownLite content={item.description} />
-                    </div>
+                    <MarkdownLite
+                      size="md"
+                      className="text-text-secondary!"
+                      content={item.description}
+                    />
                   </article>
                 )
               })}
