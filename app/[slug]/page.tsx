@@ -9,7 +9,7 @@ import {
   generatePostOpenGraph,
   generatePostTwitterCard,
 } from '@/lib/seo'
-import { OldPostBanner } from '@/components/old-post-banner'
+import { OldPostTip } from '@/components/old-post-tip'
 import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
 import { PostDate } from '@/components/post-date'
@@ -86,10 +86,23 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <article className="py-8 sm:py-12">
+      <article className="pb-8 sm:pb-12">
         {/* Article Header */}
         <header className="mb-8 space-y-4 sm:mb-12 sm:space-y-6">
-          <div className="space-y-3">
+          {/* Top Image */}
+          {post.topImage && (
+            <div className="-mx-4 mt-2 overflow-hidden rounded-none! sm:mx-0 sm:mt-4 sm:rounded-md!">
+              <ZoomImageForArticle
+                src={post.topImage}
+                alt={post.title}
+                className="h-auto w-full rounded-none! sm:rounded-md!"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              />
+            </div>
+          )}
+
+          <div className="mt-8 space-y-3 sm:mt-12 sm:space-y-4">
             <ViewTransition name={`post-title-${post.slug}`} default="transform">
               <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-4xl md:text-5xl">
                 {post.title}
@@ -111,24 +124,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <span className="shrink-0">
               <ReadingTime minutes={post.readingTime} />
             </span>
-
             <span className="shrink-0">·</span>
             <span className="shrink-0">{wordCount.toLocaleString('zh-CN')} 字</span>
-            <OldPostBanner date={post.date} />
+            <OldPostTip short className="text-xs" date={post.date} />
           </div>
-
-          {/* Top Image */}
-          {post.topImage && (
-            <div className="-mx-4 mt-6 overflow-hidden sm:mx-0 sm:mt-8 sm:rounded-md">
-              <ZoomImageForArticle
-                src={post.topImage}
-                alt={post.title}
-                className="h-auto w-full"
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-              />
-            </div>
-          )}
         </header>
 
         {/* Article Content */}

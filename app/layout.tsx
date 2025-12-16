@@ -108,7 +108,7 @@ export default function RootLayout({
           <div className="flex min-h-screen min-w-sm flex-col sm:mx-auto sm:max-w-3xl">
             <SiteHeader />
             <main className="flex-1">
-              <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">{children}</div>
+              <div className="container mx-auto max-w-3xl px-4 sm:px-6">{children}</div>
             </main>
             <Footer />
           </div>
