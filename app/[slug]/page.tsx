@@ -1,6 +1,5 @@
 import { ViewTransition } from 'react'
 
-import { dayjs } from '@/lib/dayjs'
 import { notFound } from 'next/navigation'
 import { getPostBySlug, getAllPostSlugs, getRecommendedPosts } from '@/lib/posts'
 import {
@@ -13,6 +12,7 @@ import {
 import { OldPostBanner } from '@/components/old-post-banner'
 import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
+import { PostDate } from '@/components/post-date'
 import { RecommendedPosts } from '@/components/recommended-posts'
 import { ZoomImageForArticle } from '@/components/zoom-image'
 import { ArticleContent } from '@/components/article-content'
@@ -106,19 +106,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
 
           <div className="text-text-tertiary flex items-baseline gap-1 overflow-x-auto text-xs sm:gap-2 sm:text-sm">
-            <ViewTransition name={`post-date-${post.slug}`} default="transform">
-              <time dateTime={post.date} className="shrink-0">
-                {dayjs(post.date).year() === dayjs().year()
-                  ? dayjs(post.date).format('M 月 D 日')
-                  : dayjs(post.date).format('YYYY 年 M 月 D 日')}
-              </time>
-            </ViewTransition>
-
+            <PostDate date={post.date} format="detail" className="shrink-0" />
             <span className="shrink-0">·</span>
             <span className="shrink-0">
-              <ViewTransition name={`post-reading-time-${post.slug}`} default="transform">
-                <ReadingTime minutes={post.readingTime} />
-              </ViewTransition>
+              <ReadingTime minutes={post.readingTime} />
             </span>
 
             <span className="shrink-0">·</span>

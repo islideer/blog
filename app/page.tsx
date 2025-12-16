@@ -78,16 +78,9 @@ export default async function BlogPage() {
                           </ViewTransition>
                         </div>
                         <div className="text-text-tertiary flex shrink-0 items-baseline gap-1.5 text-sm">
-                          <ViewTransition name={`post-date-${post.slug}`} default="transform">
-                            <PostDate date={post.date} format="short" />
-                          </ViewTransition>
+                          <PostDate date={post.date} format="short" />
                           <span>·</span>
-                          <ViewTransition
-                            name={`post-reading-time-${post.slug}`}
-                            default="transform"
-                          >
-                            <ReadingTime minutes={post.readingTime} />
-                          </ViewTransition>
+                          <ReadingTime minutes={post.readingTime} />
                         </div>
                       </div>
                       {post.excerpt && (

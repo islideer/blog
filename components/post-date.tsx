@@ -2,7 +2,7 @@ import { dayjs } from '@/lib/dayjs'
 
 interface PostDateProps {
   date: string
-  format?: 'short' | 'full' | 'month-day'
+  format?: 'short' | 'full' | 'month-day' | 'detail'
   className?: string
 }
 
@@ -23,6 +23,11 @@ export function PostDate({ date, format = 'short', className = '' }: PostDatePro
         return dayjs(date).format('YYYY.MM.DD')
       case 'month-day':
         return dayjs(date).format('MM.DD')
+      case 'detail': {
+        return dayjs(date).year() === dayjs().year()
+          ? dayjs(date).format('M 月 D 日')
+          : dayjs(date).format('YYYY 年 M 月 D 日')
+      }
       default:
         return dayjs(date).format('YYYY.M.D')
     }
