@@ -10,6 +10,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeStringify from 'rehype-stringify'
 import remarkSpoiler from './remark-spoiler'
+import rehypeZoomImage from './rehype-zoom-image'
 
 /**
  * 统一的 Markdown 解析器（基于 unified）
@@ -53,7 +54,7 @@ const shortContentProcessor = unified()
  * - 有标题锚点
  */
 const articleProcessor = unified()
-  .use(remarkParse)
+  .use(remarkParse, {})
   .use(remarkGfm)
   .use(remarkSpoiler)
   .use(remarkRehype, { allowDangerousHtml: true })
@@ -79,6 +80,7 @@ const articleProcessor = unified()
       value: '#',
     },
   })
+  .use(rehypeZoomImage)
   .use(rehypeExternalLinks, {
     target: '_blank',
     rel: ['noopener', 'noreferrer'],

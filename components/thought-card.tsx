@@ -1,6 +1,6 @@
-import { LazyImage } from '@/components/lazy-image'
-import { MarkdownLite } from '@/components/markdown-lite'
-import { RelativeTime } from '@/components/relative-time'
+import { LazyImage } from './lazy-image'
+import { MarkdownLite } from './markdown-lite'
+import { RelativeTime } from './relative-time'
 
 export interface ThoughtItem {
   id: string

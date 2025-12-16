@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { DraftBadge } from '@/components/draft-badge'
-import { PostDate } from '@/components/post-date'
-import { ReadingTime } from '@/components/reading-time'
+import { DraftBadge } from './draft-badge'
+import { PostDate } from './post-date'
+import { ReadingTime } from './reading-time'
 import type { PostMetadata } from '@/lib/posts'
 
 interface RecommendedPostsProps {

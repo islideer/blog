@@ -2,7 +2,8 @@
 
 import { ZoomImage } from './zoom-image'
 import { useState, useEffect, useRef } from 'react'
-import { type ImageProps } from 'next/image'
+
+import type { ImageProps } from 'next/image'
 
 export function LazyImage(props: ImageProps) {
   const { src, alt, width, height, className, preload, ...rest } = props
@@ -21,9 +22,7 @@ export function LazyImage(props: ImageProps) {
           }
         })
       },
-      {
-        rootMargin: '200px',
-      },
+      { rootMargin: '200px' },
     )
 
     if (containerRef.current) {
@@ -52,7 +51,7 @@ export function LazyImage(props: ImageProps) {
   return (
     <div
       ref={containerRef}
-      className={`${className || ''} aspect-video w-full animate-pulse bg-zinc-100 dark:bg-zinc-800`}
+      className={`aspect-video w-full animate-pulse bg-zinc-100 dark:bg-zinc-800 ${className || ''}`}
     />
   )
 }

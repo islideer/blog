@@ -1,5 +1,5 @@
 import { parseArticle } from '@/lib/markdown'
-import { ArticleImages } from '@/components/article-images'
+import { ArticleZoomProvider } from './article-zoom-provider'
 
 interface ArticleContentProps {
   content: string
@@ -23,13 +23,8 @@ export async function ArticleContent({ content, className = '' }: ArticleContent
   const html = await parseArticle(content)
 
   return (
-    <>
-      <div
-        className={`prose ${className}`}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-      {/* 客户端组件：增强图片缩放功能 */}
-      <ArticleImages />
-    </>
+    <ArticleZoomProvider>
+      <div className={`prose ${className}`} dangerouslySetInnerHTML={{ __html: html }} />
+    </ArticleZoomProvider>
   )
 }

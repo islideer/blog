@@ -1,4 +1,4 @@
-import { MarkdownLite } from '@/components/markdown-lite'
+import { MarkdownLite } from './markdown-lite'
 
 interface AboutIntroProps {
   title: string

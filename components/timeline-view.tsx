@@ -1,5 +1,5 @@
 import { dayjs } from '@/lib/dayjs'
-import { MarkdownLite } from '@/components/markdown-lite'
+import { MarkdownLite } from './markdown-lite'
 
 import type { TimelineItem } from '@/lib/data'
 

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ThemeToggle } from '@/components/theme-toggle'
+import { ThemeToggle } from './theme-toggle'
 import { siteConfig } from '@/lib/config'
 
 export function SiteHeader() {
