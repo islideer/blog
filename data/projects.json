@@ -3,7 +3,7 @@
     {
       "name": "smee-it",
       "url": "https://github.com/vikiboss/smee-it",
-      "description": "A lightweight smee.io client for receiving webhooks locally via SSE.",
+      "description": "A lightweight smee.io client for receiving webhooks locally via SSE",
       "status": "active"
     },
     {
@@ -56,7 +56,7 @@
     {
       "name": "React Online",
       "url": "https://github.com/vikiboss/react-online",
-      "description": "React 在线编辑器，轻量、原生、支持 ESM、TypeScript、Tailwind CSS",
+      "description": "React 在线编辑器，轻量、原生，支持 ESM、TypeScript 和 Tailwind CSS",
       "status": "active",
       "homepage": "https://dev.viki.moe/"
     },
@@ -70,14 +70,14 @@
     {
       "name": "Chat One",
       "url": "https://github.com/vikiboss/chat-one",
-      "description": "All-in-one OneBot (V11, Forward WS) Chat Platform. For KiviBot.",
+      "description": "All-in-one OneBot (V11, Forward WS) Chat Platform. For KiviBot",
       "status": "active",
       "homepage": "https://chat-one.viki.moe/"
     },
     {
       "name": "Chatee",
       "url": "https://github.com/vikiboss/chatee",
-      "description": "A simple terminal chat app, powered by React, ink and ICQQ.",
+      "description": "A simple terminal chat app, powered by React, ink and ICQQ",
       "status": "archived"
     },
     {
@@ -89,7 +89,7 @@
     {
       "name": "听雨",
       "url": "https://github.com/vikiboss/ting",
-      "description": "静下来，专注一会 / Slow down and focus for a while.",
+      "description": "静下来，专注一会 / Slow down and focus for a while",
       "homepage": "https://ting.viki.moe/",
       "status": "active"
     },

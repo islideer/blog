@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import { ViewTransition } from 'react'
 import { DraftBadge } from './draft-badge'
 import { PostDate } from './post-date'
 import { ReadingTime } from './reading-time'
+
 import type { PostMetadata } from '@/lib/posts'
 
 interface RecommendedPostsProps {
@@ -23,33 +25,30 @@ export function RecommendedPosts({ posts }: RecommendedPostsProps) {
         {posts.map((post) => (
           <article
             key={post.slug}
-            className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-4 sm:py-1.5"
+            className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 py-2 sm:grid-cols-[6rem_1fr_auto] sm:gap-x-4 sm:py-1.5"
           >
-            <div className="text-text-tertiary flex shrink-0 items-baseline gap-2 font-mono text-xs sm:w-24 sm:text-sm">
-              <PostDate date={post.date} format="full" />
-              {post.readingTime && (
-                <>
-                  <span className="shrink-0 sm:hidden">·</span>
-                  <span className="sm:hidden">
-                    <ReadingTime minutes={post.readingTime} />
-                  </span>
-                </>
-              )}
+            <div className="text-text-tertiary flex shrink-0 items-baseline gap-2 font-mono text-xs sm:text-sm">
+              <ViewTransition name={`post-date-${post.slug}`} default="transform">
+                <PostDate date={post.date} format="full" />
+              </ViewTransition>
             </div>
-            <div className="flex flex-1 items-center gap-2">
-              {post.draft && <DraftBadge />}
-              <Link
-                href={`/${post.slug}`}
-                className="text-text-secondary hover:text-text-primary flex-1 text-sm sm:text-base"
-              >
-                {post.title}
-              </Link>
-            </div>
-            {post.readingTime && (
-              <span className="text-text-tertiary hidden shrink-0 text-xs sm:inline">
+            <div className="text-text-tertiary flex items-baseline gap-2 font-mono text-xs sm:col-start-3 sm:row-start-1 sm:text-xs">
+              <span className="shrink-0 sm:hidden">·</span>
+              <ViewTransition name={`post-reading-time-${post.slug}`} default="transform">
                 <ReadingTime minutes={post.readingTime} />
-              </span>
-            )}
+              </ViewTransition>
+            </div>
+            <div className="col-span-2 flex items-start gap-2 sm:col-span-1 sm:col-start-2 sm:row-start-1">
+              {post.draft && <DraftBadge className="mt-0.5" />}
+              <ViewTransition name={`post-title-${post.slug}`} default="transform">
+                <Link
+                  href={`/${post.slug}`}
+                  className="text-text-secondary hover:text-text-primary flex-1 text-sm leading-snug sm:text-base"
+                >
+                  {post.title}
+                </Link>
+              </ViewTransition>
+            </div>
           </article>
         ))}
       </div>
