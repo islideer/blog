@@ -2,7 +2,7 @@
   {
     "id": "69",
     "date": "2025-12-19T17:50:05+08:00",
-    "content": "之前有提到可以 [自定义 \\<select\\> 元素](48)，具体来说是通过设置 CSS 属性 appearance 为 `base-select` 来实现的，不得不说，效果确实很牛批，不仅是样式高度可覆盖，连布局排版都可以高度定制化。目前已在 Chrome 135 可用，Chrome 官方发布了一篇功能说明: *[现在可以使用 CSS 自定义 \\<select\\> 元素](https://developer.chrome.com/blog/a-customizable-select?hl=zh-cn)*，其团队成员 Una 也发布了一片个人博客文章讲述这个事情: *[Updates to the customizable select API](https://una.im/select-updates/)*",
+    "content": "之前有提到可以 [自定义 \\<select\\> 元素](#48)，具体来说是通过设置 CSS 属性 appearance 为 `base-select` 来实现的，不得不说，效果确实很牛批，不仅是样式可自定义，连布局排版都可以高度定制化。目前已在 Chrome 135 可用，Chrome 官方发布了一篇文章说明这个功能: *[现在可以使用 CSS 自定义 \\<select\\> 元素](https://developer.chrome.com/blog/a-customizable-select?hl=zh-cn)*，团队成员 Una 也发了篇个人博客来讲述技术细节: *[Updates to the customizable select API](https://una.im/select-updates/)*",
     "images": [
       "https://s2.loli.net/2025/12/19/yN6muwvZDgdbJX2.png",
       "https://s2.loli.net/2025/12/19/YiD5v2fUV4L3q7F.png"
