@@ -1,6 +1,12 @@
 {
   "libraries": [
     {
+      "name": "mioki",
+      "url": "https://github.com/vikiboss/mioki",
+      "description": "💓 A simple OneBot bot framework for NapCat, successor of KiviBot.",
+      "status": "active"
+    },
+    {
       "name": "smee-it",
       "url": "https://github.com/vikiboss/smee-it",
       "description": "A lightweight smee.io client for receiving webhooks locally via SSE",
