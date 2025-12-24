@@ -1,5 +1,10 @@
 [
   {
+    "id": "77",
+    "date": "2025-12-24T16:35:04+08:00",
+    "content": "如果不需要额外的属性和状态，可以使用抽象类并结合静态方法来避免类实例化，从而降低运行时开销。\n\n```ts\n// Abstract class with static method\nexport abstract class Service {\n  static handle(name: string): string {\n    return `Hi ${name}!`;\n  }\n}\n\n// Usage\nService.handle('Mio') // \"Hi Mio!\"\n```"
+  },
+  {
     "id": "76",
     "date": "2025-12-24T11:58:42+08:00",
     "content": "嘻嘻",
