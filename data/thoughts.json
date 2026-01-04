@@ -7,15 +7,13 @@
   {
     "id": "85",
     "date": "2026-01-01T11:55:34+08:00",
-    "content": "好歹毒的面，哪个小机灵鬼想出来的",
-    "images": [
-      "https://s2.loli.net/2026/01/01/qI2bkSiQVfBDuP4.jpg"
-    ]
+    "content": "好歹毒的面，哪个小机灵鬼想出来的。",
+    "images": ["https://s2.loli.net/2026/01/01/qI2bkSiQVfBDuP4.jpg"]
   },
   {
     "id": "84",
     "date": "2025-12-31T15:23:32+08:00",
-    "content": "<2025>\n🛋️ Comfort in VRChat\n❓ Question Mark / qm\n🐈 Cola turned one\n🏠 New cozy nest\n👓 Graduated from VRChat\n🎵 R&B, DT, 小宇, T & Rap\n❤️ At last with Mio\n🎮 CS2, It Takes Two and HoK\n✈️ Flew to see Mio in Chengdu\n🍉 Durian, Durian and Durian!\n🧸 Making crafts together\n💬 New blog, new thoughts\n🤖 Hi mioki! Bye KiviBot\n👩‍❤️‍👨 New Year‘s Eve together\n</2025>"
+    "content": "我的 2025 年终总结（简短版）：\n\n<2025>\n🥽 🛋️ Comfort in VRChat\n❓ Question Mark / qm\n🐈 🎂 Cola turned one\n🏠 New cozy nest\n💼 💸 A modest salary increase\n🎧 R&B, Rap, DT, 小宇 & T\n🥰 At last with Mio\n🥽 🎓 Graduated from VRChat\n🎮 CS2, It Takes Two and HoK\n✈️ Flew to see Mio in Chengdu\n😋 Durian, Durian and Durian!\n🏺 Making crafts together\n✍️ 💬 New blog, new thoughts\n🤖 👋 Hi mioki! Bye KiviBot\n🎆 🥂 New Year‘s Eve together\n</2025>"
   },
   {
     "id": "83",
@@ -25,36 +23,30 @@
   {
     "id": "82",
     "date": "2025-12-29T20:27:29+08:00",
-    "content": "我不允许有人没吃过白象的大辣娇板面 🍜 😋",
-    "images": [
-      "https://s2.loli.net/2025/12/29/wu9cpfeNs6rWgB7.jpg"
-    ]
+    "content": "我不允许有人没吃过白象的大辣娇板面。🍜 😋",
+    "images": ["https://s2.loli.net/2025/12/29/wu9cpfeNs6rWgB7.jpg"]
   },
   {
     "id": "81",
     "date": "2025-12-27T13:07:52+08:00",
     "content": "为什么没有榴莲的 emoji 啊？=.=",
-    "images": [
-      "https://s2.loli.net/2025/12/27/DCcBe4auS2VAmtX.jpg"
-    ]
+    "images": ["https://s2.loli.net/2025/12/27/DCcBe4auS2VAmtX.jpg"]
   },
   {
     "id": "80",
     "date": "2025-12-26T16:57:59+08:00",
-    "content": "关于 B 站投稿视频 ID 的历史和现状：\n\n- 最开始 URL 中使用 AV 号，以 `av` 开头加上数字 ID，如 `av80433022`，按上传顺序发放序号，URL 参数名为 `aid`\n- 最早的 AV 序号是 [2](https://www.bilibili.com/video/av2)，由站长 [碧诗](https://space.bilibili.com/2) 于 2009/09/09 09:09:09 上传\n- 最后一个时序 AV 序号 [99999999](https://www.bilibili.com/video/av99999999) 诞生于 2020-03-28 19:45:02，至此结束了传统按上传顺序发放的模式，改为随机发放\n- AV 号 99999999 诞生的五天前，B 站推出了全新视频 ID —— BV 号，以 `BV` 开头的固定 12 位字符串，如 `BV1GJ411x7h7`，URL 参数名为 `bvid`\n- BV 号的实质是 AV 号的 Base58 编码形式，并移除了容易混淆的字符，两者可以通过算法转换\n- 目前新上传的视频仍会随机分配较长的 AV 号，但主要使用 BV 号进行标识\n\nBV 号和 AV 号的转换算法参考，来自 [bilibili-API-collect](https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/misc/bvid_desc.md)：\n\n```ts\nconst XOR_CODE = 23442827791579n\nconst MASK_CODE = 2251799813685247n\nconst MAX_AID = 1n << 51n\nconst BASE = 58n\n\nconst data = 'FcwAPNKTMug3GV5Lj7EJnHpWsx4tb8haYeviqBz6rkCy12mUSDQX9RdoZf'\n\nfunction av2bv(aid: number) {\n  const bytes = ['B', 'V', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0']\n  let bvIndex = bytes.length - 1\n  let tmp = (MAX_AID | BigInt(aid)) ^ XOR_CODE\n  while (tmp > 0) {\n    bytes[bvIndex] = data[Number(tmp % BigInt(BASE))]\n    tmp = tmp / BASE\n    bvIndex -= 1\n  }\n  ;[bytes[3], bytes[9]] = [bytes[9], bytes[3]]\n  ;[bytes[4], bytes[7]] = [bytes[7], bytes[4]]\n  return bytes.join('')\n}\n\nfunction bv2av(bvid: string) {\n  const bvidArr = Array.from<string>(bvid)\n  ;[bvidArr[3], bvidArr[9]] = [bvidArr[9], bvidArr[3]]\n  ;[bvidArr[4], bvidArr[7]] = [bvidArr[7], bvidArr[4]]\n  bvidArr.splice(0, 3)\n  const tmp = bvidArr.reduce((pre, bvidChar) => pre * BASE + BigInt(data.indexOf(bvidChar)), 0n)\n  return Number((tmp & MASK_CODE) ^ XOR_CODE)\n}\n\nconsole.log(av2bv(80433022))\nconsole.log(bv2av('BV1GJ411x7h7'))\n```"
+    "content": "关于 B 站投稿视频 ID 的历史和现状：\n\n- 最开始 URL 中使用 AV 号，以 `av` 开头加上数字 ID，如 `av80433022`，按上传顺序发放序号，URL 参数名为 `aid`\n- 最早的 AV 序号是 [2](https://www.bilibili.com/video/av2)，由站长 [碧诗](https://space.bilibili.com/2) 于 2009/09/09 09:09:09 上传\n- 最后一个时序 AV 序号 [99999999](https://www.bilibili.com/video/av99999999) 诞生于 2020-03-28 19:45:02，至此结束了传统按上传顺序发放的模式，改为随机发放\n- AV 号 99999999 诞生的五天前，B 站推出了全新视频 ID —— BV 号，以 `BV` 开头的固定 12 位字符串，如 `BV1GJ411x7h7`，URL 参数名为 `bvid`\n- BV 号的实质是 AV 号的 Base58 编码形式，并移除了容易混淆的字符，两者可以通过算法转换\n- 目前新上传的视频仍会随机分配较长的 AV 号，但主要使用 BV 号进行标识\n\nBV 号和 AV 号的转换算法，来自 [bilibili-API-collect](https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/misc/bvid_desc.md)：\n\n```ts\nconst XOR_CODE = 23442827791579n\nconst MASK_CODE = 2251799813685247n\nconst MAX_AID = 1n << 51n\nconst BASE = 58n\n\nconst data = 'FcwAPNKTMug3GV5Lj7EJnHpWsx4tb8haYeviqBz6rkCy12mUSDQX9RdoZf'\n\nfunction av2bv(aid: number) {\n  const bytes = ['B', 'V', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0']\n  let bvIndex = bytes.length - 1\n  let tmp = (MAX_AID | BigInt(aid)) ^ XOR_CODE\n  while (tmp > 0) {\n    bytes[bvIndex] = data[Number(tmp % BigInt(BASE))]\n    tmp = tmp / BASE\n    bvIndex -= 1\n  }\n  ;[bytes[3], bytes[9]] = [bytes[9], bytes[3]]\n  ;[bytes[4], bytes[7]] = [bytes[7], bytes[4]]\n  return bytes.join('')\n}\n\nfunction bv2av(bvid: string) {\n  const bvidArr = Array.from<string>(bvid)\n  ;[bvidArr[3], bvidArr[9]] = [bvidArr[9], bvidArr[3]]\n  ;[bvidArr[4], bvidArr[7]] = [bvidArr[7], bvidArr[4]]\n  bvidArr.splice(0, 3)\n  const tmp = bvidArr.reduce((pre, bvidChar) => pre * BASE + BigInt(data.indexOf(bvidChar)), 0n)\n  return Number((tmp & MASK_CODE) ^ XOR_CODE)\n}\n\nconsole.log(av2bv(80433022))\nconsole.log(bv2av('BV1GJ411x7h7'))\n```"
   },
   {
     "id": "79",
     "date": "2025-12-25T15:44:09+08:00",
-    "content": "JavaScript 的 `sort()` 函数默认行为可用以下函数表示：\n\n```ts\nconst sorter = (a, b) => String(a) > String(b) ? 1 : String(a) < String(b) ? -1 : 0\n```"
+    "content": "JavaScript 的 `sort()` 函数的默认行为：\n\n```ts\nconst sorter = (a, b) => String(a) > String(b) ? 1 : String(a) < String(b) ? -1 : 0\n```"
   },
   {
     "id": "78",
     "date": "2025-12-25T00:00:07+08:00",
     "content": "🎄 Merry Christmas!",
-    "images": [
-      "https://s2.loli.net/2025/12/25/GmrUvLNHcB1sM3i.jpg"
-    ]
+    "images": ["https://s2.loli.net/2025/12/25/GmrUvLNHcB1sM3i.jpg"]
   },
   {
     "id": "77",
@@ -65,9 +57,7 @@
     "id": "76",
     "date": "2025-12-24T11:58:42+08:00",
     "content": "嘻嘻",
-    "images": [
-      "https://s2.loli.net/2025/12/24/kTWQrXBtH5NGmhC.jpg"
-    ]
+    "images": ["https://s2.loli.net/2025/12/24/kTWQrXBtH5NGmhC.jpg"]
   },
   {
     "id": "75",
@@ -78,25 +68,19 @@
     "id": "74",
     "date": "2025-12-22T08:27:12+08:00",
     "content": "电脑硬盘格式限制升不了 Win11 25H2，插 U 盘进 PE 将系统盘从 MBR 转为 GPT 格式，创建 ESP 和 MSR 分区，然后修复 UEFI 引导，重开发现进不了系统了，一直转圈圈… 😓 不知道哪里点错被我搞坏了，好在没什么重要东西就索性重装了，另外 1T 多的游戏和综艺都在另一张固态里，装完重新导入 Steam 就好了，系统现在干净如初。",
-    "images": [
-      "https://s2.loli.net/2025/12/22/T1WzVKjeAhfRGyL.jpg"
-    ]
+    "images": ["https://s2.loli.net/2025/12/22/T1WzVKjeAhfRGyL.jpg"]
   },
   {
     "id": "73",
     "date": "2025-12-20T21:04:08+08:00",
     "content": "习惯备注「外卖挂门上」好久了，第一次听到有骑手提醒我「开门的时候注意别弄掉了」，有点暖心（虽然他把外卖放在门把手最内侧，开门基本不会掉）。因为之前确实有骑手挂在门把手外侧而不是转轴内侧，一开门外卖就会摔到地上，别问我是怎么知道的。",
-    "images": [
-      "https://s2.loli.net/2025/12/20/r6hBObDCwsjV1pS.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/20/r6hBObDCwsjV1pS.png"]
   },
   {
     "id": "72",
     "date": "2025-12-19T20:12:41+08:00",
     "content": "工作笔记应有的逻辑及其四个内容维度。 有写过一阵子的工作笔记，现在工作内容不算多，~~大多数时间摸鱼去了，懒得写~~，但对以后去到下家公司后的工作记录还是很有参考价值的。",
-    "images": [
-      "https://s2.loli.net/2025/12/19/5UpiKVZj2xaGbLr.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/19/5UpiKVZj2xaGbLr.png"]
   },
   {
     "id": "71",
@@ -106,7 +90,7 @@
   {
     "id": "70",
     "date": "2025-12-19T18:14:53+08:00",
-    "content": "轮播图的现代化方案: [::scroll-marker](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-marker) 和 [::scroll-button](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-button)"
+    "content": "轮播图的现代化方案: \n- [::scroll-marker](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-marker)\n- [::scroll-button](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-button)"
   },
   {
     "id": "69",
@@ -121,33 +105,25 @@
     "id": "68",
     "date": "2025-12-19T17:21:45+08:00",
     "content": "这种聚光灯、调整布局的功能原来不是 VitePress 自带的，是众多社区插件中的一个，叫 [@nolebase/vitepress-plugin-enhanced-readabilities](https://nolebase-integrations.ayaka.io/pages/en/integrations/vitepress-plugin-enhanced-readabilities/)。",
-    "images": [
-      "https://s2.loli.net/2025/12/19/ndQhwL2DFc3k1RH.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/19/ndQhwL2DFc3k1RH.png"]
   },
   {
     "id": "67",
     "date": "2025-12-19T07:28:47+08:00",
     "content": "好耶，mxx 和宗主终于回来了！mxx 担任指挥，有他队内氛围也好了，chopper 换 tN1R 等于火力补强了，宗的自由人更是有自己的一套打法，期待一下明年的比赛。🤩 ~~一分钱不花换了两个 Major 冠军上来，哪家俱乐部还有这种手笔？~~",
-    "images": [
-      "https://s2.loli.net/2025/12/19/d7OlVnf6gjXNhYS.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/19/d7OlVnf6gjXNhYS.png"]
   },
   {
     "id": "66",
     "date": "2025-12-18T21:32:08+08:00",
     "content": "新的小玩具 o (*￣▽￣*) ブ [猛戳这里试用](https://github.com/vikiboss/mioki)",
-    "images": [
-      "https://s2.loli.net/2025/12/18/WgV4I6BnvXeZfwS.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/18/WgV4I6BnvXeZfwS.png"]
   },
   {
     "id": "65",
     "date": "2025-12-18T18:20:26+08:00",
-    "content": "强烈谴责",
-    "images": [
-      "https://s2.loli.net/2025/12/18/mwUDM739OBxiSbr.jpg"
-    ]
+    "content": "强烈谴责，动不动就扣我五毛钱！",
+    "images": ["https://s2.loli.net/2025/12/18/mwUDM739OBxiSbr.jpg"]
   },
   {
     "id": "64",
@@ -163,9 +139,7 @@
     "id": "62",
     "date": "2025-12-15T12:37:16+08:00",
     "content": "😎",
-    "images": [
-      "https://s2.loli.net/2025/12/15/yl2MeDI4c1dmsfJ.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/15/yl2MeDI4c1dmsfJ.png"]
   },
   {
     "id": "61",
@@ -176,25 +150,19 @@
     "id": "60",
     "date": "2025-12-15T09:06:53+08:00",
     "content": "大表哥带领 FaZe Clan 从第一阶段一路打到总决赛，最终拿到 Major 亚军。有点励志，虽然没夺冠有点可惜，但也正如「总监」 Twistzz 所说：无论输赢，这都是一段值得骄傲的旅程。",
-    "images": [
-      "https://s2.loli.net/2025/12/15/iLOYVvNbE6tnpSW.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/15/iLOYVvNbE6tnpSW.png"]
   },
   {
     "id": "59",
     "date": "2025-12-14T08:38:42+08:00",
     "content": "Donk 都 C 麻了还是输了，打完给人气哭了都。FaZe 这个队伍让人看得赏心悦目，依旧地狱归来。",
-    "images": [
-      "https://s2.loli.net/2025/12/14/tG8ZyPr1cN95RUJ.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/14/tG8ZyPr1cN95RUJ.png"]
   },
   {
     "id": "58",
     "date": "2025-12-13T18:27:20+08:00",
     "content": "也是上过荣耀王者的人了，Mio 打得真不错。",
-    "images": [
-      "https://s2.loli.net/2025/12/13/pOAstwlQgBG9y1C.jpg"
-    ]
+    "images": ["https://s2.loli.net/2025/12/13/pOAstwlQgBG9y1C.jpg"]
   },
   {
     "id": "57",
@@ -204,26 +172,20 @@
   {
     "id": "56",
     "date": "2025-12-12T02:14:30+08:00",
-    "content": "熬大夜没白看！zweih 发力 ACE 了！ 2-0 带走猎鹰！三个 Donk 怎么打！",
-    "images": [
-      "https://s2.loli.net/2025/12/12/xAHU9FEXjG8Zbgn.png"
-    ]
+    "content": "熬大夜没白看，zweih 发力 ACE 五杀了，2-0 带走猎鹰！三个 Donk 怎么打！",
+    "images": ["https://s2.loli.net/2025/12/12/xAHU9FEXjG8Zbgn.png"]
   },
   {
     "id": "55",
     "date": "2025-12-11T18:02:36+08:00",
     "content": "基于 [ViewTransition API](https://developer.mozilla.org/zh-CN/docs/Web/API/View_Transition_API) 实现的页面同一内容自然过渡效果，要求较新的浏览器版本，鸽了好久，终于有机会给博客整上了 🤤",
-    "images": [
-      "https://s2.loli.net/2025/12/11/pxStD3roO95PuBq.gif"
-    ]
+    "images": ["https://s2.loli.net/2025/12/11/pxStD3roO95PuBq.gif"]
   },
   {
     "id": "54",
     "date": "2025-12-11T16:33:39+08:00",
     "content": "存档一下随机结果，看看是随机对的多还是自己选对的多。",
-    "images": [
-      "https://s2.loli.net/2025/12/11/fHZUswWS5xpEgOr.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/11/fHZUswWS5xpEgOr.png"]
   },
   {
     "id": "53",
@@ -244,9 +206,7 @@
     "id": "50",
     "date": "2025-12-10T17:17:42+08:00",
     "content": "几行 CSS 实现的带有模糊背景的固定比例图片效果，核心代码如下，目前已经应用到「碎碎念」和「Mio 说」板块的图片元素，这是为了统一图片高度防止加载过程中的布局抖动而采取的一种妥协方案。\n\n如果对这个实现感兴趣，你也可以在 [React Online](https://dev.viki.moe/#code=eNqNU9tu4jAQfecrRqi7SSqIIb1Q0lIt3UulrtqyapeqXa2ESUww5OK1HW5R%2Fn0noVD6VJ7sGc%2BcM2fGwyORSA0ZpIo96GXIHmkAOYxkEoHxRY15zHwiGfV0HSOMSsVLYqWBRzRgCjrwpwJQHWstlEuIcuwwCbkdM02chnNCmg5ptIknvt9PnptXtzfz3kPE7YkIqrUP847JbffrIgivb576znLucVvE%2B%2BQdkfDuaLrqv9z73XkStXp75jnkYZVK7b20gl%2F98OToep%2B8JnGOSX%2Baqscfq%2Bfffo%2B1b2%2F21OeQ9tW%2F7unj5FsyS3vhz1bJV%2Fl7XqmwRTmUURp7micxdIUwLcgQcmdKpqeUhcEAkulUxmDiFeDC5zNQRUwny8DnSoR06UJ1FLJFtQbF8SSpcMGY42HUICiMpgN5flkCAGTr6doRFaaZyrAGPPbZwoLO5SvJhmhrAEzZspNhcL7j80Kq1B2NWKdaQtYLSsFkdSdmW%2BqQetNAJmnsuzBAINM4KPEMC04an4CAl8yYHGCd2%2BxNwWU5PApASW9dBNBQd7JByQoHWVl%2FPsjf2Obc12MXnOMGAgJ5Q7ogqGtjWtaabOvEhuebHcD%2B4wIMKvY7beWYtm0PJPfP0UEO3%2BmbUWnW68PgnbRzOCTFOD%2B77pCNEsmKP1SoKhABVvVSBc6qAIQSuk5xNdFDXn1UCYabKil%2BG3SfInR7%2FZIMJ8XLiGsX2WJNeVw8oJgdwlemolJfJgKjQ82kC8MwleaZwB8wlDwY65gpZTbsM6uEklRptFrYm3Lo6GIx0hjGmqFo4eA%2FqfZJ7A%3D%3D) 上在线调试这种图片背景效果。\n\n```css\n.image-wrapper {\n  display: grid;\n  /* background: var(--bg) 50% / cover; */\n\n  &::before,\n  img {\n    z-index: 1;\n    grid-area: 1/1;\n    aspect-ratio: 16 / 9;\n    object-fit: contain;\n  }\n\n  &::before {\n    backdrop-filter: blur(8px) brightness(0.8) contrast(0.7);\n    content: '';\n  }\n}\n```",
-    "images": [
-      "https://s2.loli.net/2025/12/11/XRi7YNxwqPTvE6Z.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/11/XRi7YNxwqPTvE6Z.png"]
   },
   {
     "id": "49",
@@ -272,9 +232,7 @@
     "id": "45",
     "date": "2025-12-09T23:10:49+08:00",
     "content": "拭目以待。",
-    "images": [
-      "https://s2.loli.net/2025/12/09/It3XxKpzcYACVTM.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/09/It3XxKpzcYACVTM.png"]
   },
   {
     "id": "44",
@@ -290,17 +248,13 @@
     "id": "42",
     "date": "2025-12-09T20:09:53+08:00",
     "content": "最近在 npm 生态链中传播的 [Shai-Hulud 2.0 蠕虫病毒](https://securitylabs.datadoghq.com/articles/shai-hulud-2.0-npm-worm/#overview-of-an-npm-worm) 的攻击步骤。",
-    "images": [
-      "https://s2.loli.net/2025/12/09/S4Ai3rq21gK6HLd.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/09/S4Ai3rq21gK6HLd.png"]
   },
   {
     "id": "41",
     "date": "2025-12-09T07:21:42+08:00",
     "content": "周杰伦阔别三年，携手方文山、黄俊郎共同打造音乐大碟《催什么催》，名字别具一格，每一首歌都相当硬核，延续周氏曲风...",
-    "images": [
-      "https://s2.loli.net/2025/12/09/cpEOjY1BMJwPSmi.jpg"
-    ]
+    "images": ["https://s2.loli.net/2025/12/09/cpEOjY1BMJwPSmi.jpg"]
   },
   {
     "id": "40",
@@ -336,9 +290,7 @@
     "id": "34",
     "date": "2025-12-04T13:15:45+08:00",
     "content": "交作业了，这次也是一起选的。FaZe 给我赢 ε=(o｀ω′) ノ",
-    "images": [
-      "https://s2.loli.net/2025/12/04/MACxglGJWV2ywci.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/04/MACxglGJWV2ywci.png"]
   },
   {
     "id": "33",
@@ -354,9 +306,7 @@
     "id": "31",
     "date": "2025-12-04T08:05:50+08:00",
     "content": "没想到 [React](https://react.dev/) 也整了个致命漏洞，还挺严重的。\n\n> React 19 版本正式引入的 [RSC](https://react.dev/reference/rsc/server-components) (React Server Component) 存在致命 RCE（Remote Code Execution，远程代码执行）[漏洞](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components#vulnerability-overviews)，评分 10.0。攻击者可在服务端执行任意危险代码，覆盖 19.0, 19.1, 19.2 等版本，影响了包括 [Next.js](https://nextjs.org/), [Waku](https://waku.gg/), [React Router](https://reactrouter.com/) 等在内的主流前端框架，只有「仅客户端应用」幸免。参考 [CVE-2025-55182](https://vercel.com/changelog/cve-2025-55182) 和 [React 官方公告](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)。",
-    "images": [
-      "https://s2.loli.net/2025/12/04/zN7B3ZYhSeI6gQD.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/04/zN7B3ZYhSeI6gQD.png"]
   },
   {
     "id": "30",
@@ -367,9 +317,7 @@
     "id": "29",
     "date": "2025-12-03T17:21:09+08:00",
     "content": "都是神队，[第二阶段作业](#14) 果然给我炸光了，只对了三个。~~不过好消息是，大家都彼此彼此，哈哈哈哈哈哈哈哈。~~ 可惜天禄还是没把握住机会啊，本来能多赢两图的。",
-    "images": [
-      "https://s2.loli.net/2025/12/03/rnUJ8hvtMLbOYNf.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/03/rnUJ8hvtMLbOYNf.png"]
   },
   {
     "id": "28",
@@ -380,9 +328,7 @@
     "id": "27",
     "date": "2025-12-03T15:35:14+08:00",
     "content": "通过 Mac 系统内置的「音频 MIDI 设置」APP，可以添加并配置「多输出设备」，实现同时输出到多个音频设备的效果。如果你家里有多台音响设备，就可以营造更好的环绕声效果。或者如果你有对象，可以同时输出到两台蓝牙耳机，方便一起听音乐或看电影。",
-    "images": [
-      "https://s2.loli.net/2025/12/03/lWVOEXrpfPqYUF2.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/03/lWVOEXrpfPqYUF2.png"]
   },
   {
     "id": "26",
@@ -398,25 +344,19 @@
     "id": "24",
     "date": "2025-12-03T10:34:57+08:00",
     "content": "[Bun 宣布加入 Anthropic](https://bun.sh/blog/bun-joins-anthropic)，但其核心路线不变，变的是 [Claude Code](https://claude.com/product/claude-code) 及其 [SDK](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk) 因 Bun 团队而受益。Bun 在 22 年暑假发布了 v0.1.0，开始在前端领域掀起大浪。比较认同 Bun 的核心理念，性能、效率、Just Work，只是目前 Bun 在生态和兼容性上仍需完善。",
-    "images": [
-      "https://s2.loli.net/2025/12/03/lN3kzVZOdAwom7P.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/03/lN3kzVZOdAwom7P.png"]
   },
   {
     "id": "23",
     "date": "2025-12-02T16:08:45+08:00",
     "content": "[VS Code 1.106](https://code.visualstudio.com/updates/v1_106) 现在支持 [使用两个冒号通过字符长度定位代码位置](https://code.visualstudio.com/updates/v1_106#_go-to-line-improvements)。对比来说，之前只支持使用一个冒号通过行号来定位。近期还支持了 [私有扩展市场](https://code.visualstudio.com/blogs/2025/11/18/PrivateMarketplace) 功能。",
-    "images": [
-      "https://s2.loli.net/2025/12/02/SzurtcZ7gQVl53G.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/02/SzurtcZ7gQVl53G.png"]
   },
   {
     "id": "22",
     "date": "2025-12-02T10:06:23+08:00",
     "content": "如果面向 Node.js 的包想标记一个方法为弃用，除了使用 JSDoc 的 [@deprecated](https://jsdoc.app/tags-deprecated) 注释指令让编辑器展示删除线样式外，还可以使用 Node.js 内置的 `util.deprecate()` 函数，它会在运行时发出警告，提醒开发者该方法已被弃用。",
-    "images": [
-      "https://s2.loli.net/2025/12/02/uGOlpdeHEIJshLV.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/02/uGOlpdeHEIJshLV.png"]
   },
   {
     "id": "21",
@@ -431,9 +371,7 @@
     "id": "20",
     "date": "2025-12-02T09:19:36+08:00",
     "content": "Node.js, Yes! ✌️\n\n```diff\n- node --disable-warning=ExperimentalWarning --experimental-transform-types index.ts\n+ node index.ts\n```",
-    "images": [
-      "https://s2.loli.net/2025/12/02/EJKi51WC7c4fGZs.png"
-    ]
+    "images": ["https://s2.loli.net/2025/12/02/EJKi51WC7c4fGZs.png"]
   },
   {
     "id": "19",
@@ -444,9 +382,7 @@
     "id": "18",
     "date": "2025-12-01T19:15:24+08:00",
     "content": "原来 [幸运咖](https://www.xingyunka.com/) 也是蜜雪旗下的。🤔",
-    "images": [
-      "https://s2.loli.net/2025/12/01/kSh3OIKse6AyJWP.jpg"
-    ]
+    "images": ["https://s2.loli.net/2025/12/01/kSh3OIKse6AyJWP.jpg"]
   },
   {
     "id": "17",
@@ -467,41 +403,31 @@
     "id": "14",
     "date": "2025-11-29T12:56:47+08:00",
     "content": "第二阶段，和 Mio 一起选的，希望能过～",
-    "images": [
-      "https://s2.loli.net/2025/11/29/7b4o5On2qtzUydc.png"
-    ]
+    "images": ["https://s2.loli.net/2025/11/29/7b4o5On2qtzUydc.png"]
   },
   {
     "id": "13",
     "date": "2025-11-28T07:39:58+08:00",
     "content": "[Major 第一阶段作业](#8) 开局 3-0、0-3 炸差不多了还能救回来是我没想到的 😂。LVG 和 RA 怎么双双 0-3 回家，一图都没赢啊？？~~RNM 退钱 😡~~。Faze 依旧地狱归来 👻。菊花果然被淘汰了，~~真给力啊 (๑¯◡¯๑)，不救我的 3-0 那就直接淘汰让其他人作业都爆炸吧~~。💥 后面就看天禄了，加油。",
-    "images": [
-      "https://s2.loli.net/2025/11/28/hKwMScrjY6tZb9A.png"
-    ]
+    "images": ["https://s2.loli.net/2025/11/28/hKwMScrjY6tZb9A.png"]
   },
   {
     "id": "12",
     "date": "2025-11-26T11:43:29+08:00",
     "content": "通过修改 [NITZ](https://zh.wikipedia.org/wiki/NITZ)（网络标识和时区）下发规则实现的运营商名称广告和百度地图的路面广告一样流氓。🤷",
-    "images": [
-      "https://s2.loli.net/2025/11/26/XfeyrcaRpFnl9Qm.jpg"
-    ]
+    "images": ["https://s2.loli.net/2025/11/26/XfeyrcaRpFnl9Qm.jpg"]
   },
   {
     "id": "11",
     "date": "2025-11-25T09:14:40+08:00",
     "content": "建议全世界奶茶店都学习一下这种糖分标注。每次看到「不额外加糖」都得想一想到底是多少糖。😑",
-    "images": [
-      "https://s2.loli.net/2025/11/25/VW9PFa8IAoYZ526.jpg"
-    ]
+    "images": ["https://s2.loli.net/2025/11/25/VW9PFa8IAoYZ526.jpg"]
   },
   {
     "id": "10",
     "date": "2025-11-24T16:31:03+08:00",
     "content": "压力我，小心我变爆米花蹦你。",
-    "images": [
-      "https://s2.loli.net/2025/11/24/VkusTFzYUdPe9MJ.jpg"
-    ]
+    "images": ["https://s2.loli.net/2025/11/24/VkusTFzYUdPe9MJ.jpg"]
   },
   {
     "id": "9",
@@ -512,33 +438,25 @@
     "id": "8",
     "date": "2025-11-23T11:02:44+08:00",
     "content": "交作业交作业，LVG 加油 (ง・_・)ง",
-    "images": [
-      "https://s2.loli.net/2025/11/24/RMQFKgDvWqdt5kz.png"
-    ]
+    "images": ["https://s2.loli.net/2025/11/24/RMQFKgDvWqdt5kz.png"]
   },
   {
     "id": "7",
     "date": "2025-11-21T17:29:13+08:00",
     "content": "开个「Mio 说」板块，应该不会被说成公开秀恩爱吧，大概。💖",
-    "images": [
-      "https://s2.loli.net/2025/11/24/V3hI4JCAkOMibFW.gif"
-    ]
+    "images": ["https://s2.loli.net/2025/11/24/V3hI4JCAkOMibFW.gif"]
   },
   {
     "id": "6",
     "date": "2025-11-20T21:30:24+08:00",
     "content": "博客重构到晚上九点半才下班，果然摸鱼是第一生产力。~~卡点打卡拒被动加班，摸鱼拿钱做人生赢家。~~",
-    "images": [
-      "https://s2.loli.net/2025/11/20/6MyODHfBjalk2pi.jpg"
-    ]
+    "images": ["https://s2.loli.net/2025/11/20/6MyODHfBjalk2pi.jpg"]
   },
   {
     "id": "5",
     "date": "2025-11-20T20:50:27+08:00",
     "content": "测试一下发布碎碎念的 API 以及 Markdown 渲染格式是否正常。\n- 这是 **加粗**\n- 这是 *斜体*\n- 这是 ~~删除线~~\n- 这是 [链接](https://blog.viki.moe)\n- 这是 `code`\n\n下面是代码块。\n\n```ts\nconst message = \"Hello world!\"\n```\n\n下面是测试图片。",
-    "images": [
-      "https://s2.loli.net/2025/11/24/IQ8CxRO49U2lrMV.png"
-    ]
+    "images": ["https://s2.loli.net/2025/11/24/IQ8CxRO49U2lrMV.png"]
   },
   {
     "id": "4",
