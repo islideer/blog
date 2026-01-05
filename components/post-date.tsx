@@ -1,6 +1,6 @@
 import { dayjs } from '@/lib/dayjs'
 
-interface PostDateProps {
+export interface PostDateProps {
   date: string
   format?: 'short' | 'full' | 'month-day' | 'detail'
   className?: string

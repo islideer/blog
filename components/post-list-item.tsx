@@ -1,11 +1,12 @@
 import { ViewTransition } from 'react'
 
 import Link from 'next/link'
-import { PostDate } from './post-date'
+import { PostDate, type PostDateProps } from './post-date'
 import { DraftBadge } from './draft-badge'
 import { ReadingTime } from './reading-time'
 
 interface PostListItemProps {
+  dateFormat?: PostDateProps['format']
   post: {
     slug: string
     date: string
@@ -15,14 +16,14 @@ interface PostListItemProps {
   }
 }
 
-export function PostListItem({ post }: PostListItemProps) {
+export function PostListItem({ post, dateFormat }: PostListItemProps) {
   return (
     <article
       key={post.slug}
       className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 py-2 sm:grid-cols-[6rem_1fr_auto] sm:gap-x-4 sm:py-1.5"
     >
       <div className="text-text-tertiary flex shrink-0 items-center gap-2 font-mono text-xs sm:text-sm">
-        <PostDate date={post.date} format="month-day" />
+        <PostDate date={post.date} format={dateFormat ?? 'month-day'} />
       </div>
       <div className="text-text-tertiary flex items-center gap-2 font-mono text-xs sm:col-start-3 sm:row-start-1 sm:text-xs">
         <span className="shrink-0 sm:hidden">·</span>

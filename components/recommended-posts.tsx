@@ -19,7 +19,7 @@ export function RecommendedPosts({ posts }: RecommendedPostsProps) {
         style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
       >
         {posts.map((post) => (
-          <PostListItem key={post.slug} post={post} />
+          <PostListItem key={post.slug} post={post} dateFormat="full" />
         ))}
       </div>
     </section>
