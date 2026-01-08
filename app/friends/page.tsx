@@ -68,10 +68,9 @@ export default async function FriendsPage() {
       <section className="space-y-3 border-l-2 border-zinc-300 pl-4 dark:border-zinc-700">
         <h2 className="text-text-primary text-base font-semibold">交换友链</h2>
         <div className="text-text-secondary space-y-2 text-sm">
-          <p>欢迎交换友链！本站支持以下字段，仅昵称和地址必填。</p>
           <p>
-            你可以使用下列信息并通过
-            <code className="mx-2 font-mono">hi@viki.moe</code>联系我。
+            欢迎交换友链！本站支持以下字段，仅昵称和地址必填。你可使用下列信息并联系我添加：
+            <code className="font-mono">hi@viki.moe</code>
           </p>
           <p className="text-text-tertiary text-xs italic">
             注：虽不强制，但建议你的站点建站半年以上，并有一定的原创内容基础和深度，非商业为主。
