@@ -91,7 +91,7 @@ export default function RootLayout({
         <link
           rel="alternate"
           type="application/rss+xml"
-          title={`${siteConfig.name} RSS 订阅`}
+          title={siteConfig.name}
           href={siteConfig.links.rss}
         />
       </head>
