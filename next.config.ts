@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
       // 友链头像部分
       new URL('https://*.shiro.team/**'),
       new URL('https://thricecola.com/**'),
+      new URL('https://yunnet.top/**'),
     ],
   },
 }

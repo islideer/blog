@@ -11,5 +11,12 @@
     "url": "https://thricecola.com",
     "avatar": "https://thricecola.com/assets/512-t_MlOS14.jpg",
     "rss": "https://xlog.thricecola.com/feed"
+  },
+  {
+    "name": "Xiaohui'Blog",
+    "url": "https://yunnet.top",
+    "description": "技术 Blog。",
+    "avatar": "https://yunnet.top/upload/psc.jpg",
+    "rss": "https://yunnet.top/rss.xml"
   }
 ]
