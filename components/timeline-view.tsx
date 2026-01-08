@@ -36,7 +36,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
             <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
               {year}{' '}
               <span className="text-text-tertiary text-base font-normal sm:text-lg">
-                ({yearItems.length.toLocaleString('zh-CN')})
+                ({yearItems.length.toLocaleString('zh-Hans-CN')})
               </span>
             </h2>
 

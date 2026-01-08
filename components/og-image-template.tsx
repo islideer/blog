@@ -27,7 +27,7 @@ export function OgImageStatsItem({ number, label }: { number: number; label: str
           lineHeight: 1,
         }}
       >
-        {number.toLocaleString('zh-CN')}
+        {number.toLocaleString('zh-Hans-CN')}
       </div>
       <div
         style={{

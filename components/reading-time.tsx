@@ -4,5 +4,5 @@ interface ReadingTimeProps {
 }
 
 export function ReadingTime({ minutes, className = '' }: ReadingTimeProps) {
-  return <span className={className}>{minutes.toLocaleString('zh-CN')} 分钟</span>
+  return <span className={className}>{minutes.toLocaleString('zh-Hans-CN')} 分钟</span>
 }

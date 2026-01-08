@@ -100,7 +100,7 @@ export default async function BlogPage() {
         {allPosts.length > siteConfig.home.postsToShow && (
           <div className="flex justify-center pt-4">
             <Link href="/posts" className="text-text-secondary hover:text-text-primary text-link">
-              查看全部文章 ({allPosts.length.toLocaleString('zh-CN')}) →
+              查看全部文章 ({allPosts.length.toLocaleString('zh-Hans-CN')}) →
             </Link>
           </div>
         )}

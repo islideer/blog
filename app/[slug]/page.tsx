@@ -127,7 +127,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <ReadingTime minutes={post.readingTime} />
             </span>
             <span className="shrink-0">·</span>
-            <span className="shrink-0">{wordCount.toLocaleString('zh-CN')} 字</span>
+            <span className="shrink-0">{wordCount.toLocaleString('zh-Hans-CN')} 字</span>
             <OldPostTip short className="text-xs" date={post.date} />
           </div>
         </header>

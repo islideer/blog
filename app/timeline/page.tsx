@@ -42,7 +42,7 @@ export default function TimelinePage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">大事记</h1>
         <p className="text-text-secondary">
-          {`记录生活中的重要时刻和里程碑，共 ${timeline.length.toLocaleString('zh-CN')} 条记录，按年份分组展示。`}
+          {`记录生活中的重要时刻和里程碑，共 ${timeline.length.toLocaleString('zh-Hans-CN')} 条记录，按年份分组展示。`}
         </p>
       </section>
 

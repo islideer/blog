@@ -39,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function FriendsPage() {
-  const sortedFriends = friends.toSorted((p, n) => p.name.localeCompare(n.name))
+  const sortedFriends = friends.toSorted((p, n) => p.name.localeCompare(n.name, 'zh-Hans-CN'))
 
   return (
     <div className="space-y-12 py-8 sm:py-12">

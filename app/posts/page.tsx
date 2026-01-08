@@ -88,7 +88,7 @@ export default async function PostsPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">{pagesData.posts.title}</h1>
         <p className="text-text-secondary">
-          {`技术文章与生活随笔，共 ${allPosts.length.toLocaleString('zh-CN')} 篇，累计 ${totalWords.toLocaleString('zh-CN')} 字，按年份分组展示。`}
+          {`技术文章与生活随笔，共 ${allPosts.length.toLocaleString('zh-Hans-CN')} 篇，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字，按年份分组展示。`}
         </p>
       </section>
 
@@ -98,7 +98,7 @@ export default async function PostsPage() {
           <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
             置顶{' '}
             <span className="text-text-tertiary text-base font-normal sm:text-lg">
-              ({pinnedPosts.length.toLocaleString('zh-CN')})
+              ({pinnedPosts.length.toLocaleString('zh-Hans-CN')})
             </span>
           </h2>
           <div
@@ -147,7 +147,7 @@ export default async function PostsPage() {
               <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
                 {year}{' '}
                 <span className="text-text-tertiary text-base font-normal sm:text-lg">
-                  ({yearPosts.length.toLocaleString('zh-CN')})
+                  ({yearPosts.length.toLocaleString('zh-Hans-CN')})
                 </span>
               </h2>
               <div
