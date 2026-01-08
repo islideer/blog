@@ -3,6 +3,13 @@
     "name": "白咲 の blog",
     "url": "https://www.shiro.team",
     "description": "歇斯底里是崩溃，底里歇斯是美味。",
-    "avatar": "https://www.shiro.team/_astro/avatar.CnOvSC1l_Z1b7LLP.webp"
+    "avatar": "https://www.shiro.team/_astro/avatar.CnOvSC1l_Z1b7LLP.webp",
+    "rss": "https://www.shiro.team/rss.xml"
+  },
+  {
+    "name": "三瓶可乐不过岗",
+    "url": "https://thricecola.com",
+    "avatar": "https://thricecola.com/assets/512-t_MlOS14.jpg",
+    "rss": "https://xlog.thricecola.com/feed"
   }
 ]

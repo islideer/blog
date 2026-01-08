@@ -14,7 +14,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       new URL('https://*.loli.net/**'),
       new URL('https://*.viki.moe/**'),
+      new URL('https://viki.moe/**'),
+
+      // 友链头像部分
       new URL('https://*.shiro.team/**'),
+      new URL('https://thricecola.com/**'),
     ],
   },
 }

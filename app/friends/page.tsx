@@ -39,23 +39,25 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function FriendsPage() {
+  const sortedFriends = friends.toSorted((p, n) => p.name.localeCompare(n.name))
+
   return (
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">好朋友们</h1>
         <p className="text-text-secondary">
-          {`Viki 在互联网上的好朋友们，交流学习，共同进步。共收录 ${friends.length} 位好朋友，按昵称首字母排序。`}
+          {`Viki 在互联网上的好朋友们，交流学习，共同进步。共收录 ${sortedFriends.length} 位好朋友，按昵称首字母排序。`}
         </p>
       </section>
 
       {/* Friends Grid */}
       <section>
-        {friends.length === 0 ? (
+        {sortedFriends.length === 0 ? (
           <div className="text-text-tertiary py-12 text-center">暂无好朋友，等待添加中...</div>
         ) : (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {friends.map((friend, index) => (
+            {sortedFriends.map((friend, index) => (
               <FriendCard key={index} friend={friend} />
             ))}
           </div>
