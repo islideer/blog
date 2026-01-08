@@ -238,10 +238,10 @@ console.log('Hello World')
 
 | 字段      | 类型     | 必需 | 说明                            |
 | --------- | -------- | ---- | ------------------------------- |
-| `title`   | string   | ✅   | 文章标题                        |
-| `date`    | string   | ✅   | 发布日期（YYYY-MM-DD）          |
-| `excerpt` | string   | ✅   | 文章摘要（用于 SEO 和列表展示） |
-| `tags`    | string[] | ❌   | 标签列表（可选）                |
+| `title`   | string   | ✅    | 文章标题                        |
+| `date`    | string   | ✅    | 发布日期（YYYY-MM-DD）          |
+| `excerpt` | string   | ✅    | 文章摘要（用于 SEO 和列表展示） |
+| `tags`    | string[] | ❌    | 标签列表（可选）                |
 
 ---
 

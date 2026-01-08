@@ -25,5 +25,12 @@
     "description": "不要因为走得太远，就忘了当初为什么出发。",
     "avatar": "https://avatar.viki.moe?qq=2225151531",
     "rss": "https://blog.yuki.sh/atom.xml"
+  },
+  {
+    "name": "时歌的博客",
+    "url": "https://www.lapis.cafe",
+    "description": "理解以真实为本，但真实本身并不会自动呈现。",
+    "avatar": "https://www.lapis.cafe/avatar.webp",
+    "rss": "https://lapis.cafe/rss.xml"
   }
 ]

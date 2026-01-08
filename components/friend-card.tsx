@@ -10,7 +10,10 @@ interface FriendCardProps {
 
 export function FriendCard({ friend }: FriendCardProps) {
   return (
-    <div className="group relative flex items-start gap-4 transition-opacity hover:opacity-80">
+    <div
+      title={friend.description}
+      className="group relative flex items-start gap-4 transition-opacity hover:opacity-80"
+    >
       {/* 覆盖整个卡片的链接层 */}
       <Link
         href={friend.url}
@@ -47,7 +50,7 @@ export function FriendCard({ friend }: FriendCardProps) {
           )}
         </div>
 
-        <p className="text-text-tertiary line-clamp-2 text-sm leading-relaxed">
+        <p className="text-text-tertiary line-clamp-2 truncate text-sm leading-relaxed text-nowrap">
           {friend.description || '这位朋友很懒，什么也没留下。'}
         </p>
       </div>

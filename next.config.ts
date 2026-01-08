@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
       { hostname: 'www.shiro.team' },
       { hostname: 'thricecola.com' },
       { hostname: 'yunnet.top' },
+      { hostname: 'www.lapis.cafe' },
     ],
   },
 }
