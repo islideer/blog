@@ -42,10 +42,16 @@
 
   /* Typography Overrides */
   max-width: 100%;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* 防止任何子元素撑开容器宽度 */
+  min-width: 0;
 }
 
 /* Paragraphs */
@@ -127,16 +133,16 @@
   margin-bottom: 1.2em;
 }
 
-.prose pre {
-  margin-top: 1.2em;
-}
-
-/* Code Blocks */
+/* Code Blocks - 防止代码块撑开页面 */
 .prose pre {
   border-radius: var(--radius-md);
   background-color: var(--color-code-bg);
   padding: 1rem 1.5rem;
   overflow-x: auto;
+  max-width: 100%;
+  margin-top: 1.2em;
+  /* 确保代码块不会撑开容器 */
+  width: 100%;
 }
 
 /* Code Block Scrollbar - Hide by default, show on hover */
@@ -190,10 +196,14 @@
   content: none;
 }
 
-/* Tables */
+/* Tables - 防止表格撑开页面宽度 */
 .prose table {
+  /* 使用 display: block 让 overflow 生效 */
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
   border-radius: var(--radius-md);
-  overflow: hidden;
   border: 1px solid var(--color-border);
 }
 
@@ -201,9 +211,37 @@
   background: var(--color-bg-secondary);
 }
 
+.prose tbody {
+  display: table-row-group;
+}
+
 .prose th,
 .prose td {
   padding: 0.75em 1em;
+  /* 防止单元格内容换行导致表格过宽 */
+  white-space: nowrap;
+}
+
+/* 表格滚动条样式 */
+.prose table::-webkit-scrollbar {
+  height: 6px;
+}
+
+.prose table::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.prose table::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 3px;
+}
+
+.prose table:hover::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+}
+
+.prose table:hover::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-tertiary);
 }
 
 /* Task Lists */
@@ -295,4 +333,34 @@ html.dark .prose pre span {
   font-style: var(--shiki-dark-font-style);
   font-weight: var(--shiki-dark-font-weight);
   text-decoration: var(--shiki-dark-text-decoration);
+}
+
+/* ============================================
+   防止嵌入内容撑开页面宽度
+   ============================================ */
+
+/* iframe、video、embed 等嵌入内容 */
+.prose iframe,
+.prose video,
+.prose embed,
+.prose object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 图片已在 globals.css 中处理，这里再次确保 */
+.prose img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* SVG 图片 */
+.prose svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 任何块级元素都不应该超出容器 */
+.prose > * {
+  max-width: 100%;
 }
