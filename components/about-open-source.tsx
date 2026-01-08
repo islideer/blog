@@ -5,11 +5,11 @@ interface AboutOpenSourceProps {
 }
 
 const categoryNames: Record<keyof ProjectsData, string> = {
-  libraries: '类库',
-  applications: '应用',
-  tools: '工具',
-  services: '服务',
-  scripts: '脚本',
+  libraries: '类库 / Libraries',
+  applications: '应用 / Applications',
+  tools: '工具 / Tools',
+  services: '服务 / Services',
+  scripts: '脚本 / Scripts',
 }
 
 export function AboutOpenSource({ data }: AboutOpenSourceProps) {
@@ -18,7 +18,7 @@ export function AboutOpenSource({ data }: AboutOpenSourceProps) {
   return (
     <section className="space-y-6">
       <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
-        Open Source
+        开源 / Open Source
       </h2>
       <div className="space-y-8">
         {(Object.keys(projects) as Array<keyof ProjectsData>).map((category) => {
