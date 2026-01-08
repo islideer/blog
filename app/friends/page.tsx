@@ -49,6 +49,19 @@ export default async function FriendsPage() {
         </p>
       </section>
 
+      {/* Friends Grid */}
+      <section>
+        {friends.length === 0 ? (
+          <div className="text-text-tertiary py-12 text-center">暂无好朋友，等待添加中...</div>
+        ) : (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {friends.map((friend, index) => (
+              <FriendCard key={index} friend={friend} />
+            ))}
+          </div>
+        )}
+      </section>
+
       {/* Friend Link Info */}
       <section className="space-y-3 border-l-2 border-zinc-300 pl-4 dark:border-zinc-700">
         <h2 className="text-text-primary text-base font-semibold">交换友链</h2>
@@ -83,19 +96,6 @@ export default async function FriendsPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Friends Grid */}
-      <section>
-        {friends.length === 0 ? (
-          <div className="text-text-tertiary py-12 text-center">暂无好朋友，等待添加中...</div>
-        ) : (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {friends.map((friend, index) => (
-              <FriendCard key={index} friend={friend} />
-            ))}
-          </div>
-        )}
       </section>
     </div>
   )
