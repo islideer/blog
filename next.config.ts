@@ -12,14 +12,13 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   images: {
     remotePatterns: [
-      new URL('https://*.loli.net/**'),
-      new URL('https://*.viki.moe/**'),
-      new URL('https://viki.moe/**'),
+      { hostname: '**.loli.net' },
+      { hostname: '**.viki.moe' },
 
       // 友链头像部分
-      new URL('https://*.shiro.team/**'),
-      new URL('https://thricecola.com/**'),
-      new URL('https://yunnet.top/**'),
+      { hostname: 'www.shiro.team' },
+      { hostname: 'thricecola.com' },
+      { hostname: 'yunnet.top' },
     ],
   },
 }

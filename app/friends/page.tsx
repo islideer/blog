@@ -56,7 +56,7 @@ export default async function FriendsPage() {
         {sortedFriends.length === 0 ? (
           <div className="text-text-tertiary py-12 text-center">暂无好朋友，等待添加中...</div>
         ) : (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-2 gap-y-6 sm:grid-cols-2">
             {sortedFriends.map((friend, index) => (
               <FriendCard key={index} friend={friend} />
             ))}

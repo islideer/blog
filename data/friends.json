@@ -18,5 +18,12 @@
     "description": "技术 Blog。",
     "avatar": "https://yunnet.top/upload/psc.jpg",
     "rss": "https://yunnet.top/rss.xml"
+  },
+  {
+    "name": "Yuki 妙妙屋",
+    "url": "https://blog.yuki.sh/",
+    "description": "不要因为走得太远，就忘了当初为什么出发。",
+    "avatar": "https://avatar.viki.moe?qq=2225151531",
+    "rss": "https://blog.yuki.sh/atom.xml"
   }
 ]
