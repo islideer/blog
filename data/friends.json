@@ -9,6 +9,7 @@
   {
     "name": "三瓶可乐不过岗",
     "url": "https://thricecola.com",
+    "description": "",
     "avatar": "https://thricecola.com/assets/512-t_MlOS14.jpg",
     "rss": "https://xlog.thricecola.com/feed"
   },
@@ -31,6 +32,6 @@
     "url": "https://www.lapis.cafe",
     "description": "理解以真实为本，但真实本身并不会自动呈现。",
     "avatar": "https://www.lapis.cafe/avatar.webp",
-    "rss": "https://lapis.cafe/rss.xml"
+    "rss": "https://www.lapis.cafe/rss.xml"
   }
 ]
