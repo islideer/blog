@@ -16,6 +16,8 @@ import { PostDate } from '@/components/post-date'
 import { RecommendedPosts } from '@/components/recommended-posts'
 import { ZoomImageForArticle } from '@/components/zoom-image'
 import { ArticleContent } from '@/components/article-content'
+import { TableOfContents } from '@/components/table-of-contents'
+import { TableOfContentsMobile } from '@/components/table-of-contents-mobile'
 import { countWords } from '@/lib/word-count'
 
 import type { Metadata } from 'next'
@@ -141,6 +143,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Recommended Posts */}
         <RecommendedPosts posts={recommendedPosts} />
       </article>
+
+      {/* Table of Contents */}
+      <TableOfContents />
+      <TableOfContentsMobile />
     </>
   )
 }
