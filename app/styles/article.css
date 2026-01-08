@@ -200,7 +200,7 @@
 .prose table {
   /* 使用 display: block 让 overflow 生效 */
   display: block;
-  width: 100%;
+  width: fit-content;
   max-width: 100%;
   overflow-x: auto;
   border-radius: var(--radius-md);
