@@ -118,7 +118,7 @@ export function TableOfContentsMobile({
       {/* 遮罩层 */}
       {isOpen && (
         <div
-          className="bg-opacity-50 fixed inset-0 z-40 bg-black lg:hidden"
+          className="bg-bg-secondary/80 fixed inset-0 z-40 backdrop-blur-xs lg:hidden"
           onClick={() => setIsOpen(false)}
           aria-hidden="true"
         />
@@ -126,11 +126,11 @@ export function TableOfContentsMobile({
 
       {/* 抽屉 */}
       <div
-        className={`bg-bg-primary border-border fixed right-0 bottom-0 left-0 z-50 max-h-[70vh] overflow-y-auto rounded-t-2xl border-t shadow-2xl transition-transform duration-300 lg:hidden ${isOpen ? 'translate-y-0' : 'translate-y-full'} `}
+        className={`bg-bg-primary border-border fixed right-0 bottom-0 left-0 z-50 flex max-h-[70vh] flex-col rounded-t-2xl border-t shadow-2xl transition-transform duration-300 lg:hidden ${isOpen ? 'translate-y-0' : 'translate-y-full'} `}
       >
-        {/* 抽屉头部 */}
-        <div className="border-border flex items-center justify-between border-b px-4 py-3">
-          <h2 className="text-text-primary text-lg font-semibold">文章目录</h2>
+        {/* 抽屉头部 - 固定不滚动 */}
+        <div className="border-border flex shrink-0 items-center justify-between border-b px-4 py-3">
+          <h2 className="text-text-tertiary text-sm font-medium">目录</h2>
           <button
             onClick={() => setIsOpen(false)}
             className="text-text-tertiary hover:text-text-primary transition-colors"
@@ -144,7 +144,7 @@ export function TableOfContentsMobile({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-6 w-6"
+              className="h-5 w-5"
             >
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
@@ -152,28 +152,30 @@ export function TableOfContentsMobile({
           </button>
         </div>
 
-        {/* 标题列表 */}
-        <ul className="space-y-1 px-4 py-4">
-          {headings.map((heading) => {
-            const isActive = heading.id === activeId
-            const isH3 = heading.level === 3
+        {/* 标题列表 - 可滚动区域 */}
+        <div className="overflow-y-auto overscroll-contain">
+          <ul className="space-y-1 px-4 py-4 text-sm">
+            {headings.map((heading) => {
+              const isActive = heading.id === activeId
+              const isH3 = heading.level === 3
 
-            return (
-              <li key={heading.id} className={isH3 ? 'pl-4' : ''}>
-                <button
-                  onClick={() => scrollToHeading(heading.id)}
-                  className={`block w-full py-2 text-left no-underline transition-colors ${
-                    isActive
-                      ? 'text-text-primary font-medium'
-                      : 'text-text-secondary hover:text-text-primary'
-                  } `}
-                >
-                  {heading.text}
-                </button>
-              </li>
-            )
-          })}
-        </ul>
+              return (
+                <li key={heading.id} className={isH3 ? 'pl-3' : ''}>
+                  <button
+                    onClick={() => scrollToHeading(heading.id)}
+                    className={`block w-full py-2 text-left no-underline transition-colors ${
+                      isActive
+                        ? 'text-text-primary font-medium'
+                        : 'text-text-tertiary hover:text-text-primary'
+                    } `}
+                  >
+                    {heading.text}
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </div>
     </>
   )
