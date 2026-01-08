@@ -75,7 +75,7 @@ export function SiteHeader() {
           </Link>
 
           {/* 移动端显示"更多"下拉菜单 */}
-          <div className="relative sm:hidden">
+          <div className="relative flex items-center sm:hidden">
             <button
               onClick={() => setIsMoreOpen(!isMoreOpen)}
               onBlur={(e) => {
