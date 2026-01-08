@@ -47,13 +47,18 @@ export default async function ThoughtsPage() {
     return sum + (thought.content ? countWords(thought.content) : 0)
   }, 0)
 
+  const last = sortedThoughts[0]?.date || new Date().toISOString()
+  const first = sortedThoughts[sortedThoughts.length - 1]?.date || new Date().toISOString()
+  const avg = (new Date(last).getTime() - new Date(first).getTime()) / (1000 * 60 * 60 * 24 * 7)
+  const averagePerWeek = Math.round(sortedThoughts.length / Math.max(1, avg) || 1)
+
   return (
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">碎碎念</h1>
         <p className="text-text-secondary">
-          {`Viki 的碎碎念小角落，记录生活中的点滴想法和言论，共 ${sortedThoughts.length.toLocaleString('zh-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-CN')} 字。`}
+          {`Viki 的碎碎念小角落，记录生活中的点滴想法和言论，周均 ${averagePerWeek.toLocaleString('zh-CN')} 条，共 ${sortedThoughts.length.toLocaleString('zh-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-CN')} 字。`}
         </p>
       </section>
 
