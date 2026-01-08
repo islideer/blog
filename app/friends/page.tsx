@@ -66,25 +66,26 @@ export default async function FriendsPage() {
       <section className="space-y-3 border-l-2 border-zinc-300 pl-4 dark:border-zinc-700">
         <h2 className="text-text-primary text-base font-semibold">交换友链</h2>
         <div className="text-text-secondary space-y-2 text-sm">
+          <p>欢迎交换友链！本博客支持展示以下信息，其中仅昵称和地址必填。</p>
           <p>
-            欢迎交换友链！如果你想添加本站，可以使用以下信息，并将你的站点信息通过
-            <code className="mx-2 font-mono">hi@viki.moe</code>告知我，你的站点信息仅「昵称」和「地址」是必填项，其他可选。
+            如有意向，你可以使用以下信息并通过
+            <code className="mx-2 font-mono">hi@viki.moe</code>告知我。
           </p>
           <p className="text-text-tertiary text-xs italic">
             注：虽不强制，但建议站点建站半年以上，有一定原创内容基础与深度，非商业为主。
           </p>
           <div className="space-y-1.5">
             <div>
-              <span className="text-text-tertiary">昵称：</span>
+              <span className="text-text-tertiary">昵称*：</span>
               <span className="text-text-primary">Viki 写东西的地方</span>
+            </div>
+            <div>
+              <span className="text-text-tertiary">地址*：</span>
+              <span className="text-text-primary">https://blog.viki.moe</span>
             </div>
             <div>
               <span className="text-text-tertiary">描述：</span>
               <span className="text-text-primary">生活需要记录。</span>
-            </div>
-            <div>
-              <span className="text-text-tertiary">地址：</span>
-              <span className="text-text-primary">https://blog.viki.moe</span>
             </div>
             <div>
               <span className="text-text-tertiary">头像：</span>
