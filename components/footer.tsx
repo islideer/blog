@@ -2,7 +2,7 @@ import { siteConfig } from '@/lib/config'
 
 function CopyrightText() {
   return (
-    <span>
+    <span className="text-text-secondary">
       © {siteConfig.copyright.year.start}-{siteConfig.copyright.year.end} {siteConfig.author.name}
     </span>
   )
@@ -53,7 +53,7 @@ export function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="border-border border-t sm:opacity-60 sm:hover:opacity-100"
+      className="border-border border-t transition-opacity sm:opacity-60 sm:hover:opacity-100"
     >
       <div className="mx-auto w-full p-4 sm:p-6 lg:p-8">
         {/* 移动端布局 */}

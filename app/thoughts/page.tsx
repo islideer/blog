@@ -59,10 +59,7 @@ export default async function ThoughtsPage() {
 
       {/* Thoughts Timeline */}
       <section className="space-y-4">
-        <div
-          className="sm:border-l-2 sm:pl-6"
-          style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
-        >
+        <div className="sm:border-l-2 sm:pl-6" style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}>
           <ThoughtsList
             thoughts={sortedThoughts}
             emptyMessage="还没有碎碎念，快来记录吧"

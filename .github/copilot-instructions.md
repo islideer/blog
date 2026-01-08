@@ -93,6 +93,7 @@ import { MarkdownLite } from '@/components/markdown-lite'
 ```
 
 Key files:
+
 - `lib/markdown.ts`: Core parser with `parseMarkdown()` and `parseArticle()`.
 - Plugins: remark-gfm, remark-spoiler (||text||), rehype-shiki, rehype-slug.
 

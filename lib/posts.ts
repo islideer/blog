@@ -2,6 +2,7 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { calculateReadingTime } from './reading-time'
+import { isDev } from './env'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -81,8 +82,7 @@ export async function getAllPosts(): Promise<PostMetadata[]> {
   )
 
   // 开发模式下显示所有文章（包括草稿），生产环境下过滤草稿
-  const isDevelopment = process.env.NODE_ENV === 'development'
-  const filteredPosts = isDevelopment ? allPostsData : allPostsData.filter((post) => !post.draft)
+  const filteredPosts = isDev ? allPostsData : allPostsData.filter((post) => !post.draft)
 
   return filteredPosts.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 }
@@ -121,8 +121,7 @@ export async function getAllPostsWithContent(): Promise<Post[]> {
   )
 
   // 开发模式下显示所有文章（包括草稿），生产环境下过滤草稿
-  const isDevelopment = process.env.NODE_ENV === 'development'
-  const filteredPosts = isDevelopment ? allPostsData : allPostsData.filter((post) => !post.draft)
+  const filteredPosts = isDev ? allPostsData : allPostsData.filter((post) => !post.draft)
 
   return filteredPosts.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 }

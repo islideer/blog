@@ -18,5 +18,9 @@
   "mioSays": {
     "title": "Mio 说",
     "description": "Mio 的专属发言空间，Viki 无权编辑。"
+  },
+  "friends": {
+    "title": "好朋友们",
+    "description": "Viki 的好朋友们，互相交流学习，共同进步。"
   }
 }

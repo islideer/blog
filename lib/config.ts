@@ -6,9 +6,9 @@
 import siteData from '@/data/site.json'
 import pagesData from '@/data/pages.json'
 import { about } from './data'
+import { isDev } from './env'
 
-const url =
-  process.env.NODE_ENV === 'production' ? 'https://blog.viki.moe' : 'http://localhost:3000'
+const url = isDev ? 'http://localhost:3000' : 'https://blog.viki.moe'
 
 // 重新组装配置，处理动态内容和引用
 export const siteConfig = {

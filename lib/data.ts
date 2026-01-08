@@ -6,6 +6,8 @@ import aboutData from '@/data/about.json'
 import mioSaysData from '@/data/mio-says.json'
 import thoughtsData from '@/data/thoughts.json'
 import timelineData from '@/data/timeline.json'
+import friendsData from '@/data/friends.json'
+import { isDev } from './env'
 
 // --- About Types ---
 export interface OpenSourceProject {
@@ -79,6 +81,15 @@ export interface TimelineItem {
   description: string
 }
 
+// --- Friends Types ---
+export interface Friend {
+  name: string
+  url: string
+  description?: string // 可选的描述
+  avatar?: string // 可选的头像
+  rss?: string // 可选的 RSS 订阅地址
+}
+
 // --- Exports ---
 
 export const about: AboutData = {
@@ -91,8 +102,24 @@ export const about: AboutData = {
   contact: contact,
 }
 
+const defaultFriends: Friend[] = [
+  {
+    name: 'Example Friend',
+    url: 'https://example.com',
+    description: '示例友链，请替换为真实的好朋友。',
+    avatar: 'https://avatar.viki.moe',
+    rss: 'https://example.com/rss',
+  },
+  {
+    name: 'Example Friend 2',
+    url: 'https://example.com',
+    description: '示例友链，请替换为真实的好朋友。',
+  },
+]
+
 export const mioSays: MioSay[] = mioSaysData
 export const thoughts: Thought[] = thoughtsData
 export const timeline: TimelineItem[] = timelineData
+export const friends: Friend[] = friendsData.length === 0 && isDev ? defaultFriends : friendsData
 
 export { projects, techStack, contact }

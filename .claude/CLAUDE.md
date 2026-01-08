@@ -119,8 +119,8 @@ pnpm test         # 运行单元测试
 
 ```typescript
 // lib/markdown.ts
-parseMarkdown()   // 短内容（碎碎念、Mio 说）：启用换行
-parseArticle()    // 博客文章：标题锚点、代码高亮
+parseMarkdown() // 短内容（碎碎念、Mio 说）：启用换行
+parseArticle() // 博客文章：标题锚点、代码高亮
 ```
 
 ### 渲染组件
@@ -195,7 +195,7 @@ Tailwind v4 使用 **CSS-first 配置**，不需要 `tailwind.config.ts`：
 
 ## Markdown 文章格式
 
-````markdown
+```markdown
 ---
 layout: 'post'
 title: 文章标题
@@ -206,7 +206,7 @@ excerpt: 文章摘要
 # 文章内容
 
 正文内容...
-````
+```
 
 **Front Matter 必填字段**：`layout`、`title`、`date`、`excerpt`
 

@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   reactCompiler: true,
   images: {
-    remotePatterns: [new URL('https://s2.loli.net/**')],
+    remotePatterns: [new URL('https://s2.loli.net/**'), new URL('https://avatar.viki.moe/**')],
   },
 }
 

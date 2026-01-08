@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 import { ThemeToggle } from './theme-toggle'
 import { siteConfig } from '@/lib/config'
 
@@ -9,6 +10,7 @@ export function SiteHeader() {
   const pathname = usePathname()
   const isHome = pathname === '/'
   const TitleTag = isHome ? 'h1' : 'div'
+  const [isMoreOpen, setIsMoreOpen] = useState(false)
 
   return (
     <header
@@ -30,7 +32,7 @@ export function SiteHeader() {
         <nav
           role="navigation"
           aria-label="主导航"
-          className="flex items-center gap-1.5 sm:gap-4 sm:opacity-60 sm:group-hover:opacity-100"
+          className="flex items-center gap-1.5 transition-opacity sm:gap-4 sm:opacity-60 sm:group-hover:opacity-100"
         >
           <Link
             href="/posts"
@@ -50,18 +52,64 @@ export function SiteHeader() {
           >
             Mio 说
           </Link>
+
+          {/* PC 端显示全部链接 */}
           <Link
             href="/timeline"
-            className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
+            className="text-text-secondary hover:text-text-primary hidden text-xs sm:inline sm:text-sm"
           >
             大事记
           </Link>
+          <Link
+            href="/friends"
+            className="text-text-secondary hover:text-text-primary hidden text-xs sm:inline sm:text-sm"
+          >
+            好朋友们
+          </Link>
+
           <Link
             href="/about"
             className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
           >
             关于
           </Link>
+
+          {/* 移动端显示"更多"下拉菜单 */}
+          <div className="relative sm:hidden">
+            <button
+              onClick={() => setIsMoreOpen(!isMoreOpen)}
+              onBlur={(e) => {
+                // 延迟关闭，让点击链接有时间触发
+                if (!e.currentTarget.contains(e.relatedTarget)) {
+                  setTimeout(() => setIsMoreOpen(false), 150)
+                }
+              }}
+              className="text-text-secondary hover:text-text-primary text-xs"
+              aria-expanded={isMoreOpen}
+              aria-haspopup="true"
+            >
+              更多 ▾
+            </button>
+            {isMoreOpen && (
+              <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border shadow-lg">
+                <Link
+                  href="/timeline"
+                  className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                  onClick={() => setIsMoreOpen(false)}
+                >
+                  大事记
+                </Link>
+                <Link
+                  href="/friends"
+                  className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                  onClick={() => setIsMoreOpen(false)}
+                >
+                  好朋友们
+                </Link>
+              </div>
+            )}
+          </div>
+
           <ThemeToggle />
         </nav>
       </div>

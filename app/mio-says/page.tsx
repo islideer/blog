@@ -74,10 +74,7 @@ export default async function MioSaysPage() {
 
       {/* Mio Says Timeline */}
       <section className="space-y-4">
-        <div
-          className="sm:border-l-2 sm:pl-6"
-          style={{ borderColor: 'var(--color-mio-border)' }}
-        >
+        <div className="sm:border-l-2 sm:pl-6" style={{ borderColor: 'var(--color-mio-border)' }}>
           <ThoughtsList
             thoughts={sortedMioSays}
             mioTheme
