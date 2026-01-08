@@ -47,7 +47,7 @@ export default async function FriendsPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">好朋友们</h1>
         <p className="text-text-secondary">
-          {`Viki 在互联网上的好朋友们，交流学习，共同进步。共收录 ${sortedFriends.length} 位好朋友，按昵称首字母排序。`}
+          {`Viki 在互联网上的好朋友们，交流学习，共同进步。共收录 ${sortedFriends.length} 位好朋友，按名称首字母排序。`}
         </p>
       </section>
 
@@ -69,7 +69,7 @@ export default async function FriendsPage() {
         <h2 className="text-text-primary text-base font-semibold">交换友链</h2>
         <div className="text-text-secondary space-y-2 text-sm">
           <p>
-            欢迎交换友链！本站支持以下字段，仅昵称和地址必填，你可使用下列信息并联系我（
+            欢迎交换友链！本站支持以下字段，仅名称和地址必填，你可使用下列信息并联系我（
             <code className="font-mono">hi@viki.moe</code>）添加。
           </p>
           <p className="text-text-tertiary text-xs italic">
@@ -77,7 +77,7 @@ export default async function FriendsPage() {
           </p>
           <div className="space-y-1.5">
             <div>
-              <span className="text-text-tertiary">昵称*：</span>
+              <span className="text-text-tertiary">名称*：</span>
               <span className="text-text-primary">Viki 写东西的地方</span>
             </div>
             <div>
