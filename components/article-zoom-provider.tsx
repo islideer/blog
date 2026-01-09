@@ -8,7 +8,13 @@ import mediumZoom from 'medium-zoom'
  *
  * 在客户端初始化 medium-zoom，作用于所有带 data-zoomable 属性的图片
  */
-export function ArticleZoomProvider({ children }: { children: React.ReactNode }) {
+export function ArticleZoomProvider({
+  children,
+  deps,
+}: {
+  children: React.ReactNode
+  deps?: React.DependencyList
+}) {
   useEffect(() => {
     const zoom = mediumZoom('[data-zoomable]', {
       margin: window.innerWidth > 768 ? 36 : 8,
@@ -25,7 +31,7 @@ export function ArticleZoomProvider({ children }: { children: React.ReactNode })
       zoom.detach()
       window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [deps])
 
   return <>{children}</>
 }
