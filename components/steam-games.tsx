@@ -53,19 +53,19 @@ export async function SteamGames() {
       <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
         最近在玩 / Recently Played
       </h2>
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {games.map((game) => {
           const totalTime = game.playtime_total ? game.playtime_total_desc : null
 
           return (
-            <div key={game.appid} className="flex items-start gap-2">
+            <div key={game.appid} className="flex items-start gap-3">
               {/* 游戏图标 */}
               <Image
                 src={game.icon_url}
                 alt={game.name}
-                width={32}
-                height={32}
-                className="border-border shrink-0 rounded border object-cover"
+                width={40}
+                height={40}
+                className="border-border size-10 max-h-10 max-w-8 shrink-0 rounded border object-cover"
               />
 
               {/* 游戏信息 */}
