@@ -54,6 +54,7 @@
   },
   "home": {
     "postsToShow": 3,
+    "thoughtsToShow": 3,
     "heroTitle": "你好，我是 Viki"
   },
   "analytics": {

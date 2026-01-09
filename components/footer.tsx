@@ -20,7 +20,7 @@ function LicenseText() {
       >
         {siteConfig.copyright.license.name}
       </a>{' '}
-      协议共享，转载请注明出处
+      协议共享，转载请注明出处。
     </span>
   )
 }
@@ -57,13 +57,11 @@ export function Footer() {
     >
       <div className="mx-auto w-full p-4 sm:p-6 lg:p-8">
         {/* 移动端布局 */}
-        <div className="flex flex-col gap-4 text-sm sm:hidden">
-          <SocialLinks center />
-          <div className="text-text-tertiary text-center">
-            <LicenseText />
-          </div>
-          <div className="text-text-tertiary text-center">
+        <div className="text-text-tertiary flex flex-col gap-4 text-sm sm:hidden">
+          <LicenseText />
+          <div className="flex justify-between gap-2">
             <CopyrightText />
+            <SocialLinks />
           </div>
         </div>
         {/* 桌面端布局 */}
