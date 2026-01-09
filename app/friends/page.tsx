@@ -2,7 +2,7 @@ import { siteConfig } from '@/lib/config'
 import { friends } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { pagesData } from '@/lib/config'
-import { FriendCard } from '@/components/friend-card'
+import { FriendsListRandom } from '@/components/friends-list-random'
 
 import type { Metadata } from 'next'
 
@@ -39,33 +39,23 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function FriendsPage() {
-  const sortedFriends = friends.toSorted((p, n) => p.name.localeCompare(n.name, 'zh-Hans-CN'))
-
   return (
-    <div className="space-y-12 py-8 sm:py-12">
+    <div className="space-y-6 py-8 sm:space-y-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">好朋友们</h1>
         <p className="text-text-secondary">
-          {`Viki 在互联网上的好朋友们，交流学习，共同进步。共收录 ${sortedFriends.length} 位好朋友，按名称首字母排序。`}
+          {`Viki 在互联网上的好朋友们，交流学习，共同进步。共收录 ${friends.length} 位好朋友，随机排序，试试手气？`}
         </p>
       </section>
 
       {/* Friends Grid */}
       <section>
-        {sortedFriends.length === 0 ? (
-          <div className="text-text-tertiary py-12 text-center">暂无好朋友，等待添加中...</div>
-        ) : (
-          <div className="grid grid-cols-1 gap-x-2 gap-y-6 sm:grid-cols-2">
-            {sortedFriends.map((friend, index) => (
-              <FriendCard key={index} friend={friend} />
-            ))}
-          </div>
-        )}
+        <FriendsListRandom friends={friends} />
       </section>
 
       {/* Friend Link Info */}
-      <section className="space-y-3 border-l-2 border-zinc-300 pl-4 dark:border-zinc-700">
+      <section className="mt-8 space-y-3 border-l-2 border-zinc-300 pl-4 sm:mt-12 dark:border-zinc-700">
         <h2 className="text-text-primary text-base font-semibold">交换友链</h2>
         <div className="text-text-secondary space-y-2 text-sm">
           <p>

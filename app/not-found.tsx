@@ -24,7 +24,9 @@ export default function NotFound() {
         你可能输错了地址，或者这个页面已经不存在了
       </p>
 
-      <Link href="/">回到首页 ➜</Link>
+      <Link href="/" className="text-text-secondary hover:text-text-primary">
+        回到首页
+      </Link>
     </div>
   )
 }

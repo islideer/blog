@@ -21,21 +21,17 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
       </div>
 
       {/* 描述文本 */}
-      <p className="text-text-secondary mb-2 text-sm sm:text-base">页面加载时遇到了一些问题</p>
+      <p className="text-text-secondary mb-4 text-sm sm:text-base">页面加载时遇到了一些问题</p>
       <p className="text-text-tertiary mb-8 text-xs sm:text-sm">{error.message || '未知错误'}</p>
 
       {/* 操作按钮 */}
-      <div className="flex items-center gap-2 text-sm sm:gap-4">
+      <div className="flex flex-col items-center gap-3 text-xs sm:gap-4 sm:text-sm">
         <button
           onClick={reset}
-          className="rounded-md bg-zinc-200/40 px-3 py-1 text-zinc-900 hover:bg-zinc-200/80 dark:bg-zinc-800/60 dark:text-zinc-100 dark:hover:bg-zinc-800"
+          className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary rounded-md px-2.5 py-1.5 transition-colors"
         >
-          重试
+          重新加载
         </button>
-        <span className="text-text-tertiary">·</span>
-        <Link href="/" className="text-text-secondary hover:text-text-primary">
-          回到首页 ➜
-        </Link>
       </div>
     </div>
   )

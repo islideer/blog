@@ -36,19 +36,19 @@ export function SiteHeader() {
         >
           <Link
             href="/posts"
-            className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
+            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
           >
             文章
           </Link>
           <Link
             href="/thoughts"
-            className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
+            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
           >
             碎碎念
           </Link>
           <Link
             href="/mio-says"
-            className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
+            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
           >
             Mio 说
           </Link>
@@ -56,20 +56,20 @@ export function SiteHeader() {
           {/* PC 端显示全部链接 */}
           <Link
             href="/timeline"
-            className="text-text-secondary hover:text-text-primary hidden text-xs sm:inline sm:text-sm"
+            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
           >
             大事记
           </Link>
           <Link
             href="/friends"
-            className="text-text-secondary hover:text-text-primary hidden text-xs sm:inline sm:text-sm"
+            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
           >
             好朋友们
           </Link>
 
           <Link
             href="/about"
-            className="text-text-secondary hover:text-text-primary text-xs sm:text-sm"
+            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
           >
             关于
           </Link>
@@ -84,7 +84,7 @@ export function SiteHeader() {
                   setTimeout(() => setIsMoreOpen(false), 150)
                 }
               }}
-              className="text-text-secondary hover:text-text-primary text-xs"
+              className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs"
               aria-expanded={isMoreOpen}
               aria-haspopup="true"
             >

@@ -61,9 +61,16 @@ a:not(.no-underline) {
   text-decoration-color: var(--color-border-hover);
 }
 
-a:not(.no-underline):hover {
+a:not(.no-underline):active {
   text-decoration-style: solid;
   text-decoration-color: var(--color-text-primary);
+}
+
+@media (width >= 40rem /* 640px */) {
+  a:not(.no-underline):hover {
+    text-decoration-style: solid;
+    text-decoration-color: var(--color-text-primary);
+  }
 }
 
 /* Header logo link without underline */
@@ -95,17 +102,6 @@ a[target='_blank']:not(.no-icon):not(:has(> img))::after {
   outline: 2px solid var(--color-text-primary);
   outline-offset: 2px;
   border-radius: 2px;
-}
-
-/* All links with dashed underline, except no-underline class */
-a:not(.no-underline) {
-  text-decoration: underline dashed;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
-}
-
-a:not(.no-underline):hover {
-  text-decoration-style: solid;
 }
 
 /* Header logo link without underline */
