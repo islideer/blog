@@ -25,7 +25,7 @@ export default function NotFound() {
       </p>
 
       <Link href="/" className="text-text-secondary hover:text-text-primary">
-        回到首页
+        回到首页 →
       </Link>
     </div>
   )

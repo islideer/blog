@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, startTransition, ViewTransition } from 'react'
 import { FriendCard } from './friend-card'
 
 import type { Friend } from '@/lib/data'
@@ -41,7 +41,7 @@ export function FriendsListRandom({ friends }: FriendsListRandomProps) {
       <div className="flex justify-end">
         <div className="flex items-center gap-2">
           <button
-            onClick={() => setShuffledFriends(shuffleArray(friends))}
+            onClick={() => void startTransition(() => setShuffledFriends(shuffleArray(friends)))}
             className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors"
             aria-label="重新随机排序友链"
           >
@@ -62,7 +62,13 @@ export function FriendsListRandom({ friends }: FriendsListRandomProps) {
       {/* 友链网格 */}
       <div className="grid grid-cols-1 gap-x-2 gap-y-6 sm:grid-cols-2" suppressHydrationWarning>
         {shuffledFriends.map((friend) => (
-          <FriendCard key={friend.url} friend={friend} />
+          <ViewTransition
+            key={friend.url}
+            name={`friend-${friend.name.replace(/\s+/g, '-').toLowerCase()}`}
+            default="transform"
+          >
+            <FriendCard friend={friend} />
+          </ViewTransition>
         ))}
       </div>
     </div>

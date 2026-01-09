@@ -55,7 +55,7 @@ export default async function BlogPage() {
             <div className="border-border border-t" />
             <section className="space-y-4">
               <h2 className="text-text-secondary text-xl font-semibold">最近文章</h2>
-              <div className="space-y-4 sm:space-y-6">
+              <div className="divide-border space-y-4 divide-y sm:space-y-6">
                 {displayPosts.map((post) => (
                   <Link
                     key={post.slug}
