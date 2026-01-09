@@ -109,7 +109,7 @@ export function SteamGames() {
                     )}
 
                     <span className="text-text-tertiary">
-                      最近 {game.playtime_2weeks_desc.replace(/[小钟]/g, '')}
+                      近两周 {game.playtime_2weeks_desc.replace(/[小钟]/g, '')}
                     </span>
 
                     {totalTime && (
