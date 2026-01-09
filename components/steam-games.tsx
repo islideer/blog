@@ -10,6 +10,8 @@ interface SteamGame {
   playtime_total: number
   playtime_total_desc: string
   icon_url: string
+  capsule_231_87: string
+  capsule_616_353: string
   store_url: string
   platforms: {
     platform: string
@@ -50,22 +52,22 @@ export async function SteamGames() {
 
   return (
     <section className="space-y-4">
-      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+      <h2 className="text-text-primary text-xs font-semibold tracking-wider uppercase">
         最近在玩 / Recently Played
       </h2>
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-2.5">
         {games.map((game) => {
           const totalTime = game.playtime_total ? game.playtime_total_desc : null
 
           return (
-            <div key={game.appid} className="flex items-start gap-3">
-              {/* 游戏图标 */}
+            <div key={game.appid} className="flex items-start gap-2.5">
+              {/* 游戏封面 */}
               <Image
-                src={game.icon_url}
+                src={game.capsule_231_87}
                 alt={game.name}
-                width={40}
-                height={40}
-                className="border-border size-10 max-h-10 max-w-8 shrink-0 rounded border object-cover"
+                width={120}
+                height={45}
+                className="border-border h-11.25 w-30 shrink-0 rounded border object-cover"
               />
 
               {/* 游戏信息 */}
@@ -91,16 +93,12 @@ export async function SteamGames() {
                     </div>
                   )}
 
-                  <span className="text-text-tertiary">
-                    最近 {game.playtime_2weeks_desc.replace(/[小钟]/g, '')}
-                  </span>
+                  <span className="text-text-tertiary">最近 {game.playtime_2weeks_desc}</span>
 
                   {totalTime && (
                     <>
                       <span className="text-text-tertiary">·</span>
-                      <span className="text-text-tertiary">
-                        共 {totalTime.replace(/[小钟]/g, '')}
-                      </span>
+                      <span className="text-text-tertiary">共 {totalTime}</span>
                     </>
                   )}
                 </div>
