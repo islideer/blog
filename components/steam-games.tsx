@@ -76,7 +76,7 @@ export async function SteamGames() {
                   href={game.store_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-text-primary text-text-primary no-icon block truncate text-sm"
+                  className="hover:text-text-primary text-text-primary block truncate text-sm"
                 >
                   {game.name}
                 </a>
