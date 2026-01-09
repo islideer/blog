@@ -55,6 +55,7 @@ export interface AboutData {
     projects: ProjectsData
     moreLink: string
   }
+  steamId64?: string
   techStack: TechStackData
   contact: ContactLink[]
 }
@@ -98,6 +99,7 @@ export const about: AboutData = {
     projects: projects as ProjectsData,
     moreLink: aboutData.openSource.moreLink,
   },
+  steamId64: aboutData.steamId64,
   techStack: techStack as TechStackData,
   contact: contact,
 }
