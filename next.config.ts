@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
       { hostname: 'thricecola.com' },
       { hostname: 'yunnet.top' },
       { hostname: 'www.lapis.cafe' },
+      { hostname: 'blog.dogxi.me' },
     ],
   },
 }

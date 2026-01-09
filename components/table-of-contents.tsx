@@ -73,21 +73,6 @@ export function TableOfContents({ containerSelector = '.prose' }: TableOfContent
     }
   }, [headings])
 
-  // 点击标题滚动到对应位置
-  const scrollToHeading = (id: string) => {
-    const element = document.getElementById(id)
-    if (!element) return
-
-    const offset = 100 // 顶部偏移量，避免被 header 遮挡
-    const elementPosition = element.getBoundingClientRect().top + window.scrollY
-    const offsetPosition = elementPosition - offset
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    })
-  }
-
   // 如果没有标题，不渲染
   if (headings.length === 0) {
     return null
@@ -124,37 +109,40 @@ export function TableOfContents({ containerSelector = '.prose' }: TableOfContent
     <>
       {/* PC 端 TOC - 固定在右侧 */}
       <nav
-        className="fixed top-1/2 right-4 z-10 hidden max-h-[70vh] w-48 -translate-y-1/2 overflow-y-auto lg:block"
+        className="fixed top-1/2 right-4 z-10 hidden max-h-[70vh] w-48 -translate-y-1/2 overflow-y-auto opacity-48 hover:opacity-100 lg:block"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        style={{
-          opacity: isHovered ? 1 : 0.36,
-          transition: 'opacity 0.2s ease-in-out',
-        }}
         aria-label="文章目录"
       >
         {/* 标题 */}
-        <div className="text-text-tertiary mb-2 text-xs font-medium">目录</div>
+        <div className="text-text-tertiary mb-4 text-xs font-medium">目录</div>
 
         {/* 标题列表 */}
-        <ul className="space-y-1 text-sm">
-          {visibleHeadings.map((heading) => {
+        <ul className="text-sm">
+          {headings.map((heading) => {
             const isActive = heading.id === activeId
             const isH3 = heading.level === 3
+            const isVisible = visibleHeadings.some((h) => h.id === heading.id)
 
             return (
-              <li key={heading.id} className={isH3 ? 'pl-3' : ''}>
+              <li
+                key={heading.id}
+                className={`overflow-hidden transition-all duration-200 ${isH3 ? 'pl-3' : ''}`}
+                style={{
+                  maxHeight: isVisible ? '2rem' : '0',
+                  marginBottom: isVisible ? '0.25rem' : '0',
+                  opacity: isVisible ? 1 : 0,
+                }}
+              >
                 <a
                   href={`#${heading.id}`}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToHeading(heading.id)
-                  }}
-                  className={`block w-full truncate text-left ${
+                  className={`block w-full truncate text-left transition-colors duration-200 ${
                     isActive
-                      ? 'text-text-primary font-medium decoration-solid'
-                      : 'text-text-tertiary hover:text-text-primary'
-                  } `}
+                      ? 'text-text-primary font-medium'
+                      : isHovered
+                        ? 'text-text-secondary hover:text-text-primary'
+                        : 'text-text-tertiary'
+                  }`}
                   title={heading.text}
                 >
                   {heading.text}
