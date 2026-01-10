@@ -69,7 +69,7 @@ export function SteamGames() {
         最近在玩 / Recently Played
       </h2>
       <ArticleZoomProvider deps={[games]}>
-        <div className="grid grid-cols-1 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {games.map((game) => {
             const totalTime = game.playtime_total ? game.playtime_total_desc : null
 
@@ -109,14 +109,14 @@ export function SteamGames() {
                     )}
 
                     <span className="text-text-tertiary">
-                      近两周 {game.playtime_2weeks_desc.replace(/[小钟]/g, '')}
+                      最近 {game.playtime_2weeks_desc}
                     </span>
 
                     {totalTime && (
                       <>
                         <span className="text-text-tertiary">·</span>
                         <span className="text-text-tertiary">
-                          共 {totalTime.replace(/[小钟]/g, '')}
+                          共 {totalTime}
                         </span>
                       </>
                     )}
