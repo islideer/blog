@@ -55,7 +55,7 @@ export function RelativeTime({ date, className, style }: RelativeTimeProps) {
             {formatted}
           </>
         ) : (
-          `发布于${formatted}`
+          `发布于 ${formatted}`
         )}
       </span>
     </time>
