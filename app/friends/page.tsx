@@ -62,7 +62,7 @@ export default async function FriendsPage() {
             欢迎和我交换友链！本博客支持以下字段，仅
             <b className="mx-1 font-medium">名称</b>和<b className="mx-1 font-medium">地址</b>
             必须。作为交换，你可使用我的以下信息，并通过邮件联系我添加你的站点：
-            <code className="font-mono">hi@viki.moe</code>）。
+            <code className="font-mono">hi@viki.moe</code>。
           </p>
           <p className="text-text-tertiary text-xs italic">
             注：虽不强制，但建议你的站点建站半年以上，头像链接稳定，并有一定的原创内容基础和深度，非商业为主。
