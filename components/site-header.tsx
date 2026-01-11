@@ -15,9 +15,9 @@ export function SiteHeader() {
   return (
     <header
       role="banner"
-      className="group border-border bg-bg-primary/80 sticky top-0 z-40 border-b backdrop-blur-sm"
+      className="group border-border bg-bg-primary/80 sticky top-0 z-40 max-w-3xl border-b px-4 backdrop-blur-sm sm:px-6"
     >
-      <div className="flex items-center justify-between px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
+      <div className="flex items-center justify-between py-2 sm:py-2.5">
         <Link href="/" passHref className="no-underline">
           <div>
             <TitleTag className="text-text-primary text-sm font-semibold sm:text-base">

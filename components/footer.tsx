@@ -3,23 +3,24 @@ import { siteConfig } from '@/lib/config'
 function CopyrightText() {
   return (
     <span className="text-text-secondary">
-      © {siteConfig.copyright.year.start}-{siteConfig.copyright.year.end} {siteConfig.author.name}
+      © {siteConfig.copyright.year.start}-{siteConfig.copyright.year.end} {siteConfig.author.name}.
+      All rights reserved.
     </span>
   )
 }
 
 function LicenseText() {
   return (
-    <span>
-      文章以{' '}
+    <span className="text-text-tertiary">
+      文章以
       <a
         href={siteConfig.copyright.license.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-text-secondary"
+        className="text-text-secondary hover:text-text-primary mx-1"
       >
         {siteConfig.copyright.license.name}
-      </a>{' '}
+      </a>
       协议共享，转载请注明出处。
     </span>
   )
@@ -53,11 +54,11 @@ export function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="border-border border-t transition-opacity sm:opacity-60 sm:hover:opacity-100"
+      className="border-border max-w-3xl border-t px-4 transition-opacity sm:px-6 sm:opacity-60 sm:hover:opacity-100"
     >
-      <div className="mx-auto w-full p-4 sm:p-6 lg:p-8">
+      <div className="mx-auto w-full max-w-3xl py-4 sm:py-6">
         {/* 移动端布局 */}
-        <div className="text-text-tertiary flex flex-col gap-4 text-sm sm:hidden">
+        <div className="text-text-tertiary flex flex-col py-2 gap-4 text-xs sm:hidden">
           <LicenseText />
           <div className="flex justify-between gap-2">
             <CopyrightText />
@@ -65,7 +66,7 @@ export function Footer() {
           </div>
         </div>
         {/* 桌面端布局 */}
-        <div className="hidden gap-4 text-sm sm:flex sm:flex-row sm:items-center sm:justify-between">
+        <div className="hidden gap-4 text-xs sm:flex sm:flex-row sm:items-center sm:justify-between">
           <div className="text-text-tertiary text-left">
             <CopyrightText />
             <br className="sm:hidden" />

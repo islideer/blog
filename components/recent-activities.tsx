@@ -56,7 +56,7 @@ export async function RecentActivities({
           return (
             <article
               key={thought.id}
-              className="relative space-y-1.5 border-l-2 border-zinc-300 bg-transparent py-1 pl-3 pr-1 dark:border-zinc-700"
+              className="relative space-y-1.5 border-l-2 border-zinc-300 bg-transparent py-1 pr-1 pl-3 dark:border-zinc-700"
             >
               {/* 头部信息 */}
               <div className="flex items-center gap-1.5">
@@ -86,9 +86,9 @@ export async function RecentActivities({
         <div className="pt-1">
           <Link
             href="/thoughts"
-            className="text-text-tertiary hover:text-text-secondary text-[11px] transition-colors"
+            className="text-text-secondary hover:text-text-primary text-[11px]"
           >
-            查看全部 ({totalCount.toLocaleString('zh-Hans-CN')}) →
+            查看全部（{totalCount.toLocaleString('zh-Hans-CN')}）→
           </Link>
         </div>
       )}
