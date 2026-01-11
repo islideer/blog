@@ -83,6 +83,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://i.loli.net" />
         <link rel="preconnect" href="https://s2.loli.net" />
         <link rel="dns-prefetch" href="https://s2.loli.net" />
+        <link rel="preconnect" href="https://avatar.viki.moe" />
+        <link rel="dns-prefetch" href="https://avatar.viki.moe" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -95,7 +97,7 @@ export default function RootLayout({
           href={siteConfig.links.rss}
         />
       </head>
-      <body className="bg-bg-primary text-text-primary font-sans antialiased duration-300">
+      <body className="bg-bg-primary text-text-primary font-sans antialiased">
         <Analytics />
         <GoogleAnalytics gaId={siteConfig.analytics.google} />
 
