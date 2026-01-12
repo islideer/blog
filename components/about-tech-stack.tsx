@@ -5,10 +5,10 @@ interface AboutTechStackProps {
 }
 
 const categoryNames: Record<keyof TechStackData, string> = {
-  languages: '语言 / Languages',
-  frontend: '前端 / Frontend',
-  backend: '后端 / Backend',
-  crossPlatform: '跨平台 / Cross-Platform',
+  languages: '语言',
+  frontend: '前端',
+  backend: '后端',
+  crossPlatform: '跨平台',
 }
 
 export function AboutTechStack({ technologies }: AboutTechStackProps) {
