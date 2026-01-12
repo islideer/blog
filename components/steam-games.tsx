@@ -50,6 +50,15 @@ interface SteamProfile {
     medium: string
     full: string
   }
+  level: number
+  level_desc: string
+  account_age_years: number
+  account_age_years_desc: string
+  games_owned: number
+  games_played: number
+  games_never_played: number
+  games_total_playtime: number
+  games_total_playtime_desc: string
   profile_url: string
   profile_state: number
   visibility: number
@@ -177,17 +186,33 @@ export function SteamGames() {
           <Image
             src={profile.avatar.full}
             alt={profile.persona_name}
-            width={36}
-            height={36}
+            width={64}
+            height={64}
             data-zoomable
-            className="h-9 w-9 rounded-xs"
+            className="h-16 w-16 rounded"
           />
 
-          <div className="flex flex-1 flex-col gap-0.5 truncate">
-            <span
-              className={`${profile.is_online ? 'text-[#6dcff6]' : 'text-text-secondary'} block text-sm`}
-            >
-              {profile.persona_name}
+          <div className="flex flex-1 flex-col gap-1 truncate">
+            <div className="flex items-center gap-1.5">
+              <span
+                className={`${profile.is_online ? 'text-[#6dcff6]' : 'text-text-secondary'} block text-base`}
+              >
+                {profile.persona_name}
+              </span>
+            </div>
+            <span className="text-text-tertiary inline-flex items-center gap-1.5 text-xs">
+              <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
+                {profile.level_desc}
+              </span>
+              <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
+                {profile.account_age_years_desc}
+              </span>
+              <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
+                拥有 {profile.games_owned} 款游戏
+              </span>
+              <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
+                玩过 {profile.games_played} 款游戏
+              </span>
             </span>
             <span
               className={`${profile.game_info ? 'text-[#6dcff680]' : 'text-text-tertiary'} text-xs`}
