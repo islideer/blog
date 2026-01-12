@@ -121,6 +121,7 @@ export function SteamGames() {
   const [games, setGames] = useState<SteamGame[]>([])
   const [profile, setProfile] = useState<SteamProfile | null>(null)
   const [loading, setLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
 
   useEffect(() => {
     Promise.all([getSteamGames(), getSteamProfile()]).then(([gamesData, profileData]) => {
@@ -128,7 +129,26 @@ export function SteamGames() {
       setProfile(profileData)
       setLoading(false)
     })
+
+    // 如果停留在页面，每 1 分钟刷新一次实时状态
+    const interval = setInterval(async () => {
+      setProfile(await getSteamProfile())
+    }, 60 * 1000)
+
+    return () => clearInterval(interval)
   }, [])
+
+  const handleRefresh = async () => {
+    if (refreshing) return
+    setRefreshing(true)
+    try {
+      const [gamesData, profileData] = await Promise.all([getSteamGames(), getSteamProfile()])
+      setGames(gamesData)
+      setProfile(profileData)
+    } finally {
+      setRefreshing(false)
+    }
+  }
 
   if (!about.steamId64) {
     return null
@@ -136,9 +156,20 @@ export function SteamGames() {
 
   return (
     <section className="space-y-4">
-      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
-        最近在玩 / Recently Played
-      </h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+          最近在玩 / Recently Played
+        </h2>
+        <button
+          onClick={handleRefresh}
+          disabled={refreshing}
+          className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+          aria-label="刷新 Steam 信息"
+        >
+          <RefreshIcon className={refreshing ? 'animate-spin' : ''} />
+          刷新状态
+        </button>
+      </div>
 
       {/* Steam 个人资料 - 袖珍扁平化 */}
       {profile && (
@@ -154,12 +185,12 @@ export function SteamGames() {
 
           <div className="flex flex-1 flex-col gap-0.5 truncate">
             <span
-              className={`${profile.is_online ? 'text-[#6dcff6]' : 'text-text-primary'} block text-sm`}
+              className={`${profile.is_online ? 'text-[#6dcff6]' : 'text-text-secondary'} block text-sm`}
             >
               {profile.persona_name}
             </span>
             <span
-              className={`${profile.game_info ? 'text-[#6dcff680]' : 'text-text-secondary'} text-xs`}
+              className={`${profile.game_info ? 'text-[#6dcff680]' : 'text-text-tertiary'} text-xs`}
             >
               {profile.online_status_desc}
             </span>
@@ -170,57 +201,59 @@ export function SteamGames() {
       <div className="space-y-2">
         <ArticleZoomProvider deps={[games]}>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {games.map((game) => {
-              const totalTime = game.playtime.total ? game.playtime.total_desc : null
+            {games
+              .filter((e) => e.playtime.recent > 3)
+              .map((game) => {
+                const totalTime = game.playtime.total ? game.playtime.total_desc : null
 
-              return (
-                <div key={game.appid} className="flex items-center gap-2.5">
-                  {/* 游戏封面 */}
-                  <Image
-                    src={game.image.header}
-                    alt={game.name}
-                    width={107}
-                    height={50}
-                    data-zoomable
-                    className="border-border aspect-107/50 h-16 shrink-0 rounded border object-cover"
-                  />
+                return (
+                  <div key={game.appid} className="flex items-center gap-2.5">
+                    {/* 游戏封面 */}
+                    <Image
+                      src={game.image.header}
+                      alt={game.name}
+                      width={107}
+                      height={50}
+                      data-zoomable
+                      className="border-border aspect-107/50 h-16 shrink-0 rounded border object-cover"
+                    />
 
-                  {/* 游戏信息 */}
-                  <div className="min-w-0 flex-1 space-y-2">
-                    <a
-                      href={game.store_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-text-primary text-text-secondary block truncate text-sm"
-                    >
-                      {game.name}
-                    </a>
-                    <div className="text-text-secondary flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs">
-                      {game.playtime.platforms && game.playtime.platforms.length > 0 && (
-                        <div className="flex items-center gap-1">
-                          {game.playtime.platforms.map((platform) => (
-                            <PlatformIcon
-                              key={platform.platform}
-                              className="text-text-tertiary h-3 w-3"
-                              platform={platform.platform}
-                            />
-                          ))}
-                        </div>
-                      )}
+                    {/* 游戏信息 */}
+                    <div className="min-w-0 flex-1 space-y-2">
+                      <a
+                        href={game.store_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-text-primary text-text-secondary block truncate text-sm"
+                      >
+                        {game.name}
+                      </a>
+                      <div className="text-text-secondary flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs">
+                        {game.playtime.platforms && game.playtime.platforms.length > 0 && (
+                          <div className="flex items-center gap-1">
+                            {game.playtime.platforms.map((platform) => (
+                              <PlatformIcon
+                                key={platform.platform}
+                                className="text-text-tertiary h-3 w-3"
+                                platform={platform.platform}
+                              />
+                            ))}
+                          </div>
+                        )}
 
-                      <span className="text-text-tertiary">最近 {game.playtime.recent_desc}</span>
+                        <span className="text-text-tertiary">最近 {game.playtime.recent_desc}</span>
 
-                      {totalTime && (
-                        <>
-                          <span className="text-text-tertiary">·</span>
-                          <span className="text-text-tertiary">共 {totalTime}</span>
-                        </>
-                      )}
+                        {totalTime && (
+                          <>
+                            <span className="text-text-tertiary">·</span>
+                            <span className="text-text-tertiary">共 {totalTime}</span>
+                          </>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              )
-            })}
+                )
+              })}
             {games.length === 0 && (
               <p className="text-text-secondary text-sm">
                 {loading ? '正在视奸中，请稍后...' : 'Viki 近两周没有玩游戏。'}
@@ -230,5 +263,24 @@ export function SteamGames() {
         </ArticleZoomProvider>
       </div>
     </section>
+  )
+}
+
+function RefreshIcon({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      className={`h-3.5 w-3.5 ${className}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+      />
+    </svg>
   )
 }
