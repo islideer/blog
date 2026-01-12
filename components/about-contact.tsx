@@ -1,15 +1,15 @@
 import type { ContactLink } from '@/lib/data'
 
 interface AboutContactProps {
+  id: string
+  title: string
   links: ContactLink[]
 }
 
-export function AboutContact({ links }: AboutContactProps) {
+export function AboutContact({ id, links, title }: AboutContactProps) {
   return (
-    <section className="space-y-6">
-      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
-        联系 / Contact
-      </h2>
+    <section className="space-y-6" id={id}>
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">{title}</h2>
       <div className="text-text-secondary flex flex-wrap gap-4 text-sm">
         {links.map((link, index) => (
           <a

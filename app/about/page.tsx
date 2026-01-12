@@ -5,8 +5,9 @@ import { AboutTechStack } from '@/components/about-tech-stack'
 import { SteamGames } from '@/components/steam-games'
 import { about } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
-import { pagesData } from '@/lib/config'
+import { pagesData } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
+import { StaticTableOfContents } from '@/components/table-of-contents'
 
 import type { Metadata } from 'next'
 
@@ -43,11 +44,30 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="space-y-12 py-8 sm:space-y-16 sm:py-12">
-      <AboutIntro title={about.intro.title} paragraphs={about.intro.paragraphs} />
-      <AboutContact links={about.contact} />
-      <SteamGames />
-      <AboutOpenSource data={about.openSource} />
-      <AboutTechStack technologies={about.techStack} />
+      <StaticTableOfContents
+        items={[
+          { id: 'intro', title: about.intro.title },
+          { id: 'contact', title: about.contact.title },
+          { id: 'steam', title: about.steam.title },
+          { id: 'open-source', title: about.openSource.title },
+          { id: 'tech-stack', title: about.techStack.title },
+        ]}
+      />
+
+      <AboutIntro id="intro" title={about.intro.title} paragraphs={about.intro.paragraphs} />
+      <AboutContact id="contact" title={about.contact.title} links={about.contact.list} />
+      <SteamGames id="steam" title={about.steam.title} steamId={about.steam.id} />
+      <AboutOpenSource
+        id="open-source"
+        title={about.openSource.title}
+        data={about.openSource.data}
+        moreLink={about.openSource.moreLink}
+      />
+      <AboutTechStack
+        id="tech-stack"
+        title={about.techStack.title}
+        techStacks={about.techStack.data}
+      />
     </div>
   )
 }

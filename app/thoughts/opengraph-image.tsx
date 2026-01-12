@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { OgImageStatsItem, OgImageTemplate } from '@/components/og-image-template'
-import { pagesData } from '@/lib/config'
+import { pagesData } from '@/lib/data'
 import { thoughts } from '@/lib/data'
 import { formatFull } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'

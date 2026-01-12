@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 'use client'
 
 import Image from 'next/image'
-import { about } from '@/lib/data'
 import { PlatformIcon } from './platform-icon'
 import { useEffect, useState } from 'react'
 import { ArticleZoomProvider } from './article-zoom-provider'
@@ -81,23 +82,9 @@ interface SteamProfile {
   game_info: GameInfo | null
 }
 
-// async function getSteamGamesByConfigId(): Promise<SteamGame[]> {
-//   try {
-//     const response = await fetch(`https://api.viki.moe/steam/${about.steamId64}/recently-played`)
-//     if (!response.ok) {
-//       console.error('Failed to fetch Steam games:', response.statusText)
-//       return []
-//     }
-//     const data = await response.json()
-//     return data
-//   } catch (error) {
-//     console.error('Error fetching Steam games:', error)
-//     return []
-//   }
-// }
-
-async function getSteamGames(): Promise<SteamGame[]> {
+async function getSteamGames(steamId: string): Promise<SteamGame[]> {
   try {
+    // const response = await fetch(`https://api.viki.moe/steam/${steamId}/recently-played`)
     const response = await fetch(`https://api.viki.moe/steam/recently-played`)
     if (!response.ok) {
       console.error('Failed to fetch Steam games:', response.statusText)
@@ -111,8 +98,9 @@ async function getSteamGames(): Promise<SteamGame[]> {
   }
 }
 
-async function getSteamProfile(): Promise<SteamProfile | null> {
+async function getSteamProfile(steamId: string): Promise<SteamProfile | null> {
   try {
+    // const response = await fetch(`https://api.viki.moe/steam/${steamId}/summary`)
     const response = await fetch(`https://api.viki.moe/steam/summary`)
     if (!response.ok) {
       console.error('Failed to fetch Steam profile:', response.statusText)
@@ -126,32 +114,37 @@ async function getSteamProfile(): Promise<SteamProfile | null> {
   }
 }
 
-export function SteamGames() {
+export function SteamGames({ id, steamId, title }: { id: string; steamId: string; title: string }) {
   const [games, setGames] = useState<SteamGame[]>([])
   const [profile, setProfile] = useState<SteamProfile | null>(null)
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
 
   useEffect(() => {
-    Promise.all([getSteamGames(), getSteamProfile()]).then(([gamesData, profileData]) => {
-      setGames(gamesData)
-      setProfile(profileData)
-      setLoading(false)
-    })
+    Promise.all([getSteamGames(steamId), getSteamProfile(steamId)]).then(
+      ([gamesData, profileData]) => {
+        setGames(gamesData)
+        setProfile(profileData)
+        setLoading(false)
+      },
+    )
 
     // 如果停留在页面，每 1 分钟刷新一次实时状态
     const interval = setInterval(async () => {
-      setProfile(await getSteamProfile())
+      setProfile(await getSteamProfile(steamId))
     }, 60 * 1000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [steamId])
 
   const handleRefresh = async () => {
     if (refreshing) return
     setRefreshing(true)
     try {
-      const [gamesData, profileData] = await Promise.all([getSteamGames(), getSteamProfile()])
+      const [gamesData, profileData] = await Promise.all([
+        getSteamGames(steamId),
+        getSteamProfile(steamId),
+      ])
       setGames(gamesData)
       setProfile(profileData)
     } finally {
@@ -159,15 +152,11 @@ export function SteamGames() {
     }
   }
 
-  if (!about.steamId64) {
-    return null
-  }
-
   return (
-    <section className="space-y-4">
+    <section className="space-y-4" id={id}>
       <div className="flex items-center justify-between">
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
-          最近在玩 / Recently Played
+          {title}
         </h2>
         <button
           onClick={handleRefresh}
@@ -180,52 +169,51 @@ export function SteamGames() {
         </button>
       </div>
 
-      {/* Steam 个人资料 - 袖珍扁平化 */}
-      {profile && (
-        <div className="border-border flex items-center gap-2 border-b py-2">
-          <Image
-            src={profile.avatar.full}
-            alt={profile.persona_name}
-            width={64}
-            height={64}
-            data-zoomable
-            className="h-16 w-16 rounded"
-          />
+      <div className="divide-border space-y-4 divide-y">
+        {profile && (
+          <div className="flex items-center gap-2 pb-4">
+            <Image
+              src={profile.avatar.full}
+              alt={profile.persona_name}
+              width={64}
+              height={64}
+              data-zoomable
+              className="h-16 w-16 rounded"
+            />
 
-          <div className="flex flex-1 flex-col gap-1 truncate">
-            <div className="flex items-center gap-1.5">
+            <div className="flex flex-1 flex-col gap-1 truncate">
+              <div className="flex items-center gap-1.5">
+                <span
+                  className={`${profile.is_online ? 'text-[#6dcff6]' : 'text-text-secondary'} block text-base`}
+                >
+                  {profile.persona_name}
+                </span>
+              </div>
+              <span className="text-text-tertiary inline-flex items-center gap-1.5 text-xs">
+                <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
+                  {profile.level_desc}
+                </span>
+                <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
+                  {profile.account_age_years_desc}
+                </span>
+                <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
+                  拥有 {profile.games_owned} 款游戏
+                </span>
+                <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
+                  玩过 {profile.games_played} 款游戏
+                </span>
+              </span>
               <span
-                className={`${profile.is_online ? 'text-[#6dcff6]' : 'text-text-secondary'} block text-base`}
+                className={`${profile.game_info ? 'text-[#6dcff680]' : 'text-text-tertiary'} text-xs`}
               >
-                {profile.persona_name}
+                {profile.online_status_desc}
               </span>
             </div>
-            <span className="text-text-tertiary inline-flex items-center gap-1.5 text-xs">
-              <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
-                {profile.level_desc}
-              </span>
-              <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
-                {profile.account_age_years_desc}
-              </span>
-              <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
-                拥有 {profile.games_owned} 款游戏
-              </span>
-              <span className="bg-bg-quaternary inline-flex h-4 min-w-6 items-center justify-center rounded px-1 text-[10px] font-medium">
-                玩过 {profile.games_played} 款游戏
-              </span>
-            </span>
-            <span
-              className={`${profile.game_info ? 'text-[#6dcff680]' : 'text-text-tertiary'} text-xs`}
-            >
-              {profile.online_status_desc}
-            </span>
           </div>
-        </div>
-      )}
+        )}
 
-      <div className="space-y-2">
         <ArticleZoomProvider deps={[games]}>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {games
               .filter((e) => e.playtime.recent > 3)
               .map((game) => {

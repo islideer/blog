@@ -7,7 +7,7 @@ import { siteConfig } from '@/lib/config'
 import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
 import { getAllPosts, getAllPostsWithContent } from '@/lib/posts'
-import { pagesData } from '@/lib/config'
+import { pagesData } from '@/lib/data'
 import { PostListItem } from '@/components/post-list-item'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { countWords } from '@/lib/word-count'
@@ -88,7 +88,7 @@ export default async function PostsPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">{pagesData.posts.title}</h1>
         <p className="text-text-secondary">
-          {`技术文章与生活随笔，共 ${allPosts.length.toLocaleString('zh-Hans-CN')} 篇，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字，按年份分组展示。`}
+          {`${pagesData.posts.description}，共 ${allPosts.length.toLocaleString('zh-Hans-CN')} 篇，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字，按年份分组展示。`}
         </p>
       </section>
 

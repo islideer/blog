@@ -1,7 +1,7 @@
 import { siteConfig } from '@/lib/config'
 import { friends } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { pagesData } from '@/lib/config'
+import { pagesData } from '@/lib/data'
 import { FriendsListRandom } from '@/components/friends-list-random'
 
 import type { Metadata } from 'next'
@@ -45,7 +45,7 @@ export default async function FriendsPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">好朋友们</h1>
         <p className="text-text-secondary">
-          {`Viki 在互联网上的好朋友们，交流学习，共同进步。共收录 ${friends.length} 位好朋友，随机排序。来试试手气？`}
+          {`${pagesData.friends.description}。共收录 ${friends.length} 位好朋友，随机排序。来试试手气？`}
         </p>
       </section>
 
@@ -62,7 +62,7 @@ export default async function FriendsPage() {
             欢迎和我交换友链！本博客支持以下字段，仅
             <b className="mx-1 font-medium">名称</b>和<b className="mx-1 font-medium">地址</b>
             必须。作为交换，你可使用我的以下信息，并通过邮件联系我添加你的站点：
-            <code className="font-mono">hi@viki.moe</code>。
+            <code className="font-mono">{siteConfig.author.email}</code>。
           </p>
           <p className="text-text-tertiary text-xs italic">
             注：虽不强制，但建议你的站点建站半年以上，头像链接稳定，并有一定的原创内容基础和深度，非商业为主。
@@ -70,23 +70,25 @@ export default async function FriendsPage() {
           <div className="space-y-1.5">
             <div>
               <span className="text-text-tertiary">名称：</span>
-              <span className="text-text-primary">Viki 写东西的地方</span>
+              <span className="text-text-primary">{siteConfig.name}</span>
             </div>
             <div>
               <span className="text-text-tertiary">地址：</span>
-              <span className="text-text-primary">https://blog.viki.moe</span>
+              <span className="text-text-primary">{siteConfig.url}</span>
             </div>
             <div>
               <span className="text-text-tertiary">描述：</span>
-              <span className="text-text-primary">生活需要记录。</span>
+              <span className="text-text-primary">
+                {siteConfig.tagline.replace(/\.。~=!～!$/, '')}。
+              </span>
             </div>
             <div>
               <span className="text-text-tertiary">头像：</span>
-              <span className="text-text-primary">https://blog.viki.moe/avatar.png</span>
+              <span className="text-text-primary">{`${siteConfig.url}/avatar.png`}</span>
             </div>
             <div>
               <span className="text-text-tertiary">RSS：</span>
-              <span className="text-text-primary">https://blog.viki.moe/rss</span>
+              <span className="text-text-primary">{`${siteConfig.url}/rss`}</span>
             </div>
           </div>
         </div>

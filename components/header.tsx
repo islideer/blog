@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { ThemeToggle } from './theme-toggle'
 import { siteConfig } from '@/lib/config'
 
-export function SiteHeader() {
+export function Header() {
   const pathname = usePathname()
   const isHome = pathname === '/'
   const TitleTag = isHome ? 'h1' : 'div'

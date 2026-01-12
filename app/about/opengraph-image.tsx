@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { OgImageStatsItem, OgImageTemplate } from '@/components/og-image-template'
-import { pagesData } from '@/lib/config'
+import { pagesData } from '@/lib/data'
 import { about } from '@/lib/data'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -24,13 +24,13 @@ export default async function Image() {
   ])
 
   // 统计开源项目数量
-  const projectsCount = Object.values(about.openSource.projects).reduce(
-    (total, projects) => total + projects.length,
+  const projectsCount = Object.values(about.openSource.data).reduce(
+    (total, data) => total + data.length,
     0,
   )
 
   // 统计技术栈数量
-  const techStackCount = Object.values(about.techStack).reduce(
+  const techStackCount = Object.values(about.techStack.data).reduce(
     (total, category) => total + category.length,
     0,
   )

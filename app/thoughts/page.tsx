@@ -1,7 +1,8 @@
 import { siteConfig } from '@/lib/config'
 import { thoughts } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { pagesData } from '@/lib/config'
+import { pagesData } from '@/lib/data'
+
 import { countWords } from '@/lib/word-count'
 import { ThoughtsList } from '@/components/thoughts-list'
 
@@ -56,9 +57,9 @@ export default async function ThoughtsPage() {
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
-        <h1 className="text-3xl font-bold">碎碎念</h1>
+        <h1 className="text-3xl font-bold">{pagesData.thoughts.title}</h1>
         <p className="text-text-secondary">
-          {`Viki 的碎碎念小角落，记录生活中的点滴想法和言论，共 ${sortedThoughts.length.toLocaleString('zh-Hans-CN')} 条内容，月均 ${averagePerMonth.toLocaleString('zh-Hans-CN')} 条，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
+          {`${pagesData.thoughts.description}，共 ${sortedThoughts.length.toLocaleString('zh-Hans-CN')} 条内容，月均 ${averagePerMonth.toLocaleString('zh-Hans-CN')} 条，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
         </p>
       </section>
 

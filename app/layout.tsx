@@ -1,6 +1,6 @@
 import './globals.css'
 
-import { SiteHeader } from '@/components/site-header'
+import { Header } from '@/components/header'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
@@ -46,7 +46,7 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: generateCanonicalUrl('/'),
     },
     openGraph: {
-      type: siteConfig.openGraph.type as 'website',
+      type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
       url: siteConfig.url,
       title: siteConfig.name,
@@ -108,7 +108,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex min-h-screen min-w-sm flex-col sm:mx-auto sm:max-w-3xl">
-            <SiteHeader />
+            <Header />
             <main className="flex-1">
               <div className="container mx-auto max-w-3xl px-4 sm:px-6">{children}</div>
             </main>

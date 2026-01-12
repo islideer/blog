@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
 import { mioSays } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { pagesData } from '@/lib/config'
+import { pagesData } from '@/lib/data'
 import { countWords } from '@/lib/word-count'
 import { ThoughtsList } from '@/components/thoughts-list'
 
@@ -54,10 +54,10 @@ export default async function MioSaysPage() {
       <section className="flex flex-row gap-6 sm:items-start sm:justify-between">
         <div className="flex-1 space-y-3">
           <h1 className="text-3xl font-bold" style={{ color: 'var(--color-mio-pink)' }}>
-            Mio 说
+            {pagesData.mioSays.title}
           </h1>
           <p className="text-text-secondary">
-            {`Mio 的专属发言空间，Viki 无编辑权限。共 ${sortedMioSays.length.toLocaleString('zh-Hans-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
+            {`${pagesData.mioSays.description}，共 ${sortedMioSays.length.toLocaleString('zh-Hans-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
           </p>
         </div>
         <div className="shrink-0 self-end">

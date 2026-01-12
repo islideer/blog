@@ -27,8 +27,21 @@
     "Node.js",
     "博客"
   ],
+  "home": {
+    "hero": {
+      "title": "你好，我是 Viki",
+      "paragraphs": [
+        "一名 Web 前端工程师，就职于 [SHEIN](https://www.sheingroup.com/)，热爱 [Web 技术](https://developer.mozilla.org/zh-CN/docs/Web)，相信开源的力量。",
+        "有幸与 Mio 相伴，一起享受真诚而简单的生活，朝着属于我们的小家努力。"
+      ]
+    },
+    "postsToShow": 3,
+    "thoughtsToShow": 3
+  },
   "copyright": {
-    "startYear": 2019,
+    "year": {
+      "start": 2019
+    },
     "license": {
       "name": "CC BY-SA 4.0",
       "url": "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -43,19 +56,6 @@
   },
   "pwa": {
     "display": "standalone"
-  },
-  "openGraph": {
-    "type": "website",
-    "images": {
-      "width": 1200,
-      "height": 630
-    },
-    "version": 1
-  },
-  "home": {
-    "postsToShow": 3,
-    "thoughtsToShow": 3,
-    "heroTitle": "你好，我是 Viki"
   },
   "analytics": {
     "google": "G-YCP5HPQZXN"

@@ -1,7 +1,10 @@
 import type { AboutData, ProjectsData } from '@/lib/data'
 
 interface AboutOpenSourceProps {
-  data: AboutData['openSource']
+  id: string
+  title: string
+  moreLink: AboutData['openSource']['moreLink']
+  data: AboutData['openSource']['data']
 }
 
 const categoryNames: Record<keyof ProjectsData, string> = {
@@ -12,17 +15,13 @@ const categoryNames: Record<keyof ProjectsData, string> = {
   scripts: '脚本',
 }
 
-export function AboutOpenSource({ data }: AboutOpenSourceProps) {
-  const { projects, moreLink } = data
-
+export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourceProps) {
   return (
-    <section className="space-y-6">
-      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
-        开源 / Open Source
-      </h2>
+    <section className="space-y-6" id={id}>
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">{title}</h2>
       <div className="space-y-8">
-        {(Object.keys(projects) as Array<keyof ProjectsData>).map((category) => {
-          const categoryProjects = projects[category]
+        {(Object.keys(data) as Array<keyof ProjectsData>).map((category) => {
+          const categoryProjects = data[category]
           if (categoryProjects.length === 0) return null
 
           return (

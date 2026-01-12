@@ -1,7 +1,3 @@
-import contact from '@/data/contact.json'
-import projects from '@/data/projects.json'
-import techStack from '@/data/tech-stack.json'
-
 import aboutData from '@/data/about.json'
 import mioSaysData from '@/data/mio-says.json'
 import thoughtsData from '@/data/thoughts.json'
@@ -46,18 +42,57 @@ export interface TechStackData {
   crossPlatform: TechStackItem[]
 }
 
+export const pagesData = {
+  about: {
+    title: '关于',
+    description: '前端开发者，热衷于开源和技术分享，相信技术改变世界',
+  },
+  posts: {
+    title: '文章',
+    description: '记录技术思考和生活感悟',
+  },
+  timeline: {
+    title: '大事记',
+    description: '记录生活中的重要时刻和里程碑',
+  },
+  thoughts: {
+    title: '碎碎念',
+    description: 'Viki 的碎碎念小角落，记录生活中的点滴想法和言论',
+  },
+  mioSays: {
+    title: 'Mio 说',
+    description: 'Mio 的专属发言空间，Viki 无编辑权限',
+  },
+  friends: {
+    title: '好朋友们',
+    description: 'Viki 在互联网上的好朋友们，交流学习，共同进步',
+  },
+}
+
+export type PageData = typeof pagesData
+
 export interface AboutData {
   intro: {
     title: string
     paragraphs: string[]
   }
-  openSource: {
-    projects: ProjectsData
-    moreLink: string
+  contact: {
+    title: string
+    list: ContactLink[]
   }
-  steamId64?: string
-  techStack: TechStackData
-  contact: ContactLink[]
+  steam: {
+    id: string
+    title: string
+  }
+  openSource: {
+    title: string
+    moreLink: string
+    data: ProjectsData
+  }
+  techStack: {
+    title: string
+    data: TechStackData
+  }
 }
 
 // --- Mio Says Types ---
@@ -93,16 +128,7 @@ export interface Friend {
 
 // --- Exports ---
 
-export const about: AboutData = {
-  intro: aboutData.intro,
-  openSource: {
-    projects: projects as ProjectsData,
-    moreLink: aboutData.openSource.moreLink,
-  },
-  steamId64: aboutData.steamId64,
-  techStack: techStack as TechStackData,
-  contact: contact,
-}
+export const about = aboutData as AboutData
 
 const defaultFriends: Friend[] = [
   {
@@ -123,5 +149,3 @@ export const mioSays: MioSay[] = mioSaysData
 export const thoughts: Thought[] = thoughtsData
 export const timeline: TimelineItem[] = timelineData
 export const friends: Friend[] = friendsData.length === 0 && isDev ? defaultFriends : friendsData
-
-export { projects, techStack, contact }

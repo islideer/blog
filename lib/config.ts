@@ -4,8 +4,6 @@
  */
 
 import siteData from '@/data/site.json'
-import pagesData from '@/data/pages.json'
-import { about } from './data'
 import { isDev } from './env'
 
 const url = isDev ? 'http://localhost:3000' : 'https://blog.viki.moe'
@@ -17,22 +15,10 @@ export const siteConfig = {
   copyright: {
     ...siteData.copyright,
     year: {
-      start: siteData.copyright.startYear,
+      start: siteData.copyright.year.start,
       end: new Date().getFullYear(),
     },
   },
-  home: {
-    ...siteData.home,
-    hero: {
-      title: siteData.home.heroTitle,
-      paragraphs: about.intro.paragraphs,
-    },
-  },
-  // 保持类型兼容，如果需要的话
-  keywords: siteData.keywords as string[],
-} as const
-
-export { pagesData }
+}
 
 export type SiteConfig = typeof siteConfig
-export type PageData = typeof pagesData

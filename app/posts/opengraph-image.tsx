@@ -2,7 +2,7 @@ import { join } from 'node:path'
 import { readFile } from 'node:fs/promises'
 import { formatDate } from '@/lib/dayjs'
 import { getAllPosts } from '@/lib/posts'
-import { pagesData } from '@/lib/config'
+import { pagesData } from '@/lib/data'
 import { ImageResponse } from 'next/og'
 import { OgImageStatsItem, OgImageTemplate } from '@/components/og-image-template'
 
