@@ -15,11 +15,14 @@ interface PlatformPlaytime {
 interface SteamGame {
   appid: number
   name: string
-  playtime_2weeks: number
-  playtime_2weeks_desc: string
-  playtime_total?: number
-  playtime_total_desc?: string
   store_url: string
+  playtime: {
+    recent: number
+    recent_desc: string
+    total?: number
+    total_desc?: string
+    platforms?: PlatformPlaytime[]
+  }
   image: {
     icon: string
     header: string
@@ -27,12 +30,26 @@ interface SteamGame {
     capsule_231_87: string
     capsule_616_353: string
   }
-  platforms: PlatformPlaytime[]
 }
+
+// async function getSteamGamesByConfigId(): Promise<SteamGame[]> {
+//   try {
+//     const response = await fetch(`https://api.viki.moe/steam/${about.steamId64}/recently-played`)
+//     if (!response.ok) {
+//       console.error('Failed to fetch Steam games:', response.statusText)
+//       return []
+//     }
+//     const data = await response.json()
+//     return data
+//   } catch (error) {
+//     console.error('Error fetching Steam games:', error)
+//     return []
+//   }
+// }
 
 async function getSteamGames(): Promise<SteamGame[]> {
   try {
-    const response = await fetch(`https://api.viki.moe/steam/${about.steamId64}/recently-played`)
+    const response = await fetch(`https://api.viki.moe/steam/recently-played`)
     if (!response.ok) {
       console.error('Failed to fetch Steam games:', response.statusText)
       return []
@@ -54,7 +71,7 @@ export function SteamGames() {
 
     getSteamGames().then((data) => {
       // 只显示最近两周玩了超过 10 分钟的游戏
-      // setGames(data.filter((game) => game.playtime_2weeks >= 10))
+      // setGames(data.filter((game) => game.playtime.recent >= 10))
       setGames(data)
       setLoading(false)
     })
@@ -70,9 +87,9 @@ export function SteamGames() {
         最近在玩 / Recently Played
       </h2>
       <ArticleZoomProvider deps={[games]}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           {games.map((game) => {
-            const totalTime = game.playtime_total ? game.playtime_total_desc : null
+            const totalTime = game.playtime.total ? game.playtime.total_desc : null
 
             return (
               <div key={game.appid} className="flex items-center gap-2.5">
@@ -97,9 +114,9 @@ export function SteamGames() {
                     {game.name}
                   </a>
                   <div className="text-text-secondary flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs">
-                    {game.platforms.length > 0 && (
+                    {game.playtime.platforms && game.playtime.platforms.length > 0 && (
                       <div className="flex items-center gap-1">
-                        {game.platforms.map((platform) => (
+                        {game.playtime.platforms.map((platform) => (
                           <PlatformIcon
                             key={platform.platform}
                             className="text-text-tertiary h-3 w-3"
@@ -109,16 +126,12 @@ export function SteamGames() {
                       </div>
                     )}
 
-                    <span className="text-text-tertiary">
-                      最近 {game.playtime_2weeks_desc}
-                    </span>
+                    <span className="text-text-tertiary">最近 {game.playtime.recent_desc}</span>
 
                     {totalTime && (
                       <>
                         <span className="text-text-tertiary">·</span>
-                        <span className="text-text-tertiary">
-                          共 {totalTime}
-                        </span>
+                        <span className="text-text-tertiary">共 {totalTime}</span>
                       </>
                     )}
                   </div>
@@ -128,7 +141,7 @@ export function SteamGames() {
           })}
           {games.length === 0 && (
             <p className="text-text-secondary text-sm">
-              {loading ? '正在加载...' : '最近没有玩游戏。'}
+              {loading ? '正在视奸中，请稍后...' : 'Viki 近两周没有玩游戏。'}
             </p>
           )}
         </div>
