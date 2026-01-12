@@ -3,14 +3,12 @@
 import { useTheme } from 'next-themes'
 import { useSyncExternalStore } from 'react'
 
-const iconClass = 'sm:h-[18px] sm:w-[18px]'
+const iconClass = 'h-4 w-4 sm:h-4.5 sm:w-4.5'
 
 // Moon 图标（暗色模式）
 const MoonIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="14"
-    height="14"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -27,8 +25,6 @@ const MoonIcon = () => (
 const SunIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="14"
-    height="14"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -53,8 +49,6 @@ const SunIcon = () => (
 const SystemIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="14"
-    height="14"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -89,6 +83,7 @@ const getNextTheme = (current: string): ThemeType => {
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
+
   const mounted = useSyncExternalStore(
     emptySubscribe,
     () => true,
@@ -98,7 +93,7 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <button
-        className="text-text-secondary sm:hover:bg-bg-tertiary sm:hover:text-text-primary active:bg-bg-tertiary active:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-sm sm:mr-0 sm:h-8 sm:w-8"
+        className="text-text-secondary sm:hover:bg-bg-tertiary sm:hover:text-text-primary active:bg-bg-tertiary active:text-text-primary flex h-6 w-6 items-center justify-center rounded-sm sm:h-8 sm:w-8"
         aria-label="切换主题"
         title="切换主题"
         disabled
@@ -129,9 +124,9 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="text-text-secondary sm:hover:bg-bg-tertiary sm:hover:text-text-primary active:bg-bg-tertiary active:text-text-primary -mr-1 flex h-6 w-6 items-center justify-center rounded-sm sm:mr-0 sm:h-8 sm:w-8"
-      aria-label={`当前：${themeLabels[currentTheme]}，点击切换到${themeLabels[nextTheme]}`}
-      title={`当前：${themeLabels[currentTheme]}，点击切换到${themeLabels[nextTheme]}`}
+      className="text-text-secondary sm:hover:bg-bg-tertiary sm:hover:text-text-primary active:bg-bg-tertiary active:text-text-primary flex h-6 w-6 items-center justify-center rounded-sm sm:h-8 sm:w-8"
+      aria-label={`当前：${themeLabels[currentTheme]}，点击切换到 ${themeLabels[nextTheme]}`}
+      title={`当前：${themeLabels[currentTheme]}，点击切换到 ${themeLabels[nextTheme]}`}
     >
       {renderIcon()}
     </button>

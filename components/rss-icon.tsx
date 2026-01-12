@@ -4,24 +4,30 @@ import Link from 'next/link'
 
 interface RSSIconProps {
   href: string
+  className?: string
 }
 
-export function RSSIcon({ href }: RSSIconProps) {
+export function RSSIcon({ href, className }: RSSIconProps) {
   return (
     <Link
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="no-icon shrink-0 no-underline opacity-60 transition-opacity hover:opacity-100"
+      className={`${className} no-icon text-text-secondary sm:hover:bg-bg-tertiary sm:hover:text-text-primary active:bg-bg-tertiary active:text-text-primary flex h-6 w-6 items-center justify-center rounded-sm sm:h-8 sm:w-8`}
       title="RSS 订阅"
     >
       <svg
-        className="text-text-secondary h-3.5 w-3.5"
-        fill="currentColor"
-        viewBox="0 0 24 24"
+        className="text-text-secondary h-4 w-4 sm:h-4.5 sm:w-4.5"
         xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        width="24"
+        height="24"
       >
-        <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z" />
+        <path
+          fill="currentColor"
+          d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"
+        />
       </svg>
     </Link>
   )

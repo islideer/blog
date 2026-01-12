@@ -30,7 +30,7 @@ function SocialLinks({ center = false }: { center?: boolean }) {
   return (
     <div className={`flex items-center gap-4 ${center ? 'justify-center' : ''}`}>
       <a
-        href={siteConfig.links.github}
+        href={siteConfig.author.github}
         target="_blank"
         rel="noopener noreferrer"
         className="text-text-secondary hover:text-text-primary"

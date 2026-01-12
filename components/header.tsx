@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { ThemeToggle } from './theme-toggle'
 import { siteConfig } from '@/lib/config'
+import { RSSIcon } from './rss-icon'
+import { GitHubIcon } from './github-icon'
 
 export function Header() {
   const pathname = usePathname()
@@ -106,11 +108,30 @@ export function Header() {
                 >
                   好朋友们
                 </Link>
+                <div className="border-border my-2 border-t" />
+                <Link
+                  href={siteConfig.author.github}
+                  className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                  onClick={() => setIsMoreOpen(false)}
+                >
+                  GitHub
+                </Link>
+                <Link
+                  href={siteConfig.links.rss}
+                  className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                  onClick={() => setIsMoreOpen(false)}
+                >
+                  RSS 订阅
+                </Link>
               </div>
             )}
           </div>
 
-          <ThemeToggle />
+          <div className="flex items-center">
+            <GitHubIcon href={siteConfig.author.github} className="hidden sm:flex" />
+            <RSSIcon href={siteConfig.links.rss} className="hidden sm:flex" />
+            <ThemeToggle />
+          </div>
         </nav>
       </div>
     </header>
