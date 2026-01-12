@@ -54,7 +54,8 @@ export function SteamGames() {
 
     getSteamGames().then((data) => {
       // 只显示最近两周玩了超过 10 分钟的游戏
-      setGames(data.filter((game) => game.playtime_2weeks >= 10))
+      // setGames(data.filter((game) => game.playtime_2weeks >= 10))
+      setGames(data)
       setLoading(false)
     })
   }, [])
