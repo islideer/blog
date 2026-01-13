@@ -178,13 +178,13 @@ export function SteamGames({ id, steamId, title }: { id: string; steamId: string
               width={64}
               height={64}
               data-zoomable
-              className="h-16 w-16 rounded"
+              className="border-border h-16 w-16 rounded border object-cover"
             />
 
             <div className="flex flex-1 flex-col gap-1 truncate">
               <div className="flex items-center gap-1.5">
                 <span
-                  className={`${profile.is_online ? 'text-[#31b0e2] dark:text-[#6dcff6]' : 'text-text-secondary'} block text-base`}
+                  className={`${profile.is_online ? (profile.game_info ? 'text-[#91C252] dark:text-[#E2FFB9]' : 'text-[#31b0e2] dark:text-[#6dcff6]') : 'text-text-secondary'} block text-base`}
                 >
                   {profile.persona_name}
                 </span>
@@ -204,7 +204,7 @@ export function SteamGames({ id, steamId, title }: { id: string; steamId: string
                 </span>
               </span>
               <span
-                className={`${profile.game_info ? 'text-[#4dbfec] dark:text-[#6dcff680]' : 'text-text-tertiary'} text-xs`}
+                className={`${profile.is_online ? (profile.game_info ? 'text-[#91C252] dark:text-[#91C252]' : 'text-[#4dbfec] dark:text-[#6dcff680]') : 'text-text-tertiary'} text-xs`}
               >
                 {profile.online_status_desc}
               </span>
