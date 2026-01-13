@@ -14,7 +14,8 @@
   "githubUser": "vikiboss",
   "githubRepo": "blog",
   "links": {
-    "rss": "/rss"
+    "rss": "/rss",
+    "travellings": "https://www.travellings.cn/plain.html"
   },
   "keywords": [
     "前端开发",
