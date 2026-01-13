@@ -7,6 +7,7 @@ import { ThemeToggle } from './theme-toggle'
 import { siteConfig } from '@/lib/config'
 import { RSSIcon } from './rss-icon'
 import { GitHubIcon } from './github-icon'
+import { TravellingsIcon } from './travellings-iocn'
 
 export function Header() {
   const pathname = usePathname()
@@ -93,7 +94,7 @@ export function Header() {
               更多 ▾
             </button>
             {isMoreOpen && (
-              <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 shadow-lg">
+              <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
                 <Link
                   href="/timeline"
                   className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
@@ -123,6 +124,13 @@ export function Header() {
                 >
                   RSS 订阅
                 </Link>
+                <Link
+                  href="https://www.travellings.cn/go.html"
+                  className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                  onClick={() => setIsMoreOpen(false)}
+                >
+                  开往 · 友链接力
+                </Link>
               </div>
             )}
           </div>
@@ -130,6 +138,7 @@ export function Header() {
           <div className="flex items-center">
             <GitHubIcon href={siteConfig.author.github} className="hidden sm:flex" />
             <RSSIcon href={siteConfig.links.rss} className="hidden sm:flex" />
+            <TravellingsIcon href="https://www.travellings.cn/go.html" className="hidden sm:flex" />
             <ThemeToggle />
           </div>
         </nav>

@@ -3,14 +3,14 @@
 import Link from 'next/link'
 import { Tooltip } from './tooltip'
 
-interface RSSIconProps {
+interface TravellingsIconProps {
   href: string
   className?: string
 }
 
-export function RSSIcon({ href, className }: RSSIconProps) {
+export function TravellingsIcon({ href, className }: TravellingsIconProps) {
   return (
-    <Tooltip content="RSS 订阅">
+    <Tooltip content="开往 · 友链接力">
       <Link
         href={href}
         target="_blank"
@@ -27,7 +27,7 @@ export function RSSIcon({ href, className }: RSSIconProps) {
       >
         <path
           fill="currentColor"
-          d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"
+          d="M12 2c-4 0-8 .5-8 4v9.5A3.5 3.5 0 0 0 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19a3.5 3.5 0 0 0 3.5-3.5V6c0-3.5-3.58-4-8-4M7.5 17A1.5 1.5 0 0 1 6 15.5A1.5 1.5 0 0 1 7.5 14A1.5 1.5 0 0 1 9 15.5A1.5 1.5 0 0 1 7.5 17m3.5-7H6V6h5zm2 0V6h5v4zm3.5 7a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5"
         />
       </svg>
       </Link>

@@ -8,5 +8,10 @@
   },
   "css.lint.unknownAtRules": "ignore",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["eventsource", "rmiz", "unzoom"]
+  "cSpell.words": [
+    "eventsource",
+    "rmiz",
+    "Travellings",
+    "unzoom"
+  ]
 }

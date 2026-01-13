@@ -2,6 +2,7 @@
 
 import { useTheme } from 'next-themes'
 import { useSyncExternalStore } from 'react'
+import { Tooltip } from './tooltip'
 
 const iconClass = 'h-4 w-4 sm:h-4.5 sm:w-4.5'
 
@@ -92,14 +93,15 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button
-        className="text-text-secondary sm:hover:bg-bg-tertiary sm:hover:text-text-primary active:bg-bg-tertiary active:text-text-primary flex h-6 w-6 items-center justify-center rounded-sm sm:h-8 sm:w-8"
-        aria-label="切换主题"
-        title="切换主题"
-        disabled
-      >
-        <SystemIcon />
-      </button>
+      <Tooltip content="切换主题">
+        <button
+          className="text-text-secondary sm:hover:bg-bg-tertiary sm:hover:text-text-primary active:bg-bg-tertiary active:text-text-primary flex h-6 w-6 items-center justify-center rounded-sm sm:h-8 sm:w-8"
+          aria-label="切换主题"
+          disabled
+        >
+          <SystemIcon />
+        </button>
+      </Tooltip>
     )
   }
 
@@ -121,14 +123,17 @@ export function ThemeToggle() {
     }
   }
 
+  const tooltipContent = `${themeLabels[currentTheme]} · 点击切换到${themeLabels[nextTheme]}`
+
   return (
-    <button
-      onClick={toggleTheme}
-      className="text-text-secondary sm:hover:bg-bg-tertiary sm:hover:text-text-primary active:bg-bg-tertiary active:text-text-primary flex h-6 w-6 items-center justify-center rounded-sm sm:h-8 sm:w-8"
-      aria-label={`当前：${themeLabels[currentTheme]}，点击切换到 ${themeLabels[nextTheme]}`}
-      title={`当前：${themeLabels[currentTheme]}，点击切换到 ${themeLabels[nextTheme]}`}
-    >
-      {renderIcon()}
-    </button>
+    <Tooltip content={tooltipContent}>
+      <button
+        onClick={toggleTheme}
+        className="text-text-secondary sm:hover:bg-bg-tertiary sm:hover:text-text-primary active:bg-bg-tertiary active:text-text-primary flex h-6 w-6 items-center justify-center rounded-sm sm:h-8 sm:w-8"
+        aria-label={`当前：${themeLabels[currentTheme]}，点击切换到 ${themeLabels[nextTheme]}`}
+      >
+        {renderIcon()}
+      </button>
+    </Tooltip>
   )
 }
