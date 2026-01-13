@@ -4,7 +4,6 @@ function CopyrightText() {
   return (
     <span className="text-text-secondary">
       © {siteConfig.copyright.year.start}-{siteConfig.copyright.year.end} {siteConfig.author.name}.
-      All rights reserved.
     </span>
   )
 }
