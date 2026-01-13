@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="space-y-12 py-8 sm:space-y-16 sm:py-12">
+    <>
       <StaticTableOfContents
         items={[
           { id: 'intro', title: about.intro.title },
@@ -54,20 +54,22 @@ export default function AboutPage() {
         ]}
       />
 
-      <AboutIntro id="intro" title={about.intro.title} paragraphs={about.intro.paragraphs} />
-      <AboutContact id="contact" title={about.contact.title} links={about.contact.list} />
-      <SteamGames id="steam" title={about.steam.title} steamId={about.steam.id} />
-      <AboutOpenSource
-        id="open-source"
-        title={about.openSource.title}
-        data={about.openSource.data}
-        moreLink={about.openSource.moreLink}
-      />
-      <AboutTechStack
-        id="tech-stack"
-        title={about.techStack.title}
-        techStacks={about.techStack.data}
-      />
-    </div>
+      <div className="space-y-12 py-8 sm:space-y-16 sm:py-12">
+        <AboutIntro id="intro" title={about.intro.title} paragraphs={about.intro.paragraphs} />
+        <AboutContact id="contact" title={about.contact.title} links={about.contact.list} />
+        <SteamGames id="steam" title={about.steam.title} steamId={about.steam.id} />
+        <AboutOpenSource
+          id="open-source"
+          title={about.openSource.title}
+          data={about.openSource.data}
+          moreLink={about.openSource.moreLink}
+        />
+        <AboutTechStack
+          id="tech-stack"
+          title={about.techStack.title}
+          techStacks={about.techStack.data}
+        />
+      </div>
+    </>
   )
 }
