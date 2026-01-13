@@ -57,7 +57,7 @@ export function Footer() {
     >
       <div className="mx-auto w-full max-w-3xl py-4 sm:py-6">
         {/* 移动端布局 */}
-        <div className="flex flex-col gap-4 py-2 text-xs sm:hidden">
+        <div className="flex flex-col gap-4 py-2 text-sm sm:hidden">
           <LicenseText />
           <div className="flex justify-between gap-2">
             <CopyrightText />
