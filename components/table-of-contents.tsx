@@ -7,6 +7,8 @@ import Link from 'next/link'
 interface TableOfContentsProps {
   /** 文章容器的选择器，默认为 '.prose' */
   containerSelector?: string
+  /** PC 端显示的标题数量，默认为 5 */
+  showCount?: number
 }
 
 /**
@@ -16,7 +18,10 @@ interface TableOfContentsProps {
  * - 自动提取文章中的 h2 和 h3 标题
  * - 使用 StaticTableOfContents 进行渲染
  */
-export function TableOfContents({ containerSelector = '.prose' }: TableOfContentsProps) {
+export function TableOfContents({
+  containerSelector = '.prose',
+  showCount = 5,
+}: TableOfContentsProps) {
   const [items, setItems] = useState<StaticTocItem[]>([])
 
   // 提取标题
@@ -44,7 +49,7 @@ export function TableOfContents({ containerSelector = '.prose' }: TableOfContent
 
   return (
     <>
-      <StaticTableOfContentsPC items={items} />
+      <StaticTableOfContentsPC items={items} showCount={showCount} />
       <StaticTableOfContentsMobile items={items} />
     </>
   )
@@ -60,10 +65,10 @@ export function TableOfContents({ containerSelector = '.prose' }: TableOfContent
  * - PC 端：固定在右侧，默认半透明只显示当前标题，hover 显示全部
  * - 移动端：隐藏（由移动端专用组件处理）
  */
-export function StaticTableOfContents({ items = [] }: StaticTableOfContentsProps) {
+export function StaticTableOfContents({ items = [], showCount = 10 }: StaticTableOfContentsProps) {
   return (
     <>
-      <StaticTableOfContentsPC items={items} />
+      <StaticTableOfContentsPC items={items} showCount={showCount} />
       <StaticTableOfContentsMobile items={items} />
     </>
   )
@@ -76,6 +81,7 @@ export interface StaticTocItem {
 }
 
 export interface StaticTableOfContentsProps {
+  showCount?: number
   items: StaticTocItem[]
 }
 
@@ -89,7 +95,7 @@ export interface StaticTableOfContentsProps {
  * - PC 端：固定在右侧，默认半透明只显示当前标题，hover 显示全部
  * - 移动端：隐藏（由移动端专用组件处理）
  */
-export function StaticTableOfContentsPC({ items = [] }: StaticTableOfContentsProps) {
+export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('')
   const [isHovered, setIsHovered] = useState(false)
   const observerRef = useRef<IntersectionObserver | null>(null)
@@ -143,24 +149,23 @@ export function StaticTableOfContentsPC({ items = [] }: StaticTableOfContentsPro
 
   // 过滤显示的标题（非 hover 时显示当前标题及前后共 5 个）
   const getVisibleHeadings = () => {
-    if (isHovered || items.length <= 5) {
+    if (isHovered || items.length <= showCount) {
       return items
     }
 
     const activeIndex = items.findIndex((h) => h.id === activeId)
     if (activeIndex === -1) {
-      return items.slice(0, 5)
+      return items.slice(0, showCount)
     }
 
-    const totalToShow = 5
     // 尽量让当前标题居中，前后各显示 2 个
     let startIndex = Math.max(0, activeIndex - 2)
-    let endIndex = startIndex + totalToShow
+    let endIndex = startIndex + showCount
 
     // 如果后面不够，往前补
     if (endIndex > items.length) {
       endIndex = items.length
-      startIndex = Math.max(0, endIndex - totalToShow)
+      startIndex = Math.max(0, endIndex - showCount)
     }
 
     return items.slice(startIndex, endIndex)
