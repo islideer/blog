@@ -112,7 +112,7 @@ export function SteamGameLibrary({ steamId }: { steamId: string }) {
   }
 
   // 按总游玩时长排序游戏库
-  const sortedLibraryGames = [...libraryGames].sort(
+  const sortedLibraryGames = libraryGames.toSorted(
     (a, b) => b.playtime.total_minutes - a.playtime.total_minutes,
   )
 
@@ -148,7 +148,7 @@ export function SteamGameLibrary({ steamId }: { steamId: string }) {
       ) : sortedLibraryGames.length === 0 ? (
         <p className="text-text-secondary text-sm">游戏库为空。</p>
       ) : (
-        <GamesList games={sortedLibraryGames} />
+        <GamesList hideDetails games={sortedLibraryGames} />
       )}
     </section>
   )
@@ -156,9 +156,11 @@ export function SteamGameLibrary({ steamId }: { steamId: string }) {
 
 function GamesList({
   games,
+  hideDetails,
   showRecently,
 }: {
   games: (LibraryGame | RecentGame)[]
+  hideDetails?: boolean
   showRecently?: boolean
 }) {
   return (
@@ -208,11 +210,13 @@ function GamesList({
 
                 <span className="text-text-tertiary">
                   {game.playtime.total_minutes
-                    ? `玩过`
+                    ? hideDetails
+                      ? `曾经玩过`
+                      : `总时长 ${game.playtime.total_desc}`
                     : '还没有玩过，库里吃灰呢'}
                 </span>
               </div>
-              {game.playtime.recent_desc && showRecently && (
+              {game.playtime.recent_desc && showRecently && !hideDetails && (
                 <div className="text-text-secondary text-xs">
                   最近玩了 {game.playtime.recent_desc}
                 </div>

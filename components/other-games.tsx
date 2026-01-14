@@ -15,7 +15,7 @@ export function OtherGames() {
       </h2>
 
       <ImageZoomProvider deps={[otherGames]}>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           {otherGames.map((game: OtherGame) => (
             <div
               key={game.id}
