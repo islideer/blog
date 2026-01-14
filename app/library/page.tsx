@@ -1,12 +1,12 @@
 import { Books } from '@/components/books'
 import { Movies } from '@/components/movies'
 import { Bangumi } from '@/components/bangumi'
-import { Playlists } from '@/components/playlists'
 import { siteConfig } from '@/lib/config'
 import { pagesData } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { getBangumiList } from '@/lib/bangumi'
+import { getDoubanBooks, getDoubanMovies } from '@/lib/douban'
 
 import type { Metadata } from 'next'
 
@@ -41,18 +41,24 @@ export const metadata: Metadata = {
 }
 
 export default async function LibraryPage() {
-  // 在服务端获取番剧数据
+  // 在服务端获取数据
   const bangumi = await getBangumiList()
+  const booksData = await getDoubanBooks()
+  const moviesData = await getDoubanMovies()
 
   return (
     <>
       <StaticTableOfContents
         items={[
-          { id: 'title', title: pagesData.library.title },
-          { id: 'bangumi', title: '追番' },
-          { id: 'playlists', title: '歌单' },
-          { id: 'movies', title: '电影' },
-          { id: 'books', title: '书籍' },
+          { id: 'movies', title: '影视', level: 1 },
+          { id: 'movies-doings', title: '在看', level: 3 },
+          { id: 'movies-wish', title: '想看', level: 3 },
+          { id: 'movies-collect', title: '看过', level: 3 },
+          { id: 'books', title: '书籍', level: 1 },
+          { id: 'books-doings', title: '在读', level: 3 },
+          { id: 'books-wish', title: '想读', level: 3 },
+          { id: 'books-collect', title: '读过', level: 3 },
+          { id: 'bangumi', title: '追番', level: 1 },
         ]}
       />
 
@@ -63,17 +69,14 @@ export default async function LibraryPage() {
           <p className="text-text-secondary">{`${pagesData.library.description}。`}</p>
         </section>
 
+        {/* 影视 - 豆瓣 API 数据 */}
+        <Movies id="movies" data={moviesData} />
+
+        {/* 书籍 - 豆瓣 API 数据 */}
+        <Books id="books" data={booksData} />
+
         {/* 追番 - API 数据 */}
         <Bangumi id="bangumi" bangumi={bangumi} />
-
-        {/* 歌单 - 纯 SSR 数据 */}
-        <Playlists id="playlists" />
-
-        {/* 电影 - 纯 SSR 数据 */}
-        <Movies id="movies" />
-
-        {/* 书籍 - 纯 SSR 数据 */}
-        <Books id="books" />
       </div>
     </>
   )

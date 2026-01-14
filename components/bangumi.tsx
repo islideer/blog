@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ImageZoomProvider } from './image-zoom-provider'
@@ -10,6 +13,11 @@ interface BangumiListProps {
 }
 
 export function Bangumi({ id, bangumi }: BangumiListProps) {
+  const [showAll, setShowAll] = useState(false)
+  const initialDisplayCount = 8 // 默认显示 8 个（约 2 排）
+  const displayedBangumi = showAll ? bangumi : bangumi.slice(0, initialDisplayCount)
+  const hasMore = bangumi.length > initialDisplayCount
+
   if (bangumi.length === 0) {
     return (
       <section className="space-y-4" id={id}>
@@ -25,9 +33,9 @@ export function Bangumi({ id, bangumi }: BangumiListProps) {
         追番{bangumi.length ? ` (${bangumi.length.toLocaleString()})` : ''}
       </h2>
 
-      <ImageZoomProvider deps={[bangumi]}>
+      <ImageZoomProvider deps={[displayedBangumi]}>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {bangumi.map((item) => (
+          {displayedBangumi.map((item) => (
             <div
               key={item.season_id}
               className="border-border group sm:hover:border-text-tertiary flex flex-col overflow-hidden rounded-lg border"
@@ -96,6 +104,18 @@ export function Bangumi({ id, bangumi }: BangumiListProps) {
           ))}
         </div>
       </ImageZoomProvider>
+
+      {/* 展示更多按钮 */}
+      {hasMore && (
+        <div className="flex justify-center pt-2">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary rounded-lg px-4 py-2 text-sm transition-colors"
+          >
+            {showAll ? '收起' : `展示更多 (${bangumi.length - initialDisplayCount})`}
+          </button>
+        </div>
+      )}
     </section>
   )
 }

@@ -4,9 +4,6 @@ import thoughtsData from '@/data/thoughts.json'
 import timelineData from '@/data/timeline.json'
 import friendsData from '@/data/friends.json'
 import otherGamesData from '@/data/other-games.json'
-import booksData from '@/data/books.json'
-import moviesData from '@/data/movies.json'
-import playlistsData from '@/data/playlists.json'
 import { isDev } from './env'
 
 // --- About Types ---
@@ -74,7 +71,7 @@ export const pagesData = {
   },
   library: {
     title: '书影音',
-    description: '记录追的番剧、去的现场、收藏的歌单、读的书、看的电影等',
+    description: '记录追的番剧、去的现场、收藏的歌单、读的书、看的影视等',
     slug: '/library',
   },
   timeline: {
@@ -217,6 +214,3 @@ export const thoughts: Thought[] = thoughtsData
 export const timeline: TimelineItem[] = timelineData
 export const friends: Friend[] = friendsData.length === 0 && isDev ? defaultFriends : friendsData
 export const otherGames: OtherGame[] = otherGamesData
-export const books: Book[] = booksData
-export const movies: Movie[] = moviesData
-export const playlists: Playlist[] = playlistsData

@@ -51,10 +51,9 @@ export default async function GamePage() {
     <>
       <StaticTableOfContents
         items={[
-          { id: 'title', title: pagesData.game.title },
-          { id: 'profile', title: 'Steam 个人资料' },
-          { id: 'library', title: 'Steam 游戏' },
-          { id: 'other', title: '其他游戏' },
+          { id: 'profile', title: 'Steam 个人资料', level: 1 },
+          { id: 'library', title: 'Steam 游戏', level: 1 },
+          { id: 'other', title: '其他游戏', level: 1 },
         ]}
       />
 
