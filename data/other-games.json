@@ -3,9 +3,10 @@
     "id": "honor-of-kings",
     "name": "王者荣耀",
     "cover": "https://s2.loli.net/2026/01/14/KYvWhgcOpnEqwu5.png",
-    "platforms": ["多端手游"],
+    "type": "MOBA",
+    "platforms": ["手游"],
     "playtime": "5000+ 场",
-    "description": "腾讯游戏天美工作室群开发的 MOBA 类国产手游。",
+    "description": "腾讯游戏天美工作室群研发的 MOBA 类国产手游。",
     "url": "https://pvp.qq.com/",
     "achievements": ["最高段位王者 50+ 星", "常玩辅助位和射手位", "本命是鲁班七号"]
   },
@@ -13,10 +14,22 @@
     "id": "4399-zmxy",
     "name": "4399 造梦西游",
     "cover": "https://s2.loli.net/2026/01/14/u8fAOIHsTiBE93b.jpg",
-    "platforms": ["网页游戏"],
+    "type": "动作策略",
+    "platforms": ["页游"],
     "playtime": "约两年",
     "description": "造梦工作室研发、4399 发行的动作策略网页游戏。",
     "url": "https://www.4399.com/flash/zmhj.htm",
     "achievements": ["小时候常玩双人模式", "第 3、4 部玩的比较多", "玩的最多的是沙僧"]
+  },
+  {
+    "id": "roco-kingdom",
+    "name": "洛克王国",
+    "cover": "https://s2.loli.net/2026/01/14/f4pascwIM6jdFWx.jpg",
+    "type": "RPG",
+    "platforms": ["页游"],
+    "playtime": "约三年",
+    "description": "腾讯魔方工作室群研发的回合制角色扮演网页游戏。",
+    "url": "https://17roco.qq.com/",
+    "achievements": ["开局选的小火苗", "「龙之爪牙」印象最深", "有好多只不一样的迪莫"]
   }
 ]

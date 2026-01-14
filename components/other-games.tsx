@@ -38,7 +38,7 @@ export function OtherGames() {
       </h2>
 
       <ImageZoomProvider deps={[games]}>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           {games.map((game: OtherGame) => (
             <div
               key={game.id}
@@ -77,20 +77,14 @@ export function OtherGames() {
                   <p className="text-text-tertiary line-clamp-2 text-xs">{game.description}</p>
                 )}
 
-                <div className="text-text-tertiary flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
-                  {/* 平台 */}
-                  {game.platforms.length > 0 && (
-                    <span className="text-text-secondary">{game.platforms.join(' · ')}</span>
-                  )}
-
-                  {/* 游玩时长 */}
-                  {game.playtime && (
-                    <>
-                      {game.platforms.length > 0 && <span className="text-text-tertiary">·</span>}
-                      <span className="text-text-tertiary">{game.playtime}</span>
-                    </>
-                  )}
+                <div className="text-text-secondary flex flex-wrap items-center gap-x-1 gap-y-1 text-xs">
+                  <span>{game.platforms.join(' · ')}</span>
+                  <span>·</span>
+                  <span>{game.type}</span>
+                  <span>·</span>
+                  <span>{game.playtime}</span>
                 </div>
+
                 {/* 成就列表 */}
                 {game.achievements && game.achievements.length > 0 && (
                   <ul className="text-text-tertiary list-inside list-disc text-xs">

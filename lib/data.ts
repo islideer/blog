@@ -139,6 +139,7 @@ export interface OtherGame {
   id: string
   name: string
   cover: string
+  type?: string
   platforms: string[]
   playtime?: string
   description?: string
