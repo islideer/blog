@@ -1,9 +1,11 @@
-import { ViewTransition } from 'react'
 import Link from 'next/link'
+import { ViewTransition } from 'react'
 import { DraftBadge } from './draft-badge'
 import { PinIcon } from './pin-icon'
 import { PostDate } from './post-date'
 import { ReadingTime } from './reading-time'
+import { pagesData } from '@/lib/data'
+
 import type { PostMetadata } from '@/lib/posts'
 
 interface RecentPostsProps {
@@ -65,7 +67,10 @@ export async function RecentPosts({ posts, totalCount, showMoreThreshold }: Rece
       {/* 查看全部链接 */}
       {totalCount > showMoreThreshold && (
         <div className="pt-1">
-          <Link href="/posts" className="text-text-secondary hover:text-text-primary text-[11px]">
+          <Link
+            href={pagesData.posts.slug}
+            className="text-text-secondary hover:text-text-primary text-[11px]"
+          >
             查看全部（{totalCount.toLocaleString('zh-Hans-CN')}）→
           </Link>
         </div>

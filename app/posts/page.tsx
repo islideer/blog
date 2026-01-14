@@ -19,18 +19,18 @@ export async function generateMetadata(): Promise<Metadata> {
     title: pagesData.posts.title,
     description: pagesData.posts.description,
     alternates: {
-      canonical: generateCanonicalUrl('/posts'),
+      canonical: generateCanonicalUrl(pagesData.posts.slug),
     },
     openGraph: {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
-      url: generateCanonicalUrl('/posts'),
+      url: generateCanonicalUrl(pagesData.posts.slug),
       title: `${pagesData.posts.title} | ${siteConfig.name}`,
       description: pagesData.posts.description,
       siteName: siteConfig.name,
       images: [
         {
-          url: '/posts/opengraph-image',
+          url: `${pagesData.posts.slug}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: pagesData.posts.title,
@@ -41,7 +41,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${pagesData.posts.title} | ${siteConfig.name}`,
       description: pagesData.posts.description,
-      images: ['/posts/opengraph-image'],
+      images: [`${pagesData.posts.slug}/opengraph-image`],
     },
   }
 }

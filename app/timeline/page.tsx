@@ -9,18 +9,18 @@ export const metadata: Metadata = {
   title: pagesData.timeline.title,
   description: pagesData.timeline.description,
   alternates: {
-    canonical: generateCanonicalUrl('/timeline'),
+    canonical: generateCanonicalUrl(pagesData.timeline.slug),
   },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
-    url: generateCanonicalUrl('/timeline'),
+    url: generateCanonicalUrl(pagesData.timeline.slug),
     title: `${pagesData.timeline.title} | ${siteConfig.name}`,
     description: pagesData.timeline.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: '/timeline/opengraph-image',
+        url: `${pagesData.timeline.slug}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: pagesData.timeline.title,
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${pagesData.timeline.title} | ${siteConfig.name}`,
     description: pagesData.timeline.description,
-    images: ['/timeline/opengraph-image'],
+    images: [`${pagesData.timeline.slug}/opengraph-image`],
   },
 }
 

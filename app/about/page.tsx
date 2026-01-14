@@ -14,18 +14,18 @@ export const metadata: Metadata = {
   title: pagesData.about.title,
   description: pagesData.about.description,
   alternates: {
-    canonical: generateCanonicalUrl('/about'),
+    canonical: generateCanonicalUrl(pagesData.about.slug),
   },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
-    url: generateCanonicalUrl('/about'),
+    url: generateCanonicalUrl(pagesData.about.slug),
     title: `${pagesData.about.title} | ${siteConfig.name}`,
     description: pagesData.about.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: '/about/opengraph-image',
+        url: `${pagesData.about.slug}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: pagesData.about.title,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${pagesData.about.title} | ${siteConfig.name}`,
     description: pagesData.about.description,
-    images: ['/about/opengraph-image'],
+    images: [`${pagesData.about.slug}/opengraph-image`],
   },
 }
 

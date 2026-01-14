@@ -13,18 +13,18 @@ export async function generateMetadata(): Promise<Metadata> {
     title: pagesData.mioSays.title,
     description: pagesData.mioSays.description,
     alternates: {
-      canonical: generateCanonicalUrl('/mio-says'),
+      canonical: generateCanonicalUrl(pagesData.mioSays.slug),
     },
     openGraph: {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
-      url: generateCanonicalUrl('/mio-says'),
+      url: generateCanonicalUrl(pagesData.mioSays.slug),
       title: `${pagesData.mioSays.title} | ${siteConfig.name}`,
       description: pagesData.mioSays.description,
       siteName: siteConfig.name,
       images: [
         {
-          url: '/mio-says/opengraph-image',
+          url: `${pagesData.mioSays.slug}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: pagesData.mioSays.title,
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${pagesData.mioSays.title} | ${siteConfig.name}`,
       description: pagesData.mioSays.description,
-      images: ['/mio-says/opengraph-image'],
+      images: [`${pagesData.mioSays.slug}/opengraph-image`],
     },
   }
 }

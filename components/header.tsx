@@ -8,6 +8,7 @@ import { siteConfig } from '@/lib/config'
 import { RSSIcon } from './rss-icon'
 import { GitHubIcon } from './github-icon'
 import { TravellingsIcon } from './travellings-iocn'
+import { pagesData } from '@/lib/data'
 
 export function Header() {
   const pathname = usePathname()
@@ -38,33 +39,33 @@ export function Header() {
           className={`flex items-center gap-1.5 transition-opacity sm:gap-4 ${isMoreOpen ? '' : 'sm:opacity-60 sm:group-hover:opacity-100'}`}
         >
           <Link
-            href="/posts"
+            href={pagesData.posts.slug}
             className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
           >
             文章
           </Link>
           <Link
-            href="/thoughts"
+            href={pagesData.thoughts.slug}
             className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
           >
             碎碎念
           </Link>
           <Link
-            href="/mio-says"
+            href={pagesData.mioSays.slug}
             className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
           >
             Mio 说
           </Link>
 
           <Link
-            href="/game"
+            href={pagesData.game.slug}
             className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
           >
             游戏
           </Link>
 
           <Link
-            href="/about"
+            href={pagesData.about.slug}
             className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
           >
             关于
@@ -90,7 +91,7 @@ export function Header() {
               <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
                 <div className="sm:hidden">
                   <Link
-                    href="/game"
+                    href={pagesData.game.slug}
                     className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
                     onClick={() => setIsMoreOpen(false)}
                   >
@@ -98,14 +99,14 @@ export function Header() {
                   </Link>
                 </div>
                 <Link
-                  href="/timeline"
+                  href={pagesData.timeline.slug}
                   className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
                   onClick={() => setIsMoreOpen(false)}
                 >
                   大事记
                 </Link>
                 <Link
-                  href="/friends"
+                  href={pagesData.friends.slug}
                   className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
                   onClick={() => setIsMoreOpen(false)}
                 >

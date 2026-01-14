@@ -11,18 +11,18 @@ export const metadata: Metadata = {
   title: pagesData.game.title,
   description: pagesData.game.description,
   alternates: {
-    canonical: generateCanonicalUrl('/game'),
+    canonical: generateCanonicalUrl(pagesData.game.slug),
   },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
-    url: generateCanonicalUrl('/game'),
+    url: generateCanonicalUrl(pagesData.game.slug),
     title: `${pagesData.game.title} | ${siteConfig.name}`,
     description: pagesData.game.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: '/game/opengraph-image',
+        url: `${pagesData.game.slug}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: pagesData.game.title,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${pagesData.game.title} | ${siteConfig.name}`,
     description: pagesData.game.description,
-    images: ['/game/opengraph-image'],
+    images: [`${pagesData.game.slug}/opengraph-image`],
   },
 }
 
