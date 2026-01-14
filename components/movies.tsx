@@ -15,7 +15,9 @@ export function Movies({ id }: { id?: string }) {
 
   return (
     <section className="space-y-4" id={id}>
-      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">电影</h2>
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+        电影{movies.length ? ` (${movies.length.toLocaleString()})` : ''}
+      </h2>
 
       <ImageZoomProvider deps={[movies]}>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">

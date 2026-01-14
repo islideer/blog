@@ -15,7 +15,9 @@ export function Books({ id }: { id?: string }) {
 
   return (
     <section className="space-y-4" id={id}>
-      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">书籍</h2>
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+        书籍{books.length ? ` (${books.length.toLocaleString()})` : ''}
+      </h2>
 
       <ImageZoomProvider deps={[books]}>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">

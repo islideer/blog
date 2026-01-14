@@ -11,6 +11,11 @@ export interface BangumiItem {
   square_cover?: string
   url: string
   badge?: string
+  badge_info?: {
+    text: string
+    bg_color: string
+    bg_color_night: string
+  }
   badge_type?: number
   rating?: {
     score: number

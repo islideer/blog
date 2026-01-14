@@ -21,7 +21,9 @@ export function Bangumi({ id, bangumi }: BangumiListProps) {
 
   return (
     <section className="space-y-4" id={id}>
-      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">追番</h2>
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+        追番{bangumi.length ? ` (${bangumi.length.toLocaleString()})` : ''}
+      </h2>
 
       <ImageZoomProvider deps={[bangumi]}>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -42,9 +44,12 @@ export function Bangumi({ id, bangumi }: BangumiListProps) {
                   className="h-full w-full object-cover"
                 />
                 {/* 徽章 */}
-                {item.badge && (
-                  <div className="absolute top-2 right-2 rounded bg-pink-400 px-1 py-0.5 text-xs font-medium text-white">
-                    {item.badge}
+                {item.badge_info && (
+                  <div
+                    className={`absolute top-2 right-2 rounded px-1 py-0.5 text-xs font-medium text-white`}
+                    style={{ backgroundColor: item.badge_info.bg_color }}
+                  >
+                    {item.badge_info.text}
                   </div>
                 )}
               </div>
@@ -66,7 +71,12 @@ export function Bangumi({ id, bangumi }: BangumiListProps) {
 
                 <div className="text-text-secondary flex flex-wrap items-center gap-x-0.5 gap-y-1 text-xs">
                   {item.areas && item.areas.length > 0 && (
-                    <span>{item.areas.map((e) => e.name).join('·')}</span>
+                    <span>
+                      {item.areas
+                        .slice(0, 1)
+                        .map((e) => e.name)
+                        .join('·')}
+                    </span>
                   )}
                   {item.rating && (
                     <>
