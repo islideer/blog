@@ -74,7 +74,7 @@ export const pagesData = {
   },
   library: {
     title: '书影音',
-    description: '追的番剧、去的现场、收藏的歌单、记录读的书、看的电影等',
+    description: '记录追的番剧、去的现场、收藏的歌单、读的书、看的电影等',
     slug: '/library',
   },
   timeline: {
