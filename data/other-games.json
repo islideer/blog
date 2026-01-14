@@ -11,6 +11,17 @@
     "achievements": ["最高段位王者 50+ 颗星", "常玩辅助位和射手位", "本命英雄「鲁班七号」"]
   },
   {
+    "id": "qq-speed-mobile",
+    "name": "QQ飞车手游",
+    "cover": "https://s2.loli.net/2026/01/14/1UxgwA8pOJksjIS.jpg",
+    "type": "竞速",
+    "platforms": ["手游"],
+    "playtime": "约两年",
+    "description": "腾讯游戏天美工作室群研发的《QQ飞车》手游版本。",
+    "url": "https://speedm.qq.com/",
+    "achievements": ["偏移比端游更爽更简单", "被几期赛季勋章套牢了", "比较喜欢开「S-冰魄」"]
+  },
+  {
     "id": "qq-fps",
     "name": "枪林弹雨",
     "cover": "https://s2.loli.net/2026/01/14/lVzeYXj86DPfvpM.jpg",
@@ -19,16 +30,16 @@
     "playtime": "约两年",
     "description": "成都雨神电竞研发、在腾讯运营的次世代 FPS 页游。",
     "url": "https://fps.qq.com/",
-    "achievements": ["FPS 入门之作（电脑没下 CF）", "良心页游、FPS 经典", "周末就爱玩，喜欢打狙"]
+    "achievements": ["FPS 入门作（没下 CF）", "良心页游、FPS 经典", "周末就爱玩，喜欢打狙"]
   },
   {
     "id": "qq-speed",
-    "name": "QQ 飞车",
+    "name": "QQ飞车",
     "cover": "https://s2.loli.net/2026/01/14/Kloq4VTkSmctnZM.jpg",
     "type": "竞速",
     "platforms": ["端游"],
     "playtime": "约三年",
-    "description": "腾讯琳琅天上工作室研发的多人赛车竞速游戏。",
+    "description": "腾讯游戏琳琅天上工作室研发的多人赛车竞速端游。",
     "url": "https://speed.qq.com/",
     "achievements": ["从此迷恋上了赛车游戏", "陪伴了好几个夏天", "最爱地图「玫瑰之恋」"]
   },
@@ -39,7 +50,7 @@
     "type": "动作策略",
     "platforms": ["页游"],
     "playtime": "约两年",
-    "description": "造梦工作室研发、4399 发行的动作策略网页游戏。",
+    "description": "造梦工作室研发、4399 发行的动作策略网游。",
     "url": "https://www.4399.com/flash/zmhj.htm",
     "achievements": ["小时候常玩双人模式", "主要玩第 3、4 部", "玩的最多的是「沙僧」"]
   },
@@ -50,7 +61,7 @@
     "type": "RPG",
     "platforms": ["页游"],
     "playtime": "约三年",
-    "description": "腾讯魔方工作室群研发的回合制角色扮演网页游戏。",
+    "description": "腾讯魔方工作室群研发的回合制角色扮演网游。",
     "url": "https://17roco.qq.com/",
     "achievements": ["注册 QQ 就是为了这个", "开局宠物选的小火苗", "有好多只不一样的迪莫"]
   }
