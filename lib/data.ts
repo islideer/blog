@@ -4,6 +4,9 @@ import thoughtsData from '@/data/thoughts.json'
 import timelineData from '@/data/timeline.json'
 import friendsData from '@/data/friends.json'
 import otherGamesData from '@/data/other-games.json'
+import booksData from '@/data/books.json'
+import moviesData from '@/data/movies.json'
+import playlistsData from '@/data/playlists.json'
 import { isDev } from './env'
 
 // --- About Types ---
@@ -68,6 +71,11 @@ export const pagesData = {
     title: '游戏',
     description: '记录 Viki 的游戏时光，游戏库和游戏时长统计等',
     slug: '/game',
+  },
+  library: {
+    title: '书影音',
+    description: '追的番剧、去的现场、收藏的歌单、记录读的书、看的电影等',
+    slug: '/library',
   },
   timeline: {
     title: '大事记',
@@ -147,6 +155,44 @@ export interface OtherGame {
   url?: string
 }
 
+// --- Library Types ---
+export interface Book {
+  id: string
+  title: string
+  cover: string
+  author?: string
+  year?: number
+  rating?: number
+  genre?: string[]
+  description?: string
+  read_date?: string
+  url?: string
+}
+
+export interface Movie {
+  id: string
+  title: string
+  cover: string
+  year?: number
+  director?: string
+  rating?: number
+  genre?: string[]
+  description?: string
+  watched_date?: string
+  url?: string
+}
+
+export interface Playlist {
+  id: string
+  name: string
+  cover: string
+  creator?: string
+  song_count?: number
+  description?: string
+  created_date?: string
+  url?: string
+}
+
 // --- Exports ---
 
 export const about = aboutData as AboutData
@@ -171,3 +217,6 @@ export const thoughts: Thought[] = thoughtsData
 export const timeline: TimelineItem[] = timelineData
 export const friends: Friend[] = friendsData.length === 0 && isDev ? defaultFriends : friendsData
 export const otherGames: OtherGame[] = otherGamesData
+export const books: Book[] = booksData
+export const movies: Movie[] = moviesData
+export const playlists: Playlist[] = playlistsData

@@ -65,6 +65,13 @@ export function Header() {
           </Link>
 
           <Link
+            href={pagesData.library.slug}
+            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
+          >
+            书影音
+          </Link>
+
+          <Link
             href={pagesData.about.slug}
             className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
           >
@@ -96,6 +103,13 @@ export function Header() {
                     onClick={() => setIsMoreOpen(false)}
                   >
                     游戏
+                  </Link>
+                  <Link
+                    href={pagesData.library.slug}
+                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                    onClick={() => setIsMoreOpen(false)}
+                  >
+                    书影音
                   </Link>
                 </div>
                 <Link
