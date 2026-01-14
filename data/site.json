@@ -38,6 +38,11 @@
     "postsToShow": 3,
     "thoughtsToShow": 3
   },
+  "game": {
+    "steam": {
+      "id": ""
+    }
+  },
   "copyright": {
     "year": {
       "start": 2019

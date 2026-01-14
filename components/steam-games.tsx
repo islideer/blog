@@ -5,7 +5,7 @@
 import Image from 'next/image'
 import { PlatformIcon } from './platform-icon'
 import { useEffect, useState } from 'react'
-import { ArticleZoomProvider } from './article-zoom-provider'
+import { ImageZoomProvider } from './image-zoom-provider'
 import Link from 'next/link'
 
 interface PlatformPlaytime {
@@ -213,7 +213,7 @@ export function SteamGames({ id, steamId, title }: { id: string; steamId: string
           </div>
         )}
 
-        <ArticleZoomProvider deps={[games]}>
+        <ImageZoomProvider deps={[games]}>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {games
               .filter((e) => e.playtime.recent > 3)
@@ -274,7 +274,7 @@ export function SteamGames({ id, steamId, title }: { id: string; steamId: string
               </p>
             )}
           </div>
-        </ArticleZoomProvider>
+        </ImageZoomProvider>
       </div>
     </section>
   )

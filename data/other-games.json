@@ -1,0 +1,12 @@
+[
+  {
+    "id": "honor-of-kings",
+    "name": "王者荣耀",
+    "cover": "https://example.com/honor-of-kings.jpg",
+    "platforms": ["iOS", "Android"],
+    "playtime": "约 5000 场",
+    "description": "腾讯出版发行的 MOBA 公平竞技手游",
+    "url": "https://pvp.qq.com/",
+    "achievements": ["最高段位王者 50+ 星", "爱玩鲁班和辅助位"]
+  }
+]

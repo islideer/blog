@@ -2,7 +2,6 @@ import { AboutContact } from '@/components/about-contact'
 import { AboutIntro } from '@/components/about-intro'
 import { AboutOpenSource } from '@/components/about-open-source'
 import { AboutTechStack } from '@/components/about-tech-stack'
-import { SteamGames } from '@/components/steam-games'
 import { about } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { pagesData } from '@/lib/data'
@@ -48,7 +47,6 @@ export default function AboutPage() {
         items={[
           { id: 'intro', title: about.intro.title },
           { id: 'contact', title: about.contact.title },
-          { id: 'steam', title: about.steam.title },
           { id: 'open-source', title: about.openSource.title },
           { id: 'tech-stack', title: about.techStack.title },
         ]}
@@ -57,7 +55,6 @@ export default function AboutPage() {
       <div className="space-y-12 py-8 sm:space-y-16 sm:py-12">
         <AboutIntro id="intro" title={about.intro.title} paragraphs={about.intro.paragraphs} />
         <AboutContact id="contact" title={about.contact.title} links={about.contact.list} />
-        <SteamGames id="steam" title={about.steam.title} steamId={about.steam.id} />
         <AboutOpenSource
           id="open-source"
           title={about.openSource.title}

@@ -57,6 +57,13 @@ export function Header() {
           </Link>
 
           <Link
+            href="/steam"
+            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
+          >
+            游戏
+          </Link>
+
+          <Link
             href="/about"
             className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
           >
@@ -81,6 +88,15 @@ export function Header() {
             </button>
             {isMoreOpen && (
               <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
+                <div className="sm:hidden">
+                  <Link
+                    href="/steam"
+                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                    onClick={() => setIsMoreOpen(false)}
+                  >
+                    游戏
+                  </Link>
+                </div>
                 <Link
                   href="/timeline"
                   className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"

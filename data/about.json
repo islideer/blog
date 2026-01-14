@@ -14,10 +14,6 @@
       { "label": "RSS 订阅", "url": "/rss" }
     ]
   },
-  "steam": {
-    "id": "76561199467643198",
-    "title": "最近在玩 / Recently Played"
-  },
   "openSource": {
     "title": "开源 / Open Source",
     "moreLink": "https://github.com/vikiboss?tab=repositories",

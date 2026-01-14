@@ -3,6 +3,7 @@ import mioSaysData from '@/data/mio-says.json'
 import thoughtsData from '@/data/thoughts.json'
 import timelineData from '@/data/timeline.json'
 import friendsData from '@/data/friends.json'
+import otherGamesData from '@/data/other-games.json'
 import { isDev } from './env'
 
 // --- About Types ---
@@ -67,6 +68,10 @@ export const pagesData = {
     title: '好朋友们',
     description: 'Viki 在互联网上的好朋友们，交流学习，共同进步',
   },
+  steam: {
+    title: '游戏时光',
+    description: '记录 Viki 的游戏时光，Steam 游戏库和游戏时长统计',
+  },
 }
 
 export type PageData = typeof pagesData
@@ -79,10 +84,6 @@ export interface AboutData {
   contact: {
     title: string
     list: ContactLink[]
-  }
-  steam: {
-    id: string
-    title: string
   }
   openSource: {
     title: string
@@ -126,6 +127,18 @@ export interface Friend {
   rss?: string // 可选的 RSS 订阅地址
 }
 
+// --- Other Games Types ---
+export interface OtherGame {
+  id: string
+  name: string
+  cover: string
+  platforms: string[]
+  playtime?: string
+  description?: string
+  achievements?: string[]
+  url?: string
+}
+
 // --- Exports ---
 
 export const about = aboutData as AboutData
@@ -149,3 +162,4 @@ export const mioSays: MioSay[] = mioSaysData
 export const thoughts: Thought[] = thoughtsData
 export const timeline: TimelineItem[] = timelineData
 export const friends: Friend[] = friendsData.length === 0 && isDev ? defaultFriends : friendsData
+export const otherGames: OtherGame[] = otherGamesData

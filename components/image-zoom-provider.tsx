@@ -8,7 +8,7 @@ import mediumZoom from 'medium-zoom'
  *
  * 在客户端初始化 medium-zoom，作用于所有带 data-zoomable 属性的图片
  */
-export function ArticleZoomProvider({
+export function ImageZoomProvider({
   children,
   deps,
 }: {
