@@ -5,8 +5,18 @@
     "cover": "https://s2.loli.net/2026/01/14/KYvWhgcOpnEqwu5.png",
     "platforms": ["多端手游"],
     "playtime": "5000+ 场",
-    "description": "腾讯开发的 MOBA 手游",
+    "description": "腾讯游戏天美工作室群开发的 MOBA 类国产手游。",
     "url": "https://pvp.qq.com/",
     "achievements": ["最高段位王者 50+ 星", "常玩鲁班、辅助位"]
+  },
+  {
+    "id": "4399-zmxy-4",
+    "name": "造梦西游 4",
+    "cover": "https://s2.loli.net/2026/01/14/u8fAOIHsTiBE93b.jpg",
+    "platforms": ["网页游戏"],
+    "playtime": "两三年",
+    "description": "造梦工作室研发、4399 发行的动作策略网页游戏。",
+    "url": "https://www.4399.com/flash/zmhj.htm",
+    "achievements": ["小时候常玩双人模式", "最喜欢玩的是沙僧"]
   }
 ]

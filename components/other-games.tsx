@@ -51,7 +51,7 @@ export function OtherGames() {
                 )}
 
                 {game.description && (
-                  <p className="text-text-tertiary line-clamp-2 truncate text-xs">{game.description}</p>
+                  <p className="text-text-tertiary line-clamp-2 text-xs">{game.description}</p>
                 )}
 
                 <div className="text-text-tertiary flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
