@@ -88,7 +88,7 @@ async function getRecentlyPlayed(): Promise<RecentGame[]> {
   }
 }
 
-export function SteamGameLibrary({ steamId }: { steamId: string }) {
+export function SteamGameLibrary({ steamId, id }: { steamId: string; id?: string }) {
   const [libraryGames, setLibraryGames] = useState<LibraryGame[]>([])
   const [recentGames, setRecentGames] = useState<RecentGame[]>([])
   const [loading, setLoading] = useState(true)
@@ -104,7 +104,7 @@ export function SteamGameLibrary({ steamId }: { steamId: string }) {
 
   if (loading) {
     return (
-      <section className="space-y-4">
+      <section className="space-y-4" id={id}>
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
           Steam 游戏
         </h2>
@@ -119,7 +119,7 @@ export function SteamGameLibrary({ steamId }: { steamId: string }) {
   )
 
   return (
-    <section className="space-y-4">
+    <section className="space-y-4" id={id}>
       <div className="flex items-center justify-between">
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
           Steam 游戏

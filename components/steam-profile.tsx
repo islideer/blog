@@ -75,7 +75,7 @@ async function getSteamProfile(steamId: string): Promise<SteamProfile | null> {
   }
 }
 
-export function SteamProfile({ steamId }: { steamId: string }) {
+export function SteamProfile({ steamId, id }: { steamId: string; id?: string }) {
   const [profile, setProfile] = useState<SteamProfile | null>(null)
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
@@ -100,7 +100,7 @@ export function SteamProfile({ steamId }: { steamId: string }) {
 
   if (loading) {
     return (
-      <section className="space-y-4">
+      <section className="space-y-4" id={id}>
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
           个人资料
         </h2>
@@ -114,7 +114,7 @@ export function SteamProfile({ steamId }: { steamId: string }) {
   }
 
   return (
-    <section className="space-y-4">
+    <section className="space-y-4" id={id}>
       <div className="flex items-center justify-between">
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
           Steam 个人资料

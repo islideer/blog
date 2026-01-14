@@ -6,6 +6,7 @@ import { pagesData } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
+import { StaticTableOfContents } from '@/components/table-of-contents'
 
 export const metadata: Metadata = {
   title: pagesData.game.title,
@@ -39,15 +40,32 @@ export const metadata: Metadata = {
 
 export default function GamePage() {
   return (
-    <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
-      {/* Steam 个人资料卡片 */}
-      <SteamProfile steamId={siteConfig.game.steam.id} />
+    <>
+      <StaticTableOfContents
+        items={[
+          { id: 'title', title: pagesData.game.title },
+          { id: 'profile', title: 'Steam 个人资料' },
+          { id: 'library', title: 'Steam 游戏' },
+          { id: 'other', title: '其他游戏' },
+        ]}
+      />
 
-      {/* Steam 游戏库 */}
-      <SteamGameLibrary steamId={siteConfig.game.steam.id} />
+      <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
+        {/* Header */}
+        <section className="space-y-3" id="title">
+          <h1 className="text-3xl font-bold">{pagesData.game.title}</h1>
+          <p className="text-text-secondary">{`${pagesData.game.description}。`}</p>
+        </section>
 
-      {/* 其他游戏 */}
-      <OtherGames />
-    </div>
+        {/* Steam 个人资料卡片 */}
+        <SteamProfile id="profile" steamId={siteConfig.game.steam.id} />
+
+        {/* Steam 游戏库 */}
+        <SteamGameLibrary id="library" steamId={siteConfig.game.steam.id} />
+
+        {/* 其他游戏 */}
+        <OtherGames id="other" />
+      </div>
+    </>
   )
 }

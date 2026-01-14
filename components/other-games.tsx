@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { otherGames, type OtherGame } from '@/lib/data'
 import { ImageZoomProvider } from './image-zoom-provider'
 
-export function OtherGames() {
+export function OtherGames({ id }: { id?: string }) {
   const [loading, setLoading] = useState(true)
   const [games, setGames] = useState<OtherGame[]>([])
 
@@ -20,7 +20,7 @@ export function OtherGames() {
 
   if (loading) {
     return (
-      <section className="space-y-4">
+      <section className="space-y-4" id={id}>
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
           其他游戏（在玩的、爱玩的、怀念的）
         </h2>
@@ -32,7 +32,7 @@ export function OtherGames() {
   }
 
   return (
-    <section className="space-y-4">
+    <section className="space-y-4" id={id}>
       <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
         其他游戏（在玩的、爱玩的、怀念的）
       </h2>
