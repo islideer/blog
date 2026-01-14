@@ -11,6 +11,17 @@
     "achievements": ["最高段位王者 50+ 颗星", "常玩辅助位和射手位", "本命英雄「鲁班七号」"]
   },
   {
+    "id": "qq-fps",
+    "name": "枪林弹雨",
+    "cover": "https://s2.loli.net/2026/01/14/lVzeYXj86DPfvpM.jpg",
+    "type": "FPS",
+    "platforms": ["页游"],
+    "playtime": "约两年",
+    "description": "成都雨神电竞研发、在腾讯运营的次世代 FPS 页游。",
+    "url": "https://fps.qq.com/",
+    "achievements": ["FPS 入门之作（电脑没下 CF）", "良心页游、FPS 经典", "周末就爱玩，喜欢打狙"]
+  },
+  {
     "id": "qq-speed",
     "name": "QQ 飞车",
     "cover": "https://s2.loli.net/2026/01/14/Kloq4VTkSmctnZM.jpg",
