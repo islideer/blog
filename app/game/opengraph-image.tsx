@@ -13,7 +13,7 @@ export const dynamic = 'force-static'
 export const contentType = 'image/png'
 
 export async function generateAlt(): Promise<string> {
-  return pagesData.steam.title
+  return pagesData.game.title
 }
 
 export default async function Image() {
@@ -36,7 +36,7 @@ export default async function Image() {
 
   return new ImageResponse(
     <OgImageTemplate
-      title={pagesData.steam.title}
+      title={pagesData.game.title}
       iconData={Buffer.from(iconData)}
       bodyContent={
         <div
@@ -56,7 +56,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            {pagesData.steam.description}
+            {pagesData.game.description}
           </div>
 
           {/* Steam 标识 */}

@@ -105,8 +105,10 @@ export function SteamGameLibrary({ steamId }: { steamId: string }) {
   if (loading) {
     return (
       <section className="space-y-4">
-        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">游戏库</h2>
-        <p className="text-text-secondary text-sm">正在加载游戏库...</p>
+        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+          Steam 游戏
+        </h2>
+        <p className="text-text-secondary text-sm">正在加载 Steam 游戏列表...</p>
       </section>
     )
   }

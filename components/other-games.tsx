@@ -1,11 +1,34 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { otherGames, type OtherGame } from '@/lib/data'
 import { ImageZoomProvider } from './image-zoom-provider'
 
 export function OtherGames() {
-  if (otherGames.length === 0) {
-    return null
+  const [loading, setLoading] = useState(true)
+  const [games, setGames] = useState<OtherGame[]>([])
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      setLoading(false)
+      setGames(otherGames)
+    }, 360)
+    return () => clearTimeout(id)
+  }, [])
+
+  if (loading) {
+    return (
+      <section className="space-y-4">
+        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+          其他游戏（在玩的、爱玩的、怀念的）
+        </h2>
+        <div>
+          <p className="text-text-secondary text-sm">正在加载其他游戏列表...</p>
+        </div>
+      </section>
+    )
   }
 
   return (
@@ -14,9 +37,9 @@ export function OtherGames() {
         其他游戏（在玩的、爱玩的、怀念的）
       </h2>
 
-      <ImageZoomProvider deps={[otherGames]}>
+      <ImageZoomProvider deps={[games]}>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {otherGames.map((game: OtherGame) => (
+          {games.map((game: OtherGame) => (
             <div
               key={game.id}
               className="border-border group sm:hover:border-text-tertiary flex flex-col overflow-hidden rounded-lg border"

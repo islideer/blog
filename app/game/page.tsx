@@ -8,36 +8,36 @@ import { generateCanonicalUrl } from '@/lib/seo'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: pagesData.steam.title,
-  description: pagesData.steam.description,
+  title: pagesData.game.title,
+  description: pagesData.game.description,
   alternates: {
-    canonical: generateCanonicalUrl('/steam'),
+    canonical: generateCanonicalUrl('/game'),
   },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
-    url: generateCanonicalUrl('/steam'),
-    title: `${pagesData.steam.title} | ${siteConfig.name}`,
-    description: pagesData.steam.description,
+    url: generateCanonicalUrl('/game'),
+    title: `${pagesData.game.title} | ${siteConfig.name}`,
+    description: pagesData.game.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: '/steam/opengraph-image',
+        url: '/game/opengraph-image',
         width: 1200,
         height: 630,
-        alt: pagesData.steam.title,
+        alt: pagesData.game.title,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${pagesData.steam.title} | ${siteConfig.name}`,
-    description: pagesData.steam.description,
-    images: ['/steam/opengraph-image'],
+    title: `${pagesData.game.title} | ${siteConfig.name}`,
+    description: pagesData.game.description,
+    images: ['/game/opengraph-image'],
   },
 }
 
-export default function SteamPage() {
+export default function GamePage() {
   return (
     <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
       {/* Steam 个人资料卡片 */}

@@ -68,9 +68,9 @@ export const pagesData = {
     title: '好朋友们',
     description: 'Viki 在互联网上的好朋友们，交流学习，共同进步',
   },
-  steam: {
+  game: {
     title: '游戏时光',
-    description: '记录 Viki 的游戏时光，Steam 游戏库和游戏时长统计',
+    description: '记录 Viki 的游戏时光，游戏库和游戏时长统计等',
   },
 }
 

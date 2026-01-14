@@ -85,13 +85,6 @@ export function SteamProfile({ steamId }: { steamId: string }) {
       setProfile(profileData)
       setLoading(false)
     })
-
-    // 每 1 分钟刷新一次实时状态
-    const interval = setInterval(async () => {
-      setProfile(await getSteamProfile(steamId))
-    }, 60 * 1000)
-
-    return () => clearInterval(interval)
   }, [steamId])
 
   const handleRefresh = async () => {
@@ -109,9 +102,9 @@ export function SteamProfile({ steamId }: { steamId: string }) {
     return (
       <section className="space-y-4">
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
-          Steam 个人资料
+          个人资料
         </h2>
-        <p className="text-text-secondary text-sm">正在加载...</p>
+        <p className="text-text-secondary text-sm">正在视奸中...</p>
       </section>
     )
   }
