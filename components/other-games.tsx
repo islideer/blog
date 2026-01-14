@@ -40,7 +40,7 @@ export function OtherGames({ id }: { id?: string }) {
         {games.map((game: OtherGame) => (
           <div
             key={game.id}
-            className="border-border group sm:hover:border-text-tertiary flex flex-col overflow-hidden rounded-lg border"
+            className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
           >
             {/* 游戏封面 */}
             <div className="bg-bg-secondary relative aspect-video w-full overflow-hidden">
@@ -50,7 +50,7 @@ export function OtherGames({ id }: { id?: string }) {
                 width={240}
                 height={135}
                 data-zoomable
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-all duration-300 sm:group-hover:scale-105"
               />
             </div>
 

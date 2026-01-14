@@ -87,7 +87,7 @@ function GamesList({
       {games.map((game) => (
         <div
           key={game.appid}
-          className="border-border group sm:hover:border-text-tertiary flex flex-col overflow-hidden rounded-lg border"
+          className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
         >
           {/* 游戏封面 */}
           <div className="relative aspect-166/78 w-full overflow-hidden">
@@ -97,7 +97,7 @@ function GamesList({
               width={166}
               height={78}
               data-zoomable
-              className="h-full w-full object-cover duration-300"
+              className="h-full w-full object-cover transition-all duration-300 sm:group-hover:scale-105"
             />
           </div>
 

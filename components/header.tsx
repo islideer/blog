@@ -58,17 +58,17 @@ export function Header() {
           </Link>
 
           <Link
-            href={pagesData.game.slug}
-            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
-          >
-            游戏
-          </Link>
-
-          <Link
             href={pagesData.library.slug}
             className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
           >
             书影音
+          </Link>
+
+          <Link
+            href={pagesData.game.slug}
+            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
+          >
+            游戏
           </Link>
 
           <Link
@@ -98,18 +98,19 @@ export function Header() {
               <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
                 <div className="sm:hidden">
                   <Link
-                    href={pagesData.game.slug}
-                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
-                    onClick={() => setIsMoreOpen(false)}
-                  >
-                    游戏
-                  </Link>
-                  <Link
                     href={pagesData.library.slug}
                     className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
                     onClick={() => setIsMoreOpen(false)}
                   >
                     书影音
+                  </Link>
+
+                  <Link
+                    href={pagesData.game.slug}
+                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                    onClick={() => setIsMoreOpen(false)}
+                  >
+                    游戏
                   </Link>
                 </div>
                 <Link
@@ -119,6 +120,7 @@ export function Header() {
                 >
                   大事记
                 </Link>
+
                 <Link
                   href={pagesData.friends.slug}
                   className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
@@ -136,6 +138,7 @@ export function Header() {
                   >
                     GitHub
                   </Link>
+
                   <Link
                     href={siteConfig.links.rss}
                     target="_blank"
@@ -144,6 +147,7 @@ export function Header() {
                   >
                     RSS 订阅
                   </Link>
+
                   <Link
                     href={siteConfig.links.travellings}
                     target="_blank"

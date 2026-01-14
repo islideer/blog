@@ -82,7 +82,7 @@ function MovieSection({ id, title, movies, badgeColor }: MovieSectionProps) {
         {displayedMovies.map((movie) => (
           <div
             key={movie.id}
-            className="border-border group sm:hover:border-text-tertiary flex flex-col overflow-hidden rounded-lg border"
+            className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
           >
             {/* 影视封面 */}
             <div className="bg-bg-secondary relative aspect-3/4 w-full overflow-hidden">
@@ -92,7 +92,7 @@ function MovieSection({ id, title, movies, badgeColor }: MovieSectionProps) {
                 width={240}
                 height={320}
                 data-zoomable
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-all duration-300 sm:group-hover:scale-105"
               />
               {/* 状态角标 */}
               <div

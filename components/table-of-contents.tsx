@@ -340,7 +340,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
 
       {/* 抽屉内容 */}
       <div
-        className={`bg-bg-primary fixed right-0 bottom-0 z-50 h-[60vh] w-full transform rounded-t-2xl border-t border-gray-200 shadow-2xl transition-transform duration-300 ease-in-out lg:hidden dark:border-gray-800 ${
+        className={`bg-bg-primary fixed right-0 bottom-0 z-50 h-[60vh] w-full transform rounded-t-2xl border-t border-gray-200 shadow-2xl transition-all duration-300 ease-in-out lg:hidden dark:border-gray-800 ${
           isOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
       >
