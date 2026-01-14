@@ -92,7 +92,7 @@ function MovieSection({ id, title, movies, badgeColor }: MovieSectionProps) {
                 width={240}
                 height={320}
                 data-zoomable
-                className="h-full w-full object-cover transition-all duration-300 sm:group-hover:scale-105"
+                className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-105"
               />
               {/* 状态角标 */}
               <div

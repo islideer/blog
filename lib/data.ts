@@ -5,6 +5,7 @@ import timelineData from '@/data/timeline.json'
 import friendsData from '@/data/friends.json'
 import otherGamesData from '@/data/other-games.json'
 import { isDev } from './env'
+import { siteConfig } from './config'
 
 // --- About Types ---
 export interface OpenSourceProject {
@@ -46,42 +47,42 @@ export interface TechStackData {
 export const pagesData = {
   posts: {
     title: '文章',
-    description: '记录技术思考和生活感悟',
+    description: `记录技术思考和生活感悟`,
     slug: '/posts',
   },
   thoughts: {
     title: '碎碎念',
-    description: 'Viki 的碎碎念小角落，记录生活中的点滴想法和言论',
+    description: `${siteConfig.author.name} 的碎碎念小角落，记录生活中的点滴想法和言论`,
     slug: '/thoughts',
   },
   mioSays: {
-    title: 'Mio 说',
-    description: 'Mio 的专属发言空间，Viki 无编辑权限',
+    title: `${siteConfig.lover.name} 说`,
+    description: `${siteConfig.lover.name} 的专属发言空间，${siteConfig.author.name} 无编辑权限`,
     slug: '/mio-says',
   },
   about: {
     title: '关于',
-    description: '前端开发者，热衷于开源和技术分享，相信技术改变世界',
+    description: `前端开发者，热衷于开源和技术分享，相信技术改变世界`,
     slug: '/about',
   },
   game: {
     title: '游戏',
-    description: '记录 Viki 的游戏时光，游戏库和游戏时长统计等',
+    description: `记录 ${siteConfig.author.name} 的游戏时光，游戏库和游戏时长统计等`,
     slug: '/game',
   },
   library: {
     title: '书影音',
-    description: '记录看的影视、读的书、追的番剧等',
+    description: `记录 ${siteConfig.author.name} 看的影视、读的书、追的番剧等`,
     slug: '/library',
   },
   timeline: {
     title: '大事记',
-    description: '记录生活中的重要时刻和里程碑',
+    description: `记录 ${siteConfig.author.name} 生活中的重要时刻和里程碑`,
     slug: '/timeline',
   },
   friends: {
     title: '好朋友们',
-    description: 'Viki 在互联网上的好朋友们，交流学习，共同进步',
+    description: `记录 ${siteConfig.author.name} 在互联网上的好朋友们，交流学习，共同进步`,
     slug: '/friends',
   },
 }

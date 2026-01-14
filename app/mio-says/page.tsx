@@ -63,7 +63,7 @@ export default async function MioSaysPage() {
         <div className="shrink-0 self-end">
           <Image
             src="https://s2.loli.net/2025/11/21/CcTp4FnkGH6dO1g.png"
-            alt="Mio with Viki"
+            alt={`${siteConfig.lover.name} with ${siteConfig.author.name}`}
             width={160}
             height={100}
             className="h-auto w-32 rounded-md sm:w-40"
@@ -78,8 +78,8 @@ export default async function MioSaysPage() {
           <ThoughtsList
             thoughts={sortedMioSays}
             mioTheme
-            emptyMessage="Mio 还没有说什么，敬请期待"
-            contentPrefix="Mio 说"
+            emptyMessage={`${siteConfig.lover.name} 还没有说什么，敬请期待`}
+            contentPrefix={`${siteConfig.lover.name} 说`}
           />
         </div>
       </section>

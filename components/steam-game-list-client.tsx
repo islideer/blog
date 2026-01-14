@@ -97,7 +97,7 @@ function GamesList({
               width={166}
               height={78}
               data-zoomable
-              className="h-full w-full object-cover transition-all duration-300 sm:group-hover:scale-105"
+              className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-105"
             />
           </div>
 

@@ -30,10 +30,10 @@ export function FriendCard({ friend }: FriendCardProps) {
           alt={friend.name}
           width={56}
           height={56}
-          className="aspect-square shrink-0 rounded-lg object-cover ring-1 ring-zinc-200/60 transition-transform group-hover:scale-105 dark:ring-zinc-800/60"
+          className="aspect-square shrink-0 rounded-lg object-cover ring-1 ring-zinc-200/60 transition-all! group-hover:scale-105 dark:ring-zinc-800/60"
         />
       ) : (
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-zinc-200 text-2xl font-semibold text-zinc-600 ring-1 ring-zinc-200/60 transition-transform group-hover:scale-105 dark:bg-zinc-800 dark:text-zinc-400 dark:ring-zinc-800/60">
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-zinc-200 text-2xl font-semibold text-zinc-600 ring-1 ring-zinc-200/60 transition-all! group-hover:scale-105 dark:bg-zinc-800 dark:text-zinc-400 dark:ring-zinc-800/60">
           {friend.name.charAt(0).toUpperCase()}
         </div>
       )}

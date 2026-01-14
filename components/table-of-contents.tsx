@@ -210,7 +210,7 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
             return (
               <li
                 key={item.id}
-                className={`overflow-hidden transition-all duration-200 ${isH3 ? 'pl-3' : ''}`}
+                className={`overflow-hidden transition-all! duration-200 ${isH3 ? 'pl-3' : ''}`}
                 style={{
                   maxHeight: isVisible ? '2rem' : '0',
                   marginBottom: isVisible ? '0.25rem' : '0',
@@ -316,7 +316,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
       {/* 浮动按钮 - 仅移动端显示 */}
       <button
         onClick={() => setIsOpen(true)}
-        className="bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-4 bottom-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all hover:shadow-xl lg:hidden"
+        className="bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-4 bottom-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl lg:hidden"
         aria-label="打开文章目录"
       >
         <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -340,7 +340,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
 
       {/* 抽屉内容 */}
       <div
-        className={`bg-bg-primary fixed right-0 bottom-0 z-50 h-[60vh] w-full transform rounded-t-2xl border-t border-gray-200 shadow-2xl transition-all duration-300 ease-in-out lg:hidden dark:border-gray-800 ${
+        className={`bg-bg-primary fixed right-0 bottom-0 z-50 h-[60vh] w-full transform rounded-t-2xl border-t border-gray-200 shadow-2xl transition-all! duration-300 ease-in-out lg:hidden dark:border-gray-800 ${
           isOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
       >
