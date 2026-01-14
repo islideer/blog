@@ -97,6 +97,7 @@ export function BangumiSection({ id, title, items, badgeColor }: BangumiSectionP
                 width={240}
                 height={240}
                 data-zoomable
+                referrerPolicy="no-referrer"
                 className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-105"
               />
               {/* 状态角标 */}
