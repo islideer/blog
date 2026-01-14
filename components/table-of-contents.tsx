@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { extractHeadings } from '@/lib/toc'
+import Link from 'next/link'
 
 interface TableOfContentsProps {
   /** 文章容器的选择器，默认为 '.prose' */
@@ -211,7 +212,7 @@ export function StaticTableOfContentsPC({ items = [] }: StaticTableOfContentsPro
                   opacity: isVisible ? 1 : 0,
                 }}
               >
-                <a
+                <Link
                   href={`#${item.id}`}
                   onClick={(e) => {
                     e.preventDefault()
@@ -227,7 +228,7 @@ export function StaticTableOfContentsPC({ items = [] }: StaticTableOfContentsPro
                   title={item.title}
                 >
                   {item.title}
-                </a>
+                </Link>
               </li>
             )
           })}
@@ -371,7 +372,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
               const isActive = activeId === item.id
               return (
                 <li key={item.id} className={`${item.level === 3 ? 'pl-4' : ''}`}>
-                  <a
+                  <Link
                     href={`#${item.id}`}
                     onClick={(e) => {
                       e.preventDefault()
@@ -383,7 +384,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
                     title={item.title}
                   >
                     {item.title}
-                  </a>
+                  </Link>
                 </li>
               )
             })}

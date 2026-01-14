@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { LazyImage } from './lazy-image'
 import { MarkdownLite } from './markdown-lite'
 import { RelativeTime } from './relative-time'
@@ -53,13 +54,13 @@ export async function ThoughtCard({
     >
       {/* 序号和日期时间 */}
       <div className="flex items-center gap-2 text-xs">
-        <a
+        <Link
           href={`#${thought.id}`}
           className="cursor-pointer font-mono font-semibold no-underline hover:underline"
           style={mioTheme ? { color: 'var(--color-mio-pink)' } : undefined}
         >
           #{thought.id}
-        </a>
+        </Link>
         <span className="text-text-secondary">·</span>
         <RelativeTime date={thought.date} className="text-text-secondary" />
       </div>

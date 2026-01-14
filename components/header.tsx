@@ -18,7 +18,7 @@ export function Header() {
   return (
     <header
       role="banner"
-      className="group border-border bg-bg-primary/80 sticky top-0 z-40 max-w-3xl border-b px-4 backdrop-blur-sm sm:px-6"
+      className="group border-border bg-bg-primary/80 sticky top-0 z-40 max-w-3xl border-b px-4 backdrop-blur-sm select-none sm:px-6"
     >
       <div className="flex items-center justify-between py-2 sm:py-2.5">
         <Link href="/" passHref className="no-underline">
@@ -35,7 +35,7 @@ export function Header() {
         <nav
           role="navigation"
           aria-label="主导航"
-          className="flex items-center gap-1.5 transition-opacity sm:gap-4 sm:opacity-60 sm:group-hover:opacity-100"
+          className={`flex items-center gap-1.5 transition-opacity sm:gap-4 ${isMoreOpen ? '' : 'sm:opacity-60 sm:group-hover:opacity-100'}`}
         >
           <Link
             href="/posts"
@@ -56,20 +56,6 @@ export function Header() {
             Mio 说
           </Link>
 
-          {/* PC 端显示全部链接 */}
-          <Link
-            href="/timeline"
-            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
-          >
-            大事记
-          </Link>
-          <Link
-            href="/friends"
-            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
-          >
-            好朋友们
-          </Link>
-
           <Link
             href="/about"
             className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
@@ -77,8 +63,8 @@ export function Header() {
             关于
           </Link>
 
-          {/* 移动端显示"更多"下拉菜单 */}
-          <div className="relative flex items-center sm:hidden">
+          {/* "更多"下拉菜单 */}
+          <div className="relative flex items-center">
             <button
               onClick={() => setIsMoreOpen(!isMoreOpen)}
               onBlur={(e) => {
@@ -87,7 +73,7 @@ export function Header() {
                   setTimeout(() => setIsMoreOpen(false), 150)
                 }
               }}
-              className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs"
+              className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
               aria-expanded={isMoreOpen}
               aria-haspopup="true"
             >
@@ -109,28 +95,30 @@ export function Header() {
                 >
                   好朋友们
                 </Link>
-                <div className="border-border my-2 border-t" />
-                <Link
-                  href={siteConfig.author.github}
-                  className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
-                  onClick={() => setIsMoreOpen(false)}
-                >
-                  GitHub
-                </Link>
-                <Link
-                  href={siteConfig.links.rss}
-                  className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
-                  onClick={() => setIsMoreOpen(false)}
-                >
-                  RSS 订阅
-                </Link>
-                <Link
-                  href={siteConfig.links.travellings}
-                  className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
-                  onClick={() => setIsMoreOpen(false)}
-                >
-                  开往 · 友链接力
-                </Link>
+                <div className="sm:hidden">
+                  <div className="border-border my-2 border-t" />
+                  <Link
+                    href={siteConfig.author.github}
+                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                    onClick={() => setIsMoreOpen(false)}
+                  >
+                    GitHub
+                  </Link>
+                  <Link
+                    href={siteConfig.links.rss}
+                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                    onClick={() => setIsMoreOpen(false)}
+                  >
+                    RSS 订阅
+                  </Link>
+                  <Link
+                    href={siteConfig.links.travellings}
+                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                    onClick={() => setIsMoreOpen(false)}
+                  >
+                    开往 · 友链接力
+                  </Link>
+                </div>
               </div>
             )}
           </div>

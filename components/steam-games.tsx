@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { PlatformIcon } from './platform-icon'
 import { useEffect, useState } from 'react'
 import { ArticleZoomProvider } from './article-zoom-provider'
+import Link from 'next/link'
 
 interface PlatformPlaytime {
   platform: string
@@ -233,14 +234,14 @@ export function SteamGames({ id, steamId, title }: { id: string; steamId: string
 
                     {/* 游戏信息 */}
                     <div className="min-w-0 flex-1 space-y-2">
-                      <a
+                      <Link
                         href={game.store_url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-text-primary text-text-secondary block truncate text-sm"
                       >
                         {game.name}
-                      </a>
+                      </Link>
                       <div className="text-text-secondary flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs">
                         {game.playtime.platforms && game.playtime.platforms.length > 0 && (
                           <div className="flex items-center gap-1">

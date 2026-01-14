@@ -1,4 +1,5 @@
 import { siteConfig } from '@/lib/config'
+import Link from 'next/link'
 
 function CopyrightText() {
   return (
@@ -12,14 +13,14 @@ function LicenseText() {
   return (
     <span className="text-text-tertiary">
       文章以
-      <a
+      <Link
         href={siteConfig.copyright.license.url}
         target="_blank"
         rel="noopener noreferrer"
         className="text-text-secondary hover:text-text-primary mx-1"
       >
         {siteConfig.copyright.license.name}
-      </a>
+      </Link>
       协议共享，转载请注明出处。
     </span>
   )
@@ -28,15 +29,15 @@ function LicenseText() {
 function SocialLinks({ center = false }: { center?: boolean }) {
   return (
     <div className={`flex items-center gap-4 ${center ? 'justify-center' : ''}`}>
-      <a
+      <Link
         href={siteConfig.author.github}
         target="_blank"
         rel="noopener noreferrer"
         className="text-text-secondary hover:text-text-primary"
       >
         GitHub
-      </a>
-      <a
+      </Link>
+      <Link
         href={siteConfig.links.rss}
         target="_blank"
         rel="noopener noreferrer"
@@ -44,7 +45,25 @@ function SocialLinks({ center = false }: { center?: boolean }) {
         title="RSS 订阅"
       >
         RSS 订阅
-      </a>
+      </Link>
+      <Link
+        href={siteConfig.links.travellings}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-text-secondary hover:text-text-primary hidden sm:inline"
+        title="RSS 订阅"
+      >
+        开往 · 友链接力
+      </Link>
+      <Link
+        href={siteConfig.links.travellings}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-text-secondary hover:text-text-primary sm:hidden"
+        title="RSS 订阅"
+      >
+        开往
+      </Link>
     </div>
   )
 }
