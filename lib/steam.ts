@@ -110,7 +110,7 @@ const STEAM_API_BASE = 'https://api.viki.moe/steam'
 export async function getSteamProfile(): Promise<SteamProfile | null> {
   try {
     const response = await fetch(`${STEAM_API_BASE}/summary`, {
-      next: { revalidate: 300 }, // 5 分钟缓存
+      next: { revalidate: 30 }, // 30 秒缓存
     })
 
     if (!response.ok) {
@@ -154,7 +154,7 @@ export async function getLibraryGames(): Promise<LibraryGame[]> {
 export async function getRecentlyPlayed(): Promise<RecentGame[]> {
   try {
     const response = await fetch(`${STEAM_API_BASE}/recently-played`, {
-      next: { revalidate: 300 }, // 5 分钟缓存
+      next: { revalidate: 60 }, // 1 分钟缓存
     })
 
     if (!response.ok) {
@@ -172,35 +172,35 @@ export async function getRecentlyPlayed(): Promise<RecentGame[]> {
 /**
  * 客户端刷新用的 API 调用（不带缓存）
  */
-export async function fetchSteamProfile(): Promise<SteamProfile | null> {
-  try {
-    const response = await fetch(`${STEAM_API_BASE}/summary`)
-    if (!response.ok) return null
-    return await response.json()
-  } catch (error) {
-    console.error('Error fetching Steam profile:', error)
-    return null
-  }
-}
+// export async function fetchSteamProfile(): Promise<SteamProfile | null> {
+//   try {
+//     const response = await fetch(`${STEAM_API_BASE}/summary`)
+//     if (!response.ok) return null
+//     return await response.json()
+//   } catch (error) {
+//     console.error('Error fetching Steam profile:', error)
+//     return null
+//   }
+// }
 
-export async function fetchLibraryGames(): Promise<LibraryGame[]> {
-  try {
-    const response = await fetch(`${STEAM_API_BASE}/games`)
-    if (!response.ok) return []
-    return await response.json()
-  } catch (error) {
-    console.error('Error fetching Steam games:', error)
-    return []
-  }
-}
+// export async function fetchLibraryGames(): Promise<LibraryGame[]> {
+//   try {
+//     const response = await fetch(`${STEAM_API_BASE}/games`)
+//     if (!response.ok) return []
+//     return await response.json()
+//   } catch (error) {
+//     console.error('Error fetching Steam games:', error)
+//     return []
+//   }
+// }
 
-export async function fetchRecentlyPlayed(): Promise<RecentGame[]> {
-  try {
-    const response = await fetch(`${STEAM_API_BASE}/recently-played`)
-    if (!response.ok) return []
-    return await response.json()
-  } catch (error) {
-    console.error('Error fetching recently played games:', error)
-    return []
-  }
-}
+// export async function fetchRecentlyPlayed(): Promise<RecentGame[]> {
+//   try {
+//     const response = await fetch(`${STEAM_API_BASE}/recently-played`)
+//     if (!response.ok) return []
+//     return await response.json()
+//   } catch (error) {
+//     console.error('Error fetching recently played games:', error)
+//     return []
+//   }
+// }

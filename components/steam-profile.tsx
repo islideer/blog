@@ -1,48 +1,31 @@
-'use client'
-
 import Image from 'next/image'
-import { useState } from 'react'
+import { SteamRefreshButton } from './steam-refresh-button'
 import type { SteamProfile as SteamProfileType } from '@/lib/steam'
-import { fetchSteamProfile } from '@/lib/steam'
+import { siteConfig } from '@/lib/config'
 
 interface SteamProfileProps {
-  steamId: string
   id?: string
-  initialData?: SteamProfileType | null
+  profile: SteamProfileType | null
 }
 
-export function SteamProfile({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  steamId,
-  id,
-  initialData = null,
-}: SteamProfileProps) {
-  const [profile, setProfile] = useState<SteamProfileType | null>(initialData)
-  const [refreshing, setRefreshing] = useState(false)
-
-  // 如果没有初始数据，显示 loading 状态（降级方案）
+/**
+ * Steam 个人资料组件（纯服务端组件）
+ * - 完全在服务端渲染
+ * - 刷新按钮是独立的客户端组件
+ */
+export function SteamProfile({ id, profile }: SteamProfileProps) {
+  // 如果没有数据，显示降级状态
   if (!profile) {
     return (
       <section className="space-y-4" id={id}>
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
-          个人资料
+          Steam 个人资料
         </h2>
-        <p className="text-text-secondary text-sm">正在视奸中...</p>
+        <p className="text-text-secondary text-sm">
+          暂时无法加载 {siteConfig.author.name} 的 Steam 个人资料
+        </p>
       </section>
     )
-  }
-
-  const handleRefresh = async () => {
-    if (refreshing) return
-    setRefreshing(true)
-    try {
-      const profileData = await fetchSteamProfile()
-      if (profileData) {
-        setProfile(profileData)
-      }
-    } finally {
-      setRefreshing(false)
-    }
   }
 
   return (
@@ -51,15 +34,8 @@ export function SteamProfile({
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
           Steam 个人资料
         </h2>
-        <button
-          onClick={handleRefresh}
-          disabled={refreshing}
-          className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-50"
-          aria-label="刷新 Steam 信息"
-        >
-          <RefreshIcon className={refreshing ? 'animate-spin' : ''} />
-          刷新状态
-        </button>
+        {/* 独立的客户端组件处理刷新交互 */}
+        <SteamRefreshButton />
       </div>
 
       <div className="border-border divide-border flex flex-col divide-y rounded-lg border">
@@ -130,24 +106,5 @@ export function SteamProfile({
         </div>
       </div>
     </section>
-  )
-}
-
-function RefreshIcon({ className = '' }: { className?: string }) {
-  return (
-    <svg
-      className={`h-3.5 w-3.5 ${className}`}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-      />
-    </svg>
   )
 }

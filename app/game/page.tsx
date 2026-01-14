@@ -4,10 +4,10 @@ import { OtherGames } from '@/components/other-games'
 import { siteConfig } from '@/lib/config'
 import { pagesData } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
+import { StaticTableOfContents } from '@/components/table-of-contents'
 import { getSteamProfile, getLibraryGames, getRecentlyPlayed } from '@/lib/steam'
 
 import type { Metadata } from 'next'
-import { StaticTableOfContents } from '@/components/table-of-contents'
 
 export const metadata: Metadata = {
   title: pagesData.game.title,
@@ -65,18 +65,13 @@ export default async function GamePage() {
           <p className="text-text-secondary">{`${pagesData.game.description}。`}</p>
         </section>
 
-        {/* Steam 个人资料卡片 - 传入服务端获取的数据 */}
-        <SteamProfile id="profile" steamId={siteConfig.game.steam.id} initialData={profile} />
+        {/* Steam 个人资料卡片 - 纯服务端组件 + 客户端刷新按钮 */}
+        <SteamProfile id="profile" profile={profile} />
 
-        {/* Steam 游戏库 - 传入服务端获取的数据 */}
-        <SteamGameLibrary
-          id="library"
-          steamId={siteConfig.game.steam.id}
-          initialLibraryGames={libraryGames}
-          initialRecentGames={recentGames}
-        />
+        {/* Steam 游戏库 - 纯服务端组件 + 客户端视图切换 */}
+        <SteamGameLibrary id="library" libraryGames={libraryGames} recentGames={recentGames} />
 
-        {/* 其他游戏 */}
+        {/* 其他游戏 - 纯 SSR 数据 */}
         <OtherGames id="other" />
       </div>
     </>
