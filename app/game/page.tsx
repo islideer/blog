@@ -3,12 +3,12 @@ import { SteamGameLibrary } from '@/components/steam-game-library'
 import { OtherGames } from '@/components/other-games'
 import { siteConfig } from '@/lib/config'
 import { pagesData } from '@/lib/data'
-import { ImageZoomProvider } from '@/components/image-zoom-provider'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { getSteamProfile, getLibraryGames, getRecentlyPlayed } from '@/lib/steam'
 
 import type { Metadata } from 'next'
+import { ImageZoomProvider } from '@/components/image-zoom-provider'
 
 export const metadata: Metadata = {
   title: pagesData.game.title,

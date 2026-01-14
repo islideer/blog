@@ -35,7 +35,6 @@ export function OtherGames({ id }: { id?: string }) {
       <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
         其他游戏（在玩的、爱玩的、怀念的）
       </h2>
-
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
         {games.map((game: OtherGame) => (
           <div

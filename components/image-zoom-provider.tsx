@@ -8,31 +8,37 @@ import mediumZoom from 'medium-zoom'
  *
  * 在客户端初始化 medium-zoom，作用于所有带 data-zoomable 属性的图片
  */
-export function ImageZoomProvider({
-  children,
-  deps = [],
-}: {
-  children: React.ReactNode
-  deps?: React.DependencyList
-}) {
+export function ImageZoomProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    const zoom = mediumZoom('[data-zoomable]', {
+    let zoom = mediumZoom(`[data-zoomable]`, {
       margin: window.innerWidth > 768 ? 36 : 8,
       background: 'var(--color-bg-primary, #fff)',
     })
 
-    const handleResize = () => {
-      zoom.update({ margin: window.innerWidth > 768 ? 36 : 8 })
+    const handleChange = () => {
+      zoom.detach()
+
+      zoom = mediumZoom(`[data-zoomable]`, {
+        margin: window.innerWidth > 768 ? 36 : 8,
+        background: 'var(--color-bg-primary, #fff)',
+      })
     }
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', handleChange)
+
+    const observer = new MutationObserver(handleChange)
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    })
 
     return () => {
       zoom.detach()
-      window.removeEventListener('resize', handleResize)
+      observer.disconnect()
+      window.removeEventListener('resize', handleChange)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps)
+  }, [])
 
   return <>{children}</>
 }
