@@ -2,107 +2,33 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import type { LibraryGame, RecentGame } from '@/lib/steam'
 import { PlatformIcon } from './platform-icon'
 import { ImageZoomProvider } from './image-zoom-provider'
 
-interface PlatformPlaytime {
-  platform: string
-  total_minutes: number
-  total_desc: string
+interface SteamGameLibraryProps {
+  steamId: string
+  id?: string
+  initialLibraryGames?: LibraryGame[]
+  initialRecentGames?: RecentGame[]
 }
 
-interface GameImage {
-  icon: string
-  logo: string
-  header: string
-  hero: string
-  background: string
-  library_hero: string
-  library_hero_2x: string
-  capsule_sm_120: string
-  capsule_184x69: string
-  capsule_231x87: string
-  capsule_616x353: string
-  library_600x900: string
-  library_600x900_2x: string
-}
-
-interface LibraryGame {
-  appid: number
-  name: string
-  store_url: string
-  playtime: {
-    total_minutes: number
-    total_desc: string
-    recent_minutes: number | null
-    recent_desc: string | null
-    platforms?: PlatformPlaytime[]
-  }
-  image: GameImage
-  has_community_visible_stats: boolean | null
-  content_descriptors: string[]
-}
-
-interface RecentGame {
-  appid: number
-  name: string
-  store_url: string
-  playtime: {
-    recent_minutes: number
-    recent_desc: string
-    total_minutes?: number
-    total_desc?: string
-    platforms?: PlatformPlaytime[]
-  }
-  image: GameImage
-}
-
-async function getLibraryGames(): Promise<LibraryGame[]> {
-  try {
-    const response = await fetch('https://api.viki.moe/steam/games')
-    if (!response.ok) {
-      console.error('Failed to fetch Steam games:', response.statusText)
-      return []
-    }
-    const data = await response.json()
-    return data
-  } catch (error) {
-    console.error('Error fetching Steam games:', error)
-    return []
-  }
-}
-
-async function getRecentlyPlayed(): Promise<RecentGame[]> {
-  try {
-    const response = await fetch('https://api.viki.moe/steam/recently-played')
-    if (!response.ok) {
-      console.error('Failed to fetch recently played games:', response.statusText)
-      return []
-    }
-    const data = await response.json()
-    return data
-  } catch (error) {
-    console.error('Error fetching recently played games:', error)
-    return []
-  }
-}
-
-export function SteamGameLibrary({ steamId, id }: { steamId: string; id?: string }) {
-  const [libraryGames, setLibraryGames] = useState<LibraryGame[]>([])
-  const [recentGames, setRecentGames] = useState<RecentGame[]>([])
-  const [loading, setLoading] = useState(true)
+export function SteamGameLibrary({
+  steamId,
+  id,
+  initialLibraryGames = [],
+  initialRecentGames = [],
+}: SteamGameLibraryProps) {
+  // 使用服务端传入的初始数据
+  const [libraryGames] = useState<LibraryGame[]>(initialLibraryGames)
+  const [recentGames] = useState<RecentGame[]>(
+    initialRecentGames.filter((game) => game.playtime.recent_minutes > 3),
+  )
   const [view, setView] = useState<'recent' | 'library'>('recent')
 
-  useEffect(() => {
-    Promise.all([getRecentlyPlayed(), getLibraryGames()]).then(([recent, library]) => {
-      setRecentGames(recent.filter((game) => game.playtime.recent_minutes > 3))
-      setLibraryGames(library)
-      setLoading(false)
-    })
-  }, [steamId])
-
-  if (loading) {
+  // 如果没有初始数据，显示 loading 状态（降级方案）
+  if (libraryGames.length === 0 && recentGames.length === 0) {
     return (
       <section className="space-y-4" id={id}>
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">

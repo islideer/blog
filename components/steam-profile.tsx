@@ -1,104 +1,27 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import type { SteamProfile as SteamProfileType } from '@/lib/steam'
+import { fetchSteamProfile } from '@/lib/steam'
 
-interface GameImage {
-  icon: string
-  header: string
-  hero: string
-  capsule_231x87: string
-  capsule_616x353: string
+interface SteamProfileProps {
+  steamId: string
+  id?: string
+  initialData?: SteamProfileType | null
 }
 
-interface GameInfo {
-  appid: number
-  name: string
-  store_url: string
-  image: GameImage
-  server_ip: string | null
-}
-
-interface SteamProfile {
-  steam_id: string
-  persona_name: string
-  avatar: {
-    small: string
-    medium: string
-    full: string
-  }
-  level: number
-  level_desc: string
-  account_age_years: number
-  account_age_years_desc: string
-  games_owned: number
-  games_played: number
-  games_never_played: number
-  games_total_playtime: number
-  games_total_playtime_desc: string
-  profile_url: string
-  profile_state: number
-  visibility: number
-  visibility_desc: string
-  is_online: boolean
-  online_status_desc: string
-  last_logoff: number | null
-  last_logoff_at: number | null
-  last_logoff_desc: string | null
-  comment_permission: number | null
-  real_name: string | null
-  primary_clan_id: string | null
-  time_created: number | null
-  time_created_at: number | null
-  time_created_desc: string | null
-  country_code: string | null
-  location: string | null
-  persona_state: number
-  persona_state_desc: string
-  game_info: GameInfo | null
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-async function getSteamProfile(steamId: string): Promise<SteamProfile | null> {
-  try {
-    // const response = await fetch(`https://api.viki.moe/steam/${steamId}`)
-    const response = await fetch(`https://api.viki.moe/steam/summary`)
-    if (!response.ok) {
-      console.error('Failed to fetch Steam profile:', response.statusText)
-      return null
-    }
-    const data = await response.json()
-    return data
-  } catch (error) {
-    console.error('Error fetching Steam profile:', error)
-    return null
-  }
-}
-
-export function SteamProfile({ steamId, id }: { steamId: string; id?: string }) {
-  const [profile, setProfile] = useState<SteamProfile | null>(null)
-  const [loading, setLoading] = useState(true)
+export function SteamProfile({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  steamId,
+  id,
+  initialData = null,
+}: SteamProfileProps) {
+  const [profile, setProfile] = useState<SteamProfileType | null>(initialData)
   const [refreshing, setRefreshing] = useState(false)
 
-  useEffect(() => {
-    getSteamProfile(steamId).then((profileData) => {
-      setProfile(profileData)
-      setLoading(false)
-    })
-  }, [steamId])
-
-  const handleRefresh = async () => {
-    if (refreshing) return
-    setRefreshing(true)
-    try {
-      const profileData = await getSteamProfile(steamId)
-      setProfile(profileData)
-    } finally {
-      setRefreshing(false)
-    }
-  }
-
-  if (loading) {
+  // 如果没有初始数据，显示 loading 状态（降级方案）
+  if (!profile) {
     return (
       <section className="space-y-4" id={id}>
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
@@ -109,8 +32,17 @@ export function SteamProfile({ steamId, id }: { steamId: string; id?: string }) 
     )
   }
 
-  if (!profile) {
-    return null
+  const handleRefresh = async () => {
+    if (refreshing) return
+    setRefreshing(true)
+    try {
+      const profileData = await fetchSteamProfile()
+      if (profileData) {
+        setProfile(profileData)
+      }
+    } finally {
+      setRefreshing(false)
+    }
   }
 
   return (

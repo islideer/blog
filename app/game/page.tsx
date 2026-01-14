@@ -4,6 +4,7 @@ import { OtherGames } from '@/components/other-games'
 import { siteConfig } from '@/lib/config'
 import { pagesData } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
+import { getSteamProfile, getLibraryGames, getRecentlyPlayed } from '@/lib/steam'
 
 import type { Metadata } from 'next'
 import { StaticTableOfContents } from '@/components/table-of-contents'
@@ -38,7 +39,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function GamePage() {
+export default async function GamePage() {
+  // 在服务端并行获取所有 Steam 数据
+  const [profile, libraryGames, recentGames] = await Promise.all([
+    getSteamProfile(),
+    getLibraryGames(),
+    getRecentlyPlayed(),
+  ])
+
   return (
     <>
       <StaticTableOfContents
@@ -57,11 +65,16 @@ export default function GamePage() {
           <p className="text-text-secondary">{`${pagesData.game.description}。`}</p>
         </section>
 
-        {/* Steam 个人资料卡片 */}
-        <SteamProfile id="profile" steamId={siteConfig.game.steam.id} />
+        {/* Steam 个人资料卡片 - 传入服务端获取的数据 */}
+        <SteamProfile id="profile" steamId={siteConfig.game.steam.id} initialData={profile} />
 
-        {/* Steam 游戏库 */}
-        <SteamGameLibrary id="library" steamId={siteConfig.game.steam.id} />
+        {/* Steam 游戏库 - 传入服务端获取的数据 */}
+        <SteamGameLibrary
+          id="library"
+          steamId={siteConfig.game.steam.id}
+          initialLibraryGames={libraryGames}
+          initialRecentGames={recentGames}
+        />
 
         {/* 其他游戏 */}
         <OtherGames id="other" />
