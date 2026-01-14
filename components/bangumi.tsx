@@ -81,8 +81,6 @@ export function Bangumi({ id, bangumi }: BangumiListProps) {
                     </>
                   ) : null}
                 </div>
-
-                {item.progress && <p className="text-text-tertiary text-xs">{item.progress}</p>}
               </div>
             </div>
           ))}
