@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ImageZoomProvider } from './image-zoom-provider'
-import type { DoubanItem, DoubanResponse } from '@/lib/douban'
+import { useState } from 'react'
 import { dayjs } from '@/lib/dayjs'
+
+import type { DoubanItem, DoubanResponse } from '@/lib/douban'
 
 interface MoviesProps {
   id?: string
@@ -78,52 +78,50 @@ function MovieSection({ id, title, movies, badgeColor }: MovieSectionProps) {
         <span className="text-text-tertiary text-xs">({movies.length})</span>
       </div>
 
-      <ImageZoomProvider deps={[displayedMovies]}>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {displayedMovies.map((movie) => (
-            <div
-              key={movie.id}
-              className="border-border group sm:hover:border-text-tertiary flex flex-col overflow-hidden rounded-lg border"
-            >
-              {/* 影视封面 */}
-              <div className="bg-bg-secondary relative aspect-3/4 w-full overflow-hidden">
-                <Image
-                  src={movie.cover}
-                  alt={movie.title}
-                  width={240}
-                  height={320}
-                  data-zoomable
-                  className="h-full w-full object-cover"
-                />
-                {/* 状态角标 */}
-                <div
-                  className={`absolute top-2 right-2 ${badgeColor} rounded px-1 py-0.5 text-xs font-medium text-white`}
-                >
-                  {title}
-                </div>
-              </div>
-
-              {/* 影视信息 */}
-              <div className="flex flex-col gap-2 p-3">
-                <Link
-                  href={movie.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-text-primary text-text-secondary truncate text-sm font-medium text-nowrap"
-                >
-                  {movie.title}
-                </Link>
-
-                {movie.date && (
-                  <p className="text-text-tertiary text-xs">
-                    {dayjs(movie.date).format('YYYY 年 M 月 D 日标记')}
-                  </p>
-                )}
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {displayedMovies.map((movie) => (
+          <div
+            key={movie.id}
+            className="border-border group sm:hover:border-text-tertiary flex flex-col overflow-hidden rounded-lg border"
+          >
+            {/* 影视封面 */}
+            <div className="bg-bg-secondary relative aspect-3/4 w-full overflow-hidden">
+              <Image
+                src={movie.cover}
+                alt={movie.title}
+                width={240}
+                height={320}
+                data-zoomable
+                className="h-full w-full object-cover"
+              />
+              {/* 状态角标 */}
+              <div
+                className={`absolute top-2 right-2 ${badgeColor} rounded px-1 py-0.5 text-xs font-medium text-white`}
+              >
+                {title}
               </div>
             </div>
-          ))}
-        </div>
-      </ImageZoomProvider>
+
+            {/* 影视信息 */}
+            <div className="flex flex-col gap-2 p-3">
+              <Link
+                href={movie.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-text-primary text-text-secondary truncate text-sm font-medium text-nowrap"
+              >
+                {movie.title}
+              </Link>
+
+              {movie.date && (
+                <p className="text-text-tertiary text-xs">
+                  {dayjs(movie.date).format('YYYY 年 M 月 D 日标记')}
+                </p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* 展示更多按钮 */}
       {hasMore && (

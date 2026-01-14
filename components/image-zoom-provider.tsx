@@ -10,7 +10,7 @@ import mediumZoom from 'medium-zoom'
  */
 export function ImageZoomProvider({
   children,
-  deps,
+  deps = [],
 }: {
   children: React.ReactNode
   deps?: React.DependencyList
@@ -31,7 +31,8 @@ export function ImageZoomProvider({
       zoom.detach()
       window.removeEventListener('resize', handleResize)
     }
-  }, [deps])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps)
 
   return <>{children}</>
 }

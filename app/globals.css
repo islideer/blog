@@ -244,7 +244,14 @@ html.dark .spoiler:focus {
 }
 
 /* React Medium Image Zoom Styles */
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 100;
+  background-color: var(--color-bg-primary) !important;
+}
+
 [data-rmiz-modal-overlay='visible'] {
+  z-index: 100;
   background-color: var(--color-bg-primary) !important;
 }
 

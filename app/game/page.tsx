@@ -3,6 +3,7 @@ import { SteamGameLibrary } from '@/components/steam-game-library'
 import { OtherGames } from '@/components/other-games'
 import { siteConfig } from '@/lib/config'
 import { pagesData } from '@/lib/data'
+import { ImageZoomProvider } from '@/components/image-zoom-provider'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { getSteamProfile, getLibraryGames, getRecentlyPlayed } from '@/lib/steam'
@@ -57,22 +58,24 @@ export default async function GamePage() {
         ]}
       />
 
-      <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
-        {/* Header */}
-        <section className="space-y-3" id="title">
-          <h1 className="text-3xl font-bold">{pagesData.game.title}</h1>
-          <p className="text-text-secondary">{`${pagesData.game.description}。`}</p>
-        </section>
+      <ImageZoomProvider>
+        <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
+          {/* Header */}
+          <section className="space-y-3" id="title">
+            <h1 className="text-3xl font-bold">{pagesData.game.title}</h1>
+            <p className="text-text-secondary">{`${pagesData.game.description}。`}</p>
+          </section>
 
-        {/* Steam 个人资料卡片 - 纯服务端组件 + 客户端刷新按钮 */}
-        <SteamProfile id="profile" profile={profile} />
+          {/* Steam 个人资料卡片 - 纯服务端组件 + 客户端刷新按钮 */}
+          <SteamProfile id="profile" profile={profile} />
 
-        {/* Steam 游戏库 - 纯服务端组件 + 客户端视图切换 */}
-        <SteamGameLibrary id="library" libraryGames={libraryGames} recentGames={recentGames} />
+          {/* Steam 游戏库 - 纯服务端组件 + 客户端视图切换 */}
+          <SteamGameLibrary id="library" libraryGames={libraryGames} recentGames={recentGames} />
 
-        {/* 其他游戏 - 纯 SSR 数据 */}
-        <OtherGames id="other" />
-      </div>
+          {/* 其他游戏 - 纯 SSR 数据 */}
+          <OtherGames id="other" />
+        </div>
+      </ImageZoomProvider>
     </>
   )
 }

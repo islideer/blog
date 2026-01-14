@@ -3,9 +3,10 @@ import { Movies } from '@/components/movies'
 import { Bangumi } from '@/components/bangumi'
 import { siteConfig } from '@/lib/config'
 import { pagesData } from '@/lib/data'
+import { getBangumiList } from '@/lib/bangumi'
+import { ImageZoomProvider } from '@/components/image-zoom-provider'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
-import { getBangumiList } from '@/lib/bangumi'
 import { getDoubanBooks, getDoubanMovies } from '@/lib/douban'
 
 import type { Metadata } from 'next'
@@ -62,22 +63,24 @@ export default async function LibraryPage() {
         ]}
       />
 
-      <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
-        {/* Header */}
-        <section className="space-y-3" id="title">
-          <h1 className="text-3xl font-bold">{pagesData.library.title}</h1>
-          <p className="text-text-secondary">{`${pagesData.library.description}。`}</p>
-        </section>
+      <ImageZoomProvider>
+        <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
+          {/* Header */}
+          <section className="space-y-3" id="title">
+            <h1 className="text-3xl font-bold">{pagesData.library.title}</h1>
+            <p className="text-text-secondary">{`${pagesData.library.description}。`}</p>
+          </section>
 
-        {/* 影视 - 豆瓣 API 数据 */}
-        <Movies id="movies" data={moviesData} />
+          {/* 影视 - 豆瓣 API 数据 */}
+          <Movies id="movies" data={moviesData} />
 
-        {/* 书籍 - 豆瓣 API 数据 */}
-        <Books id="books" data={booksData} />
+          {/* 书籍 - 豆瓣 API 数据 */}
+          <Books id="books" data={booksData} />
 
-        {/* 追番 - API 数据 */}
-        <Bangumi id="bangumi" bangumi={bangumi} />
-      </div>
+          {/* 追番 - API 数据 */}
+          <Bangumi id="bangumi" bangumi={bangumi} />
+        </div>
+      </ImageZoomProvider>
     </>
   )
 }
