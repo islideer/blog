@@ -30,16 +30,6 @@ export function Books({ id, data }: BooksProps) {
         书籍 ({totalCount.toLocaleString()})
       </h2>
 
-      {/* 在读 */}
-      {data.doings.length > 0 && (
-        <BookSection id="books-doings" title="在读" books={data.doings} badgeColor="bg-blue-500" />
-      )}
-
-      {/* 想读 */}
-      {data.wish.length > 0 && (
-        <BookSection id="books-wish" title="想读" books={data.wish} badgeColor="bg-yellow-500" />
-      )}
-
       {/* 读过 */}
       {data.collect.length > 0 && (
         <BookSection
@@ -48,6 +38,16 @@ export function Books({ id, data }: BooksProps) {
           books={data.collect}
           badgeColor="bg-green-500"
         />
+      )}
+
+      {/* 在读 */}
+      {data.doings.length > 0 && (
+        <BookSection id="books-doings" title="在读" books={data.doings} badgeColor="bg-blue-500" />
+      )}
+
+      {/* 想读 */}
+      {data.wish.length > 0 && (
+        <BookSection id="books-wish" title="想读" books={data.wish} badgeColor="bg-yellow-500" />
       )}
     </section>
   )

@@ -52,14 +52,17 @@ export default async function LibraryPage() {
       <StaticTableOfContents
         items={[
           { id: 'movies', title: '影视', level: 1 },
+          { id: 'movies-collect', title: '看过', level: 3 },
           { id: 'movies-doings', title: '在看', level: 3 },
           { id: 'movies-wish', title: '想看', level: 3 },
-          { id: 'movies-collect', title: '看过', level: 3 },
           { id: 'books', title: '书籍', level: 1 },
+          { id: 'books-collect', title: '读过', level: 3 },
           { id: 'books-doings', title: '在读', level: 3 },
           { id: 'books-wish', title: '想读', level: 3 },
-          { id: 'books-collect', title: '读过', level: 3 },
           { id: 'bangumi', title: '追番', level: 1 },
+          { id: 'bangumi-collect', title: '看过', level: 3 },
+          { id: 'bangumi-doings', title: '在看', level: 3 },
+          { id: 'bangumi-wish', title: '想看', level: 3 },
         ]}
       />
 

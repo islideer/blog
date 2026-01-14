@@ -28,7 +28,9 @@ export function ImageZoomProvider({ children }: { children: React.ReactNode }) {
 
     const observer = new MutationObserver(handleChange)
 
-    observer.observe(document.body, {
+    const target = document.querySelector('main') || document.body
+
+    observer.observe(target, {
       childList: true,
       subtree: true,
     })

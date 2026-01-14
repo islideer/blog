@@ -30,6 +30,16 @@ export function Movies({ id, data }: MoviesProps) {
         影视 ({totalCount.toLocaleString()})
       </h2>
 
+      {/* 看过 */}
+      {data.collect.length > 0 && (
+        <MovieSection
+          id="movies-collect"
+          title="看过"
+          movies={data.collect}
+          badgeColor="bg-green-500"
+        />
+      )}
+
       {/* 在看 */}
       {data.doings.length > 0 && (
         <MovieSection
@@ -43,16 +53,6 @@ export function Movies({ id, data }: MoviesProps) {
       {/* 想看 */}
       {data.wish.length > 0 && (
         <MovieSection id="movies-wish" title="想看" movies={data.wish} badgeColor="bg-yellow-500" />
-      )}
-
-      {/* 看过 */}
-      {data.collect.length > 0 && (
-        <MovieSection
-          id="movies-collect"
-          title="看过"
-          movies={data.collect}
-          badgeColor="bg-green-500"
-        />
       )}
     </section>
   )
