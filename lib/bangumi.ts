@@ -36,6 +36,10 @@ export interface BangumiItem {
   }[]
   styles?: string[]
   subtitle?: string
+  /**
+   * 追番状态：1=想看，2=在看，3=看过
+   */
+  follow_status?: 1 | 2 | 3
 }
 
 // 服务端数据获取函数

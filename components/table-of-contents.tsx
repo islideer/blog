@@ -65,7 +65,7 @@ export function TableOfContents({
  * - PC 端：固定在右侧，默认半透明只显示当前标题，hover 显示全部
  * - 移动端：隐藏（由移动端专用组件处理）
  */
-export function StaticTableOfContents({ items = [], showCount = 10 }: StaticTableOfContentsProps) {
+export function StaticTableOfContents({ items = [], showCount = 12 }: StaticTableOfContentsProps) {
   return (
     <>
       <StaticTableOfContentsPC items={items} showCount={showCount} />
