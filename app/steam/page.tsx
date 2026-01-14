@@ -47,7 +47,7 @@ export default function SteamPage() {
       <SteamGameLibrary steamId={siteConfig.game.steam.id} />
 
       {/* 其他游戏 */}
-      {/* <OtherGames /> */}
+      <OtherGames />
     </div>
   )
 }

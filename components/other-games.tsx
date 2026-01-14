@@ -11,7 +11,7 @@ export function OtherGames() {
   return (
     <section className="space-y-4">
       <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
-        其他在玩的、爱玩的、玩过的、怀念的
+        其他游戏（在玩的、爱玩的、玩过的、怀念的）
       </h2>
 
       <ImageZoomProvider deps={[otherGames]}>
@@ -19,7 +19,7 @@ export function OtherGames() {
           {otherGames.map((game: OtherGame) => (
             <div
               key={game.id}
-              className="border-border group sm:hover:border-text-tertiary flex flex-col overflow-hidden rounded-lg border transition-colors"
+              className="border-border group sm:hover:border-text-tertiary flex flex-col overflow-hidden rounded-lg border"
             >
               {/* 游戏封面 */}
               <div className="bg-bg-secondary relative aspect-616/353 w-full overflow-hidden">
@@ -29,7 +29,7 @@ export function OtherGames() {
                   width={616}
                   height={353}
                   data-zoomable
-                  className="h-full w-full object-cover transition-transform duration-300 sm:group-hover:scale-105"
+                  className="h-full w-full object-cover"
                 />
               </div>
 
@@ -40,7 +40,7 @@ export function OtherGames() {
                     href={game.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-text-primary text-text-secondary line-clamp-1 text-sm font-medium transition-colors"
+                    className="hover:text-text-primary text-text-secondary line-clamp-1 truncate text-sm font-medium"
                   >
                     {game.name}
                   </Link>
