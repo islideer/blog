@@ -53,7 +53,7 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
           <div className="flex flex-1 flex-col gap-2 truncate">
             <div className="flex items-center gap-2">
               <span
-                className={`${profile.is_online ? (profile.game_info ? 'text-[#91C252] dark:text-[#E2FFB9]' : 'text-[#31b0e2] dark:text-[#6dcff6]') : 'text-text-secondary'} block text-lg font-medium`}
+                className={`${profile.is_online ? (profile.game_info ? 'text-[#91C252] dark:text-[#E2FFB9]' : 'text-[#31b0e2] dark:text-[#6dcff6]') : 'text-text-secondary'} block text-lg font-medium transition-colors duration-300`}
               >
                 {profile.persona_name}
               </span>
@@ -73,7 +73,7 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
               </span>
             </div>
             <span
-              className={`${profile.is_online ? (profile.game_info ? 'text-[#91C252] dark:text-[#91C252]' : 'text-[#4dbfec] dark:text-[#6dcff680]') : 'text-text-tertiary'} text-xs`}
+              className={`${profile.is_online ? (profile.game_info ? 'text-[#91C252] dark:text-[#91C252]' : 'text-[#4dbfec] dark:text-[#6dcff680]') : 'text-text-tertiary'} text-xs transition-colors duration-300`}
             >
               {profile.online_status_desc}
             </span>
