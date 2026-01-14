@@ -208,7 +208,7 @@ function GamesList({
 
                 <span className="text-text-tertiary">
                   {game.playtime.total_minutes
-                    ? `共 ${game.playtime.total_desc}`
+                    ? `玩过`
                     : '还没有玩过，库里吃灰呢'}
                 </span>
               </div>

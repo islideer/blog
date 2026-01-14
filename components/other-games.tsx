@@ -11,7 +11,7 @@ export function OtherGames() {
   return (
     <section className="space-y-4">
       <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
-        其他游戏（在玩的、爱玩的、玩过的、怀念的）
+        其他游戏（在玩的、爱玩的、怀念的）
       </h2>
 
       <ImageZoomProvider deps={[otherGames]}>
@@ -22,12 +22,12 @@ export function OtherGames() {
               className="border-border group sm:hover:border-text-tertiary flex flex-col overflow-hidden rounded-lg border"
             >
               {/* 游戏封面 */}
-              <div className="bg-bg-secondary relative aspect-616/353 w-full overflow-hidden">
+              <div className="bg-bg-secondary relative aspect-video w-full overflow-hidden">
                 <Image
                   src={game.cover}
                   alt={game.name}
-                  width={616}
-                  height={353}
+                  width={240}
+                  height={135}
                   data-zoomable
                   className="h-full w-full object-cover"
                 />
@@ -45,13 +45,13 @@ export function OtherGames() {
                     {game.name}
                   </Link>
                 ) : (
-                  <h3 className="text-text-secondary line-clamp-1 text-sm font-medium">
+                  <h3 className="text-text-secondary line-clamp-1 truncate text-sm font-medium">
                     {game.name}
                   </h3>
                 )}
 
                 {game.description && (
-                  <p className="text-text-tertiary line-clamp-2 text-xs">{game.description}</p>
+                  <p className="text-text-tertiary line-clamp-2 truncate text-xs">{game.description}</p>
                 )}
 
                 <div className="text-text-tertiary flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
