@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { siteConfig } from '@/lib/config'
+import { pagesData } from '@/lib/data'
 
 export const dynamic = 'force-static'
 
@@ -14,7 +15,7 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: 'portrait-primary', // 首选竖屏方向
     background_color: siteConfig.theme.background.light,
     theme_color: siteConfig.theme.background.dark,
-    categories: ['blog', 'technology', 'personal'], // 应用分类
+    categories: ['blog', 'technology', 'personal', 'life'], // 应用分类
     lang: siteConfig.locale, // 语言
     dir: 'ltr', // 文本方向：从左到右
     icons: [
@@ -38,42 +39,12 @@ export default function manifest(): MetadataRoute.Manifest {
       },
     ],
     // 快捷方式（可选）
-    shortcuts: [
-      {
-        name: '博客文章',
-        short_name: '文章',
-        description: '查看所有博客文章',
-        url: '/posts',
-        icons: [{ src: '/icon-192.png', sizes: '192x192' }],
-      },
-      {
-        name: '碎碎念',
-        short_name: '碎碎念',
-        description: '记录生活中的点滴想法',
-        url: '/thoughts',
-        icons: [{ src: '/icon-192.png', sizes: '192x192' }],
-      },
-      {
-        name: 'Mio 说',
-        short_name: 'Mio 说',
-        description: 'Mio 的专属发言空间',
-        url: '/mio-says',
-        icons: [{ src: '/icon-192.png', sizes: '192x192' }],
-      },
-      {
-        name: '大事记',
-        short_name: '大事记',
-        description: '记录重要时刻和里程碑',
-        url: '/timeline',
-        icons: [{ src: '/icon-192.png', sizes: '192x192' }],
-      },
-      {
-        name: '关于',
-        short_name: '关于',
-        description: '了解更多关于 Viki',
-        url: '/about',
-        icons: [{ src: '/icon-192.png', sizes: '192x192' }],
-      },
-    ],
+    shortcuts: Object.values(pagesData).map((page) => ({
+      name: page.title,
+      short_name: page.title,
+      description: page.description,
+      url: `/${page.slug}`,
+      icons: [{ src: '/icon-192.png', sizes: '192x192' }],
+    })),
   }
 }

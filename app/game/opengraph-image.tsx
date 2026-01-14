@@ -58,44 +58,6 @@ export default async function Image() {
           >
             {pagesData.game.description}
           </div>
-
-          {/* Steam 标识 */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              fontSize: 18,
-              color: '#999999',
-              fontWeight: 400,
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                width: 32,
-                height: 32,
-                borderRadius: 4,
-                backgroundColor: '#171a21',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z"
-                  fill="#c7d5e0"
-                />
-              </svg>
-            </div>
-            <span>Steam 游戏库与游戏时长统计</span>
-          </div>
         </div>
       }
     />,
