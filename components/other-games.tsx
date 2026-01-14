@@ -1,35 +1,35 @@
-'use client'
+// 'use client'
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import { otherGames, type OtherGame } from '@/lib/data'
+// import { useEffect, useState } from 'react'
+import { otherGames as games, type OtherGame } from '@/lib/data'
 import { ImageZoomProvider } from './image-zoom-provider'
 
 export function OtherGames({ id }: { id?: string }) {
-  const [loading, setLoading] = useState(true)
-  const [games, setGames] = useState<OtherGame[]>([])
+  // const [loading, setLoading] = useState(true)
+  // const [games, setGames] = useState<OtherGame[]>([])
 
-  useEffect(() => {
-    const id = setTimeout(() => {
-      setLoading(false)
-      setGames(otherGames)
-    }, 360)
-    return () => clearTimeout(id)
-  }, [])
+  // useEffect(() => {
+  //   const id = setTimeout(() => {
+  //     setLoading(false)
+  //     setGames(otherGames)
+  //   }, 360)
+  //   return () => clearTimeout(id)
+  // }, [])
 
-  if (loading) {
-    return (
-      <section className="space-y-4" id={id}>
-        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
-          其他游戏（在玩的、爱玩的、怀念的）
-        </h2>
-        <div>
-          <p className="text-text-secondary text-sm">正在加载其他游戏列表...</p>
-        </div>
-      </section>
-    )
-  }
+  // if (loading) {
+  //   return (
+  //     <section className="space-y-4" id={id}>
+  //       <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+  //         其他游戏（在玩的、爱玩的、怀念的）
+  //       </h2>
+  //       <div>
+  //         <p className="text-text-secondary text-sm">正在加载其他游戏列表...</p>
+  //       </div>
+  //     </section>
+  //   )
+  // }
 
   return (
     <section className="space-y-4" id={id}>
