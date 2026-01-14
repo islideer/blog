@@ -115,6 +115,7 @@ export function Header() {
                   <div className="border-border my-2 border-t" />
                   <Link
                     href={siteConfig.author.github}
+                    target="_blank"
                     className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
                     onClick={() => setIsMoreOpen(false)}
                   >
@@ -122,6 +123,7 @@ export function Header() {
                   </Link>
                   <Link
                     href={siteConfig.links.rss}
+                    target="_blank"
                     className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
                     onClick={() => setIsMoreOpen(false)}
                   >
@@ -129,6 +131,7 @@ export function Header() {
                   </Link>
                   <Link
                     href={siteConfig.links.travellings}
+                    target="_blank"
                     className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
                     onClick={() => setIsMoreOpen(false)}
                   >
