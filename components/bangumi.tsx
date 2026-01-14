@@ -60,13 +60,13 @@ export function Bangumi({ id, bangumi }: BangumiListProps) {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-text-primary text-text-secondary line-clamp-1 truncate text-sm font-medium"
+                  className="hover:text-text-primary text-text-secondary truncate text-sm font-medium text-nowrap"
                 >
                   {item.title}
                 </Link>
 
                 {item.subtitle && (
-                  <p className="text-text-tertiary line-clamp-1 text-xs">{item.subtitle}</p>
+                  <p className="text-text-tertiary truncate text-xs text-nowrap">{item.subtitle}</p>
                 )}
 
                 <div className="text-text-secondary flex flex-wrap items-center gap-x-0.5 gap-y-1 text-xs">
