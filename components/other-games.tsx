@@ -63,12 +63,12 @@ export function OtherGames() {
                     href={game.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-text-primary text-text-secondary line-clamp-1 truncate text-sm font-medium"
+                    className="hover:text-text-primary text-text-secondary truncate text-sm font-medium text-nowrap"
                   >
                     {game.name}
                   </Link>
                 ) : (
-                  <h3 className="text-text-secondary line-clamp-1 truncate text-sm font-medium">
+                  <h3 className="text-text-secondary truncate text-sm font-medium text-nowrap">
                     {game.name}
                   </h3>
                 )}

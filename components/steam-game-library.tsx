@@ -191,7 +191,7 @@ function GamesList({
                 href={game.store_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-text-primary text-text-secondary line-clamp-1 truncate text-sm font-medium"
+                className="hover:text-text-primary text-text-secondary truncate text-sm font-medium text-nowrap"
               >
                 {game.name}
               </Link>
