@@ -25,7 +25,9 @@ tags:
 
 ### 个人资料（状态、等级、游戏数）
 
+```sh
 GET https://api.viki.moe/steam/:id
+```
 
 **展示效果**
 
@@ -85,7 +87,9 @@ GET https://api.viki.moe/steam/:id
 
 ### 最近在玩（近两周游戏及时长）
 
+```sh
 GET https://api.viki.moe/steam/:id/recently-played
+```
 
 **展示效果**
 
@@ -120,7 +124,9 @@ GET https://api.viki.moe/steam/:id/recently-played
 
 ### 游戏库存（所有游戏及其时长）
 
+```sh
 GET https://api.viki.moe/steam/:id/games
+```
 
 **展示效果**
 
@@ -194,7 +200,9 @@ GET https://api.viki.moe/steam/:id/games
 
 ### 电影列表（在看、想看、看过）
 
+```sh
 GET https://api.viki.moe/douban/:id/movies
+```
 
 **展示效果**
 
@@ -243,7 +251,9 @@ GET https://api.viki.moe/douban/:id/movies
 
 ### 书籍列表（在读、想读、读过）
 
+```sh
 GET https://api.viki.moe/douban/:id/books
+```
 
 **展示效果**
 
@@ -313,8 +323,12 @@ GET https://api.viki.moe/douban/:id/books
 
 举例来说，*《肖申克的救赎》* 的电影封面图链接：
 
-- 原始 URL: https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.webp
-- 代理 URL: https://doubanio.viki.moe/view/photo/s_ratio_poster/public/p480747492.webp
+```sh
+# 原始 URL: 
+https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.webp
+# 代理 URL: 
+https://doubanio.viki.moe/view/photo/s_ratio_poster/public/p480747492.webp
+```
 
 你会发现，无法直接访问原始 URL，而通过代理 URL 则可以正常显示图片，且没有任何引用限制。
 
@@ -324,27 +338,31 @@ GET https://api.viki.moe/douban/:id/books
 
 ### 个人资料（等级、统计、大会员）
 
+```sh
 GET https://api.viki.moe/bili/u/:id
+```
 
 > 如我的 B 站个人资料：[https://api.viki.moe/bili/u/381636335](https://api.viki.moe/bili/u/381636335)
 
 ### 新番时间表（番剧、影视、国创）
 
+```sh
 GET https://api.viki.moe/bili/timeline
+```
 
-Query 参数
-  - type: 番剧=bangumi, 电影=movie, 国创=donghua，默认 bangumi
-  - before: 开始于前几日（0-7），默认 0
-  - after: 结束于后几日（0-7），默认 6
+**Query 参数**
+
+- type: 番剧=bangumi, 电影=movie, 国创=donghua，默认 bangumi
+- before: 开始于前几日（0-7），默认 0
+- after: 结束于后几日（0-7），默认 6
 
 ### 追番列表（在看、想看、看过）
 
+```sh
 GET https://api.viki.moe/bili/u/:id/bangumi
+```
 
-可以通过返回的 `follow_status` 字段区分在看、想看、看过等状态
-  - 1: 想看
-  - 2: 在看
-  - 3: 看过
+可以通过返回的 `follow_status` 字段区分在看 (1)、想看 (2)、看过 (3) 等状态
 
 **展示效果**
 

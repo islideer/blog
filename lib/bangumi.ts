@@ -6,6 +6,7 @@ export interface BangumiItem {
   title: string
   cover: string
   evaluate: string
+  summary: string
   horizontal_cover_16_9?: string
   horizontal_cover_16_910?: string
   square_cover?: string

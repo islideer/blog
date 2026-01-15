@@ -46,7 +46,6 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
             alt={profile.persona_name}
             width={80}
             height={80}
-            data-zoomable
             className="border-border h-20 w-20 shrink-0 rounded border object-cover"
           />
 

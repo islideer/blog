@@ -244,13 +244,17 @@ html.dark .spoiler:focus {
 }
 
 /* React Medium Image Zoom Styles */
-.medium-zoom-overlay,
-.medium-zoom-image--opened {
-  z-index: 100;
+
+[data-rmiz-modal-overlay='visible'] {
   background-color: var(--color-bg-primary) !important;
 }
 
-[data-rmiz-modal-overlay='visible'] {
+.medium-zoom-overlay,
+.medium-zoom-image--opene,
+.medium-zoom-image--opened,
+[data-rmiz-modal-overlay='visible'],
+[data-rmiz-modal-content],
+[data-rmiz-modal-img] {
   z-index: 100;
   background-color: var(--color-bg-primary) !important;
 }

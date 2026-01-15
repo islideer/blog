@@ -36,7 +36,7 @@ export function SteamGameListClient({ libraryGames, recentGames }: SteamGameList
   return (
     <>
       {/* 标题行和视图切换按钮 */}
-      <div className="flex items-center justify-between" id="steam-game-list-client">
+      <div className="flex items-center justify-between">
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
           Steam 游戏
         </h2>
@@ -90,16 +90,20 @@ function GamesList({
           className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
         >
           {/* 游戏封面 */}
-          <div className="relative aspect-166/78 w-full overflow-hidden">
+          <Link
+            href={game.store_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative aspect-166/78 w-full overflow-hidden"
+          >
             <Image
               src={game.image.header}
               alt={game.name}
               width={166}
               height={78}
-              data-zoomable
-              className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-105"
+              className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
             />
-          </div>
+          </Link>
 
           {/* 游戏信息 */}
           <div className="flex flex-col gap-2 p-3">

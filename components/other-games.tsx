@@ -42,16 +42,21 @@ export function OtherGames({ id }: { id?: string }) {
             className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
           >
             {/* 游戏封面 */}
-            <div className="bg-bg-secondary relative aspect-video w-full overflow-hidden">
+            <Link
+              href={game.url || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-bg-secondary relative aspect-video w-full overflow-hidden"
+            >
               <Image
                 src={game.cover}
                 alt={game.name}
                 width={240}
                 height={135}
                 data-zoomable
-                className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-105"
+                className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
               />
-            </div>
+            </Link>
 
             {/* 游戏信息 */}
             <div className="flex flex-col gap-2 p-3">

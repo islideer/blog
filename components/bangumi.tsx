@@ -72,7 +72,7 @@ interface BangumiSectionProps {
 export function BangumiSection({ id, title, items, badgeColor }: BangumiSectionProps) {
   const [showAll, setShowAll] = useState(false)
   const initialDisplayCount = 8
-  const displayed = showAll ? items : items.slice(0, initialDisplayCount)
+  const displayedBangumi = showAll ? items : items.slice(0, initialDisplayCount)
   const hasMore = items.length > initialDisplayCount
 
   if (items.length === 0) return null
@@ -84,61 +84,74 @@ export function BangumiSection({ id, title, items, badgeColor }: BangumiSectionP
         <span className="text-text-tertiary text-xs">({items.length})</span>
       </div>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        {displayed.map((item) => (
+        {displayedBangumi.map((bangumi) => (
           <div
-            key={item.season_id}
+            key={bangumi.season_id}
             className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
           >
             {/* 番剧封面 */}
-            <div className="bg-bg-secondary relative aspect-square w-full overflow-hidden">
+            <Link
+              href={bangumi.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-bg-secondary relative aspect-3/4 w-full overflow-hidden"
+            >
               <Image
-                src={item.square_cover || item.cover}
-                alt={item.title}
-                width={240}
+                src={bangumi.cover}
+                alt={bangumi.title}
+                width={180}
                 height={240}
-                data-zoomable
                 referrerPolicy="no-referrer"
-                className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-105"
+                className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
               />
-              {/* 状态角标 */}
-              <div
-                className={`absolute top-2 right-2 ${badgeColor} rounded px-1 py-0.5 text-xs font-medium text-white`}
-              >
-                {title}
+              <div className="absolute top-2 right-2 flex gap-2">
+                {/* 徽章 */}
+                {bangumi.badge_info && (
+                  <div
+                    className={`rounded px-1 py-0.5 text-xs font-medium text-white`}
+                    style={{ backgroundColor: bangumi.badge_info.bg_color }}
+                  >
+                    {bangumi.badge_info.text}
+                  </div>
+                )}
+                {/* 状态角标 */}
+                <div className={`${badgeColor} rounded px-1 py-0.5 text-xs font-medium text-white`}>
+                  {title}
+                </div>
               </div>
-            </div>
+            </Link>
             {/* 番剧信息 */}
             <div className="flex flex-col gap-2 p-3">
               <Link
-                href={item.url}
+                href={bangumi.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-text-primary text-text-secondary truncate text-sm font-medium text-nowrap"
               >
-                {item.title}
+                {bangumi.title}
               </Link>
-              {item.subtitle && (
-                <p className="text-text-tertiary truncate text-xs text-nowrap">{item.subtitle}</p>
-              )}
+              <p className="text-text-tertiary truncate text-xs text-nowrap">
+                {bangumi.subtitle || bangumi.evaluate || bangumi.summary || '暂无简介'}
+              </p>
               <div className="text-text-secondary flex flex-wrap items-center gap-x-0.5 gap-y-1 text-xs">
-                {item.areas && item.areas.length > 0 && (
+                {bangumi.areas && bangumi.areas.length > 0 && (
                   <span>
-                    {item.areas
+                    {bangumi.areas
                       .slice(0, 1)
                       .map((e) => e.name)
                       .join('·')}
                   </span>
                 )}
-                {item.rating && (
+                {bangumi.rating && (
                   <>
-                    {item.areas && item.areas.length && <span>·</span>}
-                    <span>{item.rating.score}分</span>
+                    {bangumi.areas && bangumi.areas.length && <span>·</span>}
+                    <span>{bangumi.rating.score}分</span>
                   </>
                 )}
-                {item.styles && item.styles.length ? (
+                {bangumi.styles && bangumi.styles.length ? (
                   <>
                     <span>·</span>
-                    {item.styles.slice(0, 2).join('/')}
+                    {bangumi.styles.slice(0, 2).join('/')}
                   </>
                 ) : null}
               </div>

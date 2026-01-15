@@ -85,14 +85,18 @@ function MovieSection({ id, title, movies, badgeColor }: MovieSectionProps) {
             className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
           >
             {/* 影视封面 */}
-            <div className="bg-bg-secondary relative aspect-3/4 w-full overflow-hidden">
+            <Link
+              href={movie.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-bg-secondary relative aspect-3/4 w-full overflow-hidden"
+            >
               <Image
                 src={movie.cover}
                 alt={movie.title}
                 width={240}
                 height={320}
-                data-zoomable
-                className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-105"
+                className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
               />
               {/* 状态角标 */}
               <div
@@ -100,7 +104,7 @@ function MovieSection({ id, title, movies, badgeColor }: MovieSectionProps) {
               >
                 {title}
               </div>
-            </div>
+            </Link>
 
             {/* 影视信息 */}
             <div className="flex flex-col gap-2 p-3">
