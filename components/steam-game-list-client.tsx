@@ -125,7 +125,7 @@ function GamesList({
               {/* 最近时长 */}
               {game.playtime.recent_desc && showRecently && !hideDetails && (
                 <>
-                  <span className="text-white/70">近期 {game.playtime.recent_desc}</span>
+                  <span className="text-white/70">{game.playtime.recent_desc}</span>
                   <span className="text-white/50">·</span>
                 </>
               )}
