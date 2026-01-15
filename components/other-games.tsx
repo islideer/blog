@@ -41,11 +41,11 @@ export function OtherGames({ id }: { id?: string }) {
             key={game.id}
             className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
           >
-            {/* 游戏封面 */}
+            {/* 游戏封面 + 标题和关键信息 */}
             <Link
               href={game.url || '#'}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={game.url ? '_blank' : undefined}
+              rel={game.url ? 'noopener noreferrer' : undefined}
               className="bg-bg-secondary relative aspect-video w-full overflow-hidden"
             >
               <Image
@@ -56,46 +56,40 @@ export function OtherGames({ id }: { id?: string }) {
                 data-zoomable
                 className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
               />
+
+              {/* 渐变遮罩 */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
+              {/* 标题和关键信息 */}
+              <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-1.5 p-3">
+                <h3 className="line-clamp-1 text-sm font-medium text-white">{game.name}</h3>
+                <div className="flex flex-wrap items-center gap-x-1 gap-y-1 text-xs text-white/80">
+                  <span>{game.platforms.join(' · ')}</span>
+                  <span>·</span>
+                  <span>{game.type}</span>
+                  <span>·</span>
+                  <span>{game.playtime}</span>
+                </div>
+              </div>
             </Link>
 
-            {/* 游戏信息 */}
-            <div className="flex flex-col gap-2 p-3">
-              {game.url ? (
-                <Link
-                  href={game.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-text-primary text-text-secondary truncate text-sm font-medium text-nowrap"
-                >
-                  {game.name}
-                </Link>
-              ) : (
-                <h3 className="text-text-secondary truncate text-sm font-medium text-nowrap">
-                  {game.name}
-                </h3>
-              )}
+            {/* 描述和成就列表（图片下方） */}
+            {(game.description || (game.achievements && game.achievements.length > 0)) && (
+              <div className="bg-bg-secondary/50 backdrop-blur-sm flex flex-col gap-2 p-3">
+                {game.description && (
+                  <p className="text-text-tertiary line-clamp-2 text-xs">{game.description}</p>
+                )}
 
-              {game.description && (
-                <p className="text-text-tertiary line-clamp-2 text-xs">{game.description}</p>
-              )}
-
-              <div className="text-text-secondary flex flex-wrap items-center gap-x-1 gap-y-1 text-xs">
-                <span>{game.platforms.join(' · ')}</span>
-                <span>·</span>
-                <span>{game.type}</span>
-                <span>·</span>
-                <span>{game.playtime}</span>
+                {/* 成就列表 */}
+                {game.achievements && game.achievements.length > 0 && (
+                  <ul className="text-text-tertiary list-inside list-disc text-xs">
+                    {game.achievements.map((achievement, index) => (
+                      <li key={index}>{achievement}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
-
-              {/* 成就列表 */}
-              {game.achievements && game.achievements.length > 0 && (
-                <ul className="text-text-tertiary list-inside list-disc text-xs">
-                  {game.achievements.map((achievement, index) => (
-                    <li key={index}>{achievement}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            )}
           </div>
         ))}
       </div>

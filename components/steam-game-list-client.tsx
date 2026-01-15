@@ -85,66 +85,62 @@ function GamesList({
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
       {games.map((game) => (
-        <div
+        <Link
           key={game.appid}
-          className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
+          href={game.store_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border-border group relative aspect-166/78 overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
         >
           {/* 游戏封面 */}
-          <Link
-            href={game.store_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative aspect-166/78 w-full overflow-hidden"
-          >
-            <Image
-              src={game.image.header}
-              alt={game.name}
-              width={166}
-              height={78}
-              className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
-            />
-          </Link>
+          <Image
+            src={game.image.header}
+            alt={game.name}
+            width={166}
+            height={78}
+            className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
+          />
+
+          {/* 渐变遮罩 */}
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
           {/* 游戏信息 */}
-          <div className="flex flex-col gap-2 p-3">
-            <Link
-              href={game.store_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-text-primary text-text-secondary truncate text-sm font-medium text-nowrap"
-            >
-              {game.name}
-            </Link>
+          <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-1 p-3">
+            <h3 className="line-clamp-1 text-sm font-medium text-white">{game.name}</h3>
 
-            <div className="text-text-tertiary flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+            <div className="flex items-center gap-x-1 gap-y-0.5 truncate text-xs text-nowrap text-white/80">
               {/* 平台图标 */}
               {game.playtime.platforms && game.playtime.platforms.length > 0 && (
-                <div className="flex items-center gap-1">
+                <div className="mr-0.5 flex items-center gap-0.5">
                   {game.playtime.platforms.map((platform) => (
                     <PlatformIcon
                       key={platform.platform}
-                      className="text-text-tertiary h-3 w-3"
+                      className="h-3 w-3 text-white/80"
                       platform={platform.platform}
                     />
                   ))}
                 </div>
               )}
 
-              <span className="text-text-tertiary">
+              {/* 最近时长 */}
+              {game.playtime.recent_desc && showRecently && !hideDetails && (
+                <>
+                  <span className="text-white/70">近期 {game.playtime.recent_desc}</span>
+                  <span className="text-white/50">·</span>
+                </>
+              )}
+
+              {/* 总时长 */}
+              <span>
                 {game.playtime.total_minutes
                   ? hideDetails
                     ? `曾经玩过`
-                    : `总时长 ${game.playtime.total_desc}`
+                    : `共 ${game.playtime.total_desc}`
                   : '还没有玩过，库里吃灰呢'}
               </span>
             </div>
-            {game.playtime.recent_desc && showRecently && !hideDetails && (
-              <div className="text-text-secondary text-xs">
-                最近玩了 {game.playtime.recent_desc}
-              </div>
-            )}
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   )

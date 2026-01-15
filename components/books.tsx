@@ -75,50 +75,42 @@ function BookSection({ id, title, books, badgeColor }: BookSectionProps) {
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         {displayedBooks.map((book) => (
-          <div
+          <Link
             key={book.id}
-            className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
+            href={book.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-border group relative aspect-3/4 overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
           >
             {/* 书籍封面 */}
-            <Link
-              href={book.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-bg-secondary relative aspect-3/4 w-full overflow-hidden"
+            <Image
+              src={book.cover}
+              alt={book.title}
+              width={240}
+              height={320}
+              className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
+            />
+
+            {/* 状态角标 */}
+            <div
+              className={`absolute top-2 right-2 ${badgeColor} rounded px-1 py-0.5 text-xs font-medium text-white`}
             >
-              <Image
-                src={book.cover}
-                alt={book.title}
-                width={240}
-                height={320}
-                className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
-              />
-              {/* 状态角标 */}
-              <div
-                className={`absolute top-2 right-2 ${badgeColor} rounded px-1 py-0.5 text-xs font-medium text-white`}
-              >
-                {title}
-              </div>
-            </Link>
+              {title}
+            </div>
+
+            {/* 渐变遮罩 */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
             {/* 书籍信息 */}
-            <div className="flex flex-col gap-2 p-3">
-              <Link
-                href={book.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-text-primary text-text-secondary truncate text-sm font-medium text-nowrap"
-              >
-                {book.title}
-              </Link>
-
+            <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-1.5 p-3">
+              <h3 className="line-clamp-2 text-sm font-medium text-white">{book.title}</h3>
               {book.date && (
-                <p className="text-text-tertiary text-xs">
+                <p className="text-xs text-white/80">
                   {dayjs(book.date).format('YYYY 年 M 月 D 日标记')}
                 </p>
               )}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

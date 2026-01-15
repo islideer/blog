@@ -85,55 +85,48 @@ export function BangumiSection({ id, title, items, badgeColor }: BangumiSectionP
       </div>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         {displayedBangumi.map((bangumi) => (
-          <div
+          <Link
             key={bangumi.season_id}
-            className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
+            href={bangumi.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-border group relative aspect-3/4 overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
           >
             {/* 番剧封面 */}
-            <Link
-              href={bangumi.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-bg-secondary relative aspect-3/4 w-full overflow-hidden"
-            >
-              <Image
-                src={bangumi.cover}
-                alt={bangumi.title}
-                width={180}
-                height={240}
-                referrerPolicy="no-referrer"
-                className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
-              />
-              <div className="absolute top-2 right-2 flex gap-2">
-                {/* 徽章 */}
-                {bangumi.badge_info && (
-                  <div
-                    className={`rounded px-1 py-0.5 text-xs font-medium text-white`}
-                    style={{ backgroundColor: bangumi.badge_info.bg_color }}
-                  >
-                    {bangumi.badge_info.text}
-                  </div>
-                )}
-                {/* 状态角标 */}
-                <div className={`${badgeColor} rounded px-1 py-0.5 text-xs font-medium text-white`}>
-                  {title}
+            <Image
+              src={bangumi.cover}
+              alt={bangumi.title}
+              width={180}
+              height={240}
+              referrerPolicy="no-referrer"
+              className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
+            />
+
+            {/* 徽章和状态角标 */}
+            <div className="absolute top-2 right-2 flex gap-2">
+              {bangumi.badge_info && (
+                <div
+                  className="rounded px-1 py-0.5 text-xs font-medium text-white"
+                  style={{ backgroundColor: bangumi.badge_info.bg_color }}
+                >
+                  {bangumi.badge_info.text}
                 </div>
+              )}
+              <div className={`${badgeColor} rounded px-1 py-0.5 text-xs font-medium text-white`}>
+                {title}
               </div>
-            </Link>
+            </div>
+
+            {/* 渐变遮罩 */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
             {/* 番剧信息 */}
-            <div className="flex flex-col gap-2 p-3">
-              <Link
-                href={bangumi.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-text-primary text-text-secondary truncate text-sm font-medium text-nowrap"
-              >
-                {bangumi.title}
-              </Link>
-              <p className="text-text-tertiary truncate text-xs text-nowrap">
+            <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-1.5 p-3">
+              <h3 className="line-clamp-2 text-sm font-medium text-white">{bangumi.title}</h3>
+              <p className="line-clamp-1 text-xs text-white/70">
                 {bangumi.subtitle || bangumi.evaluate || bangumi.summary || '暂无简介'}
               </p>
-              <div className="text-text-secondary flex flex-wrap items-center gap-x-0.5 gap-y-1 text-xs">
+              <div className="flex flex-wrap items-center gap-x-0.5 gap-y-1 text-xs text-white/80">
                 {bangumi.areas && bangumi.areas.length > 0 && (
                   <span>
                     {bangumi.areas
@@ -156,7 +149,7 @@ export function BangumiSection({ id, title, items, badgeColor }: BangumiSectionP
                 ) : null}
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       {hasMore && (
