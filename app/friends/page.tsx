@@ -45,7 +45,7 @@ export default async function FriendsPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">好朋友们</h1>
         <p className="text-text-secondary">
-          {`${pagesData.friends.description}。共收录 ${friends.length} 位好朋友，随机排序。来试试手气？`}
+          {`${pagesData.friends.description}。共收录 ${friends.length} 位好朋友。`}
         </p>
       </section>
 

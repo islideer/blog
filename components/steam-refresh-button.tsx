@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { Tooltip } from './tooltip'
 
 /**
  * Steam 刷新按钮（客户端组件）
@@ -27,15 +28,17 @@ export function SteamRefreshButton() {
   }
 
   return (
-    <button
-      onClick={handleRefresh}
-      disabled={refreshing}
-      className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-50"
-      aria-label="刷新 Steam 信息"
-    >
-      <RefreshIcon className={refreshing ? 'animate-spin' : ''} />
-      刷新状态
-    </button>
+    <Tooltip content="刷新 Steam 状态信息">
+      <button
+        onClick={handleRefresh}
+        disabled={refreshing}
+        className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+        aria-label="刷新 Steam 信息"
+      >
+        <RefreshIcon className={refreshing ? 'animate-spin' : ''} />
+        刷新状态
+      </button>
+    </Tooltip>
   )
 }
 

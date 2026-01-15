@@ -82,7 +82,7 @@ export const pagesData = {
   },
   friends: {
     title: '好朋友们',
-    description: `记录 ${siteConfig.author.name} 在互联网上的好朋友们，交流学习，共同进步`,
+    description: `记录 ${siteConfig.author.name} 在互联网上的好朋友们，相互学习、共同进步`,
     slug: '/friends',
   },
 }

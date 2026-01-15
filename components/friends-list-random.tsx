@@ -4,6 +4,7 @@ import { useEffect, useState, startTransition, ViewTransition } from 'react'
 import { FriendCard } from './friend-card'
 
 import type { Friend } from '@/lib/data'
+import { Tooltip } from './tooltip'
 
 interface FriendsListRandomProps {
   friends: Friend[]
@@ -40,22 +41,26 @@ export function FriendsListRandom({ friends }: FriendsListRandomProps) {
     <div className="space-y-4 sm:space-y-6">
       <div className="flex justify-end">
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => void startTransition(() => setShuffledFriends(shuffleArray(friends)))}
-            className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors"
-            aria-label="重新随机排序友链"
-          >
-            <RandomIcon />
-            换个顺序
-          </button>
-          <button
-            onClick={handleRandomVisit}
-            className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors"
-            aria-label="随机访问一位好友的博客"
-          >
-            <SparklesIcon />
-            试试手气
-          </button>
+          <Tooltip content="重新随机排序友链">
+            <button
+              onClick={() => void startTransition(() => setShuffledFriends(shuffleArray(friends)))}
+              className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors"
+              aria-label="重新随机排序友链"
+            >
+              <RandomIcon />
+              换个顺序
+            </button>
+          </Tooltip>
+          <Tooltip content="随机访问一位好友的博客">
+            <button
+              onClick={handleRandomVisit}
+              className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors"
+              aria-label="随机访问一位好友的博客"
+            >
+              <SparklesIcon />
+              试试手气
+            </button>
+          </Tooltip>
         </div>
       </div>
 
