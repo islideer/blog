@@ -90,7 +90,11 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
           <div className="space-y-1">
             <p className="text-text-tertiary text-xs">拥有 / 玩过 / 从未玩过</p>
             <p className="text-text-primary text-lg font-semibold">
-              {profile.games_owned} / {profile.games_played} / {profile.games_never_played}
+              {profile.games_owned}
+              <span className="text-text-tertiary mx-1 opacity-60">/</span>
+              {profile.games_played}
+              <span className="text-text-tertiary mx-1 opacity-60">/</span>
+              {profile.games_never_played}
             </p>
           </div>
           <div className="space-y-1">
