@@ -127,6 +127,7 @@
 /* Images */
 .prose img {
   border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
   background-color: var(--color-bg-secondary);
   margin-top: 1.2em;
   margin-bottom: 1.2em;
