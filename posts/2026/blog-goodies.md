@@ -15,17 +15,17 @@ tags:
 
 博客有一个游戏页面，主要展示 Steam 个人资料、在线状态、游戏库存和时长等，~~方便大家视奸这家伙又在玩什么~~。这些可以直接通过 Steam 提供的公开 API 获取到，但你必须提供你自己的 API Key，还需要自己处理 Vanity ID 转换，而且数据格式其实不算友好。所以，我基于官方 API 进行了二次封装，提供了以下几个更加简单、易用的接口。
 
-> 注：以下 Steam 接口均为公开 API，无需认证。但请注意以下几点：
+> 注：以下 Steam 接口均为公开 API，无需认证，但请注意以下几点：
 >
-> - 要求个人资料「**完全公开**」，包括库存、游戏详情等，否则可能部分字段为 0 或 null。
+> - 要求个人资料「**完全公开**」，包括库存、游戏等，否则部分字段可能为 0 或空。
 > - 内置了请求限流，十分钟内不得超过 200 次请求，避免滥用。
 > - ID 参数支持任意 Steam ID 格式，包括 SteamID64、SteamID32、SteamID 和 Vanity ID。
-> - 支持使用 query 参数 key 来指定你自己的 Steam API Key，获取自己的信息更全面。
+> - 支持使用 query 参数 key 来指定自己的 Steam API Key，获取自己信息更全面。
 > - 传入的 Steam API Key 仅作临时调用使用，服务端不做任何存储。
 
 ### 个人资料（状态、等级、游戏数）
 
-- GET `https://api.viki.moe/steam/:id`
+GET https://api.viki.moe/steam/:id
 
 **展示效果**
 
@@ -34,7 +34,7 @@ tags:
 > 如 CS 职业选手 ropz 的 Steam 资料信息：[https://api.viki.moe/steam/ropzkah](https://api.viki.moe/steam/ropzkah)。
 
 <details>
-  <summary>点击展开示例返回数据（已格式化）</summary>
+  <summary>点击展开示例返回数据</summary>
 
 ```json
 {
@@ -85,7 +85,7 @@ tags:
 
 ### 最近在玩（近两周游戏及时长）
 
-- GET `https://api.viki.moe/steam/:id/recently-played`
+GET https://api.viki.moe/steam/:id/recently-played
 
 **展示效果**
 
@@ -94,7 +94,7 @@ tags:
 > 如 ropz 最近在玩：[https://api.viki.moe/steam/ropzkah/recently-played](https://api.viki.moe/steam/ropzkah/recently-played)。
 
 <details>
-  <summary>点击展开示例返回数据（已格式化）</summary>
+  <summary>点击展开示例返回数据</summary>
 
 ```json
 [
@@ -120,7 +120,7 @@ tags:
 
 ### 游戏库存（所有游戏及其时长）
 
-- GET `https://api.viki.moe/steam/:id/games`
+GET https://api.viki.moe/steam/:id/games
 
 **展示效果**
 
@@ -129,7 +129,7 @@ tags:
 > 如 ropz 的游戏库存：[https://api.viki.moe/steam/ropzkah/games](https://api.viki.moe/steam/ropzkah/games)。
 
 <details>
-  <summary>点击展开示例返回数据（已格式化，部分省略）</summary>
+  <summary>点击展开示例返回数据（部分省略）</summary>
 
 ```json
 [
@@ -194,7 +194,7 @@ tags:
 
 ### 电影列表（在看、想看、看过）
 
-- GET `https://api.viki.moe/douban/:id/movies`
+GET https://api.viki.moe/douban/:id/movies
 
 **展示效果**
 
@@ -203,7 +203,7 @@ tags:
 > 如 VikiQAQ 的电影列表：[https://api.viki.moe/douban/vikiqaq/movies](https://api.viki.moe/douban/vikiqaq/movies)。
 
 <details>
-  <summary>点击展开示例返回数据（已格式化，部分省略）</summary>
+  <summary>点击展开示例返回数据（部分省略）</summary>
 
 ```json
 {
@@ -243,7 +243,7 @@ tags:
 
 ### 书籍列表（在读、想读、读过）
 
-- GET `https://api.viki.moe/douban/:id/books`
+GET https://api.viki.moe/douban/:id/books
 
 **展示效果**
 
@@ -252,7 +252,7 @@ tags:
 > 如 VikiQAQ 的书籍列表：[https://api.viki.moe/douban/vikiqaq/books](https://api.viki.moe/douban/vikiqaq/books)。
 
 <details>
-  <summary>点击展开示例返回数据（已格式化，部分省略）</summary>
+  <summary>点击展开示例返回数据（部分省略）</summary>
 
 ```jsonc
 {
@@ -324,25 +324,27 @@ tags:
 
 ### 个人资料（等级、统计、大会员）
 
-- GET `https://api.viki.moe/bili/u/:id`
+GET https://api.viki.moe/bili/u/:id
 
 > 如我的 B 站个人资料：[https://api.viki.moe/bili/u/381636335](https://api.viki.moe/bili/u/381636335)
 
 ### 新番时间表（番剧、影视、国创）
 
-- GET `https://api.viki.moe/bili/timeline`
-- Query 参数
-  - `type`: 番剧=bangumi, 电影=movie, 国创=donghua，默认 bangumi
-  - `before`: 开始于前几日（0-7），默认 0
-  - `after`: 结束于后几日（0-7），默认 6
+GET https://api.viki.moe/bili/timeline
+
+Query 参数
+  - type: 番剧=bangumi, 电影=movie, 国创=donghua，默认 bangumi
+  - before: 开始于前几日（0-7），默认 0
+  - after: 结束于后几日（0-7），默认 6
 
 ### 追番列表（在看、想看、看过）
 
-- GET `https://api.viki.moe/bili/u/:id/bangumi`
-- 可以通过返回的 `follow_status` 字段区分在看、想看、看过等状态
-  - `1`: 想看
-  - `2`: 在看
-  - `3`: 看过
+GET https://api.viki.moe/bili/u/:id/bangumi
+
+可以通过返回的 `follow_status` 字段区分在看、想看、看过等状态
+  - 1: 想看
+  - 2: 在看
+  - 3: 看过
 
 **展示效果**
 
