@@ -22,6 +22,7 @@ tags:
 > - ID 参数支持任意 Steam ID 格式，包括 SteamID64、SteamID32、SteamID 和 Vanity ID。
 > - 支持使用 query 参数 key 来指定自己的 Steam API Key，获取自己信息更全面。
 > - 传入的 Steam API Key 仅作临时调用使用，服务端不做任何存储。
+> - 你可以在 [Steam 开发者页面](https://steamcommunity.com/dev/apikey) 免费申请自己的 API Key。
 
 ### 个人资料（状态、等级、游戏数）
 
