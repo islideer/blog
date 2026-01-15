@@ -60,7 +60,7 @@ export function FriendsListRandom({ friends }: FriendsListRandomProps) {
       </div>
 
       {/* 友链网格 */}
-      <div className="grid grid-cols-1 gap-x-2 gap-y-6 sm:grid-cols-2" suppressHydrationWarning>
+      <div className="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2" suppressHydrationWarning>
         {shuffledFriends.map((friend) => (
           <ViewTransition
             key={friend.url}
