@@ -1,5 +1,10 @@
 [
   {
+    "id": "102",
+    "date": "2026-01-16T09:00:57+08:00",
+    "content": "“王婆卖瓜，自卖自夸” 的故事发生在宋朝的都城开封。故事的主角其实是个名叫王坡的男人，只因做事说话絮叨，才得了 “王婆” 这个外号。他在集市上大声吆喝、切瓜让人品尝的，是从西域传来的哈密瓜，而不是常被误解的西瓜。后来连宋神宗也尝了他的瓜，并笑称 “王婆卖瓜，自卖自夸”，这句话便流传开来，成了比喻自我宣传的成语。\n\n> 卖瓜的并非婆婆，卖的也不是西瓜。💦"
+  },
+  {
     "id": "101",
     "date": "2026-01-15T17:59:34+08:00",
     "content": "当使用浏览器不支持的 HTML 标签时，该标签会被回退到 [HTMLUnknownElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLUnknownElement)，该元素继承自 [HTMLElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement) 接口，但未实现任何额外的属性或方法。\n\n可以利用这一点，在内部添加不支持的标签内容，以达到一定的兼容性效果。例如：\n\n```html\n<unsupported-tag>\n  <p>This is a paragraph inside an unsupported tag.</p>\n</unsupported-tag>\n```"
