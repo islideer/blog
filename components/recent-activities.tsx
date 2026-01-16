@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { ImageIcon } from './image-icon'
 import { RelativeTime } from './relative-time'
-import { pagesData, type Thought } from '@/lib/data'
+import { pagesData, type ShortPost } from '@/lib/data'
 
 interface RecentActivitiesProps {
-  thoughts: Thought[]
+  title?: string
+  shortPosts: ShortPost[]
   totalCount: number
   showMoreThreshold: number
 }
@@ -36,21 +37,22 @@ function truncateContent(content: string, maxLength: number = 80): string {
  * 展示最新的碎碎念，随性卡片式风格
  */
 export async function RecentActivities({
-  thoughts,
+  title,
+  shortPosts,
   totalCount,
   showMoreThreshold,
 }: RecentActivitiesProps) {
-  if (thoughts.length === 0) {
+  if (shortPosts.length === 0) {
     return null
   }
 
   return (
     <section className="space-y-3">
-      <h2 className="text-text-secondary text-lg font-semibold">最近动态</h2>
+      <h2 className="text-text-secondary text-lg font-semibold">{title}</h2>
 
       {/* 使用网格布局，响应式 */}
       <div className="grid gap-2 sm:grid-cols-1 sm:gap-2.5">
-        {thoughts.map((thought) => {
+        {shortPosts.map((thought) => {
           const hasImages = thought.images && thought.images.length > 0
 
           return (

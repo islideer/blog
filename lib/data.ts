@@ -109,6 +109,8 @@ export interface AboutData {
   }
 }
 
+export type ShortPost = Thought | MioSay
+
 // --- Mio Says Types ---
 export interface MioSay {
   id: string

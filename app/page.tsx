@@ -5,6 +5,7 @@ import { generateBlogSchema, generateOrganizationSchema } from '@/lib/seo'
 import { RecentActivities } from '@/components/recent-activities'
 import { RecentPosts } from '@/components/recent-posts'
 import { thoughts } from '@/lib/data'
+// import { mioSays, thoughts } from '@/lib/data'
 
 export default async function BlogPage() {
   const blogSchema = generateBlogSchema()
@@ -19,7 +20,11 @@ export default async function BlogPage() {
   // 获取最新碎碎念，根据配置数量截取
   const recentThoughts = thoughts
     .toSorted((a, b) => (a.date < b.date ? 1 : -1))
-    .slice(0, siteConfig.home.thoughtsToShow)
+    .slice(0, siteConfig.home.shortPostsToShow)
+
+  // const recentMioSays = mioSays
+  //   .toSorted((a, b) => (a.date < b.date ? 1 : -1))
+  //   .slice(0, siteConfig.home.shortPostsToShow)
 
   return (
     <>
@@ -49,12 +54,25 @@ export default async function BlogPage() {
           <>
             <div className="border-border border-t" />
             <RecentActivities
-              thoughts={recentThoughts}
+              title="最近碎碎念"
+              shortPosts={recentThoughts}
               totalCount={thoughts.length}
-              showMoreThreshold={siteConfig.home.thoughtsToShow}
+              showMoreThreshold={siteConfig.home.shortPostsToShow}
             />
           </>
         )}
+
+        {/* {recentMioSays.length > 0 && (
+          <>
+            <div className="border-border border-t" />
+            <RecentActivities
+              title="最近 Mio 说"
+              shortPosts={recentMioSays}
+              totalCount={mioSays.length}
+              showMoreThreshold={siteConfig.home.shortPostsToShow}
+            />
+          </>
+        )} */}
 
         {/* 最近文章 */}
         {displayPosts.length > 0 ? (
