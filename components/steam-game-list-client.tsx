@@ -109,7 +109,7 @@ function GamesList({
             // 最近游戏：显示最近时长，带圆点前缀
             game.playtime.recent_desc &&
             !hideDetails && (
-              <div className="absolute top-1 right-1 flex items-center gap-1 rounded-full border border-white/20 bg-black/70 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]">
+              <div className="absolute top-1 right-1 flex items-center gap-1 rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
                 <span>{game.playtime.recent_desc}</span>
                 {/* 平台图标 */}
@@ -134,7 +134,7 @@ function GamesList({
                   ? hideDetails
                     ? `曾经玩过`
                     : `总计 ${game.playtime.total_desc}`
-                  : '仓库吃灰中'}
+                  : '吃灰中'}
               </span>
               {/* 平台图标 */}
               {game.playtime.platforms && game.playtime.platforms.length > 0 && (

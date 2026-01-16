@@ -32,23 +32,14 @@ export function Books({ id, data }: BooksProps) {
 
       {/* 读过 */}
       {data.collect.length > 0 && (
-        <BookSection
-          id="books-collect"
-          title="读过"
-          books={data.collect}
-          badgeColor="bg-green-500"
-        />
+        <BookSection id="books-collect" title="读过" books={data.collect} />
       )}
 
       {/* 在读 */}
-      {data.doings.length > 0 && (
-        <BookSection id="books-doings" title="在读" books={data.doings} badgeColor="bg-blue-500" />
-      )}
+      {data.doings.length > 0 && <BookSection id="books-doings" title="在读" books={data.doings} />}
 
       {/* 想读 */}
-      {data.wish.length > 0 && (
-        <BookSection id="books-wish" title="想读" books={data.wish} badgeColor="bg-yellow-500" />
-      )}
+      {data.wish.length > 0 && <BookSection id="books-wish" title="想读" books={data.wish} />}
     </section>
   )
 }
@@ -57,10 +48,9 @@ interface BookSectionProps {
   id: string
   title: string
   books: DoubanItem[]
-  badgeColor: string
 }
 
-function BookSection({ id, title, books, badgeColor }: BookSectionProps) {
+function BookSection({ id, title, books }: BookSectionProps) {
   const [showAll, setShowAll] = useState(false)
   const initialDisplayCount = 8 // 默认显示 8 个（约 2 排）
   const displayedBooks = showAll ? books : books.slice(0, initialDisplayCount)
@@ -93,7 +83,7 @@ function BookSection({ id, title, books, badgeColor }: BookSectionProps) {
 
             {/* 状态角标 */}
             <div
-              className={`absolute top-2 right-2 ${badgeColor} rounded px-1 py-0.5 text-xs font-medium text-white`}
+              className={`absolute top-2 right-2 rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]`}
             >
               {title}
             </div>

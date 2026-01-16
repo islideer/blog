@@ -32,28 +32,16 @@ export function Movies({ id, data }: MoviesProps) {
 
       {/* 看过 */}
       {data.collect.length > 0 && (
-        <MovieSection
-          id="movies-collect"
-          title="看过"
-          movies={data.collect}
-          badgeColor="bg-green-500"
-        />
+        <MovieSection id="movies-collect" title="看过" movies={data.collect} />
       )}
 
       {/* 在看 */}
       {data.doings.length > 0 && (
-        <MovieSection
-          id="movies-doings"
-          title="在看"
-          movies={data.doings}
-          badgeColor="bg-blue-500"
-        />
+        <MovieSection id="movies-doings" title="在看" movies={data.doings} />
       )}
 
       {/* 想看 */}
-      {data.wish.length > 0 && (
-        <MovieSection id="movies-wish" title="想看" movies={data.wish} badgeColor="bg-yellow-500" />
-      )}
+      {data.wish.length > 0 && <MovieSection id="movies-wish" title="想看" movies={data.wish} />}
     </section>
   )
 }
@@ -62,10 +50,9 @@ interface MovieSectionProps {
   id: string
   title: string
   movies: DoubanItem[]
-  badgeColor: string
 }
 
-function MovieSection({ id, title, movies, badgeColor }: MovieSectionProps) {
+function MovieSection({ id, title, movies }: MovieSectionProps) {
   const [showAll, setShowAll] = useState(false)
   const initialDisplayCount = 8 // 默认显示 8 个（约 2 排）
   const displayedMovies = showAll ? movies : movies.slice(0, initialDisplayCount)
@@ -98,7 +85,7 @@ function MovieSection({ id, title, movies, badgeColor }: MovieSectionProps) {
 
             {/* 状态角标 */}
             <div
-              className={`absolute top-2 right-2 ${badgeColor} rounded px-1 py-0.5 text-xs font-medium text-white`}
+              className={`absolute top-2 right-2 rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]`}
             >
               {title}
             </div>

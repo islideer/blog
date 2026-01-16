@@ -33,30 +33,15 @@ export function Bangumi({ id, bangumi }: BangumiListProps) {
         追番 ({bangumi.length.toLocaleString()})
       </h2>
       {grouped.collect.length > 0 && (
-        <BangumiSection
-          id="bangumi-collect"
-          title="看过"
-          items={grouped.collect}
-          badgeColor="bg-green-500"
-        />
+        <BangumiSection id="bangumi-collect" title="看过" items={grouped.collect} />
       )}
 
       {grouped.doings.length > 0 && (
-        <BangumiSection
-          id="bangumi-doings"
-          title="在看"
-          items={grouped.doings}
-          badgeColor="bg-blue-500"
-        />
+        <BangumiSection id="bangumi-doings" title="在看" items={grouped.doings} />
       )}
 
       {grouped.wish.length > 0 && (
-        <BangumiSection
-          id="bangumi-wish"
-          title="想看"
-          items={grouped.wish}
-          badgeColor="bg-yellow-500"
-        />
+        <BangumiSection id="bangumi-wish" title="想看" items={grouped.wish} />
       )}
     </section>
   )
@@ -66,10 +51,9 @@ interface BangumiSectionProps {
   id: string
   title: string
   items: BangumiItem[]
-  badgeColor: string
 }
 
-export function BangumiSection({ id, title, items, badgeColor }: BangumiSectionProps) {
+export function BangumiSection({ id, title, items }: BangumiSectionProps) {
   const [showAll, setShowAll] = useState(false)
   const initialDisplayCount = 8
   const displayedBangumi = showAll ? items : items.slice(0, initialDisplayCount)
@@ -103,16 +87,29 @@ export function BangumiSection({ id, title, items, badgeColor }: BangumiSectionP
             />
 
             {/* 徽章和状态角标 */}
-            <div className="absolute top-2 right-2 flex gap-2">
+            <div className="absolute top-2 left-2 flex gap-2">
               {bangumi.badge_info?.text && (
                 <div
-                  className="rounded px-1 py-0.5 text-xs font-medium text-white"
-                  style={{ backgroundColor: bangumi.badge_info.bg_color }}
+                  className="rounded-sm border border-white/20 px-1 py-0.5 text-xs font-medium text-white backdrop-blur-[2px]"
+                  style={{ backgroundColor: `${bangumi.badge_info.bg_color}` }}
                 >
                   {bangumi.badge_info.text}
                 </div>
               )}
-              <div className={`${badgeColor} rounded px-1 py-0.5 text-xs font-medium text-white`}>
+            </div>
+
+            <div className="absolute top-2 right-2 flex gap-2">
+              {/* {bangumi.badge_info?.text && (
+                <div
+                  className="rounded-sm border border-white/20 px-1 py-0.5 text-xs font-medium text-white backdrop-blur-[2px]"
+                  style={{ backgroundColor: `${bangumi.badge_info.bg_color}` }}
+                >
+                  {bangumi.badge_info.text}
+                </div>
+              )} */}
+              <div
+                className={`rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]`}
+              >
                 {title}
               </div>
             </div>

@@ -126,14 +126,14 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
             <div className="absolute top-1 right-1 flex items-center gap-1">
               {/* 数量标识（仅当数量 > 1 时显示） */}
               {item.count > 1 && (
-                <div className="rounded-full bg-black/60 px-2 text-[10px] text-white backdrop-blur-[2px]">
+                <div className="rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]">
                   {item.count} 件
                 </div>
               )}
 
               {/* 暗金击杀 */}
               {item.stattrak_score && (
-                <div className="rounded-full bg-black/60 px-2 text-[10px] text-white backdrop-blur-[2px]">
+                <div className="rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]">
                   {item.stattrak_score.toLocaleString('zh-Hans-CN')} 击杀
                 </div>
               )}
@@ -142,7 +142,7 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
             {/* 磨损标签 - 左上角 */}
             {item.exterior && (
               <>
-                <div className="absolute top-1 left-1 block rounded-full bg-black/70 px-2 text-[10px] text-white backdrop-blur-[2px] sm:hidden">
+                <div className="absolute top-1 left-1 block rounded-full bg-black/48 px-2 text-[10px] text-white backdrop-blur-[2px] sm:hidden">
                   {item.exterior
                     .replace('久经沙场', '久经')
                     .replace('崭新出厂', '崭新')
@@ -150,7 +150,7 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
                     .replace('战痕累累', '战痕')
                     .replace('破损不堪', '破损')}
                 </div>
-                <div className="absolute top-1 left-1 hidden rounded-full bg-black/70 px-2 text-[10px] text-white backdrop-blur-[2px] sm:block">
+                <div className="absolute top-1 left-1 hidden rounded-full bg-black/48 px-2 text-[10px] text-white backdrop-blur-[2px] sm:block">
                   {item.exterior}
                 </div>
               </>
