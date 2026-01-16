@@ -15,7 +15,7 @@
   {
     "id": "101",
     "date": "2026-01-15T17:59:34+08:00",
-    "content": "当使用浏览器不支持的 HTML 标签时，该标签会被回退到 [HTMLUnknownElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLUnknownElement)，该元素继承自 [HTMLElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement) 接口，但未实现任何额外的属性或方法。\n\n可以利用这一点，在内部添加兼容性的逻辑或者 UI 起到兼容效果。例如：\n\n```html\n<unsupported-tag>\n  <p>Your browser does not support <unsupported-tag>.</p>\n</unsupported-tag>\n```\n\n在不支持 `\\<unsupported-tag\\>` 的浏览器中，用户会看到 `<p>` 元素中的内容，从而提供了一个降级的体验。"
+    "content": "当使用浏览器不支持的 HTML 标签时，该标签会被回退到 [HTMLUnknownElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLUnknownElement)，该元素继承自 [HTMLElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement) 接口，但未实现任何额外的属性或方法。\n\n可以利用这一点，在内部添加兼容性的逻辑或者 UI 起到兼容效果。例如：\n\n```html\n<unsupported-tag>\n  <p>Your browser does not support <unsupported-tag>.</p>\n</unsupported-tag>\n```\n\n在不支持 `<unsupported-tag>` 的浏览器中，用户会看到 `<p>` 元素中的内容，从而提供了一个降级的体验。"
   },
   {
     "id": "100",
