@@ -81,9 +81,7 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
         {displayedItems.map((item) => (
           <Link
             key={item.name}
-            href={item.market_url || '#'}
-            target={item.market_url ? '_blank' : undefined}
-            rel={item.market_url ? 'noopener noreferrer' : undefined}
+            href={item.market_url || item.icon_url}
             className="group relative aspect-square overflow-hidden rounded-lg"
           >
             {/* 深色贴合游戏的背景渐变 */}
