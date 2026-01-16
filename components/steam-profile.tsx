@@ -97,11 +97,11 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
               {profile.games_never_played}
             </p>
           </div>
-          <div className="space-y-1">
+          <div className="hidden space-y-1 sm:block">
             <p className="text-text-tertiary text-xs">账户等级</p>
             <p className="text-text-primary text-lg font-semibold">{profile.level_desc}</p>
           </div>
-          <div className="space-y-1">
+          <div className="hidden space-y-1 sm:block">
             <p className="text-text-tertiary text-xs">账户年资</p>
             <p className="text-text-primary text-lg font-semibold">
               {profile.account_age_years_desc}

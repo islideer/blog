@@ -35,7 +35,7 @@ export function OtherGames({ id }: { id?: string }) {
       <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
         其他游戏（在玩的、爱玩的、怀念的）
       </h2>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4">
         {games.map((game: OtherGame) => (
           <div
             key={game.id}
@@ -58,10 +58,10 @@ export function OtherGames({ id }: { id?: string }) {
               />
 
               {/* 渐变遮罩 */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
               {/* 标题和关键信息 */}
-              <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-1.5 p-3">
+              <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-1.5 p-3">
                 <h3 className="line-clamp-1 text-sm font-medium text-white">{game.name}</h3>
                 <div className="flex flex-wrap items-center gap-x-1 gap-y-1 text-xs text-white/80">
                   <span>{game.platforms.join(' · ')}</span>
@@ -75,7 +75,7 @@ export function OtherGames({ id }: { id?: string }) {
 
             {/* 描述和成就列表（图片下方） */}
             {(game.description || (game.achievements && game.achievements.length > 0)) && (
-              <div className="bg-bg-secondary/50 backdrop-blur-sm flex flex-col gap-2 p-3">
+              <div className="bg-bg-secondary/50 flex flex-col gap-2 p-3 backdrop-blur-sm">
                 {game.description && (
                   <p className="text-text-tertiary line-clamp-2 text-xs">{game.description}</p>
                 )}

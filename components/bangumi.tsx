@@ -83,7 +83,7 @@ export function BangumiSection({ id, title, items, badgeColor }: BangumiSectionP
         <h3 className="text-text-secondary text-xs font-medium">{title}</h3>
         <span className="text-text-tertiary text-xs">({items.length})</span>
       </div>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4">
         {displayedBangumi.map((bangumi) => (
           <Link
             key={bangumi.season_id}

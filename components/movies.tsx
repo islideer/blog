@@ -78,7 +78,7 @@ function MovieSection({ id, title, movies, badgeColor }: MovieSectionProps) {
         <span className="text-text-tertiary text-xs">({movies.length})</span>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4">
         {displayedMovies.map((movie) => (
           <Link
             key={movie.id}
@@ -104,10 +104,10 @@ function MovieSection({ id, title, movies, badgeColor }: MovieSectionProps) {
             </div>
 
             {/* 渐变遮罩 */}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
             {/* 影视信息 */}
-            <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-1.5 p-3">
+            <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-1.5 p-3">
               <h3 className="line-clamp-2 text-sm font-medium text-white">{movie.title}</h3>
               {movie.date && (
                 <p className="text-xs text-white/80">
