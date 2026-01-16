@@ -16,11 +16,11 @@ interface GroupedCS2Item extends CS2InventoryItem {
 
 // 稀有度权重映射（数值越大越靠前）
 const RARITY_WEIGHT: Record<string, number> = {
-  非凡: 200, // 勋章、收藏品
   保密级: 100, // 武器最高稀有度
   受限级: 80, // 武器中等稀有度
   军规级: 60, // 武器较低稀有度
   高级: 40, // 音乐盒
+  非凡: 20, // 勋章、收藏品
   普通级: 10, // 涂鸦、武器箱、工具
 }
 
