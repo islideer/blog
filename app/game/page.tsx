@@ -53,7 +53,7 @@ export default async function GamePage() {
     <>
       <StaticTableOfContents
         items={[
-          { id: 'profile', title: 'Steam 个人资料', level: 1 },
+          { id: 'profile', title: '个人资料', level: 1 },
           { id: 'library', title: 'Steam 游戏', level: 1 },
           { id: 'cs2', title: 'CS2 库存', level: 1 },
           { id: 'other', title: '其他游戏', level: 1 },

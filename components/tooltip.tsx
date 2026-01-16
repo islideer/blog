@@ -103,7 +103,7 @@ export function Tooltip({ content, children }: TooltipProps) {
       {tooltipData &&
         createPortal(
           <div
-            className="bg-bg-secondary text-text-primary border-border-hover pointer-events-none fixed z-50 -translate-x-1/2 rounded border border-solid px-2.5 py-1.5 text-xs whitespace-nowrap shadow-sm"
+            className="bg-bg-primary text-text-secondary border-border-hover pointer-events-none fixed z-50 -translate-x-1/2 rounded border border-solid px-2.5 py-1.5 text-xs whitespace-nowrap shadow-xs"
             style={{
               top: `${tooltipData.top}px`,
               left: `${tooltipData.left}px`,
@@ -112,10 +112,8 @@ export function Tooltip({ content, children }: TooltipProps) {
             {content}
             {/* 小三角形指示器 - 根据位置调整方向 */}
             <div
-              className={`bg-bg-secondary border-border-hover absolute left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-solid ${
-                tooltipData.isAbove
-                  ? '-bottom-1.5 border-b border-r'
-                  : '-top-1.5 border-t border-l'
+              className={`bg-bg-primary border-border-hover absolute left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-solid ${
+                tooltipData.isAbove ? '-bottom-1.5 border-r border-b' : '-top-1.5 border-t border-l'
               }`}
             />
           </div>,

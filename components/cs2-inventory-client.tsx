@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import type { CS2InventoryItem } from '@/lib/steam'
 
 interface CS2InventoryClientProps {
@@ -31,7 +31,24 @@ const RARITY_WEIGHT: Record<string, number> = {
  */
 export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
   const [showAll, setShowAll] = useState(false)
-  const initialDisplayCount = 8
+  const [initialDisplayCount, setInitialDisplayCount] = useState(8)
+
+  useEffect(() => {
+    // 根据屏幕宽度调整初始显示数量
+    const updateDisplayCount = () => {
+      // sm: 640px
+      if (window.innerWidth >= 640) {
+        setInitialDisplayCount(8) // 大屏幕显示更多
+      } else {
+        setInitialDisplayCount(6) // 小屏幕显示较少
+      }
+    }
+
+    updateDisplayCount()
+
+    window.addEventListener('resize', updateDisplayCount)
+    return () => window.removeEventListener('resize', updateDisplayCount)
+  }, [])
 
   // 按名称分组并计数，然后按稀有度排序
   const groupedAndSortedItems = useMemo(() => {
@@ -54,11 +71,11 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
 
       const score = (b.stattrak_score || 0) - (a.stattrak_score || 0)
 
-      const caseA = ['武器箱', '胶囊', '纪念包'].includes(a.name) ? 1 : 0
-      const caseB = ['武器箱', '胶囊', '纪念包'].includes(b.name) ? 1 : 0
+      const caseA = ['武器箱', '胶囊', '纪念包'].some((name) => a.name.includes(name)) ? 1 : 0
+      const caseB = ['武器箱', '胶囊', '纪念包'].some((name) => b.name.includes(name)) ? 1 : 0
       const caseScore = caseB - caseA
 
-      return weightB - weightA || score || caseScore || b.count - a.count
+      return score || weightB - weightA || caseScore || b.count - a.count
     })
   }, [items])
 
@@ -81,7 +98,7 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
       </div>
 
       {/* 物品列表 */}
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4">
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4">
         {displayedItems.map((item) => (
           <Link
             key={item.name}
@@ -92,7 +109,7 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
             <div className="absolute inset-0 bg-linear-to-br from-black/80 via-black/60 to-black/80 dark:from-zinc-800/80 dark:via-zinc-700/60 dark:to-zinc-800/80" />
 
             {/* 物品图标 */}
-            <div className="relative flex h-full w-full items-center justify-center p-4">
+            <div className="relative flex h-full w-full items-center justify-center p-2">
               <Image
                 src={item.icon_url}
                 alt={item.plain_name}
@@ -103,7 +120,7 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
             </div>
 
             {/* 渐变遮罩 */}
-            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/50 via-black/20 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
 
             {/* 右上角标签容器 - 横向 flex 布局 */}
             <div className="absolute top-1 right-1 flex items-center gap-1">
@@ -124,15 +141,19 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
 
             {/* 磨损标签 - 左上角 */}
             {item.exterior && (
-              <div className="absolute top-1 left-1 rounded-full bg-black/70 px-2 text-[10px] text-white backdrop-blur-[2px]">
-                {item.exterior
-                  // .replace('久经沙场', '久经')
-                  // .replace('崭新出厂', '崭新')
-                  // .replace('略有磨损', '略磨')
-                  // .replace('战痕累累', '战痕')
-                  // .replace('破损不堪', '破损')
-                }
-              </div>
+              <>
+                <div className="absolute top-1 left-1 block rounded-full bg-black/70 px-2 text-[10px] text-white backdrop-blur-[2px] sm:hidden">
+                  {item.exterior
+                    .replace('久经沙场', '久经')
+                    .replace('崭新出厂', '崭新')
+                    .replace('略有磨损', '略磨')
+                    .replace('战痕累累', '战痕')
+                    .replace('破损不堪', '破损')}
+                </div>
+                <div className="absolute top-1 left-1 hidden rounded-full bg-black/70 px-2 text-[10px] text-white backdrop-blur-[2px] sm:block">
+                  {item.exterior}
+                </div>
+              </>
             )}
 
             {/* 物品信息 - 底部 */}
