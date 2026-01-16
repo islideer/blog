@@ -51,7 +51,10 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
     return Array.from(grouped.values()).toSorted((a, b) => {
       const weightA = a.rarity ? RARITY_WEIGHT[a.rarity] || 0 : 0
       const weightB = b.rarity ? RARITY_WEIGHT[b.rarity] || 0 : 0
-      return weightB - weightA
+
+      return (
+        weightB - weightA || (b.stattrak_score || 0) - (a.stattrak_score || 0) || b.count - a.count
+      )
     })
   }, [items])
 
@@ -110,12 +113,12 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
               )}
 
               {/* 稀有度标签 */}
-              {item.rarity && (
+              {item.rarity && item.rarity !== '普通级' && (
                 <div
                   className="rounded-full px-2 text-[10px] text-white backdrop-blur-[2px]"
                   style={{ backgroundColor: `#${item.rarity_color}` }}
                 >
-                  {(item.rarity || '').replace('级', '')}
+                  {(item.rarity || '').replace(/(?<!高)级/, '')}
                 </div>
               )}
 
