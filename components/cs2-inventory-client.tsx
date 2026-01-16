@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useMemo, useEffect } from 'react'
 import type { CS2InventoryItem } from '@/lib/steam'
+import { ChevronDownIcon } from './icons/chevron-down'
+import { ChevronUpIcon } from './icons/chevron-up'
 
 interface CS2InventoryClientProps {
   items: CS2InventoryItem[]
@@ -31,16 +33,16 @@ const RARITY_WEIGHT: Record<string, number> = {
  */
 export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
   const [showAll, setShowAll] = useState(false)
-  const [initialDisplayCount, setInitialDisplayCount] = useState(8)
+  const [initialDisplayCount, setInitialDisplayCount] = useState(4)
 
   useEffect(() => {
     // 根据屏幕宽度调整初始显示数量
     const updateDisplayCount = () => {
       // sm: 640px
       if (window.innerWidth >= 640) {
-        setInitialDisplayCount(8) // 大屏幕显示更多
+        setInitialDisplayCount(4) // 大屏幕显示更多
       } else {
-        setInitialDisplayCount(6) // 小屏幕显示较少
+        setInitialDisplayCount(3) // 小屏幕显示较少
       }
     }
 
@@ -161,14 +163,24 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
         ))}
       </div>
 
-      {/* 显示更多按钮 */}
+      {/* 展示更多按钮 */}
       {hasMore && (
-        <div className="flex justify-center">
+        <div className="flex justify-center pt-2">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="text-text-secondary hover:text-text-primary text-sm font-medium transition-colors"
+            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-colors"
           >
-            {showAll ? '收起' : `显示全部 ${groupedAndSortedItems.length} 种物品`}
+            {showAll ? (
+              <>
+                <ChevronUpIcon className="h-4 w-4" />
+                收起
+              </>
+            ) : (
+              <>
+                <ChevronDownIcon className="h-4 w-4" />
+                展示更多 ({groupedAndSortedItems.length - initialDisplayCount})
+              </>
+            )}
           </button>
         </div>
       )}

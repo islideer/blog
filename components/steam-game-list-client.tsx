@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { siteConfig } from '@/lib/config'
 import { PlatformIcon } from './platform-icon'
 import { useState, useMemo } from 'react'
+import { ChevronDownIcon } from './icons/chevron-down'
+import { ChevronUpIcon } from './icons/chevron-up'
 
 import type { LibraryGame, RecentGame } from '@/lib/steam'
 
@@ -82,9 +84,17 @@ function GamesList({
   hideDetails?: boolean
   showRecently?: boolean
 }) {
+  const [showAll, setShowAll] = useState(false)
+  const initialDisplayCount = 6 // 默认显示 6 个游戏
+
+  // 无论哪个视图，都限制显示数量
+  const displayedGames = showAll ? games : games.slice(0, initialDisplayCount)
+  const hasMore = games.length > initialDisplayCount
+
   return (
-    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4">
-      {games.map((game) => (
+    <>
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4">
+        {displayedGames.map((game) => (
         <Link
           key={game.appid}
           href={game.store_url}
@@ -158,5 +168,28 @@ function GamesList({
         </Link>
       ))}
     </div>
+
+      {/* 展示更多按钮 */}
+      {hasMore && (
+        <div className="flex justify-center pt-2">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-colors"
+          >
+            {showAll ? (
+              <>
+                <ChevronUpIcon className="h-4 w-4" />
+                收起
+              </>
+            ) : (
+              <>
+                <ChevronDownIcon className="h-4 w-4" />
+                展示更多 ({games.length - initialDisplayCount})
+              </>
+            )}
+          </button>
+        </div>
+      )}
+    </>
   )
 }

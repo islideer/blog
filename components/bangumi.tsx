@@ -57,7 +57,7 @@ interface BangumiSectionProps {
 
 export function BangumiSection({ id, title, items }: BangumiSectionProps) {
   const [showAll, setShowAll] = useState(false)
-  const initialDisplayCount = 8
+  const initialDisplayCount = 4 // 默认显示 4 个（约 1 排）
   const displayedBangumi = showAll ? items : items.slice(0, initialDisplayCount)
   const hasMore = items.length > initialDisplayCount
 

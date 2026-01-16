@@ -55,8 +55,8 @@ export default async function GamePage() {
         items={[
           { id: 'profile', title: '个人资料', level: 1 },
           { id: 'library', title: 'Steam 游戏', level: 1 },
-          { id: 'cs2', title: 'CS2 库存', level: 1 },
           { id: 'other', title: '其他游戏', level: 1 },
+          { id: 'cs2', title: 'CS2 库存', level: 1 },
         ]}
       />
 
@@ -73,11 +73,11 @@ export default async function GamePage() {
         {/* Steam 游戏库 - 纯服务端组件 + 客户端视图切换 */}
         <SteamGameLibrary id="library" libraryGames={libraryGames} recentGames={recentGames} />
 
-        {/* CS2 库存 - 纯服务端组件 */}
-        <CS2Inventory id="cs2" items={cs2Inventory} />
-
         {/* 其他游戏 - 纯 SSR 数据 */}
         <OtherGames id="other" />
+
+        {/* CS2 库存 - 纯服务端组件 */}
+        <CS2Inventory id="cs2" items={cs2Inventory} />
       </div>
     </>
   )

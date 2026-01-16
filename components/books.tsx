@@ -54,7 +54,7 @@ interface BookSectionProps {
 
 function BookSection({ id, title, books }: BookSectionProps) {
   const [showAll, setShowAll] = useState(false)
-  const initialDisplayCount = 8 // 默认显示 8 个（约 2 排）
+  const initialDisplayCount = 4 // 默认显示 4 个（约 1 排）
   const displayedBooks = showAll ? books : books.slice(0, initialDisplayCount)
   const hasMore = books.length > initialDisplayCount
 
