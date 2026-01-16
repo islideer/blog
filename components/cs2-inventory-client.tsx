@@ -52,9 +52,13 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
       const weightA = a.rarity ? RARITY_WEIGHT[a.rarity] || 0 : 0
       const weightB = b.rarity ? RARITY_WEIGHT[b.rarity] || 0 : 0
 
-      return (
-        weightB - weightA || (b.stattrak_score || 0) - (a.stattrak_score || 0) || b.count - a.count
-      )
+      const score = (b.stattrak_score || 0) - (a.stattrak_score || 0)
+
+      const caseA = ['武器箱', '胶囊', '纪念包'].includes(a.name) ? 1 : 0
+      const caseB = ['武器箱', '胶囊', '纪念包'].includes(b.name) ? 1 : 0
+      const caseScore = caseB - caseA
+
+      return weightB - weightA || score || caseScore || b.count - a.count
     })
   }, [items])
 
