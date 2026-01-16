@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Tooltip } from './tooltip'
+import { RefreshIcon } from './icons/refresh'
 
 /**
  * Steam 刷新按钮（客户端组件）
@@ -35,28 +36,9 @@ export function SteamRefreshButton() {
         className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-50"
         aria-label="刷新 Steam 信息"
       >
-        <RefreshIcon className={refreshing ? 'animate-spin' : ''} />
+        <RefreshIcon className={`h-3.5 w-3.5 ${refreshing ? 'animate-spin' : ''}`} />
         刷新状态
       </button>
     </Tooltip>
-  )
-}
-
-function RefreshIcon({ className = '' }: { className?: string }) {
-  return (
-    <svg
-      className={`h-3.5 w-3.5 ${className}`}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-      />
-    </svg>
   )
 }

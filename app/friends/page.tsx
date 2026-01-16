@@ -79,7 +79,7 @@ export default async function FriendsPage() {
             <div>
               <span className="text-text-tertiary">描述：</span>
               <span className="text-text-primary">
-                {siteConfig.tagline.replace(/\.。~=!～!$/, '')}。
+                {siteConfig.tagline}
               </span>
             </div>
             <div>

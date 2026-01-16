@@ -6,38 +6,8 @@ import { useState } from 'react'
 import { dayjs } from '@/lib/dayjs'
 
 import type { DoubanItem, DoubanResponse } from '@/lib/douban'
-
-// 向下箭头图标
-function ChevronDownIcon() {
-  return (
-    <svg
-      className="h-4 w-4"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <polyline points="6 9 12 15 18 9" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
-// 向上箭头图标
-function ChevronUpIcon() {
-  return (
-    <svg
-      className="h-4 w-4"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <polyline points="18 15 12 9 6 15" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
+import { ChevronDownIcon } from './icons/chevron-down'
+import { ChevronUpIcon } from './icons/chevron-up'
 
 interface MoviesProps {
   id?: string
@@ -147,12 +117,12 @@ function MovieSection({ id, title, movies }: MovieSectionProps) {
           >
             {showAll ? (
               <>
-                <ChevronUpIcon />
+                <ChevronUpIcon className="h-4 w-4" />
                 收起
               </>
             ) : (
               <>
-                <ChevronDownIcon />
+                <ChevronDownIcon className="h-4 w-4" />
                 展示更多 ({movies.length - initialDisplayCount})
               </>
             )}

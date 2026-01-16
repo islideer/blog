@@ -79,6 +79,12 @@ blog/
 │   ├── about/page.tsx              # 关于
 │   └── rss/route.ts                # RSS Feed
 ├── components/                 # React 组件（kebab-case）
+│   ├── icons/                  # SVG 图标组件
+│   │   ├── moon.tsx            # 月亮图标
+│   │   ├── sun.tsx             # 太阳图标
+│   │   ├── github.tsx          # GitHub 图标
+│   │   └── ...                 # 其他图标
+│   ├── icon-link.tsx           # 图标链接包装器
 │   ├── article-content.tsx     # 文章渲染（服务端）
 │   ├── article-images.tsx      # 图片缩放（客户端）
 │   ├── markdown-lite.tsx       # 简版 Markdown（服务端）
@@ -248,6 +254,70 @@ components/my-component.tsx
 
 需要交互时添加 `'use client'`
 
+## SVG 图标规范
+
+### 图标组织
+
+- **统一管理** - 所有 SVG 图标集中在 `components/icons/` 目录
+- **独立组件** - 每个图标一个文件，使用 `kebab-case` 命名（如 `moon.tsx`）
+- **类型安全** - 每个图标组件都有 TypeScript 类型定义
+- **灵活复用** - 支持 `className` 传递，便于自定义样式
+
+### 创建新图标
+
+```typescript
+// components/icons/example.tsx
+interface ExampleIconProps {
+  className?: string
+}
+
+export function ExampleIcon({ className }: ExampleIconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="..." />
+    </svg>
+  )
+}
+```
+
+### 使用图标
+
+```typescript
+// 在其他组件中使用
+import { MoonIcon } from './icons/moon'
+
+export function Component() {
+  return <MoonIcon className="h-4 w-4 text-gray-500" />
+}
+```
+
+### 高级封装
+
+对于带链接的图标，使用 `icon-link.tsx` 包装器：
+
+```typescript
+import { IconLink } from './icon-link'
+import { GitHubIcon } from './icons/github'
+
+export function SocialLink({ href }: { href: string }) {
+  return (
+    <IconLink
+      href={href}
+      tooltip="GitHub"
+      icon={<GitHubIcon className="h-4 w-4" />}
+    />
+  )
+}
+```
+
+### 规则
+
+- ✅ 新图标必须放在 `components/icons/` 目录
+- ✅ 不要在组件内定义内联 SVG，除非只用一次
+- ✅ 图标组件必须支持 `className` 属性
+- ✅ 使用 `currentColor` 实现主题适配
+- ❌ 不要在图标组件内硬编码尺寸和颜色
+
 ## 最佳实践
 
 - ✅ 优先使用 Server Components
@@ -255,6 +325,7 @@ components/my-component.tsx
 - ✅ 遵循盘古之白排版规范
 - ✅ 使用 `import { dayjs } from '@/lib/dayjs'` 处理时间
 - ✅ Front Matter 必须包含 `title`、`date`、`excerpt` 字段
+- ✅ SVG 图标统一管理在 `components/icons/`
 - ⚠️ 不使用 MDX，使用纯 Markdown + unified
 - ⚠️ 不使用 next-mdx-remote
 - ⚠️ 必须使用 pnpm 10.25.0

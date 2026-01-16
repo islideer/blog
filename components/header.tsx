@@ -28,7 +28,7 @@ export function Header() {
               {siteConfig.name}
             </TitleTag>
             <p className="text-text-tertiary hidden text-xs leading-tight sm:block">
-              {siteConfig.tagline}
+              {siteConfig.tagline.replace(/[\.。~=!～!]$/, '')}
             </p>
           </div>
         </Link>
@@ -36,7 +36,7 @@ export function Header() {
         <nav
           role="navigation"
           aria-label="主导航"
-          className={`flex items-center gap-1.5 transition-opacity sm:gap-4 ${isMoreOpen ? '' : 'sm:opacity-60 group-hover:opacity-100'}`}
+          className={`flex items-center gap-1.5 transition-opacity sm:gap-4 ${isMoreOpen ? '' : 'group-hover:opacity-100 sm:opacity-60'}`}
         >
           <Link
             href={pagesData.posts.slug}

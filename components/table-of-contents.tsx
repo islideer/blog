@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react'
 import { extractHeadings } from '@/lib/toc'
 import Link from 'next/link'
+import { MenuIcon } from './icons/menu'
+import { CloseIcon } from './icons/close'
 
 interface TableOfContentsProps {
   /** 文章容器的选择器，默认为 '.prose' */
@@ -371,14 +373,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
         className="bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-4 bottom-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl lg:hidden"
         aria-label="打开文章目录"
       >
-        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 12h16M4 18h7"
-          />
-        </svg>
+        <MenuIcon className="h-6 w-6" />
       </button>
 
       {/* 抽屉背景遮罩 */}
@@ -411,14 +406,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
             onClick={() => setIsOpen(false)}
             className="text-text-tertiary hover:text-text-primary p-1"
           >
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <CloseIcon className="h-5 w-5" />
           </button>
         </div>
 

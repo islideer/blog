@@ -139,7 +139,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Article End */}
         <div className="border-border mt-8 flex flex-col gap-4 border-t pt-8 sm:mt-16 sm:items-center">
           <p className="text-text-tertiary text-center text-sm">—— 本文完 ——</p>
-          <LicenseText short className="block text-center text-sm" />
+          <LicenseText className="hidden text-center text-sm sm:block" />
+          <LicenseText short className="block text-center text-sm sm:hidden" />
           <PageUrl />
         </div>
 

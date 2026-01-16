@@ -67,6 +67,8 @@ You are an expert AI programming assistant working on a Next.js 16 + React 19 + 
 
 - `app/`: Next.js App Router pages and layouts.
 - `components/`: React components (kebab-case).
+  - `icons/`: SVG icon components directory.
+  - `icon-link.tsx`: Icon wrapper with link and tooltip.
   - `article-content.tsx`: Blog post Markdown rendering (Server Component).
   - `markdown-lite.tsx`: Lightweight Markdown rendering (Server Component).
   - `thought-card.tsx`: Thought/Mio-says card component.
@@ -103,6 +105,51 @@ Key files:
 - **Access**: Access data via `lib/config.ts` or `lib/data.ts`.
 - **Avoid Hardcoding**: Do not hardcode strings like URLs, author names, or site titles in components. Use `siteConfig` or relevant data exports instead.
 
+## SVG Icons
+
+### Organization
+
+- **Centralized**: All SVG icons must be in `components/icons/` directory.
+- **Individual Files**: Each icon is a separate component file (kebab-case, e.g., `moon.tsx`).
+- **Type-Safe**: Every icon component has TypeScript interface.
+- **Flexible**: Icons accept `className` prop for customization.
+
+### Creating New Icons
+
+```typescript
+// components/icons/example.tsx
+interface ExampleIconProps {
+  className?: string
+}
+
+export function ExampleIcon({ className }: ExampleIconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="..." />
+    </svg>
+  )
+}
+```
+
+### Icon Guidelines
+
+- ✅ Place new icons in `components/icons/`.
+- ✅ Use `className` prop for styling flexibility.
+- ✅ Use `currentColor` for theme compatibility.
+- ❌ Do not inline SVGs in components unless single-use.
+- ❌ Do not hardcode sizes or colors in icon components.
+
+### Icon with Link
+
+For icons with links, use the `icon-link.tsx` wrapper:
+
+```typescript
+import { IconLink } from './icon-link'
+import { GitHubIcon } from './icons/github'
+
+<IconLink href="..." tooltip="GitHub" icon={<GitHubIcon className="h-4 w-4" />} />
+```
+
 ## Common Tasks
 
 ### Adding New Components
@@ -110,6 +157,12 @@ Key files:
 1.  Create file in `components/` using `kebab-case`.
 2.  Use `'use client'` only if interactivity is needed.
 3.  Export as named export.
+
+### Adding New Icons
+
+1.  Create file in `components/icons/` using `kebab-case`.
+2.  Follow the icon template with `className` prop.
+3.  Use `currentColor` for fill or stroke.
 
 ### Modifying Site Config
 

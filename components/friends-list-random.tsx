@@ -5,6 +5,8 @@ import { FriendCard } from './friend-card'
 
 import type { Friend } from '@/lib/data'
 import { Tooltip } from './tooltip'
+import { RandomIcon } from './icons/random'
+import { SparklesIcon } from './icons/sparkles'
 
 interface FriendsListRandomProps {
   friends: Friend[]
@@ -47,7 +49,7 @@ export function FriendsListRandom({ friends }: FriendsListRandomProps) {
               className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors"
               aria-label="重新随机排序友链"
             >
-              <RandomIcon />
+              <RandomIcon className="h-3.5 w-3.5" />
               换个顺序
             </button>
           </Tooltip>
@@ -57,7 +59,7 @@ export function FriendsListRandom({ friends }: FriendsListRandomProps) {
               className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors"
               aria-label="随机访问一位好友的博客"
             >
-              <SparklesIcon />
+              <SparklesIcon className="h-3.5 w-3.5" />
               试试手气
             </button>
           </Tooltip>
@@ -77,52 +79,5 @@ export function FriendsListRandom({ friends }: FriendsListRandomProps) {
         ))}
       </div>
     </div>
-  )
-}
-
-function RandomIcon() {
-  return (
-    <svg
-      className="h-3.5 w-3.5"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-      />
-    </svg>
-  )
-}
-
-function SparklesIcon() {
-  return (
-    <svg
-      className="h-3.5 w-3.5"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect
-        x="3"
-        y="3"
-        width="18"
-        height="18"
-        rx="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="12" r="1" fill="currentColor" />
-      <circle cx="8" cy="8" r="1" fill="currentColor" />
-      <circle cx="16" cy="8" r="1" fill="currentColor" />
-      <circle cx="8" cy="16" r="1" fill="currentColor" />
-      <circle cx="16" cy="16" r="1" fill="currentColor" />
-    </svg>
   )
 }

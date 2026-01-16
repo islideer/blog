@@ -29,7 +29,7 @@ export function LicenseText({ className, short }: { className?: string; short?: 
 
 function SocialLinks({ className }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-4 ${className}`}>
+    <div className={className}>
       <Link
         href={siteConfig.author.github}
         target="_blank"
@@ -79,20 +79,20 @@ export function Footer() {
         {/* 移动端布局 */}
         <div className="block sm:hidden">
           <div className="flex flex-col gap-4 py-2 text-sm">
+            <p className="text-text-secondary">{siteConfig.tagline}</p>
             <LicenseText short />
-            <div className="flex justify-between gap-2">
-              <CopyrightText />
-            </div>
             <SocialLinks className="flex items-center gap-2 text-left" />
+            <CopyrightText />
           </div>
         </div>
 
         {/* 桌面端布局 */}
         <div className="hidden sm:block">
           <div className="flex flex-row justify-between gap-3 text-xs">
-            <div className="flex flex-col gap-4 text-left">
-              <CopyrightText />
+            <div className="flex flex-col gap-3 text-left">
+              <p className="text-text-secondary">{siteConfig.tagline}</p>
               <LicenseText />
+              <CopyrightText />
             </div>
             <SocialLinks className="flex flex-col items-end gap-3 text-right" />
           </div>
