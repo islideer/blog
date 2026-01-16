@@ -110,22 +110,9 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
                 </div>
               )}
 
-              {/* 稀有度标签 */}
-              {item.rarity && item.rarity !== '普通级' && (
-                <div
-                  className="rounded-full px-2 text-[10px] text-white backdrop-blur-[2px]"
-                  style={{ backgroundColor: `#${item.rarity_color}` }}
-                >
-                  {(item.rarity || '').replace(/(?<!高)级/, '')}
-                </div>
-              )}
-
-              {/* 暗金标签（StatTrak）*/}
+              {/* 暗金击杀 */}
               {item.stattrak_score && (
-                <div
-                  className="rounded-full px-2 text-[10px] text-white backdrop-blur-[2px]"
-                  style={{ backgroundColor: '#CF6A32' }}
-                >
+                <div className="rounded-full bg-black/60 px-2 text-[10px] text-white backdrop-blur-[2px]">
                   {item.stattrak_score.toLocaleString('zh-Hans-CN')} 击杀
                 </div>
               )}
