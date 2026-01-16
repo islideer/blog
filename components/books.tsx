@@ -80,7 +80,7 @@ function BookSection({ id, title, books, badgeColor }: BookSectionProps) {
             href={book.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="border-border group relative aspect-3/4 overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
+            className="group relative aspect-3/4 overflow-hidden rounded-lg"
           >
             {/* 书籍封面 */}
             <Image

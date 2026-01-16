@@ -1,11 +1,12 @@
 import { SteamProfile } from '@/components/steam-profile'
 import { SteamGameLibrary } from '@/components/steam-game-library'
 import { OtherGames } from '@/components/other-games'
+import { CS2Inventory } from '@/components/cs2-inventory'
 import { siteConfig } from '@/lib/config'
 import { pagesData } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
-import { getSteamProfile, getLibraryGames, getRecentlyPlayed } from '@/lib/steam'
+import { getSteamProfile, getLibraryGames, getRecentlyPlayed, getCS2Inventory } from '@/lib/steam'
 
 import type { Metadata } from 'next'
 
@@ -41,10 +42,11 @@ export const metadata: Metadata = {
 
 export default async function GamePage() {
   // 在服务端并行获取所有 Steam 数据
-  const [profile, libraryGames, recentGames] = await Promise.all([
+  const [profile, libraryGames, recentGames, cs2Inventory] = await Promise.all([
     getSteamProfile(),
     getLibraryGames(),
     getRecentlyPlayed(),
+    getCS2Inventory(),
   ])
 
   return (
@@ -53,6 +55,7 @@ export default async function GamePage() {
         items={[
           { id: 'profile', title: 'Steam 个人资料', level: 1 },
           { id: 'library', title: 'Steam 游戏', level: 1 },
+          { id: 'cs2', title: 'CS2 库存', level: 1 },
           { id: 'other', title: '其他游戏', level: 1 },
         ]}
       />
@@ -69,6 +72,9 @@ export default async function GamePage() {
 
         {/* Steam 游戏库 - 纯服务端组件 + 客户端视图切换 */}
         <SteamGameLibrary id="library" libraryGames={libraryGames} recentGames={recentGames} />
+
+        {/* CS2 库存 - 纯服务端组件 */}
+        <CS2Inventory id="cs2" items={cs2Inventory} />
 
         {/* 其他游戏 - 纯 SSR 数据 */}
         <OtherGames id="other" />

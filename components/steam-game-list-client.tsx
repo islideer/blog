@@ -90,7 +90,7 @@ function GamesList({
           href={game.store_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="border-border group relative aspect-166/78 overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
+          className="group relative aspect-166/78 overflow-hidden rounded-lg"
         >
           {/* 游戏封面 */}
           <Image

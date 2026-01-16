@@ -99,6 +99,36 @@ export interface SteamProfile {
   game_info: GameInfo | null
 }
 
+export interface CS2InventoryItem {
+  asset_id: string
+  class_id: string
+  instance_id: string
+  amount: number
+  market_hash_name: string
+  name: string
+  plain_name: string
+  stat_trak: boolean
+  name_color: string
+  description: string
+  type: string
+  rarity: string | null
+  rarity_color: string | null
+  quality: string | null
+  quality_color: string | null
+  exterior: string | null
+  defindex: number | null
+  exterior_wear: number | null
+  stattrak_score: number | null
+  icon_url: string
+  icon_url_large: string | null
+  market_url: string | null
+  tradable: boolean
+  marketable: boolean
+  commodity: boolean
+  market_tradable_restriction: number
+  market_marketable_restriction: number
+}
+
 // 服务端数据获取函数
 
 const STEAM_API_BASE = 'https://api.viki.moe/steam'
@@ -165,6 +195,28 @@ export async function getRecentlyPlayed(): Promise<RecentGame[]> {
     return await response.json()
   } catch (error) {
     console.error('Error fetching recently played games:', error)
+    return []
+  }
+}
+
+/**
+ * 获取 CS2 库存（服务端）
+ * 用于 SSR 初始数据
+ */
+export async function getCS2Inventory(): Promise<CS2InventoryItem[]> {
+  try {
+    const response = await fetch(`${STEAM_API_BASE}/cs2/inventory`, {
+      next: { revalidate: 3600 }, // 1 小时缓存
+    })
+
+    if (!response.ok) {
+      console.error('Failed to fetch CS2 inventory:', response.statusText)
+      return []
+    }
+
+    return await response.json()
+  } catch (error) {
+    console.error('Error fetching CS2 inventory:', error)
     return []
   }
 }
