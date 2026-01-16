@@ -10,22 +10,22 @@
   {
     "id": "102",
     "date": "2026-01-16T09:00:57+08:00",
-    "content": "「王婆卖瓜，自卖自夸」的故事发生在宋朝的都城开封。故事的主角其实是个名叫王坡的男人，只因做事说话絮叨，才得了 “王婆” 这个外号。他在集市上大声吆喝、切瓜让人品尝的，是从西域传来的哈密瓜，而不是常被误解的西瓜。后来连宋神宗也尝了他的瓜，并笑称 “王婆卖瓜，自卖自夸”，这句话便流传开来，成了比喻自我宣传的成语。\n\n~~原来卖瓜的并非婆婆，卖的也不是西瓜。💦~~"
+    "content": "「王婆卖瓜，自卖自夸」的故事发生在宋朝的都城开封。故事的主角其实是个名叫王坡的男人，只因做事说话絮叨，才得了「王婆」这个外号。他在集市上大声吆喝、切瓜让人品尝的，是从西域传来的哈密瓜，而不是常被误解的西瓜。后来连宋神宗也尝了他的瓜，并笑称「王婆卖瓜，自卖自夸」，这句话便流传开来，成了比喻自我宣传的成语。\n\n~~原来卖瓜的并非婆婆，卖的也不是西瓜。~~"
   },
   {
     "id": "101",
     "date": "2026-01-15T17:59:34+08:00",
-    "content": "当使用浏览器不支持的 HTML 标签时，该标签会被回退到 [HTMLUnknownElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLUnknownElement)，该元素继承自 [HTMLElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement) 接口，但未实现任何额外的属性或方法。\n\n可以利用这一点，在内部添加不支持的标签内容，以达到一定的兼容性效果。例如：\n\n```html\n<unsupported-tag>\n  <p>This is a paragraph inside an unsupported tag.</p>\n</unsupported-tag>\n```"
+    "content": "当使用浏览器不支持的 HTML 标签时，该标签会被回退到 [HTMLUnknownElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLUnknownElement)，该元素继承自 [HTMLElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement) 接口，但未实现任何额外的属性或方法。\n\n可以利用这一点，在内部添加兼容性的逻辑或者 UI 起到兼容效果。例如：\n\n```html\n<unsupported-tag>\n  <p>Your browser does not support <unsupported-tag>.</p>\n</unsupported-tag>\n```\n\n在不支持 `\\<unsupported-tag\\>` 的浏览器中，用户会看到 `<p>` 元素中的内容，从而提供了一个降级的体验。"
   },
   {
     "id": "100",
     "date": "2026-01-15T17:10:36+08:00",
-    "content": "Joshua Comeau 发布的交互式 SVG 介绍文章 *[A Friendly Introduction to SVG](https://www.joshwcomeau.com/svg/friendly-introduction-to-svg)*，对了解一些 SVG 特性很有帮助。"
+    "content": "Joshua Comeau 发布了一篇 SVG 介绍文章 *[A Friendly Introduction to SVG](https://www.joshwcomeau.com/svg/friendly-introduction-to-svg)*，文章除了基础文字科普，还提供了一些可视化、可交互的 Demo，对了解一些 SVG 特性很有帮助。"
   },
   {
     "id": "99",
     "date": "2026-01-15T01:17:44+08:00",
-    "content": "这家伙怎么死得这么像活人，远处看着探个头出来，吓死老子了 😒",
+    "content": "这家伙怎么死得这么像活人，远处看着探个头出来，给我吓一激灵 😒",
     "images": [
       "https://s2.loli.net/2026/01/15/zpb5THOct2XnYKF.png"
     ]
@@ -51,7 +51,7 @@
   {
     "id": "95",
     "date": "2026-01-11T16:48:58+08:00",
-    "content": "苕（sháo）粉其实原材料是红薯 🍠，也就是用红薯淀粉做成的粉条。“苕” 在这里指的就是红薯，有些地方也称之为 “红苕”。",
+    "content": "「苕（sháo）粉」其实原材料是红薯 🍠，也就是用红薯淀粉做成的粉条。「苕」在这里指的就是红薯，有些地方也称之为「红苕」。",
     "images": [
       "https://s2.loli.net/2026/01/11/irXDwpxKadEGOhc.jpg"
     ]
@@ -88,7 +88,7 @@
   {
     "id": "90",
     "date": "2026-01-08T13:35:17+08:00",
-    "content": "原来黑曼巴蛇 🐍 身体不是黑色的啊？！ 🤔\n\n> 黑曼巴蛇是一种身体修长、体色多为灰褐色的剧毒蛇类，主要分布于非洲撒哈拉以南地区，栖息于灌木丛、草原等开阔干燥地带。“黑曼巴” 这个名字，源于其标志性的黑色口腔，当它张嘴威吓时最为明显，并非因为其身体颜色。它是陆地上速度最快的蛇之一，日间活动，受威胁时会抬起身体前部并张开黑色大口进行威吓。"
+    "content": "原来黑曼巴蛇 🐍 身体不是黑色的啊？！ 🤔\n\n> 黑曼巴蛇是一种身体修长、体色多为灰褐色的剧毒蛇类，主要分布于非洲撒哈拉以南地区，栖息于灌木丛、草原等开阔干燥地带。「黑曼巴」这个名字，源于其标志性的黑色口腔，当它张嘴威吓时最为明显，并非因为其身体颜色。它是陆地上速度最快的蛇之一，日间活动，受威胁时会抬起身体前部并张开黑色大口进行威吓。"
   },
   {
     "id": "89",
@@ -270,7 +270,7 @@
   {
     "id": "64",
     "date": "2025-12-16T18:04:10+08:00",
-    "content": "一只迷路的蚂蚁问另一只蚂蚁：“你都如何回蚁窝？” 被问的蚂蚁：“带着笑或是很沉默？”"
+    "content": "一只迷路的蚂蚁和另一只蚂蚁走在路上。\n\n迷路的蚂蚁：「你都如何回蚁窝？」 \n\n被问的蚂蚁：「带着笑或是很沉默？」"
   },
   {
     "id": "63",
@@ -661,7 +661,7 @@
   {
     "id": "4",
     "date": "2025-11-17T16:48:00+08:00",
-    "content": "完整的 URL 结构中还包含 [Text Fragments](https://developer.mozilla.org/zh-CN/docs/Web/URI/Reference/Fragment/Text_fragments)，用于在 URL 中指定具体文本，浏览器打开即可高亮对应的文本，方便定位分享。基于 Chromium 的浏览器已经在右键菜单内置了复制命令。尝试点击这个 [文本高亮链接](https://blog.viki.moe/thoughts#:~:text=%E8%AE%B0%E5%BD%95%E7%94%9F%E6%B4%BB) 试试看，它会重新打开当前页面，并突出高亮“记录生活” 这四个字。",
+    "content": "完整的 URL 结构中还包含 [Text Fragments](https://developer.mozilla.org/zh-CN/docs/Web/URI/Reference/Fragment/Text_fragments)，用于在 URL 中指定具体文本，浏览器打开即可高亮对应的文本，方便定位分享。基于 Chromium 的浏览器已经在右键菜单内置了复制命令。尝试点击这个 [文本高亮链接](https://blog.viki.moe/thoughts#:~:text=%E8%AE%B0%E5%BD%95%E7%94%9F%E6%B4%BB) 试试看，它会重新打开当前页面，并突出高亮「记录生活」这四个字。",
     "images": [
       "https://s2.loli.net/2025/11/24/msjwN8IrFJxStOq.png",
       "https://s2.loli.net/2025/11/24/6qWQXP7GIUrYZgF.png"
