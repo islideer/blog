@@ -126,11 +126,12 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
             {item.exterior && (
               <div className="absolute top-1 left-1 rounded-full bg-black/70 px-2 text-[10px] text-white backdrop-blur-[2px]">
                 {item.exterior
-                  .replace('久经沙场', '久经')
-                  .replace('崭新出厂', '崭新')
-                  .replace('略有磨损', '略磨')
-                  .replace('战痕累累', '战痕')
-                  .replace('破损不堪', '破损')}
+                  // .replace('久经沙场', '久经')
+                  // .replace('崭新出厂', '崭新')
+                  // .replace('略有磨损', '略磨')
+                  // .replace('战痕累累', '战痕')
+                  // .replace('破损不堪', '破损')
+                }
               </div>
             )}
 
