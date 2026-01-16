@@ -1,0 +1,1087 @@
+[
+  {
+    "category": "tools",
+    "title": "工具 & 服务",
+    "description": "开发工具、在线服务、浏览器插件、API 服务等",
+    "items": [
+      {
+        "name": "Excalidraw",
+        "description": "手绘风格的在线白板工具，适合绘制流程图和架构图",
+        "url": "https://excalidraw.com/",
+        "tags": ["绘图", "白板", "协作"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Carbon",
+        "description": "创建漂亮的代码截图，支持多种主题和语言",
+        "url": "https://carbon.now.sh/",
+        "tags": ["代码", "截图", "美化"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Regex101",
+        "description": "在线正则表达式测试工具，支持实时匹配和详细说明",
+        "url": "https://regex101.com/",
+        "tags": ["正则", "测试", "开发"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "RegExr",
+        "description": "正则工具",
+        "url": "https://regexr.com/",
+        "tags": ["正则", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Regexper",
+        "description": "正则结构解析工具",
+        "url": "https://regexper.com/",
+        "tags": ["正则", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "ghloc",
+        "description": "GitHub 仓库代码行数统计分析工具",
+        "url": "https://ghloc.vercel.app/",
+        "tags": ["开源", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Count LOC",
+        "description": "GitHub 仓库代码行数分析（支持本地上传）",
+        "url": "https://codetabs.com/count-loc/count-loc-online.html",
+        "tags": ["在线", "开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "JSON Generator",
+        "description": "按格式生成随机 JSON 数据",
+        "url": "https://json-generator.com/",
+        "tags": ["JSON", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Linear easing generator",
+        "description": "Linear easing generator",
+        "url": "https://linear-easing-generator.netlify.app/",
+        "tags": ["工具", "动画"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "在线 IT 工具",
+        "description": "在线 IT 工具",
+        "url": "https://it-tools.tech/",
+        "tags": ["在线", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "截图润色工具",
+        "description": "Shots，Create Amazing Mockups",
+        "url": "https://shots.so/",
+        "tags": ["TypeScript", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "AI 免费在线文章摘要工具",
+        "description": "总结并获取要点，重拾阅读乐趣",
+        "url": "https://clearlyreader.com/zh/ai-reader",
+        "tags": ["在线", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "drawDB 工程画图工具",
+        "description": "Online database diagram editor and SQL generator",
+        "url": "https://drawdb.vercel.app/",
+        "tags": ["在线", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "日書",
+        "description": "日文排版工具",
+        "url": "https://miusuncle.github.io/japen/",
+        "tags": ["开源", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "日语单词词汇速记字表",
+        "description": "新东方在线日语词典_日语汉字假名发音查询",
+        "url": "https://www.koolearn.com/japdict",
+        "tags": ["在线", "教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Office Converter",
+        "description": "在线文件格式转换",
+        "url": "https://cn.office-converter.com/",
+        "tags": ["在线", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "CSV 在线转换工具",
+        "description": "CSV 在线转换工具",
+        "url": "https://onlinecsvtools.com/",
+        "tags": ["在线", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "User Agents",
+        "description": "The Latest and Most Common (Updated Weekly)",
+        "url": "https://www.useragents.me/",
+        "tags": ["测试", "TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Hoppscotch",
+        "description": "Open source API development ecosystem",
+        "url": "https://hoppscotch.io/",
+        "tags": ["API", "开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Stable Diffusion AI Generator Online",
+        "description": "Stable Diffusion XL Powered",
+        "url": "https://www.stablediffusionai.ai/",
+        "tags": ["在线", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "UU 在线工具",
+        "description": "便捷实用的工具集合站",
+        "url": "https://uutool.cn/",
+        "tags": ["在线", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "一站式 iframe 生成器",
+        "description": "专业的嵌入内容可视化配置工具",
+        "url": "https://iframegenerator.top/",
+        "tags": ["工具", "可视化"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "visualgo",
+        "description": "数据结构和算法可视化工具",
+        "url": "https://visualgo.net/zh",
+        "tags": ["工具", "可视化"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "freeCodeCamp",
+        "description": "在线学习",
+        "url": "https://learn.freecodecamp.one/",
+        "tags": ["在线", "教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Learn Git Branching",
+        "description": "在线学习 git",
+        "url": "https://learngitbranching.js.org/?locale=zh_CN",
+        "tags": ["在线", "教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "W3Schools Online Web Tutorials",
+        "description": "W3Schools Online Web Tutorials",
+        "url": "https://www.w3schools.com/",
+        "tags": ["在线", "教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Cheatsheet for GNU nano",
+        "description": "Cheatsheet for GNU nano",
+        "url": "https://www.nano-editor.org/dist/latest/cheatsheet.html",
+        "tags": ["测试", "TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "浏览器指纹检测工具",
+        "description": "Browser Scan 提高您的在线隐私安全",
+        "url": "https://www.browserscan.net/",
+        "tags": ["在线", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "清华镜像站",
+        "description": "Tsinghua Open Source Mirror",
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/",
+        "tags": ["开源", "TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "LoliApi",
+        "description": "LoliApi",
+        "url": "https://docs.loliapi.com/",
+        "tags": ["API", "文档"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "NeteaseCloudMusicApi",
+        "description": "NeteaseCloudMusicApi",
+        "url": "https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=neteasecloudmusicapi",
+        "tags": ["API", "开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Unicode To UTF8 Online",
+        "description": "开发者工具箱",
+        "url": "https://devtool.tech/utf8",
+        "tags": ["在线", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "在线生成密码",
+        "description": "创建强大、安全、随机的密码，Password 密码生成器，1Password",
+        "url": "https://1password.com/zh-cn/password-generator/",
+        "tags": ["在线", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "日语学习工具",
+        "description": "日语翻译、分析，语法、子词分析",
+        "url": "https://zh2ja.whoops.space/",
+        "tags": ["工具", "教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "哔哩哔哩 API",
+        "description": "API 收集整理",
+        "url": "https://socialsisteryi.github.io/bilibili-API-collect/",
+        "tags": ["API", "开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Epic Easing 贝塞尔曲线动画",
+        "description": "Epic Easing 贝塞尔曲线动画",
+        "url": "https://epiceasing.com/",
+        "tags": ["动画"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "JSON Web Tokens 解析",
+        "description": "JSON Web Tokens 解析",
+        "url": "https://jwt.io/",
+        "tags": ["JSON"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "JSON to TS type",
+        "description": "类型转换",
+        "url": "https://wulunyi.github.io/typeof-sjsonc-web/build/index.html",
+        "tags": ["JSON", "开源", "TypeScript", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "字体在线工具 Variable Fonts",
+        "description": "字体在线工具 Variable Fonts",
+        "url": "https://v-fonts.com/",
+        "tags": ["在线", "TypeScript", "工具", "字体"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Android Asset Studio",
+        "description": "Launcher icon generator",
+        "url": "https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=image&foreground.space.trim=1&foreground.space.pad=0&foreColor=rgba(255%2C%20255%2C%20255%2C%200)&backColor=rgb(255%2C%20255%2C%20255)&crop=0&backgroundShape=circle&effects=none&name=nano",
+        "tags": ["开源", "TypeScript", "工具", "图标"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "regex101: build, test, and debug regex",
+        "description": "regex101: build, test, and debug regex",
+        "url": "https://regex101.com/",
+        "tags": ["正则", "测试", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Free SVG generators",
+        "description": "color tools & web design tools",
+        "url": "https://fffuel.co/",
+        "tags": ["工具", "设计", "图标"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "CSS Button",
+        "description": "Explore 3000+ Free UI Elements: CSS &amp; Tailwind",
+        "url": "https://uiverse.io/",
+        "tags": ["CSS", "TypeScript", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "React Playground",
+        "description": "React Playground",
+        "url": "https://fewismuch.github.io/react-playground/#eNqNVd1u2zYUfhVOQWEbi37sxmmmJUG7bsB60Q1oL3Yx74ImjyQ2FCmQlGPX8LvvkJJsOXWBQjZAfec7/+dQ+6imQiXObqN8HylaQ5SfoOtIUlW2tPSo2zVgmRGNQ3xDZetBUTfaOPIJKHOkMLomE+PPk5Uai37/++NYGnNdp0wKUJ54pL5rmp6VpHgOokE9Yajp4JPWbso1a2vUTUpwf0jwx992H/h0YlA6mf00SwwoDma6UoTcBwvJZ2cEcx81h0ePIu69peHlPr3Ama1UdLiOkPWiOgPyw8XZk9bCZ4fRk8PlGnX5JszakHPRKuaEVr4g0xnZ+xiZVtaRf5lulbsmFtx7f/qPPByNTzMM2VMNuNYoErLH5Pp88VTNH/8EKTX5RxvJ71N8P8q42BAmqbV/YZYPE0YNnxylKF+3zmFEWr2Xgj097DGuh8djHNNpCCxg4UR+JvPZ4bE7C0v24XS4Tzs7J78pOh460nUDszj4RGAbasOhoK0Mw3HqCFbqRUc8ctaRDhhakfvR6CpZaOXigtZC7nLyQTkwWM+ddVDHrbgm7zagBEJYqQ04wShCRlCJJKpsbMGI4ldvJ36G9ZNAU96erdF+JVSZE6oc0gW1wDterb/G2m6/IZaG7iyjEgItSJ9BlJXLyU2WBVAKBXHVg/NkGUCmpTY5MeV6ulguyfBPyd2bV7PAcLB1cbcDwZNunKjFV5BQirWQwu1ONIt4TPmX1noXWfYqiNaUPZUGe8bj3t3V4sY/pwhiyyrcvRyDxPAIp+bplIjdKVeBFTYnSiufYejp1akNNd3Gz4K7Cr0u7rJmG5QbynkIeWGgDkhNTSlUTjJCW6dPcWOJS4QZLj+Ywf5a811nngvbSIodLiR0pmuhBoevF4M/Dx7rm2Wb6txnF5OkDGKBA4LZnPur5qOZ8pVE28mij/xF8+bHILtVCorHfLPkFmpkDcpnUypUhZ10o/IGV/MxdxidZT86rDXW963Roo/4Ylfn1D+dVBscGDTbbInVUnDiDI58Q3GSOt8dIzaUixZrcdcXMdCEv7HygRLMY1KLpT1PO6/0BkyX/JiLodze3LLC79aYXuBdb6/PX+ONsGItobOiW+crjUuDcfsZGW2mJ/sV6HwMpt/WwAUl08ZAAcZ2wvNx7m/d0bVx3Lurxfz18uZNyPxiSYuQBCHBFzJG7b7M/8U/gwr+/C3XfRnimjbJF6vV6LZ7KTm79XpkuPaC01WvYldRPoSxisInyCOrqHKusXmagq0TW6VB8nZ+lyySbBVh7UcKoy/393U96ag/TuvwP07F1pg=",
+        "tags": ["开源", "TypeScript", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Material Symbols &amp; Icons",
+        "description": "Google Fonts",
+        "url": "https://fonts.google.com/icons",
+        "tags": ["TypeScript", "图标", "字体"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "纽约最大的全景照片",
+        "description": "纽约最大的全景照片",
+        "url": "https://www.earthcam.net/projects/empirestatebuilding/gigapixelpanorama/2021/",
+        "tags": ["API", "TypeScript", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Mastering Markdown · GitHub Guides",
+        "description": "Mastering Markdown · GitHub Guides 开源项目",
+        "url": "https://guides.github.com/features/mastering-markdown/",
+        "tags": ["开源", "教程", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "中文排版指南",
+        "description": "开源项目",
+        "url": "https://github.com/sparanoid/chinese-copywriting-guidelines/blob/master/README.zh-Hans.md",
+        "tags": ["开源", "教程", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Grid 教程",
+        "description": "交互式指南",
+        "url": "https://www.joshwcomeau.com/css/interactive-guide-to-grid/",
+        "tags": ["CSS", "教程", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "IP API",
+        "description": "IP API",
+        "url": "https://ip.guide/",
+        "tags": ["API", "教程", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "家园工作室前端代码规范",
+        "description": "家园工作室前端代码规范",
+        "url": "https://ncuhome.github.io/frontend-guide/",
+        "tags": ["开源", "教程", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Tailwind CSS",
+        "description": "Rapidly build modern websites without ever leaving your HTML.",
+        "url": "https://tailwindcss.com/",
+        "tags": ["CSS", "API", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "antv next",
+        "description": "所有图表，Ant Design Charts",
+        "url": "https://ant-design-charts-next.antgroup.com/examples",
+        "tags": ["TypeScript", "设计", "可视化"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Iconify Icon",
+        "description": "Iconify Icon",
+        "url": "https://icon-sets.iconify.design/",
+        "tags": ["TypeScript", "设计", "图标"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Fontsource",
+        "description": "Fontsource",
+        "url": "https://fontsource.org/",
+        "tags": ["TypeScript", "字体"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Scroll",
+        "description": "Driven Animations",
+        "url": "https://tympanus.net/codrops/2024/01/17/a-practical-introduction-to-scroll-driven-animations-with-css-scroll-and-view/",
+        "tags": ["CSS", "动画"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "favicon.io ico 设计和生成",
+        "description": "favicon.io ico 设计和生成",
+        "url": "https://favicon.io/",
+        "tags": ["设计", "图标"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "APP 启动图生成工具",
+        "description": "APP 启动图生成工具",
+        "url": "https://console.eeui.app/#/tools/launchimage",
+        "tags": ["工具", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Icon Generator",
+        "description": "Icon Kitchen",
+        "url": "https://icon.kitchen/",
+        "tags": ["工具", "图标"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "CSS HD Gradients 渐变色编辑器",
+        "description": "CSS HD Gradients 渐变色编辑器",
+        "url": "https://gradient.style/",
+        "tags": ["CSS", "TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "可视化 CSS 阴影效果",
+        "description": "可视化 CSS 阴影效果",
+        "url": "https://lingdaima.com/shadow/",
+        "tags": ["CSS", "可视化"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Color Generator – Kigen",
+        "description": "Color Generator – Kigen",
+        "url": "https://kigen.design/color",
+        "tags": ["工具", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "lingojam",
+        "description": "不常见字体生成工具",
+        "url": "https://lingojam.com/FancyTextGenerator",
+        "tags": ["工具", "字体"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "B 端设计",
+        "description": "数字像素，可视化设计、开发、互动综合服务平台",
+        "url": "https://www.shuzixs.com/#/home",
+        "tags": ["设计", "可视化"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "在 Go 中构建协作文本编辑器",
+        "description": "，，Building a collaborative text editor in Go，解决实时协作编辑产品的冲突问题",
+        "url": "https://www.aadhav.me/posts/collaborative-editor",
+        "tags": ["TypeScript", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "喵闪字库",
+        "description": "提供中文字体的在线预览和免费下载",
+        "url": "https://www.miao3.cn/",
+        "tags": ["在线", "字体"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Wakamai Fondue",
+        "description": "The tool that answers the question “what can my font do?”",
+        "url": "https://wakamaifondue.com/beta/",
+        "tags": ["工具", "字体"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "TS 设计模式",
+        "description": "TS 设计模式",
+        "url": "https://refactoringguru.cn/design-patterns/typescript",
+        "tags": ["TypeScript", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Programming Guides",
+        "description": "Programming Guides",
+        "url": "https://roadmap.sh/guides",
+        "tags": ["教程", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "浏览器的工作原理：现代网络浏览器幕后揭秘",
+        "description": "HTML5 Rocks",
+        "url": "https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/#CSS_parsing",
+        "tags": ["CSS", "教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "中文文案排版指北（简体中文版）",
+        "description": "码志",
+        "url": "https://mazhuang.org/wiki/chinese-copywriting-guidelines/#%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E4%BD%BF%E7%94%A8%E7%9B%B4%E8%A7%92%E5%BC%95%E5%8F%B7",
+        "tags": ["教程", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "介绍 CSS 新的选择器",
+        "description": "介绍 CSS 新的选择器",
+        "url": "https://cloudfour.com/thinks/surprising-facts-about-new-css-selectors/",
+        "tags": ["CSS", "TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "SVG Tutorial",
+        "description": "Learn how to code images in HTML with SVG",
+        "url": "https://svg-tutorial.com/",
+        "tags": ["教程", "图标"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "React 服务器组件中的 CSS",
+        "description": "，，CSS in React Server Components",
+        "url": "https://www.joshwcomeau.com/react/css-in-rsc/",
+        "tags": ["CSS", "TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "CSS Length Units",
+        "description": "CSS，Tricks，CSS，Tricks",
+        "url": "https://css-tricks.com/css-length-units/",
+        "tags": ["CSS", "TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Mac：终极配置教程",
+        "description": "白上賞一",
+        "url": "https://blog.syouiti.com/Mac%EF%BC%9A%E7%BB%88%E6%9E%81%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/",
+        "tags": ["教程", "设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "MingCute Icon",
+        "description": "Carefully Designed Icon Library",
+        "url": "https://www.mingcute.com/",
+        "tags": ["设计", "图标"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "WebPageTest",
+        "description": "网页性能检测工具",
+        "url": "https://www.webpagetest.org/",
+        "tags": ["测试", "性能", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "InternetSpeed.my: 网速测试",
+        "description": "InternetSpeed.my: 网速测试",
+        "url": "https://www.internetspeed.my/",
+        "tags": ["测试", "TypeScript", "性能"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "网站测速工具",
+        "description": "站长工具",
+        "url": "https://tool.chinaz.com/sitespeed",
+        "tags": ["性能", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Internet Speed Test",
+        "description": "Fast.com",
+        "url": "https://fast.com/",
+        "tags": ["测试", "性能"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Why is the Speed of Light So Fast?",
+        "description": "Why is the Speed of Light So Fast?",
+        "url": "https://profmattstrassler.com/2024/10/01/why-is-the-speed-of-light-so-fast-part-1/",
+        "tags": ["TypeScript", "性能"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Speedtest by Ookla",
+        "description": "The Global Broadband Speed Test",
+        "url": "https://www.speedtest.net/",
+        "tags": ["测试", "性能"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "主页",
+        "description": "Speedrun",
+        "url": "https://www.speedrun.com/zh-CN",
+        "tags": ["性能"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "使用 useDeferredValue 进行 Snappy UI 优化",
+        "description": "，，Snappy UI Optimization with useDeferredValue",
+        "url": "https://www.joshwcomeau.com/react/use-deferred-value/",
+        "tags": ["设计"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Hemingway Editor",
+        "description": "海明威编辑器 优化文章句式、结构等",
+        "url": "https://hemingwayapp.com/",
+        "tags": [],
+        "addedDate": "2026-01-16"
+      }
+    ]
+  },
+  {
+    "category": "resources",
+    "title": "学习 & 资源",
+    "description": "教程、文档、博客文章、学习资料等",
+    "items": [
+      {
+        "name": "web.dev",
+        "description": "Google 出品的 Web 开发学习平台，包含最佳实践和教程",
+        "url": "https://web.dev/",
+        "tags": ["教程", "Web", "最佳实践"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "JavaScript.info",
+        "description": "现代 JavaScript 教程，从基础到高级的完整学习路径",
+        "url": "https://javascript.info/",
+        "tags": ["JavaScript", "教程", "学习"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "CSS-Tricks",
+        "description": "CSS 技巧和教程的宝库，前端开发者必读",
+        "url": "https://css-tricks.com/",
+        "tags": ["CSS", "技巧", "教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "清华大学计算机系课程攻略",
+        "description": "清华大学计算机系课程攻略 官方文档",
+        "url": "https://rekcarc-tsc-uht.readthedocs.io/en/latest/index.html",
+        "tags": ["测试", "TypeScript", "文档"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "测测你的单词词汇量",
+        "description": "测测你的单词词汇量",
+        "url": "https://preply.com/en/learn/english/test-your-vocab",
+        "tags": ["测试", "教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "W3C 的中文排版需求文档",
+        "description": "W3C 的中文排版需求文档",
+        "url": "https://www.w3.org/TR/clreq/#composition_of_chinese_and_western_mixed_text",
+        "tags": ["文档"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Learn Morse Code",
+        "description": "perry.qa，电报机",
+        "url": "https://www.perry.qa/morse",
+        "tags": ["教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Flex 布局教程：语法篇",
+        "description": "阮一峰的网络日志",
+        "url": "https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html",
+        "tags": ["教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Shell Scripting Tutorial",
+        "description": "Shell Scripting Tutorial",
+        "url": "https://www.shellscript.sh/",
+        "tags": ["教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Learn X in Y minutes",
+        "description": "Learn X in Y minutes",
+        "url": "https://learnxinyminutes.com/",
+        "tags": ["教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "猴子都能懂的 Git 入门",
+        "description": "贝格乐（Backlog）",
+        "url": "https://backlog.com/git-tutorial/cn/",
+        "tags": ["教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Termux 高级终端安装使用配置教程",
+        "description": "国光",
+        "url": "https://www.sqlsec.com/2018/05/termux.html",
+        "tags": ["教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "6 Techniques I Use to Create a Great UX for Shell Scripts",
+        "description": "6 Techniques I Use to Create a Great UX for Shell Scripts",
+        "url": "https://nochlin.com/blog/6-techniques-i-use-to-create-a-great-user-experience-for-shell-scripts",
+        "tags": ["TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "AsPoem",
+        "description": "现代化诗词学习网站",
+        "url": "https://aspoem.com/zh-Hans",
+        "tags": ["教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "网道",
+        "description": "互联网文档计划",
+        "url": "https://wangdoc.com/",
+        "tags": ["文档"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Are The Types Wrong?",
+        "description": "Tool for analyzing TypeScript types of npm packages",
+        "url": "https://arethetypeswrong.github.io/?p=keli%401.5.0",
+        "tags": ["开源", "npm", "TypeScript", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "TS Docs",
+        "description": "Reference docs for npm packages",
+        "url": "https://tsdocs.dev/",
+        "tags": ["npm", "TypeScript", "文档"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "JSON to TypeScript",
+        "description": "JSON to TypeScript",
+        "url": "https://transform.tools/json-to-typescript",
+        "tags": ["JSON", "TypeScript", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Phobia",
+        "description": "npm 包大小分析工具",
+        "url": "https://packagephobia.com/",
+        "tags": ["npm", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "pkg",
+        "description": "size，npm 包真实安装大小分析工具",
+        "url": "https://pkg-size.dev/",
+        "tags": ["npm", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "view npm pakcage online",
+        "description": "view npm pakcage online npm 包工具",
+        "url": "https://npmview.vercel.app/",
+        "tags": ["在线", "npm"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "npm graphy Visualization of npm dependencies",
+        "description": "npm graphy Visualization of npm dependencies npm 包工具",
+        "url": "http://npm.anvaka.com/#/",
+        "tags": ["npm", "可视化"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "NPM Chart",
+        "description": "NPM Chart npm 包工具",
+        "url": "https://npm.chart.dev/",
+        "tags": ["npm", "可视化"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "5分钟上手 TypeScript",
+        "description": "，JavaScript 的超集",
+        "url": "https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html",
+        "tags": ["TypeScript", "文档"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Visualization of npm dependencies",
+        "description": "Visualization of npm dependencies npm 包工具",
+        "url": "https://npm.anvaka.com/#/",
+        "tags": ["npm", "可视化"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "TypeScript Playgroud",
+        "description": "TypeScript Playgroud",
+        "url": "https://www.typescriptlang.org/zh/play",
+        "tags": ["TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "npm name checker",
+        "description": "检查 npm 包名可用性",
+        "url": "https://remarkablemark.org/npm-package-name-checker/",
+        "tags": ["npm"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "npm trends",
+        "description": "npm 包趋势分析和对比",
+        "url": "https://npmtrends.com/",
+        "tags": ["npm"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "TypeScript AST Viewer",
+        "description": "TypeScript AST Viewer",
+        "url": "https://ts-ast-viewer.com/",
+        "tags": ["TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Package Downloads",
+        "description": "npm 包下载分布",
+        "url": "https://majors.nullvoxpopuli.com/q?minors=on&old=on&packages=dayjs",
+        "tags": ["npm"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "TS Diagram",
+        "description": "Diagrams as code with TypeScript",
+        "url": "https://tsdiagram.com/",
+        "tags": ["TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "npm size",
+        "description": "Bundlephobia，Size of npm dependencies",
+        "url": "https://bundlephobia.com/",
+        "tags": ["npm"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "TypeScript UML Playground",
+        "description": "TypeScript UML Playground",
+        "url": "https://tsuml-demo.firebaseapp.com/",
+        "tags": ["TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "npm",
+        "description": "stat: download statistics for NPM packages",
+        "url": "https://npm-stat.com/",
+        "tags": ["npm"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "npm compare NPMCompare.com",
+        "description": "Search and Compare npm packages",
+        "url": "https://npmcompare.com/",
+        "tags": ["npm"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Npm Rank: Npm packages downloads ranking",
+        "description": "Npm Rank: Npm packages downloads ranking npm 包工具",
+        "url": "https://www.npmrank.net/",
+        "tags": ["npm"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Flappy Bird Implemented in Typescript types",
+        "description": "rust + zig + TS",
+        "url": "https://zackoverflow.dev/writing/flappy-bird-in-type-level-typescript",
+        "tags": ["TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "JS Comparison Table",
+        "description": "JS 相等性表格",
+        "url": "https://dorey.github.io/JavaScript-Equality-Table/",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "现代 JavaScript 教程",
+        "description": "最实用现代的 JavaScript 教程",
+        "url": "https://zh.javascript.info/",
+        "tags": ["教程"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Node Binary 镜像",
+        "description": "npmmirror",
+        "url": "https://registry.npmmirror.com/binary.html?path=node/",
+        "tags": ["npm"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Awesome React Native components",
+        "description": "Awesome React Native components",
+        "url": "https://www.awesome-react-native.com/",
+        "tags": ["TypeScript"],
+        "addedDate": "2026-01-16"
+      }
+    ]
+  },
+  {
+    "category": "discovery",
+    "title": "发现 & 灵感",
+    "description": "开源项目、设计灵感、有趣网站等",
+    "items": [
+      {
+        "name": "Awwwards",
+        "description": "全球顶尖的网页设计作品展示平台，灵感来源",
+        "url": "https://www.awwwards.com/",
+        "tags": ["设计", "灵感", "作品集"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "GitHub Trending",
+        "description": "GitHub 上当前最热门的开源项目",
+        "url": "https://github.com/trending",
+        "tags": ["GitHub", "开源", "趋势"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Product Hunt",
+        "description": "发现最新最酷的产品和工具",
+        "url": "https://www.producthunt.com/",
+        "tags": ["产品", "发现", "工具"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "GitHub hosts 配置",
+        "description": "GitHub hosts 配置",
+        "url": "https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts",
+        "tags": ["开源", "TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "ESM",
+        "description": "CJS output interop test，interop，test",
+        "url": "https://sokra.github.io/interop-test/",
+        "tags": ["测试", "开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Gitstar Ranking",
+        "description": "Top GitHub users and repositories",
+        "url": "https://gitstar-ranking.com/",
+        "tags": ["开源", "TypeScript"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Excalidraw 中文手写",
+        "description": "anhoder",
+        "url": "https://anhoder.github.io/media/excalidraw/",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "各种网站收藏列表",
+        "description": "各种网站收藏列表 开源项目",
+        "url": "https://gist.github.com/Moeyua/5265cc7b43de8ddf2ea7e7808c771ef2#file-collection-md",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Welcome to Comprehensive Rust 🦀",
+        "description": "Comprehensive Rust 🦀",
+        "url": "https://google.github.io/comprehensive-rust/index.html",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "GitHub Trends",
+        "description": "GitHub Trends",
+        "url": "https://www.githubtrends.io/",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "ECMAScript 6 compatibility table",
+        "description": "ECMAScript 6 compatibility table",
+        "url": "https://compat-table.github.io/compat-table/es6/",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Bubble",
+        "description": "GitHub readme 小组件合集",
+        "url": "https://bubble-awesome-profile.vercel.app/",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Go by Example 中文版",
+        "description": "Go by Example 中文版",
+        "url": "https://gobyexample-cn.github.io/",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "开源矢量插画",
+        "description": "开源矢量插画",
+        "url": "https://undraw.co/illustrations",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "WebAssembly Explorer",
+        "description": "WebAssembly Explorer",
+        "url": "https://mbebenita.github.io/WasmExplorer/",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "GitHub Cards",
+        "description": "Showcase Your GitHub Contributions in 2024 into Stunning Visual Cards",
+        "url": "https://github.cards/",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "NapCatQQ",
+        "description": "现代化的基于 NTQQ 的 Bot 协议端实现",
+        "url": "https://napneko.github.io/",
+        "tags": ["开源"],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Telegram Animated Emoji List（电报动态大表情合集）",
+        "description": "庭说",
+        "url": "https://tingtalk.me/telegram-animated-emoji/",
+        "tags": [],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "界面灵感",
+        "description": "界面灵感",
+        "url": "https://uxchi.notion.site/881b4c0179a74935a3f607ad3521cdb5",
+        "tags": [],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "桸's Character Showcase",
+        "description": "Enka.Network",
+        "url": "https://enka.network/u/226672853",
+        "tags": [],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "awesome",
+        "description": "selfhosted",
+        "url": "https://awesome-selfhosted.net/",
+        "tags": [],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "HTML DOM",
+        "description": "Phuoc Nguyen",
+        "url": "https://phuoc.ng/collection/html-dom/",
+        "tags": [],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Awesome Wallpapers",
+        "description": "Awesome Wallpapers",
+        "url": "https://wallhaven.cc/",
+        "tags": [],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "Little Big World",
+        "description": "最大的世界各地微时摄影合集",
+        "url": "https://www.littlebigworld.de/episodes/",
+        "tags": [],
+        "addedDate": "2026-01-16"
+      },
+      {
+        "name": "CallToInspiration",
+        "description": "Small details for very exacting ideas!",
+        "url": "https://calltoinspiration.com/",
+        "tags": [],
+        "addedDate": "2026-01-16"
+      }
+    ]
+  }
+]

@@ -4,6 +4,7 @@ import thoughtsData from '@/data/thoughts.json'
 import timelineData from '@/data/timeline.json'
 import friendsData from '@/data/friends.json'
 import otherGamesData from '@/data/other-games.json'
+import collectionData from '@/data/collection.json'
 import { isDev } from './env'
 import { siteConfig } from './config'
 
@@ -85,6 +86,11 @@ export const pagesData = {
     description: `记录 ${siteConfig.author.name} 在互联网上的好朋友们，相互学习、共同进步`,
     slug: '/friends',
   },
+  collection: {
+    title: '储物箱',
+    description: `${siteConfig.author.name} 的储物箱，记录各种有用的工具、资源和灵感，持续整理中。如果你使用桌面端浏览本页面，可以按下 Ctrl + F 搜索查找相关标签、内容，比如 #npm`,
+    slug: '/collection',
+  },
 }
 
 export type PageData = typeof pagesData
@@ -155,6 +161,24 @@ export interface OtherGame {
   url?: string
 }
 
+// --- Collection Types ---
+export interface CollectionItem {
+  name: string
+  description: string
+  url: string
+  tags: string[]
+  addedDate?: string
+}
+
+export interface CollectionCategory {
+  category: string
+  title: string
+  description: string
+  items: CollectionItem[]
+}
+
+export type CollectionData = CollectionCategory[]
+
 // --- Library Types ---
 export interface Book {
   id: string
@@ -217,3 +241,4 @@ export const thoughts: Thought[] = thoughtsData
 export const timeline: TimelineItem[] = timelineData
 export const friends: Friend[] = friendsData.length === 0 && isDev ? defaultFriends : friendsData
 export const otherGames: OtherGame[] = otherGamesData
+export const collection: CollectionData = collectionData as CollectionData
