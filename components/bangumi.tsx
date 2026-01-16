@@ -90,7 +90,7 @@ export function BangumiSection({ id, title, items }: BangumiSectionProps) {
             <div className="absolute top-2 left-2 flex gap-2">
               {bangumi.badge_info?.text && (
                 <div
-                  className="rounded-sm border border-white/20 px-1 py-0.5 text-xs font-medium text-white backdrop-blur-[2px]"
+                  className="rounded-sm px-1 py-0.5 text-xs font-medium text-white"
                   style={{ backgroundColor: `${bangumi.badge_info.bg_color}` }}
                 >
                   {bangumi.badge_info.text}
@@ -101,7 +101,7 @@ export function BangumiSection({ id, title, items }: BangumiSectionProps) {
             <div className="absolute top-2 right-2 flex gap-2">
               {/* {bangumi.badge_info?.text && (
                 <div
-                  className="rounded-sm border border-white/20 px-1 py-0.5 text-xs font-medium text-white backdrop-blur-[2px]"
+                  className="rounded-sm px-1 py-0.5 text-xs font-medium text-white"
                   style={{ backgroundColor: `${bangumi.badge_info.bg_color}` }}
                 >
                   {bangumi.badge_info.text}
