@@ -9,7 +9,7 @@ tags:
   - '博客建设'
 ---
 
-这阵子上班事少，闲的蛋疼，就一直在鼓捣自己的博客，为了尽可能 ~~加一些花里胡哨的东西~~ 充实博客内容，顺手写了很多相关的工具和资源，觉得其中一些还挺实用的，就整理出来分享给大家，方便有需要的朋友使用，敏感肌也能用哦～
+这阵子上班事少，闲的蛋疼，就一直在鼓捣自己的博客，为了尽可能 ~~加一些花里胡哨的东西~~ 充实博客内容，顺手写了些 API，觉得其中一些还挺实用的，就整理出来，方便有需要的朋友使用，敏感肌也能用哦～
 
 ## Steam 相关 API
 
@@ -19,10 +19,10 @@ tags:
 >
 > - 要求个人资料「**完全公开**」，包括库存、游戏等，否则部分字段可能为 0 或空。
 > - 内置了请求限流，十分钟内不得超过 200 次请求，避免滥用。
-> - ID 参数支持任意 Steam ID 格式，包括 SteamID64、SteamID32、SteamID 和 Vanity ID。
+> - ID 参数支持任意 Steam ID，包括 SteamID64、SteamID32、老 ID 和 Vanity ID。
 > - 支持使用 query 参数 key 来指定自己的 Steam API Key，获取自己信息更全面。
 > - 传入的 Steam API Key 仅作临时调用使用，服务端不做任何存储。
-> - 你可以在 [Steam 开发者页面](https://steamcommunity.com/dev/apikey) 免费申请自己的 API Key。
+> - 你可以在 [Steam 开发者页面](https://steamcommunity.com/dev/apikey) 免费申请自己的 Steam API Key。
 
 ### 个人资料（状态、等级、游戏数）
 
@@ -34,7 +34,9 @@ GET https://api.viki.moe/steam/:id
 
 ![steam-profile](https://s2.loli.net/2026/01/15/5yBZfMCOlpkPzje.png)
 
-> 如 CS 职业选手 ropz 的 Steam 资料信息：[https://api.viki.moe/steam/ropzkah](https://api.viki.moe/steam/ropzkah)。
+> 如 CS 职业选手 ropz 的 Steam 资料信息：
+> 
+> [https://api.viki.moe/steam/ropzkah](https://api.viki.moe/steam/ropzkah)。
 
 <details>
   <summary>点击展开示例返回数据</summary>
@@ -96,7 +98,9 @@ GET https://api.viki.moe/steam/:id/recently-played
 
 ![steam-recently-played](https://s2.loli.net/2026/01/15/qMGlTBR7PcIDQax.png)
 
-> 如 ropz 最近在玩：[https://api.viki.moe/steam/ropzkah/recently-played](https://api.viki.moe/steam/ropzkah/recently-played)。
+> 如 ropz 最近在玩的游戏：
+> 
+> [https://api.viki.moe/steam/ropzkah/recently-played](https://api.viki.moe/steam/ropzkah/recently-played)。
 
 <details>
   <summary>点击展开示例返回数据</summary>
@@ -133,7 +137,9 @@ GET https://api.viki.moe/steam/:id/games
 
 ![steam-games](https://s2.loli.net/2026/01/15/UkvfLtzPXouM5bD.png)
 
-> 如 ropz 的游戏库存：[https://api.viki.moe/steam/ropzkah/games](https://api.viki.moe/steam/ropzkah/games)。
+> 如 ropz 的游戏库存：
+> 
+> [https://api.viki.moe/steam/ropzkah/games](https://api.viki.moe/steam/ropzkah/games)。
 
 <details>
   <summary>点击展开示例返回数据（部分省略）</summary>
@@ -209,7 +215,7 @@ GET https://api.viki.moe/douban/:id/movies
 
 ![douban-movies](https://s2.loli.net/2026/01/15/bOpjKCGl92oIF1e.png)
 
-> 如 VikiQAQ 的电影列表：[https://api.viki.moe/douban/vikiqaq/movies](https://api.viki.moe/douban/vikiqaq/movies)。
+> 如我的电影列表：[https://api.viki.moe/douban/vikiqaq/movies](https://api.viki.moe/douban/vikiqaq/movies)。
 
 <details>
   <summary>点击展开示例返回数据（部分省略）</summary>
@@ -217,7 +223,7 @@ GET https://api.viki.moe/douban/:id/movies
 ```json
 {
   // 看过列表
-  "collect":[
+  "collect": [
     {
       "id": "36851291",
       "title": "名侦探柯南：独眼的残像",
@@ -227,7 +233,7 @@ GET https://api.viki.moe/douban/:id/movies
     },
   ],
   // 想看列表
-  "wish":[
+  "wish": [
     {
       "id": "37247394",
       "title": "孤独摇滚！ 第二季",
@@ -313,16 +319,16 @@ GET https://api.viki.moe/douban/:id/books
 
 豆瓣的图片资源无法直接被引用，哪怕新页面打开也无法访问，这主要通过限制请求头 Referrer 必须为豆瓣网站来实现的。
 
-办法总比困难多，我还就偏要引用了。于是，我搞了一个简单的图片代理服务，可以绕过这个限制：
+但是办法总比困难多，我还就偏要引用了。于是，我鼓捣了一下，整了一个简单的图片代理服务，可以绕过这个限制：
 
 ```diff
 - https://img*.doubanio.com/**
 + https://doubanio.viki.moe/**
 ```
 
-原理很简单，代理请求，并且添加上正确的 Referrer 请求头，就能成功获取图片资源了。
+原理很简单，代理原始的图片请求，并添加上正确的 Referrer 请求头，就能成功获取图片资源了。
 
-举例来说，*《肖申克的救赎》* 的电影封面图链接：
+举例来说，*[《肖申克的救赎》](https://movie.douban.com/subject/1292052/)* 的电影封面图链接：
 
 ```sh
 # 原始 URL: 
@@ -333,7 +339,7 @@ https://doubanio.viki.moe/view/photo/s_ratio_poster/public/p480747492.webp
 
 你会发现，无法直接访问原始 URL，而通过代理 URL 则可以正常显示图片，且没有任何引用限制。
 
-芜湖，起飞～
+芜湖，飞飞飞～
 
 ## Bilibili（B 站）相关 API
 
