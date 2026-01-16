@@ -7,6 +7,38 @@ import { useState } from 'react'
 
 import type { DoubanItem, DoubanResponse } from '@/lib/douban'
 
+// 向下箭头图标
+function ChevronDownIcon() {
+  return (
+    <svg
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polyline points="6 9 12 15 18 9" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+// 向上箭头图标
+function ChevronUpIcon() {
+  return (
+    <svg
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polyline points="18 15 12 9 6 15" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 interface BooksProps {
   id?: string
   data: DoubanResponse
@@ -109,9 +141,19 @@ function BookSection({ id, title, books }: BookSectionProps) {
         <div className="flex justify-center pt-2">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary rounded-lg px-4 py-2 text-sm transition-colors"
+            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-colors"
           >
-            {showAll ? '收起' : `展示更多 (${books.length - initialDisplayCount})`}
+            {showAll ? (
+              <>
+                <ChevronUpIcon />
+                收起
+              </>
+            ) : (
+              <>
+                <ChevronDownIcon />
+                展示更多 ({books.length - initialDisplayCount})
+              </>
+            )}
           </button>
         </div>
       )}
