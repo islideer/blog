@@ -67,7 +67,7 @@ export function SteamGameListClient({ libraryGames, recentGames }: SteamGameList
       ) : sortedLibraryGames.length === 0 ? (
         <p className="text-text-secondary text-sm">{siteConfig.author.name} 游戏库里空空的。</p>
       ) : (
-        <GamesList hideDetails games={sortedLibraryGames} />
+        <GamesList games={sortedLibraryGames} />
       )}
     </>
   )
@@ -83,7 +83,7 @@ function GamesList({
   showRecently?: boolean
 }) {
   return (
-    <div className="grid grid-cols-2 gap-2 sm:gap-4 sm:grid-cols-3">
+    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4">
       {games.map((game) => (
         <Link
           key={game.appid}
@@ -104,41 +104,56 @@ function GamesList({
           {/* 渐变遮罩 */}
           <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
-          {/* 游戏信息 */}
-          <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-1 p-3">
-            <h3 className="line-clamp-1 text-sm font-medium text-white">{game.name}</h3>
-
-            <div className="flex items-center gap-x-1 gap-y-0.5 truncate text-xs text-nowrap text-white/80">
-              {/* 平台图标 */}
-              {game.playtime.platforms && game.playtime.platforms.length > 0 && (
-                <div className="mr-0.5 flex items-center gap-0.5">
-                  {game.playtime.platforms.map((platform) => (
-                    <PlatformIcon
-                      key={platform.platform}
-                      className="h-3 w-3 text-white/80"
-                      platform={platform.platform}
-                    />
-                  ))}
-                </div>
-              )}
-
-              {/* 最近时长 */}
-              {game.playtime.recent_desc && showRecently && !hideDetails && (
-                <>
-                  <span className="text-white/70">{game.playtime.recent_desc}</span>
-                  <span className="text-white/50">·</span>
-                </>
-              )}
-
-              {/* 总时长 */}
+          {/* 时长标签 - 右上角 */}
+          {showRecently ? (
+            // 最近游戏：显示最近时长，带圆点前缀
+            game.playtime.recent_desc &&
+            !hideDetails && (
+              <div className="absolute top-1 right-1 flex items-center gap-1 rounded-full border border-white/20 bg-black/70 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]">
+                <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+                <span>{game.playtime.recent_desc}</span>
+                {/* 平台图标 */}
+                {game.playtime.platforms && game.playtime.platforms.length > 0 && (
+                  <>
+                    {game.playtime.platforms.map((platform) => (
+                      <PlatformIcon
+                        key={platform.platform}
+                        className="h-2.5 w-2.5 text-white/60"
+                        platform={platform.platform}
+                      />
+                    ))}
+                  </>
+                )}
+              </div>
+            )
+          ) : (
+            // 游戏库：显示总时长
+            <div className="absolute top-1 right-1 flex items-center gap-1 rounded-full border border-white/20 bg-black/70 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]">
               <span>
                 {game.playtime.total_minutes
                   ? hideDetails
                     ? `曾经玩过`
-                    : `共 ${game.playtime.total_desc}`
-                  : '还没有玩过，库里吃灰呢'}
+                    : `总计 ${game.playtime.total_desc}`
+                  : '仓库吃灰中'}
               </span>
+              {/* 平台图标 */}
+              {game.playtime.platforms && game.playtime.platforms.length > 0 && (
+                <>
+                  {game.playtime.platforms.map((platform) => (
+                    <PlatformIcon
+                      key={platform.platform}
+                      className="h-2 w-2 text-white/60"
+                      platform={platform.platform}
+                    />
+                  ))}
+                </>
+              )}
             </div>
+          )}
+
+          {/* 游戏信息 - 左下角 */}
+          <div className="absolute right-0 bottom-0 left-0 p-3">
+            <h3 className="line-clamp-1 text-sm font-medium text-white">{game.name}</h3>
           </div>
         </Link>
       ))}
