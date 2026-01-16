@@ -139,21 +139,18 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
               )}
             </div>
 
-            {/* 磨损标签 - 左上角 */}
+            {/* PC 端磨损标签 - 左上角 */}
             {item.exterior && (
-              <>
-                <div className="absolute top-1 left-1 block rounded-full bg-black/48 px-2 text-[10px] text-white backdrop-blur-[2px] sm:hidden">
-                  {item.exterior
-                    .replace('久经沙场', '久经')
-                    .replace('崭新出厂', '崭新')
-                    .replace('略有磨损', '略磨')
-                    .replace('战痕累累', '战痕')
-                    .replace('破损不堪', '破损')}
-                </div>
-                <div className="absolute top-1 left-1 hidden rounded-full bg-black/48 px-2 text-[10px] text-white backdrop-blur-[2px] sm:block">
-                  {item.exterior}
-                </div>
-              </>
+              <div className="absolute top-1 left-1 hidden rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px] sm:block">
+                {item.exterior}
+              </div>
+            )}
+
+            {/* 移动端磨损标签 - 左上角 */}
+            {item.exterior_short && (
+              <div className="absolute top-1 left-1 block rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px] sm:hidden">
+                {item.exterior_short}
+              </div>
             )}
 
             {/* 物品信息 - 底部 */}

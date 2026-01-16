@@ -116,6 +116,7 @@ export interface CS2InventoryItem {
   quality: string | null
   quality_color: string | null
   exterior: string | null
+  exterior_short: string | null
   defindex: number | null
   exterior_wear: number | null
   stattrak_score: number | null
