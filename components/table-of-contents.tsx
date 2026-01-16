@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { extractHeadings } from '@/lib/toc'
 import Link from 'next/link'
 
@@ -65,7 +65,7 @@ export function TableOfContents({
  * - PC 端：固定在右侧，默认半透明只显示当前标题，hover 显示全部
  * - 移动端：隐藏（由移动端专用组件处理）
  */
-export function StaticTableOfContents({ items = [], showCount = 12 }: StaticTableOfContentsProps) {
+export function StaticTableOfContents({ items = [], showCount = 5 }: StaticTableOfContentsProps) {
   return (
     <>
       <StaticTableOfContentsPC items={items} showCount={showCount} />
@@ -98,7 +98,6 @@ export interface StaticTableOfContentsProps {
 export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('')
   const [isHovered, setIsHovered] = useState(false)
-  const observerRef = useRef<IntersectionObserver | null>(null)
 
   // 设置初始激活标题
   useEffect(() => {
@@ -108,37 +107,59 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items])
 
-  // Intersection Observer 监听标题可见性
+  // 滚动监听 + 手动检查标题位置（更准确的高亮逻辑）
   useEffect(() => {
     if (items.length === 0) return
 
-    const headingElements = items.map((h) => document.getElementById(h.id)).filter(Boolean)
+    const OFFSET_TOP = 150 // 视口顶部偏移量
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // 找到第一个进入视口的标题
-        const visibleHeadings = entries
-          .filter((entry) => entry.isIntersecting)
-          .toSorted((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+    const updateActiveId = () => {
+      const headingElements = items
+        .map((h) => ({
+          id: h.id,
+          element: document.getElementById(h.id),
+        }))
+        .filter((h) => h.element !== null)
 
-        if (visibleHeadings.length > 0) {
-          setActiveId(visibleHeadings[0].target.id)
+      // 找到第一个位置在偏移量以下的标题（即最接近顶部但还没滚过的标题）
+      let activeHeading = headingElements[0]
+
+      for (const heading of headingElements) {
+        const rect = heading.element!.getBoundingClientRect()
+
+        // 如果标题在偏移量以下，更新 activeHeading
+        if (rect.top <= OFFSET_TOP) {
+          activeHeading = heading
+        } else {
+          // 一旦遇到在偏移量以上的标题，停止查找
+          break
         }
-      },
-      {
-        rootMargin: '-100px 0px -66% 0px', // 当标题接近顶部时触发
-        threshold: 0,
-      },
-    )
+      }
 
-    headingElements.forEach((el) => {
-      if (el) observer.observe(el)
-    })
+      if (activeHeading) {
+        setActiveId(activeHeading.id)
+      }
+    }
 
-    observerRef.current = observer
+    // 初始化时执行一次
+    updateActiveId()
+
+    // 监听滚动事件（使用 throttle 优化性能）
+    let ticking = false
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveId()
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
-      observer.disconnect()
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [items])
 
@@ -184,6 +205,9 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
       top: offsetPosition,
       behavior: 'smooth',
     })
+
+    // 更新 URL hash（不触发跳转）
+    window.history.pushState(null, '', `#${id}`)
   }
 
   const visibleHeadings = getVisibleHeadings()
@@ -223,7 +247,7 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
                     e.preventDefault()
                     scrollToHeading(item.id)
                   }}
-                  className={`block w-full truncate text-left transition-colors duration-200 ${
+                  className={`block w-full truncate text-left ${
                     isActive
                       ? 'text-text-primary font-medium'
                       : isHovered
@@ -257,34 +281,59 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
   const [activeId, setActiveId] = useState<string>('')
   const [isOpen, setIsOpen] = useState(false)
 
-  // 监听标题可见性
+  // 滚动监听 + 手动检查标题位置（更准确的高亮逻辑）
   useEffect(() => {
     if (items.length === 0) return
 
-    const headingElements = items.map((h) => document.getElementById(h.id)).filter(Boolean)
+    const OFFSET_TOP = 150 // 视口顶部偏移量
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleHeadings = entries
-          .filter((entry) => entry.isIntersecting)
-          .toSorted((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+    const updateActiveId = () => {
+      const headingElements = items
+        .map((h) => ({
+          id: h.id,
+          element: document.getElementById(h.id),
+        }))
+        .filter((h) => h.element !== null)
 
-        if (visibleHeadings.length > 0) {
-          setActiveId(visibleHeadings[0].target.id)
+      // 找到第一个位置在偏移量以下的标题（即最接近顶部但还没滚过的标题）
+      let activeHeading = headingElements[0]
+
+      for (const heading of headingElements) {
+        const rect = heading.element!.getBoundingClientRect()
+
+        // 如果标题在偏移量以下，更新 activeHeading
+        if (rect.top <= OFFSET_TOP) {
+          activeHeading = heading
+        } else {
+          // 一旦遇到在偏移量以上的标题，停止查找
+          break
         }
-      },
-      {
-        rootMargin: '-100px 0px -66% 0px',
-        threshold: 0,
-      },
-    )
+      }
 
-    headingElements.forEach((el) => {
-      if (el) observer.observe(el)
-    })
+      if (activeHeading) {
+        setActiveId(activeHeading.id)
+      }
+    }
+
+    // 初始化时执行一次
+    updateActiveId()
+
+    // 监听滚动事件（使用 throttle 优化性能）
+    let ticking = false
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveId()
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
-      observer.disconnect()
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [items])
 
@@ -301,6 +350,9 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
       top: offsetPosition,
       behavior: 'smooth',
     })
+
+    // 更新 URL hash（不触发跳转）
+    window.history.pushState(null, '', `#${id}`)
 
     // 关闭抽屉
     setIsOpen(false)
