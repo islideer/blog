@@ -11,14 +11,36 @@ Viki 的个人博客，基于 Next.js 16 + React 19 + Tailwind CSS v4 构建的�
 
 ## 技术栈
 
-- **Next.js 16** - App Router + 混合渲染
-- **React 19** - Server Components + React Compiler
-- **Tailwind CSS v4** - CSS-first 配置，OKLCH 色彩
-- **TypeScript 5.9+** - 类型安全
-- **unified** - Markdown 处理（remark + rehype + Shiki）
+### 核心框架
+- **Next.js 16.1.1** - App Router + 混合渲染（SSG + ISR）
+- **React 19.3.0** - Server Components + React Compiler
+- **TypeScript 5.9.3** - 完整类型安全
+
+### 样式与主题
+- **Tailwind CSS v4.1.18** - CSS-first 配置，OKLCH 色彩空间
+- **next-themes 0.4.6** - 主题管理（亮色/暗色/系统）
+
+### Markdown 处理（unified 生态）
+- **remark 15.0.1** + **remark-gfm 4.0.1** - Markdown 解析
+- **remark-breaks 4.0.0** - 换行符处理（短内容）
+- **rehype-slug 6.0.0** + **rehype-autolink-headings 7.1.0** - 标题锚点
+- **@shikijs/rehype 3.21.0** - 双主题代码高亮（one-light / one-dark-pro）
+- **rehype-raw 7.0.0** - 原生 HTML 支持
+- **rehype-external-links 3.0.0** - 外部链接处理
+- 自定义插件：`remark-spoiler`（剧透语法）、`rehype-zoom-image`（图片缩放）
+
+### 工具库
+- **gray-matter 4.0.3** - Front Matter 解析
+- **dayjs 1.11.19** - 时间处理（相对时间、中文本地化）
+- **@vercel/og 0.8.6** - 动态 OG 图片生成
+- **feed 5.1.0** - RSS Feed 生成
+- **medium-zoom 1.1.0** - 图片缩放
+- **pangu 7.2.0** - 盘古之白排版
+
+### 开发工具
 - **pnpm 10.25.0** - 包管理器
-- **dayjs** - 时间处理
 - **vitest** - 单元测试
+- **prettier** - 代码格式化（无分号、单引号、尾随逗号）
 
 ## 项目特点
 
@@ -49,6 +71,8 @@ Viki 的个人博客，基于 Next.js 16 + React 19 + Tailwind CSS v4 构建的�
 
 - **组件文件** - `kebab-case`（如 `theme-toggle.tsx`）
 - **导出组件** - `PascalCase`（如 `export function ThemeToggle`）
+- **工具函数** - `camelCase`（如 `calculateReadingTime`、`formatDate`）
+- **常量** - `SCREAMING_SNAKE_CASE`（如 `MAX_CACHE_SIZE`）
 
 ### Prettier 配置
 
@@ -129,6 +153,59 @@ parseMarkdown() // 短内容（碎碎念、Mio 说）：启用换行
 parseArticle() // 博客文章：标题锚点、代码高亮
 ```
 
+### 双处理器设计
+
+**短内容处理器**（碎碎念、Mio 说）：
+- 启用 `remark-breaks` - 单个换行符即换行
+- 剧透语法支持 `||spoiler text||`
+- 代码高亮（Shiki 双主题）
+
+**文章处理器**（博客文章）：
+- 自动生成标题 ID（`rehype-slug`）
+- 标题锚点链接（`rehype-autolink-headings`）
+- 图片缩放标记（`rehype-zoom-image`）
+- 外部链接自动添加 `target="_blank"` 和 `rel`
+
+### Shiki 双主题配置
+
+```typescript
+.use(rehypeShiki, {
+  themes: {
+    light: 'one-light',
+    dark: 'one-dark-pro',
+  },
+  defaultColor: false,           // 不设置默认背景
+  cssVariablePrefix: '--shiki-', // CSS 变量前缀
+})
+```
+
+CSS 自动切换：
+```css
+/* 亮色模式 */
+.prose pre span { color: var(--shiki-light); }
+
+/* 暗色模式 */
+html.dark .prose pre span { color: var(--shiki-dark); }
+```
+
+### LRU 缓存机制
+
+```typescript
+const htmlCache = new Map<string, string>()
+const MAX_CACHE_SIZE = 500  // 最多缓存 500 条
+
+// 自动清理最旧的缓存项
+if (htmlCache.size >= MAX_CACHE_SIZE) {
+  const firstKey = htmlCache.keys().next().value
+  if (firstKey) htmlCache.delete(firstKey)
+}
+```
+
+### 自定义插件
+
+- **remark-spoiler** - 将 `||text||` 转换为 `<span class="spoiler">text</span>`
+- **rehype-zoom-image** - 为图片添加 `data-zoomable` 属性
+
 ### 渲染组件
 
 ```typescript
@@ -157,13 +234,37 @@ export default async function Page() {
 
 ```typescript
 'use client'
-import { useState } from 'react'
+import { useTheme } from 'next-themes'
+import { useSyncExternalStore } from 'react'
+
+// 防止 hydration mismatch 的空订阅
+const emptySubscribe = () => () => {}
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState('light')
-  return <button onClick={() => setTheme('dark')}>切换</button>
+  const { theme, setTheme } = useTheme()
+
+  // 防止 hydration 不匹配
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,   // 客户端返回 true
+    () => false,  // 服务端返回 false
+  )
+
+  if (!mounted) return null
+
+  const handleToggle = () => {
+    // 主题循环：light → dark → system → light
+    const nextTheme = theme === 'light' ? 'dark' : theme === 'dark' ? 'system' : 'light'
+    setTheme(nextTheme)
+  }
+
+  return <button onClick={handleToggle}>{/* ... */}</button>
 }
 ```
+
+**关键技术：**
+- `useSyncExternalStore` - 防止服务端/客户端渲染不一致
+- `next-themes` - 自动管理主题，同步到 localStorage 和 `<html>` 类名
 
 ### 静态路由生成
 
@@ -222,13 +323,13 @@ excerpt: 文章摘要
 
 ```bash
 # 创建文件
-posts/2025/my-new-post.md
+posts/2026/my-new-post.md
 
 # 添加 Front Matter
 ---
 layout: 'post'
 title: 我的新文章
-date: 2025-12-15
+date: 2026-02-15
 excerpt: 简短描述
 ---
 
@@ -332,23 +433,96 @@ export function SocialLink({ href }: { href: string }) {
 
 ## 特殊功能
 
-- **OG 图片** - 每个页面使用 `opengraph-image.tsx` 静态生成社交分享图
-  - 文章页：显示标题、日期、阅读时间、摘要
-  - 首页：显示统计数据（文章数、碎碎念数等）
-  - 使用 `@vercel/og` + 自定义字体（Source Han Sans SC）
-  - 构建时静态生成（`force-static`）
-- **RSS Feed** - `app/rss/route.ts` 动态生成订阅源
+### OG 图片动态生成
+
+每个页面使用 `opengraph-image.tsx` 生成社交分享图：
+
+```typescript
+// app/[slug]/opengraph-image.tsx
+export const size = { width: 1200, height: 630 }
+export const dynamic = 'force-static'  // 构建时预生成
+
+export default async function Image({ params }: Props) {
+  const { slug } = await params
+  const post = await getPostBySlug(slug)
+  const fontData = await readFile('assets/fonts/SourceHanSansSC-Regular.otf')
+
+  return new ImageResponse(
+    <OgImageTemplate title={post.title} />,
+    { ...size, fonts: [{ name: 'Noto Sans SC', data: fontData }] }
+  )
+}
+```
+
+**特点：**
+- 文章页：显示标题、日期、阅读时间、摘要
+- 首页：显示统计数据（文章数、碎碎念数等）
+- 使用 `@vercel/og` + 自定义字体（思源黑体）
+- `force-static` 在构建时预生成，性能最优
+
+### RSS Feed 动态生成
+
+```typescript
+// app/rss/route.ts
+export async function GET() {
+  const posts = await getAllPosts()
+  const feed = new Feed({ /* ... */ })
+
+  posts.slice(0, 20).forEach((post) => {
+    feed.addItem({ /* ... */ })
+  })
+
+  return new Response(feed.rss2(), {
+    headers: {
+      'Content-Type': 'application/xml; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600',  // 1 小时缓存
+    },
+  })
+}
+```
+
+### 智能推荐算法
+
+多维度加权评分系统（`lib/posts.ts`）
+
+**算法特点：**
+- **Jaccard 相似系数** - 标签集合交并比
+- **时间衰减函数** - 指数型衰减（365 天为半衰期）
+- **确定性随机** - 同一 slug 生成的推荐始终一致（有利于缓存）
+
+### 其他功能
+
 - **旧文章提示** - `components/old-post-banner.tsx` 超过 365 天显示横幅
 - **数据驱动** - 大事记、碎碎念、Mio 说数据存储在 `data/` 目录的 JSON 文件
+- **图片缩放** - 基于 `react-medium-image-zoom` 的原生图片缩放
+- **SEO Schema** - JSON-LD 格式的 BlogPosting 和 BreadcrumbList 结构化数据
+- **阅读时间计算** - 混合中英文阅读速度（400 字/分钟）
 
-## 部署
+## 性能优化策略
 
-Vercel 自动部署，连接 GitHub 仓库即可。
+### 渲染策略
 
-## 参考资源
+- **静态生成（SSG）** - 文章页面在构建时预生成
+- **增量静态生成（ISR）** - RSS Feed 使用 1 小时缓存
+- **Server Components** - 大部分组件使用服务端渲染，减少 JavaScript
+- **Client Components** - 仅交互组件使用客户端渲染（主题切换、图片缩放）
 
-- [Next.js 16 文档](https://nextjs.org/docs)
-- [React 19 文档](https://react.dev)
-- [Tailwind CSS v4 文档](https://tailwindcss.com)
-- [unified 文档](https://unifiedjs.com/)
-- [盘古之白](https://github.com/vinta/pangu.js)
+### 缓存机制
+
+- **HTML 缓存** - LRU 缓存最多 500 条 Markdown 处理结果
+- **构建时预生成** - OG 图片在构建时全部生成（`force-static`）
+- **CDN 缓存** - RSS Feed、静态资源使用 CDN 缓存
+
+### 网络优化
+
+```typescript
+// app/layout.tsx - 预连接关键域名
+<link rel="preconnect" href="https://i.loli.net" />
+<link rel="dns-prefetch" href="https://i.loli.net" />
+<link rel="preconnect" href="https://avatar.viki.moe" />
+```
+
+### 图片优化
+
+- **Next.js Image 组件** - 自动响应式图片、懒加载
+- **优先加载** - 关键图片使用 `priority` 属性

@@ -11,14 +11,37 @@ You are an expert AI programming assistant working on a Next.js 16 + React 19 + 
 
 ## Tech Stack
 
-- **Framework**: Next.js 16 (App Router)
-- **Library**: React 19 (Server Components + React Compiler)
-- **Styling**: Tailwind CSS v4 (CSS-first config, OKLCH colors)
-- **Language**: TypeScript 5.9+
-- **Content**: Markdown (`.md` files)
-- **Markdown Processing**: unified ecosystem (remark + rehype + Shiki)
-- **Package Manager**: pnpm 10.22.0+
-- **Utilities**: dayjs (Time manipulation), medium-zoom (Image zoom)
+### Core
+- **Framework**: Next.js 16.1.1 (App Router, SSG + ISR)
+- **Library**: React 19.3.0 (Server Components + React Compiler)
+- **Language**: TypeScript 5.9.3 (Strict mode)
+
+### Styling & Theming
+- **Styling**: Tailwind CSS v4.1.18 (CSS-first config, OKLCH colors)
+- **Theme**: next-themes 0.4.6 (light/dark/system modes)
+
+### Content & Markdown
+- **Format**: Markdown (`.md` files, NOT MDX)
+- **Processing**: unified ecosystem
+  - **remark** 15.0.1 + **remark-gfm** 4.0.1 (Markdown parsing)
+  - **remark-breaks** 4.0.0 (Line break handling)
+  - **rehype-slug** 6.0.0 + **rehype-autolink-headings** 7.1.0 (Heading anchors)
+  - **@shikijs/rehype** 3.21.0 (Dual-theme code highlighting: `one-light` / `one-dark-pro`)
+  - **rehype-external-links** 3.0.0 (External link processing)
+  - Custom plugins: `remark-spoiler` (||text||), `rehype-zoom-image` (Image zoom)
+- **Caching**: LRU cache (max 500 HTML outputs)
+
+### Utilities
+- **Time**: dayjs 1.11.19 (relative time, Chinese localization)
+- **OG Images**: @vercel/og 0.8.6 (Dynamic OG image generation)
+- **RSS**: feed 5.1.0 (RSS 2.0 generation)
+- **Image Zoom**: medium-zoom 1.1.0 / react-medium-image-zoom 5.4.0
+- **Typography**: pangu 7.2.0 (Chinese/English spacing)
+
+### Development
+- **Package Manager**: pnpm 10.25.0
+- **Testing**: Vitest
+- **Formatting**: Prettier (no semi, single quote, trailing comma)
 
 ## Design System
 
@@ -34,16 +57,20 @@ You are an expert AI programming assistant working on a Next.js 16 + React 19 + 
 
 ## Code Style & Conventions
 
-### File Naming
+### Naming Conventions
 
-- **Components**: Must use `kebab-case` (e.g., `theme-toggle.tsx`, `about-intro.tsx`).
-- **Pages**: Follow Next.js App Router conventions (`page.tsx`, `layout.tsx`).
+- **Component Files**: `kebab-case` (e.g., `theme-toggle.tsx`, `about-intro.tsx`)
+- **Exported Components**: `PascalCase` (e.g., `export function ThemeToggle`)
+- **Utility Functions**: `camelCase` (e.g., `calculateReadingTime`, `formatDate`)
+- **Constants**: `SCREAMING_SNAKE_CASE` (e.g., `MAX_CACHE_SIZE`)
+- **Pages**: Follow Next.js conventions (`page.tsx`, `layout.tsx`)
 
 ### TypeScript
 
 - Use strict type checking.
 - Prefer interfaces for object definitions.
 - Avoid `any` type.
+- Use type inference where obvious.
 
 ### Formatting (Prettier)
 
@@ -82,7 +109,22 @@ You are an expert AI programming assistant working on a Next.js 16 + React 19 + 
 
 ## Markdown Rendering
 
-The project uses **unified ecosystem** instead of next-mdx-remote:
+The project uses **unified ecosystem** (NOT MDX or next-mdx-remote):
+
+### Two Processing Pipelines
+
+**Short Content Processor** (for thoughts/mio-says):
+- Enables `remark-breaks` - single newline becomes `<br>`
+- Spoiler syntax support: `||spoiler text||`
+- Dual-theme code highlighting (Shiki)
+
+**Article Processor** (for blog posts):
+- Auto-generates heading IDs (`rehype-slug`)
+- Adds anchor links to headings (`rehype-autolink-headings`)
+- Marks images as zoomable (`rehype-zoom-image`)
+- Adds `target="_blank"` to external links
+
+### Usage
 
 ```typescript
 // For blog articles (with heading anchors)
@@ -94,10 +136,39 @@ import { MarkdownLite } from '@/components/markdown-lite'
 <MarkdownLite content={thought.content} />
 ```
 
-Key files:
+### Shiki Dual-Theme Configuration
 
-- `lib/markdown.ts`: Core parser with `parseMarkdown()` and `parseArticle()`.
-- Plugins: remark-gfm, remark-spoiler (||text||), rehype-shiki, rehype-slug.
+```typescript
+.use(rehypeShiki, {
+  themes: {
+    light: 'one-light',
+    dark: 'one-dark-pro',
+  },
+  defaultColor: false,           // No default background
+  cssVariablePrefix: '--shiki-', // CSS variable prefix
+})
+```
+
+CSS automatically switches based on theme:
+```css
+/* Light mode */
+.prose pre span { color: var(--shiki-light); }
+
+/* Dark mode */
+html.dark .prose pre span { color: var(--shiki-dark); }
+```
+
+### LRU Caching
+
+- Maximum 500 cached HTML outputs in memory
+- Automatically evicts oldest entries when full
+- Significantly improves performance for repeated renders
+
+### Key Files
+
+- `lib/markdown.ts`: Core parsers (`parseMarkdown()`, `parseArticle()`)
+- `lib/remark-spoiler.ts`: Custom spoiler syntax plugin
+- `lib/rehype-zoom-image.ts`: Custom image zoom plugin
 
 ## Data Management
 
@@ -173,9 +244,86 @@ import { GitHubIcon } from './icons/github'
 
 - Use the configured dayjs instance: `import { dayjs } from '@/lib/dayjs'`.
 
+## Performance Optimization
+
+### Rendering Strategy
+
+- **Static Generation (SSG)**: Article pages pre-generated at build time
+- **Incremental Static Regeneration (ISR)**: RSS feed with 1-hour cache
+- **Server Components**: Most components server-rendered (reduces JavaScript)
+- **Client Components**: Only interactive components (theme toggle, image zoom)
+
+### Caching
+
+- **HTML Cache**: LRU cache for 500 Markdown processing results
+- **Build-time Pre-generation**: OG images fully generated at build (`force-static`)
+- **CDN Cache**: RSS feed and static assets
+
+### Network Optimization
+
+```typescript
+// Preconnect to critical domains
+<link rel="preconnect" href="https://i.loli.net" />
+<link rel="dns-prefetch" href="https://i.loli.net" />
+```
+
+### Image Optimization
+
+- Use Next.js `Image` component with `priority` for above-the-fold images
+- Responsive images with `sizes` attribute
+- Lazy loading for below-the-fold images
+
+## Smart Recommendations Algorithm
+
+Multi-dimensional weighted scoring (`lib/posts.ts`):
+
+```typescript
+// 1. Tag Similarity (40%) - Jaccard similarity coefficient
+// 2. Time Freshness (30%) - Decays to 0 over 1 year
+// 3. Time Proximity (20%) - Decays to 0 over 1 year difference
+// 4. Deterministic Random (10%) - Pseudo-random based on slug
+
+const totalScore =
+  tagSimilarity * 0.4 +
+  freshnessScore * 0.3 +
+  proximityScore * 0.2 +
+  randomScore * 0.1
+```
+
+**Key Features:**
+- Jaccard coefficient for tag set comparison
+- Exponential time decay (365-day half-life)
+- Deterministic randomness (same slug = same recommendations)
+
+## Hydration Safety
+
+When using client components with external state (theme, etc.), prevent hydration mismatches:
+
+```typescript
+'use client'
+import { useSyncExternalStore } from 'react'
+
+const emptySubscribe = () => () => {}
+
+export function ClientComponent() {
+  // Returns false on server, true on client
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,   // Client
+    () => false,  // Server
+  )
+
+  if (!mounted) return null  // Avoid hydration mismatch
+
+  return <div>{/* Interactive content */}</div>
+}
+```
+
 ## Copilot Specific Instructions
 
 - **Refactoring**: When refactoring, ensure backward compatibility where possible or update all usages.
 - **Edits**: Use `replace_string_in_file` for precise edits. Avoid `insert_edit_into_file` unless necessary.
 - **Context**: Always check `lib/config.ts` and `data/` before hardcoding values.
 - **Response**: Keep responses concise and focused on the task.
+- **Performance**: Consider caching, SSG, and component boundaries (Server vs Client)
+- **Typography**: Follow Pangu rules for Chinese/English spacing
