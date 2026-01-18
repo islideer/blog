@@ -218,7 +218,7 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
     <>
       {/* PC 端 TOC - 固定在右侧 */}
       <nav
-        className="fixed top-1/2 right-4 z-10 hidden max-h-[70vh] w-60 -translate-y-1/2 overflow-y-auto opacity-48 hover:opacity-100 lg:block"
+        className="fixed top-1/2 right-4 z-10 hidden max-h-[70vh] w-60 -translate-y-1/2 overflow-y-auto opacity-48 hover:opacity-100 xl:block"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         aria-label="文章目录"
@@ -370,7 +370,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
       {/* 浮动按钮 - 仅移动端显示 */}
       <button
         onClick={() => setIsOpen(true)}
-        className="bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-4 bottom-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl lg:hidden"
+        className="bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-4 bottom-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl xl:hidden"
         aria-label="打开文章目录"
       >
         <MenuIcon className="h-6 w-6" />
@@ -379,7 +379,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
       {/* 抽屉背景遮罩 */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm xl:hidden"
           onClick={() => setIsOpen(false)}
           aria-hidden="true"
         />
@@ -387,7 +387,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
 
       {/* 抽屉内容 */}
       <div
-        className={`bg-bg-primary fixed right-0 bottom-0 z-50 h-[60vh] w-full transform rounded-t-2xl border-t border-gray-200 shadow-2xl transition-all! duration-300 ease-in-out lg:hidden dark:border-gray-800 ${
+        className={`bg-bg-primary fixed right-0 bottom-0 z-50 h-[60vh] w-full transform rounded-t-2xl border-t border-gray-200 shadow-2xl transition-all! duration-300 ease-in-out xl:hidden dark:border-gray-800 ${
           isOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
       >
