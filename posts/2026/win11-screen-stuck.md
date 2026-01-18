@@ -12,7 +12,7 @@ tags:
 
 ## 解决方案
 
-先说解决方案，终端执行以下命令并重启即可：
+先说方案，终端执行以下命令并重启电脑即可：
 
 ```ps1
 reg add HKLM\SOFTWARE\Microsoft\Windows\Dwm /v OverlayTestMode /t REG_DWORD /d 5 /f
@@ -20,7 +20,7 @@ reg add HKLM\SOFTWARE\Microsoft\Windows\Dwm /v OverlayTestMode /t REG_DWORD /d 5
 
 如果你不知道终端是什么，你也可以这样：
 
-新建 `mpo_disable.reg` 文件，写入以下内容并保存，双击执行，重启电脑即可。
+新建 `mpo_disable.reg` 文件，写入以下内容并保存，双击执行并重启电脑即可。
 
 ```ini
 Windows Registry Editor Version 5.00
@@ -69,11 +69,17 @@ MPO（Multi-Plane Overlay）是 Windows 的图形合成技术，从 Windows 8.1�
 
 但部分硬件或驱动兼容性不佳时，可能引发异常。具体来说，当使用 AMD 集成显卡或特定驱动（如 NVIDIA Game Ready Driver 461.09 及以上版本）时，Windows 11 可能因 MPO 技术干扰导致上述问题。
 
-## 解决方法
+## 解决方案
 
 这么一分析，问题就清楚了，微软这次大规模重写图形子系统，显然没有充分考虑到所有显卡驱动的兼容性问题，尤其是 MPO 功能与某些驱动之间的冲突。
 
 所以这个问题的临时解决方案，就是文章最开始提到的，通过注册表设置 OverlayTestMode = 5 禁用或调整 MPO 的某些功能，然后重启系统就能恢复正常了。
+
+也就是执行以下命令：
+
+```ps1
+reg add HKLM\SOFTWARE\Microsoft\Windows\Dwm /v OverlayTestMode /t REG_DWORD /d 5 /f
+```
 
 ## 微软和 NVIDIA 的跟进
 
