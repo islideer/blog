@@ -47,7 +47,7 @@ export function FriendCard({ friend }: FriendCardProps) {
         </div>
 
         <p className="text-text-tertiary line-clamp-2 truncate text-sm leading-relaxed text-nowrap">
-          {friend.description || '这位朋友很懒，什么也没留下。'}
+          {friend.description || '这位朋友有点懒，什么也没留下呢~'}
         </p>
       </div>
     </div>
