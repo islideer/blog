@@ -60,13 +60,12 @@ export default async function FriendsPage() {
         <h2 className="text-text-primary text-base font-semibold">交换友链</h2>
         <div className="text-text-secondary space-y-4 text-sm">
           <p>
-            欢迎和我交换友链！本博客支持以下字段，仅
-            <b className="mx-1 font-medium">名称</b>和<b className="mx-1 font-medium">地址</b>
-            必须。作为交换，你可使用我的以下信息，并通过邮件联系我添加你的站点：
-            <code className="font-mono">{siteConfig.author.email}</code>。
+            欢迎和我交换友链！本博客支持展示以下字段，作为交换，你可使用我的以下信息，并通过邮件
+            <code className="mx-1 font-mono">{siteConfig.author.email}</code>
+            联系我添加你的站点。邮件主题：「交换友链：你的网站名称」，邮件内容：至少包含以下站点基础信息，其中仅「名称」和「地址」必须。
           </p>
           <p className="text-text-tertiary text-xs italic">
-            注：虽不强制，但建议你的站点建站半年以上，头像链接稳定，并有一定的原创内容基础和深度，非商业为主。
+            注：虽不强制，但建议你的站点建站半年以上，有一定原创内容基础和深度，非商业化、AI 内容农场。
           </p>
           <div className="space-y-1.5">
             <div>
