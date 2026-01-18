@@ -1,18 +1,18 @@
 ---
-title: 'Win 11 下浏览器等应用部分区域冻结无法滚动的问题及解决方案'
+title: 'Windows 11 下浏览器、VS Code 等应用部分区域内容卡住无法滚动的问题及其解决方案'
 date: 2026-01-18
 excerpt: '沟槽的微软 MPO，你知道我受了多大苦多大委屈吗？'
 tags:
   - 'Windows'
   - 'MPO'
-  - '屏幕卡住'
+  - '屏幕内容卡住'
   - '浏览器'
   - '显卡驱动'
 ---
 
 ## 解决方案
 
-先说解决方案，打开终端执行以下命令并重启电脑即可：
+先说解决方案，终端执行以下命令并重启即可：
 
 ```ps1
 reg add HKLM\SOFTWARE\Microsoft\Windows\Dwm /v OverlayTestMode /t REG_DWORD /d 5 /f
@@ -35,7 +35,7 @@ Windows Registry Editor Version 5.00
 
 最近 [把电脑重装到最新版本 25H2](https://blog.viki.moe/thoughts#74) 后，浏览器（Google、Brave 等）和 VS Code 老是出现页面局部区域卡住、冻结固定在屏幕上的问题，窗口却可以正常滚动，但就是这个卡住区域滑动不刷新，需要过好一会儿，或者手动双击 Win 键切一下才能恢复正常，而且每隔几分钟就会出现。
 
-![tearing-demo](https://s2.loli.net/2026/01/18/OHKktyeJ39E4zbT.gif)
+![stuck-demo](https://s2.loli.net/2026/01/18/OHKktyeJ39E4zbT.gif)
 
 具体来说：
 
@@ -83,7 +83,9 @@ NVIDIA 这边，其实在 2021 年发布了 [相关文章](https://nvidia.custhe
 
 ## 多说一嘴
 
-好笑的是，我在搜相关解决方案和写这篇文章的时候，还没先去修复这个问题，然后边写边发现屏幕又卡住了，参考文章前面那张图。 =_=
+好笑的是，我在搜索相关问题和解决方案，以及写这篇文章的时候，还没先去修复这个问题，然后边写边发现屏幕又卡住了，参考文章最前面的这张图。 =_=
+
+![stuck-demo](https://s2.loli.net/2026/01/18/OHKktyeJ39E4zbT.gif)
 
 ## 参考文章
 
