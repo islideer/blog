@@ -33,7 +33,7 @@ Windows Registry Editor Version 5.00
 
 ## 前言：我显卡要寄了？
 
-最近 [把电脑重装到最新版本 25H2](https://blog.viki.moe/thoughts#74) 后，浏览器（Google、Brave 等）和 VS Code 老是出现页面局部区域卡住、冻结固定在屏幕上的问题，窗口却可以正常滚动，但就是这个卡住区域滑动不刷新，需要过好一会儿，或者手动双击 Win 键切一下才能恢复正常，而且每隔几分钟就会出现。
+最近 [把电脑重装到最新版本 25H2](https://blog.viki.moe/thoughts#74) 后，浏览器（Google Chrome、Brave 等）和 VS Code 老是出现页面局部区域卡住、冻结固定在屏幕上的问题，窗口却可以正常滚动，但就是这个卡住区域滑动不刷新，需要过好一会儿，或者手动双击 Win 键切一下才能恢复正常，而且每隔几分钟就会出现。
 
 ![stuck-demo](https://s2.loli.net/2026/01/18/OHKktyeJ39E4zbT.gif)
 
