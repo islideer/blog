@@ -8,6 +8,7 @@ import { useState } from 'react'
 import type { DoubanItem, DoubanResponse } from '@/lib/douban'
 import { ChevronDownIcon } from './icons/chevron-down'
 import { ChevronUpIcon } from './icons/chevron-up'
+import { useAutoSize } from './hooks/use-auto-size'
 
 interface BooksProps {
   id?: string
@@ -54,7 +55,7 @@ interface BookSectionProps {
 
 function BookSection({ id, title, books }: BookSectionProps) {
   const [showAll, setShowAll] = useState(false)
-  const initialDisplayCount = 4 // 默认显示 4 个（约 1 排）
+  const initialDisplayCount = useAutoSize({ xs: 3, sm: 4 })
   const displayedBooks = showAll ? books : books.slice(0, initialDisplayCount)
   const hasMore = books.length > initialDisplayCount
 
@@ -65,7 +66,7 @@ function BookSection({ id, title, books }: BookSectionProps) {
         <span className="text-text-tertiary text-xs">({books.length})</span>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4">
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4">
         {displayedBooks.map((book) => (
           <Link
             key={book.id}
@@ -85,7 +86,7 @@ function BookSection({ id, title, books }: BookSectionProps) {
 
             {/* 状态角标 */}
             <div
-              className={`absolute top-2 right-2 rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]`}
+              className={`absolute top-1 right-1 rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px] sm:top-2 sm:right-2`}
             >
               {title}
             </div>
@@ -94,11 +95,13 @@ function BookSection({ id, title, books }: BookSectionProps) {
             <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
             {/* 书籍信息 */}
-            <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-1.5 p-3">
-              <h3 className="line-clamp-2 text-sm font-medium text-white">{book.title}</h3>
+            <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-0.5 p-2 sm:gap-1.5">
+              <h3 className="line-clamp-2 text-xs font-medium text-white sm:text-sm">
+                {book.title}
+              </h3>
               {book.date && (
-                <p className="text-xs text-white/80">
-                  {dayjs(book.date).format('YYYY 年 M 月 D 日标记')}
+                <p className="text-[10px] text-white/60 sm:text-xs">
+                  {dayjs(book.date).format('标记于 YYYY-MM-DD')}
                 </p>
               )}
             </div>

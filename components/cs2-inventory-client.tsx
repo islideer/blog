@@ -2,10 +2,12 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState, useMemo, useEffect } from 'react'
-import type { CS2InventoryItem } from '@/lib/steam'
-import { ChevronDownIcon } from './icons/chevron-down'
+import { useState, useMemo } from 'react'
+import { useAutoSize } from './hooks/use-auto-size'
 import { ChevronUpIcon } from './icons/chevron-up'
+import { ChevronDownIcon } from './icons/chevron-down'
+
+import type { CS2InventoryItem } from '@/lib/steam'
 
 interface CS2InventoryClientProps {
   items: CS2InventoryItem[]
@@ -33,24 +35,7 @@ const RARITY_WEIGHT: Record<string, number> = {
  */
 export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
   const [showAll, setShowAll] = useState(false)
-  const [initialDisplayCount, setInitialDisplayCount] = useState(4)
-
-  useEffect(() => {
-    // 根据屏幕宽度调整初始显示数量
-    const updateDisplayCount = () => {
-      // sm: 640px
-      if (window.innerWidth >= 640) {
-        setInitialDisplayCount(4) // 大屏幕显示更多
-      } else {
-        setInitialDisplayCount(3) // 小屏幕显示较少
-      }
-    }
-
-    updateDisplayCount()
-
-    window.addEventListener('resize', updateDisplayCount)
-    return () => window.removeEventListener('resize', updateDisplayCount)
-  }, [])
+  const initialDisplayCount = useAutoSize({ xs: 6, sm: 8 })
 
   // 按名称分组并计数，然后按稀有度排序
   const groupedAndSortedItems = useMemo(() => {
@@ -125,7 +110,7 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
             <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
 
             {/* 右上角标签容器 - 横向 flex 布局 */}
-            <div className="absolute top-1 right-1 flex items-center gap-1">
+            <div className="absolute top-1 right-1 flex items-center gap-1 sm:top-2 sm:right-2">
               {/* 数量标识（仅当数量 > 1 时显示） */}
               {item.count > 1 && (
                 <div className="rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]">
@@ -143,21 +128,23 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
 
             {/* PC 端磨损标签 - 左上角 */}
             {item.exterior && (
-              <div className="absolute top-1 left-1 hidden rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px] sm:block">
+              <div className="absolute top-1 left-1 hidden rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px] sm:top-2 sm:left-2 sm:block">
                 {item.exterior}
               </div>
             )}
 
             {/* 移动端磨损标签 - 左上角 */}
             {item.exterior_short && (
-              <div className="absolute top-1 left-1 block rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px] sm:hidden">
+              <div className="absolute top-1 left-1 block rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px] sm:top-2 sm:left-2 sm:hidden">
                 {item.exterior_short}
               </div>
             )}
 
             {/* 物品信息 - 底部 */}
             <div className="absolute right-0 bottom-0 left-0 p-3">
-              <h3 className="line-clamp-2 text-xs font-medium text-white">{item.plain_name}</h3>
+              <h3 className="line-clamp-1 truncate text-[10px] font-medium text-nowrap break-all whitespace-break-spaces text-white sm:text-xs">
+                {item.plain_name}
+              </h3>
             </div>
           </Link>
         ))}

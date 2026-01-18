@@ -4,10 +4,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import { dayjs } from '@/lib/dayjs'
+import { useAutoSize } from './hooks/use-auto-size'
+import { ChevronUpIcon } from './icons/chevron-up'
+import { ChevronDownIcon } from './icons/chevron-down'
 
 import type { DoubanItem, DoubanResponse } from '@/lib/douban'
-import { ChevronDownIcon } from './icons/chevron-down'
-import { ChevronUpIcon } from './icons/chevron-up'
 
 interface MoviesProps {
   id?: string
@@ -56,7 +57,7 @@ interface MovieSectionProps {
 
 function MovieSection({ id, title, movies }: MovieSectionProps) {
   const [showAll, setShowAll] = useState(false)
-  const initialDisplayCount = 4 // 默认显示 4 个（约 1 排）
+  const initialDisplayCount = useAutoSize({ xs: 3, sm: 4 })
   const displayedMovies = showAll ? movies : movies.slice(0, initialDisplayCount)
   const hasMore = movies.length > initialDisplayCount
 
@@ -67,7 +68,7 @@ function MovieSection({ id, title, movies }: MovieSectionProps) {
         <span className="text-text-tertiary text-xs">({movies.length})</span>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4">
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4">
         {displayedMovies.map((movie) => (
           <Link
             key={movie.id}
@@ -87,7 +88,7 @@ function MovieSection({ id, title, movies }: MovieSectionProps) {
 
             {/* 状态角标 */}
             <div
-              className={`absolute top-2 right-2 rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px]`}
+              className={`absolute top-1 right-1 rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px] sm:top-2 sm:right-2`}
             >
               {title}
             </div>
@@ -96,11 +97,13 @@ function MovieSection({ id, title, movies }: MovieSectionProps) {
             <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
             {/* 影视信息 */}
-            <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-1.5 p-3">
-              <h3 className="line-clamp-2 text-sm font-medium text-white">{movie.title}</h3>
+            <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-1.5 p-2">
+              <h3 className="line-clamp-2 text-xs font-medium text-white sm:text-sm">
+                {movie.title}
+              </h3>
               {movie.date && (
-                <p className="text-xs text-white/80">
-                  {dayjs(movie.date).format('YYYY 年 M 月 D 日标记')}
+                <p className="text-[10px] text-white/60 sm:text-xs">
+                  {dayjs(movie.date).format('标记于 YYYY-MM-DD')}
                 </p>
               )}
             </div>

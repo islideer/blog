@@ -3,9 +3,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import type { BangumiItem } from '@/lib/bangumi'
-import { ChevronDownIcon } from './icons/chevron-down'
+import { useAutoSize } from './hooks/use-auto-size'
 import { ChevronUpIcon } from './icons/chevron-up'
+import { ChevronDownIcon } from './icons/chevron-down'
+
+import type { BangumiItem } from '@/lib/bangumi'
 
 interface BangumiListProps {
   id?: string
@@ -57,7 +59,7 @@ interface BangumiSectionProps {
 
 export function BangumiSection({ id, title, items }: BangumiSectionProps) {
   const [showAll, setShowAll] = useState(false)
-  const initialDisplayCount = 4 // 默认显示 4 个（约 1 排）
+  const initialDisplayCount = useAutoSize({ xs: 3, sm: 4 })
   const displayedBangumi = showAll ? items : items.slice(0, initialDisplayCount)
   const hasMore = items.length > initialDisplayCount
 
@@ -69,7 +71,7 @@ export function BangumiSection({ id, title, items }: BangumiSectionProps) {
         <h3 className="text-text-secondary text-xs font-medium">{title}</h3>
         <span className="text-text-tertiary text-xs">({items.length})</span>
       </div>
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4">
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4">
         {displayedBangumi.map((bangumi) => (
           <Link
             key={bangumi.season_id}
@@ -89,10 +91,10 @@ export function BangumiSection({ id, title, items }: BangumiSectionProps) {
             />
 
             {/* 徽章和状态角标 */}
-            <div className="absolute top-2 left-2 flex gap-2">
+            <div className="absolute top-1 left-1 flex gap-2 sm:top-2 sm:left-2">
               {bangumi.badge_info?.text && (
                 <div
-                  className="rounded-sm px-1 py-0.5 text-xs font-medium text-white"
+                  className="rounded-sm px-1 py-0.5 text-[10px] font-medium text-white sm:text-xs"
                   style={{ backgroundColor: `${bangumi.badge_info.bg_color}` }}
                 >
                   {bangumi.badge_info.text}
@@ -100,7 +102,7 @@ export function BangumiSection({ id, title, items }: BangumiSectionProps) {
               )}
             </div>
 
-            <div className="absolute top-2 right-2 flex gap-2">
+            <div className="absolute top-1 right-1 flex gap-2 sm:top-2 sm:right-2">
               {/* {bangumi.badge_info?.text && (
                 <div
                   className="rounded-sm px-1 py-0.5 text-xs font-medium text-white"
@@ -120,12 +122,14 @@ export function BangumiSection({ id, title, items }: BangumiSectionProps) {
             <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
             {/* 番剧信息 */}
-            <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-1.5 p-3">
-              <h3 className="line-clamp-2 text-sm font-medium text-white">{bangumi.title}</h3>
-              <p className="line-clamp-1 text-xs text-white/70">
+            <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-0.5 p-2 sm:gap-1.5">
+              <h3 className="line-clamp-2 text-xs font-medium text-white sm:text-sm">
+                {bangumi.title}
+              </h3>
+              {/* <p className="line-clamp-1 text-[10px] text-white/70 sm:text-xs">
                 {bangumi.subtitle || bangumi.evaluate || bangumi.summary || '暂无简介'}
-              </p>
-              <div className="flex flex-wrap items-center gap-x-0.5 gap-y-1 text-xs text-white/80">
+              </p> */}
+              <div className="flex flex-wrap items-center gap-x-0.5 gap-y-1 text-[10px] text-white/60 sm:text-xs">
                 {bangumi.areas && bangumi.areas.length > 0 && (
                   <span>
                     {bangumi.areas
@@ -143,7 +147,7 @@ export function BangumiSection({ id, title, items }: BangumiSectionProps) {
                 {bangumi.styles && bangumi.styles.length ? (
                   <>
                     <span>·</span>
-                    {bangumi.styles.slice(0, 2).join('/')}
+                    {bangumi.styles[0]}
                   </>
                 ) : null}
               </div>
