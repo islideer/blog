@@ -1,8 +1,9 @@
-import { siteConfig } from '@/lib/config'
 import { friends } from '@/lib/data'
-import { generateCanonicalUrl } from '@/lib/seo'
 import { pagesData } from '@/lib/data'
+import { siteConfig } from '@/lib/config'
+import { FriendCard } from '@/components/friend-card'
 import { FriendsListRandom } from '@/components/friends-list-random'
+import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
@@ -78,9 +79,7 @@ export default async function FriendsPage() {
             </div>
             <div>
               <span className="text-text-tertiary">描述：</span>
-              <span className="text-text-primary">
-                {siteConfig.tagline}
-              </span>
+              <span className="text-text-primary">{siteConfig.tagline}</span>
             </div>
             <div>
               <span className="text-text-tertiary">头像：</span>
@@ -91,6 +90,18 @@ export default async function FriendsPage() {
               <span className="text-text-primary">{`${siteConfig.url}/rss`}</span>
             </div>
           </div>
+
+          {/* 预览 */}
+          <div className="text-text-tertiary mt-4">站点信息预览：</div>
+          <FriendCard
+            friend={{
+              name: 'Viki 写东西的地方',
+              url: '/',
+              description: '生活需要记录。',
+              avatar: '/avatar.png',
+              rss: siteConfig.links.rss,
+            }}
+          />
         </div>
       </section>
     </div>

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
 import { MarkdownLite } from '@/components/markdown-lite'
@@ -40,8 +41,17 @@ export default async function BlogPage() {
 
       <div className="space-y-6 py-8 sm:space-y-8 sm:py-12">
         {/* Hero Section */}
-        <section className="space-y-2 sm:space-y-4">
-          <h2 className="text-3xl font-bold sm:text-4xl">{siteConfig.home.hero.title}</h2>
+        <section className="space-y-4 sm:space-y-6">
+          <h2 className="flex items-center gap-3 text-3xl font-bold sm:text-4xl">
+            <Image
+              className="inline-block rounded-full align-middle"
+              src="/avatar.png"
+              alt="头像"
+              width={48}
+              height={48}
+            />
+            {siteConfig.home.hero.title}
+          </h2>
           <MarkdownLite
             size="md"
             className="text-text-secondary!"
