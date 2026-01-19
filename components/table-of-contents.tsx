@@ -7,6 +7,197 @@ import { CloseIcon } from './icons/close'
 import { extractHeadings } from '@/lib/toc'
 import { useEffect, useState } from 'react'
 
+/**
+ * 智能高亮 hook - 使用 Intersection Observer + 内容区域计算
+ *
+ * 核心逻辑：
+ * 1. 使用 Intersection Observer 监听标题可见性（性能优于滚动监听）
+ * 2. 计算每个标题的"内容区域"（从当前标题到下一个标题）
+ * 3. 智能判断当前激活标题：
+ *    - 优先：标题在阅读线（视口顶部 20%）附近
+ *    - 次要：标题内容区域在视口中
+ *    - 特殊：接近页面底部时，高亮最后一个标题
+ *
+ * 解决的问题：
+ * - 最后一个标题内容少时也能正确高亮
+ * - 大标题包含多个小标题时智能判断
+ * - 性能优化（避免滚动事件频繁触发）
+ */
+function useActiveHeading(
+  items: StaticTocItem[],
+  setActiveId: (id: string) => void,
+) {
+  useEffect(() => {
+    if (items.length === 0) return
+
+    // 阅读线：视口顶部 20% 的位置（通常用户的阅读焦点在这里）
+    const READING_LINE_RATIO = 0.2
+    // 页面底部阈值：距离底部多少像素时认为已到底部
+    const BOTTOM_THRESHOLD = 100
+
+    const headingElements = items
+      .map((item) => ({
+        id: item.id,
+        element: document.getElementById(item.id),
+      }))
+      .filter((item) => item.element !== null) as Array<{
+      id: string
+      element: HTMLElement
+    }>
+
+    if (headingElements.length === 0) {
+      return
+    }
+
+    // 初始化：设置第一个标题为激活状态
+    setActiveId(headingElements[0].id)
+
+    /**
+     * 计算标题的内容区域
+     * 返回：从当前标题到下一个标题之间的高度
+     */
+    const getHeadingContentHeight = (index: number): number => {
+      const currentElement = headingElements[index].element
+      const nextElement = headingElements[index + 1]?.element
+
+      if (!nextElement) {
+        // 最后一个标题：内容区域到页面底部
+        return document.documentElement.scrollHeight - currentElement.offsetTop
+      }
+
+      // 普通标题：到下一个标题的距离
+      return nextElement.offsetTop - currentElement.offsetTop
+    }
+
+    /**
+     * 判断是否接近页面底部
+     */
+    const isNearPageBottom = (): boolean => {
+      const scrollTop = window.scrollY
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+
+      return scrollTop + windowHeight >= documentHeight - BOTTOM_THRESHOLD
+    }
+
+    /**
+     * 更新激活的标题
+     */
+    const updateActiveHeading = () => {
+      const viewportHeight = window.innerHeight
+      const readingLineY = viewportHeight * READING_LINE_RATIO
+      const scrollTop = window.scrollY
+
+      // 特殊情况 1：接近页面底部 → 高亮最后一个标题
+      if (isNearPageBottom()) {
+        const lastHeading = headingElements[headingElements.length - 1]
+        setActiveId(lastHeading.id)
+        return
+      }
+
+      // 特殊情况 2：页面顶部 → 高亮第一个标题
+      if (scrollTop < headingElements[0].element.offsetTop - readingLineY) {
+        setActiveId(headingElements[0].id)
+        return
+      }
+
+      // 遍历所有标题，找到最合适的激活标题
+      let bestCandidate = headingElements[0]
+      let bestScore = -Infinity
+
+      for (let i = 0; i < headingElements.length; i++) {
+        const { element } = headingElements[i]
+        const rect = element.getBoundingClientRect()
+        const contentHeight = getHeadingContentHeight(i)
+
+        // 计算标题的评分（分数越高越适合高亮）
+        let score = 0
+
+        // 评分维度 1：标题距离阅读线的距离（越近越好）
+        // 在阅读线上方 100px 内得分最高
+        const distanceToReadingLine = Math.abs(rect.top - readingLineY)
+        if (rect.top <= readingLineY && rect.top >= readingLineY - 100) {
+          score += 1000 - distanceToReadingLine
+        } else if (rect.top <= readingLineY) {
+          // 标题在阅读线上方（已经滚过）
+          score += 500 - distanceToReadingLine * 0.5
+        } else {
+          // 标题在阅读线下方（还没到）
+          score += 200 - distanceToReadingLine
+        }
+
+        // 评分维度 2：内容区域在视口中的占比（越多越好）
+        const contentTop = rect.top
+        const contentBottom = rect.top + contentHeight
+        const visibleTop = Math.max(contentTop, 0)
+        const visibleBottom = Math.min(contentBottom, viewportHeight)
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop)
+        const visibleRatio = visibleHeight / contentHeight
+
+        score += visibleRatio * 300
+
+        // 评分维度 3：标题在视口顶部区域（优先显示）
+        if (rect.top >= 0 && rect.top <= readingLineY * 2) {
+          score += 400
+        }
+
+        // 更新最佳候选
+        if (score > bestScore) {
+          bestScore = score
+          bestCandidate = headingElements[i]
+        }
+      }
+
+      setActiveId(bestCandidate.id)
+    }
+
+    // 使用 Intersection Observer 监听标题可见性
+    // 优势：性能好，不需要在滚动时频繁计算
+    const observer = new IntersectionObserver(
+      () => {
+        // 当任何标题进入/离开视口时，更新激活状态
+        updateActiveHeading()
+      },
+      {
+        // rootMargin 扩展视口范围，提前触发回调
+        // 上方扩展 20%，下方扩展 20%
+        rootMargin: '-20% 0px -20% 0px',
+        // 当标题进入/离开视口时触发
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      },
+    )
+
+    // 监听所有标题元素
+    headingElements.forEach(({ element }) => {
+      observer.observe(element)
+    })
+
+    // 监听滚动事件（用于处理边界情况，如页面底部）
+    // 使用 requestAnimationFrame 节流
+    let ticking = false
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveHeading()
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    // 初始化时执行一次
+    updateActiveHeading()
+
+    // 清理函数
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [items, setActiveId])
+}
+
 interface TableOfContentsProps {
   /** 文章容器的选择器，默认为 '.prose' */
   containerSelector?: string
@@ -102,69 +293,8 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
   const [activeId, setActiveId] = useState<string>('')
   const [isHovered, setIsHovered] = useState(false)
 
-  // 设置初始激活标题
-  useEffect(() => {
-    if (items.length > 0 && !activeId) {
-      setActiveId(items[0].id)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [items])
-
-  // 滚动监听 + 手动检查标题位置（更准确的高亮逻辑）
-  useEffect(() => {
-    if (items.length === 0) return
-
-    const OFFSET_TOP = 150 // 视口顶部偏移量
-
-    const updateActiveId = () => {
-      const headingElements = items
-        .map((h) => ({
-          id: h.id,
-          element: document.getElementById(h.id),
-        }))
-        .filter((h) => h.element !== null)
-
-      // 找到第一个位置在偏移量以下的标题（即最接近顶部但还没滚过的标题）
-      let activeHeading = headingElements[0]
-
-      for (const heading of headingElements) {
-        const rect = heading.element!.getBoundingClientRect()
-
-        // 如果标题在偏移量以下，更新 activeHeading
-        if (rect.top <= OFFSET_TOP) {
-          activeHeading = heading
-        } else {
-          // 一旦遇到在偏移量以上的标题，停止查找
-          break
-        }
-      }
-
-      if (activeHeading) {
-        setActiveId(activeHeading.id)
-      }
-    }
-
-    // 初始化时执行一次
-    updateActiveId()
-
-    // 监听滚动事件（使用 throttle 优化性能）
-    let ticking = false
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          updateActiveId()
-          ticking = false
-        })
-        ticking = true
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [items])
+  // 使用更科学的高亮逻辑 hook
+  useActiveHeading(items, setActiveId)
 
   // 如果没有标题，不渲染
   if (items.length === 0) {
@@ -285,61 +415,8 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
   const [activeId, setActiveId] = useState<string>('')
   const [isOpen, setIsOpen] = useState(false)
 
-  // 滚动监听 + 手动检查标题位置（更准确的高亮逻辑）
-  useEffect(() => {
-    if (items.length === 0) return
-
-    const OFFSET_TOP = 150 // 视口顶部偏移量
-
-    const updateActiveId = () => {
-      const headingElements = items
-        .map((h) => ({
-          id: h.id,
-          element: document.getElementById(h.id),
-        }))
-        .filter((h) => h.element !== null)
-
-      // 找到第一个位置在偏移量以下的标题（即最接近顶部但还没滚过的标题）
-      let activeHeading = headingElements[0]
-
-      for (const heading of headingElements) {
-        const rect = heading.element!.getBoundingClientRect()
-
-        // 如果标题在偏移量以下，更新 activeHeading
-        if (rect.top <= OFFSET_TOP) {
-          activeHeading = heading
-        } else {
-          // 一旦遇到在偏移量以上的标题，停止查找
-          break
-        }
-      }
-
-      if (activeHeading) {
-        setActiveId(activeHeading.id)
-      }
-    }
-
-    // 初始化时执行一次
-    updateActiveId()
-
-    // 监听滚动事件（使用 throttle 优化性能）
-    let ticking = false
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          updateActiveId()
-          ticking = false
-        })
-        ticking = true
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [items])
+  // 使用更科学的高亮逻辑 hook
+  useActiveHeading(items, setActiveId)
 
   // 点击标题滚动到对应位置
   const scrollToHeading = (id: string) => {
