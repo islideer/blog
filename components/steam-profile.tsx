@@ -19,8 +19,8 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
   // 如果没有数据，显示降级状态
   if (!profile) {
     return (
-      <section className="space-y-4" id={id}>
-        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+      <section className="space-y-4">
+        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
           Steam 个人资料
         </h2>
         <p className="text-text-secondary text-sm">
@@ -31,9 +31,9 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
   }
 
   return (
-    <section className="space-y-4" id={id}>
+    <section className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
           Steam 个人资料
         </h2>
         {/* 独立的客户端组件处理刷新交互 */}

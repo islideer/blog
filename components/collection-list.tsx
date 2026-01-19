@@ -9,10 +9,12 @@ interface CollectionListProps {
 
 export function CollectionList({ category, id }: CollectionListProps) {
   return (
-    <section className="space-y-2" id={id}>
+    <section className="space-y-2">
       {/* Section Header */}
       <div>
-        <h2 className="text-base font-bold">{category.title}</h2>
+        <h2 className="text-base font-bold" id={id}>
+          {category.title}
+        </h2>
         <p className="text-text-secondary text-[11px]">{category.description}</p>
       </div>
 

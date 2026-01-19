@@ -18,8 +18,10 @@ const categoryNames: Record<keyof ProjectsData, string> = {
 
 export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourceProps) {
   return (
-    <section className="space-y-6" id={id}>
-      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">{title}</h2>
+    <section className="space-y-6">
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
+        {title}
+      </h2>
       <div className="space-y-8">
         {(Object.keys(data) as Array<keyof ProjectsData>).map((category) => {
           const categoryProjects = data[category]

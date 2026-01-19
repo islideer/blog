@@ -17,8 +17,8 @@ export function SteamGameLibrary({ id, libraryGames, recentGames }: SteamGameLib
   // 如果没有数据，显示空状态
   if (libraryGames.length === 0 && recentGames.length === 0) {
     return (
-      <section className="space-y-4" id={id}>
-        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+      <section className="space-y-4" >
+        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
           Steam 游戏
         </h2>
         <p className="text-text-secondary text-sm">
@@ -29,9 +29,9 @@ export function SteamGameLibrary({ id, libraryGames, recentGames }: SteamGameLib
   }
 
   return (
-    <section className="space-y-4" id={id}>
+    <section className="space-y-4" >
       {/* 客户端组件处理视图切换和游戏列表渲染 */}
-      <SteamGameListClient libraryGames={libraryGames} recentGames={recentGames} />
+      <SteamGameListClient id={id} libraryGames={libraryGames} recentGames={recentGames} />
     </section>
   )
 }

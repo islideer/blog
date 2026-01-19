@@ -19,8 +19,8 @@ export function OtherGames({ id }: { id?: string }) {
 
   // if (loading) {
   //   return (
-  //     <section className="space-y-4" id={id}>
-  //       <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+  //     <section className="space-y-4">
+  //       <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
   //         其他游戏（在玩的、爱玩的、怀念的）
   //       </h2>
   //       <div>
@@ -31,8 +31,8 @@ export function OtherGames({ id }: { id?: string }) {
   // }
 
   return (
-    <section className="space-y-4" id={id}>
-      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+    <section className="space-y-4">
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
         其他游戏（在玩的、爱玩的、怀念的）
       </h2>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4">

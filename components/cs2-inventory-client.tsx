@@ -10,6 +10,7 @@ import { ChevronDownIcon } from './icons/chevron-down'
 import type { CS2InventoryItem } from '@/lib/steam'
 
 interface CS2InventoryClientProps {
+  id?: string
   items: CS2InventoryItem[]
 }
 
@@ -33,7 +34,7 @@ const RARITY_WEIGHT: Record<string, number> = {
  * - 处理稀有度排序
  * - 处理"显示更多"交互
  */
-export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
+export function CS2InventoryClient({ id, items }: CS2InventoryClientProps) {
   const [showAll, setShowAll] = useState(false)
   const initialDisplayCount = useAutoSize({ xs: 6, sm: 8 })
 
@@ -76,7 +77,7 @@ export function CS2InventoryClient({ items }: CS2InventoryClientProps) {
     <>
       {/* 标题行 */}
       <div className="flex items-center justify-between">
-        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
           CS2 库存
         </h2>
         <span className="text-text-secondary text-xs">

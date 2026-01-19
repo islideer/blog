@@ -12,6 +12,7 @@ import { useState, useMemo } from 'react'
 import type { LibraryGame, RecentGame } from '@/lib/steam'
 
 interface SteamGameListClientProps {
+  id?: string
   libraryGames: LibraryGame[]
   recentGames: RecentGame[]
 }
@@ -21,7 +22,7 @@ interface SteamGameListClientProps {
  * - 处理视图切换交互（最近在玩 / 游戏库）
  * - 渲染游戏列表
  */
-export function SteamGameListClient({ libraryGames, recentGames }: SteamGameListClientProps) {
+export function SteamGameListClient({ id, libraryGames, recentGames }: SteamGameListClientProps) {
   const [view, setView] = useState<'recent' | 'library'>('recent')
 
   // 过滤最近玩过的游戏（游玩时间 > 3 分钟）
@@ -40,7 +41,7 @@ export function SteamGameListClient({ libraryGames, recentGames }: SteamGameList
     <>
       {/* 标题行和视图切换按钮 */}
       <div className="flex items-center justify-between">
-        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
           Steam 游戏
         </h2>
         <div className="flex items-center gap-2">

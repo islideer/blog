@@ -20,16 +20,18 @@ export function Books({ id, data }: BooksProps) {
 
   if (totalCount === 0) {
     return (
-      <section className="space-y-4" id={id}>
-        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">书籍</h2>
+      <section className="space-y-4">
+        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
+          书籍
+        </h2>
         <p className="text-text-tertiary text-sm">暂无书籍数据</p>
       </section>
     )
   }
 
   return (
-    <section className="space-y-6" id={id}>
-      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase">
+    <section className="space-y-6">
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
         书籍 ({totalCount.toLocaleString()})
       </h2>
 
@@ -60,9 +62,11 @@ function BookSection({ id, title, books }: BookSectionProps) {
   const hasMore = books.length > initialDisplayCount
 
   return (
-    <div className="space-y-3" id={id}>
+    <div className="space-y-3">
       <div className="flex items-center gap-2">
-        <h3 className="text-text-secondary text-xs font-medium">{title}</h3>
+        <h3 className="text-text-secondary text-xs font-medium" id={id}>
+          {title}
+        </h3>
         <span className="text-text-tertiary text-xs">({books.length})</span>
       </div>
 
