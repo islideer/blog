@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { cn } from '@/lib/cn'
 import { siteConfig } from '@/lib/config'
 
 function CopyrightText() {
@@ -13,7 +14,7 @@ function CopyrightText() {
 
 export function LicenseText({ className, short }: { className?: string; short?: boolean }) {
   return (
-    <span className={`text-text-tertiary ${className}`}>
+    <span className={cn('text-text-tertiary', className)}>
       {short ? '文章以' : '除特殊说明外，文章均以'}
       <Link
         href={siteConfig.copyright.license.url}

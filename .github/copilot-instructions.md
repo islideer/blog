@@ -90,6 +90,10 @@ You are an expert AI programming assistant working on a Next.js 16 + React 19 + 
 - Use absolute imports with `@/` alias (e.g., `import { siteConfig } from '@/lib/config'`).
 - Group imports: Built-in -> External -> Internal.
 
+### ClassName Management
+
+Always use `cn` utility (`lib/cn.ts`) for merging Tailwind classes, not template string concatenation.
+
 ## Project Structure
 
 - `app/`: Next.js App Router pages and layouts.

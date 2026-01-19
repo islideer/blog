@@ -1,14 +1,15 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useState } from 'react'
-import { ThemeToggle } from './theme-toggle'
-import { siteConfig } from '@/lib/config'
+import { cn } from '@/lib/cn'
 import { RSSIcon } from './rss-icon'
-import { GitHubIcon } from './github-icon'
-import { TravellingsIcon } from './travellings-iocn'
+import { useState } from 'react'
 import { pagesData } from '@/lib/data'
+import { siteConfig } from '@/lib/config'
+import { GitHubIcon } from './github-icon'
+import { usePathname } from 'next/navigation'
+import { ThemeToggle } from './theme-toggle'
+import { TravellingsIcon } from './travellings-iocn'
 
 export function Header() {
   const pathname = usePathname()
@@ -36,44 +37,65 @@ export function Header() {
         <nav
           role="navigation"
           aria-label="主导航"
-          className={`flex items-center gap-1.5 transition-opacity sm:gap-4 ${isMoreOpen ? '' : 'group-hover:opacity-100 sm:opacity-60'}`}
+          className={cn(
+            'flex items-center gap-1.5 transition-opacity sm:gap-4',
+            !isMoreOpen && 'group-hover:opacity-100 sm:opacity-60',
+          )}
         >
           <Link
             href={pagesData.posts.slug}
-            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
+            className={cn(
+              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+              'text-xs sm:text-sm',
+            )}
           >
             文章
           </Link>
           <Link
             href={pagesData.thoughts.slug}
-            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
+            className={cn(
+              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+              'text-xs sm:text-sm',
+            )}
           >
             碎碎念
           </Link>
           <Link
             href={pagesData.mioSays.slug}
-            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
+            className={cn(
+              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+              'text-xs sm:text-sm',
+            )}
           >
             Mio 说
           </Link>
 
           <Link
             href={pagesData.library.slug}
-            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
+            className={cn(
+              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+              'hidden text-xs sm:inline sm:text-sm',
+            )}
           >
             书影音
           </Link>
 
           <Link
             href={pagesData.game.slug}
-            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary hidden text-xs sm:inline sm:text-sm"
+            className={cn(
+              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+              'hidden text-xs sm:inline sm:text-sm',
+            )}
           >
             游戏
           </Link>
 
           <Link
             href={pagesData.about.slug}
-            className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
+            className={cn(
+              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+              'text-xs sm:text-sm',
+            )}
           >
             关于
           </Link>
@@ -88,7 +110,10 @@ export function Header() {
                   setTimeout(() => setIsMoreOpen(false), 150)
                 }
               }}
-              className="text-text-secondary sm:hover:text-text-primary active:text-text-primary text-xs sm:text-sm"
+              className={cn(
+                'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+                'text-xs sm:text-sm',
+              )}
               aria-expanded={isMoreOpen}
               aria-haspopup="true"
             >
@@ -99,7 +124,10 @@ export function Header() {
                 <div className="sm:hidden">
                   <Link
                     href={pagesData.library.slug}
-                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                    className={cn(
+                      'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                      'block px-4 py-2 text-xs',
+                    )}
                     onClick={() => setIsMoreOpen(false)}
                   >
                     书影音
@@ -107,7 +135,10 @@ export function Header() {
 
                   <Link
                     href={pagesData.game.slug}
-                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                    className={cn(
+                      'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                      'block px-4 py-2 text-xs',
+                    )}
                     onClick={() => setIsMoreOpen(false)}
                   >
                     游戏
@@ -115,7 +146,10 @@ export function Header() {
                 </div>
                 <Link
                   href={pagesData.timeline.slug}
-                  className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                  className={cn(
+                    'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                    'block px-4 py-2 text-xs',
+                  )}
                   onClick={() => setIsMoreOpen(false)}
                 >
                   大事记
@@ -123,7 +157,10 @@ export function Header() {
 
                 <Link
                   href={pagesData.friends.slug}
-                  className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                  className={cn(
+                    'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                    'block px-4 py-2 text-xs',
+                  )}
                   onClick={() => setIsMoreOpen(false)}
                 >
                   好朋友们
@@ -133,7 +170,10 @@ export function Header() {
                   <Link
                     href={siteConfig.author.github}
                     target="_blank"
-                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                    className={cn(
+                      'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                      'block px-4 py-2 text-xs',
+                    )}
                     onClick={() => setIsMoreOpen(false)}
                   >
                     GitHub
@@ -142,7 +182,10 @@ export function Header() {
                   <Link
                     href={siteConfig.links.rss}
                     target="_blank"
-                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                    className={cn(
+                      'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                      'block px-4 py-2 text-xs',
+                    )}
                     onClick={() => setIsMoreOpen(false)}
                   >
                     RSS 订阅
@@ -151,7 +194,10 @@ export function Header() {
                   <Link
                     href={siteConfig.links.travellings}
                     target="_blank"
-                    className="text-text-secondary hover:bg-bg-secondary hover:text-text-primary block px-4 py-2 text-xs"
+                    className={cn(
+                      'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                      'block px-4 py-2 text-xs',
+                    )}
                     onClick={() => setIsMoreOpen(false)}
                   >
                     开往 · 友链接力

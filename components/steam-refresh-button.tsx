@@ -1,8 +1,9 @@
 'use client'
 
+import { cn } from '@/lib/cn'
+import { Tooltip } from './tooltip'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Tooltip } from './tooltip'
 import { RefreshIcon } from './icons/refresh'
 
 /**
@@ -36,7 +37,7 @@ export function SteamRefreshButton() {
         className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-50"
         aria-label="刷新 Steam 信息"
       >
-        <RefreshIcon className={`h-3.5 w-3.5 ${refreshing ? 'animate-spin' : ''}`} />
+        <RefreshIcon className={cn('h-3.5 w-3.5', refreshing && 'animate-spin')} />
         刷新状态
       </button>
     </Tooltip>

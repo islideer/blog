@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { extractHeadings } from '@/lib/toc'
 import Link from 'next/link'
+import { cn } from '@/lib/cn'
 import { MenuIcon } from './icons/menu'
 import { CloseIcon } from './icons/close'
+import { extractHeadings } from '@/lib/toc'
+import { useEffect, useState } from 'react'
 
 interface TableOfContentsProps {
   /** 文章容器的选择器，默认为 '.prose' */
@@ -236,7 +237,7 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
             return (
               <li
                 key={item.id}
-                className={`overflow-hidden transition-all! duration-200 ${isH3 ? 'pl-3' : ''}`}
+                className={cn('overflow-hidden transition-all! duration-200', isH3 && 'pl-3')}
                 style={{
                   maxHeight: isVisible ? '2rem' : '0',
                   marginBottom: isVisible ? '0.25rem' : '0',
@@ -249,13 +250,14 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
                     e.preventDefault()
                     scrollToHeading(item.id)
                   }}
-                  className={`block w-full truncate text-left ${
+                  className={cn(
+                    'block w-full truncate text-left',
                     isActive
                       ? 'text-text-primary font-medium'
                       : isHovered
                         ? 'text-text-secondary hover:text-text-primary'
-                        : 'text-text-tertiary'
-                  }`}
+                        : 'text-text-tertiary',
+                  )}
                   title={item.title}
                 >
                   {item.title}
@@ -387,9 +389,10 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
 
       {/* 抽屉内容 */}
       <div
-        className={`bg-bg-primary fixed right-0 bottom-0 z-50 h-[60vh] w-full transform rounded-t-2xl border-t border-gray-200 shadow-2xl transition-all! duration-300 ease-in-out xl:hidden dark:border-gray-800 ${
-          isOpen ? 'translate-y-0' : 'translate-y-full'
-        }`}
+        className={cn(
+          'bg-bg-primary fixed right-0 bottom-0 z-50 h-[60vh] w-full transform rounded-t-2xl border-t border-gray-200 shadow-2xl transition-all! duration-300 ease-in-out xl:hidden dark:border-gray-800',
+          isOpen ? 'translate-y-0' : 'translate-y-full',
+        )}
       >
         {/* 把手 */}
         <div
@@ -416,16 +419,17 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
             {items.map((item) => {
               const isActive = activeId === item.id
               return (
-                <li key={item.id} className={`${item.level === 3 ? 'pl-4' : ''}`}>
+                <li key={item.id} className={cn(item.level === 3 && 'pl-4')}>
                   <Link
                     href={`#${item.id}`}
                     onClick={(e) => {
                       e.preventDefault()
                       scrollToHeading(item.id)
                     }}
-                    className={`block w-full truncate text-left transition-colors duration-200 ${
-                      isActive ? 'text-text-primary font-medium' : 'text-text-tertiary'
-                    }`}
+                    className={cn(
+                      'block w-full truncate text-left transition-colors duration-200',
+                      isActive ? 'text-text-primary font-medium' : 'text-text-tertiary',
+                    )}
                     title={item.title}
                   >
                     {item.title}

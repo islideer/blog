@@ -1,7 +1,9 @@
 import Image from 'next/image'
-import { SteamRefreshButton } from './steam-refresh-button'
-import type { SteamProfile as SteamProfileType } from '@/lib/steam'
+import { cn } from '@/lib/cn'
 import { siteConfig } from '@/lib/config'
+import { SteamRefreshButton } from './steam-refresh-button'
+
+import type { SteamProfile as SteamProfileType } from '@/lib/steam'
 
 interface SteamProfileProps {
   id?: string
@@ -52,7 +54,14 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
           <div className="flex flex-1 flex-col gap-2 truncate">
             <div className="flex items-center gap-2">
               <span
-                className={`${profile.is_online ? (profile.game_info ? 'text-[#91C252] dark:text-[#E2FFB9]' : 'text-[#31b0e2] dark:text-[#6dcff6]') : 'text-text-secondary'} block text-lg font-medium transition-colors duration-300`}
+                className={cn(
+                  'block text-lg font-medium transition-colors duration-300',
+                  profile.is_online
+                    ? profile.game_info
+                      ? 'text-[#91C252] dark:text-[#E2FFB9]'
+                      : 'text-[#31b0e2] dark:text-[#6dcff6]'
+                    : 'text-text-secondary',
+                )}
               >
                 {profile.persona_name}
               </span>
@@ -72,7 +81,14 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
               </span>
             </div>
             <span
-              className={`${profile.is_online ? (profile.game_info ? 'text-[#91C252] dark:text-[#91C252]' : 'text-[#4dbfec] dark:text-[#6dcff680]') : 'text-text-tertiary'} text-xs transition-colors duration-300`}
+              className={cn(
+                'text-xs transition-colors duration-300',
+                profile.is_online
+                  ? profile.game_info
+                    ? 'text-[#91C252] dark:text-[#91C252]'
+                    : 'text-[#4dbfec] dark:text-[#6dcff680]'
+                  : 'text-text-tertiary',
+              )}
             >
               {profile.online_status_desc}
             </span>

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { cn } from '@/lib/cn'
 import { LazyImage } from './lazy-image'
 import { MarkdownLite } from './markdown-lite'
 import { RelativeTime } from './relative-time'
@@ -73,7 +74,10 @@ export async function ThoughtCard({
       {/* 图片 */}
       {thought.images && thought.images.length > 0 && (
         <div
-          className={`grid grid-cols-1 gap-2 pt-1 ${thought.images.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-md'}`}
+          className={cn(
+            'grid grid-cols-1 gap-2 pt-1',
+            thought.images.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-md',
+          )}
         >
           {thought.images.map((image, imageIndex) => {
             const isFirstImage = imageIndex === 0

@@ -86,6 +86,10 @@ Viki 的个人博客，基于 Next.js 16 + React 19 + Tailwind CSS v4 构建的�
 }
 ```
 
+### 类名管理
+
+优先使用 `cn` 工具函数（`lib/cn.ts`）合并 Tailwind 类名，不要用模板字符串拼接。
+
 ## 项目结构
 
 ```
@@ -424,6 +428,7 @@ export function SocialLink({ href }: { href: string }) {
 - ✅ 优先使用 Server Components
 - ✅ 遵循 kebab-case 文件命名
 - ✅ 遵循盘古之白排版规范
+- ✅ **使用 `cn` 工具函数处理类名合并，不使用模板字符串拼接**
 - ✅ 使用 `import { dayjs } from '@/lib/dayjs'` 处理时间
 - ✅ Front Matter 必须包含 `title`、`date`、`excerpt` 字段
 - ✅ SVG 图标统一管理在 `components/icons/`
