@@ -64,8 +64,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${siteConfig.url}${pagesData.game.slug}`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5, // 中等优先级
+      changeFrequency: 'daily',
+      priority: 0.6, // 中等优先级
     },
     {
       url: `${siteConfig.url}${pagesData.reading.slug}`,
