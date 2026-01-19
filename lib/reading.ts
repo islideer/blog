@@ -45,9 +45,9 @@ export async function getTodayReading(): Promise<ReadingData> {
 /**
  * 获取特定日期的阅读
  */
-export async function getReadingByDate(date: string): Promise<ReadingData> {
+export async function getReadingByDate(date?: string): Promise<ReadingData> {
   // 如果是 today，调用今日接口
-  if (date === 'today') {
+  if (!date) {
     return getTodayReading()
   }
 

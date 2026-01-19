@@ -364,3 +364,19 @@ html.dark .prose pre span {
 .prose > * {
   max-width: 100%;
 }
+
+/* ============================================
+   Drop Cap (首字下沉)
+   ============================================ */
+
+/* 首字下沉效果 - 应用于文章第一个段落的首字母 */
+.drop-cap::first-letter {
+  float: left;
+  font-size: 2.5em;
+  line-height: 1.2;
+  margin-right: 0.2em;
+  margin-top: 0.06em;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+}

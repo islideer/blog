@@ -2,10 +2,10 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
+import { ChevronUpIcon } from './icons/chevron-up'
+import { ChevronDownIcon } from './icons/chevron-down'
 
 import type { ReadingComment } from '@/lib/reading'
-import { ChevronDownIcon } from './icons/chevron-down'
-import { ChevronUpIcon } from './icons/chevron-up'
 
 interface ReadingCommentsProps {
   comments: ReadingComment[]
@@ -43,7 +43,7 @@ function CommentItem({ comment }: CommentItemProps) {
         )}
         <div>
           <p className="font-medium">{comment.nickname}</p>
-          <p className="text-xs opacity-50">{comment.like_count} 赞</p>
+          {comment.like_count > 0 && <p className="text-xs opacity-50">{comment.like_count} 赞</p>}
         </div>
       </div>
       <div className="relative">
@@ -80,7 +80,12 @@ export function ReadingComments({ comments }: ReadingCommentsProps) {
 
   return (
     <section>
-      <h2 className="mb-8 text-2xl font-medium">读者评论</h2>
+      <h2 className="mb-8 text-2xl font-medium">
+        读者评论
+        <span className="text-text-tertiary ml-2 text-lg font-normal">
+          （共 {comments.length} 条）
+        </span>
+      </h2>
       <div className="space-y-6">
         {comments.map((comment) => (
           <CommentItem key={comment.id} comment={comment} />

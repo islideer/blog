@@ -56,10 +56,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5, // 中等优先级
     },
     {
-      url: `${siteConfig.url}/${pagesData.game.slug}`,
+      url: `${siteConfig.url}${pagesData.library.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7, // 中等优先级
+    },
+    {
+      url: `${siteConfig.url}${pagesData.game.slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5, // 中等优先级
+    },
+    {
+      url: `${siteConfig.url}${pagesData.reading.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily', // 每日更新
+      priority: 0.8, // 中高优先级（每日更新内容）
+    },
+    {
+      url: `${siteConfig.url}${pagesData.collection.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.6, // 中等优先级
     },
   ]
 
