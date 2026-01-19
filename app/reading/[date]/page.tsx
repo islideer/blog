@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { cn } from '@/lib/cn'
 import { dayjs } from '@/lib/dayjs'
 import { notFound } from 'next/navigation'
 import { Noto_Serif_SC } from 'next/font/google'
 import { getReadingByDate, getLunarInfo } from '@/lib/reading'
+import { ReadingComments } from '@/components/reading-comments'
 
 import type { Metadata } from 'next'
 
@@ -120,37 +120,7 @@ export default async function ReadingDetailPage({ params }: PageProps) {
       </div>
 
       {/* 评论区 */}
-      {reading.comments.length > 0 && (
-        <section>
-          <h2 className="mb-8 text-2xl font-medium">读者评论</h2>
-          <div className="space-y-6">
-            {reading.comments.slice(0, 10).map((comment) => (
-              <div key={comment.id} className="border-border bg-bg-secondary rounded-lg border p-6">
-                <div className="mb-3 flex items-center gap-3">
-                  {comment.avatar ? (
-                    <Image
-                      src={comment.avatar}
-                      alt={comment.nickname}
-                      height={40}
-                      width={40}
-                      className="aspect-square h-10 w-10 rounded-full object-cover"
-                    />
-                  ) : (
-                    <div className="bg-bg-tertiary text-text-secondary flex aspect-square h-10 w-10 items-center justify-center rounded-full text-lg font-medium">
-                      {comment.nickname.charAt(0).toUpperCase()}
-                    </div>
-                  )}
-                  <div>
-                    <p className="font-medium">{comment.nickname}</p>
-                    <p className="text-xs opacity-50">{comment.like_count} 赞</p>
-                  </div>
-                </div>
-                <p className="leading-relaxed opacity-90">{comment.content}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      <ReadingComments comments={reading.comments} />
     </div>
   )
 }
