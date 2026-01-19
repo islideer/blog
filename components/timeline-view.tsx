@@ -42,7 +42,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
 
             {/* 时间轴内容 */}
             <div
-              className="space-y-1 border-l-2 pl-4 sm:pl-6"
+              className="space-y-4 border-l-2 pl-4 sm:space-y-6 sm:pl-6"
               style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
             >
               {sortedItems.map((item, index) => {
