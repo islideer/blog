@@ -4,7 +4,7 @@ import { cn } from '@/lib/cn'
 import { dayjs } from '@/lib/dayjs'
 import { notFound } from 'next/navigation'
 import { Noto_Serif_SC } from 'next/font/google'
-import { getReadingByDate } from '@/lib/reading'
+import { getReadingByDate, getLunarInfo } from '@/lib/reading'
 
 import type { Metadata } from 'next'
 
@@ -45,18 +45,54 @@ export default async function ReadingDetailPage({ params }: PageProps) {
     notFound()
   }
 
+  // 获取农历信息
+  const readingDate = new Date(reading.date)
+  const lunar = getLunarInfo(readingDate)
+  const day = dayjs(reading.date).format('D')
+  const yearMonth = dayjs(reading.date).format('YYYY 年 M 月')
+
   return (
     <div className={cn('mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8', notoSerifSC.className)}>
       {/* 返回按钮 */}
       <Link href="/reading" className="mb-8 block text-sm">
-        ← 返回每日阅读
+        ← 每日阅读
       </Link>
 
-      {/* 提示语和日期 - 重点展示 */}
-      <header className="mb-16">
-        <h1 className="mb-2 text-2xl font-medium tracking-wide uppercase sm:mb-4 sm:text-3xl">
-          {dayjs(reading.date).format('YYYY 年 M 月 D 日')} / {reading.tip}
-        </h1>
+      {/* 日期标题 - 文艺布局 */}
+      <header className="relative mb-16">
+        <div className="flex items-start justify-between gap-8">
+          {/* 左侧：日期信息 */}
+          <div className="flex items-end gap-6 sm:gap-8">
+            {/* 大数字 */}
+            <div className="text-8xl leading-none font-bold tracking-widest sm:text-9xl">{day}</div>
+
+            {/* 右侧：阳历和农历 */}
+            <div className="flex flex-col justify-center space-y-2">
+              {/* 农历 */}
+              <div className="text-sm opacity-50">
+                农历 {lunar.month}月{lunar.day}
+              </div>
+
+              {/* 节日 */}
+              {lunar.festival && (
+                <div className="text-sm font-medium text-red-600/80">{lunar.festival}</div>
+              )}
+
+              {/* 阳历 */}
+              <div className="text-lg opacity-75 sm:text-xl">{yearMonth}</div>
+            </div>
+          </div>
+
+          {/* 右侧：竖向 tip */}
+          <div className="hidden items-start sm:flex">
+            <div className="text-2xl font-medium tracking-widest [writing-mode:vertical-rl]">
+              {reading.tip}
+            </div>
+          </div>
+        </div>
+
+        {/* 移动端 tip 显示 */}
+        <div className="mt-6 text-center text-base opacity-50 sm:hidden">{reading.tip}</div>
       </header>
 
       {/* 文章正文 */}
@@ -91,13 +127,19 @@ export default async function ReadingDetailPage({ params }: PageProps) {
             {reading.comments.slice(0, 10).map((comment) => (
               <div key={comment.id} className="border-border bg-bg-secondary rounded-lg border p-6">
                 <div className="mb-3 flex items-center gap-3">
-                  <Image
-                    src={comment.avatar}
-                    alt={comment.nickname}
-                    height={40}
-                    width={40}
-                    className="aspect-square h-10 w-10 rounded-full object-cover"
-                  />
+                  {comment.avatar ? (
+                    <Image
+                      src={comment.avatar}
+                      alt={comment.nickname}
+                      height={40}
+                      width={40}
+                      className="aspect-square h-10 w-10 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="bg-bg-tertiary text-text-secondary flex aspect-square h-10 w-10 items-center justify-center rounded-full text-lg font-medium">
+                      {comment.nickname.charAt(0).toUpperCase()}
+                    </div>
+                  )}
                   <div>
                     <p className="font-medium">{comment.nickname}</p>
                     <p className="text-xs opacity-50">{comment.like_count} 赞</p>

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/cn'
 import { dayjs } from '@/lib/dayjs'
 import { Noto_Serif_SC } from 'next/font/google'
-import { getTodayReading, generateMonthDates, formatDate } from '@/lib/reading'
+import { getTodayReading, generateMonthDates, formatDate, getLunarInfo } from '@/lib/reading'
 
 import type { Metadata } from 'next'
 
@@ -42,39 +42,76 @@ export default async function ReadingPage() {
   // 计算今天是本月第几天（用于高亮）
   const todayDay = today.getDate()
 
+  // 获取农历信息
+  const readingDate = new Date(reading.date)
+  const lunar = getLunarInfo(readingDate)
+  const day = dayjs(reading.date).format('D')
+  const yearMonth = dayjs(reading.date).format('YYYY 年 M 月')
+
   return (
     <div className={cn(`mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8`, notoSerifSC.className)}>
       {/* 今日阅读卡片 */}
       <section className="mb-16">
         {/* 正文预览 */}
-        <div className="border-border bg-bg-secondary block rounded-2xl border p-8 transition-all sm:p-12">
-          {/* 提示语和日期 - 重点展示 */}
+        <Link
+          href={`/reading/${todayDateStr}`}
+          className="border-border bg-bg-secondary group hover:border-text/20 block rounded-2xl border p-8 no-underline sm:p-12"
+        >
+          <div className="flex items-start gap-8">
+            {/* 左侧：日期和内容 */}
+            <div className="flex-1">
+              {/* 日期展示 - 参考详情页但更紧凑 */}
+              <div className="mb-6 flex items-end gap-4">
+                {/* 大数字 */}
+                <div className="text-5xl leading-none font-bold tracking-widest sm:text-6xl">
+                  {day}
+                </div>
 
-          <Link
-            href={`/reading/${todayDateStr}`}
-            className="mb-6 block text-2xl font-medium tracking-wide uppercase no-underline sm:text-3xl"
-          >
-            {dayjs(reading.date).format('YYYY 年 M 月 D 日')} / {reading.tip}
-          </Link>
+                {/* 右侧：阳历和农历 */}
+                <div className="mb-1 flex flex-col space-y-1">
+                  {/* 农历 */}
+                  <div className="text-xs opacity-50">
+                    农历 {lunar.month}月{lunar.day}
+                  </div>
 
-          <Link
-            href={`/reading/${todayDateStr}`}
-            className="line-clamp-3 text-lg leading-relaxed no-underline opacity-90"
-          >
-            {reading.content}
-          </Link>
+                  {/* 节日 */}
+                  {lunar.festival && (
+                    <div className="text-xs font-medium text-red-600/80">{lunar.festival}</div>
+                  )}
 
-          {/* 作品信息 - 低调展示 */}
-          <div className="border-border mt-8 flex items-center justify-between border-t pt-6">
-            <div className="flex gap-6 text-sm opacity-60">
-              <span>{reading.like_count} 喜欢</span>
-              <span>{reading.comment_count} 评论</span>
+                  {/* 阳历 */}
+                  <div className="text-base opacity-75 sm:text-lg">{yearMonth}</div>
+                </div>
+              </div>
+
+              {/* 内容预览 */}
+              <div className="line-clamp-3 text-lg leading-relaxed opacity-90">
+                {reading.content}
+              </div>
+
+              {/* 作品信息 - 低调展示 */}
+              <div className="border-border mt-8 flex items-center justify-between border-t pt-6">
+                <div className="flex gap-6 text-sm opacity-60">
+                  <span>{reading.like_count} 喜欢</span>
+                  <span>{reading.comment_count} 评论</span>
+                </div>
+                <span className="decoration-text-tertiary group-hover:decoration-text-primary text-sm font-medium underline decoration-dashed underline-offset-4 opacity-75 group-hover:decoration-solid">
+                  阅读全文 →
+                </span>
+              </div>
             </div>
-            <Link href={`/reading/${todayDateStr}`} className="text-sm font-medium opacity-75">
-              阅读全文 →
-            </Link>
+
+            {/* 右侧：竖向 tip - 与整体垂直居中 */}
+            <div className="hidden sm:flex">
+              <div className="text-lg font-medium tracking-widest [writing-mode:vertical-rl]">
+                {reading.tip}
+              </div>
+            </div>
           </div>
-        </div>
+
+          {/* 移动端 tip 显示 */}
+          <div className="mt-4 text-center text-sm opacity-50 sm:hidden">{reading.tip}</div>
+        </Link>
       </section>
 
       {/* 本月日历 */}
@@ -121,9 +158,9 @@ export default async function ReadingPage() {
                 key={dateStr}
                 href={`/reading/${dateStr}`}
                 className={cn(
-                  'flex h-12 items-center justify-center rounded-lg text-sm font-medium transition-all sm:h-14 sm:text-base',
-                  isToday && 'bg-(--color-text) font-bold text-(--color-bg)',
-                  !isToday && isPast && 'opacity-50 hover:opacity-100',
+                  'flex h-12 items-center justify-center rounded-lg text-sm font-medium no-underline sm:h-14 sm:text-base',
+                  isToday && 'bg-bg-quaternary text-text-primary font-bold',
+                  !isToday && isPast && 'hover:bg-bg-tertiary opacity-50 hover:opacity-100',
                   !isToday && !isPast && 'opacity-30',
                 )}
                 aria-label={isToday ? `今天 ${day} 日` : `${day} 日`}

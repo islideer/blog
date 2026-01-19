@@ -41,6 +41,9 @@ importers:
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
+      lunar-typescript:
+        specifier: ^1.8.6
+        version: 1.8.6
       medium-zoom:
         specifier: ^1.1.0
         version: 1.1.0
@@ -2461,6 +2464,9 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  lunar-typescript@1.8.6:
+    resolution: {integrity: sha512-5Eo4T/cnuXfrgO4k5LCpOGHIUOuz5hCF/IfNv0T29WY2shR36Hiz+ecN9WjnUuxUKhql9gbOkPaQoqLFKtPRNA==}
 
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
@@ -5848,6 +5854,8 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lunar-typescript@1.8.6: {}
 
   lz-string@1.5.0: {}
 
