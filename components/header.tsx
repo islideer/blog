@@ -156,6 +156,17 @@ export function Header() {
                 </Link>
 
                 <Link
+                  href="/reading"
+                  className={cn(
+                    'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                    'block px-4 py-2 text-xs',
+                  )}
+                  onClick={() => setIsMoreOpen(false)}
+                >
+                  每日阅读
+                </Link>
+
+                <Link
                   href={pagesData.friends.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
