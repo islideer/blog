@@ -1,19 +1,23 @@
 [
   {
     "date": "2025",
-    "description": "与 Mio 正式确立恋爱关系。这段感情始于 2019 年在 [NCUHOME](https://home.ncu.edu.cn/) 的相识。在这期间，有过误会，有过后悔。好在经历了六年的相互了解、陪伴与成长，最终还是走到了一起。"
+    "description": "与 Mio 正式确立恋爱关系。这段感情始于 2019 年在 [NCUHOME](https://home.ncu.edu.cn/) 的相识。"
   },
   {
     "date": "2023",
-    "description": "入职 [SHEIN](https://www.sheingroup.com/)，担任 Web 前端工程师。主要负责公共技术线的基础建设工作，致力于提升开发效率与工程质量，在企业级实践中持续成长。"
+    "description": "入职 [SHEIN](https://www.sheingroup.com/)，担任 Web 前端工程师，负责 B 端前端基建相关工作。"
   },
   {
     "date": "2022",
-    "description": "前往北京 [百度](https://www.baidu.com/) 总部实习，首次体验大型互联网企业的工作节奏与企业级项目的开发流程。这也是首次独立在异地工作生活的经历，技术与心智的双重成长。"
+    "description": "启用新域名 viki.moe 并迁移个人博客至本站点。（一年 13.99 刀有点小贵，但还是忍痛买了）"
+  },
+  {
+    "date": "2022",
+    "description": "前往 [北京百度总部](https://www.baidu.com/) 实习，第一次出远门，第一次独立工作生活，第一次体验大厂工作节奏。"
   },
   {
     "date": "2019",
-    "description": "有幸受到 [Kid](https://xuann.wang/) 学长的技术指引，了解到许多前沿技术，极大拓宽了视野。其中就包括使用 GitHub Pages 和 Jekyll 构建的个人博客，同时发布了我的第一篇博客文章：[Hello World](https://blog.viki.moe/blog-journey)。"
+    "description": "有幸受到 [Kid](https://xuann.wang/) 学长的技术指引，了解到许多前沿技术，极大拓宽了视野。其中就包括使用 GitHub Pages 和 Jekyll 构建的个人博客，购买了五年 vikiboss.top 域名，同时发布了我的第一篇博客文章：[Hello World](https://blog.viki.moe/blog-journey)。"
   },
   {
     "date": "2019",
@@ -21,7 +25,7 @@
   },
   {
     "date": "2016",
-    "description": "高中信息课几乎就是我一个人的天下。天生爱好计算机，又因为易语言的缘故更是了解了不少计算机相关的基础知识，各种问答和实操手到擒来。~~可惜的是学校没有开设计算机竞赛相关课程和社团，错过了参加竞赛的机会。~~"
+    "description": "高中信息课几乎就是我的天下。天生爱好计算机，又因为易语言更是了解了不少相关知识，各种问答和实操手到擒来。~~可惜的是学校没有开设计算机竞赛相关课程和社团，错过了参加竞赛的机会。~~"
   },
   {
     "date": "2013",
