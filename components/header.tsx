@@ -91,16 +91,6 @@ export function Header() {
           </Link>
 
           <Link
-            href={pagesData.reading.slug}
-            className={cn(
-              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-              'hidden text-xs sm:inline sm:text-sm',
-            )}
-          >
-            岛读
-          </Link>
-
-          <Link
             href={pagesData.about.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
@@ -153,18 +143,8 @@ export function Header() {
                   >
                     游戏
                   </Link>
-
-                  <Link
-                    href={pagesData.reading.slug}
-                    className={cn(
-                      'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                      'block px-4 py-2 text-xs',
-                    )}
-                    onClick={() => setIsMoreOpen(false)}
-                  >
-                    岛读
-                  </Link>
                 </div>
+
                 <Link
                   href={pagesData.timeline.slug}
                   className={cn(
@@ -174,6 +154,17 @@ export function Header() {
                   onClick={() => setIsMoreOpen(false)}
                 >
                   大事记
+                </Link>
+
+                <Link
+                  href={pagesData.reading.slug}
+                  className={cn(
+                    'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                    'block px-4 py-2 text-xs',
+                  )}
+                  onClick={() => setIsMoreOpen(false)}
+                >
+                  岛读
                 </Link>
 
                 <Link
