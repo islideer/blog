@@ -26,7 +26,7 @@ function CommentItem({ comment }: CommentItemProps) {
   }
 
   return (
-    <div className="border-border bg-bg-secondary rounded-lg border p-6">
+    <div className="border-border bg-bg-secondary rounded-lg border p-4 sm:p-6">
       <div className="mb-3 flex items-center gap-3">
         {comment.avatar && comment.avatar.trim() !== '' ? (
           <Image
@@ -51,7 +51,7 @@ function CommentItem({ comment }: CommentItemProps) {
           ref={(el) => {
             if (el && !isExpanded) checkOverflow(el)
           }}
-          className={`leading-relaxed opacity-90 ${!isExpanded ? 'line-clamp-3' : ''}`}
+          className={`leading-relaxed opacity-90 ${!isExpanded ? 'line-clamp-3' : ''} whitespace-pre-wrap`}
         >
           {comment.content}
         </p>
@@ -80,9 +80,9 @@ export function ReadingComments({ comments }: ReadingCommentsProps) {
 
   return (
     <section>
-      <h2 className="mb-8 text-2xl font-medium">
+      <h2 className="mb-8 text-lg font-medium sm:text-2xl">
         读者评论
-        <span className="text-text-tertiary ml-2 text-lg font-normal">
+        <span className="text-text-tertiary ml-2 font-normal sm:text-lg">
           （共 {comments.length} 条）
         </span>
       </h2>

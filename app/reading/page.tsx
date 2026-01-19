@@ -56,7 +56,7 @@ export default async function ReadingDetailPage() {
   const yearMonth = dayjs(reading.date).format('YYYY 年 M 月')
 
   return (
-    <div className={cn('mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8', notoSerifSC.className)}>
+    <div className={cn('mx-auto max-w-3xl px-2 py-12 sm:px-6', notoSerifSC.className)}>
       {/* 日期标题 - 文艺布局 */}
       <header className="relative mb-16">
         <div className="flex items-start justify-between gap-8">
@@ -68,23 +68,23 @@ export default async function ReadingDetailPage() {
             {/* 右侧：阳历和农历 */}
             <div className="flex flex-col justify-center space-y-2">
               {/* 农历 */}
-              <div className="text-sm opacity-50">
+              <div className="text-xs opacity-50 sm:text-sm">
                 农历 {lunar.month}月{lunar.day}
               </div>
 
               {/* 节日 */}
               {lunar.festival && (
-                <div className="text-sm font-medium text-red-600/80">{lunar.festival}</div>
+                <div className="text-xs font-medium opacity-75 sm:text-sm">{lunar.festival}</div>
               )}
 
               {/* 阳历 */}
-              <div className="text-lg opacity-75 sm:text-xl">{yearMonth}</div>
+              <div className="text-sm opacity-75 sm:text-xl">{yearMonth}</div>
             </div>
           </div>
 
           {/* 右侧：竖向 tip */}
           <div className="flex items-start">
-            <div className="tet-xl font-medium tracking-widest [writing-mode:vertical-rl] sm:text-2xl">
+            <div className="tet-lg font-medium tracking-widest [writing-mode:vertical-rl] sm:text-2xl">
               {reading.tip}
             </div>
           </div>
@@ -93,13 +93,13 @@ export default async function ReadingDetailPage() {
 
       {/* 文章正文 */}
       <article className="mb-12 text-lg leading-relaxed">
-        <div className="whitespace-pre-line">
+        <div className="break-all whitespace-pre-line">
           {reading.content.trim().replaceAll('\n\n', '\n').replaceAll('\n', '\n\n')}
         </div>
       </article>
 
       {/* 作品信息 - 低调展示在正文后 */}
-      <div className="mb-16 text-center">
+      <div className="mb-8 text-center sm:mb-16">
         <p className="mb-2 text-base opacity-50 sm:text-lg">{reading.name_formatted}</p>
         <p className="text-sm opacity-40">{reading.author}</p>
       </div>
