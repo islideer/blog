@@ -55,12 +55,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.5, // 中等优先级
     },
-    {
-      url: `${siteConfig.url}${pagesData.library.slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7, // 中等优先级
-    },
+    // {
+    //   url: `${siteConfig.url}${pagesData.library.slug}`,
+    //   lastModified: new Date(),
+    //   changeFrequency: 'weekly',
+    //   priority: 0.7, // 中等优先级
+    // },
     {
       url: `${siteConfig.url}${pagesData.game.slug}`,
       lastModified: new Date(),
