@@ -59,6 +59,7 @@ export default async function ReadingDetailPage() {
     <div className={cn('mx-auto max-w-3xl px-2 py-12 sm:px-6', notoSerifSC.className)}>
       {/* 日期标题 - 文艺布局 */}
       <header className="relative mb-16">
+        <div className="mb-6 italic opacity-60 sm:mb-8">岛读：每日一篇名家短文</div>
         <div className="flex items-start justify-between gap-8">
           {/* 左侧：日期信息 */}
           <div className="flex items-end gap-4 sm:gap-6">
