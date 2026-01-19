@@ -162,7 +162,7 @@ export function Header() {
                     )}
                     onClick={() => setIsMoreOpen(false)}
                   >
-                    每日阅读
+                    岛读
                   </Link>
                 </div>
                 <Link

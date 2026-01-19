@@ -1,5 +1,5 @@
 /**
- * 每日阅读 API 相关类型和函数
+ * 岛读 API 相关类型和函数
  */
 
 import { Lunar } from 'lunar-typescript'
