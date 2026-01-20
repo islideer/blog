@@ -142,15 +142,18 @@ export function useSearch(): UseSearchReturn {
           .filter((k) => k.length > 0)
 
         // 排序：可见匹配 > 类型权重 > 时间新鲜度
-        resultItems.sort((a, b) => {
+        resultItems.toSorted((a, b) => {
           // 1. 优先级：标题或摘要中有可见匹配的排在前面
           const aHasVisibleMatch = queryKeywords.some(
             (keyword) =>
-              a.title.toLowerCase().includes(keyword) || a.excerpt.toLowerCase().includes(keyword),
+              a.title.toLowerCase().includes(keyword) ||
+              (a.excerpt || '').toLowerCase().includes(keyword),
           )
+
           const bHasVisibleMatch = queryKeywords.some(
             (keyword) =>
-              b.title.toLowerCase().includes(keyword) || b.excerpt.toLowerCase().includes(keyword),
+              b.title.toLowerCase().includes(keyword) ||
+              (b.excerpt || '').toLowerCase().includes(keyword),
           )
 
           if (aHasVisibleMatch !== bHasVisibleMatch) {
