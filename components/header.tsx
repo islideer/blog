@@ -10,6 +10,7 @@ import { GitHubIcon } from './github-icon'
 import { usePathname } from 'next/navigation'
 import { ThemeToggle } from './theme-toggle'
 import { TravellingsIcon } from './travellings-iocn'
+import { SearchTrigger } from './search/search-trigger'
 
 export function Header() {
   const pathname = usePathname()
@@ -37,10 +38,7 @@ export function Header() {
         <nav
           role="navigation"
           aria-label="主导航"
-          className={cn(
-            'flex items-center gap-1.5 transition-opacity sm:gap-4',
-            !isMoreOpen && 'group-hover:opacity-100 sm:opacity-60',
-          )}
+          className="flex items-center gap-1.5 sm:gap-4"
         >
           <Link
             href={pages.posts.slug}
@@ -220,6 +218,7 @@ export function Header() {
           </div>
 
           <div className="flex items-center">
+            <SearchTrigger />
             <GitHubIcon href={siteConfig.author.github} className="hidden sm:flex" />
             <RSSIcon href={siteConfig.links.rss} className="hidden sm:flex" />
             <TravellingsIcon href={siteConfig.links.travellings} className="hidden sm:flex" />

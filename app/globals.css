@@ -100,8 +100,7 @@ a[target='_blank']:not(.no-icon):not(:has(> img))::after {
 /* Focus styles - Enhanced for better visibility */
 :focus-visible {
   outline: 2px solid var(--color-text-primary);
-  outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 
 /* Header logo link without underline */
@@ -114,36 +113,9 @@ header > div > a {
   background-color: rgba(128, 128, 128, 0.3);
 }
 
-/* Focus styles - Enhanced for better visibility */
-:focus-visible {
-  outline: 3px solid var(--color-text-primary);
-  outline-offset: 3px;
-  border-radius: var(--radius-md);
-  box-shadow: 0 0 0 3px rgba(128, 128, 128, 0.2);
-}
-
 /* Focus styles for links */
 a:focus-visible {
-  outline: 2px solid var(--color-text-primary);
-  outline-offset: 4px;
   text-decoration: solid;
-  background-color: rgba(128, 128, 128, 0.1);
-}
-
-/* Focus styles for buttons */
-button:focus-visible {
-  outline: 2px solid var(--color-text-primary);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(128, 128, 128, 0.15);
-}
-
-/* Focus styles for interactive elements in navigation */
-nav a:focus-visible {
-  outline: 2px solid var(--color-text-primary);
-  outline-offset: 2px;
-  padding: 2px 6px;
-  margin: -2px -6px;
-  border-radius: var(--radius-md);
 }
 
 /* Smooth scrollbar */
