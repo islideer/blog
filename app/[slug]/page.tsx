@@ -18,10 +18,9 @@ import { ZoomImageForArticle } from '@/components/zoom-image'
 import { ArticleContent } from '@/components/article-content'
 import { TableOfContents } from '@/components/table-of-contents'
 import { countWords } from '@/lib/word-count'
-import { PageUrl } from '@/components/page-url'
+import { PostInfo } from '@/components/post-info'
 
 import type { Metadata } from 'next'
-import { LicenseText } from '@/components/footer'
 
 export async function generateStaticParams() {
   const slugs = await getAllPostSlugs()
@@ -137,11 +136,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <ArticleContent content={post.content} />
 
         {/* Article End */}
-        <div className="border-border mt-8 flex flex-col gap-4 border-t pt-8 sm:mt-16 sm:items-center">
+        <div className="border-border mt-8 border-t pt-8 sm:mt-16">
           <p className="text-text-tertiary text-center text-sm">—— 本文完 ——</p>
-          <LicenseText className="hidden text-center text-sm sm:block" />
-          <LicenseText short className="block text-center text-sm sm:hidden" />
-          <PageUrl />
+        </div>
+
+        <div className="border-border mt-8 flex justify-center border-t pt-8">
+          <div>
+            <PostInfo title={post.title} slug={post.slug} />
+          </div>
         </div>
 
         {/* Recommended Posts */}
