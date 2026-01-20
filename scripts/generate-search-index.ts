@@ -182,7 +182,6 @@ async function generateSearchIndex() {
   // 生成索引
   const searchIndex: SearchIndex = {
     version: '1.0.0',
-    items,
     metadata: {
       generatedAt: new Date().toISOString(),
       totalItems: items.length,
@@ -193,6 +192,7 @@ async function generateSearchIndex() {
       timelineCount: timelineData.length,
       aboutCount,
     },
+    items,
   }
 
   // 输出到 public/search-index.json

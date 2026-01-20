@@ -26,6 +26,10 @@ export function SearchInput({ value, onChange, isLoading }: SearchInputProps) {
         ref={inputRef}
         type="text"
         value={value}
+        autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck={false}
         onChange={(e) => onChange(e.target.value)}
         placeholder="搜索文章、碎碎念、Mio 说、大事记、收藏夹..."
         className="text-text-primary placeholder:text-text-tertiary flex-1 bg-transparent text-base outline-none! active:outline-none! sm:text-lg"
