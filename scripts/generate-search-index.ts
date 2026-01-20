@@ -133,7 +133,7 @@ async function generateSearchIndex() {
       title: cleanedDescription.slice(0, 50),
       content: cleanedDescription,
       date: event.date,
-      url: `/timeline`,
+      url: `/timeline#year-${event.date.slice(0, 4)}`,
     })
   }
   console.log(`  ✓ 处理了 ${timelineData.length} 个时间线事件`)

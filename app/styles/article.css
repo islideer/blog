@@ -119,6 +119,10 @@
   opacity: 1;
 }
 
+.prose .heading-anchor::before {
+  content: '#';
+}
+
 .prose .heading-anchor:hover {
   text-decoration: underline;
   color: var(--color-text-primary);

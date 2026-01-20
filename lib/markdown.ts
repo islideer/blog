@@ -75,10 +75,6 @@ const articleProcessor = unified()
       ariaHidden: true,
       tabIndex: -1,
     },
-    content: {
-      type: 'text',
-      value: '#',
-    },
   })
   .use(rehypeZoomImage)
   .use(rehypeExternalLinks, {

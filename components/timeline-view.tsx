@@ -62,7 +62,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
         return (
           <div key={year} className="space-y-4">
             {/* 年份标题 */}
-            <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
+            <h2 className="text-text-primary text-xl font-bold sm:text-2xl" id={`year-${year}`}>
               <span>{year}</span>
               <span className="text-text-tertiary/60 mx-1">/</span>
               <span className="text-text-tertiary">{YEAR_DESC_MAP.get(year)}</span>
