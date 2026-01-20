@@ -73,5 +73,11 @@
     "description": "技术 Blog。",
     "avatar": "https://yunnet.top/upload/psc.jpg",
     "rss": "https://yunnet.top/rss.xml"
+  },
+  {
+    "name": "jyi",
+    "url": "https://jyi2ya.github.io/",
+    "avatar": "https://jyi2ya.github.io/favicon.ico",
+    "rss": "https://jyi2ya.github.io/index.rss"
   }
 ]
