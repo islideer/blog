@@ -51,15 +51,16 @@ async function generateSearchIndex() {
   const posts = await getAllPostsWithContent()
   for (const post of posts) {
     const cleanedContent = cleanMarkdownContent(post.content)
-    // 文章内容只索引前 500 字
-    const truncatedContent = truncateText(cleanedContent, 500)
+
+    // // 文章内容只索引前 3000 字
+    // const truncatedContent = truncateText(cleanedContent, 3000)
 
     items.push({
       id: `post-${post.slug}`,
       type: 'post',
       title: post.title,
       excerpt: post.excerpt,
-      content: truncatedContent,
+      content: cleanedContent,
       tags: post.tags,
       date: post.date,
       url: `/${post.slug}`,
