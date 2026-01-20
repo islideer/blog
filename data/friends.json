@@ -68,6 +68,13 @@
     "rss": "https://www.zellon.top/rss.xml"
   },
   {
+    "name": "梦爱吃鱼",
+    "url": "https://blog.bsgun.cn/",
+    "description": "不负心灵，不负今生。",
+    "avatar": "https://oss-cdn.bsgun.cn/logo/avatar.256.png",
+    "rss": "https://blog.bsgun.cn/atom.xml"
+  },
+  {
     "name": "Xiaohui'Blog",
     "url": "https://yunnet.top/",
     "description": "技术 Blog。",
