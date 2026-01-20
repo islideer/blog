@@ -2,7 +2,7 @@ import { join } from 'node:path'
 import { readFile } from 'node:fs/promises'
 import { formatDate } from '@/lib/dayjs'
 import { getAllPosts } from '@/lib/posts'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 import { ImageResponse } from 'next/og'
 import { OgImageStatsItem, OgImageTemplate } from '@/components/og-image-template'
 
@@ -15,7 +15,7 @@ export const dynamic = 'force-static'
 export const contentType = 'image/png'
 
 export async function generateAlt(): Promise<string> {
-  return pagesData.posts.title
+  return pages.posts.title
 }
 
 export default async function Image() {
@@ -43,7 +43,7 @@ export default async function Image() {
 
   return new ImageResponse(
     <OgImageTemplate
-      title={pagesData.posts.title}
+      title={pages.posts.title}
       iconData={Buffer.from(iconData)}
       metaContent={
         lastUpdated && (
@@ -83,7 +83,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            {pagesData.posts.description}
+            {pages.posts.description}
           </div>
 
           {/* 统计数据：横向布局 */}

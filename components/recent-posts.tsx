@@ -4,7 +4,7 @@ import { DraftBadge } from './draft-badge'
 import { PinIcon } from './pin-icon'
 import { PostDate } from './post-date'
 import { ReadingTime } from './reading-time'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 
 import type { PostMetadata } from '@/lib/posts'
 
@@ -68,7 +68,7 @@ export async function RecentPosts({ posts, totalCount, showMoreThreshold }: Rece
       {totalCount > showMoreThreshold && (
         <div className="pt-1">
           <Link
-            href={pagesData.posts.slug}
+            href={pages.posts.slug}
             className="text-text-secondary hover:text-text-primary text-[11px]"
           >
             查看全部（{totalCount.toLocaleString('zh-Hans-CN')}）→

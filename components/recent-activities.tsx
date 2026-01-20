@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ImageIcon } from './image-icon'
 import { RelativeTime } from './relative-time'
-import { pagesData, type ShortPost } from '@/lib/data'
+import { pages, type ShortPost } from '@/lib/data'
 
 interface RecentActivitiesProps {
   title?: string
@@ -87,7 +87,7 @@ export async function RecentActivities({
       {totalCount > showMoreThreshold && (
         <div className="pt-1">
           <Link
-            href={pagesData.thoughts.slug}
+            href={pages.thoughts.slug}
             className="text-text-secondary hover:text-text-primary text-[11px]"
           >
             查看全部（{totalCount.toLocaleString('zh-Hans-CN')}）→

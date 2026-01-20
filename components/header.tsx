@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/cn'
 import { RSSIcon } from './rss-icon'
 import { useState } from 'react'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { GitHubIcon } from './github-icon'
 import { usePathname } from 'next/navigation'
@@ -43,7 +43,7 @@ export function Header() {
           )}
         >
           <Link
-            href={pagesData.posts.slug}
+            href={pages.posts.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
               'text-xs sm:text-sm',
@@ -52,7 +52,7 @@ export function Header() {
             文章
           </Link>
           <Link
-            href={pagesData.thoughts.slug}
+            href={pages.thoughts.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
               'text-xs sm:text-sm',
@@ -61,7 +61,7 @@ export function Header() {
             碎碎念
           </Link>
           <Link
-            href={pagesData.mioSays.slug}
+            href={pages.mioSays.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
               'text-xs sm:text-sm',
@@ -71,7 +71,7 @@ export function Header() {
           </Link>
 
           <Link
-            href={pagesData.library.slug}
+            href={pages.library.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
               'hidden text-xs sm:inline sm:text-sm',
@@ -81,7 +81,7 @@ export function Header() {
           </Link>
 
           <Link
-            href={pagesData.game.slug}
+            href={pages.game.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
               'hidden text-xs sm:inline sm:text-sm',
@@ -91,7 +91,7 @@ export function Header() {
           </Link>
 
           <Link
-            href={pagesData.about.slug}
+            href={pages.about.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
               'text-xs sm:text-sm',
@@ -123,7 +123,7 @@ export function Header() {
               <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
                 <div className="sm:hidden">
                   <Link
-                    href={pagesData.library.slug}
+                    href={pages.library.slug}
                     className={cn(
                       'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
                       'block px-4 py-2 text-xs',
@@ -134,7 +134,7 @@ export function Header() {
                   </Link>
 
                   <Link
-                    href={pagesData.game.slug}
+                    href={pages.game.slug}
                     className={cn(
                       'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
                       'block px-4 py-2 text-xs',
@@ -146,7 +146,7 @@ export function Header() {
                 </div>
 
                 <Link
-                  href={pagesData.timeline.slug}
+                  href={pages.timeline.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
                     'block px-4 py-2 text-xs',
@@ -157,7 +157,7 @@ export function Header() {
                 </Link>
 
                 <Link
-                  href={pagesData.reading.slug}
+                  href={pages.reading.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
                     'block px-4 py-2 text-xs',
@@ -168,7 +168,7 @@ export function Header() {
                 </Link>
 
                 <Link
-                  href={pagesData.friends.slug}
+                  href={pages.friends.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
                     'block px-4 py-2 text-xs',

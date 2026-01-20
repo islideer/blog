@@ -1,7 +1,7 @@
 import { siteConfig } from '@/lib/config'
 import { thoughts } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 
 import { countWords } from '@/lib/word-count'
 import { ThoughtsList } from '@/components/thoughts-list'
@@ -10,32 +10,32 @@ import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: pagesData.thoughts.title,
-    description: pagesData.thoughts.description,
+    title: pages.thoughts.title,
+    description: pages.thoughts.description,
     alternates: {
-      canonical: generateCanonicalUrl(pagesData.thoughts.slug),
+      canonical: generateCanonicalUrl(pages.thoughts.slug),
     },
     openGraph: {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
-      url: generateCanonicalUrl(pagesData.thoughts.slug),
-      title: `${pagesData.thoughts.title} | ${siteConfig.name}`,
-      description: pagesData.thoughts.description,
+      url: generateCanonicalUrl(pages.thoughts.slug),
+      title: `${pages.thoughts.title} | ${siteConfig.name}`,
+      description: pages.thoughts.description,
       siteName: siteConfig.name,
       images: [
         {
-          url: `${pagesData.thoughts.slug}/opengraph-image`,
+          url: `${pages.thoughts.slug}/opengraph-image`,
           width: 1200,
           height: 630,
-          alt: pagesData.thoughts.title,
+          alt: pages.thoughts.title,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${pagesData.thoughts.title} | ${siteConfig.name}`,
-      description: pagesData.thoughts.description,
-      images: [`${pagesData.thoughts.slug}/opengraph-image`],
+      title: `${pages.thoughts.title} | ${siteConfig.name}`,
+      description: pages.thoughts.description,
+      images: [`${pages.thoughts.slug}/opengraph-image`],
     },
   }
 }
@@ -57,9 +57,9 @@ export default async function ThoughtsPage() {
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
-        <h1 className="text-3xl font-bold">{pagesData.thoughts.title}</h1>
+        <h1 className="text-3xl font-bold">{pages.thoughts.title}</h1>
         <p className="text-text-secondary">
-          {`${pagesData.thoughts.description}，共 ${sortedThoughts.length.toLocaleString('zh-Hans-CN')} 条内容，月均 ${averagePerMonth.toLocaleString('zh-Hans-CN')} 条，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
+          {`${pages.thoughts.description}，共 ${sortedThoughts.length.toLocaleString('zh-Hans-CN')} 条内容，月均 ${averagePerMonth.toLocaleString('zh-Hans-CN')} 条，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
         </p>
       </section>
 

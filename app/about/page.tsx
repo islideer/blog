@@ -4,39 +4,39 @@ import { AboutOpenSource } from '@/components/about-open-source'
 import { AboutTechStack } from '@/components/about-tech-stack'
 import { about } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: pagesData.about.title,
-  description: pagesData.about.description,
+  title: pages.about.title,
+  description: pages.about.description,
   alternates: {
-    canonical: generateCanonicalUrl(pagesData.about.slug),
+    canonical: generateCanonicalUrl(pages.about.slug),
   },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
-    url: generateCanonicalUrl(pagesData.about.slug),
-    title: `${pagesData.about.title} | ${siteConfig.name}`,
-    description: pagesData.about.description,
+    url: generateCanonicalUrl(pages.about.slug),
+    title: `${pages.about.title} | ${siteConfig.name}`,
+    description: pages.about.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: `${pagesData.about.slug}/opengraph-image`,
+        url: `${pages.about.slug}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: pagesData.about.title,
+        alt: pages.about.title,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${pagesData.about.title} | ${siteConfig.name}`,
-    description: pagesData.about.description,
-    images: [`${pagesData.about.slug}/opengraph-image`],
+    title: `${pages.about.title} | ${siteConfig.name}`,
+    description: pages.about.description,
+    images: [`${pages.about.slug}/opengraph-image`],
   },
 }
 

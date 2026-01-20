@@ -5,7 +5,7 @@ import { MarkdownLite } from '@/components/markdown-lite'
 import { generateBlogSchema, generateOrganizationSchema } from '@/lib/seo'
 import { RecentActivities } from '@/components/recent-activities'
 import { RecentPosts } from '@/components/recent-posts'
-import { thoughts } from '@/lib/data'
+import { about, thoughts } from '@/lib/data'
 // import { mioSays, thoughts } from '@/lib/data'
 
 export default async function BlogPage() {
@@ -55,7 +55,7 @@ export default async function BlogPage() {
           <MarkdownLite
             size="md"
             className="text-text-secondary!"
-            content={siteConfig.home.hero.paragraphs.join('\n')}
+            content={about.intro.paragraphs.join('\n')}
           />
         </section>
 

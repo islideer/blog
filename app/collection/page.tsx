@@ -1,5 +1,5 @@
 import { CollectionList } from '@/components/collection-list'
-import { collection, pagesData } from '@/lib/data'
+import { collection, pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
@@ -7,32 +7,32 @@ import { StaticTableOfContents } from '@/components/table-of-contents'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: pagesData.collection.title,
-  description: pagesData.collection.description,
+  title: pages.collection.title,
+  description: pages.collection.description,
   alternates: {
-    canonical: generateCanonicalUrl(pagesData.collection.slug),
+    canonical: generateCanonicalUrl(pages.collection.slug),
   },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
-    url: generateCanonicalUrl(pagesData.collection.slug),
-    title: `${pagesData.collection.title} | ${siteConfig.name}`,
-    description: pagesData.collection.description,
+    url: generateCanonicalUrl(pages.collection.slug),
+    title: `${pages.collection.title} | ${siteConfig.name}`,
+    description: pages.collection.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: `${pagesData.collection.slug}/opengraph-image`,
+        url: `${pages.collection.slug}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: pagesData.collection.title,
+        alt: pages.collection.title,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${pagesData.collection.title} | ${siteConfig.name}`,
-    description: pagesData.collection.description,
-    images: [`${pagesData.collection.slug}/opengraph-image`],
+    title: `${pages.collection.title} | ${siteConfig.name}`,
+    description: pages.collection.description,
+    images: [`${pages.collection.slug}/opengraph-image`],
   },
 }
 
@@ -49,8 +49,8 @@ export default function CollectionPage() {
       <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
         {/* Header */}
         <section className="space-y-3" id="title">
-          <h1 className="text-3xl font-bold">{pagesData.collection.title}</h1>
-          <p className="text-text-secondary">{`${pagesData.collection.description}。`}</p>
+          <h1 className="text-3xl font-bold">{pages.collection.title}</h1>
+          <p className="text-text-secondary">{`${pages.collection.description}。`}</p>
         </section>
 
         {/* Collection Lists */}

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 import { siteConfig } from '@/lib/config'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 
 export const dynamic = 'force-static'
 
@@ -39,7 +39,7 @@ export default function manifest(): MetadataRoute.Manifest {
       },
     ],
     // 快捷方式（可选）
-    shortcuts: Object.values(pagesData).map((page) => ({
+    shortcuts: Object.values(pages).map((page) => ({
       name: page.title,
       short_name: page.title,
       description: page.description,

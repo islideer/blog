@@ -7,41 +7,70 @@ import { siteConfig } from '@/lib/config'
 import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
 import { getAllPosts, getAllPostsWithContent } from '@/lib/posts'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 import { PostListItem } from '@/components/post-list-item'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { countWords } from '@/lib/word-count'
 
 import type { Metadata } from 'next'
 
+const YEAR_DESC_MAP = new Map<number, string>([
+  [2001, '破壳年'],
+  [2002, '1 岁，幼年期'],
+  [2003, '2 岁，幼年期'],
+  [2004, '3 岁，幼年期'],
+  [2005, '4 岁，童年期'],
+  [2006, '5 岁，童年期'],
+  [2007, '6 岁，小学一年级'],
+  [2008, '7 岁，小学二年级'],
+  [2009, '8 岁，小学三年级'],
+  [2010, '9 岁，小学四年级'],
+  [2011, '10 岁，小学五年级'],
+  [2012, '11 岁，小学六年级'],
+  [2013, '12 岁，初一'],
+  [2014, '13 岁，初二'],
+  [2015, '14 岁，初三'],
+  [2016, '15 岁，高一'],
+  [2017, '16 岁，高二'],
+  [2018, '17 岁，高三'],
+  [2019, '18 岁，大一'],
+  [2020, '19 岁，大二'],
+  [2021, '20 岁，大三'],
+  [2022, '21 岁，大四'],
+  [2023, '22 岁'],
+  [2024, '23 岁'],
+  [2025, '24 岁'],
+  [2026, '25 岁'],
+])
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: pagesData.posts.title,
-    description: pagesData.posts.description,
+    title: pages.posts.title,
+    description: pages.posts.description,
     alternates: {
-      canonical: generateCanonicalUrl(pagesData.posts.slug),
+      canonical: generateCanonicalUrl(pages.posts.slug),
     },
     openGraph: {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
-      url: generateCanonicalUrl(pagesData.posts.slug),
-      title: `${pagesData.posts.title} | ${siteConfig.name}`,
-      description: pagesData.posts.description,
+      url: generateCanonicalUrl(pages.posts.slug),
+      title: `${pages.posts.title} | ${siteConfig.name}`,
+      description: pages.posts.description,
       siteName: siteConfig.name,
       images: [
         {
-          url: `${pagesData.posts.slug}/opengraph-image`,
+          url: `${pages.posts.slug}/opengraph-image`,
           width: 1200,
           height: 630,
-          alt: pagesData.posts.title,
+          alt: pages.posts.title,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${pagesData.posts.title} | ${siteConfig.name}`,
-      description: pagesData.posts.description,
-      images: [`${pagesData.posts.slug}/opengraph-image`],
+      title: `${pages.posts.title} | ${siteConfig.name}`,
+      description: pages.posts.description,
+      images: [`${pages.posts.slug}/opengraph-image`],
     },
   }
 }
@@ -86,9 +115,9 @@ export default async function PostsPage() {
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
-        <h1 className="text-3xl font-bold">{pagesData.posts.title}</h1>
+        <h1 className="text-3xl font-bold">{pages.posts.title}</h1>
         <p className="text-text-secondary">
-          {`${pagesData.posts.description}，共 ${allPosts.length.toLocaleString('zh-Hans-CN')} 篇，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字，按年份分组展示。`}
+          {`${pages.posts.description}，共 ${allPosts.length.toLocaleString('zh-Hans-CN')} 篇，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字，按年份分组展示。`}
         </p>
       </section>
 
@@ -144,9 +173,12 @@ export default async function PostsPage() {
 
           return (
             <div key={year} className="space-y-4 sm:space-y-6">
+              {/* 年份标题 */}
               <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
-                {year}{' '}
-                <span className="text-text-tertiary text-base font-normal sm:text-lg">
+                <span>{year}</span>
+                <span className="text-text-tertiary/60 mx-1">/</span>
+                <span className="text-text-tertiary">{YEAR_DESC_MAP.get(year)}</span>
+                <span className="text-text-tertiary mx-1 text-base font-normal sm:text-lg">
                   ({yearPosts.length.toLocaleString('zh-Hans-CN')})
                 </span>
               </h2>

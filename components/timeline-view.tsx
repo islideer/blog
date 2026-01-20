@@ -7,6 +7,35 @@ interface TimelineViewProps {
   items: TimelineItem[]
 }
 
+const YEAR_DESC_MAP = new Map<number, string>([
+  [2001, '破壳年'],
+  [2002, '1 岁，幼年期'],
+  [2003, '2 岁，幼年期'],
+  [2004, '3 岁，幼年期'],
+  [2005, '4 岁，童年期'],
+  [2006, '5 岁，童年期'],
+  [2007, '6 岁，小学一年级'],
+  [2008, '7 岁，小学二年级'],
+  [2009, '8 岁，小学三年级'],
+  [2010, '9 岁，小学四年级'],
+  [2011, '10 岁，小学五年级'],
+  [2012, '11 岁，小学六年级'],
+  [2013, '12 岁，初一'],
+  [2014, '13 岁，初二'],
+  [2015, '14 岁，初三'],
+  [2016, '15 岁，高一'],
+  [2017, '16 岁，高二'],
+  [2018, '17 岁，高三'],
+  [2019, '18 岁，大一'],
+  [2020, '19 岁，大二'],
+  [2021, '20 岁，大三'],
+  [2022, '21 岁，大四'],
+  [2023, '22 岁'],
+  [2024, '23 岁'],
+  [2025, '24 岁'],
+  [2026, '25 岁'],
+])
+
 export async function TimelineView({ items }: TimelineViewProps) {
   // 按年份分组（使用现代化的 Object.groupBy）
   const timelineByYear = Object.groupBy(items, (item) => {
@@ -31,18 +60,20 @@ export async function TimelineView({ items }: TimelineViewProps) {
         })
 
         return (
-          <div key={year} className="space-y-4 sm:space-y-6">
+          <div key={year} className="space-y-4">
             {/* 年份标题 */}
             <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
-              {year}{' '}
-              <span className="text-text-tertiary text-base font-normal sm:text-lg">
+              <span>{year}</span>
+              <span className="text-text-tertiary/60 mx-1">/</span>
+              <span className="text-text-tertiary">{YEAR_DESC_MAP.get(year)}</span>
+              <span className="text-text-tertiary mx-1 text-base font-normal sm:text-lg">
                 ({yearItems.length.toLocaleString('zh-Hans-CN')})
               </span>
             </h2>
 
             {/* 时间轴内容 */}
             <div
-              className="space-y-4 border-l-2 pl-4 sm:space-y-6 sm:pl-6"
+              className="divide-text-tertiary/60 divide-y divide-dashed border-l-2 pl-4 sm:pl-6"
               style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
             >
               {sortedItems.map((item, index) => {
@@ -71,7 +102,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
                 return (
                   <article
                     key={index}
-                    className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-4 sm:py-1.5"
+                    className="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4 sm:py-4"
                   >
                     {formattedDate && (
                       <time className="text-text-tertiary shrink-0 text-xs sm:w-12 sm:text-sm">
@@ -80,7 +111,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
                     )}
                     <MarkdownLite
                       size="md"
-                      className="text-text-secondary!"
+                      className="text-text-secondary! text-xs leading-5 sm:text-sm sm:leading-6"
                       content={item.description}
                     />
                   </article>

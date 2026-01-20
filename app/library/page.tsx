@@ -2,7 +2,7 @@ import { Books } from '@/components/books'
 import { Movies } from '@/components/movies'
 import { Bangumi } from '@/components/bangumi'
 import { siteConfig } from '@/lib/config'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 import { getBangumiList } from '@/lib/bangumi'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
@@ -11,32 +11,32 @@ import { getDoubanBooks, getDoubanMovies } from '@/lib/douban'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: pagesData.library.title,
-  description: pagesData.library.description,
+  title: pages.library.title,
+  description: pages.library.description,
   alternates: {
-    canonical: generateCanonicalUrl(pagesData.library.slug),
+    canonical: generateCanonicalUrl(pages.library.slug),
   },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
-    url: generateCanonicalUrl(pagesData.library.slug),
-    title: `${pagesData.library.title} | ${siteConfig.name}`,
-    description: pagesData.library.description,
+    url: generateCanonicalUrl(pages.library.slug),
+    title: `${pages.library.title} | ${siteConfig.name}`,
+    description: pages.library.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: `${pagesData.library.slug}/opengraph-image`,
+        url: `${pages.library.slug}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: pagesData.library.title,
+        alt: pages.library.title,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${pagesData.library.title} | ${siteConfig.name}`,
-    description: pagesData.library.description,
-    images: [`${pagesData.library.slug}/opengraph-image`],
+    title: `${pages.library.title} | ${siteConfig.name}`,
+    description: pages.library.description,
+    images: [`${pages.library.slug}/opengraph-image`],
   },
 }
 
@@ -70,8 +70,8 @@ export default async function LibraryPage() {
       <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
         {/* Header */}
         <section className="space-y-3" id="title">
-          <h1 className="text-3xl font-bold">{pagesData.library.title}</h1>
-          <p className="text-text-secondary">{`${pagesData.library.description}。`}</p>
+          <h1 className="text-3xl font-bold">{pages.library.title}</h1>
+          <p className="text-text-secondary">{`${pages.library.description}。`}</p>
         </section>
 
         {/* 影视 - 豆瓣 API 数据 */}

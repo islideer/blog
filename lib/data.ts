@@ -45,7 +45,7 @@ export interface TechStackData {
   crossPlatform: TechStackItem[]
 }
 
-export const pagesData = {
+export const pages = {
   posts: {
     title: '文章',
     description: `记录技术思考和生活感悟`,
@@ -98,7 +98,7 @@ export const pagesData = {
   },
 }
 
-export type PageData = typeof pagesData
+export type PageData = typeof pages
 
 export interface AboutData {
   intro: {

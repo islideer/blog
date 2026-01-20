@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
 import { mioSays } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 import { countWords } from '@/lib/word-count'
 import { ThoughtsList } from '@/components/thoughts-list'
 
@@ -10,32 +10,32 @@ import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: pagesData.mioSays.title,
-    description: pagesData.mioSays.description,
+    title: pages.mioSays.title,
+    description: pages.mioSays.description,
     alternates: {
-      canonical: generateCanonicalUrl(pagesData.mioSays.slug),
+      canonical: generateCanonicalUrl(pages.mioSays.slug),
     },
     openGraph: {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
-      url: generateCanonicalUrl(pagesData.mioSays.slug),
-      title: `${pagesData.mioSays.title} | ${siteConfig.name}`,
-      description: pagesData.mioSays.description,
+      url: generateCanonicalUrl(pages.mioSays.slug),
+      title: `${pages.mioSays.title} | ${siteConfig.name}`,
+      description: pages.mioSays.description,
       siteName: siteConfig.name,
       images: [
         {
-          url: `${pagesData.mioSays.slug}/opengraph-image`,
+          url: `${pages.mioSays.slug}/opengraph-image`,
           width: 1200,
           height: 630,
-          alt: pagesData.mioSays.title,
+          alt: pages.mioSays.title,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${pagesData.mioSays.title} | ${siteConfig.name}`,
-      description: pagesData.mioSays.description,
-      images: [`${pagesData.mioSays.slug}/opengraph-image`],
+      title: `${pages.mioSays.title} | ${siteConfig.name}`,
+      description: pages.mioSays.description,
+      images: [`${pages.mioSays.slug}/opengraph-image`],
     },
   }
 }
@@ -54,10 +54,10 @@ export default async function MioSaysPage() {
       <section className="flex flex-row gap-6 sm:items-start sm:justify-between">
         <div className="flex-1 space-y-3">
           <h1 className="text-3xl font-bold" style={{ color: 'var(--color-mio-pink)' }}>
-            {pagesData.mioSays.title}
+            {pages.mioSays.title}
           </h1>
           <p className="text-text-secondary">
-            {`${pagesData.mioSays.description}，共 ${sortedMioSays.length.toLocaleString('zh-Hans-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
+            {`${pages.mioSays.description}，共 ${sortedMioSays.length.toLocaleString('zh-Hans-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
           </p>
         </div>
         <div className="shrink-0 self-end">

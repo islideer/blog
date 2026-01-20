@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { OgImageStatsItem, OgImageTemplate } from '@/components/og-image-template'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 import { friends } from '@/lib/data'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -14,7 +14,7 @@ export const dynamic = 'force-static'
 export const contentType = 'image/png'
 
 export async function generateAlt(): Promise<string> {
-  return pagesData.friends.title
+  return pages.friends.title
 }
 
 export default async function Image() {
@@ -37,7 +37,7 @@ export default async function Image() {
 
   return new ImageResponse(
     <OgImageTemplate
-      title={pagesData.friends.title}
+      title={pages.friends.title}
       iconData={Buffer.from(iconData)}
       bodyContent={
         <div
@@ -57,7 +57,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            {pagesData.friends.description}
+            {pages.friends.description}
           </div>
 
           {/* 统计数据：横向布局 */}

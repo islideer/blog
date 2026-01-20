@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { OgImageStatsItem, OgImageTemplate } from '@/components/og-image-template'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 import { mioSays } from '@/lib/data'
 import { formatFull } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
@@ -15,7 +15,7 @@ export const dynamic = 'force-static'
 export const contentType = 'image/png'
 
 export async function generateAlt(): Promise<string> {
-  return pagesData.mioSays.title
+  return pages.mioSays.title
 }
 
 export default async function Image() {
@@ -45,7 +45,7 @@ export default async function Image() {
 
   return new ImageResponse(
     <OgImageTemplate
-      title={pagesData.mioSays.title}
+      title={pages.mioSays.title}
       iconData={Buffer.from(iconData)}
       metaContent={
         lastUpdated && (
@@ -85,7 +85,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            {pagesData.mioSays.description}
+            {pages.mioSays.description}
           </div>
 
           {/* 统计数据：横向布局 */}

@@ -9,7 +9,7 @@
   },
   {
     "date": "2026",
-    "description": "和 Mio 一起跨年，迎接 2026 年的到来。"
+    "description": "和 Mio 一起跨年，迎接 2026。"
   },
   {
     "date": "2025",
@@ -24,16 +24,32 @@
     "description": "与 Mio 正式确立恋爱关系并双向奔赴，这段感情始于 2019 年在 [NCUHOME](https://home.ncu.edu.cn/) 的相识。"
   },
   {
+    "date": "2025",
+    "description": "半年后退坑 VRC。这期间认识了不少有趣的朋友，学了一点 [C#](https://learn.microsoft.com/zh-cn/dotnet/csharp/) 和 [Unity](https://unity.com/)、买了不少正版模型和衣服、插件、改了一点点模、开发了属于自己的地图。中文吧、中文教程吧、中文咖啡厅、台北 K 歌、动漫屋等是喜欢且常去的地图。"
+  },
+  {
+    "date": "2025",
+    "description": "年初迷上了 [VRChat](https://hello.vrchat.com/) 虚拟社交，买了全新的 [PICO 4](https://www.picoxr.com/global/products/pico4) 头显和配套的三个 [PICO 体感追踪器](https://www.picoxr.com/global/products/pico-motion-tracker)，俗称「腿环」，一套极具性价比的全身追踪方案。"
+  },
+  {
+    "date": "2024",
+    "description": "自 [2024 上海 Major](https://www.hltv.org/events/7524/perfect-world-shanghai-major-2024) 起开始密切关注 CS2 相关赛事、职业战队及其选手相关资讯。"
+  },
+  {
     "date": "2024",
     "description": "旧域名 vikiboss.top 到期，不再续费，以 viki.moe 作为个人品牌的唯一域名。"
   },
   {
     "date": "2024",
-    "description": "用自己挣的钱动手组了第一台主机，i5 13600KF + RTX 4070 SUPER，性能杠杠的。"
+    "description": "在小区楼下捡到大概一个月大的三花小猫咪，抱回家养着了，取名「可乐」。"
+  },
+  {
+    "date": "2024",
+    "description": "用自己挣的钱动手组了第一台主机，[i5 13600KF](https://www.intel.cn/content/www/cn/zh/products/sku/230494/intel-core-i513600kf-processor-24m-cache-up-to-5-10-ghz/specifications.html) + [RTX 4070 SUPER](https://www.nvidia.cn/geforce/graphics-cards/40-series/rtx-4070-family/)，性能杠杠的。"
   },
   {
     "date": "2023",
-    "description": "重新捡起 CS:GO，不过这次 CS 升级了，变成了 CS2。"
+    "description": "重新捡起 CS:GO，不过这次 CS 升级了，变成了 [CS2](https://www.counter-strike.net/)。"
   },
   {
     "date": "2023",
@@ -41,11 +57,19 @@
   },
   {
     "date": "2023",
-    "description": "正式入职 [SHEIN](https://www.sheingroup.com/)，担任 Web 前端工程师，负责 B 端前端基础建设相关工作。"
+    "description": "正式入职 SHEIN，担任 Web 前端工程师，负责 B 端前端基建相关工作。"
+  },
+  {
+    "date": "2023",
+    "description": "提前以校招生身份在南京 [SHEIN](https://www.sheingroup.com/) 实习，开始自己学做饭。"
   },
   {
     "date": "2023",
     "description": "顺利毕业，毕设使用 [React Native](https://reactnative.dev/)，被学院评为 ~~开天辟地的学术垃圾~~ 优秀毕设。"
+  },
+  {
+    "date": "2022",
+    "description": "QQ 机器人的缘故，开启了 [60s API](https://github.com/vikiboss/60s) 项目。"
   },
   {
     "date": "2022",
@@ -60,8 +84,16 @@
     "description": "前往 [北京百度总部](https://www.baidu.com/) 实习，第一次出远门，第一次独立工作生活，第一次体验大厂工作节奏。"
   },
   {
+    "date": "2021",
+    "description": "KiviBot 诞生，简单的 Node.js 机器人框架。由于协议、开源等问题先后更名为「keli」、「mioki」。"
+  },
+  {
     "date": "2020",
-    "description": "报了日语选修课，但没怎么好好坚持学，一个五十音图背了大半年。"
+    "description": "接触到「酷喵」，一个内置了 [gocq-http](https://github.com/Mrs4s/go-cqhttp)、使用易语言编写的机器人框架，暴露了多种语言 SDK 接口。我刚学会 [Node.js](https://nodejs.org/) 不久，尝试用 JavaScript 和易语言给它写了不少插件。"
+  },
+  {
+    "date": "2020",
+    "description": "因为 Mio，报了日语选修课，但没怎么好好坚持学，一个 [五十音图](https://baike.baidu.com/item/%E6%97%A5%E8%AF%AD%E4%BA%94%E5%8D%81%E9%9F%B3%E5%9B%BE/9562443) 背了大半年。"
   },
   {
     "date": "2020",
@@ -69,11 +101,11 @@
   },
   {
     "date": "2020",
-    "description": "第二次参与校内互联网马拉松，使用 [React Native](https://reactnative.dev/) 开发，再次斩获「最佳前端」。"
+    "description": "第二次参与校内互联网马拉松，使用 [React Native](https://reactnative.dev/) 再次斩获「最佳前端」。"
   },
   {
     "date": "2019",
-    "description": "在校级互联网马拉松比赛（Hackweek）中有幸和 Mio 分到一组，并荣获「最佳前端」。"
+    "description": "在校级互联网马拉松（Hackweek）中有幸和 Mio 分到一组，使用 [Vue 2](https://v2.vuejs.org/) 并荣获「最佳前端」。"
   },
   {
     "date": "2019",
@@ -81,15 +113,15 @@
   },
   {
     "date": "2019",
-    "description": "有幸受到工作室学长 [Kid](https://xuann.wang/) 的技术指引，极大拓宽了我的技术视野。"
+    "description": "有幸受到工作室学长 [Kid](https://xuann.wang/) 的引导，拓宽了我的技术视野。"
   },
   {
     "date": "2019",
-    "description": "第一次接触并开始打 CS:GO，是和室友一起。"
+    "description": "第一次接触 [Steam](https://store.steampowered.com/)，并喜欢上了打 [CS:GO](https://www.counter-strike.net/)，和室友一起。"
   },
   {
     "date": "2019",
-    "description": "加入 [南昌大学家园工作室](https://home.ncu.edu.cn/)（NCUHOME），遇见 Mio，学习 Web 并正式踏入前端开发。"
+    "description": "加入 [南昌大学家园工作室](https://home.ncu.edu.cn/)（NCUHOME），遇见 Mio，学习 [Web](https://developer.mozilla.org/zh-CN/docs/Learn_web_development) 并正式踏入前端开发。"
   },
   {
     "date": "2019",
@@ -105,11 +137,27 @@
   },
   {
     "date": "2016",
+    "description": "重装家里的台式电脑，我要用 [Windows 10](https://www.microsoft.com/zh-cn/software-download/windows10)！但是爸妈用不习惯，后面又叫人给搞回去了..."
+  },
+  {
+    "date": "2016",
     "description": "高中信息课，我的天下。天生爱好计算机加上易语言的基础，各种问答和实操手到擒来。~~可惜的是学校没有开设计算机竞赛相关课程和社团，错过了参加竞赛的机会。~~"
   },
   {
     "date": "2014",
     "description": "了解并喜欢上 [全民 K 歌](https://kg.qq.com/)，开始发歌自娱自乐，水平一般但乐在其中，主要是培养了自信心。"
+  },
+  {
+    "date": "2014",
+    "description": "给旧手机 Root、刷过系统 [ROM](https://baike.baidu.com/item/%E5%AE%89%E5%8D%93ROM/2967985) 包，虽然变了几次转，那个时候的 [MIUI](https://www.mi.com/global/miui) 还是非常简单好用的。"
+  },
+  {
+    "date": "2014",
+    "description": "周末就喜欢玩 [天天酷跑](https://pao.qq.com/main.shtml)、[天天飞车](https://igame.qq.com/igameapp/game/index.php?gid=307)，那是一个属于随智能手机发展起来的手游黄金时代。"
+  },
+  {
+    "date": "2013",
+    "description": "接触到 QQ 机器人，如早期的「酷 Q」，「晨风」等，仅限使用层面，经常吐槽插件配置界面怎么这么丑、功能多么多么不人性化，萌生了想要自己写的想法。"
   },
   {
     "date": "2013",
@@ -121,30 +169,46 @@
   },
   {
     "date": "2013",
-    "description": "爱用美图秀秀等软件搞些花里胡哨的图片，觉得自己很有设计天赋。（~~特么什么狗屎审美~~）"
+    "description": "家里买了多年的房子终于开始装修，乔迁新家，也是总算安定下来，并有了自己的房间。"
   },
   {
     "date": "2013",
-    "description": "初生牛犊不怕虎。初来乍到的我到处加同学建群，并因此被年轻的班主任「钦点」为班长。"
+    "description": "爱用美图秀秀等软件搞些花里胡哨的东西，上古审美、自我熏陶。（~~他喵的什么狗屎审美~~）"
   },
   {
     "date": "2012",
-    "description": "开始探索与计算机相关的一切东西，比如鼓捣路由器的配置页面，~~虽然很多地方看不懂~~，但是改个 Wi-Fi 名字和密码还是小菜一碟，荣誉感满满。"
+    "description": "宽带原因，爸妈也是用上智能机了，[找你妹](https://baike.baidu.com/item/%E6%89%BE%E4%BD%A0%E5%A6%B9/8802019) 是玩过的第一款智能手机游戏。"
+  },
+  {
+    "date": "2012",
+    "description": "家里终于也是配上电脑了，是一台联想一体机，[Windows 7](https://learn.microsoft.com/en-us/lifecycle/products/windows-7) 系统，在当时配置算中高。"
+  },
+  {
+    "date": "2012",
+    "description": "开始探索与计算机相关的一切东西，比如鼓捣路由器的配置页面，~~虽然很多地方看不懂，但是最常见的 192.168.1.1 背的滚瓜烂熟~~，改个 Wi-Fi 名字和密码还是小菜一碟，荣誉感满满。"
+  },
+  {
+    "date": "2012",
+    "description": "小学期间在爷爷奶奶的老家做过的、有印象的事情，：\n\n- 竹制鱼竿，挖蚯蚓钓鱼（再顺手钓个青蛙）\n- 打弹珠、集卡牌、收集纸箱瓶子卖废品买辣条（辣条瘾）\n- 竹制弓箭、瓶盖和竹条做的标枪（箭带有箭羽和金属头）\n- 旺仔牛奶盒做的半自动垃圾桶、尺子和绳子做的半自传送带（这也能叫发明？）\n- 电池配上铁丝磁铁做的简易马达、拆下带小马达装饰品做的简易电风扇\n- 一晚上就能发芽的绿豆培养皿、可乐瓶里的小葱花（故事的小黄花～）\n- 八宝粥罐子生火煮稀饭、煤球烤毛豆串串（小孩子不要学）\n- 饿了偷偷煎火腿肠（看电视入了神，锅都糊了，挨了顿臭骂，小孩子不要学）\n- 堂哥带去别人田里「顺」香瓜（小孩子不要学，~~这不是我~~）\n- 板栗成熟的季节，就是脚底扎满刺的季节（说多了都是泪）\n- 杨梅、[拐枣](https://baike.baidu.com/item/%E6%9E%B3%E6%A4%87/1335612)、[茶片](https://baike.baidu.com/item/%E8%8C%B6%E7%89%87)、各种莓类（[萢](https://baike.baidu.com/item/%E8%90%A2)，pāo）在我面前都别想活。（人狠话不多）\n- 在老家的小秘密基地、小时候的万能百宝箱"
   },
   {
     "date": "2010",
-    "description": "注册了 QQ 号，因为想玩的 [洛克王国](https://17roco.qq.com/) 要用 QQ 登录。（~~道理我都懂，但怎么分给我 10 位数？~~）"
+    "description": "注册了 QQ 号，因为想玩的 [洛克王国](https://17roco.qq.com/) 要用 QQ 登录。（~~道理我都懂，怎么分给我 10 位数？~~）"
   },
   {
-    "date": "2009",
-    "description": "在舅舅家第一次接触到电脑，单机大鱼吃小鱼和一个轮胎形状图标的不知名赛车游戏。"
+    "date": "2010",
+    "description": "自从舅舅搬到县城新家后就经常去他家住，如果爸妈不在，基本就是熬夜玩 [4399](https://www.4399.com/)。"
   },
   {
-    "date": "2007",
-    "description": "其中我还能有点印象做过的一些东西和事情（小学时期）：\n\n- 竹制鱼竿，挖蚯蚓钓鱼（再顺手钓个青蛙）\n- 打弹珠、收集卡牌、收集纸箱和瓶子卖废品买辣条（辣条瘾）\n- 竹制弓箭、拿啤酒瓶盖和竹条做的标枪（箭是带有箭羽和金属头的）\n- 旺仔牛奶盒做的半自动垃圾桶、尺子和绳子做的半自传送带（这也能叫发明？）\n- 电池配上铁丝磁铁做的简易马达、拆下带小马达装饰品做的简易电风扇\n- 一晚上就发芽的豆芽、可乐瓶里的小葱花（故事的小黄花～）\n- 用八宝粥罐子生小火煮稀饭、用煤球烤毛豆串串（小孩子不要学）\n- 饿了偷偷煎火腿肠（看电视入了神，锅都糊了，挨了顿臭骂，小孩子不要学）\n- 堂哥带去别人田里「顺」香瓜（小孩子不要学，~~这不是我~~）\n- 板栗成熟的季节，就是脚底扎满刺的季节（说多了都是泪）\n- 杨梅、拐枣、茶片、各种莓类（萢，pāo）在我面前都别想活。（人狠话不多）\n- 在老家的小秘密基地、小时候的百宝箱"
+    "date": "2008",
+    "description": "最早接触到电脑是在舅舅家，单机的 [大鱼吃小鱼](https://baike.baidu.com/item/%E5%A4%A7%E9%B1%BC%E5%90%83%E5%B0%8F%E9%B1%BC/3702500) 和一个轮胎图标的不知名赛车游戏。"
+  },
+  {
+    "date": "2006",
+    "description": "从幼儿园开始，被爸妈接出去和他们一起在镇上租房住。"
   },
   {
     "date": "2001",
-    "description": "出生于中国南方的小县城，童年时期在乡下自由地摸爬滚打，动手能力强、对发明创造充满兴趣。"
+    "description": "出生于中国南方的小县城，从小在乡下和爷爷奶奶生活，自由地摸爬滚打，动手能力强、对发明创造感兴趣。"
   }
 ]

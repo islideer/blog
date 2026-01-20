@@ -4,7 +4,7 @@ import { Noto_Serif_SC } from 'next/font/google'
 import { ReadingComments } from '@/components/reading-comments'
 import { getReadingByDate, getLunarInfo } from '@/lib/reading'
 import { siteConfig } from '@/lib/config'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
@@ -17,32 +17,32 @@ const notoSerifSC = Noto_Serif_SC({
 })
 
 export const metadata: Metadata = {
-  title: pagesData.reading.title,
-  description: pagesData.reading.description,
+  title: pages.reading.title,
+  description: pages.reading.description,
   alternates: {
-    canonical: generateCanonicalUrl(pagesData.reading.slug),
+    canonical: generateCanonicalUrl(pages.reading.slug),
   },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
-    url: generateCanonicalUrl(pagesData.reading.slug),
-    title: `${pagesData.reading.title} | ${siteConfig.name}`,
-    description: pagesData.reading.description,
+    url: generateCanonicalUrl(pages.reading.slug),
+    title: `${pages.reading.title} | ${siteConfig.name}`,
+    description: pages.reading.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: `${pagesData.reading.slug}/opengraph-image`,
+        url: `${pages.reading.slug}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: pagesData.reading.title,
+        alt: pages.reading.title,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${pagesData.reading.title} | ${siteConfig.name}`,
-    description: pagesData.reading.description,
-    images: [`${pagesData.reading.slug}/opengraph-image`],
+    title: `${pages.reading.title} | ${siteConfig.name}`,
+    description: pages.reading.description,
+    images: [`${pages.reading.slug}/opengraph-image`],
   },
 }
 

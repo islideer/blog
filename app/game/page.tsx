@@ -3,7 +3,7 @@ import { SteamGameLibrary } from '@/components/steam-game-library'
 import { OtherGames } from '@/components/other-games'
 import { CS2Inventory } from '@/components/cs2-inventory'
 import { siteConfig } from '@/lib/config'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { getSteamProfile, getLibraryGames, getRecentlyPlayed, getCS2Inventory } from '@/lib/steam'
@@ -11,32 +11,32 @@ import { getSteamProfile, getLibraryGames, getRecentlyPlayed, getCS2Inventory } 
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: pagesData.game.title,
-  description: pagesData.game.description,
+  title: pages.game.title,
+  description: pages.game.description,
   alternates: {
-    canonical: generateCanonicalUrl(pagesData.game.slug),
+    canonical: generateCanonicalUrl(pages.game.slug),
   },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale.replace('-', '_'),
-    url: generateCanonicalUrl(pagesData.game.slug),
-    title: `${pagesData.game.title} | ${siteConfig.name}`,
-    description: pagesData.game.description,
+    url: generateCanonicalUrl(pages.game.slug),
+    title: `${pages.game.title} | ${siteConfig.name}`,
+    description: pages.game.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: `${pagesData.game.slug}/opengraph-image`,
+        url: `${pages.game.slug}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: pagesData.game.title,
+        alt: pages.game.title,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${pagesData.game.title} | ${siteConfig.name}`,
-    description: pagesData.game.description,
-    images: [`${pagesData.game.slug}/opengraph-image`],
+    title: `${pages.game.title} | ${siteConfig.name}`,
+    description: pages.game.description,
+    images: [`${pages.game.slug}/opengraph-image`],
   },
 }
 
@@ -63,8 +63,8 @@ export default async function GamePage() {
       <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
         {/* Header */}
         <section className="space-y-3" id="title">
-          <h1 className="text-3xl font-bold">{pagesData.game.title}</h1>
-          <p className="text-text-secondary">{`${pagesData.game.description}。`}</p>
+          <h1 className="text-3xl font-bold">{pages.game.title}</h1>
+          <p className="text-text-secondary">{`${pages.game.description}。`}</p>
         </section>
 
         {/* Steam 个人资料卡片 - 纯服务端组件 + 客户端刷新按钮 */}

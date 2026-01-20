@@ -1,5 +1,5 @@
 import { friends } from '@/lib/data'
-import { pagesData } from '@/lib/data'
+import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { FriendCard } from '@/components/friend-card'
 import { FriendsListRandom } from '@/components/friends-list-random'
@@ -9,32 +9,32 @@ import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: pagesData.friends.title,
-    description: pagesData.friends.description,
+    title: pages.friends.title,
+    description: pages.friends.description,
     alternates: {
-      canonical: generateCanonicalUrl(pagesData.friends.slug),
+      canonical: generateCanonicalUrl(pages.friends.slug),
     },
     openGraph: {
       type: 'website',
       locale: siteConfig.locale.replace('-', '_'),
-      url: generateCanonicalUrl(pagesData.friends.slug),
-      title: `${pagesData.friends.title} | ${siteConfig.name}`,
-      description: pagesData.friends.description,
+      url: generateCanonicalUrl(pages.friends.slug),
+      title: `${pages.friends.title} | ${siteConfig.name}`,
+      description: pages.friends.description,
       siteName: siteConfig.name,
       images: [
         {
-          url: `${pagesData.friends.slug}/opengraph-image`,
+          url: `${pages.friends.slug}/opengraph-image`,
           width: 1200,
           height: 630,
-          alt: pagesData.friends.title,
+          alt: pages.friends.title,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${pagesData.friends.title} | ${siteConfig.name}`,
-      description: pagesData.friends.description,
-      images: [`${pagesData.friends.slug}/opengraph-image`],
+      title: `${pages.friends.title} | ${siteConfig.name}`,
+      description: pages.friends.description,
+      images: [`${pages.friends.slug}/opengraph-image`],
     },
   }
 }
@@ -46,7 +46,7 @@ export default async function FriendsPage() {
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">好朋友们</h1>
         <p className="text-text-secondary">
-          {`${pagesData.friends.description}。共收录 ${friends.length} 位好朋友。`}
+          {`${pages.friends.description}。共收录 ${friends.length} 位好朋友。`}
         </p>
       </section>
 
