@@ -69,11 +69,7 @@ export function FriendsListRandom({ friends }: FriendsListRandomProps) {
       {/* 友链网格 */}
       <div className="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2" suppressHydrationWarning>
         {shuffledFriends.map((friend) => (
-          <ViewTransition
-            key={friend.url}
-            name={`friend-${friend.name.replace(/\s+/g, '-').toLowerCase()}`}
-            default="transform"
-          >
+          <ViewTransition key={friend.id} name={`friend-${friend.id}`} default="transform">
             <FriendCard friend={friend} />
           </ViewTransition>
         ))}

@@ -1,5 +1,6 @@
 [
   {
+    "id": "yuki",
     "name": "Yuki 妙妙屋",
     "url": "https://blog.yuki.sh/",
     "description": "不要因为走得太远，就忘了当初为什么出发。",
@@ -7,6 +8,7 @@
     "rss": "https://blog.yuki.sh/atom.xml"
   },
   {
+    "id": "zhilu",
     "name": "纸鹿摸鱼处",
     "url": "https://blog.zhilu.site/",
     "description": "纸鹿至麓不知路，支炉制露不止漉。",
@@ -14,12 +16,14 @@
     "rss": "https://blog.zhilu.site/atom.xml"
   },
   {
+    "id": "fushaolei",
     "name": "琼西往事",
     "url": "https://fushaolei.fun/",
     "description": "Fuck the world.",
     "avatar": "https://cdn.jsdelivr.net/gh/fushaolei/img/20200524104925.jpg"
   },
   {
+    "id": "liangcai",
     "name": "凉菜发牢骚的小角落",
     "url": "https://blog.liucl.cn/",
     "description": "没啥脾气，记小本本。",
@@ -27,6 +31,7 @@
     "rss": "https://blog.liucl.cn/rss"
   },
   {
+    "id": "shige",
     "name": "时歌的博客",
     "url": "https://www.lapis.cafe/",
     "description": "理解以真实为本，但真实本身并不会自动呈现。",
@@ -34,6 +39,7 @@
     "rss": "https://www.lapis.cafe/rss.xml"
   },
   {
+    "id": "thricecola",
     "name": "三瓶可乐不过岗",
     "url": "https://thricecola.com/",
     "description": "看看～ 看看～",
@@ -41,12 +47,14 @@
     "rss": "https://xlog.thricecola.com/feed"
   },
   {
+    "id": "14k",
     "name": "14K",
     "url": "https://14k.cc.cd/",
     "description": "Code for fun, run for life.",
     "avatar": "https://14k.cc.cd/avatar.png"
   },
   {
+    "id": "dogxi",
     "name": "Dogxi 的狗窝",
     "url": "https://blog.dogxi.me/",
     "description": "Curious Dev.",
@@ -54,6 +62,7 @@
     "rss": "https://blog.dogxi.me/rss.xml"
   },
   {
+    "id": "shiro",
     "name": "白咲 の Blog",
     "url": "https://www.shiro.team/",
     "description": "歇斯底里是崩溃，底里歇斯是美味。",
@@ -61,6 +70,7 @@
     "rss": "https://www.shiro.team/rss.xml"
   },
   {
+    "id": "zellon",
     "name": "𝙕𝙚𝙡𝙡𝙤𝙣 的博客",
     "url": "https://www.zellon.top/",
     "description": "告别过去，是为了走向未来。",
@@ -68,6 +78,7 @@
     "rss": "https://www.zellon.top/rss.xml"
   },
   {
+    "id": "mengai",
     "name": "梦爱吃鱼",
     "url": "https://blog.bsgun.cn/",
     "description": "不负心灵，不负今生。",
@@ -75,6 +86,7 @@
     "rss": "https://blog.bsgun.cn/atom.xml"
   },
   {
+    "id": "xiaohui",
     "name": "Xiaohui'Blog",
     "url": "https://yunnet.top/",
     "description": "技术 Blog。",
@@ -82,6 +94,7 @@
     "rss": "https://yunnet.top/rss.xml"
   },
   {
+    "id": "jyi",
     "name": "jyi",
     "url": "https://jyi2ya.github.io/",
     "avatar": "https://jyi2ya.github.io/favicon.ico",

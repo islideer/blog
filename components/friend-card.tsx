@@ -10,7 +10,10 @@ interface FriendCardProps {
 
 export function FriendCard({ friend }: FriendCardProps) {
   return (
-    <div className="group relative flex items-start gap-3 opacity-80 transition-opacity hover:opacity-100">
+    <div
+      id={friend.id}
+      className="group relative flex items-start gap-3 opacity-80 transition-opacity hover:opacity-100"
+    >
       <Link
         title={`${friend.name}: ${friend.description || '这位朋友很懒，什么也没留下。'}`}
         href={friend.url}

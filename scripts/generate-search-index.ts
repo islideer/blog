@@ -9,16 +9,17 @@ import mioSaysData from '../data/mio-says.json'
 import collectionData from '../data/collection.json'
 import timelineData from '../data/timeline.json'
 import aboutData from '../data/about.json'
+import friendsData from '../data/friends.json'
 
 // 搜索索引项类型
 export interface SearchIndexItem {
   id: string
-  type: 'post' | 'thought' | 'mio-say' | 'collection' | 'timeline' | 'about'
+  type: 'post' | 'thought' | 'mio-say' | 'collection' | 'timeline' | 'about' | 'friend'
   title: string
   excerpt?: string
   content: string
   tags?: string[]
-  date: string
+  date?: string
   url: string
 }
 
@@ -35,6 +36,7 @@ export interface SearchIndex {
     collectionCount: number
     timelineCount: number
     aboutCount: number
+    friendCount: number
   }
 }
 
@@ -152,7 +154,6 @@ async function generateSearchIndex() {
       title: '关于',
       excerpt: paragraph,
       content: paragraph,
-      date: new Date().toISOString(),
       url: '/about',
     })
     aboutCount++
@@ -170,7 +171,6 @@ async function generateSearchIndex() {
           title: project.name,
           excerpt: project.description,
           content: `${project.name} ${project.description}`,
-          date: new Date().toISOString(),
           url: '/about#open-source',
         })
         aboutCount++
@@ -179,6 +179,20 @@ async function generateSearchIndex() {
   }
 
   console.log(`  ✓ 处理了 ${aboutCount} 个关于页面项`)
+
+  // 7. 处理友链
+  console.log('👥 处理友链数据...')
+  for (const friend of friendsData) {
+    items.push({
+      id: `friend-${friend.id}`,
+      type: 'friend',
+      title: friend.name,
+      excerpt: friend.description || '',
+      content: `${friend.name} ${friend.description || ''}`,
+      url: `/friends#${friend.id}`,
+    })
+  }
+  console.log(`  ✓ 处理了 ${friendsData.length} 个友链`)
 
   // 生成索引
   const searchIndex: SearchIndex = {
@@ -192,6 +206,7 @@ async function generateSearchIndex() {
       collectionCount,
       timelineCount: timelineData.length,
       aboutCount,
+      friendCount: friendsData.length,
     },
     items,
   }
@@ -212,6 +227,7 @@ async function generateSearchIndex() {
   console.log(`  🔖 集合: ${collectionCount}`)
   console.log(`  📅 时间线: ${timelineData.length}`)
   console.log(`  👤 关于: ${aboutCount}`)
+  console.log(`  👥 友链: ${friendsData.length}`)
   console.log(`  💾 文件大小: ${fileSizeKB} KB`)
   console.log(`  📁 输出路径: ${outputPath}\n`)
 }

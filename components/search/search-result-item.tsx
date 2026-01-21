@@ -23,9 +23,10 @@ const TYPE_NAMES: Record<SearchIndexItem['type'], string> = {
   post: '文章',
   thought: '碎碎念',
   'mio-say': 'Mio 说',
-  collection: '集合',
+  collection: '收藏夹',
   timeline: '大事记',
   about: '关于',
+  friend: '好朋友们',
 }
 
 export function SearchResultItem({ result, query, isSelected, onClick }: SearchResultItemProps) {
@@ -110,10 +111,16 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
             )}
 
             {/* 日期 */}
-            <span className="text-text-tertiary">·</span>
-            <span>{formatRelativeDate(result.date)}</span>
-            <span className="text-text-tertiary">·</span>
-            <span>{dayjs(result.date).format('YYYY-MM-DD')}</span>
+            {result.date && (
+              <>
+                <span className="text-text-tertiary">·</span>
+                <span>{formatRelativeDate(result.date)}</span>
+                <span className="text-text-tertiary">·</span>
+                <span>
+                  {dayjs(result.date).format(result.type === 'timeline' ? 'YYYY 年' : 'YYYY-MM-DD')}
+                </span>
+              </>
+            )}
           </div>
         </div>
       </div>

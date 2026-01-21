@@ -94,6 +94,7 @@ export default async function FriendsPage() {
           <div className="text-text-tertiary mt-4">站点信息预览：</div>
           <FriendCard
             friend={{
+              id: 'preview',
               name: 'Viki 写东西的地方',
               url: '/',
               description: '生活需要记录。',

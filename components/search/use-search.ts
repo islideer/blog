@@ -12,12 +12,13 @@ export interface UseSearchReturn {
 }
 
 // 类型权重映射（用于排序）
-const TYPE_WEIGHTS = {
+const TYPE_WEIGHTS: Record<SearchIndexItem['type'], number> = {
   post: 5,
   collection: 4,
   thought: 3,
   'mio-say': 3,
   timeline: 2,
+  friend: 2,
   about: 1,
 }
 

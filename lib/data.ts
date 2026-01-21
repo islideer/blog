@@ -146,6 +146,7 @@ export interface TimelineItem {
 
 // --- Friends Types ---
 export interface Friend {
+  id: string
   name: string
   url: string
   description?: string // 可选的描述
@@ -228,6 +229,7 @@ export const about = aboutData as AboutData
 
 const defaultFriends: Friend[] = [
   {
+    id: 'example-friend',
     name: 'Example Friend',
     url: 'https://example.com',
     description: '示例友链，请替换为真实的好朋友。',
@@ -235,6 +237,7 @@ const defaultFriends: Friend[] = [
     rss: 'https://example.com/rss',
   },
   {
+    id: 'example-friend-2',
     name: 'Example Friend 2',
     url: 'https://example.com',
     description: '示例友链，请替换为真实的好朋友。',
