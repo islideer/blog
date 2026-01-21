@@ -1,11 +1,11 @@
 'use client'
 
-import { createPortal } from 'react-dom'
 import { useSearch } from './use-search'
 import { SearchInput } from './search-input'
+import { useStableFn } from '@shined/react-use'
+import { createPortal } from 'react-dom'
 import { SearchResults } from './search-results'
 import { useState, useEffect, useSyncExternalStore, useRef } from 'react'
-import { useStableFn } from '@shined/react-use'
 
 const emptySubscribe = () => () => {}
 

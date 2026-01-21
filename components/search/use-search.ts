@@ -14,12 +14,12 @@ export interface UseSearchReturn {
 // 类型权重映射（用于排序）
 const TYPE_WEIGHTS: Record<SearchIndexItem['type'], number> = {
   post: 5,
-  collection: 4,
-  thought: 3,
-  'mio-say': 3,
+  thought: 4,
+  'mio-say': 4,
+  collection: 3,
   timeline: 2,
-  friend: 2,
   about: 1,
+  friend: 1,
 }
 
 /**
@@ -69,10 +69,6 @@ export function useSearch(): UseSearchReturn {
 
       indexRef.current = index
       setIsIndexLoaded(true)
-
-      console.log(`🔍 搜索索引加载完成：${data.items.length} 个项目`)
-    } catch (error) {
-      console.error('加载搜索索引失败:', error)
     } finally {
       setIsLoading(false)
     }
@@ -106,7 +102,6 @@ export function useSearch(): UseSearchReturn {
 
         // 提取结果 ID
         const ids = new Set<string>()
-        const resultItems: SearchIndexItem[] = []
 
         // FlexSearch 返回格式：数组的数组（每个字段的结果）
         for (const fieldResults of searchResults) {
@@ -127,41 +122,13 @@ export function useSearch(): UseSearchReturn {
           }
         }
 
-        // 根据 ID 从原始数据中获取完整文档
-        for (const id of ids) {
-          const item = itemsRef.current.find((doc) => doc.id === id)
-          if (item) {
-            resultItems.push(item)
-          }
-        }
-
-        // 提取查询关键词（用于检查可见匹配）
-        const queryKeywords = query
-          .trim()
-          .toLowerCase()
-          .split(/\s+/)
-          .filter((k) => k.length > 0)
+        const resultItems: SearchIndexItem[] = Array.from(ids, (id) => {
+          return itemsRef.current.find((doc) => doc.id === id)!
+        }).filter(Boolean)
 
         // 排序：可见匹配 > 类型权重 > 时间新鲜度
-        resultItems.toSorted((a, b) => {
-          // 1. 优先级：标题或摘要中有可见匹配的排在前面
-          const aHasVisibleMatch = queryKeywords.some(
-            (keyword) =>
-              a.title.toLowerCase().includes(keyword) ||
-              (a.excerpt || '').toLowerCase().includes(keyword),
-          )
-
-          const bHasVisibleMatch = queryKeywords.some(
-            (keyword) =>
-              b.title.toLowerCase().includes(keyword) ||
-              (b.excerpt || '').toLowerCase().includes(keyword),
-          )
-
-          if (aHasVisibleMatch !== bHasVisibleMatch) {
-            return aHasVisibleMatch ? -1 : 1
-          }
-
-          // 2. 类型权重
+        const sortedItems = resultItems.toSorted((a, b) => {
+          // 1. 类型权重
           const typeWeightA = TYPE_WEIGHTS[a.type] || 0
           const typeWeightB = TYPE_WEIGHTS[b.type] || 0
 
@@ -169,14 +136,14 @@ export function useSearch(): UseSearchReturn {
             return typeWeightB - typeWeightA
           }
 
-          // 3. 时间新鲜度（日期越新越靠前）
+          // 2. 时间新鲜度（日期越新越靠前）
           const dateA = a.date ? new Date(a.date).getTime() : 0
           const dateB = b.date ? new Date(b.date).getTime() : 0
 
           return dateB - dateA
         })
 
-        setResults(resultItems)
+        setResults(sortedItems)
       } catch (error) {
         console.error('搜索失败:', error)
         setResults([])

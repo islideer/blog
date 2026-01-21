@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
 import { cn } from '@/lib/cn'
+import { dayjs } from '@/lib/dayjs'
+import { useEffect, useRef } from 'react'
 import {
   formatRelativeDate,
   highlightKeywords,
@@ -9,7 +10,6 @@ import {
 } from '@/lib/search-utils'
 
 import type { SearchIndexItem } from '@/scripts/generate-search-index'
-import { dayjs } from '@/lib/dayjs'
 
 interface SearchResultItemProps {
   result: SearchIndexItem
@@ -26,13 +26,13 @@ const TYPE_NAMES: Record<SearchIndexItem['type'], string> = {
   collection: '收藏夹',
   timeline: '大事记',
   about: '关于',
-  friend: '好朋友们',
+  friend: '朋友',
 }
 
 export function SearchResultItem({ result, query, isSelected, onClick }: SearchResultItemProps) {
   const linkRef = useRef<HTMLAnchorElement>(null)
   const keywords = extractKeywords(query)
-  const titleParts = highlightKeywords(result.title, keywords)
+  const titleParts = highlightKeywords(extractMatchingSnippet(result.title, keywords, 60), keywords)
 
   // 检查标题和摘要是否有匹配
   const titleHasMatch = titleParts.some((part) => part.type === 'mark')
@@ -43,7 +43,7 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
   // 如果标题和摘要都没有匹配，从 content 提取包含关键词的片段
   let displayExcerpt = result.excerpt
   if (!titleHasMatch && !excerptHasMatch && result.content) {
-    displayExcerpt = extractMatchingSnippet(result.content, keywords, 120)
+    displayExcerpt = extractMatchingSnippet(result.content, keywords, 160)
   }
 
   const excerptParts = highlightKeywords(displayExcerpt || '', keywords)
@@ -69,6 +69,7 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
 
   const linkProps = {
     ref: linkRef,
+    href: result.url,
     className: linkClassName,
     onClick,
     ...(result.type === 'collection' && {
@@ -134,13 +135,5 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
 
   // 对于包含 hash 的链接，使用原生 <a> 标签以触发 :target 伪类
   // 对于其他链接，使用 Next.js <Link> 组件以启用客户端路由
-  return hasHash ? (
-    <a href={result.url} {...linkProps}>
-      {content}
-    </a>
-  ) : (
-    <Link href={result.url} {...linkProps}>
-      {content}
-    </Link>
-  )
+  return hasHash ? <a {...linkProps}>{content}</a> : <Link {...linkProps}>{content}</Link>
 }

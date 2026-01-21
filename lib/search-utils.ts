@@ -173,7 +173,7 @@ export function formatRelativeDate(dateString: string): string {
 export function extractMatchingSnippet(
   text: string,
   keywords: string[],
-  maxLength: number = 150,
+  maxLength: number = 160,
 ): string {
   if (!text || !keywords.length) return text.slice(0, maxLength)
 
