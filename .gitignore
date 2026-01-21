@@ -42,3 +42,6 @@ next-env.d.ts
 
 # turbopack
 .turbopack
+
+# generated
+public/search-index.json
