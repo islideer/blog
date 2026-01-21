@@ -22,20 +22,22 @@ export function FriendCard({ friend }: FriendCardProps) {
         aria-label={`访问 ${friend.name} 的网站`}
       />
 
-      {/* Avatar */}
-      {friend.avatar ? (
-        <Image
-          src={friend.avatar}
-          alt={friend.name}
-          width={52}
-          height={52}
-          className="aspect-square shrink-0 rounded object-cover ring-1 ring-zinc-200/60 transition-all! group-hover:scale-105 dark:ring-zinc-800/60"
-        />
-      ) : (
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded bg-zinc-200 text-2xl font-semibold text-zinc-600 ring-1 ring-zinc-200/60 transition-all! group-hover:scale-110 dark:bg-zinc-800 dark:text-zinc-400 dark:ring-zinc-800/60">
-          {friend.name.charAt(0).toUpperCase()}
-        </div>
-      )}
+      <Link href={friend.url} className="no-icon no-underline">
+        {/* Avatar */}
+        {friend.avatar ? (
+          <Image
+            src={friend.avatar}
+            alt={friend.name}
+            width={52}
+            height={52}
+            className="aspect-square shrink-0 rounded object-cover ring-1 ring-zinc-200/60 transition-all! group-hover:scale-105 dark:ring-zinc-800/60"
+          />
+        ) : (
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded bg-zinc-200 text-2xl font-semibold text-zinc-600 ring-1 ring-zinc-200/60 transition-all! group-hover:scale-110 dark:bg-zinc-800 dark:text-zinc-400 dark:ring-zinc-800/60">
+            {friend.name.charAt(0).toUpperCase()}
+          </div>
+        )}
+      </Link>
 
       {/* Info */}
       <div className="min-w-0 flex-1">
