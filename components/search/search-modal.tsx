@@ -60,7 +60,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
   // 重置状态
   useEffect(() => {
-    if (isOpen) {
+    if (!isOpen) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setQuery('')
       setSelectedIndex(0)
@@ -111,7 +111,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       className="fixed inset-0 z-50 flex items-start justify-center overflow-hidden bg-black/20 px-4 pt-[10vh] pb-4 backdrop-blur-sm"
       onClick={handleBackdropClick}
     >
-      <div className="bg-bg-primary border-border animate-in fade-in zoom-in-95 flex max-h-[80vh] w-full max-w-3xl flex-col overflow-hidden rounded-lg border shadow-lg duration-200">
+      <div className="bg-bg-primary border-border animate-in fade-in zoom-in-95 flex max-h-[80vh] w-full max-w-2xl flex-col overflow-hidden rounded-lg border shadow-lg duration-200">
         {/* 搜索输入框（固定顶部） */}
         <div className="shrink-0">
           <SearchInput value={query} onChange={setQuery} isLoading={isLoading} />
@@ -129,7 +129,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           ) : (
             <div className="text-text-secondary flex min-h-48 flex-col items-center justify-center p-8 text-center">
               <p className="mb-2 text-base">输入关键词开始搜索</p>
-              <p className="text-xs">支持搜索文章、碎碎念、Mio 说、大事记、收藏夹等内容</p>
+              <p className="text-xs">支持搜索文章、碎碎念、Mio 说、大事记等内容</p>
               <div className="text-text-tertiary mt-4 flex gap-4 text-xs">
                 <span>
                   <kbd className="border-border bg-bg-secondary rounded border px-1.5 py-0.5">

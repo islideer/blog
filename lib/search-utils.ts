@@ -7,6 +7,9 @@ export function cleanMarkdownContent(markdown: string): string {
   // 移除 Front Matter
   content = content.replace(/^---[\s\S]*?---\n/m, '')
 
+  // 移除表格的分隔行和语法字符，保留表格内容
+  content = content.replace(/^\s*\|?(\s*[:-]+[-| :]*\|)+\s*$/gm, '')
+
   // 移除代码块（``` 或 ~~~）
   content = content.replace(/```[\s\S]*?```/g, '')
   content = content.replace(/~~~[\s\S]*?~~~/g, '')

@@ -9,6 +9,7 @@ import {
 } from '@/lib/search-utils'
 
 import type { SearchIndexItem } from '@/scripts/generate-search-index'
+import { dayjs } from '@/lib/dayjs'
 
 interface SearchResultItemProps {
   result: SearchIndexItem
@@ -61,7 +62,7 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
       ref={linkRef}
       href={result.url}
       className={cn(
-        'border-border no-icon block border-b p-3 no-underline transition-colors sm:p-4',
+        'border-border no-icon block border-b p-3 no-underline sm:p-4',
         'hover:bg-bg-secondary active:bg-bg-secondary dark:hover:bg-bg-tertiary dark:active:bg-bg-tertiary',
         isSelected && 'bg-bg-secondary dark:bg-bg-tertiary',
       )}
@@ -74,7 +75,7 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
       <div className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
           {/* 标题（高亮关键词） */}
-          <h3 className="text-text-primary mb-1 text-sm font-medium sm:text-base">
+          <h3 className="text-text-primary mb-1 line-clamp-3 text-sm font-medium sm:text-base">
             {titleParts.map((part, i) =>
               part.type === 'mark' ? (
                 <mark key={i}>{part.text}</mark>
@@ -111,6 +112,8 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
             {/* 日期 */}
             <span className="text-text-tertiary">·</span>
             <span>{formatRelativeDate(result.date)}</span>
+            <span className="text-text-tertiary">·</span>
+            <span>{dayjs(result.date).format('YYYY-MM-DD')}</span>
           </div>
         </div>
       </div>

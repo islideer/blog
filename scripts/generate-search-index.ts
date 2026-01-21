@@ -131,10 +131,10 @@ async function generateSearchIndex() {
     items.push({
       id: `timeline-${i}`,
       type: 'timeline',
-      title: cleanedDescription.slice(0, 50),
+      title: cleanedDescription,
       content: cleanedDescription,
       date: event.date,
-      url: `/timeline#year-${event.date.slice(0, 4)}`,
+      url: `/timeline#${i + 1}`,
     })
   }
   console.log(`  ✓ 处理了 ${timelineData.length} 个时间线事件`)

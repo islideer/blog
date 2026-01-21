@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import { SearchIcon } from '../icons/search'
 
 interface SearchInputProps {
@@ -8,31 +7,24 @@ interface SearchInputProps {
 }
 
 export function SearchInput({ value, onChange, isLoading }: SearchInputProps) {
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  // 自动聚焦
-  useEffect(() => {
-    inputRef.current?.focus()
-  }, [])
-
   return (
-    <div className="border-border flex items-center gap-3 border-b px-4 py-3 sm:py-4">
+    <div className="border-border flex items-center gap-2 border-b px-4 py-3 sm:py-4">
       {/* 搜索图标 */}
       <SearchIcon className="text-text-tertiary h-5 w-5 shrink-0" />
 
       {/* 输入框 */}
       <input
         id="search"
-        ref={inputRef}
         type="text"
+        autoFocus
         value={value}
         autoComplete="off"
         autoCorrect="off"
         autoCapitalize="off"
         spellCheck={false}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="搜索文章、碎碎念、Mio 说、大事记、收藏夹..."
-        className="text-text-primary placeholder:text-text-tertiary flex-1 bg-transparent text-base outline-none! active:outline-none! sm:text-lg"
+        placeholder="想搜点什么呢..."
+        className="text-text-primary placeholder:text-text-tertiary flex-1 bg-transparent px-1 text-base outline-none! active:outline-none! sm:text-lg"
       />
 
       {/* 加载指示器或 Esc 提示 */}

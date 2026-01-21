@@ -2,34 +2,13 @@ import Link from 'next/link'
 import { ImageIcon } from './image-icon'
 import { RelativeTime } from './relative-time'
 import { pages, type ShortPost } from '@/lib/data'
+import { cleanMarkdownContent, truncateText } from '@/lib/search-utils'
 
 interface RecentActivitiesProps {
   title?: string
   shortPosts: ShortPost[]
   totalCount: number
   showMoreThreshold: number
-}
-
-/**
- * 截断文本内容
- * @param content Markdown 内容
- * @param maxLength 最大长度（字符数）
- */
-function truncateContent(content: string, maxLength: number = 80): string {
-  // 移除 Markdown 语法（简单处理）
-  const plainText = content
-    .replace(/[#*_`~]/g, '') // 移除常见的 Markdown 标记
-    .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // 移除链接，保留文本
-    .replace(/!\[([^\]]*)\]\([^\)]+\)/g, '') // 移除图片
-    .replace(/\n/g, ' ') // 换行符替换为空格
-    .trim()
-
-  if (plainText.length <= maxLength) {
-    return plainText
-  }
-
-  // 截断并添加省略号
-  return plainText.slice(0, maxLength) + '...'
 }
 
 /**
@@ -74,7 +53,7 @@ export async function RecentActivities({
                 <div className="flex items-center gap-2">
                   {hasImages && <ImageIcon />}
                   <p className="text-text-secondary line-clamp-1 text-xs leading-relaxed">
-                    {truncateContent(thought.content, 60)}
+                    {truncateText(cleanMarkdownContent(thought.content), 60)}
                   </p>
                 </div>
               )}

@@ -50,14 +50,19 @@ export async function TimelineView({ items }: TimelineViewProps) {
 
   return (
     <div className="space-y-12">
-      {sortedYears.map((year) => {
+      {sortedYears.map((year, idx) => {
         const yearItems = timelineByYear[year] ?? []
+
         // 按日期降序排列（同一年内最新的在前）
         const sortedItems = yearItems.toSorted((a, b) => {
           const dateA = dayjs(a.date)
           const dateB = dayjs(b.date)
           return dateB.valueOf() - dateA.valueOf()
         })
+
+        const startIdxOfAll = sortedYears
+          .slice(0, idx)
+          .reduce((sum, y) => sum + (timelineByYear[y]?.length ?? 0), 0)
 
         return (
           <div key={year} className="space-y-4">
@@ -101,6 +106,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
 
                 return (
                   <article
+                    id={String(startIdxOfAll + index + 1)}
                     key={index}
                     className="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4 sm:py-4"
                   >
