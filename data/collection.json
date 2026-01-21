@@ -78,7 +78,7 @@
         "name": "截图润色工具",
         "description": "Shots，Create Amazing Mockups",
         "url": "https://shots.so/",
-        "tags": ["TypeScript", "工具"],
+        "tags": ["TS", "工具"],
         "addedDate": "2026-01-16"
       },
       {
@@ -127,7 +127,7 @@
         "name": "User Agents",
         "description": "The Latest and Most Common (Updated Weekly)",
         "url": "https://www.useragents.me/",
-        "tags": ["测试", "TypeScript"],
+        "tags": ["测试", "TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -190,7 +190,7 @@
         "name": "Cheatsheet for GNU nano",
         "description": "Cheatsheet for GNU nano",
         "url": "https://www.nano-editor.org/dist/latest/cheatsheet.html",
-        "tags": ["测试", "TypeScript"],
+        "tags": ["测试", "TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -204,7 +204,7 @@
         "name": "清华镜像站",
         "description": "Tsinghua Open Source Mirror",
         "url": "https://mirrors.tuna.tsinghua.edu.cn/",
-        "tags": ["开源", "TypeScript"],
+        "tags": ["开源", "TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -267,21 +267,21 @@
         "name": "JSON to TS type",
         "description": "类型转换",
         "url": "https://wulunyi.github.io/typeof-sjsonc-web/build/index.html",
-        "tags": ["JSON", "开源", "TypeScript", "设计"],
+        "tags": ["JSON", "开源", "TS", "设计"],
         "addedDate": "2026-01-16"
       },
       {
         "name": "字体在线工具 Variable Fonts",
         "description": "字体在线工具 Variable Fonts",
         "url": "https://v-fonts.com/",
-        "tags": ["在线", "TypeScript", "工具", "字体"],
+        "tags": ["在线", "TS", "工具", "字体"],
         "addedDate": "2026-01-16"
       },
       {
         "name": "Android Asset Studio",
         "description": "Launcher icon generator",
         "url": "https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=image&foreground.space.trim=1&foreground.space.pad=0&foreColor=rgba(255%2C%20255%2C%20255%2C%200)&backColor=rgb(255%2C%20255%2C%20255)&crop=0&backgroundShape=circle&effects=none&name=nano",
-        "tags": ["开源", "TypeScript", "工具", "图标"],
+        "tags": ["开源", "TS", "工具", "图标"],
         "addedDate": "2026-01-16"
       },
       {
@@ -302,28 +302,28 @@
         "name": "CSS Button",
         "description": "Explore 3000+ Free UI Elements: CSS &amp; Tailwind",
         "url": "https://uiverse.io/",
-        "tags": ["CSS", "TypeScript", "设计"],
+        "tags": ["CSS", "TS", "设计"],
         "addedDate": "2026-01-16"
       },
       {
         "name": "React Playground",
         "description": "React Playground",
         "url": "https://fewismuch.github.io/react-playground/#eNqNVd1u2zYUfhVOQWEbi37sxmmmJUG7bsB60Q1oL3Yx74ImjyQ2FCmQlGPX8LvvkJJsOXWBQjZAfec7/+dQ+6imQiXObqN8HylaQ5SfoOtIUlW2tPSo2zVgmRGNQ3xDZetBUTfaOPIJKHOkMLomE+PPk5Uai37/++NYGnNdp0wKUJ54pL5rmp6VpHgOokE9Yajp4JPWbso1a2vUTUpwf0jwx992H/h0YlA6mf00SwwoDma6UoTcBwvJZ2cEcx81h0ePIu69peHlPr3Ama1UdLiOkPWiOgPyw8XZk9bCZ4fRk8PlGnX5JszakHPRKuaEVr4g0xnZ+xiZVtaRf5lulbsmFtx7f/qPPByNTzMM2VMNuNYoErLH5Pp88VTNH/8EKTX5RxvJ71N8P8q42BAmqbV/YZYPE0YNnxylKF+3zmFEWr2Xgj097DGuh8djHNNpCCxg4UR+JvPZ4bE7C0v24XS4Tzs7J78pOh460nUDszj4RGAbasOhoK0Mw3HqCFbqRUc8ctaRDhhakfvR6CpZaOXigtZC7nLyQTkwWM+ddVDHrbgm7zagBEJYqQ04wShCRlCJJKpsbMGI4ldvJ36G9ZNAU96erdF+JVSZE6oc0gW1wDterb/G2m6/IZaG7iyjEgItSJ9BlJXLyU2WBVAKBXHVg/NkGUCmpTY5MeV6ulguyfBPyd2bV7PAcLB1cbcDwZNunKjFV5BQirWQwu1ONIt4TPmX1noXWfYqiNaUPZUGe8bj3t3V4sY/pwhiyyrcvRyDxPAIp+bplIjdKVeBFTYnSiufYejp1akNNd3Gz4K7Cr0u7rJmG5QbynkIeWGgDkhNTSlUTjJCW6dPcWOJS4QZLj+Ywf5a811nngvbSIodLiR0pmuhBoevF4M/Dx7rm2Wb6txnF5OkDGKBA4LZnPur5qOZ8pVE28mij/xF8+bHILtVCorHfLPkFmpkDcpnUypUhZ10o/IGV/MxdxidZT86rDXW963Roo/4Ylfn1D+dVBscGDTbbInVUnDiDI58Q3GSOt8dIzaUixZrcdcXMdCEv7HygRLMY1KLpT1PO6/0BkyX/JiLodze3LLC79aYXuBdb6/PX+ONsGItobOiW+crjUuDcfsZGW2mJ/sV6HwMpt/WwAUl08ZAAcZ2wvNx7m/d0bVx3Lurxfz18uZNyPxiSYuQBCHBFzJG7b7M/8U/gwr+/C3XfRnimjbJF6vV6LZ7KTm79XpkuPaC01WvYldRPoSxisInyCOrqHKusXmagq0TW6VB8nZ+lyySbBVh7UcKoy/393U96ag/TuvwP07F1pg=",
-        "tags": ["开源", "TypeScript", "设计"],
+        "tags": ["开源", "TS", "设计"],
         "addedDate": "2026-01-16"
       },
       {
         "name": "Material Symbols &amp; Icons",
         "description": "Google Fonts",
         "url": "https://fonts.google.com/icons",
-        "tags": ["TypeScript", "图标", "字体"],
+        "tags": ["TS", "图标", "字体"],
         "addedDate": "2026-01-16"
       },
       {
         "name": "纽约最大的全景照片",
         "description": "纽约最大的全景照片",
         "url": "https://www.earthcam.net/projects/empirestatebuilding/gigapixelpanorama/2021/",
-        "tags": ["API", "TypeScript", "设计"],
+        "tags": ["API", "TS", "设计"],
         "addedDate": "2026-01-16"
       },
       {
@@ -372,21 +372,21 @@
         "name": "antv next",
         "description": "所有图表，Ant Design Charts",
         "url": "https://ant-design-charts-next.antgroup.com/examples",
-        "tags": ["TypeScript", "设计", "可视化"],
+        "tags": ["TS", "设计", "可视化"],
         "addedDate": "2026-01-16"
       },
       {
         "name": "Iconify Icon",
         "description": "Iconify Icon",
         "url": "https://icon-sets.iconify.design/",
-        "tags": ["TypeScript", "设计", "图标"],
+        "tags": ["TS", "设计", "图标"],
         "addedDate": "2026-01-16"
       },
       {
         "name": "Fontsource",
         "description": "Fontsource",
         "url": "https://fontsource.org/",
-        "tags": ["TypeScript", "字体"],
+        "tags": ["TS", "字体"],
         "addedDate": "2026-01-16"
       },
       {
@@ -421,7 +421,7 @@
         "name": "CSS HD Gradients 渐变色编辑器",
         "description": "CSS HD Gradients 渐变色编辑器",
         "url": "https://gradient.style/",
-        "tags": ["CSS", "TypeScript"],
+        "tags": ["CSS", "TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -456,7 +456,7 @@
         "name": "在 Go 中构建协作文本编辑器",
         "description": "，，Building a collaborative text editor in Go，解决实时协作编辑产品的冲突问题",
         "url": "https://www.aadhav.me/posts/collaborative-editor",
-        "tags": ["TypeScript", "设计"],
+        "tags": ["TS", "设计"],
         "addedDate": "2026-01-16"
       },
       {
@@ -477,7 +477,7 @@
         "name": "TS 设计模式",
         "description": "TS 设计模式",
         "url": "https://refactoringguru.cn/design-patterns/typescript",
-        "tags": ["TypeScript", "设计"],
+        "tags": ["TS", "设计"],
         "addedDate": "2026-01-16"
       },
       {
@@ -505,7 +505,7 @@
         "name": "介绍 CSS 新的选择器",
         "description": "介绍 CSS 新的选择器",
         "url": "https://cloudfour.com/thinks/surprising-facts-about-new-css-selectors/",
-        "tags": ["CSS", "TypeScript"],
+        "tags": ["CSS", "TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -519,14 +519,14 @@
         "name": "React 服务器组件中的 CSS",
         "description": "，，CSS in React Server Components",
         "url": "https://www.joshwcomeau.com/react/css-in-rsc/",
-        "tags": ["CSS", "TypeScript"],
+        "tags": ["CSS", "TS"],
         "addedDate": "2026-01-16"
       },
       {
         "name": "CSS Length Units",
         "description": "CSS，Tricks，CSS，Tricks",
         "url": "https://css-tricks.com/css-length-units/",
-        "tags": ["CSS", "TypeScript"],
+        "tags": ["CSS", "TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -554,7 +554,7 @@
         "name": "InternetSpeed.my: 网速测试",
         "description": "InternetSpeed.my: 网速测试",
         "url": "https://www.internetspeed.my/",
-        "tags": ["测试", "TypeScript", "性能"],
+        "tags": ["测试", "TS", "性能"],
         "addedDate": "2026-01-16"
       },
       {
@@ -565,8 +565,8 @@
         "addedDate": "2026-01-16"
       },
       {
-        "name": "Internet Speed Test",
-        "description": "Fast.com",
+        "name": "Fast 网速测试",
+        "description": "Internet Speed Test",
         "url": "https://fast.com/",
         "tags": ["测试", "性能"],
         "addedDate": "2026-01-16"
@@ -575,7 +575,7 @@
         "name": "Why is the Speed of Light So Fast?",
         "description": "Why is the Speed of Light So Fast?",
         "url": "https://profmattstrassler.com/2024/10/01/why-is-the-speed-of-light-so-fast-part-1/",
-        "tags": ["TypeScript", "性能"],
+        "tags": ["TS", "性能"],
         "addedDate": "2026-01-16"
       },
       {
@@ -638,7 +638,7 @@
         "name": "清华大学计算机系课程攻略",
         "description": "清华大学计算机系课程攻略 官方文档",
         "url": "https://rekcarc-tsc-uht.readthedocs.io/en/latest/index.html",
-        "tags": ["测试", "TypeScript", "文档"],
+        "tags": ["测试", "TS", "文档"],
         "addedDate": "2026-01-16"
       },
       {
@@ -701,7 +701,7 @@
         "name": "6 Techniques I Use to Create a Great UX for Shell Scripts",
         "description": "6 Techniques I Use to Create a Great UX for Shell Scripts",
         "url": "https://nochlin.com/blog/6-techniques-i-use-to-create-a-great-user-experience-for-shell-scripts",
-        "tags": ["TypeScript"],
+        "tags": ["TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -722,21 +722,21 @@
         "name": "Are The Types Wrong?",
         "description": "Tool for analyzing TypeScript types of npm packages",
         "url": "https://arethetypeswrong.github.io/?p=keli%401.5.0",
-        "tags": ["开源", "npm", "TypeScript", "工具"],
+        "tags": ["开源", "npm", "TS", "工具"],
         "addedDate": "2026-01-16"
       },
       {
         "name": "TS Docs",
         "description": "Reference docs for npm packages",
         "url": "https://tsdocs.dev/",
-        "tags": ["npm", "TypeScript", "文档"],
+        "tags": ["npm", "TS", "文档"],
         "addedDate": "2026-01-16"
       },
       {
         "name": "JSON to TypeScript",
         "description": "JSON to TypeScript",
         "url": "https://transform.tools/json-to-typescript",
-        "tags": ["JSON", "TypeScript", "工具"],
+        "tags": ["JSON", "TS", "工具"],
         "addedDate": "2026-01-16"
       },
       {
@@ -778,7 +778,7 @@
         "name": "5分钟上手 TypeScript",
         "description": "，JavaScript 的超集",
         "url": "https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html",
-        "tags": ["TypeScript", "文档"],
+        "tags": ["TS", "文档"],
         "addedDate": "2026-01-16"
       },
       {
@@ -792,7 +792,7 @@
         "name": "TypeScript Playgroud",
         "description": "TypeScript Playgroud",
         "url": "https://www.typescriptlang.org/zh/play",
-        "tags": ["TypeScript"],
+        "tags": ["TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -813,7 +813,7 @@
         "name": "TypeScript AST Viewer",
         "description": "TypeScript AST Viewer",
         "url": "https://ts-ast-viewer.com/",
-        "tags": ["TypeScript"],
+        "tags": ["TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -827,7 +827,7 @@
         "name": "TS Diagram",
         "description": "Diagrams as code with TypeScript",
         "url": "https://tsdiagram.com/",
-        "tags": ["TypeScript"],
+        "tags": ["TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -841,7 +841,7 @@
         "name": "TypeScript UML Playground",
         "description": "TypeScript UML Playground",
         "url": "https://tsuml-demo.firebaseapp.com/",
-        "tags": ["TypeScript"],
+        "tags": ["TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -869,7 +869,7 @@
         "name": "Flappy Bird Implemented in Typescript types",
         "description": "rust + zig + TS",
         "url": "https://zackoverflow.dev/writing/flappy-bird-in-type-level-typescript",
-        "tags": ["TypeScript"],
+        "tags": ["TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -897,7 +897,7 @@
         "name": "Awesome React Native components",
         "description": "Awesome React Native components",
         "url": "https://www.awesome-react-native.com/",
-        "tags": ["TypeScript"],
+        "tags": ["TS"],
         "addedDate": "2026-01-16"
       }
     ]
@@ -932,7 +932,7 @@
         "name": "GitHub hosts 配置",
         "description": "GitHub hosts 配置",
         "url": "https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts",
-        "tags": ["开源", "TypeScript"],
+        "tags": ["开源", "TS"],
         "addedDate": "2026-01-16"
       },
       {
@@ -946,14 +946,7 @@
         "name": "Gitstar Ranking",
         "description": "Top GitHub users and repositories",
         "url": "https://gitstar-ranking.com/",
-        "tags": ["开源", "TypeScript"],
-        "addedDate": "2026-01-16"
-      },
-      {
-        "name": "Excalidraw 中文手写",
-        "description": "anhoder",
-        "url": "https://anhoder.github.io/media/excalidraw/",
-        "tags": ["开源"],
+        "tags": ["开源", "TS"],
         "addedDate": "2026-01-16"
       },
       {

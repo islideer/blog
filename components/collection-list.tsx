@@ -19,29 +19,31 @@ export function CollectionList({ category, id }: CollectionListProps) {
       </div>
 
       {/* Items List */}
-      <div>
+      <div className="space-y-0.5 sm:space-y-1">
         {category.items.map((item, index) => (
-          <Link
-            key={index}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group hover:bg-surface-hover flex items-center gap-1.5 truncate px-1 py-0.5"
-          >
-            <h3 className="text-text text-xs font-medium">{item.name}</h3>
-            <p className="text-text-secondary min-w-0 flex-1 truncate text-[11px]">
-              {item.description}
-            </p>
+          <div key={index} className="group flex items-center justify-between">
+            <Link
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center truncate"
+            >
+              <h3 className="text-text mr-1 text-xs font-medium sm:mr-2 sm:text-sm">{item.name}</h3>
+              <p className="text-text-secondary flex-1 truncate text-xs sm:text-sm">
+                {item.description}
+              </p>
+            </Link>
+
             {item.tags && item.tags.length > 0 && (
-              <div className="flex shrink-0 gap-1">
+              <div className="text-text-secondary flex shrink-0 gap-1">
                 {item.tags.map((tag, tagIndex) => (
-                  <span key={tagIndex} className="text-text-tertiary text-[11px]">
+                  <span key={tagIndex} className="text-text-tertiary text-[11px] sm:text-xs">
                     #{tag}
                   </span>
                 ))}
               </div>
             )}
-          </Link>
+          </div>
         ))}
       </div>
     </section>
