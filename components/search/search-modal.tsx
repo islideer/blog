@@ -4,7 +4,8 @@ import { createPortal } from 'react-dom'
 import { useSearch } from './use-search'
 import { SearchInput } from './search-input'
 import { SearchResults } from './search-results'
-import { useState, useEffect, useCallback, useSyncExternalStore, useRef } from 'react'
+import { useState, useEffect, useSyncExternalStore, useRef } from 'react'
+import { useStableFn } from '@shined/react-use'
 
 const emptySubscribe = () => () => {}
 
@@ -26,8 +27,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     () => false,
   )
 
+  const handleClose = useStableFn(onClose)
+
   // 防抖搜索
   const debounceTimerRef = useRef<ReturnType<typeof setTimeout>>(null)
+
   useEffect(() => {
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current)
@@ -74,7 +78,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
       if (e.key === 'Escape') {
         e.preventDefault()
-        onClose()
+        handleClose()
       } else if (e.key === 'ArrowDown' && hasResults) {
         e.preventDefault()
         setSelectedIndex((prev) => Math.min(prev + 1, results.length - 1))
@@ -89,18 +93,16 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     }
 
     window.addEventListener('keydown', handleKeyDown)
+
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isOpen, onClose, results, selectedIndex])
+  }, [handleClose, isOpen, results, selectedIndex])
 
   // 点击外部关闭
-  const handleBackdropClick = useCallback(
-    (e: React.MouseEvent) => {
-      if (e.target === e.currentTarget) {
-        onClose()
-      }
-    },
-    [onClose],
-  )
+  const handleBackdropClick = useStableFn((e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      handleClose()
+    }
+  })
 
   if (!mounted || !isOpen) return null
 

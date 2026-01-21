@@ -126,9 +126,6 @@ importers:
       '@testing-library/react':
         specifier: ^16.3.1
         version: 16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.3.0-canary-d6cae440-20260106(react@19.3.0-canary-d6cae440-20260106))(react@19.3.0-canary-d6cae440-20260106)
-      '@types/flexsearch':
-        specifier: ^0.7.42
-        version: 0.7.42
       '@types/mdast':
         specifier: ^4.0.4
         version: 4.0.4
@@ -1144,10 +1141,6 @@ packages:
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
-
-  '@types/flexsearch@0.7.42':
-    resolution: {integrity: sha512-FdKaw3dPgcCvqU9w8SGgqx8PrxFF2EKySRhEj1nc45HNe/2cBLff3pF52C67hzeUbNhq49t7XRIIibBd41vcIg==}
-    deprecated: This is a stub types definition. flexsearch provides its own type definitions, so you do not need this installed.
 
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
@@ -4362,10 +4355,6 @@ snapshots:
   '@types/deep-eql@4.0.2': {}
 
   '@types/estree@1.0.8': {}
-
-  '@types/flexsearch@0.7.42':
-    dependencies:
-      flexsearch: 0.8.212
 
   '@types/hast@3.0.4':
     dependencies:

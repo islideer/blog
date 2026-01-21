@@ -141,7 +141,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         <div className="border-border mt-8 flex justify-center border-t pt-8">
-          <div>
+          <div className="flex flex-1 truncate px-2 sm:justify-center">
             <PostInfo title={post.title} slug={post.slug} />
           </div>
         </div>

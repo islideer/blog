@@ -53,7 +53,7 @@ export function useSearch(): UseSearchReturn {
           id: 'id',
           index: ['title', 'excerpt', 'content', 'tags'],
         },
-        tokenize: 'forward',
+        tokenize: 'full',
         context: {
           resolution: 5,
           depth: 3,

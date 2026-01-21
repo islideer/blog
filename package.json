@@ -58,7 +58,6 @@
     "@tailwindcss/typography": "^0.5.19",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",
-    "@types/flexsearch": "^0.7.42",
     "@types/mdast": "^4.0.4",
     "@types/node": "^22.19.3",
     "@types/react": "^19.2.7",
