@@ -1,10 +1,10 @@
-import aboutData from '@/data/about.json'
-import mioSaysData from '@/data/mio-says.json'
-import thoughtsData from '@/data/thoughts.json'
-import timelineData from '@/data/timeline.json'
-import friendsData from '@/data/friends.json'
-import otherGamesData from '@/data/other-games.json'
-import collectionData from '@/data/collection.json'
+import aboutData from '@/data/about.json' with { type: 'json' }
+import mioSaysData from '@/data/mio-says.json' with { type: 'json' }
+import thoughtsData from '@/data/thoughts.json' with { type: 'json' }
+import timelineData from '@/data/timeline.json' with { type: 'json' }
+import friendsData from '@/data/friends.json' with { type: 'json' }
+import otherGamesData from '@/data/other-games.json' with { type: 'json' }
+import collectionData from '@/data/collection.json' with { type: 'json' }
 import { isDev } from './env'
 import { siteConfig } from './config'
 

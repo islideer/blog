@@ -1,4 +1,4 @@
-import { countWords } from './word-count'
+import { countWords } from './word-count.ts'
 
 /**
  * 移除 Markdown 语法标记，保留纯文本内容

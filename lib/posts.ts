@@ -1,8 +1,8 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { calculateReadingTime } from './reading-time'
-import { isDev } from './env'
+import { calculateReadingTime } from './reading-time.ts'
+import { isDev } from './env.ts'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -69,7 +69,7 @@ export async function getAllPosts(): Promise<PostMetadata[]> {
       return {
         slug,
         title: data.title || slug,
-        date: data.date || new Date().toISOString(),
+        date: new Date(data.date).toISOString(),
         excerpt: data.excerpt || '',
         tags: data.tags || [],
         author: data.author || '',

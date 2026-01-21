@@ -1,15 +1,15 @@
 import path from 'node:path'
 import { promises as fs } from 'node:fs'
-import { getAllPostsWithContent } from '../lib/posts'
-import { cleanMarkdownContent, truncateText } from '../lib/search-utils'
+import { getAllPostsWithContent } from '../lib/posts.ts'
+import { cleanMarkdownContent, truncateText } from '../lib/search-utils.ts'
 
 // 导入 JSON 数据
-import thoughtsData from '../data/thoughts.json'
-import mioSaysData from '../data/mio-says.json'
-import collectionData from '../data/collection.json'
-import timelineData from '../data/timeline.json'
-import aboutData from '../data/about.json'
-import friendsData from '../data/friends.json'
+import thoughtsData from '../data/thoughts.json' with { type: 'json' }
+import mioSaysData from '../data/mio-says.json' with { type: 'json' }
+import collectionData from '../data/collection.json' with { type: 'json' }
+import timelineData from '../data/timeline.json' with { type: 'json' }
+import aboutData from '../data/about.json' with { type: 'json' }
+import friendsData from '../data/friends.json' with { type: 'json' }
 
 // 搜索索引项类型
 export interface SearchIndexItem {

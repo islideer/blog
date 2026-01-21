@@ -4,11 +4,11 @@
   "private": true,
   "packageManager": "pnpm@10.25.0",
   "scripts": {
-    "dev": "pnpm prebuild && next dev --turbopack",
-    "prebuild": "tsx scripts/generate-search-index.ts",
+    "dev": "pnpm prebuild && bun --bun next dev",
+    "prebuild": "node scripts/generate-search-index.ts",
     "build": "pnpm prebuild && next build",
-    "analyze": "ANALYZE=true next build --webpack",
-    "start": "next start",
+    "analyze": "ANALYZE=true pnpm build",
+    "start": "pnpm prebuild && bun --bun next start",
     "lint": "eslint",
     "format": "prettier --write .",
     "type-check": "tsc --noEmit",
@@ -70,7 +70,6 @@
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.1.18",
-    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "unified": "^11.0.5",
     "vitest": "^4.0.16"
