@@ -183,11 +183,13 @@ export function extractMatchingSnippet(
 
   // 查找第一个匹配的关键词位置
   let firstMatchIndex = -1
+  let firstMatchedKeyword = ''
 
   for (const keyword of validKeywords) {
     const index = text.toLowerCase().indexOf(keyword.toLowerCase())
     if (index !== -1 && (firstMatchIndex === -1 || index < firstMatchIndex)) {
       firstMatchIndex = index
+      firstMatchedKeyword = keyword
     }
   }
 
@@ -196,15 +198,54 @@ export function extractMatchingSnippet(
     return text.slice(0, maxLength) + (text.length > maxLength ? '...' : '')
   }
 
-  // 计算片段的起始和结束位置，让关键词尽量居中
+  // 计算片段的起始和结束位置，让关键词居中
+  // 策略：确保关键词前后各有足够的上下文（至少 20%）
+  const keywordLength = firstMatchedKeyword.length
+  const keywordCenter = firstMatchIndex + Math.floor(keywordLength / 2)
   const halfLength = Math.floor(maxLength / 2)
-  let startIndex = Math.max(0, firstMatchIndex - halfLength)
-  const endIndex = Math.min(text.length, startIndex + maxLength)
 
-  // 如果结束位置到达文本末尾，调整起始位置
-  if (endIndex === text.length) {
-    startIndex = Math.max(0, endIndex - maxLength)
+  // 从关键词中心向两边各扩展 halfLength
+  let idealStart = keywordCenter - halfLength
+  let idealEnd = keywordCenter + halfLength
+
+  // 处理边界情况
+  if (idealEnd > text.length) {
+    // 右边超出边界
+    const overflow = idealEnd - text.length
+    idealEnd = text.length
+
+    // 尝试从左边补偿，但确保关键词后至少有 20% 的内容
+    const minAfterKeyword = Math.floor(maxLength * 0.2)
+    const currentAfterKeyword = idealEnd - (firstMatchIndex + keywordLength)
+
+    if (currentAfterKeyword >= minAfterKeyword) {
+      // 关键词后已经有足够的内容，可以从左边补偿
+      const canCompensate = Math.min(overflow, idealStart)
+      idealStart = Math.max(0, idealStart - canCompensate)
+    }
+    // 否则宁可片段短一点，也不补偿
   }
+
+  if (idealStart < 0) {
+    // 左边超出边界
+    const overflow = -idealStart
+    idealStart = 0
+
+    // 尝试从右边补偿，但确保关键词前至少有 20% 的内容
+    const minBeforeKeyword = Math.floor(maxLength * 0.2)
+    const currentBeforeKeyword = firstMatchIndex - idealStart
+
+    if (currentBeforeKeyword >= minBeforeKeyword) {
+      // 关键词前已经有足够的内容，可以从右边补偿
+      const canCompensate = overflow
+      idealEnd = Math.min(text.length, idealEnd + canCompensate)
+    }
+    // 否则宁可片段短一点，也不补偿
+  }
+
+  // 实际范围
+  const startIndex = Math.max(0, idealStart)
+  const endIndex = Math.min(text.length, idealEnd)
 
   // 提取片段
   let snippet = text.slice(startIndex, endIndex)
