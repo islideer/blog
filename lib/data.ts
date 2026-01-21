@@ -173,7 +173,6 @@ export interface CollectionItem {
   description: string
   url: string
   tags: string[]
-  addedDate?: string
 }
 
 export interface CollectionCategory {

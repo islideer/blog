@@ -116,7 +116,6 @@ async function generateSearchIndex() {
         excerpt: item.description,
         content: `${item.name} ${item.description} ${item.tags.join(' ')}`,
         tags: item.tags,
-        date: item.addedDate || new Date().toISOString(),
         url: item.url, // 直接使用集合项的实际链接
       })
       collectionCount++

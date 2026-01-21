@@ -88,52 +88,54 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <article className="pb-8 sm:pb-12">
-        {/* Article Header */}
-        <header className="mb-8 space-y-4 sm:mb-12 sm:space-y-6">
-          {/* Top Image */}
-          {post.topImage && (
-            <div className="-mx-4 mt-2 overflow-hidden rounded-none! sm:mx-0 sm:mt-4 sm:rounded-md!">
-              <ZoomImageForArticle
-                src={post.topImage}
-                alt={post.title}
-                className="h-auto w-full rounded-none! sm:rounded-md!"
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-              />
-            </div>
-          )}
-
-          <div className="mt-8 space-y-3 sm:mt-12 sm:space-y-4">
-            <ViewTransition name={`post-title-${post.slug}`} default="transform">
-              <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-3xl md:text-4xl lg:text-5xl">
-                {post.title}
-              </h1>
-            </ViewTransition>
-            {post.draft && (
-              <div className="inline-flex items-center gap-2">
-                <DraftBadge />
-                <span className="text-text-tertiary text-xs sm:text-sm">
-                  此文章尚未正式发布，仅在开发环境可见
-                </span>
+      <div className="pb-8 sm:pb-12">
+        <article>
+          {/* Article Header */}
+          <header className="mb-8 space-y-4 sm:mb-12 sm:space-y-6">
+            {/* Top Image */}
+            {post.topImage && (
+              <div className="-mx-4 mt-2 overflow-hidden rounded-none! sm:mx-0 sm:mt-4 sm:rounded-md!">
+                <ZoomImageForArticle
+                  src={post.topImage}
+                  alt={post.title}
+                  className="h-auto w-full rounded-none! sm:rounded-md!"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
               </div>
             )}
-          </div>
 
-          <div className="text-text-tertiary flex items-baseline gap-1 overflow-x-auto text-xs sm:gap-2 sm:text-sm">
-            <PostDate date={post.date} format="detail" className="shrink-0" />
-            <span className="shrink-0">·</span>
-            <span className="shrink-0">
-              <ReadingTime minutes={post.readingTime} />
-            </span>
-            <span className="shrink-0">·</span>
-            <span className="shrink-0">{wordCount.toLocaleString('zh-Hans-CN')} 字</span>
-            <OldPostTip short className="text-xs" date={post.date} />
-          </div>
-        </header>
+            <div className="mt-8 space-y-3 sm:mt-12 sm:space-y-4">
+              <ViewTransition name={`post-title-${post.slug}`} default="transform">
+                <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-3xl md:text-4xl lg:text-5xl">
+                  {post.title}
+                </h1>
+              </ViewTransition>
+              {post.draft && (
+                <div className="inline-flex items-center gap-2">
+                  <DraftBadge />
+                  <span className="text-text-tertiary text-xs sm:text-sm">
+                    此文章尚未正式发布，仅在开发环境可见
+                  </span>
+                </div>
+              )}
+            </div>
 
-        {/* Article Content */}
-        <ArticleContent content={post.content} />
+            <div className="text-text-tertiary flex items-baseline gap-1 overflow-x-auto text-xs sm:gap-2 sm:text-sm">
+              <PostDate date={post.date} format="detail" className="shrink-0" />
+              <span className="shrink-0">·</span>
+              <span className="shrink-0">
+                <ReadingTime minutes={post.readingTime} />
+              </span>
+              <span className="shrink-0">·</span>
+              <span className="shrink-0">{wordCount.toLocaleString('zh-Hans-CN')} 字</span>
+              <OldPostTip short className="text-xs" date={post.date} />
+            </div>
+          </header>
+
+          {/* Article Content */}
+          <ArticleContent content={post.content} />
+        </article>
 
         {/* Article End */}
         <div className="border-border mt-8 border-t pt-8 sm:mt-16">
@@ -148,7 +150,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         {/* Recommended Posts */}
         <RecommendedPosts posts={recommendedPosts} />
-      </article>
+      </div>
 
       {/* Table of Contents */}
       <TableOfContents />
