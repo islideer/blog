@@ -1,6 +1,6 @@
 import { cn } from '@/lib/cn'
 import { dayjs } from '@/lib/dayjs'
-import { Noto_Serif_SC } from 'next/font/google'
+// import { Noto_Serif_SC } from 'next/font/google'
 import { ReadingComments } from '@/components/reading-comments'
 import { getReadingByDate, getLunarInfo } from '@/lib/reading'
 import { siteConfig } from '@/lib/config'
@@ -9,12 +9,12 @@ import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
-const notoSerifSC = Noto_Serif_SC({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-})
+// const notoSerifSC = Noto_Serif_SC({
+//   weight: '400',
+//   subsets: ['latin'],
+//   display: 'swap',
+//   preload: true,
+// })
 
 export const metadata: Metadata = {
   title: pages.reading.title,
@@ -56,15 +56,17 @@ export default async function ReadingDetailPage() {
   const yearMonth = dayjs(reading.date).format('YYYY 年 M 月')
 
   return (
-    <div className={cn('mx-auto max-w-3xl px-2 py-12 sm:px-6', notoSerifSC.className)}>
+    <div className={cn('mx-auto max-w-3xl px-2 py-12 sm:px-6')}>
       {/* 日期标题 - 文艺布局 */}
-      <header className="relative mb-16">
+      <header className="relative mb-8 sm:mb-12">
         <div className="mb-6 italic opacity-60 sm:mb-8">岛读：每日一篇名家短文</div>
         <div className="flex items-start justify-between gap-8">
           {/* 左侧：日期信息 */}
           <div className="flex items-end gap-4 sm:gap-6">
             {/* 大数字 */}
-            <div className="text-7xl leading-none font-bold tracking-widest sm:text-9xl">{day}</div>
+            <div className="text-7xl leading-none font-medium tracking-widest sm:text-9xl">
+              {day}
+            </div>
 
             {/* 右侧：阳历和农历 */}
             <div className="flex flex-col justify-center space-y-2">
@@ -75,17 +77,20 @@ export default async function ReadingDetailPage() {
 
               {/* 节日 */}
               {lunar.festival && (
-                <div className="text-xs font-medium opacity-75 sm:text-sm">{lunar.festival}</div>
+                <div className="text-xs opacity-75 sm:text-sm">{lunar.festival}</div>
               )}
 
               {/* 阳历 */}
-              <div className="text-sm opacity-75 sm:text-xl">{yearMonth}</div>
+              <div className="text-sm opacity-75 sm:text-lg">
+                {yearMonth}，星期
+                {['日', '一', '二', '三', '四', '五', '六'][readingDate.getDay()]}
+              </div>
             </div>
           </div>
 
           {/* 右侧：竖向 tip */}
           <div className="flex items-start">
-            <div className="tet-lg font-medium tracking-widest [writing-mode:vertical-rl] sm:text-2xl">
+            <div className="text-sm tracking-widest [writing-mode:vertical-rl] sm:text-base">
               {reading.tip}
             </div>
           </div>
