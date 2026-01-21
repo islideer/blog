@@ -98,25 +98,7 @@ export async function getAllPostsWithContent(): Promise<Post[]> {
     markdownFiles.map(async (relativePath) => {
       // 生成 slug: 只使用文件名部分，例如 "2022/css-history-and-perf.md" -> "css-history-and-perf"
       const fileName = path.basename(relativePath, path.extname(relativePath))
-      const slug = fileName
-      const fullPath = path.join(postsDirectory, relativePath)
-
-      const fileContents = await fs.readFile(fullPath, 'utf8')
-      const { data, content } = matter(fileContents)
-
-      return {
-        slug,
-        title: data.title || slug,
-        date: data.date || new Date().toISOString(),
-        excerpt: data.excerpt || '',
-        tags: data.tags || [],
-        author: data.author || '',
-        draft: data.draft || false,
-        top: data.top || false,
-        topImage: data.top_image || undefined,
-        readingTime: calculateReadingTime(content),
-        content,
-      }
+      return getPostBySlug(fileName) as Promise<Post>
     }),
   )
 
@@ -146,7 +128,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     return {
       slug,
       title: data.title || slug,
-      date: data.date || new Date().toISOString(),
+      date: new Date(data.date).toISOString(),
       excerpt: data.excerpt || '',
       tags: data.tags || [],
       author: data.author || '',
@@ -167,12 +149,8 @@ export async function getAllPostSlugs(): Promise<string[]> {
   const slugsWithDraft = await Promise.all(
     markdownFiles.map(async (relativePath) => {
       const fileName = path.basename(relativePath, path.extname(relativePath))
-      const slug = fileName
-      const fullPath = path.join(postsDirectory, relativePath)
-      const fileContents = await fs.readFile(fullPath, 'utf8')
-      const { data } = matter(fileContents)
-
-      return { slug, draft: data.draft || false }
+      const post = (await getPostBySlug(fileName)) as Post
+      return { slug: post.slug || fileName, draft: post.draft || false }
     }),
   )
 
