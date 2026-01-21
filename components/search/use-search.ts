@@ -170,8 +170,8 @@ export function useSearch(): UseSearchReturn {
           }
 
           // 3. 时间新鲜度（日期越新越靠前）
-          const dateA = new Date(a.date).getTime()
-          const dateB = new Date(b.date).getTime()
+          const dateA = a.date ? new Date(a.date).getTime() : 0
+          const dateB = b.date ? new Date(b.date).getTime() : 0
 
           return dateB - dateA
         })
