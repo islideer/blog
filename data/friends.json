@@ -8,6 +8,14 @@
     "rss": "https://blog.yuki.sh/atom.xml"
   },
   {
+    "id": "snowykami",
+    "name": "Snowykami's Blog",
+    "url": "https://blog.sfkm.me/",
+    "description": "A full-stack developer.",
+    "avatar": "https://cdn.liteyuki.org/snowykami/avatar.jpg",
+    "rss": "https://blog.sfkm.me/rss.xml"
+  },
+  {
     "id": "zhilu",
     "name": "纸鹿摸鱼处",
     "url": "https://blog.zhilu.site/",
