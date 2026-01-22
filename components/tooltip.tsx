@@ -8,6 +8,8 @@ interface TooltipProps {
   children: React.ReactNode
 }
 
+let isTouchDeviceDetected = false
+
 export function Tooltip({ content, children }: TooltipProps) {
   const [tooltipData, setTooltipData] = useState<{
     top: number
@@ -16,11 +18,10 @@ export function Tooltip({ content, children }: TooltipProps) {
   } | null>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const hideTimeoutRef = useRef<ReturnType<typeof setTimeout>>(null)
-  const isTouchDevice = useRef(false)
 
   const handleMouseEnter = () => {
     // 触摸设备不显示 tooltip
-    if (isTouchDevice.current) return
+    if (isTouchDeviceDetected) return
 
     if (hideTimeoutRef.current) {
       clearTimeout(hideTimeoutRef.current)
@@ -68,18 +69,20 @@ export function Tooltip({ content, children }: TooltipProps) {
     }
   }
 
-  const handleMouseLeave = () => {
-    // 立即隐藏，不延迟
-    setTooltipData(null)
-  }
-
-  const handleTouchStart = () => {
-    // 标记为触摸设备
-    isTouchDevice.current = true
-  }
-
   useEffect(() => {
+    const handleTouchStart = () => {
+      // 清除 tooltip 显示
+      setTooltipData(null)
+
+      // 标记为触摸设备
+      isTouchDeviceDetected = true
+    }
+
+    window.addEventListener('touchstart', handleTouchStart, { once: true })
+
     return () => {
+      window.removeEventListener('touchstart', handleTouchStart)
+
       if (hideTimeoutRef.current) {
         clearTimeout(hideTimeoutRef.current)
       }
@@ -92,8 +95,7 @@ export function Tooltip({ content, children }: TooltipProps) {
         ref={wrapperRef}
         style={{ display: 'contents' }}
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onTouchStart={handleTouchStart}
+        onMouseLeave={() => setTooltipData(null)}
       >
         {children}
       </div>

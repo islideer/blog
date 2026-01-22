@@ -133,13 +133,13 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
       clearTimeout(submitTimerRef.current)
     }
 
-    // 设置新的定时器，500ms 后批量提交
+    // 设置新的定时器，600ms 后批量提交
     submitTimerRef.current = setTimeout(() => {
       const clicksToSubmit = pendingClicksRef.current
       if (clicksToSubmit > 0) {
         submitBatch(clicksToSubmit)
       }
-    }, 500)
+    }, 600)
   }
 
   // 动态获取图标组件
@@ -166,6 +166,7 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
           className={cn(
             'inline-flex items-center gap-1 text-xs transition-all active:scale-80',
             canClick && !isSubmitting ? 'cursor-pointer hover:opacity-80' : 'cursor-default',
+            isSubmitting ? 'opacity-50' : '',
             className,
           )}
           style={{
@@ -176,9 +177,11 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
           <IconComponent
             className={cn('h-[1.2em] w-[1.2em] transition-transform', isMaxedOut && 'scale-110')}
           />
-          {displayCount > 0 && (<span className="font-mono tabular-nums">
-            {displayCount.toLocaleString('zh-Hans-CN')}
-          </span>)}
+          {displayCount > 0 && (
+            <span className="font-mono tabular-nums">
+              {displayCount.toLocaleString('zh-Hans-CN')}
+            </span>
+          )}
         </button>
       </div>
     </Tooltip>
