@@ -34,7 +34,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
 
     // 短缓存时间确保用户刷新后能看到最新数据
     return NextResponse.json(result, {
-      headers: { 'Cache-Control': 'public, s-maxage=10, stale-while-revalidate=60' },
+      headers: { 'Cache-Control': 'public, s-maxage=3, stale-while-revalidate=60' },
     })
   } catch (error) {
     console.error('[Interactions API] Failed to fetch counts:', error)
