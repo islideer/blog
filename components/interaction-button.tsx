@@ -155,8 +155,8 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
     <Tooltip
       content={
         isMaxedOut
-          ? `今日${config.ariaLabel}已达${maxClicks > 1 ? ` ${maxClicks} 次上限` : '上限'}`
-          : `点击${config.ariaLabel}`
+          ? `今日${maxClicks > 1 ? `${config.ariaLabel}已达 ${maxClicks} 次上限` : `已${config.ariaLabel}`}`
+          : `点击${config.ariaLabel}${maxClicks > 1 ? `，最多 ${maxClicks} 次` : ''}`
       }
     >
       <div className="group text-text-secondary relative inline-flex">
@@ -171,12 +171,14 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
           style={{
             color: isMaxedOut ? `var(${config.colorVar})` : 'var(--color-text-secondary)',
           }}
-          aria-label={`${config.ariaLabel} ${displayCount} 次，你已点击 ${userClickCount} 次`}
+          aria-label={`${config.ariaLabel} ${displayCount.toLocaleString('zh-Hans-CN')} 次，你已点击 ${userClickCount.toLocaleString('zh-Hans-CN')} 次`}
         >
           <IconComponent
             className={cn('h-[1.2em] w-[1.2em] transition-transform', isMaxedOut && 'scale-110')}
           />
-          <span className="font-mono tabular-nums">{displayCount}</span>
+          <span className="font-mono tabular-nums">
+            {displayCount.toLocaleString('zh-Hans-CN')}
+          </span>
         </button>
       </div>
     </Tooltip>

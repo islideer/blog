@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, type ReactNode, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import { useState, useRef, useEffect } from 'react'
 
 interface TooltipProps {
   content: string
-  children: ReactNode
+  children: React.ReactNode
 }
 
 export function Tooltip({ content, children }: TooltipProps) {
@@ -34,15 +34,21 @@ export function Tooltip({ content, children }: TooltipProps) {
 
       const rect = childElement.getBoundingClientRect()
 
-      // 计算 tooltip 初始位置（元素下方居中）
-      let top = rect.bottom + 8
-      let left = rect.left + rect.width / 2
-      let isAbove = false
-
       // 边界检测和调整
       const viewportWidth = window.innerWidth
-      const viewportHeight = window.innerHeight
       const tooltipPadding = 8 // 距离边界的最小间距
+      const estimatedTooltipHeight = 36 // tooltip 高度约 36px
+
+      // 计算 tooltip 初始位置（优先元素上方居中）
+      let top = rect.top - estimatedTooltipHeight - 8
+      let left = rect.left + rect.width / 2
+      let isAbove = true
+
+      // 上边界检测 - 如果上方空间不够，改为下方
+      if (top < tooltipPadding) {
+        top = rect.bottom + 8
+        isAbove = false
+      }
 
       // 预估 tooltip 宽度（假设最大 200px）
       const estimatedTooltipWidth = Math.min(content.length * 8, 200)
@@ -56,14 +62,6 @@ export function Tooltip({ content, children }: TooltipProps) {
       // 右边界检测
       if (left + tooltipHalfWidth > viewportWidth - tooltipPadding) {
         left = viewportWidth - tooltipHalfWidth - tooltipPadding
-      }
-
-      // 下边界检测（tooltip 高度约 36px）
-      const estimatedTooltipHeight = 36
-      if (top + estimatedTooltipHeight > viewportHeight - tooltipPadding) {
-        // 显示在元素上方
-        top = rect.top - estimatedTooltipHeight - 8
-        isAbove = true
       }
 
       setTooltipData({ top, left, isAbove })
