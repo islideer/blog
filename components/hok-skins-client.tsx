@@ -1,14 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-import { useState, useMemo } from 'react'
-import { dayjs } from '@/lib/dayjs'
+import { cn } from '@/lib/cn'
 import { useAutoSize } from './hooks/use-auto-size'
 import { ChevronUpIcon } from './icons/chevron-up'
 import { ChevronDownIcon } from './icons/chevron-down'
+import { useState, useMemo } from 'react'
 
 import type { HokResponse } from '@/lib/hok'
-import { cn } from '@/lib/cn'
 
 interface HokSkinsClientProps {
   id?: string
@@ -136,17 +135,13 @@ export function HokSkinsClient({ id, data }: HokSkinsClientProps) {
               <h3 className="line-clamp-2 text-xs font-medium text-white">
                 {skin.hero_name}·{skin.skin_name}
               </h3>
-              <p className="text-xs text-white/60">
-                {dayjs(skin.acquired).format('获得于 YYYY-MM-DD')}
-              </p>
+              {skin.acquired && <p className="text-xs text-white/60">获得于 {skin.acquired}</p>}
             </div>
 
             {/* 皮肤信息 - 移动端 */}
             <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-0.5 p-2 sm:hidden">
               <h3 className="line-clamp-2 text-[10px] font-medium text-white">{skin.skin_name}</h3>
-              <p className="text-[10px] text-white/60">
-                {dayjs(skin.acquired).format('YYYY-MM-DD')}
-              </p>
+              {skin.acquired && <p className="text-[10px] text-white/60">{skin.acquired}</p>}
             </div>
           </div>
         ))}
