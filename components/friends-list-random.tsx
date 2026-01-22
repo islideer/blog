@@ -6,7 +6,7 @@ import { FriendCard } from './friend-card'
 import type { Friend } from '@/lib/data'
 import { Tooltip } from './tooltip'
 import { RandomIcon } from './icons/random'
-import { SparklesIcon } from './icons/sparkles'
+import { DiceIcon } from './icons/dice'
 
 interface FriendsListRandomProps {
   friends: Friend[]
@@ -59,7 +59,7 @@ export function FriendsListRandom({ friends }: FriendsListRandomProps) {
               className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors"
               aria-label="随机访问一位好友的博客"
             >
-              <SparklesIcon className="h-3.5 w-3.5" />
+              <DiceIcon className="h-3.5 w-3.5" />
               试试手气
             </button>
           </Tooltip>

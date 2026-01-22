@@ -1,8 +1,8 @@
-interface SparklesIconProps {
+interface DiceIconProps {
   className?: string
 }
 
-export function SparklesIcon({ className }: SparklesIconProps) {
+export function DiceIcon({ className }: DiceIconProps) {
   return (
     <svg
       className={className}
@@ -12,7 +12,15 @@ export function SparklesIcon({ className }: SparklesIconProps) {
       strokeWidth="1.5"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="3" y="3" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round" />
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
       <circle cx="12" cy="12" r="1" fill="currentColor" />
       <circle cx="8" cy="8" r="1" fill="currentColor" />
       <circle cx="16" cy="8" r="1" fill="currentColor" />
