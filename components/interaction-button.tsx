@@ -176,7 +176,7 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
           <IconComponent
             className={cn('h-[1.2em] w-[1.2em] transition-transform', isMaxedOut && 'scale-110')}
           />
-          ｛displayCount > 0 && (<span className="font-mono tabular-nums">
+          {displayCount > 0 && (<span className="font-mono tabular-nums">
             {displayCount.toLocaleString('zh-Hans-CN')}
           </span>)}
         </button>
