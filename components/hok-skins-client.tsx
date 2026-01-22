@@ -1,0 +1,178 @@
+'use client'
+
+import Image from 'next/image'
+import { useState, useMemo } from 'react'
+import { dayjs } from '@/lib/dayjs'
+import { useAutoSize } from './hooks/use-auto-size'
+import { ChevronUpIcon } from './icons/chevron-up'
+import { ChevronDownIcon } from './icons/chevron-down'
+
+import type { HokResponse } from '@/lib/hok'
+import { cn } from '@/lib/cn'
+
+interface HokSkinsClientProps {
+  id?: string
+  data: HokResponse
+}
+
+// 品质权重映射（数值越大越靠前） "S", "S+", "B", "A", "S++", "SSR", "SR", "SP"
+const QUALITY_WEIGHT: Record<string, number> = {
+  SP: 600,
+  SSR: 500,
+  SR: 400,
+  'S++': 320,
+  'S+': 310,
+  S: 300,
+  A: 200,
+  B: 100,
+}
+
+type SortType = 'time' | 'quality'
+
+/**
+ * 王者荣耀皮肤客户端组件
+ * - 处理按时间/品质排序
+ * - 处理"显示更多"交互
+ */
+export function HokSkinsClient({ id, data }: HokSkinsClientProps) {
+  const [showAll, setShowAll] = useState(false)
+  const [sortBy, setSortBy] = useState<SortType>('time')
+  const initialDisplayCount = useAutoSize({ xs: 8, sm: 10 })
+
+  // 排序逻辑
+  const sortedSkins = useMemo(() => {
+    return data.skins.toSorted((a, b) => {
+      if (sortBy === 'time') {
+        // 按获得时间降序（最新的在前）
+        return b.acquired_at - a.acquired_at
+      } else {
+        // 按品质权重降序
+        const weightA = QUALITY_WEIGHT[a.level] || 0
+        const weightB = QUALITY_WEIGHT[b.level] || 0
+        // 品质相同时，按价格、获得时间降序
+        return weightB - weightA || b.price - a.price || b.acquired_at - a.acquired_at
+      }
+    })
+  }, [data.skins, sortBy])
+
+  // 根据显示状态决定展示的皮肤
+  const displayedSkins = showAll ? sortedSkins : sortedSkins.slice(0, initialDisplayCount)
+  const hasMore = sortedSkins.length > initialDisplayCount
+
+  return (
+    <>
+      {/* 标题行 */}
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
+            王者皮肤
+          </h2>
+          <span className="text-text-tertiary text-xs">
+            ({data.summary.count} / {data.summary.total_count}，价值
+            <span className="mx-1">{Number(data.summary.worth).toLocaleString('zh-Hans-CN')}</span>
+            点券)
+          </span>
+        </div>
+
+        {/* 排序按钮 */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setSortBy('time')}
+            className={cn(
+              'text-xs font-medium',
+              sortBy === 'time'
+                ? 'text-text-primary'
+                : 'text-text-secondary sm:hover:text-text-primary',
+            )}
+          >
+            按时间
+          </button>
+          <span className="text-text-tertiary text-xs">·</span>
+          <button
+            onClick={() => setSortBy('quality')}
+            className={cn(
+              'text-xs font-medium',
+              sortBy === 'quality'
+                ? 'text-text-primary'
+                : 'text-text-secondary sm:hover:text-text-primary',
+            )}
+          >
+            按品质
+          </button>
+        </div>
+      </div>
+
+      {/* 皮肤列表 */}
+      <div className="grid grid-cols-4 gap-2 sm:grid-cols-5 sm:gap-4">
+        {displayedSkins.map((skin) => (
+          <div key={skin.skin_id} className="group relative aspect-3/4 overflow-hidden rounded-lg">
+            {/* 皮肤封面 */}
+            <Image
+              src={`${data.assets_base}${skin.skin_cover}`}
+              alt={`${skin.hero_name}·${skin.skin_name}`}
+              width={240}
+              height={320}
+              className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
+            />
+
+            {/* 品质标签 - 图片中上方居中 */}
+            {skin.quality_label && (
+              <div className="absolute top-2 bottom-2 left-1/2 -translate-x-1/2 sm:top-4">
+                <Image
+                  src={`${data.assets_base}${skin.quality_label}`}
+                  alt={skin.level}
+                  width={30}
+                  height={12}
+                  className="h-6 w-auto drop-shadow-lg sm:h-8"
+                />
+              </div>
+            )}
+
+            {/* 渐变遮罩 */}
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
+
+            {/* 皮肤信息 - PC */}
+            <div className="absolute right-0 bottom-0 left-0 hidden flex-col gap-1.5 p-2 sm:flex">
+              <h3 className="line-clamp-2 text-xs font-medium text-white">
+                {skin.hero_name}·{skin.skin_name}
+              </h3>
+              <p className="text-xs text-white/60">
+                {dayjs(skin.acquired).format('获得于 YYYY-MM-DD')}
+              </p>
+            </div>
+
+            {/* 皮肤信息 - 移动端 */}
+            <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-0.5 p-2 sm:hidden">
+              <h3 className="line-clamp-2 text-[10px] font-medium text-white">{skin.skin_name}</h3>
+              <p className="text-[10px] text-white/60">
+                {dayjs(skin.acquired).format('YYYY-MM-DD')}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* 展示更多按钮 */}
+      {hasMore && (
+        <div className="flex justify-center pt-2">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-colors"
+          >
+            {showAll ? (
+              <>
+                <ChevronUpIcon className="h-4 w-4" />
+                收起
+              </>
+            ) : (
+              <>
+                <ChevronDownIcon className="h-4 w-4" />
+                展示更多 ({sortedSkins.length - initialDisplayCount})
+              </>
+            )}
+          </button>
+        </div>
+      )}
+    </>
+  )
+}

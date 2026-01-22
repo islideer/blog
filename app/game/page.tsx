@@ -2,11 +2,13 @@ import { SteamProfile } from '@/components/steam-profile'
 import { SteamGameLibrary } from '@/components/steam-game-library'
 import { OtherGames } from '@/components/other-games'
 import { CS2Inventory } from '@/components/cs2-inventory'
+import { HokSkins } from '@/components/hok-skins'
 import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { getSteamProfile, getLibraryGames, getRecentlyPlayed, getCS2Inventory } from '@/lib/steam'
+import { getHokSkins } from '@/lib/hok'
 
 import type { Metadata } from 'next'
 
@@ -41,12 +43,13 @@ export const metadata: Metadata = {
 }
 
 export default async function GamePage() {
-  // 在服务端并行获取所有 Steam 数据
-  const [profile, libraryGames, recentGames, cs2Inventory] = await Promise.all([
+  // 在服务端并行获取所有游戏数据
+  const [profile, libraryGames, recentGames, cs2Inventory, hokSkins] = await Promise.all([
     getSteamProfile(),
     getLibraryGames(),
     getRecentlyPlayed(),
     getCS2Inventory(),
+    getHokSkins(),
   ])
 
   return (
@@ -57,6 +60,7 @@ export default async function GamePage() {
           { id: 'library', title: 'Steam 游戏', level: 1 },
           { id: 'other', title: '其他游戏', level: 1 },
           { id: 'cs2', title: 'CS2 库存', level: 1 },
+          { id: 'hok', title: '王者皮肤', level: 1 },
         ]}
       />
 
@@ -78,6 +82,9 @@ export default async function GamePage() {
 
         {/* CS2 库存 - 纯服务端组件 */}
         <CS2Inventory id="cs2" items={cs2Inventory} />
+
+        {/* 王者皮肤 - 纯服务端组件 */}
+        <HokSkins id="hok" data={hokSkins} />
       </div>
     </>
   )

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export function useAutoSize(options: { xs: number; sm: number }) {
-  const [size, setSize] = useState<number>(options.xs)
+  const [size, setSize] = useState<number>(options.sm)
 
   useEffect(() => {
     const updateSize = () => {
