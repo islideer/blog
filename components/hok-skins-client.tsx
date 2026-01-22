@@ -130,11 +130,14 @@ export function HokSkinsClient({ id, data }: HokSkinsClientProps) {
             {/* 渐变遮罩 */}
             <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
+            {/* 英雄名称标签 - 右上角 */}
+            <div className="absolute top-1 right-1 rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px] sm:top-2 sm:right-2">
+              {skin.hero_name}
+            </div>
+
             {/* 皮肤信息 - PC */}
             <div className="absolute right-0 bottom-0 left-0 hidden flex-col gap-1.5 p-2 sm:flex">
-              <h3 className="line-clamp-2 text-xs font-medium text-white">
-                {skin.hero_name}·{skin.skin_name}
-              </h3>
+              <h3 className="line-clamp-2 text-sm font-medium text-white">{skin.skin_name}</h3>
               {skin.acquired && <p className="text-xs text-white/60">获得于 {skin.acquired}</p>}
             </div>
 
