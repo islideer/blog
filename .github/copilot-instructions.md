@@ -12,15 +12,18 @@ You are an expert AI programming assistant working on a Next.js 16 + React 19 + 
 ## Tech Stack
 
 ### Core
+
 - **Framework**: Next.js 16.1.1 (App Router, SSG + ISR)
 - **Library**: React 19.3.0 (Server Components + React Compiler)
 - **Language**: TypeScript 5.9.3 (Strict mode)
 
 ### Styling & Theming
+
 - **Styling**: Tailwind CSS v4.1.18 (CSS-first config, OKLCH colors)
 - **Theme**: next-themes 0.4.6 (light/dark/system modes)
 
 ### Content & Markdown
+
 - **Format**: Markdown (`.md` files, NOT MDX)
 - **Processing**: unified ecosystem
   - **remark** 15.0.1 + **remark-gfm** 4.0.1 (Markdown parsing)
@@ -32,6 +35,7 @@ You are an expert AI programming assistant working on a Next.js 16 + React 19 + 
 - **Caching**: LRU cache (max 500 HTML outputs)
 
 ### Utilities
+
 - **Time**: dayjs 1.11.19 (relative time, Chinese localization)
 - **OG Images**: @vercel/og 0.8.6 (Dynamic OG image generation)
 - **RSS**: feed 5.1.0 (RSS 2.0 generation)
@@ -39,6 +43,7 @@ You are an expert AI programming assistant working on a Next.js 16 + React 19 + 
 - **Typography**: pangu 7.2.0 (Chinese/English spacing)
 
 ### Development
+
 - **Package Manager**: pnpm 10.25.0
 - **Testing**: Vitest
 - **Formatting**: Prettier (no semi, single quote, trailing comma)
@@ -118,11 +123,13 @@ The project uses **unified ecosystem** (NOT MDX or next-mdx-remote):
 ### Two Processing Pipelines
 
 **Short Content Processor** (for thoughts/mio-says):
+
 - Enables `remark-breaks` - single newline becomes `<br>`
 - Spoiler syntax support: `||spoiler text||`
 - Dual-theme code highlighting (Shiki)
 
 **Article Processor** (for blog posts):
+
 - Auto-generates heading IDs (`rehype-slug`)
 - Adds anchor links to headings (`rehype-autolink-headings`)
 - Marks images as zoomable (`rehype-zoom-image`)
@@ -154,12 +161,17 @@ import { MarkdownLite } from '@/components/markdown-lite'
 ```
 
 CSS automatically switches based on theme:
+
 ```css
 /* Light mode */
-.prose pre span { color: var(--shiki-light); }
+.prose pre span {
+  color: var(--shiki-light);
+}
 
 /* Dark mode */
-html.dark .prose pre span { color: var(--shiki-dark); }
+html.dark .prose pre span {
+  color: var(--shiki-dark);
+}
 ```
 
 ### LRU Caching
@@ -288,13 +300,11 @@ Multi-dimensional weighted scoring (`lib/posts.ts`):
 // 4. Deterministic Random (10%) - Pseudo-random based on slug
 
 const totalScore =
-  tagSimilarity * 0.4 +
-  freshnessScore * 0.3 +
-  proximityScore * 0.2 +
-  randomScore * 0.1
+  tagSimilarity * 0.4 + freshnessScore * 0.3 + proximityScore * 0.2 + randomScore * 0.1
 ```
 
 **Key Features:**
+
 - Jaccard coefficient for tag set comparison
 - Exponential time decay (365-day half-life)
 - Deterministic randomness (same slug = same recommendations)

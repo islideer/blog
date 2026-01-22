@@ -35,7 +35,7 @@ GET https://api.viki.moe/steam/:id
 ![steam-profile](https://s2.loli.net/2026/01/15/5yBZfMCOlpkPzje.png)
 
 > 如 CS 职业选手 ropz 的 Steam 资料信息：
-> 
+>
 > [https://api.viki.moe/steam/ropzkah](https://api.viki.moe/steam/ropzkah)。
 
 <details>
@@ -99,7 +99,7 @@ GET https://api.viki.moe/steam/:id/recently-played
 ![steam-recently-played](https://s2.loli.net/2026/01/15/qMGlTBR7PcIDQax.png)
 
 > 如 ropz 最近在玩的游戏：
-> 
+>
 > [https://api.viki.moe/steam/ropzkah/recently-played](https://api.viki.moe/steam/ropzkah/recently-played)。
 
 <details>
@@ -119,7 +119,7 @@ GET https://api.viki.moe/steam/:id/recently-played
       "platforms": [] // 自己的 Key 可以获取自己的平台游玩时长信息
     },
     "image": {
-       // 各种尺寸的图片链接
+      // 各种尺寸的图片链接
     }
   }
 ]
@@ -138,7 +138,7 @@ GET https://api.viki.moe/steam/:id/games
 ![steam-games](https://s2.loli.net/2026/01/15/UkvfLtzPXouM5bD.png)
 
 > 如 ropz 的游戏库存：
-> 
+>
 > [https://api.viki.moe/steam/ropzkah/games](https://api.viki.moe/steam/ropzkah/games)。
 
 <details>
@@ -199,6 +199,7 @@ GET https://api.viki.moe/steam/:id/games
   }
 ]
 ```
+
 </details>
 
 ## 豆瓣相关 API
@@ -230,7 +231,7 @@ GET https://api.viki.moe/douban/:id/movies
       "url": "https://movie.douban.com/subject/36851291/",
       "cover": "https://doubanio.viki.moe/view/photo/s_ratio_poster/public/p2922540490.jpg",
       "date": "2026-01-08"
-    },
+    }
   ],
   // 想看列表
   "wish": [
@@ -254,6 +255,7 @@ GET https://api.viki.moe/douban/:id/movies
   ]
 }
 ```
+
 </details>
 
 ### 书籍列表（在读、想读、读过）
@@ -280,15 +282,15 @@ GET https://api.viki.moe/douban/:id/books
       "title": "一个人去东京: 未来预想图01",
       "url": "https://book.douban.com/subject/27118775/",
       "cover": "https://doubanio.viki.moe/view/subject/s/public/s29576570.jpg",
-      "date": "2023-11-22"
+      "date": "2023-11-22",
     },
     {
       "id": "1057244",
       "title": "边城",
       "url": "https://book.douban.com/subject/1057244/",
       "cover": "https://doubanio.viki.moe/view/subject/s/public/s1595557.jpg",
-      "date": "2023-01-24"
-    }
+      "date": "2023-01-24",
+    },
   ],
   // 想读列表
   "wish": [
@@ -297,8 +299,8 @@ GET https://api.viki.moe/douban/:id/books
       "title": "肖申克的救赎",
       "url": "https://book.douban.com/subject/1829226/",
       "cover": "https://doubanio.viki.moe/view/subject/s/public/s4007145.jpg",
-      "date": "2024-09-25"
-    }
+      "date": "2024-09-25",
+    },
   ],
   // 在读列表
   "doings": [
@@ -307,9 +309,9 @@ GET https://api.viki.moe/douban/:id/books
       "title": "三体: “地球往事”三部曲之一",
       "url": "https://book.douban.com/subject/2567698/",
       "cover": "https://doubanio.viki.moe/view/subject/s/public/s2768378.jpg",
-      "date": "2023-01-24"
-    }
-  ]
+      "date": "2023-01-24",
+    },
+  ],
 }
 ```
 
@@ -328,12 +330,12 @@ GET https://api.viki.moe/douban/:id/books
 
 原理很简单，代理原始的图片请求，并添加上正确的 Referrer 请求头，就能成功获取图片资源了。
 
-举例来说，*[《肖申克的救赎》](https://movie.douban.com/subject/1292052/)* 的电影封面图链接：
+举例来说，_[《肖申克的救赎》](https://movie.douban.com/subject/1292052/)_ 的电影封面图链接：
 
 ```sh
-# 原始 URL: 
+# 原始 URL:
 https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.webp
-# 代理 URL: 
+# 代理 URL:
 https://doubanio.viki.moe/view/photo/s_ratio_poster/public/p480747492.webp
 ```
 

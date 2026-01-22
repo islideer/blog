@@ -5,6 +5,7 @@ import { pages } from '@/lib/data'
 
 import { countWords } from '@/lib/word-count'
 import { ThoughtsList } from '@/components/thoughts-list'
+import { InteractionsProvider } from '@/components/interactions-provider'
 
 import type { Metadata } from 'next'
 
@@ -53,6 +54,9 @@ export default async function ThoughtsPage() {
   const avg = (new Date(last).getTime() - new Date(first).getTime()) / (1000 * 60 * 60 * 24 * 30)
   const averagePerMonth = Math.round(sortedThoughts.length / Math.max(1, avg) || 1)
 
+  // 提取所有 ID 用于批量加载互动数据
+  const ids = sortedThoughts.map((t) => t.id)
+
   return (
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
@@ -66,11 +70,13 @@ export default async function ThoughtsPage() {
       {/* Thoughts Timeline */}
       <section className="space-y-4">
         <div className="sm:border-l-2 sm:pl-6" style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}>
-          <ThoughtsList
-            thoughts={sortedThoughts}
-            emptyMessage="还没有碎碎念，快来记录吧"
-            contentPrefix="碎碎念"
-          />
+          <InteractionsProvider type="thoughts" ids={ids}>
+            <ThoughtsList
+              thoughts={sortedThoughts}
+              emptyMessage="还没有碎碎念，快来记录吧"
+              contentPrefix="碎碎念"
+            />
+          </InteractionsProvider>
         </div>
       </section>
     </div>

@@ -12,15 +12,18 @@ Viki 的个人博客，基于 Next.js 16 + React 19 + Tailwind CSS v4 构建的�
 ## 技术栈
 
 ### 核心框架
+
 - **Next.js 16.1.1** - App Router + 混合渲染（SSG + ISR）
 - **React 19.3.0** - Server Components + React Compiler
 - **TypeScript 5.9.3** - 完整类型安全
 
 ### 样式与主题
+
 - **Tailwind CSS v4.1.18** - CSS-first 配置，OKLCH 色彩空间
 - **next-themes 0.4.6** - 主题管理（亮色/暗色/系统）
 
 ### Markdown 处理（unified 生态）
+
 - **remark 15.0.1** + **remark-gfm 4.0.1** - Markdown 解析
 - **remark-breaks 4.0.0** - 换行符处理（短内容）
 - **rehype-slug 6.0.0** + **rehype-autolink-headings 7.1.0** - 标题锚点
@@ -30,6 +33,7 @@ Viki 的个人博客，基于 Next.js 16 + React 19 + Tailwind CSS v4 构建的�
 - 自定义插件：`remark-spoiler`（剧透语法）、`rehype-zoom-image`（图片缩放）
 
 ### 工具库
+
 - **gray-matter 4.0.3** - Front Matter 解析
 - **dayjs 1.11.19** - 时间处理（相对时间、中文本地化）
 - **@vercel/og 0.8.6** - 动态 OG 图片生成
@@ -38,6 +42,7 @@ Viki 的个人博客，基于 Next.js 16 + React 19 + Tailwind CSS v4 构建的�
 - **pangu 7.2.0** - 盘古之白排版
 
 ### 开发工具
+
 - **pnpm 10.25.0** - 包管理器
 - **vitest** - 单元测试
 - **prettier** - 代码格式化（无分号、单引号、尾随逗号）
@@ -160,11 +165,13 @@ parseArticle() // 博客文章：标题锚点、代码高亮
 ### 双处理器设计
 
 **短内容处理器**（碎碎念、Mio 说）：
+
 - 启用 `remark-breaks` - 单个换行符即换行
 - 剧透语法支持 `||spoiler text||`
 - 代码高亮（Shiki 双主题）
 
 **文章处理器**（博客文章）：
+
 - 自动生成标题 ID（`rehype-slug`）
 - 标题锚点链接（`rehype-autolink-headings`）
 - 图片缩放标记（`rehype-zoom-image`）
@@ -184,19 +191,24 @@ parseArticle() // 博客文章：标题锚点、代码高亮
 ```
 
 CSS 自动切换：
+
 ```css
 /* 亮色模式 */
-.prose pre span { color: var(--shiki-light); }
+.prose pre span {
+  color: var(--shiki-light);
+}
 
 /* 暗色模式 */
-html.dark .prose pre span { color: var(--shiki-dark); }
+html.dark .prose pre span {
+  color: var(--shiki-dark);
+}
 ```
 
 ### LRU 缓存机制
 
 ```typescript
 const htmlCache = new Map<string, string>()
-const MAX_CACHE_SIZE = 500  // 最多缓存 500 条
+const MAX_CACHE_SIZE = 500 // 最多缓存 500 条
 
 // 自动清理最旧的缓存项
 if (htmlCache.size >= MAX_CACHE_SIZE) {
@@ -267,6 +279,7 @@ export function ThemeToggle() {
 ```
 
 **关键技术：**
+
 - `useSyncExternalStore` - 防止服务端/客户端渲染不一致
 - `next-themes` - 自动管理主题，同步到 localStorage 和 `<html>` 类名
 
@@ -460,6 +473,7 @@ export default async function Image({ params }: Props) {
 ```
 
 **特点：**
+
 - 文章页：显示标题、日期、阅读时间、摘要
 - 首页：显示统计数据（文章数、碎碎念数等）
 - 使用 `@vercel/og` + 自定义字体（思源黑体）
@@ -471,16 +485,20 @@ export default async function Image({ params }: Props) {
 // app/rss/route.ts
 export async function GET() {
   const posts = await getAllPosts()
-  const feed = new Feed({ /* ... */ })
+  const feed = new Feed({
+    /* ... */
+  })
 
   posts.slice(0, 20).forEach((post) => {
-    feed.addItem({ /* ... */ })
+    feed.addItem({
+      /* ... */
+    })
   })
 
   return new Response(feed.rss2(), {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600, s-maxage=3600',  // 1 小时缓存
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600', // 1 小时缓存
     },
   })
 }
@@ -491,6 +509,7 @@ export async function GET() {
 多维度加权评分系统（`lib/posts.ts`）
 
 **算法特点：**
+
 - **Jaccard 相似系数** - 标签集合交并比
 - **时间衰减函数** - 指数型衰减（365 天为半衰期）
 - **确定性随机** - 同一 slug 生成的推荐始终一致（有利于缓存）

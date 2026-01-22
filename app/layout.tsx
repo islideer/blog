@@ -7,6 +7,7 @@ import { generateCanonicalUrl } from '@/lib/seo'
 import { Analytics } from '@vercel/analytics/next'
 import { Footer } from '@/components/footer'
 import { ThemeProvider } from '@/components/theme-provider'
+import { ToastProvider } from '@/components/toast-provider'
 
 import type { Metadata, Viewport } from 'next'
 
@@ -110,6 +111,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ToastProvider />
           <div className="flex min-h-screen min-w-sm flex-col sm:mx-auto sm:max-w-3xl">
             <Header />
             <main className="flex-1">

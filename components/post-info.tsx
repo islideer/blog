@@ -32,12 +32,12 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
   }
 
   return (
-    <div className="space-y-2 text-xs truncate">
+    <div className="space-y-2 truncate text-xs">
       {/* 标题 */}
-      <div className="flex items-center gap-1 sm:gap-2 truncate">
+      <div className="flex items-center gap-1 truncate sm:gap-2">
         <span className="text-text-tertiary shrink-0">标题</span>
         <span className="text-text-tertiary shrink-0">·</span>
-        <div className="flex min-w-0 flex-1 items-center gap-1 sm:gap-2 truncate">
+        <div className="flex min-w-0 flex-1 items-center gap-1 truncate sm:gap-2">
           <span className="text-text-secondary min-w-0 truncate wrap-break-word">
             {title} | {siteConfig.name}
           </span>

@@ -23,10 +23,7 @@ import { useEffect, useState } from 'react'
  * - 大标题包含多个小标题时智能判断
  * - 性能优化（避免滚动事件频繁触发）
  */
-function useActiveHeading(
-  items: StaticTocItem[],
-  setActiveId: (id: string) => void,
-) {
+function useActiveHeading(items: StaticTocItem[], setActiveId: (id: string) => void) {
   useEffect(() => {
     if (items.length === 0) return
 

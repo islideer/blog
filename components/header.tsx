@@ -35,11 +35,7 @@ export function Header() {
           </div>
         </Link>
 
-        <nav
-          role="navigation"
-          aria-label="主导航"
-          className="flex items-center gap-1.5 sm:gap-4"
-        >
+        <nav role="navigation" aria-label="主导航" className="flex items-center gap-1.5 sm:gap-4">
           <Link
             href={pages.posts.slug}
             className={cn(

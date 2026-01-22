@@ -3,6 +3,7 @@ import { cn } from '@/lib/cn'
 import { LazyImage } from './lazy-image'
 import { MarkdownLite } from './markdown-lite'
 import { RelativeTime } from './relative-time'
+import { InteractionButton } from './interaction-button'
 
 export interface ThoughtItem {
   id: string
@@ -64,6 +65,8 @@ export async function ThoughtCard({
         </Link>
         <span className="text-text-secondary">·</span>
         <RelativeTime date={thought.date} className="text-text-secondary" />
+        <span className="text-text-secondary">·</span>
+        <InteractionButton id={thought.id} type={mioTheme ? 'mio-says' : 'thoughts'} />
       </div>
 
       {/* 文本内容 */}
