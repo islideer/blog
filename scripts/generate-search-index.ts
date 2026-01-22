@@ -234,7 +234,7 @@ async function generateSearchIndex() {
 // 执行生成
 generateSearchIndex()
   .then(() => {
-    console.log('🎉 完成！')
+    console.log('🎉 索引文件生成成功！')
     process.exit(0)
   })
   .catch((error) => {
