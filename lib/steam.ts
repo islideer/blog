@@ -141,7 +141,7 @@ const STEAM_API_BASE = 'https://api.viki.moe/steam'
 export async function getSteamProfile(): Promise<SteamProfile | null> {
   try {
     const response = await fetch(`${STEAM_API_BASE}/summary`, {
-      next: { revalidate: 30 }, // 30 秒缓存
+      next: { revalidate: 60 }, // 1 分钟缓存
     })
 
     if (!response.ok) {
@@ -185,7 +185,7 @@ export async function getLibraryGames(): Promise<LibraryGame[]> {
 export async function getRecentlyPlayed(): Promise<RecentGame[]> {
   try {
     const response = await fetch(`${STEAM_API_BASE}/recently-played`, {
-      next: { revalidate: 60 }, // 1 分钟缓存
+      next: { revalidate: 3600 }, // 1 小时缓存
     })
 
     if (!response.ok) {
