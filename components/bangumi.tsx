@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useAutoSize } from './hooks/use-auto-size'
@@ -77,7 +76,7 @@ export function BangumiSection({ id, title, items }: BangumiSectionProps) {
       </div>
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4">
         {displayedBangumi.map((bangumi) => (
-          <Link
+          <a
             key={bangumi.season_id}
             href={bangumi.url}
             target="_blank"
@@ -156,7 +155,7 @@ export function BangumiSection({ id, title, items }: BangumiSectionProps) {
                 ) : null}
               </div>
             </div>
-          </Link>
+          </a>
         ))}
       </div>
       {hasMore && (

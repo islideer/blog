@@ -1,7 +1,6 @@
 // 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 // import { useEffect, useState } from 'react'
 import { otherGames as games, type OtherGame } from '@/lib/data'
 
@@ -42,7 +41,7 @@ export function OtherGames({ id }: { id?: string }) {
             className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
           >
             {/* 游戏封面 + 标题和关键信息 */}
-            <Link
+            <a
               href={game.url || '#'}
               target={game.url ? '_blank' : undefined}
               rel={game.url ? 'noopener noreferrer' : undefined}
@@ -71,7 +70,7 @@ export function OtherGames({ id }: { id?: string }) {
                   <span>{game.playtime}</span>
                 </div>
               </div>
-            </Link>
+            </a>
 
             {/* 描述和成就列表（图片下方） */}
             {(game.description || (game.achievements && game.achievements.length > 0)) && (

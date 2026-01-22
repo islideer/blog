@@ -1,4 +1,5 @@
-import Link from 'next/link'
+'use client'
+
 import { cn } from '@/lib/cn'
 import { dayjs } from '@/lib/dayjs'
 import { useEffect, useRef } from 'react'
@@ -48,9 +49,6 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
 
   const excerptParts = highlightKeywords(displayExcerpt || '', keywords)
 
-  // 检查 URL 是否包含 hash（用于决定使用哪种链接方式）
-  const hasHash = result.url.includes('#')
-
   // 自动滚动到选中的项目
   useEffect(() => {
     if (isSelected && linkRef.current) {
@@ -66,17 +64,6 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
     'hover:bg-bg-secondary active:bg-bg-secondary dark:hover:bg-bg-tertiary dark:active:bg-bg-tertiary',
     isSelected && 'bg-bg-secondary dark:bg-bg-tertiary',
   )
-
-  const linkProps = {
-    ref: linkRef,
-    href: result.url,
-    className: linkClassName,
-    onClick,
-    ...(result.type === 'collection' && {
-      target: '_blank' as const,
-      rel: 'noopener noreferrer',
-    }),
-  }
 
   // 公共内容区域
   const content = (
@@ -133,7 +120,18 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
     </div>
   )
 
-  // 对于包含 hash 的链接，使用原生 <a> 标签以触发 :target 伪类
-  // 对于其他链接，使用 Next.js <Link> 组件以启用客户端路由
-  return hasHash ? <a {...linkProps}>{content}</a> : <Link {...linkProps}>{content}</Link>
+  return (
+    <a
+      ref={linkRef}
+      href={result.url}
+      className={linkClassName}
+      onClick={onClick}
+      {...(result.type === 'collection' && {
+        target: '_blank' as const,
+        rel: 'noopener noreferrer',
+      })}
+    >
+      {content}
+    </a>
+  )
 }

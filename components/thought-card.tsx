@@ -56,13 +56,13 @@ export async function ThoughtCard({
     >
       {/* 序号和日期时间 */}
       <div className="flex items-center gap-2 text-xs">
-        <Link
+        <a
           href={`#${thought.id}`}
           className="cursor-pointer font-mono font-semibold no-underline hover:underline"
           style={mioTheme ? { color: 'var(--color-mio-pink)' } : undefined}
         >
           #{thought.id}
-        </Link>
+        </a>
         <span className="text-text-secondary">·</span>
         <RelativeTime date={thought.date} className="text-text-secondary" />
         <span className="text-text-secondary">·</span>

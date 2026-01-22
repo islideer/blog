@@ -371,7 +371,7 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
                   opacity: isVisible ? 1 : 0,
                 }}
               >
-                <Link
+                <a
                   href={`#${item.id}`}
                   onClick={(e) => {
                     e.preventDefault()
@@ -388,7 +388,7 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
                   title={item.title}
                 >
                   {item.title}
-                </Link>
+                </a>
               </li>
             )
           })}
@@ -494,7 +494,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
               const isActive = activeId === item.id
               return (
                 <li key={item.id} className={cn(item.level === 3 && 'pl-4')}>
-                  <Link
+                  <a
                     href={`#${item.id}`}
                     onClick={(e) => {
                       e.preventDefault()
@@ -507,7 +507,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
                     title={item.title}
                   >
                     {item.title}
-                  </Link>
+                  </a>
                 </li>
               )
             })}

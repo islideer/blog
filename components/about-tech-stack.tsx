@@ -1,5 +1,4 @@
 import type { TechStackData } from '@/lib/data'
-import Link from 'next/link'
 
 interface AboutTechStackProps {
   id: string
@@ -27,14 +26,14 @@ export function AboutTechStack({ techStacks: stacks, id, title }: AboutTechStack
             <ul className="space-y-2">
               {stacks[category].map((tech) => (
                 <li key={tech.name} className="text-text-secondary">
-                  <Link
+                  <a
                     href={tech.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-text-primary items-baseline"
                   >
                     <span className="font-medium">{tech.name}</span>
-                  </Link>
+                  </a>
                   <span className="text-text-tertiary text-sm"> — {tech.description}</span>
                 </li>
               ))}

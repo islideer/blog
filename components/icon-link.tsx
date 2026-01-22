@@ -1,8 +1,7 @@
 'use client'
 
-import Link from 'next/link'
-import { Tooltip } from './tooltip'
 import { cn } from '@/lib/cn'
+import { Tooltip } from './tooltip'
 
 import type { ReactNode } from 'react'
 
@@ -17,7 +16,7 @@ interface IconLinkProps {
 export function IconLink({ href, tooltip, icon, className, iconClassName }: IconLinkProps) {
   return (
     <Tooltip content={tooltip}>
-      <Link
+      <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
@@ -27,7 +26,7 @@ export function IconLink({ href, tooltip, icon, className, iconClassName }: Icon
         )}
       >
         <div className={iconClassName}>{icon}</div>
-      </Link>
+      </a>
     </Tooltip>
   )
 }

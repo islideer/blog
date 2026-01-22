@@ -1,5 +1,4 @@
 import type { AboutData, ProjectsData } from '@/lib/data'
-import Link from 'next/link'
 
 interface AboutOpenSourceProps {
   id: string
@@ -34,14 +33,14 @@ export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourcePr
                 {categoryProjects.map((project) => (
                   <li key={project.name} className="text-text-secondary">
                     <div className="inline-flex flex-wrap items-baseline gap-2">
-                      <Link
+                      <a
                         href={project.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-text-primary font-medium"
                       >
                         {project.name}
-                      </Link>
+                      </a>
                       {project.status === 'archived' && (
                         <span className="text-text-tertiary bg-bg-secondary rounded-sm px-1.5 py-0.5 text-xs leading-none">
                           已归档
@@ -51,14 +50,14 @@ export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourcePr
                         <span className="text-text-tertiary text-xs">★ {project.stars}</span>
                       )}
                       {project.homepage && (
-                        <Link
+                        <a
                           href={project.homepage}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-text-tertiary hover:text-text-secondary text-xs"
                         >
                           主页
-                        </Link>
+                        </a>
                       )}
                       <span className="text-text-tertiary text-sm">— {project.description}</span>
                     </div>
@@ -68,14 +67,14 @@ export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourcePr
             </div>
           )
         })}
-        <Link
+        <a
           href={moreLink}
           target="_blank"
           rel="noopener noreferrer"
           className="text-text-secondary hover:text-text-primary inline-block text-sm"
         >
           探索更多
-        </Link>
+        </a>
       </div>
     </section>
   )

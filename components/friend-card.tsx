@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { RSSIcon } from './rss-icon'
 
 import type { Friend } from '@/lib/data'
@@ -14,7 +13,7 @@ export function FriendCard({ friend }: FriendCardProps) {
       id={friend.id}
       className="group relative flex items-start gap-3 opacity-80 transition-opacity hover:opacity-100"
     >
-      <Link
+      <a
         title={`${friend.name}: ${friend.description || '这位朋友很懒，什么也没留下。'}`}
         href={friend.url}
         target="_blank"
@@ -22,7 +21,7 @@ export function FriendCard({ friend }: FriendCardProps) {
         aria-label={`访问 ${friend.name} 的网站`}
       />
 
-      <Link href={friend.url} className="no-icon no-underline">
+      <a href={friend.url} className="no-icon no-underline">
         {/* Avatar */}
         {friend.avatar ? (
           <Image
@@ -37,7 +36,7 @@ export function FriendCard({ friend }: FriendCardProps) {
             {friend.name.charAt(0).toUpperCase()}
           </div>
         )}
-      </Link>
+      </a>
 
       {/* Info */}
       <div className="min-w-0 flex-1">

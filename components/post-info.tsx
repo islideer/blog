@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
 import { CopyIcon } from './icons/copy'
 import { CheckIcon } from './icons/check'
@@ -32,7 +31,7 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
   }
 
   return (
-    <div className="space-y-2 truncate text-xs">
+    <div className="space-y-2 py-1 text-xs">
       {/* 标题 */}
       <div className="flex items-center gap-1 truncate sm:gap-2">
         <span className="text-text-tertiary shrink-0">标题</span>
@@ -79,18 +78,18 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
 
       {/* 协议 */}
       <div className="flex items-center gap-1 sm:gap-2">
-        <span className="text-text-tertiary shrink-0">协议</span>
+        <span className="text-text-tertiary shrink-0">版权</span>
         <span className="text-text-tertiary shrink-0">·</span>
-        <span className="text-text-tertiary flex-1 truncate">
+        <span className="text-text-tertiary flex-1">
           文章以
-          <Link
+          <a
             href={siteConfig.copyright.license.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text-secondary hover:text-text-primary mx-1 transition-colors"
+            className="text-text-secondary hover:text-text-primary mx-1"
           >
             {siteConfig.copyright.license.name}
-          </Link>
+          </a>
           协议共享，转载请注明出处。
         </span>
       </div>

@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import type { CollectionCategory } from '@/lib/data'
 
 interface CollectionListProps {
@@ -22,7 +20,7 @@ export function CollectionList({ category, id }: CollectionListProps) {
       <div className="space-y-0.5 sm:space-y-1">
         {category.items.map((item, index) => (
           <div key={index} className="group flex items-center justify-between">
-            <Link
+            <a
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -32,7 +30,7 @@ export function CollectionList({ category, id }: CollectionListProps) {
               <p className="text-text-secondary flex-1 truncate text-xs sm:text-sm">
                 {item.description}
               </p>
-            </Link>
+            </a>
 
             {item.tags && item.tags.length > 0 && (
               <div className="text-text-secondary flex shrink-0 gap-1">

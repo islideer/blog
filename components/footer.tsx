@@ -16,14 +16,14 @@ export function LicenseText({ className, short }: { className?: string; short?: 
   return (
     <span className={cn('text-text-tertiary', className)}>
       {short ? '文章以' : '除特殊说明外，文章均以'}
-      <Link
+      <a
         href={siteConfig.copyright.license.url}
         target="_blank"
         rel="noopener noreferrer"
         className="text-text-secondary hover:text-text-primary mx-1"
       >
         {siteConfig.copyright.license.name}
-      </Link>
+      </a>
       协议共享，转载请注明出处。
     </span>
   )
@@ -32,15 +32,15 @@ export function LicenseText({ className, short }: { className?: string; short?: 
 function SocialLinks({ className }: { className?: string }) {
   return (
     <div className={className}>
-      <Link
+      <a
         href={siteConfig.author.github}
         target="_blank"
         rel="noopener noreferrer"
         className="text-text-secondary hover:text-text-primary"
       >
         GitHub
-      </Link>
-      <Link
+      </a>
+      <a
         href={siteConfig.links.rss}
         target="_blank"
         rel="noopener noreferrer"
@@ -48,8 +48,8 @@ function SocialLinks({ className }: { className?: string }) {
         title="RSS 订阅"
       >
         RSS 订阅
-      </Link>
-      <Link
+      </a>
+      <a
         href={siteConfig.links.travellings}
         target="_blank"
         rel="noopener noreferrer"
@@ -57,8 +57,8 @@ function SocialLinks({ className }: { className?: string }) {
         title="RSS 订阅"
       >
         开往 · 友链接力
-      </Link>
-      <Link
+      </a>
+      <a
         href={siteConfig.links.travellings}
         target="_blank"
         rel="noopener noreferrer"
@@ -66,7 +66,7 @@ function SocialLinks({ className }: { className?: string }) {
         title="RSS 订阅"
       >
         开往
-      </Link>
+      </a>
     </div>
   )
 }

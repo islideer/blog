@@ -107,7 +107,7 @@ function GamesList({
     <>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4">
         {displayedGames.map((game) => (
-          <Link
+          <a
             key={game.appid}
             href={game.store_url}
             target="_blank"
@@ -177,7 +177,7 @@ function GamesList({
             <div className="absolute right-0 bottom-0 left-0 p-3">
               <h3 className="line-clamp-1 text-sm font-medium text-white">{game.name}</h3>
             </div>
-          </Link>
+          </a>
         ))}
       </div>
 

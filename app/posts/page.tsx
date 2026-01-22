@@ -1,16 +1,10 @@
-import { ViewTransition } from 'react'
-
-import Link from 'next/link'
 import { dayjs } from '@/lib/dayjs'
-import { PostDate } from '@/components/post-date'
-import { siteConfig } from '@/lib/config'
-import { DraftBadge } from '@/components/draft-badge'
-import { ReadingTime } from '@/components/reading-time'
-import { getAllPosts, getAllPostsWithContent } from '@/lib/posts'
 import { pages } from '@/lib/data'
+import { siteConfig } from '@/lib/config'
+import { countWords } from '@/lib/word-count'
 import { PostListItem } from '@/components/post-list-item'
 import { generateCanonicalUrl } from '@/lib/seo'
-import { countWords } from '@/lib/word-count'
+import { getAllPosts, getAllPostsWithContent } from '@/lib/posts'
 
 import type { Metadata } from 'next'
 
@@ -135,31 +129,7 @@ export default async function PostsPage() {
             style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
           >
             {pinnedPosts.map((post) => (
-              <article
-                key={post.slug}
-                className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 py-2 sm:grid-cols-[6rem_1fr_auto] sm:gap-x-4 sm:py-1.5"
-              >
-                <div className="text-text-tertiary flex shrink-0 items-baseline gap-2 font-mono text-xs sm:text-sm">
-                  <PostDate date={post.date} format="full" />
-                </div>
-                {post.readingTime && (
-                  <div className="text-text-tertiary flex items-baseline gap-2 font-mono text-xs sm:col-start-3 sm:row-start-1 sm:text-xs">
-                    <span className="shrink-0 sm:hidden">·</span>
-                    <ReadingTime minutes={post.readingTime} />
-                  </div>
-                )}
-                <div className="col-span-2 flex items-start gap-2 sm:col-span-1 sm:col-start-2 sm:row-start-1">
-                  {post.draft && <DraftBadge className="mt-0.5" />}
-                  <ViewTransition name={`post-title-${post.slug}`} default="transform">
-                    <Link
-                      href={`/${post.slug}`}
-                      className="text-text-secondary hover:text-text-primary flex-1 text-sm leading-snug sm:text-base"
-                    >
-                      {post.title}
-                    </Link>
-                  </ViewTransition>
-                </div>
-              </article>
+              <PostListItem key={post.slug} post={post} />
             ))}
           </div>
         </section>

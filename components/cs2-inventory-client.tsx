@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { useState, useMemo } from 'react'
 import { useAutoSize } from './hooks/use-auto-size'
 import { ChevronUpIcon } from './icons/chevron-up'
@@ -88,9 +87,11 @@ export function CS2InventoryClient({ id, items }: CS2InventoryClientProps) {
       {/* 物品列表 */}
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4">
         {displayedItems.map((item) => (
-          <Link
+          <a
             key={item.name}
             href={item.market_url || item.icon_url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative aspect-square overflow-hidden rounded-lg"
           >
             {/* 深色贴合游戏的背景渐变 */}
@@ -147,7 +148,7 @@ export function CS2InventoryClient({ id, items }: CS2InventoryClientProps) {
                 {item.plain_name}
               </h3>
             </div>
-          </Link>
+          </a>
         ))}
       </div>
 

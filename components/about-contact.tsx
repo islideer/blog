@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import type { ContactLink } from '@/lib/data'
 
 interface AboutContactProps {
@@ -15,7 +14,7 @@ export function AboutContact({ id, links, title }: AboutContactProps) {
       </h2>
       <div className="text-text-secondary flex flex-wrap gap-4 text-sm">
         {links.map((link, index) => (
-          <Link
+          <a
             key={index}
             href={link.url}
             target="_blank"
@@ -23,7 +22,7 @@ export function AboutContact({ id, links, title }: AboutContactProps) {
             className="decoration-text-tertiary hover:text-text-primary hover:decoration-text-primary underline underline-offset-4"
           >
             {link.label}
-          </Link>
+          </a>
         ))}
       </div>
     </section>

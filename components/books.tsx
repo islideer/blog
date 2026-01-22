@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { dayjs } from '@/lib/dayjs'
 import { useState } from 'react'
@@ -72,7 +71,7 @@ function BookSection({ id, title, books }: BookSectionProps) {
 
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4">
         {displayedBooks.map((book) => (
-          <Link
+          <a
             key={book.id}
             href={book.url}
             target="_blank"
@@ -109,7 +108,7 @@ function BookSection({ id, title, books }: BookSectionProps) {
                 </p>
               )}
             </div>
-          </Link>
+          </a>
         ))}
       </div>
 

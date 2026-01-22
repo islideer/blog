@@ -173,7 +173,7 @@ export function Header() {
                 </Link>
                 <div className="sm:hidden">
                   <div className="border-border my-2 border-t" />
-                  <Link
+                  <a
                     href={siteConfig.author.github}
                     target="_blank"
                     className={cn(
@@ -183,9 +183,9 @@ export function Header() {
                     onClick={() => setIsMoreOpen(false)}
                   >
                     GitHub
-                  </Link>
+                  </a>
 
-                  <Link
+                  <a
                     href={siteConfig.links.rss}
                     target="_blank"
                     className={cn(
@@ -195,9 +195,9 @@ export function Header() {
                     onClick={() => setIsMoreOpen(false)}
                   >
                     RSS 订阅
-                  </Link>
+                  </a>
 
-                  <Link
+                  <a
                     href={siteConfig.links.travellings}
                     target="_blank"
                     className={cn(
@@ -207,7 +207,7 @@ export function Header() {
                     onClick={() => setIsMoreOpen(false)}
                   >
                     开往 · 友链接力
-                  </Link>
+                  </a>
                 </div>
               </div>
             )}

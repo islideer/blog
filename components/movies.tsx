@@ -1,9 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
 import { dayjs } from '@/lib/dayjs'
+import { useState } from 'react'
 import { useAutoSize } from './hooks/use-auto-size'
 import { ChevronUpIcon } from './icons/chevron-up'
 import { ChevronDownIcon } from './icons/chevron-down'
@@ -74,7 +73,7 @@ function MovieSection({ id, title, movies }: MovieSectionProps) {
 
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4">
         {displayedMovies.map((movie) => (
-          <Link
+          <a
             key={movie.id}
             href={movie.url}
             target="_blank"
@@ -111,7 +110,7 @@ function MovieSection({ id, title, movies }: MovieSectionProps) {
                 </p>
               )}
             </div>
-          </Link>
+          </a>
         ))}
       </div>
 
