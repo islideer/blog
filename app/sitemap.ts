@@ -26,6 +26,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9, // 高优先级
     },
     {
+      url: `${siteConfig.url}${pages.thoughts.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly', // 小时级别更新
+      priority: 0.8, // 中高优先级（频繁更新）
+    },
+    {
+      url: `${siteConfig.url}${pages.mioSays.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly', // 小时级别更新
+      priority: 0.8, // 中高优先级（频繁更新）
+    },
+    {
       url: `${siteConfig.url}${pages.about.slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -34,44 +46,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${siteConfig.url}${pages.timeline.slug}`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5, // 中等优先级
-    },
-    {
-      url: `${siteConfig.url}${pages.thoughts.slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'daily', // 小时级别更新
-      priority: 0.8, // 中高优先级（频繁更新）
-    },
-    {
-      url: `${siteConfig.url}${pages.mioSays.slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'daily', // 小时级别更新
-      priority: 0.8, // 中高优先级（频繁更新）
+      changeFrequency: 'weekly',
+      priority: 0.6, // 中等优先级
     },
     {
       url: `${siteConfig.url}${pages.friends.slug}`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5, // 中等优先级
+      changeFrequency: 'weekly',
+      priority: 0.6, // 中等优先级
     },
-    // {
-    //   url: `${siteConfig.url}${pagesData.library.slug}`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'weekly',
-    //   priority: 0.7, // 中等优先级
-    // },
+    {
+      url: `${siteConfig.url}${pages.library.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.6, // 中等优先级
+    },
     {
       url: `${siteConfig.url}${pages.game.slug}`,
       lastModified: new Date(),
-      changeFrequency: 'daily',
+      changeFrequency: 'weekly',
       priority: 0.6, // 中等优先级
     },
     {
       url: `${siteConfig.url}${pages.reading.slug}`,
       lastModified: new Date(),
-      changeFrequency: 'daily', // 每日更新
-      priority: 0.8, // 中高优先级（每日更新内容）
+      changeFrequency: 'weekly', // 每日更新
+      priority: 0.6, // 中等优先级
     },
     {
       url: `${siteConfig.url}${pages.collection.slug}`,
