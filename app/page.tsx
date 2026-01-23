@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/config'
 import { MarkdownLite } from '@/components/markdown-lite'
 import { generateBlogSchema, generateOrganizationSchema } from '@/lib/seo'
 import { RecentActivities } from '@/components/home/recent-activities'
-import { RecentPosts } from '@/components/recent-posts'
+import { RecentPosts } from '@/components/home/recent-posts'
 import { about, thoughts } from '@/lib/data'
 // import { mioSays, thoughts } from '@/lib/data'
 

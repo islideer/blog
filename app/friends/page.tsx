@@ -1,8 +1,8 @@
 import { friends } from '@/lib/data'
 import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
-import { FriendCard } from '@/components/friend-card'
-import { FriendsListRandom } from '@/components/friends-list-random'
+import { FriendCard } from '@/components/friend/friend-card'
+import { RandomFriends } from '@/components/friend/random-friends'
 import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
@@ -52,7 +52,7 @@ export default async function FriendsPage() {
 
       {/* Friends Grid */}
       <section>
-        <FriendsListRandom friends={friends} />
+        <RandomFriends friends={friends} />
       </section>
 
       {/* Friend Link Info */}

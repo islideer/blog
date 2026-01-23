@@ -9,18 +9,18 @@ import {
   generatePostOpenGraph,
   generatePostTwitterCard,
 } from '@/lib/seo'
-import { OldPostTip } from '@/components/old-post-tip'
+import { PostDate } from '@/components/post/post-date'
+import { PostInfo } from '@/components/post/post-info'
+import { PostLike } from '@/components/post/post-like'
+import { countWords } from '@/lib/word-count'
 import { DraftBadge } from '@/components/draft-badge'
+import { OldPostTip } from '@/components/post/old-post-tip'
 import { ReadingTime } from '@/components/reading-time'
-import { PostDate } from '@/components/post-date'
-import { RecommendedPosts } from '@/components/recommended-posts'
-import { ZoomImageForArticle } from '@/components/zoom-image'
 import { ArticleContent } from '@/components/post/article-content'
 import { TableOfContents } from '@/components/table-of-contents'
-import { countWords } from '@/lib/word-count'
-import { PostInfo } from '@/components/post-info'
+import { RecommendedPosts } from '@/components/post/recommended-posts'
+import { ZoomImageForArticle } from '@/components/zoom-image'
 import { InteractionsProvider } from '@/components/interactions-provider'
-import { PostLike } from '@/components/post-like'
 
 import type { Metadata } from 'next'
 

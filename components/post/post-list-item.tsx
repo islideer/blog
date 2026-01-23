@@ -2,8 +2,8 @@ import { ViewTransition } from 'react'
 
 import Link from 'next/link'
 import { PostDate, type PostDateProps } from './post-date'
-import { DraftBadge } from './draft-badge'
-import { ReadingTime } from './reading-time'
+import { DraftBadge } from '../draft-badge'
+import { ReadingTime } from '../reading-time'
 
 interface PostListItemProps {
   dateFormat?: PostDateProps['format']

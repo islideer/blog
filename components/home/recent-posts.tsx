@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import { ViewTransition } from 'react'
-import { DraftBadge } from './draft-badge'
-import { PinIcon } from './pin-icon'
-import { PostDate } from './post-date'
-import { ReadingTime } from './reading-time'
 import { pages } from '@/lib/data'
+import { PinIcon } from '../pin-icon'
+import { PostDate } from '../post/post-date'
+import { DraftBadge } from '../draft-badge'
+import { ReadingTime } from '../reading-time'
+import { ViewTransition } from 'react'
 
 import type { PostMetadata } from '@/lib/posts'
 

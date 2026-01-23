@@ -22,7 +22,7 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled
 }
 
-export function FriendsListRandom({ friends }: FriendsListRandomProps) {
+export function RandomFriends({ friends }: FriendsListRandomProps) {
   const [shuffledFriends, setShuffledFriends] = useState(friends)
 
   useEffect(() => {

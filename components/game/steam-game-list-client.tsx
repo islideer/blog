@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { cn } from '@/lib/cn'
 import { siteConfig } from '@/lib/config'
-import { PlatformIcon } from '../friend/platform-icon'
+import { PlatformIcon } from './platform-icon'
 import { ChevronUpIcon } from '../../icons/chevron-up'
 import { ChevronDownIcon } from '../../icons/chevron-down'
 import { useState, useMemo } from 'react'

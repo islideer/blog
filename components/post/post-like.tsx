@@ -1,6 +1,6 @@
 'use client'
 
-import { InteractionButton } from './interaction-button'
+import { InteractionButton } from '../interaction-button'
 
 interface PostLikeProps {
   slug: string

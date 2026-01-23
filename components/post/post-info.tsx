@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { CopyIcon } from '../icons/copy'
-import { CheckIcon } from '../icons/check'
+import { CopyIcon } from '../../icons/copy'
+import { CheckIcon } from '../../icons/check'
 import { siteConfig } from '@/lib/config'
 
 export function PostInfo({ title, slug }: { title: string; slug: string }) {

@@ -1,7 +1,7 @@
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { timeline } from '@/lib/data'
-import { TimelineView } from '@/components/timeline-view'
+import { TimelineView } from '@/components/timeline/timeline-view'
 import { pages } from '@/lib/data'
 import type { Metadata } from 'next'
 
