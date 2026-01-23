@@ -47,7 +47,7 @@ export const INTERACTION_CONFIGS: Record<string, InteractionConfig> = {
   },
   posts: {
     icon: 'heart',
-    colorVar: '--color-accent',
+    colorVar: '--color-mio-pink',
     ariaLabel: '喜欢',
     displayName: '文章互动',
     enabled: true, // 已启用
