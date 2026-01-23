@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { MarkdownLite } from './markdown-lite'
+import { MarkdownLite } from '../markdown-lite'
 
 interface AboutIntroProps {
   id: string

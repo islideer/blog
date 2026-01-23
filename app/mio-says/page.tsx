@@ -4,7 +4,7 @@ import { mioSays } from '@/lib/data'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { pages } from '@/lib/data'
 import { countWords } from '@/lib/word-count'
-import { ThoughtsList } from '@/components/thoughts-list'
+import { ThoughtsList } from '@/components/thoughts/thoughts-list'
 import { InteractionsProvider } from '@/components/interactions-provider'
 
 import type { Metadata } from 'next'

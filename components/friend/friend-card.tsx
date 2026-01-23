@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { RSSIcon } from './rss-icon'
+import { RSSIcon } from '../rss-icon'
 
 import type { Friend } from '@/lib/data'
 

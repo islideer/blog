@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { cn } from '@/lib/cn'
-import { LazyImage } from './lazy-image'
-import { MarkdownLite } from './markdown-lite'
-import { RelativeTime } from './relative-time'
-import { InteractionButton } from './interaction-button'
+import { LazyImage } from '../lazy-image'
+import { MarkdownLite } from '../markdown-lite'
+import { RelativeTime } from '../relative-time'
+import { InteractionButton } from '../interaction-button'
 
 export interface ThoughtItem {
   id: string

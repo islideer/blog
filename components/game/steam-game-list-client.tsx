@@ -1,12 +1,11 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@/lib/cn'
 import { siteConfig } from '@/lib/config'
-import { PlatformIcon } from './platform-icon'
-import { ChevronUpIcon } from '../icons/chevron-up'
-import { ChevronDownIcon } from '../icons/chevron-down'
+import { PlatformIcon } from '../friend/platform-icon'
+import { ChevronUpIcon } from '../../icons/chevron-up'
+import { ChevronDownIcon } from '../../icons/chevron-down'
 import { useState, useMemo } from 'react'
 
 import type { LibraryGame, RecentGame } from '@/lib/steam'

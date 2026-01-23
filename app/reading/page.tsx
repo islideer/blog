@@ -1,7 +1,7 @@
 import { cn } from '@/lib/cn'
 import { dayjs } from '@/lib/dayjs'
 // import { Noto_Serif_SC } from 'next/font/google'
-import { ReadingComments } from '@/components/reading-comments'
+import { ReadingComments } from '@/components/reading/reading-comments'
 import { getReadingByDate, getLunarInfo } from '@/lib/reading'
 import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'

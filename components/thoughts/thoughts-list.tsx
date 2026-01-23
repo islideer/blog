@@ -1,4 +1,4 @@
-import { ThoughtCard, ThoughtItem } from '@/components/thought-card'
+import { ThoughtCard, ThoughtItem } from '@/components/thoughts/thought-card'
 
 interface ThoughtsListProps {
   thoughts: ThoughtItem[]

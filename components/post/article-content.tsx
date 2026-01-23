@@ -1,5 +1,5 @@
 import { parseArticle } from '@/lib/markdown'
-import { ImageZoomProvider } from './image-zoom-provider'
+import { ImageZoomProvider } from '../image-zoom-provider'
 
 interface ArticleContentProps {
   content: string

@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useState, startTransition, ViewTransition } from 'react'
+import { Tooltip } from '../tooltip'
+import { DiceIcon } from '../../icons/dice'
 import { FriendCard } from './friend-card'
+import { RandomIcon } from '../../icons/random'
+import { useEffect, useState, startTransition, ViewTransition } from 'react'
 
 import type { Friend } from '@/lib/data'
-import { Tooltip } from './tooltip'
-import { RandomIcon } from '../icons/random'
-import { DiceIcon } from '../icons/dice'
 
 interface FriendsListRandomProps {
   friends: Friend[]

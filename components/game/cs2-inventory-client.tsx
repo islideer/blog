@@ -2,9 +2,9 @@
 
 import Image from 'next/image'
 import { useState, useMemo } from 'react'
-import { useAutoSize } from '../hooks/use-auto-size'
-import { ChevronUpIcon } from '../icons/chevron-up'
-import { ChevronDownIcon } from '../icons/chevron-down'
+import { useAutoSize } from '../../hooks/use-auto-size'
+import { ChevronUpIcon } from '../../icons/chevron-up'
+import { ChevronDownIcon } from '../../icons/chevron-down'
 
 import type { CS2InventoryItem } from '@/lib/steam'
 

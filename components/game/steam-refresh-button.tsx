@@ -1,10 +1,10 @@
 'use client'
 
 import { cn } from '@/lib/cn'
-import { Tooltip } from './tooltip'
+import { Tooltip } from '../tooltip'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { RefreshIcon } from '../icons/refresh'
+import { RefreshIcon } from '../../icons/refresh'
 
 /**
  * Steam 刷新按钮（客户端组件）

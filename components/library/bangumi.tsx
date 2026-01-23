@@ -2,9 +2,9 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { useAutoSize } from '../hooks/use-auto-size'
-import { ChevronUpIcon } from '../icons/chevron-up'
-import { ChevronDownIcon } from '../icons/chevron-down'
+import { useAutoSize } from '../../hooks/use-auto-size'
+import { ChevronUpIcon } from '../../icons/chevron-up'
+import { ChevronDownIcon } from '../../icons/chevron-down'
 
 import type { BangumiItem } from '@/lib/bangumi'
 
