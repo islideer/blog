@@ -173,7 +173,7 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
           onClick={handleClick}
           disabled={isPending || isSubmitting}
           className={cn(
-            'inline-flex items-center gap-1 text-xs transition-all active:scale-80',
+            'inline-flex items-center gap-1 text-xs transition-all active:scale-72',
             canClick && !isSubmitting ? 'cursor-pointer hover:opacity-80' : 'cursor-default',
             // isSubmitting ? 'opacity-80' : '',
             className,

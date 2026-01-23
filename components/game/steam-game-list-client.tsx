@@ -47,7 +47,7 @@ export function SteamGameListClient({ id, libraryGames, recentGames }: SteamGame
           <button
             onClick={() => setView('recent')}
             className={cn(
-              'text-xs font-medium transition-all active:scale-80',
+              'text-xs font-medium transition-all active:scale-90',
               view === 'recent'
                 ? 'text-text-primary'
                 : 'text-text-secondary sm:hover:text-text-primary',
@@ -59,7 +59,7 @@ export function SteamGameListClient({ id, libraryGames, recentGames }: SteamGame
           <button
             onClick={() => setView('library')}
             className={cn(
-              'text-xs font-medium transition-all active:scale-80',
+              'text-xs font-medium transition-all active:scale-90',
               view === 'library'
                 ? 'text-text-primary'
                 : 'text-text-secondary sm:hover:text-text-primary',
@@ -180,12 +180,12 @@ function GamesList({
         ))}
       </div>
 
-      {/* 展示更多按钮 */}
+      {/* 展示全部按钮 */}
       {hasMore && (
         <div className="flex justify-center pt-2">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-all active:scale-80"
+            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-all active:scale-90"
           >
             {showAll ? (
               <>
@@ -195,7 +195,7 @@ function GamesList({
             ) : (
               <>
                 <ChevronDownIcon className="h-4 w-4" />
-                展示更多 ({games.length - initialDisplayCount})
+                展示全部 ({games.length - initialDisplayCount})
               </>
             )}
           </button>

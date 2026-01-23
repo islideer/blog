@@ -42,7 +42,7 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
           </span>
           <button
             onClick={handleCopyTitle}
-            className="text-text-tertiary hover:text-text-primary shrink-0 transition-all active:scale-80"
+            className="text-text-tertiary hover:text-text-primary shrink-0 transition-all active:scale-90"
             aria-label={copiedTitle ? '已复制' : '复制标题'}
           >
             {copiedTitle ? (
@@ -64,7 +64,7 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
           </code>
           <button
             onClick={handleCopyUrl}
-            className="text-text-tertiary hover:text-text-primary shrink-0 transition-all active:scale-80"
+            className="text-text-tertiary hover:text-text-primary shrink-0 transition-all active:scale-90"
             aria-label={copiedUrl ? '已复制' : '复制链接'}
           >
             {copiedUrl ? (

@@ -112,12 +112,12 @@ function BookSection({ id, title, books }: BookSectionProps) {
         ))}
       </div>
 
-      {/* 展示更多按钮 */}
+      {/* 展示全部按钮 */}
       {hasMore && (
         <div className="flex justify-center pt-2">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-all active:scale-80"
+            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-all active:scale-90"
           >
             {showAll ? (
               <>
@@ -127,7 +127,7 @@ function BookSection({ id, title, books }: BookSectionProps) {
             ) : (
               <>
                 <ChevronDownIcon className="h-4 w-4" />
-                展示更多 ({books.length - initialDisplayCount})
+                展示全部 ({books.length - initialDisplayCount})
               </>
             )}
           </button>

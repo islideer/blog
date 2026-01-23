@@ -67,16 +67,16 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
               </span>
             </div>
             <div className="text-text-tertiary flex flex-wrap items-center gap-1.5 text-xs">
-              <span className="bg-bg-quaternary inline-flex h-5 min-w-6 items-center justify-center rounded px-1.5 text-xs font-medium">
+              <span className="bg-bg-tertiary inline-flex h-5 min-w-6 items-center justify-center rounded px-1.5 text-xs font-medium">
                 {profile.level_desc}
               </span>
-              <span className="bg-bg-quaternary inline-flex h-5 min-w-6 items-center justify-center rounded px-1.5 text-xs font-medium">
+              <span className="bg-bg-tertiary inline-flex h-5 min-w-6 items-center justify-center rounded px-1.5 text-xs font-medium">
                 {profile.account_age_years_desc}
               </span>
-              <span className="bg-bg-quaternary inline-flex h-5 min-w-6 items-center justify-center rounded px-1.5 text-xs font-medium">
+              <span className="bg-bg-tertiary inline-flex h-5 min-w-6 items-center justify-center rounded px-1.5 text-xs font-medium">
                 拥有 {profile.games_owned} 款游戏
               </span>
-              <span className="bg-bg-quaternary hidden h-5 min-w-6 items-center justify-center rounded px-1.5 text-xs font-medium sm:inline-flex">
+              <span className="bg-bg-tertiary hidden h-5 min-w-6 items-center justify-center rounded px-1.5 text-xs font-medium sm:inline-flex">
                 玩过 {profile.games_played} 款游戏
               </span>
             </div>

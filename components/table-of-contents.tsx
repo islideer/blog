@@ -445,7 +445,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
       {/* 浮动按钮 - 仅移动端显示 */}
       <button
         onClick={() => setIsOpen(true)}
-        className="bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-4 bottom-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl active:scale-80 xl:hidden"
+        className="bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-4 bottom-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl active:scale-90 xl:hidden"
         aria-label="打开文章目录"
       >
         <MenuIcon className="h-6 w-6" />
@@ -480,7 +480,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
           <span className="text-text-primary text-lg font-medium">目录</span>
           <button
             onClick={() => setIsOpen(false)}
-            className="text-text-tertiary hover:text-text-primary p-1 transition-all active:scale-80"
+            className="text-text-tertiary hover:text-text-primary p-1 transition-all active:scale-90"
           >
             <CloseIcon className="h-5 w-5" />
           </button>
