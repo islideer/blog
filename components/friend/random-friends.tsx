@@ -46,7 +46,7 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
           <Tooltip content="重新随机排序友链">
             <button
               onClick={() => void startTransition(() => setShuffledFriends(shuffleArray(friends)))}
-              className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors"
+              className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors active:scale-80"
               aria-label="重新随机排序友链"
             >
               <RandomIcon className="h-3.5 w-3.5" />
@@ -56,7 +56,7 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
           <Tooltip content="随机访问一位好友的博客">
             <button
               onClick={handleRandomVisit}
-              className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors"
+              className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors active:scale-80"
               aria-label="随机访问一位好友的博客"
             >
               <DiceIcon className="h-3.5 w-3.5" />

@@ -28,7 +28,7 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
       <div className="flex flex-col items-center gap-3 text-xs sm:gap-4 sm:text-sm">
         <button
           onClick={reset}
-          className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary rounded-md px-2.5 py-1.5 transition-colors"
+          className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary rounded-md px-2.5 py-1.5 transition-colors active:scale-80"
         >
           重新加载
         </button>

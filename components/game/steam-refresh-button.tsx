@@ -5,6 +5,7 @@ import { Tooltip } from '../tooltip'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { RefreshIcon } from '../../icons/refresh'
+import { toast } from 'sonner'
 
 /**
  * Steam 刷新按钮（客户端组件）
@@ -24,6 +25,10 @@ export function SteamRefreshButton() {
 
       // 等待一段时间后恢复按钮状态
       await new Promise((resolve) => setTimeout(resolve, 1000))
+
+      toast.success('Steam 状态已刷新')
+    } catch {
+      toast.error('刷新失败，请稍后重试')
     } finally {
       setRefreshing(false)
     }
@@ -34,7 +39,7 @@ export function SteamRefreshButton() {
       <button
         onClick={handleRefresh}
         disabled={refreshing}
-        className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+        className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors active:scale-80 disabled:cursor-not-allowed disabled:opacity-50"
         aria-label="刷新 Steam 信息"
       >
         <RefreshIcon className={cn('h-3.5 w-3.5', refreshing && 'animate-spin')} />

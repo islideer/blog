@@ -58,7 +58,7 @@ function CommentItem({ comment }: CommentItemProps) {
         {showButton && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-text-secondary hover:text-text mt-2 inline-flex items-center gap-1 text-sm font-medium sm:mt-4"
+            className="text-text-secondary hover:text-text mt-2 inline-flex items-center gap-1 text-sm font-medium active:scale-80 sm:mt-4"
           >
             {isExpanded ? '收起' : '更多'}
             {isExpanded ? (

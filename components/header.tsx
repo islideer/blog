@@ -105,7 +105,7 @@ export function Header() {
                 }
               }}
               className={cn(
-                'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+                'text-text-secondary sm:hover:text-text-primary active:text-text-primary active:scale-80',
                 'text-xs sm:text-sm',
               )}
               aria-expanded={isMoreOpen}

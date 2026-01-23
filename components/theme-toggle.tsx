@@ -40,7 +40,7 @@ export function ThemeToggle() {
     return (
       <Tooltip content="切换主题">
         <button
-          className="text-text-secondary sm:hover:bg-bg-tertiary flex h-6 w-6 items-center justify-center rounded-sm sm:h-8 sm:w-8"
+          className="text-text-secondary sm:hover:bg-bg-tertiary flex h-6 w-6 items-center justify-center rounded-sm active:scale-80 sm:h-8 sm:w-8"
           aria-label="切换主题"
           disabled
         >
@@ -74,7 +74,7 @@ export function ThemeToggle() {
     <Tooltip content={tooltipContent}>
       <button
         onClick={toggleTheme}
-        className="text-text-secondary sm:hover:bg-bg-tertiary flex h-6 w-6 items-center justify-center rounded-sm sm:h-8 sm:w-8"
+        className="text-text-secondary sm:hover:bg-bg-tertiary flex h-6 w-6 items-center justify-center rounded-sm active:scale-80 sm:h-8 sm:w-8"
         aria-label={`当前：${themeLabels[currentTheme]}，点击切换到 ${themeLabels[nextTheme]}`}
       >
         {renderIcon()}
