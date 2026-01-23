@@ -118,7 +118,16 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
 
   const handleClick = () => {
     // 不能点击时直接返回
-    if (!canClick || isSubmitting) return
+    if (isSubmitting) {
+      return
+    }
+
+    if (!canClick || isMaxedOut) {
+      toast.info(
+        `今日${maxClicks > 1 ? `${config.ariaLabel}已达 ${maxClicks} 次上限` : `已${config.ariaLabel}`}，明天再来吧。`,
+      )
+      return
+    }
 
     // 立即乐观更新 UI
     setLocalCount((prev) => (prev !== null ? prev + 1 : displayCount + 1))
@@ -162,7 +171,7 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
       <div className="group text-text-secondary relative inline-flex">
         <button
           onClick={handleClick}
-          disabled={isPending || !canClick || isSubmitting}
+          disabled={isPending || isSubmitting}
           className={cn(
             'inline-flex items-center gap-1 text-xs transition-all active:scale-80',
             canClick && !isSubmitting ? 'cursor-pointer hover:opacity-80' : 'cursor-default',
