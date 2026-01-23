@@ -6,10 +6,10 @@ import { Tooltip } from './tooltip'
 import { HeartIcon } from '../icons/heart'
 import { FlowerIcon } from '../icons/flower'
 import { CheersIcon } from '../icons/cheers'
-import { usePrevious } from '@shined/react-use'
 import { ClientCounterUp } from './client-counter-up'
 import { HeartFilledIcon } from '@/icons/heart-filled'
 import { useInteractions } from './interactions-provider'
+import { usePrevious, useStableFn } from '@shined/react-use'
 import { useState, useTransition, useEffect, useRef } from 'react'
 import { getInteractionConfig, getUserClickCount, recordUserClick } from '@/lib/interactions'
 
@@ -55,27 +55,10 @@ export function InteractionButton({ id, type, className, iconClassName }: Intera
     setUserClickCount(count)
   }, [type, id])
 
-  // 清理定时器
-  useEffect(() => {
-    return () => {
-      if (submitTimerRef.current) {
-        clearTimeout(submitTimerRef.current)
-      }
-    }
-  }, [])
-
-  // 如果类型未启用或配置不存在，不渲染按钮
-  if (!config) return null
-
-  const maxClicks = config.maxClicksPerDay ?? 1
-
   const displayCount = localCount ?? counts[id] ?? 0
-  const remainingClicks = Math.max(0, maxClicks - userClickCount)
-  const canClick = remainingClicks > 0
-  const isMaxedOut = userClickCount >= maxClicks
 
   // 批量提交点击
-  const submitBatch = async (clickCount: number) => {
+  const submitBatch = useStableFn(async (clickCount: number) => {
     setIsSubmitting(true)
     pendingClicksRef.current = 0
 
@@ -127,7 +110,29 @@ export function InteractionButton({ id, type, className, iconClassName }: Intera
       console.error('Failed to update interaction:', error)
       setIsSubmitting(false)
     }
-  }
+  })
+
+  // 清理定时器、提交未完成的点击
+  useEffect(() => {
+    return () => {
+      if (submitTimerRef.current) {
+        const clicksToSubmit = pendingClicksRef.current
+        if (clicksToSubmit > 0) {
+          submitBatch(clicksToSubmit)
+        }
+        clearTimeout(submitTimerRef.current)
+      }
+    }
+  }, [submitBatch])
+
+  // 如果类型未启用或配置不存在，不渲染按钮
+  if (!config) return null
+
+  const maxClicks = config.maxClicksPerDay ?? 1
+
+  const remainingClicks = Math.max(0, maxClicks - userClickCount)
+  const canClick = remainingClicks > 0
+  const isMaxedOut = userClickCount >= maxClicks
 
   const handleClick = () => {
     // 不能点击时直接返回
@@ -155,13 +160,14 @@ export function InteractionButton({ id, type, className, iconClassName }: Intera
       clearTimeout(submitTimerRef.current)
     }
 
-    // 设置新的定时器，600ms 后批量提交
+    // 设置新的定时器，1 秒后批量提交
     submitTimerRef.current = setTimeout(() => {
       const clicksToSubmit = pendingClicksRef.current
+
       if (clicksToSubmit > 0) {
         submitBatch(clicksToSubmit)
       }
-    }, 600)
+    }, 1000)
   }
 
   // 动态获取图标组件
