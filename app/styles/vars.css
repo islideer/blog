@@ -47,8 +47,8 @@
 /* Dark Mode */
 :root.dark {
   /* Base Backgrounds */
-  --color-bg-primary: oklch(0.12 0 0); /* Deep Dark */
-  --color-bg-secondary: oklch(0.2 0 0); /* Dark Gray */
+  --color-bg-primary: oklch(0.1 0 0); /* Deep Dark */
+  --color-bg-secondary: oklch(0.18 0 0); /* Dark Gray */
   --color-bg-tertiary: oklch(0.24 0 0); /* Medium Dark */
   --color-bg-quaternary: oklch(0.3 0 0); /* Lighter Dark */
 

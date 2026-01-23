@@ -65,6 +65,9 @@ importers:
       react:
         specifier: 19.3.0-canary-d6cae440-20260106
         version: 19.3.0-canary-d6cae440-20260106
+      react-countup:
+        specifier: ^6.5.3
+        version: 6.5.3(react@19.3.0-canary-d6cae440-20260106)
       react-dom:
         specifier: 19.3.0-canary-d6cae440-20260106
         version: 19.3.0-canary-d6cae440-20260106(react@19.3.0-canary-d6cae440-20260106)
@@ -2118,6 +2121,9 @@ packages:
   cookie-es@2.0.0:
     resolution: {integrity: sha512-RAj4E421UYRgqokKUmotqAwuplYw15qtdXfY+hGzgCJ/MBjCVZcSoHK/kH9kocfjRjcDME7IiDWR/1WX1TM2Pg==}
 
+  countup.js@2.9.0:
+    resolution: {integrity: sha512-llqrvyXztRFPp6+i8jx25phHWcVWhrHO4Nlt0uAOSKHB8778zzQswa4MU3qKBvkXfJKftRYFJuVHez67lyKdHg==}
+
   create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
 
@@ -3730,6 +3736,11 @@ packages:
   raw-body@2.4.1:
     resolution: {integrity: sha512-9WmIKF6mkvA0SLmA2Knm9+qj89e+j1zqgyn8aXGd7+nAduPoqgI9lO57SAZNn/Byzo5P7JhXTyg9PzaJbH73bA==}
     engines: {node: '>= 0.8'}
+
+  react-countup@6.5.3:
+    resolution: {integrity: sha512-udnqVQitxC7QWADSPDOxVWULkLvKUWrDapn5i53HE4DPRVgs+Y5rr4bo25qEl8jSh+0l2cToJgGMx+clxPM3+w==}
+    peerDependencies:
+      react: '>= 16.3.0'
 
   react-dom@19.3.0-canary-d6cae440-20260106:
     resolution: {integrity: sha512-cAMw0enFPsrQWALiBVnRllgyAUj1gxitTPgF0hOotgbl66SpxTytF/T3W5Wqm96vap8GJkFKERrb5r1CLOGkog==}
@@ -6393,6 +6404,8 @@ snapshots:
 
   cookie-es@2.0.0: {}
 
+  countup.js@2.9.0: {}
+
   create-require@1.1.1: {}
 
   cross-spawn@7.0.6:
@@ -8316,6 +8329,11 @@ snapshots:
       http-errors: 1.7.3
       iconv-lite: 0.4.24
       unpipe: 1.0.0
+
+  react-countup@6.5.3(react@19.3.0-canary-d6cae440-20260106):
+    dependencies:
+      countup.js: 2.9.0
+      react: 19.3.0-canary-d6cae440-20260106
 
   react-dom@19.3.0-canary-d6cae440-20260106(react@19.3.0-canary-d6cae440-20260106):
     dependencies:

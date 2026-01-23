@@ -1,12 +1,15 @@
 'use client'
 
 import { cn } from '@/lib/cn'
+import CountUp from 'react-countup'
 import { toast } from 'sonner'
 import { Tooltip } from './tooltip'
 import { HeartIcon } from '../icons/heart'
-import { CheersIcon } from '../icons/cheers'
-import { useInteractions } from './interactions-provider'
 import { FlowerIcon } from '../icons/flower'
+import { CheersIcon } from '../icons/cheers'
+import { usePrevious } from '@shined/react-use'
+import { HeartFilledIcon } from '@/icons/heart-filled'
+import { useInteractions } from './interactions-provider'
 import { useState, useTransition, useEffect, useRef } from 'react'
 import { getInteractionConfig, getUserClickCount, recordUserClick } from '@/lib/interactions'
 
@@ -17,13 +20,21 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   heart: HeartIcon,
 }
 
+// 填充图标映射表（备用）
+const FILLED_ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  cheers: CheersIcon,
+  flower: FlowerIcon,
+  heart: HeartFilledIcon,
+}
+
 interface InteractionButtonProps {
   id: string
   type: string // 完全开放，不限制类型
   className?: string
+  iconClassName?: string
 }
 
-export function InteractionButton({ id, type, className }: InteractionButtonProps) {
+export function InteractionButton({ id, type, className, iconClassName }: InteractionButtonProps) {
   const { counts } = useInteractions()
   const [localCount, setLocalCount] = useState<number | null>(null)
   const [userClickCount, setUserClickCount] = useState(0)
@@ -31,6 +42,8 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
   const [isSubmitting, setIsSubmitting] = useState(false)
   const pendingClicksRef = useRef(0)
   const submitTimerRef = useRef<NodeJS.Timeout | null>(null)
+
+  const prevLocalCount = usePrevious(localCount) || localCount || 0
 
   // 从配置系统获取类型配置
   const config = getInteractionConfig(type)
@@ -152,7 +165,7 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
   }
 
   // 动态获取图标组件
-  const IconComponent = ICON_MAP[config.icon]
+  const IconComponent = isMaxedOut ? FILLED_ICON_MAP[config.icon] : ICON_MAP[config.icon]
 
   // 如果图标未找到，降级处理
   if (!IconComponent) {
@@ -184,13 +197,13 @@ export function InteractionButton({ id, type, className }: InteractionButtonProp
           aria-label={`${config.ariaLabel} ${displayCount.toLocaleString('zh-Hans-CN')} 次，你已点击 ${userClickCount.toLocaleString('zh-Hans-CN')} 次`}
         >
           <IconComponent
-            className={cn('h-[1.2em] w-[1.2em] transition-transform', isMaxedOut && 'scale-110')}
+            className={cn(
+              'h-[1.2em] w-[1.2em] transition-transform',
+              isMaxedOut && 'scale-110',
+              iconClassName,
+            )}
           />
-          {displayCount > 0 && (
-            <span className="font-mono tabular-nums">
-              {displayCount.toLocaleString('zh-Hans-CN')}
-            </span>
-          )}
+          {displayCount > 0 && <CountUp duration={1} start={prevLocalCount} end={displayCount} />}
         </button>
       </div>
     </Tooltip>
