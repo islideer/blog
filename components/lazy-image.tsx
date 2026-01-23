@@ -51,7 +51,7 @@ export function LazyImage(props: ImageProps) {
   return (
     <div
       ref={containerRef}
-      className={`aspect-video w-full animate-pulse bg-zinc-100 dark:bg-zinc-800 ${className || ''}`}
+      className={`bg-bg-tertiary aspect-video w-full animate-pulse ${className || ''}`}
     />
   )
 }

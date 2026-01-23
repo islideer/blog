@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { cn } from '@/lib/cn'
 import { LazyImage } from '../lazy-image'
 import { MarkdownLite } from '../markdown-lite'
@@ -88,7 +87,7 @@ export async function ThoughtCard({
             return (
               <div
                 key={imageIndex}
-                className="flex w-full items-center justify-center overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-700"
+                className="border-border flex w-full items-center justify-center overflow-hidden rounded-md border"
                 style={{ backgroundColor: 'var(--color-image-bg)' }}
               >
                 <LazyImage
