@@ -78,7 +78,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
 
             {/* 时间轴内容 */}
             <div
-              className="divide-text-tertiary/60 divide-y divide-dashed border-l-2 pl-4 sm:pl-6"
+              className="divide-text-tertiary/60 divide-y divide-dashed border-l-2 pl-2 sm:pl-4"
               style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
             >
               {sortedItems.map((item, index) => {
@@ -108,7 +108,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
                   <article
                     id={String(startIdxOfAll + index + 1)}
                     key={index}
-                    className="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4 sm:py-4"
+                    className="flex flex-col gap-1 px-1 py-3 sm:flex-row sm:items-baseline sm:gap-2 sm:px-2 sm:py-4"
                   >
                     {formattedDate && (
                       <time className="text-text-tertiary shrink-0 text-xs sm:w-12 sm:text-sm">
