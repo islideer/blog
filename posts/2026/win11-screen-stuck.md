@@ -95,8 +95,8 @@ NVIDIA 这边，其实在 2021 年发布了 [相关文章](https://nvidia.custhe
 
 ## 参考文章
 
-- [What's new in Windows 11, version 24H2 for IT pros | Microsoft Learn](https://learn.microsoft.com/en-us/windows/whats-new/whats-new-windows-11-version-24h2)
-- [Announcing Windows 11 Insider Preview Build 27959 (Canary Channel) | Windows Insider Blog](https://blogs.windows.com/windows-insider/2025/10/06/announcing-windows-11-insider-preview-build-27959-canary-channel/)
+- [What's new in Windows 11, version 24H2 | Microsoft Learn](https://learn.microsoft.com/en-us/windows/whats-new/whats-new-windows-11-version-24h2)
+- [Announcing Windows 11 Insider Preview Build 27959 | Windows Insider Blog](https://blogs.windows.com/windows-insider/2025/10/06/announcing-windows-11-insider-preview-build-27959-canary-channel/)
 - [After updating to NVIDIA Game Ready Driver 461.09 or newer, some desktop apps may flicker or stutter when resizing the window on some PC configurations | NVIDIA](https://nvidia.custhelp.com/app/answers/detail/a_id/5157)
 - [Microsoft, AMD, Nvidia, are all sleeping on Windows 11 MPO display issues - Neowin](https://www.neowin.net/news/microsoft-amd-nvidia-are-all-sleeping-on-windows-11-mpo-display-issues/)
 - [30 年老代码被干掉！微软用 18 万行 Rust 改写 Windows 系统内核 - 知乎](https://zhuanlan.zhihu.com/p/626626115)
