@@ -38,7 +38,7 @@ export function OtherGames({ id }: { id?: string }) {
         {games.map((game: OtherGame) => (
           <div
             key={game.id}
-            className="border-border group flex flex-col overflow-hidden rounded-lg border sm:hover:border-neutral-400 dark:sm:hover:border-neutral-600"
+            className="border-border group flex flex-col overflow-hidden rounded-lg border"
           >
             {/* 游戏封面 + 标题和关键信息 */}
             <a
