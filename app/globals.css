@@ -92,9 +92,9 @@ a[target='_blank']:not(.no-icon):not(:has(> img))::after {
 
 /* Selection styles */
 ::selection {
-  background-color: var(--color-selection-bg);
-  color: inherit;
-  text-shadow: none;
+  background-color: var(--color-selection-bg) !important;
+  color: inherit !important;
+  text-shadow: none !important;
 }
 
 /* Focus styles - Enhanced for better visibility */

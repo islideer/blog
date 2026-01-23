@@ -21,7 +21,7 @@
   --color-code-text: oklch(0.25 0 0);
 
   /* Selection */
-  --color-selection-bg: oklch(0.2 0 0 / 0.15);
+  --color-selection-bg: oklch(0.2 0 0 / 0.12);
 
   /* Accents - Brand Colors */
   --color-accent: oklch(0.55 0.2 260); /* Primary Brand Color */
@@ -66,7 +66,7 @@
   --color-code-text: oklch(0.9 0 0);
 
   /* Selection */
-  --color-selection-bg: oklch(0.9 0 0 / 0.25);
+  --color-selection-bg: oklch(0.9 0 0 / 0.2);
 
   /* Accents */
   --color-accent: oklch(0.65 0.2 260);
