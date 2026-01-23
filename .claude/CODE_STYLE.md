@@ -98,6 +98,7 @@ export default function() {
 ### Hooks
 
 - Hook 放在组件顶部
+- 通用 Hook 放在 `hooks/` 目录
 - 遵循 Hook 命名规范（use 开头）
 - 使用 React 19 新特性（use(), useOptimistic() 等）
 

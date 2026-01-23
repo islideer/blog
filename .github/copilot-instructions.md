@@ -103,12 +103,12 @@ Always use `cn` utility (`lib/cn.ts`) for merging Tailwind classes, not template
 
 - `app/`: Next.js App Router pages and layouts.
 - `components/`: React components (kebab-case).
-  - `icons/`: SVG icon components directory.
   - `icon-link.tsx`: Icon wrapper with link and tooltip.
   - `article-content.tsx`: Blog post Markdown rendering (Server Component).
   - `markdown-lite.tsx`: Lightweight Markdown rendering (Server Component).
   - `thought-card.tsx`: Thought/Mio-says card component.
   - `thoughts-list.tsx`: Thoughts list with CSS content-visibility optimization.
+- `icons/`: SVG icon components directory.
 - `lib/`: Utility functions and configurations.
   - `lib/config.ts`: Site configuration (loads from `data/site.json`).
   - `lib/data.ts`: Static data exports (loads from `data/*.json`).
@@ -196,7 +196,7 @@ html.dark .prose pre span {
 
 ### Organization
 
-- **Centralized**: All SVG icons must be in `components/icons/` directory.
+- **Centralized**: All SVG icons must be in `icons/` directory.
 - **Individual Files**: Each icon is a separate component file (kebab-case, e.g., `moon.tsx`).
 - **Type-Safe**: Every icon component has TypeScript interface.
 - **Flexible**: Icons accept `className` prop for customization.
@@ -204,7 +204,7 @@ html.dark .prose pre span {
 ### Creating New Icons
 
 ```typescript
-// components/icons/example.tsx
+// icons/example.tsx
 interface ExampleIconProps {
   className?: string
 }
@@ -220,7 +220,7 @@ export function ExampleIcon({ className }: ExampleIconProps) {
 
 ### Icon Guidelines
 
-- ✅ Place new icons in `components/icons/`.
+- ✅ Place new icons in `icons/`.
 - ✅ Use `className` prop for styling flexibility.
 - ✅ Use `currentColor` for theme compatibility.
 - ❌ Do not inline SVGs in components unless single-use.
@@ -247,7 +247,7 @@ import { GitHubIcon } from './icons/github'
 
 ### Adding New Icons
 
-1.  Create file in `components/icons/` using `kebab-case`.
+1.  Create file in `icons/` using `kebab-case`.
 2.  Follow the icon template with `className` prop.
 3.  Use `currentColor` for fill or stroke.
 

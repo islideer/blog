@@ -2,8 +2,8 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { ChevronUpIcon } from './icons/chevron-up'
-import { ChevronDownIcon } from './icons/chevron-down'
+import { ChevronUpIcon } from '../icons/chevron-up'
+import { ChevronDownIcon } from '../icons/chevron-down'
 
 import type { ReadingComment } from '@/lib/reading'
 

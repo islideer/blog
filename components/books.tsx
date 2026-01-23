@@ -5,9 +5,9 @@ import { dayjs } from '@/lib/dayjs'
 import { useState } from 'react'
 
 import type { DoubanItem, DoubanResponse } from '@/lib/douban'
-import { ChevronDownIcon } from './icons/chevron-down'
-import { ChevronUpIcon } from './icons/chevron-up'
-import { useAutoSize } from './hooks/use-auto-size'
+import { ChevronDownIcon } from '../icons/chevron-down'
+import { ChevronUpIcon } from '../icons/chevron-up'
+import { useAutoSize } from '../hooks/use-auto-size'
 
 interface BooksProps {
   id?: string

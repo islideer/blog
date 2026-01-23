@@ -1,5 +1,5 @@
-import { SearchIcon } from '../icons/search'
-import { SpinIcon } from '../icons/spin'
+import { SearchIcon } from '../../icons/search'
+import { SpinIcon } from '../../icons/spin'
 
 interface SearchInputProps {
   value: string

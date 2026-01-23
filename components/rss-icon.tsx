@@ -1,7 +1,7 @@
 'use client'
 
 import { IconLink } from './icon-link'
-import { RSSIcon as RSSIconBase } from './icons/rss'
+import { RSSIcon as RSSIconBase } from '../icons/rss'
 import { Tooltip } from './tooltip'
 
 interface RSSIconProps {

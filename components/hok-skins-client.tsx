@@ -2,9 +2,9 @@
 
 import Image from 'next/image'
 import { cn } from '@/lib/cn'
-import { useAutoSize } from './hooks/use-auto-size'
-import { ChevronUpIcon } from './icons/chevron-up'
-import { ChevronDownIcon } from './icons/chevron-down'
+import { useAutoSize } from '../hooks/use-auto-size'
+import { ChevronUpIcon } from '../icons/chevron-up'
+import { ChevronDownIcon } from '../icons/chevron-down'
 import { useState, useMemo } from 'react'
 
 import type { HokResponse } from '@/lib/hok'

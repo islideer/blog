@@ -1,7 +1,7 @@
-import { WindowsIcon } from './icons/windows'
-import { MacOSIcon } from './icons/macos'
-import { LinuxIcon } from './icons/linux'
-import { GenericIcon } from './icons/generic'
+import { WindowsIcon } from '../icons/windows'
+import { MacOSIcon } from '../icons/macos'
+import { LinuxIcon } from '../icons/linux'
+import { GenericIcon } from '../icons/generic'
 
 interface PlatformIconProps {
   platform: string

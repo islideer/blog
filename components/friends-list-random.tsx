@@ -5,8 +5,8 @@ import { FriendCard } from './friend-card'
 
 import type { Friend } from '@/lib/data'
 import { Tooltip } from './tooltip'
-import { RandomIcon } from './icons/random'
-import { DiceIcon } from './icons/dice'
+import { RandomIcon } from '../icons/random'
+import { DiceIcon } from '../icons/dice'
 
 interface FriendsListRandomProps {
   friends: Friend[]

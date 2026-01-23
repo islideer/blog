@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { SearchIcon } from '../icons/search'
+import { SearchIcon } from '../../icons/search'
 import { SearchModal } from './search-modal'
 import { Tooltip } from '../tooltip'
 

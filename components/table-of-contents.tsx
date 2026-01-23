@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { cn } from '@/lib/cn'
-import { MenuIcon } from './icons/menu'
-import { CloseIcon } from './icons/close'
+import { MenuIcon } from '../icons/menu'
+import { CloseIcon } from '../icons/close'
 import { extractHeadings } from '@/lib/toc'
 import { useEffect, useState } from 'react'
 

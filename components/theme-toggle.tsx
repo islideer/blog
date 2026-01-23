@@ -3,9 +3,9 @@
 import { useTheme } from 'next-themes'
 import { useSyncExternalStore } from 'react'
 import { Tooltip } from './tooltip'
-import { MoonIcon } from './icons/moon'
-import { SunIcon } from './icons/sun'
-import { SystemIcon } from './icons/system'
+import { MoonIcon } from '../icons/moon'
+import { SunIcon } from '../icons/sun'
+import { SystemIcon } from '../icons/system'
 
 const emptySubscribe = () => () => {}
 

@@ -3,9 +3,9 @@
 import Image from 'next/image'
 import { dayjs } from '@/lib/dayjs'
 import { useState } from 'react'
-import { useAutoSize } from './hooks/use-auto-size'
-import { ChevronUpIcon } from './icons/chevron-up'
-import { ChevronDownIcon } from './icons/chevron-down'
+import { useAutoSize } from '../hooks/use-auto-size'
+import { ChevronUpIcon } from '../icons/chevron-up'
+import { ChevronDownIcon } from '../icons/chevron-down'
 
 import type { DoubanItem, DoubanResponse } from '@/lib/douban'
 

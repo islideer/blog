@@ -1,7 +1,7 @@
 'use client'
 
 import { IconLink } from './icon-link'
-import { TravellingsIcon as TravellingsIconBase } from './icons/travellings'
+import { TravellingsIcon as TravellingsIconBase } from '../icons/travellings'
 
 interface TravellingsIconProps {
   href: string

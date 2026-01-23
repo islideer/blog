@@ -3,10 +3,10 @@
 import { cn } from '@/lib/cn'
 import { toast } from 'sonner'
 import { Tooltip } from './tooltip'
-import { HeartIcon } from './icons/heart'
-import { CheersIcon } from './icons/cheers'
+import { HeartIcon } from '../icons/heart'
+import { CheersIcon } from '../icons/cheers'
 import { useInteractions } from './interactions-provider'
-import { FlowerIcon } from './icons/flower'
+import { FlowerIcon } from '../icons/flower'
 import { useState, useTransition, useEffect, useRef } from 'react'
 import { getInteractionConfig, getUserClickCount, recordUserClick } from '@/lib/interactions'
 

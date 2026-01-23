@@ -106,17 +106,15 @@ blog/
 │   ├── page.tsx                    # 首页
 │   ├── opengraph-image.tsx         # 首页 OG 图片
 │   ├── posts/page.tsx              # 文章归档
+│   ├── reading/page.tsx            # 岛读
 │   ├── timeline/page.tsx           # 大事记
 │   ├── thoughts/page.tsx           # 碎碎念
 │   ├── mio-says/page.tsx           # Mio 说
+│   ├── game/page.tsx               # 游戏
+│   ├── collection/page.tsx         # 收藏夹
 │   ├── about/page.tsx              # 关于
 │   └── rss/route.ts                # RSS Feed
 ├── components/                 # React 组件（kebab-case）
-│   ├── icons/                  # SVG 图标组件
-│   │   ├── moon.tsx            # 月亮图标
-│   │   ├── sun.tsx             # 太阳图标
-│   │   ├── github.tsx          # GitHub 图标
-│   │   └── ...                 # 其他图标
 │   ├── icon-link.tsx           # 图标链接包装器
 │   ├── article-content.tsx     # 文章渲染（服务端）
 │   ├── article-images.tsx      # 图片缩放（客户端）
@@ -125,6 +123,12 @@ blog/
 │   ├── thought-card.tsx        # 碎碎念卡片
 │   ├── theme-toggle.tsx        # 主题切换
 │   └── ...                     # 其他组件
+├── hooks/                  # 自定义 React Hooks
+├── icons/                  # SVG 图标组件
+│   ├── moon.tsx            # 月亮图标
+│   ├── sun.tsx             # 太阳图标
+│   ├── github.tsx          # GitHub 图标
+│   └── ...                 # 其他图标
 ├── lib/                      # 工具库
 │   ├── config.ts             # 站点配置
 │   ├── data.ts               # 数据加载（JSON）
@@ -376,7 +380,7 @@ components/my-component.tsx
 
 ### 图标组织
 
-- **统一管理** - 所有 SVG 图标集中在 `components/icons/` 目录
+- **统一管理** - 所有 SVG 图标集中在 `icons/` 目录
 - **独立组件** - 每个图标一个文件，使用 `kebab-case` 命名（如 `moon.tsx`）
 - **类型安全** - 每个图标组件都有 TypeScript 类型定义
 - **灵活复用** - 支持 `className` 传递，便于自定义样式
@@ -430,7 +434,7 @@ export function SocialLink({ href }: { href: string }) {
 
 ### 规则
 
-- ✅ 新图标必须放在 `components/icons/` 目录
+- ✅ 新图标必须放在 `icons/` 目录
 - ✅ 不要在组件内定义内联 SVG，除非只用一次
 - ✅ 图标组件必须支持 `className` 属性
 - ✅ 使用 `currentColor` 实现主题适配
@@ -444,7 +448,7 @@ export function SocialLink({ href }: { href: string }) {
 - ✅ **使用 `cn` 工具函数处理类名合并，不使用模板字符串拼接**
 - ✅ 使用 `import { dayjs } from '@/lib/dayjs'` 处理时间
 - ✅ Front Matter 必须包含 `title`、`date`、`excerpt` 字段
-- ✅ SVG 图标统一管理在 `components/icons/`
+- ✅ SVG 图标统一管理在 `icons/`
 - ⚠️ 不使用 MDX，使用纯 Markdown + unified
 - ⚠️ 不使用 next-mdx-remote
 - ⚠️ 必须使用 pnpm 10.25.0

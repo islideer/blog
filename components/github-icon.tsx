@@ -1,7 +1,7 @@
 'use client'
 
 import { IconLink } from './icon-link'
-import { GitHubIcon as GitHubIconBase } from './icons/github'
+import { GitHubIcon as GitHubIconBase } from '../icons/github'
 
 interface GitHubIconProps {
   href: string
