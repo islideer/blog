@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import { cn } from '@/lib/cn'
 import { siteConfig } from '@/lib/config'
+import { ClientCounterUp } from '../client-counter-up'
 import { SteamRefreshButton } from './steam-refresh-button'
 
 import type { SteamProfile as SteamProfileType } from '@/lib/steam'
-import { ClientCounterUp } from '../client-counter-up'
 
 interface SteamProfileProps {
   id?: string

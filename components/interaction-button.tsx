@@ -7,11 +7,11 @@ import { HeartIcon } from '../icons/heart'
 import { FlowerIcon } from '../icons/flower'
 import { CheersIcon } from '../icons/cheers'
 import { usePrevious } from '@shined/react-use'
+import { ClientCounterUp } from './client-counter-up'
 import { HeartFilledIcon } from '@/icons/heart-filled'
 import { useInteractions } from './interactions-provider'
 import { useState, useTransition, useEffect, useRef } from 'react'
 import { getInteractionConfig, getUserClickCount, recordUserClick } from '@/lib/interactions'
-import { ClientCounterUp } from './client-counter-up'
 
 // 图标映射表（易于扩展）
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
