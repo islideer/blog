@@ -24,7 +24,7 @@ export function SearchInput({ value, onChange, isLoading }: SearchInputProps) {
         autoCapitalize="off"
         spellCheck={false}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="想搜点什么呢..."
+        placeholder="搜点什么呢..."
         className="text-text-primary placeholder:text-text-tertiary flex-1 bg-transparent px-1 text-base outline-none! active:outline-none! sm:text-lg"
       />
 

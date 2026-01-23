@@ -214,10 +214,10 @@ export function Header() {
           </div>
 
           <div className="flex items-center">
-            <SearchTrigger />
             <GitHubIcon href={siteConfig.author.github} className="hidden sm:flex" />
             <RSSIcon href={siteConfig.links.rss} className="hidden sm:flex" />
             <TravellingsIcon href={siteConfig.links.travellings} className="hidden sm:flex" />
+            <SearchTrigger />
             <ThemeToggle />
           </div>
         </nav>
