@@ -31,7 +31,7 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
   }
 
   return (
-    <div className="space-y-2 py-1 text-xs">
+    <div className="space-y-2 truncate py-1 text-xs">
       {/* 标题 */}
       <div className="flex items-center gap-1 truncate sm:gap-2">
         <span className="text-text-tertiary shrink-0">标题</span>
