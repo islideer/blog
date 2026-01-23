@@ -19,9 +19,11 @@
   --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
   --color-text-tertiary: var(--color-text-tertiary);
+  --color-text-quaternary: var(--color-text-quaternary);
 
   --color-border: var(--color-border);
-  --color-border-hover: var(--color-border-hover);
+  --color-border-secondary: var(--color-border-secondary);
+  --color-border-tertiary: var(--color-border-tertiary);
 
   --color-code-bg: var(--color-code-bg);
   --color-code-text: var(--color-code-text);

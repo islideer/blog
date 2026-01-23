@@ -58,7 +58,7 @@ a:not(.no-underline) {
   text-decoration-style: dashed;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
-  text-decoration-color: var(--color-border-hover);
+  text-decoration-color: var(--color-border-tertiary);
 }
 
 a:not(.no-underline):active {
@@ -129,7 +129,7 @@ a:focus-visible {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-hover);
+  background: var(--color-border-tertiary);
   border-radius: 3px;
 }
 

@@ -463,7 +463,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
       {/* 抽屉内容 */}
       <div
         className={cn(
-          'bg-bg-primary fixed right-0 bottom-0 z-50 h-[60vh] w-full transform rounded-t-2xl border-t border-gray-200 shadow-2xl transition-all! duration-300 ease-in-out xl:hidden dark:border-gray-800',
+          'bg-bg-primary border-border fixed right-0 bottom-0 z-50 h-[60vh] w-full transform rounded-t-2xl border-t shadow-2xl transition-all! duration-300 ease-in-out xl:hidden',
           isOpen ? 'translate-y-0' : 'translate-y-full',
         )}
       >
@@ -500,7 +500,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
                       scrollToHeading(item.id)
                     }}
                     className={cn(
-                      'block w-full truncate text-left transition-colors duration-200',
+                      'block w-full truncate text-left transition-all duration-200',
                       isActive ? 'text-text-primary font-medium' : 'text-text-tertiary',
                     )}
                     title={item.title}

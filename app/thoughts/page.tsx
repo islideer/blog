@@ -69,7 +69,7 @@ export default async function ThoughtsPage() {
 
       {/* Thoughts Timeline */}
       <section className="space-y-4">
-        <div className="sm:border-l-2 sm:pl-6" style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}>
+        <div className="border-border-tertiary sm:border-l-2 sm:pl-6">
           <InteractionsProvider type="thoughts" ids={ids}>
             <ThoughtsList
               thoughts={sortedThoughts}

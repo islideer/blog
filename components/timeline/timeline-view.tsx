@@ -77,10 +77,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
             </h2>
 
             {/* 时间轴内容 */}
-            <div
-              className="divide-text-tertiary/60 divide-y divide-dashed border-l-2 pl-2 sm:pl-4"
-              style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
-            >
+            <div className="divide-text-tertiary/60 border-border-tertiary divide-y divide-dashed border-l-2 pl-2 sm:pl-4">
               {sortedItems.map((item, index) => {
                 // 支持模糊时间格式
                 const date = dayjs(item.date)

@@ -37,7 +37,7 @@ export async function RecentActivities({
           return (
             <article
               key={thought.id}
-              className="relative space-y-1.5 border-l-2 border-zinc-300 bg-transparent py-1 pr-1 pl-3 dark:border-zinc-700"
+              className="border-border-tertiary relative space-y-1.5 border-l-2 bg-transparent py-1 pr-1 pl-3"
             >
               {/* 头部信息 */}
               <div className="flex items-center gap-1.5">

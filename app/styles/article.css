@@ -14,7 +14,7 @@
   --tw-prose-bullets: var(--color-text-secondary);
   --tw-prose-hr: var(--color-border);
   --tw-prose-quotes: var(--color-text-secondary);
-  --tw-prose-quote-borders: var(--color-border-hover);
+  --tw-prose-quote-borders: var(--color-border-tertiary);
   --tw-prose-captions: var(--color-text-secondary);
   --tw-prose-code: var(--color-text-primary);
   --tw-prose-pre-code: var(--color-code-text);
@@ -32,7 +32,7 @@
   --tw-prose-invert-bullets: var(--color-text-secondary);
   --tw-prose-invert-hr: var(--color-border);
   --tw-prose-invert-quotes: var(--color-text-secondary);
-  --tw-prose-invert-quote-borders: var(--color-border-hover);
+  --tw-prose-invert-quote-borders: var(--color-border-tertiary);
   --tw-prose-invert-captions: var(--color-text-secondary);
   --tw-prose-invert-code: var(--color-text-primary);
   --tw-prose-invert-pre-code: var(--color-code-text);
@@ -189,7 +189,7 @@
 .prose blockquote {
   font-style: italic;
   border-left-width: 4px;
-  border-left-color: var(--color-border-hover);
+  border-left-color: var(--color-border-tertiary);
   background: var(--color-bg-secondary);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: 0.5em 1em 0.5em 1.5em;
@@ -263,7 +263,7 @@
   appearance: none;
   width: 1.1em;
   height: 1.1em;
-  border: 2px solid var(--color-border-hover);
+  border: 2px solid var(--color-border-tertiary);
   border-radius: var(--radius-sm);
   cursor: pointer;
 }

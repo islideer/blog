@@ -56,7 +56,7 @@ export default async function FriendsPage() {
       </section>
 
       {/* Friend Link Info */}
-      <section className="mt-8 space-y-3 border-l-2 border-zinc-300 pl-4 sm:mt-12 dark:border-zinc-700">
+      <section className="border-border-tertiary mt-8 space-y-3 border-l-2 pl-4 sm:mt-12">
         <h2 className="text-text-primary text-base font-semibold">交换友链</h2>
         <div className="text-text-secondary space-y-4 text-sm">
           <p>

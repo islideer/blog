@@ -124,10 +124,7 @@ export default async function PostsPage() {
               ({pinnedPosts.length.toLocaleString('zh-Hans-CN')})
             </span>
           </h2>
-          <div
-            className="space-y-1 border-l-2 pl-4 sm:pl-6"
-            style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
-          >
+          <div className="border-border-tertiary space-y-1 border-l-2 pl-4 sm:pl-6">
             {pinnedPosts.map((post) => (
               <PostListItem key={post.slug} post={post} />
             ))}
@@ -152,10 +149,7 @@ export default async function PostsPage() {
                   ({yearPosts.length.toLocaleString('zh-Hans-CN')})
                 </span>
               </h2>
-              <div
-                className="space-y-1 border-l-2 pl-4 sm:pl-6"
-                style={{ borderColor: 'rgba(128, 128, 128, 0.2)' }}
-              >
+              <div className="border-border-tertiary space-y-1 border-l-2 pl-4 sm:pl-6">
                 {hasNoPosts ? (
                   <p className="text-text-tertiary text-xs italic opacity-60 sm:text-sm">
                     {getEmptyYearMessage(year)}
