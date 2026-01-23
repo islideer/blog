@@ -480,7 +480,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
           <span className="text-text-primary text-lg font-medium">目录</span>
           <button
             onClick={() => setIsOpen(false)}
-            className="text-text-tertiary hover:text-text-primary p-1 active:scale-80"
+            className="text-text-tertiary hover:text-text-primary p-1 transition-all active:scale-80"
           >
             <CloseIcon className="h-5 w-5" />
           </button>

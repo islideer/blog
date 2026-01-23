@@ -39,7 +39,7 @@ export function SteamRefreshButton() {
       <button
         onClick={handleRefresh}
         disabled={refreshing}
-        className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-colors active:scale-80 disabled:cursor-not-allowed disabled:opacity-50"
+        className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-all active:scale-80 disabled:cursor-not-allowed disabled:opacity-50"
         aria-label="刷新 Steam 信息"
       >
         <RefreshIcon className={cn('h-3.5 w-3.5', refreshing && 'animate-spin')} />
