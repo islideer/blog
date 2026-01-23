@@ -4,6 +4,7 @@ import { siteConfig } from '@/lib/config'
 import { SteamRefreshButton } from './steam-refresh-button'
 
 import type { SteamProfile as SteamProfileType } from '@/lib/steam'
+import { ClientCounterUp } from '../client-counter-up'
 
 interface SteamProfileProps {
   id?: string
@@ -100,17 +101,17 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
           <div className="space-y-1">
             <p className="text-text-tertiary text-xs">总游玩时长</p>
             <p className="text-text-primary text-lg font-semibold">
-              {profile.games_total_playtime_desc}
+              <ClientCounterUp end={Math.round(profile.games_total_playtime / 60)} suffix=" 小时" />
             </p>
           </div>
           <div className="space-y-1">
             <p className="text-text-tertiary text-xs">拥有 / 玩过 / 从未玩过</p>
             <p className="text-text-primary text-lg font-semibold">
-              {profile.games_owned}
+              <ClientCounterUp end={profile.games_owned} />
               <span className="text-text-tertiary mx-1 opacity-60">/</span>
-              {profile.games_played}
+              <ClientCounterUp end={profile.games_played} />
               <span className="text-text-tertiary mx-1 opacity-60">/</span>
-              {profile.games_never_played}
+              <ClientCounterUp end={profile.games_never_played} />
             </p>
           </div>
           <div className="hidden space-y-1 sm:block">

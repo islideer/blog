@@ -1,7 +1,6 @@
 'use client'
 
 import { cn } from '@/lib/cn'
-import CountUp from 'react-countup'
 import { toast } from 'sonner'
 import { Tooltip } from './tooltip'
 import { HeartIcon } from '../icons/heart'
@@ -12,6 +11,7 @@ import { HeartFilledIcon } from '@/icons/heart-filled'
 import { useInteractions } from './interactions-provider'
 import { useState, useTransition, useEffect, useRef } from 'react'
 import { getInteractionConfig, getUserClickCount, recordUserClick } from '@/lib/interactions'
+import { ClientCounterUp } from './client-counter-up'
 
 // 图标映射表（易于扩展）
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -203,7 +203,7 @@ export function InteractionButton({ id, type, className, iconClassName }: Intera
               iconClassName,
             )}
           />
-          {displayCount > 0 && <CountUp duration={1} start={prevLocalCount} end={displayCount} />}
+          {displayCount > 0 && <ClientCounterUp start={prevLocalCount} end={displayCount} />}
         </button>
       </div>
     </Tooltip>
