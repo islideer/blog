@@ -4,24 +4,47 @@
  */
 
 import { pages } from '@/lib/data'
+import { siteConfig } from '@/lib/config'
 import { MessageForm } from '@/components/messages/message-form'
 import { MessageList } from '@/components/messages/message-list'
+import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
-
-export const revalidate = 86400 // 缓存 1 天
-
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: pages.messages.title,
-    description: pages.messages.description,
-  }
-}
 
 interface PageProps {
   searchParams: Promise<{
     page?: string
   }>
+}
+
+export const metadata: Metadata = {
+  title: pages.messages.title,
+  description: pages.messages.description,
+  alternates: {
+    canonical: generateCanonicalUrl(pages.messages.slug),
+  },
+  openGraph: {
+    type: 'website',
+    locale: siteConfig.locale.replace('-', '_'),
+    url: generateCanonicalUrl(pages.messages.slug),
+    title: `${pages.messages.title} | ${siteConfig.name}`,
+    description: pages.messages.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: `${pages.messages.slug}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: pages.messages.title,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${pages.library.title} | ${siteConfig.name}`,
+    description: pages.library.description,
+    images: [`${pages.library.slug}/opengraph-image`],
+  },
 }
 
 export default async function MessagesPage({ searchParams }: PageProps) {

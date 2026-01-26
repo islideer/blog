@@ -3,9 +3,11 @@
  * 使用私有仓库的 GitHub Issues 存储留言数据
  */
 
+import { cache } from 'react'
 import { Octokit } from '@octokit/rest'
 import matter from 'gray-matter'
 import crypto from 'node:crypto'
+
 import type { MessageAuthor, Message, MessageReply } from './messages'
 
 // Octokit 实例
@@ -162,7 +164,7 @@ export async function createReply(
 /**
  * 获取留言列表
  */
-export async function getMessages(
+export const getMessages = cache(async function getMessages(
   page = 1,
   perPage = 10,
   withReplies = false,
@@ -227,12 +229,14 @@ export async function getMessages(
   )
 
   return { messages, total }
-}
+})
 
 /**
  * 获取回复列表
  */
-export async function getReplies(issueNumber: number): Promise<MessageReply[]> {
+export const getReplies = cache(async function getReplies(
+  issueNumber: number,
+): Promise<MessageReply[]> {
   const { data: comments } = await octokit.issues.listComments({
     owner: OWNER,
     repo: REPO,
@@ -263,4 +267,4 @@ export async function getReplies(issueNumber: number): Promise<MessageReply[]> {
 
       return reply
     })
-}
+})

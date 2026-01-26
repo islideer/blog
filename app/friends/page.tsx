@@ -41,7 +41,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function FriendsPage() {
+export default function FriendsPage() {
   return (
     <div className="space-y-6 py-8 sm:space-y-8 sm:py-12">
       {/* Header */}
