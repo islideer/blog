@@ -44,15 +44,15 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
           <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
 
           {/* 表情选择器 */}
-          <div className="border-border bg-bg-primary absolute bottom-full left-0 z-20 mb-2 w-80 rounded-lg border shadow-xl">
+          <div className="border-border bg-bg-primary absolute bottom-full left-0 z-20 w-80 rounded-lg border py-2 shadow-xl sm:py-3">
             {/* 表情网格 */}
-            <div className="grid max-h-60 grid-cols-6 gap-2 overflow-y-auto p-3">
+            <div className="grid max-h-58.5 grid-cols-8 overflow-y-scroll">
               {Object.entries(activePack.items).map(([emojiName, url]) => (
                 <button
                   key={emojiName}
                   type="button"
                   onClick={() => handleEmojiClick(activePackId, emojiName)}
-                  className="group hover:bg-bg-secondary flex flex-col items-center gap-1 rounded p-2 transition"
+                  className="group hover:bg-bg-secondary flex flex-col items-center rounded p-1 transition sm:p-2"
                   title={emojiName}
                 >
                   <Image
@@ -64,30 +64,31 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
-                  <span className="text-text-tertiary text-xs">{emojiName}</span>
                 </button>
               ))}
             </div>
 
             {/* Tab 切换 */}
-            <div className="border-border flex gap-1 border-b p-2">
-              {packIds.map((packId) => {
-                const pack = emojiPacks[packId as keyof typeof emojiPacks]
-                return (
-                  <button
-                    key={packId}
-                    type="button"
-                    onClick={() => setActivePackId(packId)}
-                    className={`rounded px-3 py-1 text-xs transition ${
-                      activePackId === packId
-                        ? 'bg-bg-tertiary text-text-primary'
-                        : 'text-text-secondary hover:bg-bg-secondary'
-                    }`}
-                  >
-                    {pack.name}
-                  </button>
-                )
-              })}
+            <div className="border-border overflow-x-auto border-b p-2">
+              <div className="flex flex-nowrap gap-1">
+                {packIds.map((packId) => {
+                  const pack = emojiPacks[packId as keyof typeof emojiPacks]
+                  return (
+                    <button
+                      key={packId}
+                      type="button"
+                      onClick={() => setActivePackId(packId)}
+                      className={`rounded px-3 py-1 text-xs text-nowrap transition ${
+                        activePackId === packId
+                          ? 'bg-bg-tertiary text-text-primary'
+                          : 'text-text-secondary hover:bg-bg-secondary'
+                      }`}
+                    >
+                      {pack.name}
+                    </button>
+                  )
+                })}
+              </div>
             </div>
           </div>
         </>
