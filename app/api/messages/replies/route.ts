@@ -6,9 +6,10 @@
 import { kv } from '@vercel/kv'
 import crypto from 'node:crypto'
 import { NextRequest, NextResponse } from 'next/server'
-import { createReply, isSuspiciousUA } from '@/lib/guestbook-github'
+import { revalidatePath } from 'next/cache'
+import { createReply, isSuspiciousUA } from '@/lib/messages-github'
 
-import type { CreateReplyRequest, ApiResponse } from '@/lib/guestbook'
+import type { CreateReplyRequest, ApiResponse } from '@/lib/messages'
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
@@ -30,7 +31,7 @@ function hashIP(ip: string): string {
 }
 
 /**
- * POST /api/guestbook/replies
+ * POST /api/messages/replies
  * 提交新回复
  */
 export async function POST(req: NextRequest) {
@@ -53,7 +54,7 @@ export async function POST(req: NextRequest) {
     // 3. IP Rate Limiting
     const ip = getClientIP(req)
     const hashedIP = hashIP(ip)
-    const rateLimitKey = `guestbook:ratelimit:${hashedIP}`
+    const rateLimitKey = `messages:ratelimit:${hashedIP}`
 
     const count = (await kv.get<number>(rateLimitKey)) ?? 0
 
@@ -173,6 +174,9 @@ export async function POST(req: NextRequest) {
       content,
       userAgent,
     )
+
+    // 7. 使留言板缓存失效
+    revalidatePath('/messages')
 
     // 8. 增加 Rate Limiting 计数
     await kv.incr(rateLimitKey)

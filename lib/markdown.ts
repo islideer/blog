@@ -156,7 +156,7 @@ export async function parseMarkdownBatch(contents: string[]): Promise<string[]> 
  * - 代码高亮（Shiki）
  * - 安全过滤（rehype-sanitize）
  */
-const guestbookProcessor = unified()
+const messageProcessor = unified()
   .use(remarkParse)
   .use(remarkGfm)
   .use(remarkBreaks)
@@ -198,16 +198,16 @@ const guestbookProcessor = unified()
  * 解析留言板 Markdown 为 HTML
  * 用于留言板（启用换行、表情包、剧透、安全过滤）
  */
-export async function parseGuestbook(content: string): Promise<string> {
+export async function parseMessage(content: string): Promise<string> {
   if (!content || content.trim() === '') {
     return ''
   }
 
-  const cacheKey = `guestbook:${content}`
+  const cacheKey = `message:${content}`
   const cached = htmlCache.get(cacheKey)
   if (cached) return cached
 
-  const result = await guestbookProcessor.process(content)
+  const result = await messageProcessor.process(content)
   const html = String(result)
 
   // 缓存管理

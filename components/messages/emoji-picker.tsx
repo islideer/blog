@@ -30,7 +30,7 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
   }
 
   return (
-    <div className="relative">
+    <div className="relative flex items-center">
       {/* 触发按钮 */}
       <Button
         type="button"

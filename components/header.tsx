@@ -162,7 +162,7 @@ export function Header() {
                 </Link>
 
                 {/* <Link
-                  href={pages.guestbook.slug}
+                  href={pages.messages.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
                     'block px-4 py-2 text-xs',

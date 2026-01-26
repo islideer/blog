@@ -11,7 +11,8 @@ import { SendIcon } from '@/icons/send'
 import { EmojiPicker } from './emoji-picker'
 import { useState, useTransition, useRef } from 'react'
 
-import type { CreateMessageRequest, ApiResponse } from '@/lib/guestbook'
+import type { CreateMessageRequest, ApiResponse } from '@/lib/messages'
+import { cn } from '@/lib/cn'
 
 export function MessageForm() {
   const [isPending, startTransition] = useTransition()
@@ -78,7 +79,7 @@ export function MessageForm() {
         if (formData.email.trim()) requestBody.email = formData.email.trim()
         if (formData.website.trim()) requestBody.website = formData.website.trim()
 
-        const response = await fetch('/api/guestbook/messages', {
+        const response = await fetch('/api/messages/messages', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(requestBody),
@@ -175,32 +176,39 @@ export function MessageForm() {
           value={formData.content}
           onChange={handleChange}
           maxLength={1000}
-          rows={6}
-          placeholder="说点什么吧..."
+          rows={3}
+          placeholder="留下你的想法和故事..."
           className="textarea no-focus w-full"
           required
         />
-        <div className="text-text-tertiary mt-1 flex items-center justify-between text-xs">
-          <span>支持 Markdown、表情包、剧透语法</span>
-          <span className={contentLength > 1000 ? 'text-text-primary' : ''}>
-            {contentLength} / 1000
-          </span>
-        </div>
       </div>
 
       {/* 操作按钮 */}
-      <div className="flex items-center gap-3">
-        <EmojiPicker onSelect={handleEmojiSelect} />
+      <div className="flex items-center justify-between gap-3">
+        <div className="text-text-tertiary flex items-center gap-2">
+          <EmojiPicker onSelect={handleEmojiSelect} />
+          <span className="text-xs">支持 Markdown、表情包、剧透语法</span>
+        </div>
 
-        <Button
-          type="submit"
-          size="sm"
-          disabled={isPending || !formData.content.trim()}
-          className="ml-auto"
-        >
-          {isPending ? '提交中...' : '提交留言'}
-          {!isPending && <SendIcon className="h-3.5 w-3.5" />}
-        </Button>
+        <div className="flex items-center gap-2">
+          <span
+            className={cn(
+              'text-xs',
+              contentLength > 1000 ? 'text-text-primary' : 'text-text-tertiary',
+            )}
+          >
+            {contentLength} / 1000
+          </span>
+          <Button
+            type="submit"
+            size="sm"
+            disabled={isPending || !formData.content.trim()}
+            className="ml-auto"
+          >
+            {isPending ? '提交中...' : '提交留言'}
+            {!isPending && <SendIcon className="h-3.5 w-3.5" />}
+          </Button>
+        </div>
       </div>
     </form>
   )

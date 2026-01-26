@@ -91,10 +91,10 @@ export const pages = {
     description: `${siteConfig.author.name} 的储物箱，记录各种有用的工具、资源和灵感，持续整理中。如果你使用桌面端浏览本页面，可以按下 Ctrl + F 搜索查找相关标签、内容，比如 #npm`,
     slug: '/collection',
   },
-  guestbook: {
-    title: '留言板',
-    description: `${siteConfig.author.name} 的留言板，欢迎留言交流`,
-    slug: '/guestbook',
+  messages: {
+    title: '话匣子',
+    description: '打开话匣子，留下你的想法和故事',
+    slug: '/messages',
   },
   reading: {
     title: '岛读',

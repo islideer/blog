@@ -6,7 +6,7 @@
 import { Octokit } from '@octokit/rest'
 import matter from 'gray-matter'
 import crypto from 'node:crypto'
-import type { GuestbookAuthor, GuestbookMessage, GuestbookReply } from './guestbook'
+import type { MessageAuthor, Message, MessageReply } from './messages'
 
 // Octokit 实例
 const octokit = new Octokit({
@@ -14,8 +14,8 @@ const octokit = new Octokit({
 })
 
 // 仓库配置
-const OWNER = process.env.GUESTBOOK_REPO_OWNER || 'vikiboss'
-const REPO = process.env.GUESTBOOK_REPO_NAME || 'blog-guestbook'
+const OWNER = process.env.MESSAGES_REPO_OWNER || 'vikiboss'
+const REPO = process.env.MESSAGES_REPO_NAME || 'blog-messages'
 
 /**
  * 生成 Gravatar 头像 URL
@@ -30,7 +30,7 @@ export function generateGravatarUrl(email?: string): string {
 /**
  * 获取作者名称（处理匿名用户）
  */
-export function getAuthorName(author: GuestbookAuthor): string {
+export function getAuthorName(author: MessageAuthor): string {
   return author.name?.trim() || '匿名'
 }
 
@@ -38,7 +38,7 @@ export function getAuthorName(author: GuestbookAuthor): string {
  * 获取作者头像（优先级：自定义 > Gravatar > 空字符串）
  * 返回空字符串时，渲染组件会使用文字头像（名字首字）
  */
-export function getAuthorAvatar(author: GuestbookAuthor): string {
+export function getAuthorAvatar(author: MessageAuthor): string {
   if (author.avatar) return author.avatar
   if (author.email) return generateGravatarUrl(author.email)
   return '' // 返回空字符串，让组件显示文字头像
@@ -76,7 +76,7 @@ function truncateContent(content: string, maxLength = 50): string {
  * 创建留言（创建 GitHub Issue）
  */
 export async function createMessage(
-  author: GuestbookAuthor,
+  author: MessageAuthor,
   content: string,
   ua?: string,
 ): Promise<number> {
@@ -106,7 +106,7 @@ export async function createMessage(
     repo: REPO,
     title,
     body,
-    labels: ['guestbook'],
+    labels: ['message'],
   })
 
   return data.number
@@ -117,7 +117,7 @@ export async function createMessage(
  */
 export async function createReply(
   issueNumber: number,
-  author: GuestbookAuthor,
+  author: MessageAuthor,
   content: string,
   ua?: string,
 ): Promise<number> {
@@ -156,12 +156,12 @@ export async function getMessages(
   page = 1,
   perPage = 10,
   withReplies = false,
-): Promise<{ messages: GuestbookMessage[]; total: number }> {
+): Promise<{ messages: Message[]; total: number }> {
   // 性能优化：一次 API 调用 + 解析响应头获取总数
   const response = await octokit.issues.listForRepo({
     owner: OWNER,
     repo: REPO,
-    labels: 'guestbook',
+    labels: 'message',
     state: 'open',
     sort: 'created',
     direction: 'desc',
@@ -184,12 +184,12 @@ export async function getMessages(
     }
   }
 
-  const messages: GuestbookMessage[] = []
+  const messages: Message[] = []
 
   for (const issue of issues) {
     const { data: frontMatter, content: issueContent } = matter(issue.body || '')
 
-    const message: GuestbookMessage = {
+    const message: Message = {
       id: String(issue.number),
       author: {
         name: frontMatter.name,
@@ -221,7 +221,7 @@ export async function getMessages(
 /**
  * 获取回复列表
  */
-export async function getReplies(issueNumber: number): Promise<GuestbookReply[]> {
+export async function getReplies(issueNumber: number): Promise<MessageReply[]> {
   const { data: comments } = await octokit.issues.listComments({
     owner: OWNER,
     repo: REPO,
@@ -231,7 +231,7 @@ export async function getReplies(issueNumber: number): Promise<GuestbookReply[]>
   return comments.map((comment) => {
     const { data: frontMatter, content: commentContent } = matter(comment.body || '')
 
-    const reply: GuestbookReply = {
+    const reply: MessageReply = {
       id: String(comment.id),
       author: {
         name: frontMatter.name,

@@ -7,18 +7,18 @@ import Image from 'next/image'
 // import { UABadge } from './ua-badge'
 import { RelativeTime } from '../relative-time'
 import { CollapsibleContent } from './collapsible-content'
-import { parseGuestbook } from '@/lib/markdown'
+import { parseMessage } from '@/lib/markdown'
 import type { ReactNode } from 'react'
 
-import type { GuestbookMessage } from '@/lib/guestbook'
+import type { Message } from '@/lib/messages'
 
 interface MessageCardProps {
-  message: GuestbookMessage
+  message: Message
   actions?: ReactNode
 }
 
 export async function MessageCard({ message, actions }: MessageCardProps) {
-  const html = await parseGuestbook(message.content)
+  const html = await parseMessage(message.content)
   const authorName = message.author.name || '匿名'
   const firstChar = authorName.charAt(0)
 

@@ -11,7 +11,7 @@ import { Button } from '../button'
 import { SendIcon } from '@/icons/send'
 import { XIcon } from '@/icons/x'
 import { EmojiPicker } from './emoji-picker'
-import type { CreateReplyRequest, ApiResponse } from '@/lib/guestbook'
+import type { CreateReplyRequest, ApiResponse } from '@/lib/messages'
 
 interface ReplyFormProps {
   messageId: string
@@ -81,7 +81,7 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
         if (formData.email.trim()) requestBody.email = formData.email.trim()
         if (formData.website.trim()) requestBody.website = formData.website.trim()
 
-        const response = await fetch('/api/guestbook/replies', {
+        const response = await fetch('/api/messages/replies', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(requestBody),

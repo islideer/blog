@@ -13,7 +13,7 @@ export const dynamic = 'force-static'
 export const contentType = 'image/png'
 
 export async function generateAlt(): Promise<string> {
-  return pages.guestbook.title
+  return pages.messages.title
 }
 
 export default async function Image() {
@@ -36,7 +36,7 @@ export default async function Image() {
 
   return new ImageResponse(
     <OgImageTemplate
-      title={pages.guestbook.title}
+      title={pages.messages.title}
       iconData={Buffer.from(iconData)}
       bodyContent={
         <div
@@ -56,7 +56,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            {pages.guestbook.description}
+            {pages.messages.description}
           </div>
 
           {/* 提示文字 */}
@@ -68,7 +68,7 @@ export default async function Image() {
               fontWeight: 400,
             }}
           >
-            欢迎留言交流，分享你的想法和建议
+            说点什么，聊聊天，分享你的想法和故事
           </div>
         </div>
       }

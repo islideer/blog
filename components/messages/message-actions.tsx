@@ -13,15 +13,15 @@ import { XIcon } from '@/icons/x'
 import { ChevronUpIcon } from '../../icons/chevron-up'
 import { ChevronDownIcon } from '../../icons/chevron-down'
 import { CollapsibleContent } from './collapsible-content'
-import { UABadge } from './ua-badge'
+// import { UABadge } from './ua-badge'
 import { RelativeTime } from '../relative-time'
 import { ReplyForm } from './reply-form'
-import type { GuestbookReply } from '@/lib/guestbook'
+import type { MessageReply } from '@/lib/messages'
 
 interface MessageActionsProps {
   messageId: string
   replyCount: number
-  replies: GuestbookReply[]
+  replies: MessageReply[]
   replyHtmls: string[]
 }
 
@@ -127,7 +127,7 @@ export function MessageActions({
 
                     <div className="text-text-tertiary mt-0.5 flex items-center gap-1.5 text-xs">
                       <RelativeTime date={reply.createdAt} />
-                      {reply.ua && <UABadge ua={reply.ua} />}
+                      {/* {reply.ua && <UABadge ua={reply.ua} />} */}
                     </div>
                   </div>
                 </div>

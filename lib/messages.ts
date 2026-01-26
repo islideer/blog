@@ -1,10 +1,10 @@
 /**
  * 留言板类型定义
- * Guestbook Type Definitions
+ * Messages Type Definitions
  */
 
 /** 留言作者信息 */
-export interface GuestbookAuthor {
+export interface MessageAuthor {
   name?: string // 可选，默认 "匿名"
   email?: string // 可选
   website?: string // 可选
@@ -12,20 +12,20 @@ export interface GuestbookAuthor {
 }
 
 /** 留言主体 */
-export interface GuestbookMessage {
+export interface Message {
   id: string // Issue number
-  author: GuestbookAuthor
+  author: MessageAuthor
   content: string // Markdown 内容（必填）
   createdAt: string // ISO 8601
   replyCount: number
   ua?: string // 原始 User-Agent 字符串（渲染时解析）
-  replies?: GuestbookReply[] // 回复列表（可选加载）
+  replies?: MessageReply[] // 回复列表（可选加载）
 }
 
 /** 回复 */
-export interface GuestbookReply {
+export interface MessageReply {
   id: string // Comment ID
-  author: GuestbookAuthor
+  author: MessageAuthor
   content: string // Markdown 内容
   createdAt: string // ISO 8601
   ua?: string // 原始 User-Agent 字符串（渲染时解析）
@@ -33,7 +33,7 @@ export interface GuestbookReply {
 
 /** 留言列表响应 */
 export interface GetMessagesResponse {
-  messages: GuestbookMessage[]
+  messages: Message[]
   total: number
   page: number
   perPage: number

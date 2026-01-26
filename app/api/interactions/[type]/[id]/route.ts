@@ -2,6 +2,7 @@ import crypto from 'node:crypto'
 import { kv } from '@vercel/kv'
 import { getInteractionConfig } from '@/lib/interactions'
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 
 interface RouteParams {
   params: Promise<{
@@ -85,6 +86,9 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     // 批量原子性自增总计数
     const countKey = `interaction:${type}:${id}:count`
     const newCount = await kv.incrby(countKey, actualClickCount)
+
+    // 触发路径重新验证以更新缓存
+    revalidatePath(`/interactions/${type}`)
 
     // 批量自增用户点击次数
     const newUserClickCount = await kv.incrby(ipCountKey, actualClickCount)

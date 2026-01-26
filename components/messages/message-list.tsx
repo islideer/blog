@@ -7,8 +7,8 @@ import Link from 'next/link'
 import { MessageCard } from './message-card'
 import { MessageActions } from './message-actions'
 // import { ReplyList } from './reply-list'
-import { getMessages } from '@/lib/guestbook-github'
-import { parseGuestbook } from '@/lib/markdown'
+import { getMessages } from '@/lib/messages-github'
+import { parseMessage } from '@/lib/markdown'
 
 interface MessageListProps {
   page?: number
@@ -23,7 +23,7 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
     messages.map(async (message) => {
       if (message.replies && message.replies.length > 0) {
         const replyHtmls = await Promise.all(
-          message.replies.map((reply) => parseGuestbook(reply.content)),
+          message.replies.map((reply) => parseMessage(reply.content)),
         )
         return { message, replyHtmls }
       }
@@ -40,7 +40,7 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
       {/* 空状态 */}
       {messages.length === 0 && (
         <div className="rounded-lg border border-border bg-bg-secondary p-8 text-center">
-          <p className="text-text-secondary text-sm">还没有留言，来留下第一条吧！</p>
+          <p className="text-text-secondary text-sm">还没有留言呢，来留下第一条吧！</p>
         </div>
       )}
 
@@ -67,7 +67,7 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
         <div className="flex items-center justify-center gap-3">
           {hasPrevPage && (
             <Link
-              href={`/guestbook?page=${page - 1}`}
+              href={`/messages?page=${page - 1}`}
               className="rounded-md border border-border px-3 py-1.5 text-xs text-text-secondary transition hover:bg-bg-secondary hover:text-text-primary"
             >
               ← 上一页
@@ -80,7 +80,7 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
 
           {hasNextPage && (
             <Link
-              href={`/guestbook?page=${page + 1}`}
+              href={`/messages?page=${page + 1}`}
               className="rounded-md border border-border px-3 py-1.5 text-xs text-text-secondary transition hover:bg-bg-secondary hover:text-text-primary"
             >
               下一页 →
