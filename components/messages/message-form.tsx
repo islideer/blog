@@ -5,6 +5,7 @@
 
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 import { Button } from '../button'
 import { SendIcon } from '@/icons/send'
@@ -26,6 +27,7 @@ function SubmitButton({ disabled }: { disabled: boolean }) {
 }
 
 export function MessageForm() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -84,6 +86,9 @@ export function MessageForm() {
     })
 
     formRef.current?.reset()
+
+    // 刷新服务端组件数据（触发重新渲染）
+    router.refresh()
   }
 
   const contentLength = formData.content.length

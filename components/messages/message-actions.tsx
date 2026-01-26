@@ -5,6 +5,7 @@
 
 'use client'
 
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { useState } from 'react'
 import { Button } from '../button'
@@ -31,12 +32,14 @@ export function MessageActions({
   replies,
   replyHtmls,
 }: MessageActionsProps) {
+  const router = useRouter()
   const [showReplyForm, setShowReplyForm] = useState(false)
   const [showReplies, setShowReplies] = useState(false)
 
   const handleReplySuccess = () => {
     setShowReplyForm(false)
-    window.location.reload()
+    // 刷新服务端组件数据（触发重新渲染）
+    router.refresh()
   }
 
   return (
