@@ -8,9 +8,9 @@ import { FlowerIcon } from '../icons/flower'
 import { CheersIcon } from '../icons/cheers'
 import { ClientCounterUp } from './client-counter-up'
 import { HeartFilledIcon } from '@/icons/heart-filled'
-import { useInteractions } from './interactions-provider'
 import { usePrevious, useStableFn } from '@shined/react-use'
 import { useState, useTransition, useEffect, useRef } from 'react'
+import { submitInteraction } from '@/actions/interactions'
 import { getInteractionConfig, getUserClickCount, recordUserClick } from '@/lib/interactions'
 
 // 图标映射表（易于扩展）
@@ -30,12 +30,20 @@ const FILLED_ICON_MAP: Record<string, React.ComponentType<{ className?: string }
 interface InteractionButtonProps {
   id: string
   type: string // 完全开放，不限制类型
+  initialCount?: number // 服务端传入的初始计数
   className?: string
   iconClassName?: string
+  revalidatePagePath?: string // 提交后需要重新验证的页面路径
 }
 
-export function InteractionButton({ id, type, className, iconClassName }: InteractionButtonProps) {
-  const { counts } = useInteractions()
+export function InteractionButton({
+  id,
+  type,
+  initialCount = 0,
+  className,
+  iconClassName,
+  revalidatePagePath,
+}: InteractionButtonProps) {
   const [localCount, setLocalCount] = useState<number | null>(null)
   const [userClickCount, setUserClickCount] = useState(0)
   const [isPending, startTransition] = useTransition()
@@ -55,33 +63,25 @@ export function InteractionButton({ id, type, className, iconClassName }: Intera
     setUserClickCount(count)
   }, [type, id])
 
-  const displayCount = localCount ?? counts[id] ?? 0
+  const displayCount = localCount ?? initialCount
 
-  // 批量提交点击
+  // 批量提交点击（使用 Server Action）
   const submitBatch = useStableFn(async (clickCount: number) => {
     setIsSubmitting(true)
     pendingClicksRef.current = 0
 
     try {
-      const response = await fetch(`/api/interactions/${type}/${id}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ count: clickCount }),
-      })
+      const result = await submitInteraction(type, id, clickCount, revalidatePagePath)
 
-      const data = await response.json()
-
-      if (!response.ok) {
+      if (!result.ok) {
         // 回滚乐观更新
         const rollbackCount = clickCount
         setLocalCount((prev) => (prev !== null ? prev - rollbackCount : displayCount))
 
-        if (response.status === 429) {
+        if (result.error === '点击次数已达上限') {
           // 今天已达到限制，使用服务端返回的用户点击次数
-          if (typeof data.userClickCount === 'number') {
-            setUserClickCount(data.userClickCount)
+          if (typeof result.userClickCount === 'number') {
+            setUserClickCount(result.userClickCount)
           }
           toast.error('今天点过了哦，明天再来吧～')
         } else {
@@ -95,9 +95,9 @@ export function InteractionButton({ id, type, className, iconClassName }: Intera
 
       // 同步服务端真实计数和用户点击次数
       startTransition(() => {
-        setLocalCount(data.count)
-        if (typeof data.userClickCount === 'number') {
-          setUserClickCount(data.userClickCount)
+        setLocalCount(result.count)
+        if (typeof result.userClickCount === 'number') {
+          setUserClickCount(result.userClickCount)
         }
         setIsSubmitting(false)
       })

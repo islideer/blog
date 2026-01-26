@@ -4,15 +4,18 @@ import { InteractionButton } from '../interaction-button'
 
 interface PostLikeProps {
   slug: string
+  initialCount?: number
 }
 
-export function PostLike({ slug }: PostLikeProps) {
+export function PostLike({ slug, initialCount }: PostLikeProps) {
   const icon = (
     <InteractionButton
       id={slug}
       type="posts"
+      initialCount={initialCount}
       className="flex-col justify-start! gap-1 text-lg opacity-48 hover:opacity-100 sm:text-xl"
       iconClassName="text-2xl sm:text-3xl"
+      revalidatePagePath={`/${slug}`}
     />
   )
 

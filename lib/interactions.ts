@@ -1,5 +1,7 @@
 // 通用互动系统 - 配置驱动架构
 
+import { kv } from '@vercel/kv'
+
 export type InteractionType = string // 完全开放，不限制类型
 
 export interface InteractionConfig {
@@ -144,4 +146,34 @@ export function canUserClick(type: string, id: string): boolean {
   const currentCount = getUserClickCount(type, id)
 
   return currentCount < maxClicks
+}
+
+// ==================== 服务端数据访问 ====================
+
+/**
+ * 批量获取互动计数（服务端专用）
+ * @param type - 互动类型
+ * @param ids - ID 列表
+ * @returns ID 到计数的映射
+ */
+export async function getInteractionCounts(
+  type: string,
+  ids: string[],
+): Promise<Record<string, number>> {
+  if (ids.length === 0) {
+    return {}
+  }
+
+  try {
+    // 批量查询计数
+    const keys = ids.map((id) => `interaction:${type}:${id}:count`)
+    const counts = (await kv.mget(...keys)) as (number | null)[]
+
+    // 转换为 { id: count } 格式
+    return Object.fromEntries(ids.map((id, index) => [id, counts[index] ?? 0]))
+  } catch (error) {
+    console.error('[Interactions] Failed to fetch counts:', error)
+    // 降级：返回全 0 计数
+    return Object.fromEntries(ids.map((id) => [id, 0]))
+  }
 }

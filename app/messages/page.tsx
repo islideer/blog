@@ -3,13 +3,14 @@
  * Messages Page
  */
 
-import type { Metadata } from 'next'
 import { pages } from '@/lib/data'
 import { MessageForm } from '@/components/messages/message-form'
 import { MessageList } from '@/components/messages/message-list'
 
-// 缓存 60 秒
-export const revalidate = 60
+import type { Metadata } from 'next'
+
+// 缓存 1 天
+export const revalidate = 86400
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -29,7 +30,7 @@ export default async function MessagesPage({ searchParams }: PageProps) {
   const page = Number(pageParam) || 1
 
   return (
-    <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
+    <div className="space-y-8 pt-8 pb-16 sm:space-y-12 sm:pt-12 sm:pb-24">
       {/* 页面标题 */}
       <section className="space-y-3" id="title">
         <h1 className="text-3xl font-bold">{pages.messages.title}</h1>

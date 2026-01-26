@@ -6,9 +6,8 @@
 import Link from 'next/link'
 import { MessageCard } from './message-card'
 import { MessageActions } from './message-actions'
-// import { ReplyList } from './reply-list'
-import { getMessages } from '@/lib/messages-github'
 import { parseMessage } from '@/lib/markdown'
+import { getMessages } from '@/lib/messages-github'
 
 interface MessageListProps {
   page?: number
@@ -16,6 +15,7 @@ interface MessageListProps {
 }
 
 export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) {
+  // 直接调用数据层（Next.js 自动缓存）
   const { messages, total } = await getMessages(page, perPage, true)
 
   // 预渲染所有回复的 HTML（批量处理）
@@ -39,7 +39,7 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
     <div className="space-y-6">
       {/* 空状态 */}
       {messages.length === 0 && (
-        <div className="rounded-lg border border-border bg-bg-secondary p-8 text-center">
+        <div className="border-border bg-bg-secondary rounded-lg border p-8 text-center">
           <p className="text-text-secondary text-sm">还没有留言呢，来留下第一条吧！</p>
         </div>
       )}
@@ -68,20 +68,20 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
           {hasPrevPage && (
             <Link
               href={`/messages?page=${page - 1}`}
-              className="rounded-md border border-border px-3 py-1.5 text-xs text-text-secondary transition hover:bg-bg-secondary hover:text-text-primary"
+              className="border-border text-text-secondary hover:bg-bg-secondary hover:text-text-primary rounded-md border px-3 py-1.5 text-xs transition"
             >
               ← 上一页
             </Link>
           )}
 
-          <span className="text-xs text-text-tertiary">
+          <span className="text-text-tertiary text-xs">
             第 {page} 页 / 共 {totalPages} 页
           </span>
 
           {hasNextPage && (
             <Link
               href={`/messages?page=${page + 1}`}
-              className="rounded-md border border-border px-3 py-1.5 text-xs text-text-secondary transition hover:bg-bg-secondary hover:text-text-primary"
+              className="border-border text-text-secondary hover:bg-bg-secondary hover:text-text-primary rounded-md border px-3 py-1.5 text-xs transition"
             >
               下一页 →
             </Link>

@@ -5,13 +5,14 @@
 
 'use client'
 
-import { useState, useTransition, useRef } from 'react'
+import { useState, useRef } from 'react'
+import { useFormStatus } from 'react-dom'
 import { toast } from 'sonner'
 import { Button } from '../button'
 import { SendIcon } from '@/icons/send'
 import { XIcon } from '@/icons/x'
 import { EmojiPicker } from './emoji-picker'
-import type { CreateReplyRequest, ApiResponse } from '@/lib/messages'
+import { submitReply } from '@/actions/messages'
 
 interface ReplyFormProps {
   messageId: string
@@ -19,8 +20,18 @@ interface ReplyFormProps {
   onCancel?: () => void
 }
 
+function SubmitButton({ disabled }: { disabled: boolean }) {
+  const { pending } = useFormStatus()
+
+  return (
+    <Button type="submit" size="sm" disabled={pending || disabled}>
+      {pending ? '提交中...' : '提交回复'}
+      {!pending && <SendIcon className="h-3.5 w-3.5" />}
+    </Button>
+  )
+}
+
 export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
-  const [isPending, startTransition] = useTransition()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,6 +39,7 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
     content: '',
   })
 
+  const formRef = useRef<HTMLFormElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -57,69 +69,40 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
     }, 0)
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async (formDataObj: FormData) => {
+    const result = await submitReply(formDataObj)
 
-    if (!formData.content.trim()) {
-      toast.error('请填写回复内容')
+    if (!result.success) {
+      toast.error(result.message || result.error || '回复失败')
       return
     }
 
-    if (formData.content.length > 1000) {
-      toast.error('回复内容不能超过 1000 字符')
-      return
-    }
+    toast.success('回复提交成功！')
 
-    startTransition(async () => {
-      try {
-        const requestBody: CreateReplyRequest = {
-          messageId,
-          content: formData.content,
-        }
-
-        if (formData.name.trim()) requestBody.name = formData.name.trim()
-        if (formData.email.trim()) requestBody.email = formData.email.trim()
-        if (formData.website.trim()) requestBody.website = formData.website.trim()
-
-        const response = await fetch('/api/messages/replies', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(requestBody),
-        })
-
-        const result: ApiResponse = await response.json()
-
-        if (!result.ok) {
-          toast.error(result.message || result.error || '回复失败')
-          return
-        }
-
-        toast.success('回复提交成功！')
-
-        // 清空表单
-        setFormData({
-          name: '',
-          email: '',
-          website: '',
-          content: '',
-        })
-
-        // 调用成功回调
-        if (onSuccess) onSuccess()
-      } catch (error) {
-        console.error('Error submitting reply:', error)
-        toast.error('回复失败，请稍后重试')
-      }
+    // 清空表单
+    setFormData({
+      name: '',
+      email: '',
+      website: '',
+      content: '',
     })
+
+    formRef.current?.reset()
+
+    // 调用成功回调
+    if (onSuccess) onSuccess()
   }
 
   const contentLength = formData.content.length
 
   return (
     <form
-      onSubmit={handleSubmit}
-      className="border-border bg-bg-secondary space-y-4 rounded-lg border p-4"
+      ref={formRef}
+      action={handleSubmit}
+      className="border-border space-y-4 rounded-lg border p-4"
     >
+      {/* 隐藏字段：messageId */}
+      <input type="hidden" name="messageId" value={messageId} />
       <div className="no-focus grid grid-cols-1 gap-2 sm:grid-cols-3">
         <div className="flex items-center gap-2">
           <label htmlFor="reply-name" className="text-text-secondary shrink-0 text-xs sm:text-sm">
@@ -200,10 +183,7 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
             </Button>
           )}
 
-          <Button type="submit" size="sm" disabled={isPending || !formData.content.trim()}>
-            {isPending ? '提交中...' : '提交回复'}
-            {!isPending && <SendIcon className="h-3.5 w-3.5" />}
-          </Button>
+          <SubmitButton disabled={!formData.content.trim()} />
         </div>
       </div>
     </form>

@@ -2,6 +2,8 @@ import { ThoughtCard, ThoughtItem } from '@/components/thoughts/thought-card'
 
 interface ThoughtsListProps {
   thoughts: ThoughtItem[]
+  /** 互动计数数据（ID 到计数的映射） */
+  counts: Record<string, number>
   /** 是否使用 Mio 粉色主题 */
   mioTheme?: boolean
   /** 内容描述前缀（用于图片 alt） */
@@ -17,6 +19,7 @@ interface ThoughtsListProps {
  */
 export async function ThoughtsList({
   thoughts,
+  counts,
   mioTheme = false,
   contentPrefix = '碎碎念',
   emptyMessage = '还没有内容，快来记录吧',
@@ -31,6 +34,7 @@ export async function ThoughtsList({
         <ThoughtCard
           key={thought.id}
           thought={thought}
+          initialCount={counts[thought.id]}
           index={index}
           total={thoughts.length}
           mioTheme={mioTheme}

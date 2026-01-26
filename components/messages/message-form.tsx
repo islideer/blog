@@ -1,6 +1,6 @@
 /**
  * Message Form - 留言表单
- * 支持表情选择、字数统计、乐观更新
+ * 支持表情选择、字数统计、Server Actions
  */
 
 'use client'
@@ -9,14 +9,23 @@ import { toast } from 'sonner'
 import { Button } from '../button'
 import { SendIcon } from '@/icons/send'
 import { EmojiPicker } from './emoji-picker'
-import { useState, useTransition, useRef } from 'react'
-
-import type { CreateMessageRequest, ApiResponse } from '@/lib/messages'
+import { useState, useRef, useEffect } from 'react'
+import { useFormStatus } from 'react-dom'
+import { submitMessage } from '@/actions/messages'
 import { cn } from '@/lib/cn'
 
-export function MessageForm() {
-  const [isPending, startTransition] = useTransition()
+function SubmitButton({ disabled }: { disabled: boolean }) {
+  const { pending } = useFormStatus()
 
+  return (
+    <Button type="submit" size="sm" disabled={pending || disabled} className="ml-auto">
+      {pending ? '提交中...' : '提交留言'}
+      {!pending && <SendIcon className="h-3.5 w-3.5" />}
+    </Button>
+  )
+}
+
+export function MessageForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,6 +33,7 @@ export function MessageForm() {
     content: '',
   })
 
+  const formRef = useRef<HTMLFormElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -55,66 +65,31 @@ export function MessageForm() {
     }, 0)
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async (formData: FormData) => {
+    const result = await submitMessage(formData)
 
-    if (!formData.content.trim()) {
-      toast.error('请填写留言内容')
+    if (!result.success) {
+      toast.error(result.message || result.error || '提交失败')
       return
     }
 
-    if (formData.content.length > 1000) {
-      toast.error('留言内容不能超过 1000 字符')
-      return
-    }
+    toast.success('留言提交成功！')
 
-    startTransition(async () => {
-      try {
-        const requestBody: CreateMessageRequest = {
-          content: formData.content,
-        }
-
-        // 可选字段
-        if (formData.name.trim()) requestBody.name = formData.name.trim()
-        if (formData.email.trim()) requestBody.email = formData.email.trim()
-        if (formData.website.trim()) requestBody.website = formData.website.trim()
-
-        const response = await fetch('/api/messages/messages', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(requestBody),
-        })
-
-        const result: ApiResponse = await response.json()
-
-        if (!result.ok) {
-          toast.error(result.message || result.error || '提交失败')
-          return
-        }
-
-        toast.success('留言提交成功！')
-
-        // 清空表单
-        setFormData({
-          name: '',
-          email: '',
-          website: '',
-          content: '',
-        })
-
-        // 刷新页面数据
-        window.location.reload()
-      } catch (error) {
-        console.error('Error submitting message:', error)
-        toast.error('提交失败，请稍后重试')
-      }
+    // 清空表单
+    setFormData({
+      name: '',
+      email: '',
+      website: '',
+      content: '',
     })
+
+    formRef.current?.reset()
   }
 
   const contentLength = formData.content.length
 
   return (
-    <form onSubmit={handleSubmit} className="border-border space-y-4 rounded-lg border p-6">
+    <form ref={formRef} action={handleSubmit} className="border-border space-y-4 rounded-lg border p-6">
       <div className="no-focus grid grid-cols-1 gap-2 sm:grid-cols-3">
         {/* 姓名（可选） */}
         <div className="flex items-center gap-2">
@@ -199,15 +174,7 @@ export function MessageForm() {
           >
             {contentLength} / 1000
           </span>
-          <Button
-            type="submit"
-            size="sm"
-            disabled={isPending || !formData.content.trim()}
-            className="ml-auto"
-          >
-            {isPending ? '提交中...' : '提交留言'}
-            {!isPending && <SendIcon className="h-3.5 w-3.5" />}
-          </Button>
+          <SubmitButton disabled={!formData.content.trim()} />
         </div>
       </div>
     </form>

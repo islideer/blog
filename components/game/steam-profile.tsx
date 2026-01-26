@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { cn } from '@/lib/cn'
 import { siteConfig } from '@/lib/config'
 import { ClientCounterUp } from '../client-counter-up'
-import { SteamRefreshButton } from './steam-refresh-button'
 
 import type { SteamProfile as SteamProfileType } from '@/lib/steam'
 
@@ -37,8 +36,6 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
           Steam 个人资料
         </h2>
-        {/* 独立的客户端组件处理刷新交互 */}
-        <SteamRefreshButton />
       </div>
 
       <div className="border-border divide-border flex flex-col divide-y rounded-lg border">

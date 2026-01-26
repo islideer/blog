@@ -43,6 +43,21 @@ export function MessageActions({
     <div>
       {/* 按钮行 */}
       <div className="border-border mt-3 flex items-center justify-between border-t pt-3">
+        {replyCount > 0 ? (
+          <Button onClick={() => setShowReplies(!showReplies)} size="sm">
+            {showReplies
+              ? `收起回复${replyCount ? ` (${replyCount.toLocaleString('zh-Hans-CN')})` : ''}`
+              : `展开回复${replyCount ? ` (${replyCount.toLocaleString('zh-Hans-CN')})` : ''}`}
+            {showReplies ? (
+              <ChevronUpIcon className="h-3.5 w-3.5" />
+            ) : (
+              <ChevronDownIcon className="h-3.5 w-3.5" />
+            )}
+          </Button>
+        ) : (
+          <span></span>
+        )}
+
         <Button onClick={() => setShowReplyForm(!showReplyForm)} size="sm">
           {showReplyForm ? (
             <>
@@ -56,19 +71,6 @@ export function MessageActions({
             </>
           )}
         </Button>
-
-        {replyCount > 0 && (
-          <Button onClick={() => setShowReplies(!showReplies)} size="sm">
-            {showReplies
-              ? `收起回复${replyCount ? ` (${replyCount.toLocaleString('zh-Hans-CN')})` : ''}`
-              : `展开回复${replyCount ? ` (${replyCount.toLocaleString('zh-Hans-CN')})` : ''}`}
-            {showReplies ? (
-              <ChevronUpIcon className="h-3.5 w-3.5" />
-            ) : (
-              <ChevronDownIcon className="h-3.5 w-3.5" />
-            )}
-          </Button>
-        )}
       </div>
 
       {/* 回复表单 */}

@@ -151,7 +151,7 @@ iframe {
 }
 
 /* Ensure images have dimensions to prevent layout shift */
-img:not([width]):not([height]) {
+img:not(.emoji):not([width]):not([height]) {
   aspect-ratio: attr(width) / attr(height);
 }
 

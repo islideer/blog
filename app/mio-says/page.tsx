@@ -5,9 +5,11 @@ import { generateCanonicalUrl } from '@/lib/seo'
 import { pages } from '@/lib/data'
 import { countWords } from '@/lib/word-count'
 import { ThoughtsList } from '@/components/thoughts/thoughts-list'
-import { InteractionsProvider } from '@/components/interactions-provider'
+import { getInteractionCounts } from '@/lib/interactions'
 
 import type { Metadata } from 'next'
+
+export const revalidate = 86400 // 缓存 1 天
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -52,6 +54,9 @@ export default async function MioSaysPage() {
   // 提取所有 ID 用于批量加载互动数据
   const ids = sortedMioSays.map((m) => m.id)
 
+  // 服务端直接获取互动计数
+  const counts = await getInteractionCounts('mio-says', ids)
+
   return (
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
@@ -77,18 +82,17 @@ export default async function MioSaysPage() {
       </section>
 
       {/* Mio Says Timeline */}
-      <InteractionsProvider type="mio-says" ids={ids}>
-        <section className="space-y-4">
-          <div className="sm:border-l-2 sm:pl-6" style={{ borderColor: 'var(--color-mio-border)' }}>
-            <ThoughtsList
-              thoughts={sortedMioSays}
-              mioTheme
-              emptyMessage={`${siteConfig.lover.name} 还没有说什么，敬请期待`}
-              contentPrefix={`${siteConfig.lover.name} 说`}
-            />
-          </div>
-        </section>
-      </InteractionsProvider>
+      <section className="space-y-4">
+        <div className="sm:border-l-2 sm:pl-6" style={{ borderColor: 'var(--color-mio-border)' }}>
+          <ThoughtsList
+            thoughts={sortedMioSays}
+            counts={counts}
+            mioTheme
+            emptyMessage={`${siteConfig.lover.name} 还没有说什么，敬请期待`}
+            contentPrefix={`${siteConfig.lover.name} 说`}
+          />
+        </div>
+      </section>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 {
-  "kk": {
-    "name": "扣扣表情",
+  "face": {
+    "name": "小黄脸",
     "items": {
       "惊讶": "https://face.viki.moe/apng/0.png",
       "撇嘴": "https://face.viki.moe/apng/1.png",
@@ -194,9 +194,5 @@
       "玩火": "https://face.viki.moe/apng/426.png",
       "偷感": "https://face.viki.moe/apng/427.png"
     }
-  },
-  "cat": {
-    "name": "cat",
-    "items": {}
   }
 }

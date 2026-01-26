@@ -13,6 +13,7 @@ export interface ThoughtItem {
 
 interface ThoughtCardProps {
   thought: ThoughtItem
+  initialCount?: number
   index: number
   total: number
   /** 是否使用 Mio 粉色主题 */
@@ -28,6 +29,7 @@ interface ThoughtCardProps {
  */
 export async function ThoughtCard({
   thought,
+  initialCount,
   index,
   total,
   mioTheme = false,
@@ -65,7 +67,12 @@ export async function ThoughtCard({
         <span className="text-text-secondary">·</span>
         <RelativeTime date={thought.date} className="text-text-secondary" />
         <span className="text-text-secondary">·</span>
-        <InteractionButton id={thought.id} type={mioTheme ? 'mio-says' : 'thoughts'} />
+        <InteractionButton
+          id={thought.id}
+          type={mioTheme ? 'mio-says' : 'thoughts'}
+          initialCount={initialCount}
+          revalidatePagePath={`/${mioTheme ? 'mio-says' : 'thoughts'}`}
+        />
       </div>
 
       {/* 文本内容 */}

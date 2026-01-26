@@ -37,6 +37,7 @@ function SocialLinks({ className }: { className?: string }) {
         target="_blank"
         rel="noopener noreferrer"
         className="text-text-secondary hover:text-text-primary"
+        title="访问 GitHub 主页"
       >
         GitHub
       </a>
@@ -53,19 +54,10 @@ function SocialLinks({ className }: { className?: string }) {
         href={siteConfig.links.travellings}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-text-secondary hover:text-text-primary hidden sm:inline"
-        title="RSS 订阅"
+        className="text-text-secondary hover:text-text-primary hidden"
+        title="开往，友链接力"
       >
         开往 · 友链接力
-      </a>
-      <a
-        href={siteConfig.links.travellings}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-text-secondary hover:text-text-primary sm:hidden"
-        title="RSS 订阅"
-      >
-        开往
       </a>
     </div>
   )

@@ -20,9 +20,11 @@ import { ArticleContent } from '@/components/post/article-content'
 import { TableOfContents } from '@/components/table-of-contents'
 import { RecommendedPosts } from '@/components/post/recommended-posts'
 import { ZoomImageForArticle } from '@/components/zoom-image'
-import { InteractionsProvider } from '@/components/interactions-provider'
+import { getInteractionCounts } from '@/lib/interactions'
 
 import type { Metadata } from 'next'
+
+export const revalidate = 86400 // 缓存 1 天
 
 export async function generateStaticParams() {
   const slugs = await getAllPostSlugs()
@@ -71,6 +73,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   // 获取推荐文章：最新 3 篇 + 伪随机 2 篇
   const recommendedPosts = await getRecommendedPosts(slug, 5)
 
+  // 服务端直接获取互动计数
+  const counts = await getInteractionCounts('posts', [slug])
+
   // 生成结构化数据
   const blogPostingSchema = generateBlogPostingSchema(post)
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -90,8 +95,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <InteractionsProvider type="posts" ids={[slug]}>
-        <div className="pb-8 sm:pb-12">
+      <div className="pb-8 sm:pb-12">
           <article>
             {/* Article Header */}
             <header className="mb-8 space-y-4 sm:mb-12 sm:space-y-6">
@@ -147,7 +151,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Post Like */}
           <div className="mt-8">
-            <PostLike slug={slug} />
+            <PostLike slug={slug} initialCount={counts[slug]} />
           </div>
 
           <div className="border-border mt-8 flex justify-center border-t pt-8">
@@ -159,7 +163,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Recommended Posts */}
           <RecommendedPosts posts={recommendedPosts} />
         </div>
-      </InteractionsProvider>
 
       {/* Table of Contents */}
       <TableOfContents />

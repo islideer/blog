@@ -11,6 +11,7 @@ import { getSteamProfile, getLibraryGames, getRecentlyPlayed, getCS2Inventory } 
 import { getHokSkins } from '@/lib/hok'
 
 import type { Metadata } from 'next'
+import { RefreshButton } from '@/components/refresh-button'
 
 export const metadata: Metadata = {
   title: pages.game.title,
@@ -67,7 +68,10 @@ export default async function GamePage() {
       <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
         {/* Header */}
         <section className="space-y-3" id="title">
-          <h1 className="text-3xl font-bold">{pages.game.title}</h1>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+            <h1 className="text-3xl font-bold">{pages.game.title}</h1>
+            <RefreshButton />
+          </div>
           <p className="text-text-secondary">{`${pages.game.description}。`}</p>
         </section>
 

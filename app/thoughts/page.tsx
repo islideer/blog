@@ -5,9 +5,11 @@ import { pages } from '@/lib/data'
 
 import { countWords } from '@/lib/word-count'
 import { ThoughtsList } from '@/components/thoughts/thoughts-list'
-import { InteractionsProvider } from '@/components/interactions-provider'
+import { getInteractionCounts } from '@/lib/interactions'
 
 import type { Metadata } from 'next'
+
+export const revalidate = 86400 // 缓存 1 天
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -57,6 +59,9 @@ export default async function ThoughtsPage() {
   // 提取所有 ID 用于批量加载互动数据
   const ids = sortedThoughts.map((t) => t.id)
 
+  // 服务端直接获取互动计数
+  const counts = await getInteractionCounts('thoughts', ids)
+
   return (
     <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
@@ -70,13 +75,12 @@ export default async function ThoughtsPage() {
       {/* Thoughts Timeline */}
       <section className="space-y-4">
         <div className="border-border-tertiary sm:border-l-2 sm:pl-6">
-          <InteractionsProvider type="thoughts" ids={ids}>
-            <ThoughtsList
-              thoughts={sortedThoughts}
-              emptyMessage="还没有碎碎念，快来记录吧"
-              contentPrefix="碎碎念"
-            />
-          </InteractionsProvider>
+          <ThoughtsList
+            thoughts={sortedThoughts}
+            counts={counts}
+            emptyMessage="还没有碎碎念，快来记录吧"
+            contentPrefix="碎碎念"
+          />
         </div>
       </section>
     </div>
