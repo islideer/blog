@@ -185,36 +185,37 @@ export async function getMessages(
     }
   }
 
-  const messages: Message[] = []
+  // 并发获取并解析留言内容
+  const messages: Message[] = await Promise.all(
+    issues.map(async (issue) => {
+      const { data: frontMatter, content: issueContent } = matter(issue.body || '')
 
-  for (const issue of issues) {
-    const { data: frontMatter, content: issueContent } = matter(issue.body || '')
+      const message: Message = {
+        id: String(issue.number),
+        author: {
+          name: frontMatter.name,
+          email: frontMatter.email,
+          website: frontMatter.website,
+          avatar: frontMatter.avatar,
+        },
+        content: issueContent,
+        createdAt: frontMatter.created_at,
+        replyCount: issue.comments,
+      }
 
-    const message: Message = {
-      id: String(issue.number),
-      author: {
-        name: frontMatter.name,
-        email: frontMatter.email,
-        website: frontMatter.website,
-        avatar: frontMatter.avatar,
-      },
-      content: issueContent,
-      createdAt: frontMatter.created_at,
-      replyCount: issue.comments,
-    }
+      // 可选：保存原始 UA 字符串
+      if (frontMatter.ua) {
+        message.ua = frontMatter.ua as string
+      }
 
-    // 可选：保存原始 UA 字符串
-    if (frontMatter.ua) {
-      message.ua = frontMatter.ua as string
-    }
+      // 可选：加载回复
+      if (withReplies && issue.comments > 0) {
+        message.replies = await getReplies(issue.number)
+      }
 
-    // 可选：加载回复
-    if (withReplies && issue.comments > 0) {
-      message.replies = await getReplies(issue.number)
-    }
-
-    messages.push(message)
-  }
+      return message
+    }),
+  )
 
   return { messages, total }
 }
