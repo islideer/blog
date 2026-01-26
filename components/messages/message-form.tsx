@@ -108,7 +108,7 @@ export function MessageForm() {
             value={formData.name}
             onChange={handleChange}
             maxLength={50}
-            placeholder="可选"
+            placeholder="可选，用于展示身份"
             className="input flex-1 text-xs sm:text-sm"
           />
         </div>
@@ -140,7 +140,7 @@ export function MessageForm() {
             type="url"
             value={formData.website}
             onChange={handleChange}
-            placeholder="可选"
+            placeholder="可选，用于引导访问"
             className="input flex-1 text-xs sm:text-sm"
           />
         </div>
@@ -166,13 +166,13 @@ export function MessageForm() {
       <div className="flex items-center justify-between gap-3">
         <div className="text-text-tertiary flex items-center gap-2">
           <EmojiPicker onSelect={handleEmojiSelect} />
-          <span className="text-xs">支持 Markdown、表情包、剧透语法</span>
+          <span className="hidden text-xs sm:inline">支持 Markdown、表情包、剧透语法</span>
         </div>
 
         <div className="flex items-center gap-2">
           <span
             className={cn(
-              'text-xs',
+              'hidden text-xs sm:inline',
               contentLength > 1000 ? 'text-text-primary' : 'text-text-tertiary',
             )}
           >

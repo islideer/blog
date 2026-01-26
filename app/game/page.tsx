@@ -5,11 +5,11 @@ import { CS2Inventory } from '@/components/game/cs2-inventory'
 import { HokSkins } from '@/components/game/hok-skins'
 import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
+import { getHokSkins } from '@/lib/hok'
 import { RefreshButton } from '@/components/refresh-button'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { getSteamProfile, getLibraryGames, getRecentlyPlayed, getCS2Inventory } from '@/lib/steam'
-import { getHokSkins } from '@/lib/hok'
 
 import type { Metadata } from 'next'
 
@@ -70,7 +70,7 @@ export default async function GamePage() {
       <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
         {/* Header */}
         <section className="space-y-3" id="title">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <div className="flex items-center justify-between">
             <h1 className="text-3xl font-bold">{pages.game.title}</h1>
             <RefreshButton />
           </div>

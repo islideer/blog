@@ -168,15 +168,6 @@ body {
   }
 }
 
-/* Prevent iOS zoom on input focus */
-@media (max-width: 768px) {
-  input,
-  select,
-  textarea {
-    font-size: 16px !important;
-  }
-}
-
 /* ============================================
    Global Spoiler Styles - ||spoiler text||
    Works both inside and outside .prose

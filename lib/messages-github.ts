@@ -21,10 +21,11 @@ const REPO = process.env.MESSAGES_REPO_NAME || 'blog-messages'
  * 生成 Gravatar 头像 URL
  */
 export function generateGravatarUrl(email?: string): string {
-  if (!email) return 'https://avatar.viki.moe'
+  if (!email) return ''
 
   const hash = crypto.createHash('md5').update(email.toLowerCase().trim()).digest('hex')
-  return `https://gravatar.com/avatar/${hash}?d=identicon&s=80`
+  // return `https://gravatar.com/avatar/${hash}?d=identicon&s=80`
+  return `https://weavatar.com/avatar/${hash}?d=identicon&s=80`
 }
 
 /**
