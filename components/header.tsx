@@ -167,6 +167,7 @@ export function Header() {
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
                     'block px-4 py-2 text-xs',
                   )}
+                  onClick={() => setIsMoreOpen(false)}
                 >
                   话匣子
                 </Link>
