@@ -9,7 +9,7 @@ import { toast } from 'sonner'
 import { Button } from '../button'
 import { SendIcon } from '@/icons/send'
 import { EmojiPicker } from './emoji-picker'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { useFormStatus } from 'react-dom'
 import { submitMessage } from '@/actions/messages'
 import { cn } from '@/lib/cn'
@@ -89,7 +89,11 @@ export function MessageForm() {
   const contentLength = formData.content.length
 
   return (
-    <form ref={formRef} action={handleSubmit} className="border-border space-y-4 rounded-lg border p-6">
+    <form
+      ref={formRef}
+      action={handleSubmit}
+      className="border-border space-y-4 rounded-lg border p-6"
+    >
       <div className="no-focus grid grid-cols-1 gap-2 sm:grid-cols-3">
         {/* 姓名（可选） */}
         <div className="flex items-center gap-2">

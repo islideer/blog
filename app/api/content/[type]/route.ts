@@ -3,6 +3,7 @@ import { Octokit } from '@octokit/rest'
 import { NextRequest, NextResponse } from 'next/server'
 import { formatText } from '@/lib/text-formatter'
 import { siteConfig } from '@/lib/config'
+import { revalidatePath } from 'next/cache'
 
 interface ContentItem {
   id: string
@@ -132,6 +133,9 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ typ
       sha: fileData.sha,
       branch: 'main',
     })
+
+    revalidatePath(`/`)
+    revalidatePath(`/${type}`)
 
     return NextResponse.json({
       ok: true,

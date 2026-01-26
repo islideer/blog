@@ -3,12 +3,12 @@ import { dayjs } from '@/lib/dayjs'
 import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 // import { Noto_Serif_SC } from 'next/font/google'
+import { RefreshButton } from '@/components/refresh-button'
 import { ReadingComments } from '@/components/reading/comments'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { getReadingByDate, getLunarInfo } from '@/lib/reading'
 
 import type { Metadata } from 'next'
-import { RefreshButton } from '@/components/refresh-button'
 
 // const notoSerifSC = Noto_Serif_SC({
 //   weight: '400',
@@ -16,6 +16,8 @@ import { RefreshButton } from '@/components/refresh-button'
 //   display: 'swap',
 //   preload: true,
 // })
+
+export const revalidate = 600 // 缓存 10 分钟
 
 export const metadata: Metadata = {
   title: pages.reading.title,

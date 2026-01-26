@@ -6,6 +6,8 @@ import { StaticTableOfContents } from '@/components/table-of-contents'
 
 import type { Metadata } from 'next'
 
+export const revalidate = 86400 // 缓存 1 天
+
 export const metadata: Metadata = {
   title: pages.collection.title,
   description: pages.collection.description,

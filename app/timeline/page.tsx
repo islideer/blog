@@ -3,7 +3,10 @@ import { generateCanonicalUrl } from '@/lib/seo'
 import { timeline } from '@/lib/data'
 import { TimelineView } from '@/components/timeline/timeline-view'
 import { pages } from '@/lib/data'
+
 import type { Metadata } from 'next'
+
+export const revalidate = 86400 // 缓存 1 天
 
 export const metadata: Metadata = {
   title: pages.timeline.title,

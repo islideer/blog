@@ -9,8 +9,7 @@ import { MessageList } from '@/components/messages/message-list'
 
 import type { Metadata } from 'next'
 
-// 缓存 1 天
-export const revalidate = 86400
+export const revalidate = 86400 // 缓存 1 天
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

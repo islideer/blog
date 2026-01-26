@@ -7,6 +7,8 @@ import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
+export const revalidate = 86400 // 缓存 1 天
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: pages.friends.title,

@@ -8,6 +8,8 @@ import { RecentPosts } from '@/components/home/recent-posts'
 import { about, thoughts } from '@/lib/data'
 // import { mioSays, thoughts } from '@/lib/data'
 
+export const revalidate = 86400 // 缓存 1 天
+
 export default async function BlogPage() {
   const blogSchema = generateBlogSchema()
   const organizationSchema = generateOrganizationSchema()

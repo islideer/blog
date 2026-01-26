@@ -6,10 +6,12 @@ import { pages } from '@/lib/data'
 import { getBangumiList } from '@/lib/bangumi'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
+import { RefreshButton } from '@/components/refresh-button'
 import { getDoubanBooks, getDoubanMovies } from '@/lib/douban'
 
 import type { Metadata } from 'next'
-import { RefreshButton } from '@/components/refresh-button'
+
+export const revalidate = 600 // 缓存 10 分钟
 
 export const metadata: Metadata = {
   title: pages.library.title,

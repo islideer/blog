@@ -37,6 +37,8 @@ const YEAR_DESC_MAP = new Map<number, string>([
   [2026, '25 岁'],
 ])
 
+export const revalidate = 86400 // 缓存 1 天
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: pages.posts.title,

@@ -5,13 +5,15 @@ import { CS2Inventory } from '@/components/game/cs2-inventory'
 import { HokSkins } from '@/components/game/hok-skins'
 import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
+import { RefreshButton } from '@/components/refresh-button'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { getSteamProfile, getLibraryGames, getRecentlyPlayed, getCS2Inventory } from '@/lib/steam'
 import { getHokSkins } from '@/lib/hok'
 
 import type { Metadata } from 'next'
-import { RefreshButton } from '@/components/refresh-button'
+
+export const revalidate = 600 // 缓存 10 分钟
 
 export const metadata: Metadata = {
   title: pages.game.title,
