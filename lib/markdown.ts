@@ -208,8 +208,6 @@ export async function parseMessage(content: string): Promise<string> {
   const result = await messageProcessor.process(content)
   const html = String(result)
 
-  console.log(html, '\n', content, '\n\n')
-
   // 缓存管理
   if (htmlCache.size >= MAX_CACHE_SIZE) {
     const firstKey = htmlCache.keys().next().value

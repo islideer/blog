@@ -171,7 +171,7 @@ export async function getMessages(
   const response = await octokit.issues.listForRepo({
     owner: OWNER,
     repo: REPO,
-    labels: 'message',
+    labels: 'message,approved',
     state: 'open',
     sort: 'created',
     direction: 'desc',
@@ -239,26 +239,28 @@ export async function getReplies(issueNumber: number): Promise<MessageReply[]> {
     issue_number: issueNumber,
   })
 
-  return comments.map((comment) => {
-    const { data: frontMatter, content: commentContent } = matter(comment.body || '')
+  return comments
+    .filter((e) => (e.reactions?.['+1'] || 0) > 0)
+    .map((comment) => {
+      const { data: frontMatter, content: commentContent } = matter(comment.body || '')
 
-    const reply: MessageReply = {
-      id: String(comment.id),
-      author: {
-        name: frontMatter.name,
-        email: frontMatter.email,
-        website: frontMatter.website,
-        avatar: frontMatter.avatar,
-      },
-      content: commentContent,
-      createdAt: frontMatter.created_at,
-    }
+      const reply: MessageReply = {
+        id: String(comment.id),
+        author: {
+          name: frontMatter.name,
+          email: frontMatter.email,
+          website: frontMatter.website,
+          avatar: frontMatter.avatar,
+        },
+        content: commentContent,
+        createdAt: frontMatter.created_at,
+      }
 
-    // 可选：保存原始 UA 字符串
-    if (frontMatter.ua) {
-      reply.ua = frontMatter.ua as string
-    }
+      // 可选：保存原始 UA 字符串
+      if (frontMatter.ua) {
+        reply.ua = frontMatter.ua as string
+      }
 
-    return reply
-  })
+      return reply
+    })
 }
