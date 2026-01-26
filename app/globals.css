@@ -1,7 +1,7 @@
-@import './styles/animation.css';
-@import './styles/article.css';
 @import './styles/tailwind.css';
+@import './styles/article.css';
 @import './styles/vars.css';
+@import './styles/animation.css';
 
 /* Root styles */
 :root {

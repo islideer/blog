@@ -111,7 +111,6 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
           <input
             id="reply-name"
             name="name"
-            autoFocus
             type="text"
             value={formData.name}
             onChange={handleChange}
@@ -164,7 +163,7 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
           maxLength={1000}
           rows={4}
           placeholder="写下你的回复..."
-          className="textarea no-focus w-full"
+          className="no-focus w-full"
           required
         />
         <div className="text-text-tertiary mt-1 flex items-center justify-end text-xs">

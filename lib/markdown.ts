@@ -178,13 +178,11 @@ const messageProcessor = unified()
       ...defaultSchema.attributes,
       img: [
         ...(defaultSchema.attributes?.img || []),
-        ['className', 'emoji', 'spoiler'],
         ['loading', 'lazy'],
+        ['className', 'emoji', 'spoiler'],
+        ['referrerPolicy', 'no-referrer'],
       ],
-      span: [
-        ...(defaultSchema.attributes?.span || []),
-        ['className', 'spoiler'],
-      ],
+      span: [...(defaultSchema.attributes?.span || []), ['className', 'spoiler']],
     },
     tagNames: [...(defaultSchema.tagNames || []), 'span'],
   })
@@ -209,6 +207,8 @@ export async function parseMessage(content: string): Promise<string> {
 
   const result = await messageProcessor.process(content)
   const html = String(result)
+
+  console.log(html, '\n', content, '\n\n')
 
   // 缓存管理
   if (htmlCache.size >= MAX_CACHE_SIZE) {

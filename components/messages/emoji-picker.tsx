@@ -44,7 +44,7 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
           <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
 
           {/* 表情选择器 */}
-          <div className="border-border bg-bg-primary absolute bottom-full left-0 z-20 w-80 rounded-lg border py-2 shadow-xl sm:py-3">
+          <div className="border-border bg-bg-primary absolute bottom-full left-0 z-20 w-80 rounded-lg border p-1 shadow-xl">
             {/* 表情网格 */}
             <div className="grid max-h-58.5 grid-cols-8 overflow-y-scroll">
               {Object.entries(activePack.items).map(([emojiName, url]) => (
@@ -52,13 +52,13 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
                   key={emojiName}
                   type="button"
                   onClick={() => handleEmojiClick(activePackId, emojiName)}
-                  className="group hover:bg-bg-secondary flex flex-col items-center rounded p-1 transition-all"
+                  className="hover:bg-bg-secondary flex flex-col items-center rounded p-1 transition"
                   title={emojiName}
                 >
                   <Image
                     src={url}
                     alt={emojiName}
-                    className="h-8 w-8 object-contain transition-all group-hover:scale-110"
+                    className="h-8 w-8 object-contain transition hover:scale-110"
                     height={32}
                     width={32}
                     loading="lazy"
@@ -69,7 +69,7 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
             </div>
 
             {/* Tab 切换 */}
-            <div className="border-border overflow-x-auto border-b p-2">
+            <div className="overflow-x-auto mt-1">
               <div className="flex flex-nowrap gap-1">
                 {packIds.map((packId) => {
                   const pack = emojiPacks[packId as keyof typeof emojiPacks]

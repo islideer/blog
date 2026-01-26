@@ -104,7 +104,6 @@ export function MessageForm() {
             id="name"
             name="name"
             type="text"
-            autoFocus
             value={formData.name}
             onChange={handleChange}
             maxLength={50}
@@ -147,26 +146,27 @@ export function MessageForm() {
       </div>
 
       {/* 留言内容（必填） */}
-      <div>
-        <textarea
-          ref={textareaRef}
-          id="content"
-          name="content"
-          value={formData.content}
-          onChange={handleChange}
-          maxLength={1000}
-          rows={3}
-          placeholder="留下你的想法和故事..."
-          className="textarea no-focus w-full"
-          required
-        />
-      </div>
+
+      <textarea
+        ref={textareaRef}
+        id="content"
+        name="content"
+        value={formData.content}
+        onChange={handleChange}
+        maxLength={1000}
+        rows={3}
+        placeholder="留下你的想法和故事..."
+        className="no-focus w-full"
+        required
+      />
 
       {/* 操作按钮 */}
       <div className="flex items-center justify-between gap-3">
         <div className="text-text-tertiary flex items-center gap-2">
           <EmojiPicker onSelect={handleEmojiSelect} />
-          <span className="hidden text-xs sm:inline">支持 Markdown、表情包、剧透语法（||剧透内容||）</span>
+          <span className="hidden text-xs sm:inline">
+            支持 Markdown、表情包、剧透语法（||剧透内容||）
+          </span>
         </div>
 
         <div className="flex items-center gap-2">

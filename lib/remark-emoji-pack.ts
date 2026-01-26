@@ -50,10 +50,11 @@ const remarkEmojiPack: Plugin<[RemarkEmojiPackOptions?], Root> = (options = {}) 
         const emojiUrl = pack?.items[name as keyof typeof pack.items]
 
         if (emojiUrl) {
+          console.log(emojiUrl);
           // 替换为图片标签
           newNodes.push({
             type: 'html',
-            value: `<img class="${className}" src="${emojiUrl}" alt="${name}" title="${name}" loading="lazy" />`,
+            value: `<img class="${className}" src="${emojiUrl}" alt="${name}" title="${name}" loading="lazy" referrerpolicy="no-referrer" />`,
           } as Html)
         } else {
           // 表情未找到，保留原文
