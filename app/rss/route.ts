@@ -39,7 +39,7 @@ export async function GET() {
       id: `${siteConfig.url}/${post.slug}`,
       link: `${siteConfig.url}/${post.slug}`,
       description: post.excerpt,
-      content: post.excerpt, // 可以考虑添加完整内容
+      content: `${post.excerpt}<br /><a href="${siteConfig.url}/${post.slug}" rel="nofollow noopener noreferrer" target="_blank">阅读全文 &raquo;</a>`,
       author: [
         {
           name: siteConfig.author.name,
