@@ -1,6 +1,7 @@
 // 通用互动系统 - 配置驱动架构
 
 import { kv } from '@vercel/kv'
+import { dayjs, TZ_SHANGHAI } from './dayjs'
 
 export type InteractionType = string // 完全开放，不限制类型
 
@@ -80,8 +81,7 @@ interface UserClickState {
 
 // 获取今天的日期字符串
 function getTodayString(): string {
-  const today = new Date()
-  return today.toISOString().split('T')[0]
+  return dayjs().tz(TZ_SHANGHAI).format('YYYY-MM-DD')
 }
 
 // 从 localStorage 读取用户点击状态
