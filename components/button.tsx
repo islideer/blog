@@ -1,0 +1,42 @@
+/**
+ * Button - 通用按钮组件
+ * 统一样式，支持不同尺寸，children 可包含文本和图标
+ */
+
+import { cn } from '@/lib/cn'
+import { ButtonHTMLAttributes, ReactNode } from 'react'
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  size?: 'sm' | 'md' | 'lg'
+  children: ReactNode
+}
+
+export function Button({ size = 'md', className, children, disabled, ...props }: ButtonProps) {
+  return (
+    <button
+      className={cn(
+        // 基础样式
+        'inline-flex items-center justify-center gap-1.5 rounded-md font-medium transition-all',
+        'text-text-secondary',
+
+        // 只在未 disabled 时生效的交互效果
+        'enabled:hover:bg-bg-secondary enabled:hover:text-text-primary',
+        'enabled:active:bg-bg-secondary enabled:active:text-text-primary enabled:active:scale-90',
+
+        // disabled 状态
+        'disabled:cursor-not-allowed disabled:opacity-50',
+
+        // 尺寸样式
+        size === 'sm' && 'px-2 py-1 text-xs',
+        size === 'md' && 'px-2.5 py-1.5 text-xs sm:text-sm',
+        size === 'lg' && 'px-3 py-2 text-sm sm:text-base',
+
+        className,
+      )}
+      disabled={disabled}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+}

@@ -9,8 +9,10 @@ import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeStringify from 'rehype-stringify'
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
 import remarkSpoiler from './remark-spoiler'
 import rehypeZoomImage from './rehype-zoom-image'
+import remarkEmojiPack from './remark-emoji-pack'
 
 /**
  * 统一的 Markdown 解析器（基于 unified）
@@ -144,4 +146,76 @@ export async function parseArticle(content: string): Promise<string> {
  */
 export async function parseMarkdownBatch(contents: string[]): Promise<string[]> {
   return Promise.all(contents.map((content) => parseMarkdown(content)))
+}
+
+/**
+ * 留言板内容处理器
+ * - 启用换行（remark-breaks）
+ * - 剧透语法（remark-spoiler）
+ * - 自定义表情包（remark-emoji-pack）
+ * - 代码高亮（Shiki）
+ * - 安全过滤（rehype-sanitize）
+ */
+const guestbookProcessor = unified()
+  .use(remarkParse)
+  .use(remarkGfm)
+  .use(remarkBreaks)
+  .use(remarkSpoiler)
+  .use(remarkEmojiPack)
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypeRaw)
+  .use(rehypeShiki, {
+    themes: {
+      light: 'one-light',
+      dark: 'one-dark-pro',
+    },
+    defaultColor: false,
+    cssVariablePrefix: '--shiki-',
+  })
+  .use(rehypeSanitize, {
+    ...defaultSchema,
+    attributes: {
+      ...defaultSchema.attributes,
+      img: [
+        ...(defaultSchema.attributes?.img || []),
+        ['className', 'emoji', 'spoiler'],
+        ['loading', 'lazy'],
+      ],
+      span: [
+        ...(defaultSchema.attributes?.span || []),
+        ['className', 'spoiler'],
+      ],
+    },
+    tagNames: [...(defaultSchema.tagNames || []), 'span'],
+  })
+  .use(rehypeExternalLinks, {
+    target: '_blank',
+    rel: ['noopener', 'noreferrer'],
+  })
+  .use(rehypeStringify)
+
+/**
+ * 解析留言板 Markdown 为 HTML
+ * 用于留言板（启用换行、表情包、剧透、安全过滤）
+ */
+export async function parseGuestbook(content: string): Promise<string> {
+  if (!content || content.trim() === '') {
+    return ''
+  }
+
+  const cacheKey = `guestbook:${content}`
+  const cached = htmlCache.get(cacheKey)
+  if (cached) return cached
+
+  const result = await guestbookProcessor.process(content)
+  const html = String(result)
+
+  // 缓存管理
+  if (htmlCache.size >= MAX_CACHE_SIZE) {
+    const firstKey = htmlCache.keys().next().value
+    if (firstKey) htmlCache.delete(firstKey)
+  }
+  htmlCache.set(cacheKey, html)
+
+  return html
 }

@@ -98,9 +98,14 @@ a[target='_blank']:not(.no-icon):not(:has(> img))::after {
 }
 
 /* Focus styles - Enhanced for better visibility */
-:focus-visible {
-  outline: 2px solid var(--color-text-primary);
-  border-radius: var(--radius-sm);
+:not(.no-focus):focus-visible {
+  outline: 2px solid var(--color-text-secondary);
+  border-radius: var(--radius-xs);
+}
+
+.no-focus,
+.no-focus * {
+  outline: none !important;
 }
 
 /* Header logo link without underline */
@@ -261,4 +266,30 @@ html.dark .spoiler:focus {
     backdrop-filter: blur(8px) brightness(0.8) contrast(0.7);
     content: '';
   }
+}
+
+/* ============================================
+   Guestbook Styles - Emoji and Stickers
+   留言板样式 - 表情和贴纸
+   ============================================ */
+
+/* Emoji styles - 表情样式 */
+.emoji {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  object-fit: contain;
+  margin: 0 0.1em;
+}
+
+/* Sticker styles - 贴纸样式 */
+.sticker {
+  display: inline-block;
+  width: auto;
+  max-width: 8em; /* 限制最大宽度 */
+  height: auto;
+  vertical-align: middle;
+  object-fit: contain;
+  margin: 0 0.2em;
 }

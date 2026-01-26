@@ -1,0 +1,253 @@
+/**
+ * GitHub API 封装 - 留言板数据层
+ * 使用私有仓库的 GitHub Issues 存储留言数据
+ */
+
+import { Octokit } from '@octokit/rest'
+import matter from 'gray-matter'
+import crypto from 'node:crypto'
+import type { GuestbookAuthor, GuestbookMessage, GuestbookReply } from './guestbook'
+
+// Octokit 实例
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+})
+
+// 仓库配置
+const OWNER = process.env.GUESTBOOK_REPO_OWNER || 'vikiboss'
+const REPO = process.env.GUESTBOOK_REPO_NAME || 'blog-guestbook'
+
+/**
+ * 生成 Gravatar 头像 URL
+ */
+export function generateGravatarUrl(email?: string): string {
+  if (!email) return 'https://avatar.viki.moe'
+
+  const hash = crypto.createHash('md5').update(email.toLowerCase().trim()).digest('hex')
+  return `https://gravatar.com/avatar/${hash}?d=identicon&s=80`
+}
+
+/**
+ * 获取作者名称（处理匿名用户）
+ */
+export function getAuthorName(author: GuestbookAuthor): string {
+  return author.name?.trim() || '匿名'
+}
+
+/**
+ * 获取作者头像（优先级：自定义 > Gravatar > 空字符串）
+ * 返回空字符串时，渲染组件会使用文字头像（名字首字）
+ */
+export function getAuthorAvatar(author: GuestbookAuthor): string {
+  if (author.avatar) return author.avatar
+  if (author.email) return generateGravatarUrl(author.email)
+  return '' // 返回空字符串，让组件显示文字头像
+}
+
+/**
+ * 检测异常 User-Agent（机器人、爬虫等）
+ */
+export function isSuspiciousUA(uaString: string): boolean {
+  const suspiciousPatterns = [
+    /bot/i,
+    /crawler/i,
+    /spider/i,
+    /curl/i,
+    /wget/i,
+    /python/i,
+    /java(?!script)/i,
+    /scrapy/i,
+    /axios/i,
+    /postman/i,
+  ]
+  return suspiciousPatterns.some((pattern) => pattern.test(uaString))
+}
+
+/**
+ * 截断内容（用于 Issue title）
+ */
+function truncateContent(content: string, maxLength = 50): string {
+  // 去除 Markdown 标记
+  const plainText = content.replace(/[#*_`\[\]]/g, '').trim()
+  return plainText.length > maxLength ? plainText.slice(0, maxLength) + '...' : plainText
+}
+
+/**
+ * 创建留言（创建 GitHub Issue）
+ */
+export async function createMessage(
+  author: GuestbookAuthor,
+  content: string,
+  ua?: string,
+): Promise<number> {
+  const authorName = getAuthorName(author)
+  const authorAvatar = getAuthorAvatar(author)
+
+  // 构建 Front Matter
+  const frontMatterData: Record<string, unknown> = {
+    name: authorName,
+    created_at: new Date().toISOString(),
+  }
+
+  if (authorAvatar) frontMatterData.avatar = authorAvatar
+  if (author.email) frontMatterData.email = author.email
+  if (author.website) frontMatterData.website = author.website
+  if (ua) frontMatterData.ua = ua
+
+  // 序列化 Front Matter + 内容
+  const body = matter.stringify(content, frontMatterData)
+
+  // 生成 Issue title
+  const title = `${authorName}：${truncateContent(content)}`
+
+  // 创建 Issue
+  const { data } = await octokit.issues.create({
+    owner: OWNER,
+    repo: REPO,
+    title,
+    body,
+    labels: ['guestbook'],
+  })
+
+  return data.number
+}
+
+/**
+ * 创建回复（创建 GitHub Issue Comment）
+ */
+export async function createReply(
+  issueNumber: number,
+  author: GuestbookAuthor,
+  content: string,
+  ua?: string,
+): Promise<number> {
+  const authorName = getAuthorName(author)
+  const authorAvatar = getAuthorAvatar(author)
+
+  // 构建 Front Matter
+  const frontMatterData: Record<string, unknown> = {
+    name: authorName,
+    created_at: new Date().toISOString(),
+  }
+
+  if (authorAvatar) frontMatterData.avatar = authorAvatar
+  if (author.email) frontMatterData.email = author.email
+  if (author.website) frontMatterData.website = author.website
+  if (ua) frontMatterData.ua = ua
+
+  // 序列化 Front Matter + 内容
+  const body = matter.stringify(content, frontMatterData)
+
+  // 创建 Comment
+  const { data } = await octokit.issues.createComment({
+    owner: OWNER,
+    repo: REPO,
+    issue_number: issueNumber,
+    body,
+  })
+
+  return data.id
+}
+
+/**
+ * 获取留言列表
+ */
+export async function getMessages(
+  page = 1,
+  perPage = 10,
+  withReplies = false,
+): Promise<{ messages: GuestbookMessage[]; total: number }> {
+  // 性能优化：一次 API 调用 + 解析响应头获取总数
+  const response = await octokit.issues.listForRepo({
+    owner: OWNER,
+    repo: REPO,
+    labels: 'guestbook',
+    state: 'open',
+    sort: 'created',
+    direction: 'desc',
+    page,
+    per_page: perPage,
+  })
+
+  const issues = response.data
+
+  // 从 Link 响应头解析总数（GitHub API 标准）
+  const linkHeader = response.headers.link
+  let total = issues.length // 默认值
+
+  if (linkHeader) {
+    // 解析 Link: <...?page=5>; rel="last"
+    const lastPageMatch = linkHeader.match(/[?&]page=(\d+)[^>]*>;\s*rel="last"/)
+    if (lastPageMatch) {
+      const lastPage = parseInt(lastPageMatch[1])
+      total = lastPage * perPage // 近似总数（最后一页可能不满）
+    }
+  }
+
+  const messages: GuestbookMessage[] = []
+
+  for (const issue of issues) {
+    const { data: frontMatter, content: issueContent } = matter(issue.body || '')
+
+    const message: GuestbookMessage = {
+      id: String(issue.number),
+      author: {
+        name: frontMatter.name,
+        email: frontMatter.email,
+        website: frontMatter.website,
+        avatar: frontMatter.avatar,
+      },
+      content: issueContent,
+      createdAt: frontMatter.created_at,
+      replyCount: issue.comments,
+    }
+
+    // 可选：保存原始 UA 字符串
+    if (frontMatter.ua) {
+      message.ua = frontMatter.ua as string
+    }
+
+    // 可选：加载回复
+    if (withReplies && issue.comments > 0) {
+      message.replies = await getReplies(issue.number)
+    }
+
+    messages.push(message)
+  }
+
+  return { messages, total }
+}
+
+/**
+ * 获取回复列表
+ */
+export async function getReplies(issueNumber: number): Promise<GuestbookReply[]> {
+  const { data: comments } = await octokit.issues.listComments({
+    owner: OWNER,
+    repo: REPO,
+    issue_number: issueNumber,
+  })
+
+  return comments.map((comment) => {
+    const { data: frontMatter, content: commentContent } = matter(comment.body || '')
+
+    const reply: GuestbookReply = {
+      id: String(comment.id),
+      author: {
+        name: frontMatter.name,
+        email: frontMatter.email,
+        website: frontMatter.website,
+        avatar: frontMatter.avatar,
+      },
+      content: commentContent,
+      createdAt: frontMatter.created_at,
+    }
+
+    // 可选：保存原始 UA 字符串
+    if (frontMatter.ua) {
+      reply.ua = frontMatter.ua as string
+    }
+
+    return reply
+  })
+}
