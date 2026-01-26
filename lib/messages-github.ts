@@ -20,12 +20,21 @@ const REPO = process.env.MESSAGES_REPO_NAME || 'blog-messages'
 /**
  * 生成 Gravatar 头像 URL
  */
-export function generateGravatarUrl(email?: string): string {
+export function generateAvatarUrl(email?: string): string {
   if (!email) return ''
+
+  const qqMailPattern = /^([1-9][0-9]{4,10})@qq\.com$/i
+  const qq = email.match(qqMailPattern)
+
+  if (qq) {
+    const qqNumber = qq[1] || ''
+    return `https://q1.qlogo.cn/g?b=qq&nk=${qqNumber}&s=100`
+  }
 
   const hash = crypto.createHash('md5').update(email.toLowerCase().trim()).digest('hex')
   // return `https://gravatar.com/avatar/${hash}?d=identicon&s=80`
-  return `https://weavatar.com/avatar/${hash}?d=identicon&s=80`
+  // return `https://weavatar.com/avatar/${hash}?d=identicon&s=80`
+  return `https://gravatar.loli.net/avatar/${hash}?d=identicon&s=80`
 }
 
 /**
@@ -41,7 +50,7 @@ export function getAuthorName(author: MessageAuthor): string {
  */
 export function getAuthorAvatar(author: MessageAuthor): string {
   if (author.avatar) return author.avatar
-  if (author.email) return generateGravatarUrl(author.email)
+  if (author.email) return generateAvatarUrl(author.email)
   return '' // 返回空字符串，让组件显示文字头像
 }
 

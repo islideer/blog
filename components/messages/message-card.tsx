@@ -42,6 +42,7 @@ export async function MessageCard({ message, actions }: MessageCardProps) {
             height={36}
             width={36}
             loading="lazy"
+            referrerPolicy="no-referrer"
           />
         )}
 

@@ -237,7 +237,7 @@ const defaultFriends: Friend[] = [
     name: 'Example Friend',
     url: 'https://example.com',
     description: '示例友链，请替换为真实的好朋友。',
-    avatar: 'https://avatar.viki.moe',
+    avatar: 'https://q1.qlogo.cn/g?b=qq&nk=10001&s=100',
     rss: 'https://example.com/rss',
   },
   {

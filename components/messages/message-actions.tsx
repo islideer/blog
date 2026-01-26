@@ -108,6 +108,7 @@ export function MessageActions({
                       height={28}
                       width={28}
                       loading="lazy"
+                      referrerPolicy="no-referrer"
                     />
                   )}
 

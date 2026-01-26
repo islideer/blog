@@ -86,8 +86,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://s2.loli.net" />
         <link rel="preconnect" href="https://i0.hdslb.com" />
         <link rel="dns-prefetch" href="https://i0.hdslb.com" />
-        <link rel="preconnect" href="https://avatar.viki.moe" />
-        <link rel="dns-prefetch" href="https://avatar.viki.moe" />
         <link rel="preconnect" href="https://doubanio.viki.moe" />
         <link rel="dns-prefetch" href="https://doubanio.viki.moe" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
