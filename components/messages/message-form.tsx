@@ -166,7 +166,7 @@ export function MessageForm() {
       <div className="flex items-center justify-between gap-3">
         <div className="text-text-tertiary flex items-center gap-2">
           <EmojiPicker onSelect={handleEmojiSelect} />
-          <span className="hidden text-xs sm:inline">支持 Markdown、表情包、剧透语法</span>
+          <span className="hidden text-xs sm:inline">支持 Markdown、表情包、剧透语法（||剧透内容||）</span>
         </div>
 
         <div className="flex items-center gap-2">
