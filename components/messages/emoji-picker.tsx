@@ -52,13 +52,13 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
                   key={emojiName}
                   type="button"
                   onClick={() => handleEmojiClick(activePackId, emojiName)}
-                  className="group hover:bg-bg-secondary flex flex-col items-center rounded p-1 transition sm:p-2"
+                  className="group hover:bg-bg-secondary flex flex-col items-center rounded p-1 transition-all"
                   title={emojiName}
                 >
                   <Image
                     src={url}
                     alt={emojiName}
-                    className="h-8 w-8 object-contain transition group-hover:scale-110"
+                    className="h-8 w-8 object-contain transition-all group-hover:scale-110"
                     height={32}
                     width={32}
                     loading="lazy"
