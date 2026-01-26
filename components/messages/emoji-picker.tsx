@@ -32,12 +32,7 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
   return (
     <div className="relative flex items-center">
       {/* 触发按钮 */}
-      <Button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        size="sm"
-        aria-label="选择表情"
-      >
+      <Button type="button" onClick={() => setIsOpen(!isOpen)} size="sm" aria-label="选择表情">
         <EmojiIcon className="h-3.5 w-3.5" />
         表情
       </Button>
@@ -67,6 +62,7 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
                     height={32}
                     width={32}
                     loading="lazy"
+                    referrerPolicy="no-referrer"
                   />
                   <span className="text-text-tertiary text-xs">{emojiName}</span>
                 </button>
