@@ -77,7 +77,7 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
       return
     }
 
-    toast.success('回复提交成功！')
+    toast.success('回复提交成功，审核后显示')
 
     // 清空表单
     setFormData({

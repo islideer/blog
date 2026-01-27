@@ -172,11 +172,11 @@ const messageProcessor = unified()
         ...(defaultSchema.attributes?.img || []),
         ['loading', 'lazy'],
         ['className', 'emoji', 'spoiler'],
-        ['referrerPolicy', 'no-referrer'],
+        ['referrerPolicy'],
         ['width'],
         ['height'],
       ],
-      span: [...(defaultSchema.attributes?.span || []), ['className', 'spoiler', 'emoji-text']],
+      span: [...(defaultSchema.attributes?.span || []), ['className', 'spoiler']],
     },
     tagNames: [...(defaultSchema.tagNames || []), 'span'],
   })

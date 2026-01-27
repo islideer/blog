@@ -36,7 +36,7 @@ export type EmojiPacks = Record<string, EmojiPack>
  * 获取表情包的默认尺寸
  */
 export function getEmojiPackSize(pack: EmojiPack): number {
-  return pack.type === 'image' ? pack.size ?? 32 : 0
+  return pack.type === 'image' ? (pack.size ?? 20) : 0
 }
 
 /**

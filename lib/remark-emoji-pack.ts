@@ -24,11 +24,7 @@ export interface RemarkEmojiPackOptions {
  * :kaomoji_开心: → (´▽`)
  */
 const remarkEmojiPack: Plugin<[RemarkEmojiPackOptions?], Root> = (options = {}) => {
-  const {
-    packs = emojiPacks as EmojiPacks,
-    className = 'emoji',
-    textClassName = 'emoji-text',
-  } = options
+  const { packs = emojiPacks as EmojiPacks, className = 'emoji' } = options
 
   return (tree: Root) => {
     visit(tree, 'text', (node: Text, index, parent) => {
