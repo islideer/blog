@@ -270,6 +270,7 @@ html.dark .spoiler:focus {
   vertical-align: text-bottom;
   object-fit: contain;
   margin: 0 0.1em;
+  border-radius: var(--radius-sm);
 }
 
 /* 隐藏滚动条但保持滚动功能 */
