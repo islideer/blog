@@ -45,3 +45,6 @@ next-env.d.ts
 
 # generated
 public/search-index.json
+
+scripts/demo.*
+scripts/imgs.*

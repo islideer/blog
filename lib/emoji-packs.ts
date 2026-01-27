@@ -62,6 +62,6 @@ export function getGridColumns(pack: EmojiPack): number {
   if (size <= 24) return 10
   if (size <= 32) return 8
   if (size <= 48) return 6
-  if (size <= 64) return 5
+  if (size <= 64) return 4
   return 4
 }
