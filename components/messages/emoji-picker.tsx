@@ -71,7 +71,7 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
               >
                 {Object.entries(activePack.items).map(([emojiName, data]) => (
                   <button
-                    key={emojiName}
+                    key={`${activePack.name}_${emojiName}`}
                     type="button"
                     onClick={() => handleEmojiClick(activePackId, emojiName)}
                     className="hover:bg-bg-secondary flex flex-col items-center rounded p-1 transition"
@@ -102,7 +102,7 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
               <div className="flex max-h-58.5 flex-wrap gap-1 overflow-y-auto p-1">
                 {Object.entries(activePack.items).map(([emojiName, data]) => (
                   <button
-                    key={emojiName}
+                    key={`${activePack.name}_${emojiName}`}
                     type="button"
                     onClick={() => handleEmojiClick(activePackId, emojiName)}
                     className="hover:bg-bg-secondary rounded px-2 py-1 text-sm transition"

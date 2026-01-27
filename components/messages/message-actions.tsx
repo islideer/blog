@@ -96,16 +96,16 @@ export function MessageActions({ messageId, replies, replyHtmls }: MessageAction
                 {/* 回复作者 */}
                 <div className="mb-2 flex items-start gap-2.5">
                   {useTextAvatar || !reply.author.avatar ? (
-                    <div className="bg-bg-tertiary text-text-secondary flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-medium">
+                    <div className="bg-bg-tertiary text-text-secondary flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-medium">
                       {firstChar}
                     </div>
                   ) : (
                     <Image
                       src={reply.author.avatar}
                       alt={authorName}
-                      className="h-7 w-7 shrink-0 rounded-full object-cover"
-                      height={28}
-                      width={28}
+                      className="h-9 w-9 shrink-0 rounded-full object-cover"
+                      height={36}
+                      width={36}
                       loading="lazy"
                       referrerPolicy="no-referrer"
                     />
@@ -123,12 +123,12 @@ export function MessageActions({ messageId, replies, replyHtmls }: MessageAction
                           {authorName}
                         </a>
                       ) : (
-                        <div className="flex items-center gap-1 sm:gap-2">
+                        <div className="flex items-center gap-2">
                           <span className="text-text-primary text-sm font-medium">
                             {authorName}
                           </span>
                           {isAuthor && (
-                            <span className="bg-bg-tertiary text-text-primary rounded px-1.5 py-0.5 text-xs font-medium">
+                            <span className="bg-bg-tertiary text-text-primary rounded px-1 py-px text-[10px]">
                               博主
                             </span>
                           )}

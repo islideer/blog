@@ -63,10 +63,10 @@ export async function MessageCard({ message, actions }: MessageCardProps) {
                 {authorName}
               </a>
             ) : (
-              <div className="flex items-center gap-1 sm:gap-2">
+              <div className="flex items-center gap-2">
                 <span className="text-text-primary text-sm font-medium">{authorName}</span>
                 {isAuthor && (
-                  <span className="bg-bg-tertiary text-text-primary rounded px-1.5 py-0.5 text-xs font-medium">
+                  <span className="bg-bg-tertiary text-text-primary rounded px-1 py-px text-[10px]">
                     博主
                   </span>
                 )}
