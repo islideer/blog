@@ -123,12 +123,8 @@ export function MessageForm() {
     <>
       <h2 className="text-text-primary mb-6 font-medium sm:text-lg">说点什么</h2>
 
-      <form
-        ref={formRef}
-        action={handleSubmit}
-        className="border-border space-y-4 rounded-lg border p-6"
-      >
-        <div className="no-focus grid grid-cols-1 gap-2 sm:grid-cols-3">
+      <form ref={formRef} action={handleSubmit} className="border-border rounded-lg border p-4">
+        <div className="no-focus border-border mb-2 grid grid-cols-1 gap-2 border-b pb-2 sm:grid-cols-3">
           {/* 姓名（可选） */}
           <div className="flex items-center gap-2">
             <label htmlFor="name" className="text-text-secondary shrink-0 text-xs sm:text-sm">
@@ -187,8 +183,8 @@ export function MessageForm() {
           name="content"
           value={formData.content}
           onChange={handleChange}
-          maxLength={1000}
-          rows={3}
+          maxLength={1200}
+          rows={5}
           placeholder="留下你的想法和故事..."
           className="no-focus w-full"
           required

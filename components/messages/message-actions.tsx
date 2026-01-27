@@ -81,7 +81,7 @@ export function MessageActions({ messageId, replies, replyHtmls }: MessageAction
 
       {/* 回复列表 */}
       {showReplies && replies.length > 0 && (
-        <div className="border-border mt-3 ml-4 space-y-2 border-l-2 pl-4">
+        <div className="border-border divide-border mt-3 ml-4 space-y-2 divide-y border-l pl-4">
           {replies.map((reply, index) => {
             const authorName = reply.author.name || '匿名'
             const firstChar = authorName.charAt(0)
@@ -92,7 +92,7 @@ export function MessageActions({ messageId, replies, replyHtmls }: MessageAction
             const isAuthor = reply.author.email === siteConfig.author.email
 
             return (
-              <div key={reply.id} className="border-border bg-bg-secondary rounded-lg border p-3">
+              <div key={reply.id} className="bg-bg-primary p-3">
                 {/* 回复作者 */}
                 <div className="mb-2 flex items-start gap-2.5">
                   {useTextAvatar || !reply.author.avatar ? (

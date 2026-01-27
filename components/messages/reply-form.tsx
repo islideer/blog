@@ -127,14 +127,11 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
   const contentLength = formData.content.length
 
   return (
-    <form
-      ref={formRef}
-      action={handleSubmit}
-      className="border-border space-y-4 rounded-lg border p-4"
-    >
+    <form ref={formRef} action={handleSubmit} className="border-border rounded-lg border p-3">
       {/* 隐藏字段：messageId */}
       <input type="hidden" name="messageId" value={messageId} />
-      <div className="no-focus grid grid-cols-1 gap-2 sm:grid-cols-3">
+
+      <div className="no-focus border-border mb-2 grid grid-cols-1 gap-2 border-b pb-2 sm:grid-cols-3">
         <div className="flex items-center gap-2">
           <label htmlFor="reply-name" className="text-text-secondary shrink-0 text-xs sm:text-sm">
             姓名
@@ -191,8 +188,8 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
           name="content"
           value={formData.content}
           onChange={handleChange}
-          maxLength={1000}
-          rows={4}
+          maxLength={800}
+          rows={3}
           placeholder="写下你的回复..."
           className="no-focus w-full"
           required
