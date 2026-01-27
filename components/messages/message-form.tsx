@@ -9,10 +9,11 @@ import { toast } from 'sonner'
 import { Button } from '../button'
 import { SendIcon } from '@/icons/send'
 import { EmojiPicker } from './emoji-picker'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useFormStatus } from 'react-dom'
 import { submitMessage } from '@/actions/messages'
 import { cn } from '@/lib/cn'
+import { loadMessageAuthor, saveMessageAuthor } from '@/lib/storage'
 
 function SubmitButton({ disabled }: { disabled: boolean }) {
   const { pending } = useFormStatus()
@@ -35,6 +36,20 @@ export function MessageForm() {
 
   const formRef = useRef<HTMLFormElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+
+  // 组件挂载时读取存储的作者信息
+  useEffect(() => {
+    const savedAuthor = loadMessageAuthor()
+    if (savedAuthor) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setFormData((prev) => ({
+        ...prev,
+        name: savedAuthor.name || '',
+        email: savedAuthor.email || '',
+        website: savedAuthor.website || '',
+      }))
+    }
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({
@@ -75,15 +90,31 @@ export function MessageForm() {
 
     toast.success('留言提交成功，审核后显示')
 
-    // 清空表单
-    setFormData({
-      name: '',
-      email: '',
-      website: '',
-      content: '',
+    // 保存作者信息到 localStorage
+    saveMessageAuthor({
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      website: formData.get('website') as string,
     })
 
+    // 清空表单（保留身份信息，只清空内容）
+    setFormData((prev) => ({
+      ...prev,
+      content: '',
+    }))
+
     formRef.current?.reset()
+
+    // 恢复身份信息（因为 reset 会清空表单）
+    const savedAuthor = loadMessageAuthor()
+    if (savedAuthor) {
+      setFormData((prev) => ({
+        ...prev,
+        name: savedAuthor.name || '',
+        email: savedAuthor.email || '',
+        website: savedAuthor.website || '',
+      }))
+    }
   }
 
   const contentLength = formData.content.length

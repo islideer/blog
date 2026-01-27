@@ -5,7 +5,7 @@
 
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useFormStatus } from 'react-dom'
 import { toast } from 'sonner'
 import { Button } from '../button'
@@ -13,6 +13,7 @@ import { SendIcon } from '@/icons/send'
 import { XIcon } from '@/icons/x'
 import { EmojiPicker } from './emoji-picker'
 import { submitReply } from '@/actions/messages'
+import { loadMessageAuthor, saveMessageAuthor } from '@/lib/storage'
 
 interface ReplyFormProps {
   messageId: string
@@ -41,6 +42,20 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
 
   const formRef = useRef<HTMLFormElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+
+  // 组件挂载时读取存储的作者信息
+  useEffect(() => {
+    const savedAuthor = loadMessageAuthor()
+    if (savedAuthor) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setFormData((prev) => ({
+        ...prev,
+        name: savedAuthor.name || '',
+        email: savedAuthor.email || '',
+        website: savedAuthor.website || '',
+      }))
+    }
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({
@@ -79,15 +94,31 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
 
     toast.success('回复提交成功，审核后显示')
 
-    // 清空表单
-    setFormData({
-      name: '',
-      email: '',
-      website: '',
-      content: '',
+    // 保存作者信息到 localStorage
+    saveMessageAuthor({
+      name: formDataObj.get('name') as string,
+      email: formDataObj.get('email') as string,
+      website: formDataObj.get('website') as string,
     })
 
+    // 清空表单（保留身份信息，只清空内容）
+    setFormData((prev) => ({
+      ...prev,
+      content: '',
+    }))
+
     formRef.current?.reset()
+
+    // 恢复身份信息（因为 reset 会清空表单）
+    const savedAuthor = loadMessageAuthor()
+    if (savedAuthor) {
+      setFormData((prev) => ({
+        ...prev,
+        name: savedAuthor.name || '',
+        email: savedAuthor.email || '',
+        website: savedAuthor.website || '',
+      }))
+    }
 
     // 调用成功回调
     if (onSuccess) onSuccess()
