@@ -10,8 +10,9 @@ import { Button } from '../button'
 import { useState } from 'react'
 import { EmojiIcon } from '@/icons/emoji'
 import emojiPacks from '@/data/emoji-packs.json'
-import type { EmojiPacks } from '@/lib/emoji-packs'
 import { getGridColumns, getEmojiPackSize } from '@/lib/emoji-packs'
+
+import type { EmojiPacks } from '@/lib/emoji-packs'
 
 const typedEmojiPacks = emojiPacks as EmojiPacks
 
@@ -62,7 +63,7 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
             {/* 表情网格或列表 */}
             {activePack.type === 'image' ? (
               <div
-                className="grid max-h-58.5 gap-0.5 overflow-y-scroll"
+                className="grid max-h-58.5 gap-0.5 overflow-y-auto"
                 style={{
                   gridTemplateColumns: `repeat(${gridColumns}, minmax(0, 1fr))`,
                 }}
@@ -92,7 +93,7 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
                 ))}
               </div>
             ) : (
-              <div className="flex max-h-58.5 flex-wrap gap-1 overflow-y-scroll p-1">
+              <div className="flex max-h-58.5 flex-wrap gap-1 overflow-y-auto p-1">
                 {Object.entries(activePack.items).map(([emojiName, data]) => (
                   <button
                     key={emojiName}
@@ -108,8 +109,8 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
             )}
 
             {/* Tab 切换 */}
-            <div className="scrollbar-hide mt-1 overflow-x-auto">
-              <div className="flex flex-nowrap gap-1">
+            <div className="mt-1 overflow-x-auto">
+              <div className="flex flex-nowrap">
                 {packIds.map((packId) => {
                   const pack = typedEmojiPacks[packId]
                   return (
@@ -117,7 +118,7 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
                       key={packId}
                       type="button"
                       onClick={() => setActivePackId(packId)}
-                      className={`rounded px-3 py-1.5 text-xs text-nowrap transition sm:text-sm ${
+                      className={`rounded px-2 py-1 text-xs text-nowrap transition ${
                         activePackId === packId
                           ? 'bg-bg-tertiary text-text-primary'
                           : 'text-text-secondary hover:bg-bg-secondary'
