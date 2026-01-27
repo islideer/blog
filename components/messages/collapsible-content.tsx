@@ -21,6 +21,22 @@ export function CollapsibleContent({ html, maxLines = 3 }: CollapsibleContentPro
 
   return (
     <div className="relative">
+      {/* 让 Tailwind 生成 line-clamp 类 */}
+      <div className="hidden">
+        <span className="line-clamp-1"></span>
+        <span className="line-clamp-2"></span>
+        <span className="line-clamp-3"></span>
+        <span className="line-clamp-4"></span>
+        <span className="line-clamp-5"></span>
+        <span className="line-clamp-6"></span>
+        <span className="line-clamp-7"></span>
+        <span className="line-clamp-8"></span>
+        <span className="line-clamp-9"></span>
+        <span className="line-clamp-10"></span>
+        <span className="line-clamp-11"></span>
+        <span className="line-clamp-12"></span>
+      </div>
+
       <div
         ref={(el) => {
           if (el && !isExpanded) checkOverflow(el)
