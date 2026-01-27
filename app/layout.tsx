@@ -2,6 +2,7 @@ import './globals.css'
 
 import { Header } from '@/components/header'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { Analytics } from '@vercel/analytics/next'
@@ -92,6 +93,17 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        <link rel="preconnect" href="https://cdn.jsdmirror.com" />
+        <link rel="dns-prefetch" href="https://cdn.jsdmirror.com" />
+        <link rel="preconnect" href="https://i1.hdslb.com" />
+        <link rel="dns-prefetch" href="https://i1.hdslb.com" />
+        <link rel="preconnect" href="https://tb3.bdstatic.com" />
+        <link rel="dns-prefetch" href="https://tb3.bdstatic.com" />
+        <link rel="preconnect" href="https://picasso-static.xiaohongshu.com" />
+        <link rel="dns-prefetch" href="https://picasso-static.xiaohongshu.com" />
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -100,9 +112,6 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-bg-primary text-text-primary font-sans antialiased">
-        <Analytics />
-        <GoogleAnalytics gaId={siteConfig.analytics.google} />
-
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -118,6 +127,10 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+
+        <Analytics />
+        <GoogleAnalytics gaId={siteConfig.analytics.google} />
+        <SpeedInsights />
       </body>
     </html>
   )
