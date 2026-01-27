@@ -18,6 +18,7 @@ import { RelativeTime } from '../relative-time'
 import { ReplyForm } from './reply-form'
 
 import type { MessageReply } from '@/lib/messages'
+import { siteConfig, websiteUrl } from '@/lib/config'
 
 interface MessageActionsProps {
   messageId: string
@@ -86,6 +87,10 @@ export function MessageActions({ messageId, replies, replyHtmls }: MessageAction
             const firstChar = authorName.charAt(0)
             const useTextAvatar = !reply.author.avatar && !reply.author.email
 
+            const cleanedWebsite = (reply.author.website || '').replace(/https?:\/\//, 'https://')
+            const isCurrentSite = cleanedWebsite === websiteUrl
+            const isAuthor = reply.author.email === siteConfig.author.email
+
             return (
               <div key={reply.id} className="border-border bg-bg-secondary rounded-lg border p-3">
                 {/* 回复作者 */}
@@ -108,7 +113,7 @@ export function MessageActions({ messageId, replies, replyHtmls }: MessageAction
 
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5">
-                      {reply.author.website ? (
+                      {reply.author.website && !isCurrentSite ? (
                         <a
                           href={reply.author.website}
                           target="_blank"
@@ -118,7 +123,16 @@ export function MessageActions({ messageId, replies, replyHtmls }: MessageAction
                           {authorName}
                         </a>
                       ) : (
-                        <span className="text-text-primary text-xs font-medium">{authorName}</span>
+                        <div className="flex items-center gap-1 sm:gap-2">
+                          <span className="text-text-primary text-sm font-medium">
+                            {authorName}
+                          </span>
+                          {isAuthor && (
+                            <span className="bg-bg-tertiary text-text-primary rounded px-1.5 py-0.5 text-xs font-medium">
+                              博主
+                            </span>
+                          )}
+                        </div>
                       )}
                     </div>
 

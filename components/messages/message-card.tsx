@@ -5,12 +5,13 @@
 
 import Image from 'next/image'
 // import { UABadge } from './ua-badge'
+import { siteConfig, websiteUrl } from '@/lib/config'
+import { parseMessage } from '@/lib/markdown'
 import { RelativeTime } from '../relative-time'
 import { CollapsibleContent } from './collapsible-content'
-import { parseMessage } from '@/lib/markdown'
-import type { ReactNode } from 'react'
 
 import type { Message } from '@/lib/messages'
+import type { ReactNode } from 'react'
 
 interface MessageCardProps {
   message: Message
@@ -24,6 +25,9 @@ export async function MessageCard({ message, actions }: MessageCardProps) {
 
   // 判断是否使用文字头像（无 avatar 且无 email）
   const useTextAvatar = !message.author.avatar && !message.author.email
+  const cleanedWebsite = (message.author.website || '').replace(/https?:\/\//, 'https://')
+  const isCurrentSite = cleanedWebsite === websiteUrl
+  const isAuthor = message.author.email === siteConfig.author.email
 
   return (
     <article className="group border-border bg-bg-primary hover:border-border-secondary rounded-lg border p-4 transition">
@@ -49,7 +53,7 @@ export async function MessageCard({ message, actions }: MessageCardProps) {
         {/* 作者信息 */}
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
-            {message.author.website ? (
+            {message.author.website && !isCurrentSite ? (
               <a
                 href={message.author.website}
                 target="_blank"
@@ -59,7 +63,14 @@ export async function MessageCard({ message, actions }: MessageCardProps) {
                 {authorName}
               </a>
             ) : (
-              <span className="text-text-primary text-sm font-medium">{authorName}</span>
+              <div className="flex items-center gap-1 sm:gap-2">
+                <span className="text-text-primary text-sm font-medium">{authorName}</span>
+                {isAuthor && (
+                  <span className="bg-bg-tertiary text-text-primary rounded px-1.5 py-0.5 text-xs font-medium">
+                    博主
+                  </span>
+                )}
+              </div>
             )}
           </div>
 

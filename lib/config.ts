@@ -6,7 +6,9 @@
 import siteData from '@/data/site.json'
 import { isDev } from './env'
 
-const url = isDev ? 'http://localhost:3000' : 'https://blog.viki.moe'
+export const websiteUrl = 'https://blog.viki.moe'
+
+const url = isDev ? 'http://localhost:3000' : websiteUrl
 
 // 重新组装配置，处理动态内容和引用
 export const siteConfig = {

@@ -169,32 +169,17 @@ export const getMessages = cache(async function getMessages(
   perPage = 10,
   withReplies = false,
 ): Promise<{ messages: Message[]; total: number }> {
-  // 性能优化：一次 API 调用 + 解析响应头获取总数
-  const response = await octokit.issues.listForRepo({
-    owner: OWNER,
-    repo: REPO,
-    labels: 'message,approved',
-    state: 'open',
+  // 使用 Search API 获取准确的总数
+  const response = await octokit.search.issuesAndPullRequests({
+    q: `repo:${OWNER}/${REPO} is:issue is:open label:message label:approved`,
     sort: 'created',
-    direction: 'desc',
+    order: 'desc',
     page,
     per_page: perPage,
   })
 
-  const issues = response.data
-
-  // 从 Link 响应头解析总数（GitHub API 标准）
-  const linkHeader = response.headers.link
-  let total = issues.length // 默认值
-
-  if (linkHeader) {
-    // 解析 Link: <...?page=5>; rel="last"
-    const lastPageMatch = linkHeader.match(/[?&]page=(\d+)[^>]*>;\s*rel="last"/)
-    if (lastPageMatch) {
-      const lastPage = parseInt(lastPageMatch[1])
-      total = lastPage * perPage // 近似总数（最后一页可能不满）
-    }
-  }
+  const issues = response.data.items
+  const total = response.data.total_count
 
   // 并发获取并解析留言内容
   const messages: Message[] = await Promise.all(

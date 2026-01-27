@@ -8,6 +8,7 @@ import { MessageCard } from './message-card'
 import { MessageActions } from './message-actions'
 import { parseMessage } from '@/lib/markdown'
 import { getMessages } from '@/lib/messages-github'
+import { Button } from '../button'
 
 interface MessageListProps {
   page?: number
@@ -36,57 +37,57 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
   const hasPrevPage = page > 1
 
   return (
-    <div className="space-y-6">
-      {/* 空状态 */}
-      {messages.length === 0 && (
-        <div className="border-border bg-bg-secondary rounded-lg border p-8 text-center">
-          <p className="text-text-secondary text-sm">还没有留言呢，来留下第一条吧！</p>
-        </div>
-      )}
+    <>
+      <h2 className="text-text-primary mb-6 font-medium sm:text-lg">
+        大家在聊 ({total.toLocaleString('zh-Hans-CN')})
+      </h2>
 
-      {/* 留言列表 */}
-      <div className="space-y-4">
-        {messagesWithReplyHtmls.map(({ message, replyHtmls }) => (
-          <MessageCard
-            key={message.id}
-            message={message}
-            actions={
-              <MessageActions
-                messageId={message.id}
-                replies={message.replies || []}
-                replyHtmls={replyHtmls}
-              />
-            }
-          />
-        ))}
+      <div className="space-y-6">
+        {/* 空状态 */}
+        {messages.length === 0 && (
+          <div className="border-border bg-bg-secondary rounded-lg border p-8 text-center">
+            <p className="text-text-secondary text-sm">还没有留言呢，来留下第一条吧！</p>
+          </div>
+        )}
+
+        {/* 留言列表 */}
+        <div className="space-y-4">
+          {messagesWithReplyHtmls.map(({ message, replyHtmls }) => (
+            <MessageCard
+              key={message.id}
+              message={message}
+              actions={
+                <MessageActions
+                  messageId={message.id}
+                  replies={message.replies || []}
+                  replyHtmls={replyHtmls}
+                />
+              }
+            />
+          ))}
+        </div>
+
+        {/* 分页控制 */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-3">
+            {hasPrevPage && (
+              <Link href={`/messages?page=${page - 1}`} className="no-icon">
+                <Button>← 上一页</Button>
+              </Link>
+            )}
+
+            <span className="text-text-tertiary text-xs">
+              第 {page} 页 / 共 {totalPages} 页
+            </span>
+
+            {hasNextPage && (
+              <Link href={`/messages?page=${page + 1}`} className="no-icon">
+                <Button>下一页 →</Button>
+              </Link>
+            )}
+          </div>
+        )}
       </div>
-
-      {/* 分页控制 */}
-      {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-3">
-          {hasPrevPage && (
-            <Link
-              href={`/messages?page=${page - 1}`}
-              className="border-border text-text-secondary hover:bg-bg-secondary hover:text-text-primary rounded-md border px-3 py-1.5 text-xs transition"
-            >
-              ← 上一页
-            </Link>
-          )}
-
-          <span className="text-text-tertiary text-xs">
-            第 {page} 页 / 共 {totalPages} 页
-          </span>
-
-          {hasNextPage && (
-            <Link
-              href={`/messages?page=${page + 1}`}
-              className="border-border text-text-secondary hover:bg-bg-secondary hover:text-text-primary rounded-md border px-3 py-1.5 text-xs transition"
-            >
-              下一页 →
-            </Link>
-          )}
-        </div>
-      )}
-    </div>
+    </>
   )
 }

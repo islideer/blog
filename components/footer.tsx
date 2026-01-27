@@ -54,7 +54,7 @@ function SocialLinks({ className }: { className?: string }) {
         href={siteConfig.links.travellings}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-text-secondary hover:text-text-primary hidden"
+        className="text-text-secondary hover:text-text-primary"
         title="开往，友链接力"
       >
         开往 · 友链接力

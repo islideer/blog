@@ -89,98 +89,102 @@ export function MessageForm() {
   const contentLength = formData.content.length
 
   return (
-    <form
-      ref={formRef}
-      action={handleSubmit}
-      className="border-border space-y-4 rounded-lg border p-6"
-    >
-      <div className="no-focus grid grid-cols-1 gap-2 sm:grid-cols-3">
-        {/* 姓名（可选） */}
-        <div className="flex items-center gap-2">
-          <label htmlFor="name" className="text-text-secondary shrink-0 text-xs sm:text-sm">
-            姓名
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            value={formData.name}
-            onChange={handleChange}
-            maxLength={50}
-            placeholder="可选，用于展示身份"
-            className="input flex-1 text-xs sm:text-sm"
-          />
+    <>
+      <h2 className="text-text-primary mb-6 font-medium sm:text-lg">说点什么</h2>
+
+      <form
+        ref={formRef}
+        action={handleSubmit}
+        className="border-border space-y-4 rounded-lg border p-6"
+      >
+        <div className="no-focus grid grid-cols-1 gap-2 sm:grid-cols-3">
+          {/* 姓名（可选） */}
+          <div className="flex items-center gap-2">
+            <label htmlFor="name" className="text-text-secondary shrink-0 text-xs sm:text-sm">
+              姓名
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              maxLength={50}
+              placeholder="可选，用于展示身份"
+              className="input flex-1 text-xs sm:text-sm"
+            />
+          </div>
+
+          {/* 邮箱（可选） */}
+          <div className="flex items-center gap-2">
+            <label htmlFor="email" className="text-text-secondary shrink-0 text-xs sm:text-sm">
+              邮箱
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="可选，用于展示头像"
+              className="input flex-1 text-xs sm:text-sm"
+            />
+          </div>
+
+          {/* 网站（可选） */}
+          <div className="flex items-center gap-2">
+            <label htmlFor="website" className="text-text-secondary shrink-0 text-xs sm:text-sm">
+              网站
+            </label>
+            <input
+              id="website"
+              name="website"
+              type="url"
+              value={formData.website}
+              onChange={handleChange}
+              placeholder="可选，用于引导访问"
+              className="input flex-1 text-xs sm:text-sm"
+            />
+          </div>
         </div>
 
-        {/* 邮箱（可选） */}
-        <div className="flex items-center gap-2">
-          <label htmlFor="email" className="text-text-secondary shrink-0 text-xs sm:text-sm">
-            邮箱
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="可选，用于展示头像"
-            className="input flex-1 text-xs sm:text-sm"
-          />
+        {/* 留言内容（必填） */}
+
+        <textarea
+          ref={textareaRef}
+          id="content"
+          name="content"
+          value={formData.content}
+          onChange={handleChange}
+          maxLength={1000}
+          rows={3}
+          placeholder="留下你的想法和故事..."
+          className="no-focus w-full"
+          required
+        />
+
+        {/* 操作按钮 */}
+        <div className="flex items-center justify-between gap-3">
+          <div className="text-text-tertiary flex items-center gap-2">
+            <EmojiPicker onSelect={handleEmojiSelect} />
+            <span className="hidden text-xs sm:inline">
+              支持 Markdown、表情包、剧透语法（||剧透内容||）
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span
+              className={cn(
+                'hidden text-xs sm:inline',
+                contentLength > 1000 ? 'text-text-primary' : 'text-text-tertiary',
+              )}
+            >
+              {contentLength} / 1000
+            </span>
+            <SubmitButton disabled={!formData.content.trim()} />
+          </div>
         </div>
-
-        {/* 网站（可选） */}
-        <div className="flex items-center gap-2">
-          <label htmlFor="website" className="text-text-secondary shrink-0 text-xs sm:text-sm">
-            网站
-          </label>
-          <input
-            id="website"
-            name="website"
-            type="url"
-            value={formData.website}
-            onChange={handleChange}
-            placeholder="可选，用于引导访问"
-            className="input flex-1 text-xs sm:text-sm"
-          />
-        </div>
-      </div>
-
-      {/* 留言内容（必填） */}
-
-      <textarea
-        ref={textareaRef}
-        id="content"
-        name="content"
-        value={formData.content}
-        onChange={handleChange}
-        maxLength={1000}
-        rows={3}
-        placeholder="留下你的想法和故事..."
-        className="no-focus w-full"
-        required
-      />
-
-      {/* 操作按钮 */}
-      <div className="flex items-center justify-between gap-3">
-        <div className="text-text-tertiary flex items-center gap-2">
-          <EmojiPicker onSelect={handleEmojiSelect} />
-          <span className="hidden text-xs sm:inline">
-            支持 Markdown、表情包、剧透语法（||剧透内容||）
-          </span>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <span
-            className={cn(
-              'hidden text-xs sm:inline',
-              contentLength > 1000 ? 'text-text-primary' : 'text-text-tertiary',
-            )}
-          >
-            {contentLength} / 1000
-          </span>
-          <SubmitButton disabled={!formData.content.trim()} />
-        </div>
-      </div>
-    </form>
+      </form>
+    </>
   )
 }

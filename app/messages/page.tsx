@@ -55,13 +55,11 @@ export default async function MessagesPage({ searchParams }: PageProps) {
     <>
       {/* 说点什么 */}
       <section className="mb-16">
-        <h2 className="text-text-primary mb-6 font-medium sm:text-lg">说点什么</h2>
         <MessageForm />
       </section>
 
       {/* 大家都在聊 */}
       <section>
-        <h2 className="text-text-primary mb-6 font-medium sm:text-lg">大家在聊</h2>
         <MessageList page={page} perPage={10} />
       </section>
     </>
