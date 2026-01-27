@@ -79,6 +79,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.6, // 中等优先级
     },
+    {
+      url: `${siteConfig.url}${pages.messages.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.6, // 中等优先级
+    },
   ]
 
   // 博客文章页面
