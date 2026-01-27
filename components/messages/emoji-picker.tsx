@@ -58,7 +58,7 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
           <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
 
           {/* 表情选择器 */}
-          <div className="border-border bg-bg-primary absolute bottom-full left-0 z-20 w-80 rounded-lg border p-1 shadow-xl sm:w-100">
+          <div className="border-border bg-bg-primary absolute bottom-full left-0 z-20 w-80 rounded-lg border p-1 shadow-xl sm:w-92">
             {/* 表情网格或列表 */}
             {activePack.type === 'image' ? (
               <div

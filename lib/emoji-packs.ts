@@ -32,15 +32,18 @@ export type EmojiPack = ImageEmojiPack | TextEmojiPack
 /** 表情包集合 */
 export type EmojiPacks = Record<string, EmojiPack>
 
+const DEFAULT_EMOJI_SIZE = 24
+
 /**
  * 获取表情包的默认尺寸
  */
 export function getEmojiPackSize(pack: EmojiPack): number {
-  return pack.type === 'image' ? (pack.size ?? 20) : 0
+  return pack.type === 'image' ? (pack.size ?? DEFAULT_EMOJI_SIZE) : 0
 }
 
 /**
  * 根据尺寸计算 grid 列数
+ * - size <= 20: 10 列
  * - size ≤ 32: 8 列
  * - size ≤ 48: 6 列
  * - size ≤ 64: 5 列
@@ -50,7 +53,8 @@ export function getEmojiPackSize(pack: EmojiPack): number {
 export function getGridColumns(pack: EmojiPack): number {
   if (pack.type === 'text') return 8
 
-  const size = pack.size ?? 32
+  const size = pack.size ?? DEFAULT_EMOJI_SIZE
+  if (size <= 24) return 10
   if (size <= 32) return 8
   if (size <= 48) return 6
   if (size <= 64) return 5
