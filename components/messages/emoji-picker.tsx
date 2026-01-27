@@ -80,11 +80,11 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
                       src={data}
                       alt={emojiName}
                       className="object-contain transition hover:scale-110"
-                      height={getEmojiPackSize(activePack)}
-                      width={getEmojiPackSize(activePack)}
+                      height={getEmojiPackSize(activePack, true)}
+                      width={getEmojiPackSize(activePack, true)}
                       style={{
-                        width: `${getEmojiPackSize(activePack)}px`,
-                        height: `${getEmojiPackSize(activePack)}px`,
+                        width: `${getEmojiPackSize(activePack, true)}px`,
+                        height: `${getEmojiPackSize(activePack, true)}px`,
                       }}
                       loading="lazy"
                       referrerPolicy="no-referrer"

@@ -37,8 +37,12 @@ const DEFAULT_EMOJI_SIZE = 24
 /**
  * 获取表情包的默认尺寸
  */
-export function getEmojiPackSize(pack: EmojiPack): number {
-  return pack.type === 'image' ? (pack.size ?? DEFAULT_EMOJI_SIZE) : 0
+export function getEmojiPackSize(pack: EmojiPack, display = false): number {
+  return pack.type === 'image'
+    ? display
+      ? (pack.size ?? DEFAULT_EMOJI_SIZE) * 1.2
+      : (pack.size ?? DEFAULT_EMOJI_SIZE)
+    : 0
 }
 
 /**
@@ -53,7 +57,8 @@ export function getEmojiPackSize(pack: EmojiPack): number {
 export function getGridColumns(pack: EmojiPack): number {
   if (pack.type === 'text') return 8
 
-  const size = pack.size ?? DEFAULT_EMOJI_SIZE
+  const size = (pack.size ?? DEFAULT_EMOJI_SIZE) * 1.2 // 放大 1.2 倍显示
+
   if (size <= 24) return 10
   if (size <= 32) return 8
   if (size <= 48) return 6
