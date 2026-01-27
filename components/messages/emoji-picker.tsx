@@ -10,9 +10,10 @@ import { Button } from '../button'
 import { useState } from 'react'
 import { EmojiIcon } from '@/icons/emoji'
 import emojiPacks from '@/data/emoji-packs.json'
-import { getGridColumns, getEmojiPackSize } from '@/lib/emoji-packs'
+import { getGridColumns, getEmojiPackSize, DEFAULT_EMOJI_SIZE } from '@/lib/emoji-packs'
 
 import type { EmojiPacks } from '@/lib/emoji-packs'
+import { cn } from '@/lib/cn'
 
 const typedEmojiPacks = emojiPacks as EmojiPacks
 
@@ -79,7 +80,12 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
                     <Image
                       src={data}
                       alt={emojiName}
-                      className="object-contain transition hover:scale-110"
+                      className={cn(
+                        activePack.size && activePack.size > DEFAULT_EMOJI_SIZE
+                          ? 'hover:scale-106'
+                          : 'scale-106 hover:scale-112',
+                        'object-contain transition',
+                      )}
                       height={getEmojiPackSize(activePack, true)}
                       width={getEmojiPackSize(activePack, true)}
                       style={{
