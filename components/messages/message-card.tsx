@@ -82,7 +82,7 @@ export async function MessageCard({ message, actions }: MessageCardProps) {
       </div>
 
       {/* 留言内容 */}
-      <CollapsibleContent html={html} maxLines={3} />
+      <CollapsibleContent html={html} maxLines={5} />
 
       {/* 操作按钮 */}
       {actions}

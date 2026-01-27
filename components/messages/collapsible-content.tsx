@@ -9,7 +9,7 @@ interface CollapsibleContentProps {
   maxLines?: number
 }
 
-export function CollapsibleContent({ html, maxLines = 5 }: CollapsibleContentProps) {
+export function CollapsibleContent({ html, maxLines = 3 }: CollapsibleContentProps) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [showButton, setShowButton] = useState(false)
 
