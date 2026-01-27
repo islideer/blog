@@ -3,24 +3,32 @@ import type { Root, Text, Html, PhrasingContent } from 'mdast'
 import type { Plugin } from 'unified'
 
 import emojiPacks from '@/data/emoji-packs.json'
+import type { EmojiPacks } from './emoji-packs'
+import { getEmojiPackSize } from './emoji-packs'
 
 /** 插件选项 */
 export interface RemarkEmojiPackOptions {
   /** 表情包配置 */
-  packs?: typeof emojiPacks
-  /** CSS 类名 */
+  packs?: EmojiPacks
+  /** CSS 类名（图片表情） */
   className?: string
+  /** 文字表情 CSS 类名 */
+  textClassName?: string
 }
 
 /**
- * remark 插件：将 :collection_name: 转换为 <img> 标签
+ * remark 插件：将 :collection_name: 转换为对应内容
  *
  * @example
- * :demo_偷笑: → <img class="emoji" src="https://..." alt="偷笑" title="偷笑" loading="lazy" />
- * :cat_happy: → <img class="emoji" src="https://..." alt="happy" title="happy" loading="lazy" />
+ * :face_微笑: → <img class="emoji" src="https://..." alt="微笑" title="微笑" loading="lazy" />
+ * :kaomoji_开心: → (´▽`)
  */
 const remarkEmojiPack: Plugin<[RemarkEmojiPackOptions?], Root> = (options = {}) => {
-  const { packs = emojiPacks, className = 'emoji' } = options
+  const {
+    packs = emojiPacks as EmojiPacks,
+    className = 'emoji',
+    textClassName = 'emoji-text',
+  } = options
 
   return (tree: Root) => {
     visit(tree, 'text', (node: Text, index, parent) => {
@@ -46,15 +54,25 @@ const remarkEmojiPack: Plugin<[RemarkEmojiPackOptions?], Root> = (options = {}) 
         }
 
         // 查找表情包
-        const pack = packs[collection as keyof typeof packs]
-        const emojiUrl = pack?.items[name as keyof typeof pack.items]
+        const pack = packs[collection]
+        const emojiData = pack?.items[name]
 
-        if (emojiUrl) {
-          // 替换为图片标签
-          newNodes.push({
-            type: 'html',
-            value: `<img class="${className}" src="${emojiUrl}" alt="${name}" title="${name}" loading="lazy" referrerpolicy="no-referrer" />`,
-          } as Html)
+        if (emojiData) {
+          if (pack.type === 'image') {
+            // 图片表情 - 生成 HTML
+            const size = getEmojiPackSize(pack)
+            const htmlValue = `<img class="${className}" src="${emojiData}" alt="${name}" title="${name}" width="${size}" height="${size}" loading="lazy" referrerpolicy="no-referrer" />`
+            newNodes.push({
+              type: 'html',
+              value: htmlValue,
+            } as Html)
+          } else {
+            // 文字表情 - 直接插入文本
+            newNodes.push({
+              type: 'text',
+              value: emojiData,
+            })
+          }
         } else {
           // 表情未找到，保留原文
           newNodes.push({

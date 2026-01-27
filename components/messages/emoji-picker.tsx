@@ -10,6 +10,10 @@ import { Button } from '../button'
 import { useState } from 'react'
 import { EmojiIcon } from '@/icons/emoji'
 import emojiPacks from '@/data/emoji-packs.json'
+import type { EmojiPacks } from '@/lib/emoji-packs'
+import { getGridColumns, getEmojiPackSize } from '@/lib/emoji-packs'
+
+const typedEmojiPacks = emojiPacks as EmojiPacks
 
 interface EmojiPickerProps {
   onSelect: (emoji: string) => void
@@ -17,15 +21,25 @@ interface EmojiPickerProps {
 
 export function EmojiPicker({ onSelect }: EmojiPickerProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [activePackId, setActivePackId] = useState(Object.keys(emojiPacks)[0])
+  const [activePackId, setActivePackId] = useState(Object.keys(typedEmojiPacks)[0])
 
-  const packIds = Object.keys(emojiPacks)
-  const activePack = emojiPacks[activePackId as keyof typeof emojiPacks]
+  const packIds = Object.keys(typedEmojiPacks)
+  const activePack = typedEmojiPacks[activePackId]
+  const gridColumns = getGridColumns(activePack)
 
   const handleEmojiClick = (packId: string, emojiName: string) => {
-    // 插入 :collection_name: 语法
-    const syntax = `:${packId}_${emojiName}:`
-    onSelect(syntax)
+    const pack = typedEmojiPacks[packId]
+    let textToInsert: string
+
+    if (pack.type === 'image') {
+      // 图片表情：插入 :collection_name: 语法
+      textToInsert = `:${packId}_${emojiName}:`
+    } else {
+      // 文字表情：直接插入原始文本
+      textToInsert = pack.items[emojiName]
+    }
+
+    onSelect(textToInsert)
     setIsOpen(false)
   }
 
@@ -44,41 +58,66 @@ export function EmojiPicker({ onSelect }: EmojiPickerProps) {
           <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
 
           {/* 表情选择器 */}
-          <div className="border-border bg-bg-primary absolute bottom-full left-0 z-20 w-80 rounded-lg border p-1 shadow-xl">
-            {/* 表情网格 */}
-            <div className="grid max-h-58.5 grid-cols-8 overflow-y-scroll">
-              {Object.entries(activePack.items).map(([emojiName, url]) => (
-                <button
-                  key={emojiName}
-                  type="button"
-                  onClick={() => handleEmojiClick(activePackId, emojiName)}
-                  className="hover:bg-bg-secondary flex flex-col items-center rounded p-1 transition"
-                  title={emojiName}
-                >
-                  <Image
-                    src={url}
-                    alt={emojiName}
-                    className="h-8 w-8 object-contain transition hover:scale-110"
-                    height={32}
-                    width={32}
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                  />
-                </button>
-              ))}
-            </div>
+          <div className="border-border bg-bg-primary absolute bottom-full left-0 z-20 w-80 rounded-lg border p-1 shadow-xl sm:w-100">
+            {/* 表情网格或列表 */}
+            {activePack.type === 'image' ? (
+              <div
+                className="grid max-h-58.5 gap-0.5 overflow-y-scroll"
+                style={{
+                  gridTemplateColumns: `repeat(${gridColumns}, minmax(0, 1fr))`,
+                }}
+              >
+                {Object.entries(activePack.items).map(([emojiName, data]) => (
+                  <button
+                    key={emojiName}
+                    type="button"
+                    onClick={() => handleEmojiClick(activePackId, emojiName)}
+                    className="hover:bg-bg-secondary flex flex-col items-center rounded p-1 transition"
+                    title={emojiName}
+                  >
+                    <Image
+                      src={data}
+                      alt={emojiName}
+                      className="object-contain transition hover:scale-110"
+                      height={getEmojiPackSize(activePack)}
+                      width={getEmojiPackSize(activePack)}
+                      style={{
+                        width: `${getEmojiPackSize(activePack)}px`,
+                        height: `${getEmojiPackSize(activePack)}px`,
+                      }}
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                    />
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="flex max-h-58.5 flex-wrap gap-1 overflow-y-scroll p-1">
+                {Object.entries(activePack.items).map(([emojiName, data]) => (
+                  <button
+                    key={emojiName}
+                    type="button"
+                    onClick={() => handleEmojiClick(activePackId, emojiName)}
+                    className="hover:bg-bg-secondary rounded px-2 py-1 text-sm transition"
+                    title={emojiName}
+                  >
+                    {data}
+                  </button>
+                ))}
+              </div>
+            )}
 
             {/* Tab 切换 */}
-            <div className="overflow-x-auto mt-1">
+            <div className="scrollbar-hide mt-1 overflow-x-auto">
               <div className="flex flex-nowrap gap-1">
                 {packIds.map((packId) => {
-                  const pack = emojiPacks[packId as keyof typeof emojiPacks]
+                  const pack = typedEmojiPacks[packId]
                   return (
                     <button
                       key={packId}
                       type="button"
                       onClick={() => setActivePackId(packId)}
-                      className={`rounded px-3 py-1 text-xs text-nowrap transition ${
+                      className={`rounded px-3 py-1.5 text-xs text-nowrap transition sm:text-sm ${
                         activePackId === packId
                           ? 'bg-bg-tertiary text-text-primary'
                           : 'text-text-secondary hover:bg-bg-secondary'

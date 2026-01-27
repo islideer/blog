@@ -274,6 +274,18 @@ html.dark .spoiler:focus {
   margin: 0 0.1em;
 }
 
+/* 文字表情样式（颜表情） */
+.emoji-text {
+  display: inline-block;
+  font-size: 1.5em;
+  line-height: 1;
+  vertical-align: middle;
+  margin: 0 0.1em;
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',
+    sans-serif;
+  user-select: none;
+}
+
 /* Sticker styles - 贴纸样式 */
 .sticker {
   display: inline-block;
@@ -283,4 +295,14 @@ html.dark .spoiler:focus {
   vertical-align: middle;
   object-fit: contain;
   margin: 0 0.2em;
+}
+
+/* 隐藏滚动条但保持滚动功能 */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE 和 Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
