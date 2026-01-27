@@ -131,10 +131,10 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
       {/* 隐藏字段：messageId */}
       <input type="hidden" name="messageId" value={messageId} />
 
-      <div className="no-focus border-border mb-2 grid grid-cols-1 gap-2 border-b pb-2 sm:grid-cols-3">
+      <div className="no-focus border-border mb-2 grid grid-cols-1 gap-1 border-b pb-2 sm:grid-cols-3 sm:gap-2">
         <div className="flex items-center gap-2">
           <label htmlFor="reply-name" className="text-text-secondary shrink-0 text-xs sm:text-sm">
-            姓名
+            名称:
           </label>
           <input
             id="reply-name"
@@ -150,7 +150,7 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
 
         <div className="flex items-center gap-2">
           <label htmlFor="reply-email" className="text-text-secondary shrink-0 text-xs sm:text-sm">
-            邮箱
+            邮箱:
           </label>
           <input
             id="reply-email"
@@ -168,7 +168,7 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
             htmlFor="reply-website"
             className="text-text-secondary shrink-0 text-xs sm:text-sm"
           >
-            网站
+            网站:
           </label>
           <input
             id="reply-website"

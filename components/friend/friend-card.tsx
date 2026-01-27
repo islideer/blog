@@ -27,9 +27,9 @@ export function FriendCard({ friend }: FriendCardProps) {
           <Image
             src={friend.avatar}
             alt={friend.name}
-            width={52}
-            height={52}
-            className="border-border aspect-square shrink-0 rounded border object-cover transition-all! group-hover:scale-110"
+            width={54}
+            height={54}
+            className="border-border aspect-square shrink-0 rounded-lg border object-cover transition-all! group-hover:scale-110"
           />
         ) : (
           <div className="border-border bg-bg-secondary text-text-secondary flex h-14 w-14 shrink-0 items-center justify-center rounded border text-2xl font-semibold transition-all! group-hover:scale-110">

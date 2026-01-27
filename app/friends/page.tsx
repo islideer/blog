@@ -6,6 +6,7 @@ import { RandomFriends } from '@/components/friend/random-friends'
 import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const revalidate = 86400 // 缓存 1 天
 
@@ -62,9 +63,11 @@ export default function FriendsPage() {
         <h2 className="text-text-primary text-base font-semibold">交换友链</h2>
         <div className="text-text-secondary space-y-4 text-sm">
           <p>
-            欢迎和我交换友链！本博客支持展示以下字段，作为交换，你可使用我的以下信息，并通过邮件
-            <code className="mx-1 font-mono">{siteConfig.author.email}</code>
-            联系我添加你的站点。邮件主题：「交换友链：你的网站名称」，邮件内容：包含你的站点基础信息，其中仅「名称」和「地址」必须。
+            欢迎和我交换友链！本博客支持展示以下字段，作为交换，你可使用我的以下信息，并在
+            <Link href="/messages" className="mx-1">
+              话匣子
+            </Link>
+            页面留言告知我你的站点信息即可。
           </p>
           <p className="text-text-tertiary text-xs italic">
             注：虽不强制，但建议你的站点建站半年以上，有一定原创内容基础和深度，非商业化、AI

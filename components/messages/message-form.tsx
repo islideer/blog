@@ -124,11 +124,11 @@ export function MessageForm() {
       <h2 className="text-text-primary mb-6 font-medium sm:text-lg">说点什么</h2>
 
       <form ref={formRef} action={handleSubmit} className="border-border rounded-lg border p-4">
-        <div className="no-focus border-border mb-2 grid grid-cols-1 gap-2 border-b pb-2 sm:grid-cols-3">
-          {/* 姓名（可选） */}
+        <div className="no-focus border-border mb-2 grid grid-cols-1 gap-1 border-b pb-2 sm:grid-cols-3 sm:gap-2">
+          {/* 名称（可选） */}
           <div className="flex items-center gap-2">
             <label htmlFor="name" className="text-text-secondary shrink-0 text-xs sm:text-sm">
-              姓名
+              名称:
             </label>
             <input
               id="name"
@@ -145,7 +145,7 @@ export function MessageForm() {
           {/* 邮箱（可选） */}
           <div className="flex items-center gap-2">
             <label htmlFor="email" className="text-text-secondary shrink-0 text-xs sm:text-sm">
-              邮箱
+              邮箱:
             </label>
             <input
               id="email"
@@ -161,7 +161,7 @@ export function MessageForm() {
           {/* 网站（可选） */}
           <div className="flex items-center gap-2">
             <label htmlFor="website" className="text-text-secondary shrink-0 text-xs sm:text-sm">
-              网站
+              网站:
             </label>
             <input
               id="website"
@@ -195,7 +195,7 @@ export function MessageForm() {
           <div className="text-text-tertiary flex items-center gap-2">
             <EmojiPicker onSelect={handleEmojiSelect} />
             <span className="hidden text-xs sm:inline">
-              支持 Markdown、表情包、剧透语法（||剧透内容||）
+              支持 Markdown、预设表情、剧透语法，如 || 剧透内容 ||
             </span>
           </div>
 
