@@ -15,7 +15,7 @@ interface MessageListProps {
 }
 
 export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) {
-  // 直接调用数据层（Next.js 自动缓存）
+  // 直接调用数据层
   const { messages, total } = await getMessages(page, perPage, true)
 
   // 预渲染所有回复的 HTML（批量处理）
@@ -53,7 +53,6 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
             actions={
               <MessageActions
                 messageId={message.id}
-                replyCount={message.replyCount}
                 replies={message.replies || []}
                 replyHtmls={replyHtmls}
               />

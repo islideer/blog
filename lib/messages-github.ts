@@ -222,6 +222,7 @@ export const getMessages = cache(async function getMessages(
       // 可选：加载回复
       if (withReplies && issue.comments > 0) {
         message.replies = await getReplies(issue.number)
+        message.replyCount = message.replies.length
       }
 
       return message

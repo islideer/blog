@@ -17,21 +17,16 @@ import { CollapsibleContent } from './collapsible-content'
 // import { UABadge } from './ua-badge'
 import { RelativeTime } from '../relative-time'
 import { ReplyForm } from './reply-form'
+
 import type { MessageReply } from '@/lib/messages'
 
 interface MessageActionsProps {
   messageId: string
-  replyCount: number
   replies: MessageReply[]
   replyHtmls: string[]
 }
 
-export function MessageActions({
-  messageId,
-  replyCount,
-  replies,
-  replyHtmls,
-}: MessageActionsProps) {
+export function MessageActions({ messageId, replies, replyHtmls }: MessageActionsProps) {
   const router = useRouter()
   const [showReplyForm, setShowReplyForm] = useState(false)
   const [showReplies, setShowReplies] = useState(false)
@@ -46,11 +41,11 @@ export function MessageActions({
     <div>
       {/* 按钮行 */}
       <div className="border-border mt-3 flex items-center justify-between border-t pt-3">
-        {replyCount > 0 ? (
+        {replies.length > 0 ? (
           <Button onClick={() => setShowReplies(!showReplies)} size="sm">
             {showReplies
-              ? `收起回复${replyCount ? ` (${replyCount.toLocaleString('zh-Hans-CN')})` : ''}`
-              : `展开回复${replyCount ? ` (${replyCount.toLocaleString('zh-Hans-CN')})` : ''}`}
+              ? `收起回复${replies.length ? ` (${replies.length.toLocaleString('zh-Hans-CN')})` : ''}`
+              : `展开回复${replies.length ? ` (${replies.length.toLocaleString('zh-Hans-CN')})` : ''}`}
             {showReplies ? (
               <ChevronUpIcon className="h-3.5 w-3.5" />
             ) : (
