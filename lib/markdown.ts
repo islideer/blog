@@ -36,14 +36,14 @@ const shortContentProcessor = unified()
   .use(remarkSpoiler)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
-  .use(rehypeShiki, {
-    themes: {
-      light: 'one-light',
-      dark: 'one-dark-pro',
-    },
-    defaultColor: false,
-    cssVariablePrefix: '--shiki-',
-  })
+  // .use(rehypeShiki, {
+  //   themes: {
+  //     light: 'one-light',
+  //     dark: 'one-dark-pro',
+  //   },
+  //   defaultColor: false,
+  //   cssVariablePrefix: '--shiki-',
+  // })
   .use(rehypeExternalLinks, {
     target: '_blank',
     rel: ['noopener', 'noreferrer'],
@@ -164,14 +164,6 @@ const messageProcessor = unified()
   .use(remarkEmojiPack)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
-  .use(rehypeShiki, {
-    themes: {
-      light: 'one-light',
-      dark: 'one-dark-pro',
-    },
-    defaultColor: false,
-    cssVariablePrefix: '--shiki-',
-  })
   .use(rehypeSanitize, {
     ...defaultSchema,
     attributes: {
