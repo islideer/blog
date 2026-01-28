@@ -158,7 +158,7 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="可选，用于展示头像"
+            placeholder="可选，用于头像和通知"
             className="input flex-1 text-xs sm:text-sm"
           />
         </div>
