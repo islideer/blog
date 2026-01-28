@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^16.1.4",
+    "@octokit/auth-app": "^8.1.2",
     "@octokit/rest": "^22.0.1",
     "@shikijs/rehype": "^3.21.0",
     "@shined/react-use": "^1.13.1",

@@ -6,15 +6,10 @@
 import matter from 'gray-matter'
 import crypto from 'node:crypto'
 import { cache } from 'react'
-import { Octokit } from '@octokit/rest'
+import { botOctokit } from './github-app'
 import { truncateText, cleanMarkdownContent } from './markdown'
 
 import type { MessageAuthor, Message, MessageReply } from './messages'
-
-// Octokit 实例
-const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
-})
 
 // 仓库配置
 const OWNER = process.env.MESSAGES_REPO_OWNER || 'vikiboss'
@@ -106,7 +101,7 @@ export async function createMessage(
   const title = `${authorName}：${truncateText(cleanMarkdownContent(content), 30)}`
 
   // 创建 Issue
-  const { data } = await octokit.issues.create({
+  const { data } = await botOctokit.issues.create({
     owner: OWNER,
     repo: REPO,
     title,
@@ -144,7 +139,7 @@ export async function createReply(
   const body = matter.stringify(content, frontMatterData)
 
   // 创建 Comment
-  const { data } = await octokit.issues.createComment({
+  const { data } = await botOctokit.issues.createComment({
     owner: OWNER,
     repo: REPO,
     issue_number: issueNumber,
@@ -163,7 +158,7 @@ export const getMessages = cache(async function getMessages(
   withReplies = false,
 ): Promise<{ messages: Message[]; total: number }> {
   // 使用 Search API 获取准确的总数
-  const response = await octokit.search.issuesAndPullRequests({
+  const response = await botOctokit.search.issuesAndPullRequests({
     q: `repo:${OWNER}/${REPO} is:issue is:open label:message label:approved`,
     sort: 'created',
     order: 'desc',
@@ -216,7 +211,7 @@ export const getMessages = cache(async function getMessages(
 export const getReplies = cache(async function getReplies(
   issueNumber: number,
 ): Promise<MessageReply[]> {
-  const { data: comments } = await octokit.issues.listComments({
+  const { data: comments } = await botOctokit.issues.listComments({
     owner: OWNER,
     repo: REPO,
     issue_number: issueNumber,

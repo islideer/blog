@@ -1,10 +1,10 @@
 import { visit } from 'unist-util-visit'
-import type { Root, Text, Html, PhrasingContent } from 'mdast'
-import type { Plugin } from 'unified'
-
-import emojiPacks from '@/data/emoji-packs.json'
-import type { EmojiPacks } from './emoji-packs'
+import emojiPacks from '../data/emoji-packs.json'
 import { getEmojiPackSize } from './emoji-packs'
+
+import type { Plugin } from 'unified'
+import type { EmojiPacks } from './emoji-packs'
+import type { Root, Text, Html, PhrasingContent } from 'mdast'
 
 /** 插件选项 */
 export interface RemarkEmojiPackOptions {
