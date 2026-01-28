@@ -175,11 +175,11 @@ export async function submitReply(formData: FormData) {
 
     const count = (await kv.get<number>(rateLimitKey)) ?? 0
 
-    if (count >= 3) {
+    if (count >= 6) {
       return {
         success: false,
         error: '提交过于频繁',
-        message: '你提交得太快啦，请稍后再试。（每 10 分钟最多提交 3 次）',
+        message: '你提交得太快啦，请稍后再试。（每 10 分钟最多提交 6 次）',
       }
     }
 
