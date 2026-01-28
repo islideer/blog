@@ -92,7 +92,7 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
       return
     }
 
-    toast.success('回复提交成功，审核后显示')
+    toast.success('回复成功，AI 审核后可显示（约半分钟）')
 
     // 保存作者信息到 localStorage
     saveMessageAuthor({
