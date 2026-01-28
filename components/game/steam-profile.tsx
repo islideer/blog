@@ -61,7 +61,7 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
                     : 'text-text-secondary',
                 )}
               >
-                {profile.persona_name}
+                Mio's Puppy
               </span>
             </div>
             <div className="text-text-tertiary flex flex-wrap items-center gap-1.5 text-xs">
