@@ -88,15 +88,16 @@ export async function createMessage(
   const authorAvatar = getAuthorAvatar(author)
 
   // 构建 Front Matter
-  const frontMatterData: Record<string, unknown> = {
-    name: authorName,
-    created_at: new Date().toISOString(),
-  }
+  const frontMatterData: Record<string, unknown> = {}
+
+  frontMatterData.name = authorName
 
   if (authorAvatar) frontMatterData.avatar = authorAvatar
   if (author.email) frontMatterData.email = author.email
   if (author.website) frontMatterData.website = author.website
   if (ua) frontMatterData.ua = ua
+
+  frontMatterData.created_at = new Date().toISOString()
 
   // 序列化 Front Matter + 内容
   const body = matter.stringify(content, frontMatterData)
