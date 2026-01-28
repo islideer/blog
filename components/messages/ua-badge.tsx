@@ -32,9 +32,9 @@ function parseUA(uaString: string) {
   const parser = new UAParser(uaString)
 
   return {
-    result: parser.getResult(),
-    browser: parser.getBrowser(),
+    model: parser.getDevice().model || '',
     os: parser.getOS(),
+    browser: parser.getBrowser(),
   }
 }
 
@@ -85,23 +85,26 @@ function getBrowserIcon(browser?: string) {
   return BrowserIcon
 }
 
-const systems = ['macos', 'android', 'windows']
-const isTrustedSystem = (osName?: string) => osName && !systems.includes(osName.toLowerCase())
+const isTrustedSystem = (osName?: string, model?: string) => {
+  const isAndroidK = osName?.toLowerCase() === 'android' && model === 'K'
+  return osName && !isAndroidK && !['macos', 'windows'].includes(osName.toLowerCase())
+}
 
 export function UABadge({ ua }: UABadgeProps) {
-  const { browser, os } = parseUA(ua)
+  const { browser, os, model } = parseUA(ua)
+
   const OSIcon = getOSIcon(os.name)
   const BrowserIconComponent = getBrowserIcon(browser.name)
 
   return (
     <Tooltip
-      content={`${os.name} ${isTrustedSystem(os.name) ? os.version : ''} - ${browser.name} ${browser.version}`}
+      content={`${os.name} ${isTrustedSystem(os.name, model) ? os.version : ''} - ${browser.name} ${browser.version}`}
     >
       <div className="group relative inline-flex items-center gap-1 text-xs opacity-60">
         <OSIcon className="h-3 w-3" />
         <span className="text-text-tertiary">
           {os.name}
-          {isTrustedSystem(os.name) && (
+          {isTrustedSystem(os.name, model) && (
             <span className="mx-1">{os.version?.split('.')[0] || ''}</span>
           )}
         </span>

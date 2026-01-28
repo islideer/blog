@@ -4,3 +4,6 @@ ignoredBuiltDependencies:
 
 onlyBuiltDependencies:
   - esbuild
+
+patchedDependencies:
+  ua-parser-js: patches/ua-parser-js.patch

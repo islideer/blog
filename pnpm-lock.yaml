@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  ua-parser-js:
+    hash: 504764252344edf3b82f9fe18f458e2efb9132def82a2cca5aacaee6f40722a8
+    path: patches/ua-parser-js.patch
+
 importers:
 
   .:
@@ -124,7 +129,7 @@ importers:
         version: 3.4.0
       ua-parser-js:
         specifier: ^2.0.8
-        version: 2.0.8
+        version: 2.0.8(patch_hash=504764252344edf3b82f9fe18f458e2efb9132def82a2cca5aacaee6f40722a8)
       unist-util-visit:
         specifier: ^5.0.0
         version: 5.0.0
@@ -9099,7 +9104,7 @@ snapshots:
 
   ua-is-frozen@0.1.2: {}
 
-  ua-parser-js@2.0.8:
+  ua-parser-js@2.0.8(patch_hash=504764252344edf3b82f9fe18f458e2efb9132def82a2cca5aacaee6f40722a8):
     dependencies:
       detect-europe-js: 0.1.2
       is-standalone-pwa: 0.1.1
