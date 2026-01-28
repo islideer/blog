@@ -8,6 +8,7 @@ interface RelativeTimeProps {
   date: string
   className?: string
   style?: React.CSSProperties
+  short?: boolean
 }
 
 function subscribe() {
@@ -32,7 +33,7 @@ function useIsClient() {
  * 服务端渲染绝对时间，客户端挂载后切换为相对时间
  * 解决 SSR 缓存导致的时间显示问题
  */
-export function RelativeTime({ date, className, style }: RelativeTimeProps) {
+export function RelativeTime({ date, className, style, short }: RelativeTimeProps) {
   const isClient = useIsClient()
   const dateObj = dayjs(date).tz('Asia/Shanghai')
   const fullFormatted = dateObj.format('YYYY-MM-DD HH:mm ddd')
@@ -49,11 +50,17 @@ export function RelativeTime({ date, className, style }: RelativeTimeProps) {
     <time className={className} dateTime={date} style={style} title={fullFormatted}>
       <span className="inline-flex items-center gap-2" suppressHydrationWarning>
         {isClient && !isOldPost ? (
-          <>
-            {`发布于${fromNowStr}`}
-            <span>·</span>
-            {formatted}
-          </>
+          short ? (
+            fromNowStr
+          ) : (
+            <>
+              {`发布于${fromNowStr}`}
+              <span>·</span>
+              {formatted}
+            </>
+          )
+        ) : short ? (
+          formatted
         ) : (
           `发布于 ${formatted}`
         )}

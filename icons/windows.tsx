@@ -4,8 +4,17 @@ interface WindowsIconProps {
 
 export function WindowsIcon({ className }: WindowsIconProps) {
   return (
-    <svg viewBox="0 0 16 16" fill="currentColor" className={className} aria-label="Windows">
-      <path d="M0 2.5L6.5 1.5v6H0V2.5zM7.5 1.3L16 0v7.5H7.5V1.3zM16 8.5V16l-8.5-1.2V8.5H16zM0 8.5h6.5v6.2L0 13.5V8.5z" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path
+        fill="currentColor"
+        d="M2.75 7.189V2.865c0-.102 0-.115.115-.115h8.622c.128 0 .14 0 .14.128V11.5c0 .128 0 .128-.14.128H2.865c-.102 0-.115 0-.115-.116zM7.189 21.25H2.865c-.102 0-.115 0-.115-.116V12.59c0-.128 0-.128.128-.128h8.635c.102 0 .115 0 .115.115v8.57c0 .09 0 .103-.116.103zM21.25 7.189v4.31c0 .116 0 .116-.116.116h-8.557c-.102 0-.128 0-.128-.115V2.865c0-.09 0-.102.115-.102h8.48c.206 0 .206 0 .206.205zm-8.763 9.661v-4.273c0-.09 0-.115.103-.09h8.621c.026 0 0 .09 0 .142v8.518a.06.06 0 0 1-.017.06a.06.06 0 0 1-.06.017H12.54s-.09 0-.077-.09V16.85z"
+      />
     </svg>
   )
 }

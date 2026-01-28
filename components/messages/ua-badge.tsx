@@ -1,10 +1,25 @@
+/* eslint-disable react-hooks/static-components */
 /**
  * UA Badge - 显示用户设备信息
- * 右下角小图标 + Tooltip
- * 接收原始 UA 字符串，渲染时解析
+ * 使用图标替代 emoji，支持操作系统和浏览器识别
  */
 
 import { UAParser } from 'ua-parser-js'
+import { WindowsIcon } from '@/icons/windows'
+import { MacOSIcon } from '@/icons/macos'
+import { LinuxIcon } from '@/icons/linux'
+import { AndroidIcon } from '@/icons/android'
+import { IOSIcon } from '@/icons/ios'
+import { IPadOSIcon } from '@/icons/ipados'
+import { ChromeIcon } from '@/icons/chrome'
+import { SafariIcon } from '@/icons/safari'
+import { EdgeIcon } from '@/icons/edge'
+import { FirefoxIcon } from '@/icons/firefox'
+import { QQBrowserIcon } from '@/icons/qq-browser'
+import { WeChatIcon } from '@/icons/wechat'
+import { BrowserIcon } from '@/icons/browser'
+import { GenericIcon } from '@/icons/generic'
+import { Tooltip } from '../tooltip'
 
 interface UABadgeProps {
   ua: string
@@ -15,72 +30,87 @@ interface UABadgeProps {
  */
 function parseUA(uaString: string) {
   const parser = new UAParser(uaString)
+
   return {
-    browser: parser.getBrowser().name,
-    os: parser.getOS().name,
-    device: parser.getDevice().type || 'Desktop',
+    result: parser.getResult(),
+    browser: parser.getBrowser(),
+    os: parser.getOS(),
   }
 }
 
 /**
- * 根据操作系统返回 Emoji 图标
+ * 根据操作系统返回图标组件
  */
-function getOSIcon(os?: string): string {
-  if (!os) return '💻'
+function getOSIcon(os?: string) {
+  if (!os) return GenericIcon
 
   const osLower = os.toLowerCase()
-  if (osLower.includes('windows')) return '🪟'
-  if (osLower.includes('mac') || osLower.includes('ios')) return '🍎'
-  if (osLower.includes('android')) return '🤖'
-  if (osLower.includes('linux')) return '🐧'
 
-  return '💻'
+  // Windows
+  if (osLower.includes('windows')) return WindowsIcon
+
+  // Apple 生态（注意检查顺序：先检查更具体的）
+  if (osLower.includes('ipad')) return IPadOSIcon
+  if (osLower.includes('ios')) return IOSIcon
+  if (osLower.includes('mac')) return MacOSIcon
+
+  // Android & HarmonyOS
+  if (osLower.includes('harmony')) return AndroidIcon // HarmonyOS 使用 Android 图标占位
+  if (osLower.includes('android')) return AndroidIcon
+
+  // Linux
+  if (osLower.includes('linux')) return LinuxIcon
+
+  return GenericIcon
 }
 
 /**
- * 根据浏览器返回 Emoji 图标
+ * 根据浏览器返回图标组件
  */
-function getBrowserIcon(browser?: string): string {
-  if (!browser) return '🌐'
+function getBrowserIcon(browser?: string) {
+  if (!browser) return BrowserIcon
 
   const browserLower = browser.toLowerCase()
-  if (browserLower.includes('chrome')) return '🌐'
-  if (browserLower.includes('firefox')) return '🦊'
-  if (browserLower.includes('safari')) return '🧭'
-  if (browserLower.includes('edge')) return '🌊'
 
-  return '🌐'
+  // 国内浏览器
+  if (browserLower.includes('qq')) return QQBrowserIcon
+  if (browserLower.includes('wechat')) return WeChatIcon
+
+  // 主流浏览器
+  if (browserLower.includes('chrome')) return ChromeIcon
+  if (browserLower.includes('firefox')) return FirefoxIcon
+  if (browserLower.includes('safari')) return SafariIcon
+  if (browserLower.includes('edge') || browserLower.includes('edg')) return EdgeIcon
+
+  return BrowserIcon
 }
 
-/**
- * 格式化设备信息为可读文本
- */
-function formatDeviceInfo(browser?: string, os?: string, device?: string): string {
-  const parts: string[] = []
-
-  if (os) parts.push(os)
-  if (browser) parts.push(browser)
-  if (device && device !== 'Desktop') parts.push(device)
-
-  return parts.join(' · ') || '未知设备'
-}
+const systems = ['macos', 'android', 'windows']
+const isTrustedSystem = (osName?: string) => osName && !systems.includes(osName.toLowerCase())
 
 export function UABadge({ ua }: UABadgeProps) {
-  const { browser, os, device } = parseUA(ua)
-  const osIcon = getOSIcon(os)
-  const browserIcon = getBrowserIcon(browser)
-  const deviceInfo = formatDeviceInfo(browser, os, device)
+  const { browser, os } = parseUA(ua)
+  const OSIcon = getOSIcon(os.name)
+  const BrowserIconComponent = getBrowserIcon(browser.name)
 
   return (
-    <div className="group relative inline-flex items-center gap-0.5 text-xs opacity-60">
-      <span aria-label={os || '操作系统'}>{osIcon}</span>
-      <span aria-label={browser || '浏览器'}>{browserIcon}</span>
-
-      {/* Tooltip */}
-      <div className="pointer-events-none absolute bottom-full right-0 mb-2 hidden whitespace-nowrap rounded-md bg-bg-tertiary px-2 py-1 text-xs text-text-secondary shadow-lg group-hover:block">
-        {deviceInfo}
-        <div className="absolute right-2 top-full h-0 w-0 border-4 border-transparent border-t-bg-tertiary" />
+    <Tooltip
+      content={`${os.name} ${isTrustedSystem(os.name) ? os.version : ''} - ${browser.name} ${browser.version}`}
+    >
+      <div className="group relative inline-flex items-center gap-1 text-xs opacity-60">
+        <OSIcon className="h-3 w-3" />
+        <span className="text-text-tertiary">
+          {os.name}
+          {isTrustedSystem(os.name) && (
+            <span className="mx-1">{os.version?.split('.')[0] || ''}</span>
+          )}
+        </span>
+        <BrowserIconComponent className="h-3 w-3" />
+        <span className="text-text-tertiary">
+          {browser.name?.replace(/browser/i, '')?.replace(/mobile/i, '')}
+          <span className="mx-1">{browser.version?.split('.')[0] || ''}</span>
+        </span>
       </div>
-    </div>
+    </Tooltip>
   )
 }

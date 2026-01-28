@@ -4,7 +4,7 @@
  */
 
 import Image from 'next/image'
-// import { UABadge } from './ua-badge'
+import { UABadge } from './ua-badge'
 import { siteConfig, websiteUrl } from '@/lib/config'
 import { parseMessage } from '@/lib/markdown'
 import { RelativeTime } from '../relative-time'
@@ -75,8 +75,8 @@ export async function MessageCard({ message, actions }: MessageCardProps) {
           </div>
 
           <div className="text-text-tertiary mt-0.5 flex items-center gap-2 text-xs">
-            <RelativeTime date={message.createdAt} />
-            {/* {message.ua && <UABadge ua={message.ua} />} */}
+            <RelativeTime date={message.createdAt} short />
+            {message.ua && <UABadge ua={message.ua} />}
           </div>
         </div>
       </div>
