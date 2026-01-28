@@ -28,7 +28,7 @@ interface MessageActionsProps {
 
 export function MessageActions({ messageId, replies, replyHtmls }: MessageActionsProps) {
   const [showReplyForm, setShowReplyForm] = useState(false)
-  const [showReplies, setShowReplies] = useState(true)
+  const [showReplies, setShowReplies] = useState(false)
 
   const handleReplySuccess = () => {
     setShowReplyForm(false)
