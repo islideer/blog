@@ -3,10 +3,11 @@
  * 使用私有仓库的 GitHub Issues 存储留言数据
  */
 
-import { cache } from 'react'
-import { Octokit } from '@octokit/rest'
 import matter from 'gray-matter'
 import crypto from 'node:crypto'
+import { cache } from 'react'
+import { Octokit } from '@octokit/rest'
+import { truncateText, cleanMarkdownContent } from './markdown'
 
 import type { MessageAuthor, Message, MessageReply } from './messages'
 
@@ -76,15 +77,6 @@ export function isSuspiciousUA(uaString: string): boolean {
 }
 
 /**
- * 截断内容（用于 Issue title）
- */
-function truncateContent(content: string, maxLength = 50): string {
-  // 去除 Markdown 标记
-  const plainText = content.replace(/[#*_`\[\]]/g, '').trim()
-  return plainText.length > maxLength ? plainText.slice(0, maxLength) + '...' : plainText
-}
-
-/**
  * 创建留言（创建 GitHub Issue）
  */
 export async function createMessage(
@@ -110,7 +102,7 @@ export async function createMessage(
   const body = matter.stringify(content, frontMatterData)
 
   // 生成 Issue title
-  const title = `${authorName}：${truncateContent(content)}`
+  const title = `${authorName}：${truncateText(cleanMarkdownContent(content), 30)}`
 
   // 创建 Issue
   const { data } = await octokit.issues.create({

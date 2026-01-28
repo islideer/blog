@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ImageIcon } from '../image-icon'
 import { RelativeTime } from '../relative-time'
 import { pages, type ShortPost } from '@/lib/data'
-import { cleanMarkdownContent, truncateText } from '@/lib/search-utils'
+import { truncateText, cleanMarkdownContent } from '@/lib/markdown'
 
 interface RecentActivitiesProps {
   title?: string

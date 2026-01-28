@@ -5,21 +5,23 @@
  */
 
 import { UAParser } from 'ua-parser-js'
-import { WindowsIcon } from '@/icons/windows'
-import { MacOSIcon } from '@/icons/macos'
-import { LinuxIcon } from '@/icons/linux'
+
 import { AndroidIcon } from '@/icons/android'
-import { IOSIcon } from '@/icons/ios'
-import { IPadOSIcon } from '@/icons/ipados'
+import { BrowserIcon } from '@/icons/browser'
 import { ChromeIcon } from '@/icons/chrome'
-import { SafariIcon } from '@/icons/safari'
 import { EdgeIcon } from '@/icons/edge'
 import { FirefoxIcon } from '@/icons/firefox'
-import { QQBrowserIcon } from '@/icons/qq-browser'
-import { WeChatIcon } from '@/icons/wechat'
-import { BrowserIcon } from '@/icons/browser'
 import { GenericIcon } from '@/icons/generic'
+import { IEIcon } from '@/icons/ie'
+import { IOSIcon } from '@/icons/ios'
+import { IPadOSIcon } from '@/icons/ipados'
+import { LinuxIcon } from '@/icons/linux'
+import { MacOSIcon } from '@/icons/macos'
+import { QQBrowserIcon } from '@/icons/qq-browser'
+import { SafariIcon } from '@/icons/safari'
 import { Tooltip } from '../tooltip'
+import { WeChatIcon } from '@/icons/wechat'
+import { WindowsIcon } from '@/icons/windows'
 
 interface UABadgeProps {
   ua: string
@@ -54,8 +56,7 @@ function getOSIcon(os?: string) {
   if (osLower.includes('ios')) return IOSIcon
   if (osLower.includes('mac')) return MacOSIcon
 
-  // Android & HarmonyOS
-  if (osLower.includes('harmony')) return AndroidIcon // HarmonyOS 使用 Android 图标占位
+  // Android
   if (osLower.includes('android')) return AndroidIcon
 
   // Linux
@@ -81,6 +82,7 @@ function getBrowserIcon(browser?: string) {
   if (browserLower.includes('firefox')) return FirefoxIcon
   if (browserLower.includes('safari')) return SafariIcon
   if (browserLower.includes('edge') || browserLower.includes('edg')) return EdgeIcon
+  if (browserLower.includes('ie')) return IEIcon
 
   return BrowserIcon
 }

@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { promises as fs } from 'node:fs'
 import { getAllPostsWithContent } from '../lib/posts.ts'
-import { cleanMarkdownContent, truncateText } from '../lib/search-utils.ts'
+import { truncateText, cleanMarkdownContent } from '@/lib/markdown.ts'
 
 // 导入 JSON 数据
 import thoughtsData from '../data/thoughts.json' with { type: 'json' }
