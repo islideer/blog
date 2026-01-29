@@ -107,5 +107,13 @@
     "url": "https://jyi2ya.github.io/",
     "avatar": "https://jyi2ya.github.io/favicon.ico",
     "rss": "https://jyi2ya.github.io/index.rss"
+  },
+  {
+    "id": "ying",
+    "name": "Ying",
+    "url": "https://blog.luvying.com",
+    "description": "⎛⎝喵~⎠⎞",
+    "avatar": "https://cdn.luvying.com/files/images/avatar.jpg",
+    "rss": "https://blog.luvying.com/atom.xml"
   }
 ]
