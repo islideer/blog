@@ -168,17 +168,191 @@ const messageProcessor = unified()
     ...defaultSchema,
     attributes: {
       ...defaultSchema.attributes,
+      // 所有元素都可以使用的通用属性
+      '*': [
+        ...(defaultSchema.attributes?.['*'] || []),
+        ['className'],
+        ['id'],
+        ['title'],
+        ['dir'], // 文本方向 (ltr, rtl)
+        ['lang'], // 语言标识
+        // data-* 属性（用于自定义数据）
+        ['data*'],
+        // ARIA 无障碍属性
+        'aria*',
+        // 样式属性（白名单控制）
+        [
+          'style',
+          // 安全的 CSS 属性白名单
+          'color',
+          'backgroundColor',
+          'fontSize',
+          'fontWeight',
+          'fontStyle',
+          'textAlign',
+          'textDecoration',
+          'margin',
+          'marginTop',
+          'marginRight',
+          'marginBottom',
+          'marginLeft',
+          'padding',
+          'paddingTop',
+          'paddingRight',
+          'paddingBottom',
+          'paddingLeft',
+          'border',
+          'borderColor',
+          'borderWidth',
+          'borderStyle',
+          'borderRadius',
+          'width',
+          'height',
+          'maxWidth',
+          'maxHeight',
+          'minWidth',
+          'minHeight',
+          'display',
+          'opacity',
+          'lineHeight',
+          'letterSpacing',
+          'wordSpacing',
+        ],
+      ],
+      // 图片增强
       img: [
         ...(defaultSchema.attributes?.img || []),
-        ['loading', 'lazy'],
+        ['loading', 'lazy', 'eager'],
         ['className', 'emoji', 'spoiler'],
         ['referrerPolicy'],
         ['width'],
         ['height'],
+        ['align', 'left', 'right', 'center'],
+        ['crossOrigin'], // CORS 支持
       ],
+      // Span 增强
       span: [...(defaultSchema.attributes?.span || []), ['className', 'spoiler']],
+      // 表格增强
+      table: [
+        ...(defaultSchema.attributes?.table || []),
+        ['align', 'left', 'right', 'center'],
+        ['border'],
+        ['cellPadding'],
+        ['cellSpacing'],
+      ],
+      td: [
+        ...(defaultSchema.attributes?.td || []),
+        ['align', 'left', 'right', 'center', 'justify'],
+        ['valign', 'top', 'middle', 'bottom'],
+        ['colSpan'],
+        ['rowSpan'],
+        ['width'],
+        ['height'],
+      ],
+      th: [
+        ...(defaultSchema.attributes?.th || []),
+        ['align', 'left', 'right', 'center', 'justify'],
+        ['valign', 'top', 'middle', 'bottom'],
+        ['colSpan'],
+        ['rowSpan'],
+        ['width'],
+        ['scope', 'row', 'col', 'rowGroup', 'colGroup'],
+      ],
+      // 链接增强
+      a: [
+        ...(defaultSchema.attributes?.a || []),
+        ['download'], // 下载链接
+        ['hreflang'], // 链接语言
+      ],
+      // Div 容器
+      div: [...(defaultSchema.attributes?.div || [])],
+      // 视频支持
+      video: [
+        ...(defaultSchema.attributes?.video || []),
+        ['controls'],
+        ['autoplay'],
+        ['loop'],
+        ['muted'],
+        ['poster'], // 封面图
+        ['width'],
+        ['height'],
+        ['preload', 'auto', 'metadata', 'none'],
+      ],
+      source: [...(defaultSchema.attributes?.source || []), ['src'], ['type']],
+      // 音频支持
+      audio: [
+        ...(defaultSchema.attributes?.audio || []),
+        ['controls'],
+        ['autoplay'],
+        ['loop'],
+        ['muted'],
+        ['preload', 'auto', 'metadata', 'none'],
+      ],
+      // 代码块增强
+      code: [...(defaultSchema.attributes?.code || []), ['className']],
+      pre: [...(defaultSchema.attributes?.pre || []), ['className']],
+      // 列表增强
+      ol: [...(defaultSchema.attributes?.ol || []), ['start'], ['type', '1', 'a', 'A', 'i', 'I']],
+      // 引用增强
+      blockquote: [...(defaultSchema.attributes?.blockquote || []), ['cite']],
+      q: [...(defaultSchema.attributes?.q || []), ['cite']],
+      // 细节/摘要（折叠面板）
+      details: [...(defaultSchema.attributes?.details || []), ['open']],
+      summary: [...(defaultSchema.attributes?.summary || [])],
+      // 其他语义化标签
+      abbr: [...(defaultSchema.attributes?.abbr || [])],
+      mark: [...(defaultSchema.attributes?.mark || [])],
+      kbd: [...(defaultSchema.attributes?.kbd || [])],
+      sub: [...(defaultSchema.attributes?.sub || [])],
+      sup: [...(defaultSchema.attributes?.sup || [])],
+      time: [...(defaultSchema.attributes?.time || []), ['datetime']],
+      ins: [...(defaultSchema.attributes?.ins || []), ['cite'], ['datetime']],
+      del: [...(defaultSchema.attributes?.del || []), ['cite'], ['datetime']],
     },
-    tagNames: [...(defaultSchema.tagNames || []), 'span'],
+    tagNames: [
+      ...(defaultSchema.tagNames || []),
+      // 基础结构
+      'span',
+      'div',
+      'section',
+      'article',
+      'aside',
+      'header',
+      'footer',
+      'main',
+      'nav',
+      // 语义化标签
+      'mark', // 高亮文本
+      'kbd', // 键盘输入
+      'sub', // 下标
+      'sup', // 上标
+      'abbr', // 缩写
+      'time', // 时间
+      'ins', // 插入文本
+      'del', // 删除文本
+      'cite', // 引用标题
+      'dfn', // 术语定义
+      'samp', // 示例输出
+      'var', // 变量
+      // 折叠面板
+      'details',
+      'summary',
+      // 多媒体
+      'video',
+      'audio',
+      'source',
+      'track', // 字幕轨道
+      'figure', // 图文容器
+      'figcaption', // 图文说明
+      'picture', // 响应式图片
+      // 表格增强
+      'caption',
+      'colgroup',
+      'col',
+      'tbody',
+      'thead',
+      'tfoot',
+    ],
   })
   .use(rehypeExternalLinks, {
     target: '_blank',
