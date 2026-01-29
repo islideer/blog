@@ -1,6 +1,6 @@
-import { ViewTransition } from 'react'
-
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { ViewTransition } from 'react'
 import { getPostBySlug, getAllPostSlugs, getRecommendedPosts } from '@/lib/posts'
 import {
   generateBlogPostingSchema,
@@ -16,6 +16,7 @@ import { countWords } from '@/lib/word-count'
 import { DraftBadge } from '@/components/draft-badge'
 import { OldPostTip } from '@/components/post/old-post-tip'
 import { ReadingTime } from '@/components/reading-time'
+import { ChatIconIcon } from '@/icons/chat'
 import { ArticleContent } from '@/components/post/article-content'
 import { TableOfContents } from '@/components/table-of-contents'
 import { RecommendedPosts } from '@/components/post/recommended-posts'
@@ -96,73 +97,83 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       />
 
       <div className="pb-8 sm:pb-12">
-          <article>
-            {/* Article Header */}
-            <header className="mb-8 space-y-4 sm:mb-12 sm:space-y-6">
-              {/* Top Image */}
-              {post.topImage && (
-                <div className="-mx-4 mt-2 overflow-hidden rounded-none! sm:mx-0 sm:mt-4 sm:rounded-md!">
-                  <ZoomImageForArticle
-                    src={post.topImage}
-                    alt={post.title}
-                    className="h-auto w-full rounded-none! sm:rounded-md!"
-                    priority
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                  />
+        <article>
+          {/* Article Header */}
+          <header className="mb-8 space-y-4 sm:mb-12 sm:space-y-6">
+            {/* Top Image */}
+            {post.topImage && (
+              <div className="-mx-4 mt-2 overflow-hidden rounded-none! sm:mx-0 sm:mt-4 sm:rounded-md!">
+                <ZoomImageForArticle
+                  src={post.topImage}
+                  alt={post.title}
+                  className="h-auto w-full rounded-none! sm:rounded-md!"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+            )}
+
+            <div className="mt-8 space-y-3 sm:mt-12 sm:space-y-4">
+              <ViewTransition name={`post-title-${post.slug}`} default="transform">
+                <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-3xl md:text-4xl lg:text-5xl">
+                  {post.title}
+                </h1>
+              </ViewTransition>
+              {post.draft && (
+                <div className="inline-flex items-center gap-2">
+                  <DraftBadge />
+                  <span className="text-text-tertiary text-xs sm:text-sm">
+                    此文章尚未正式发布，仅在开发环境可见
+                  </span>
                 </div>
               )}
-
-              <div className="mt-8 space-y-3 sm:mt-12 sm:space-y-4">
-                <ViewTransition name={`post-title-${post.slug}`} default="transform">
-                  <h1 className="text-text-primary text-2xl leading-tight font-bold sm:text-3xl md:text-4xl lg:text-5xl">
-                    {post.title}
-                  </h1>
-                </ViewTransition>
-                {post.draft && (
-                  <div className="inline-flex items-center gap-2">
-                    <DraftBadge />
-                    <span className="text-text-tertiary text-xs sm:text-sm">
-                      此文章尚未正式发布，仅在开发环境可见
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              <div className="text-text-tertiary flex items-baseline gap-1 overflow-x-auto text-xs sm:gap-2 sm:text-sm">
-                <PostDate date={post.date} format="detail" className="shrink-0" />
-                <span className="shrink-0">·</span>
-                <span className="shrink-0">
-                  <ReadingTime minutes={post.readingTime} />
-                </span>
-                <span className="shrink-0">·</span>
-                <span className="shrink-0">{wordCount.toLocaleString('zh-Hans-CN')} 字</span>
-                <OldPostTip short className="text-xs" date={post.date} />
-              </div>
-            </header>
-
-            {/* Article Content */}
-            <ArticleContent content={post.content} />
-          </article>
-
-          {/* Article End */}
-          <div className="border-border mt-8 border-t pt-8 sm:mt-16">
-            <p className="text-text-tertiary text-center text-sm">—— 本文完 ——</p>
-          </div>
-
-          {/* Post Like */}
-          <div className="mt-8">
-            <PostLike slug={slug} initialCount={counts[slug]} />
-          </div>
-
-          <div className="border-border mt-8 flex justify-center border-t pt-8">
-            <div className="flex flex-1 truncate px-2 sm:justify-center">
-              <PostInfo title={post.title} slug={post.slug} />
             </div>
-          </div>
 
-          {/* Recommended Posts */}
-          <RecommendedPosts posts={recommendedPosts} />
+            <div className="text-text-tertiary flex items-baseline gap-1 overflow-x-auto text-xs sm:gap-2 sm:text-sm">
+              <PostDate date={post.date} format="detail" className="shrink-0" />
+              <span className="shrink-0">·</span>
+              <span className="shrink-0">
+                <ReadingTime minutes={post.readingTime} />
+              </span>
+              <span className="shrink-0">·</span>
+              <span className="shrink-0">{wordCount.toLocaleString('zh-Hans-CN')} 字</span>
+              <OldPostTip short className="text-xs" date={post.date} />
+            </div>
+          </header>
+
+          {/* Article Content */}
+          <ArticleContent content={post.content} />
+        </article>
+
+        {/* Article End */}
+        <div className="border-border mt-8 border-t pt-8 sm:mt-16">
+          <p className="text-text-tertiary mb-4 text-center text-sm">—— 本文完 ——</p>
+          <p className="text-text-tertiary mx-auto flex justify-center gap-2 text-center text-sm">
+            <ChatIconIcon className="h-6 w-6" />
+            <span>
+              交流讨论、反馈建议，请到
+              <Link href="/messages" className="mx-1">
+                话匣子
+              </Link>
+              页面留言。
+            </span>
+          </p>
         </div>
+
+        {/* Post Like */}
+        <div className="mt-8">
+          <PostLike slug={slug} initialCount={counts[slug]} />
+        </div>
+
+        <div className="border-border mt-8 flex justify-center border-t pt-8">
+          <div className="flex flex-1 truncate px-2 sm:justify-center">
+            <PostInfo title={post.title} slug={post.slug} />
+          </div>
+        </div>
+
+        {/* Recommended Posts */}
+        <RecommendedPosts posts={recommendedPosts} />
+      </div>
 
       {/* Table of Contents */}
       <TableOfContents />

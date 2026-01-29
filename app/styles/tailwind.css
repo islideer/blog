@@ -24,6 +24,7 @@
   --color-border: var(--color-border);
   --color-border-secondary: var(--color-border-secondary);
   --color-border-tertiary: var(--color-border-tertiary);
+  --color-border-quaternary: var(--color-border-quaternary);
 
   --color-code-bg: var(--color-code-bg);
   --color-code-text: var(--color-code-text);
