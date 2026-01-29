@@ -1,15 +1,15 @@
 [
   {
     "date": "2026",
-    "description": "博客上线话匣子功能，可以留言交流啦～"
+    "description": "博客上线 [话匣子](/messages) 功能，可以留言交流啦～"
   },
   {
     "date": "2026",
-    "description": "和 Mio 一起看的第一场雪。"
+    "description": "和 Mio 一起看的 [第一场雪](/thoughts#105)。"
   },
   {
     "date": "2026",
-    "description": "博客上线了友链、游戏、书影音、岛读等功能，快来和我换友链！"
+    "description": "博客上线了 [友链](/friends)、[游戏](/game)、[书影音](/library)、[岛读](/reading) 等功能，来换友链！"
   },
   {
     "date": "2026",
@@ -41,11 +41,11 @@
   },
   {
     "date": "2024",
-    "description": "旧域名 vikiboss.top 到期，不再续费，以 viki.moe 作为个人品牌的唯一域名。"
+    "description": "旧域名 [vikiboss.top](https://vikiboss.top) 到期，不再续费，以 [viki.moe](https://viki.moe) 作为个人品牌的唯一域名。"
   },
   {
     "date": "2024",
-    "description": "在小区楼下捡到大概一个月大的三花小猫咪，抱回家养着了，取名「可乐」。"
+    "description": "在小区楼下捡到大概一个月大的 [三花](https://baike.baidu.com/item/%E4%B8%89%E8%8A%B1%E7%8C%AB/4340185) 小猫咪，抱回家养着了，取名「可乐」。"
   },
   {
     "date": "2024",
@@ -53,7 +53,7 @@
   },
   {
     "date": "2023",
-    "description": "重新捡起 CS:GO，不过这次 CS 升级了，变成了 [CS2](https://www.counter-strike.net/)。"
+    "description": "重新捡起 CS:GO，不过这次 CS 全新升级了，变成了 [CS2](https://www.counter-strike.net/)。"
   },
   {
     "date": "2023",
@@ -61,7 +61,7 @@
   },
   {
     "date": "2023",
-    "description": "正式入职 SHEIN，担任 Web 前端工程师，负责 B 端前端基建相关工作。"
+    "description": "正式入职 [SHEIN](https://www.sheingroup.com/)，担任 Web 前端工程师，负责 B 端前端基建相关工作。"
   },
   {
     "date": "2023",
@@ -77,11 +77,11 @@
   },
   {
     "date": "2022",
-    "description": "正式启用新域名 viki.moe 和个人邮箱 hi@viki.moe。（一年 $13.99 有点小贵）"
+    "description": "正式启用新域名 [viki.moe](https://viki.moe) 和个人邮箱 [hi@viki.moe](mailto:hi@viki.moe)。（一年 $13.99 有点小贵）"
   },
   {
     "date": "2022",
-    "description": "离职后，在北京进行了为期三天的「特种兵」旅行，游览了故宫、颐和园等地标性景点。"
+    "description": "离职后，在北京进行了为期三天的「特种兵旅行」，游览了故宫、颐和园等地标性景点。"
   },
   {
     "date": "2022",
@@ -89,11 +89,11 @@
   },
   {
     "date": "2021",
-    "description": "KiviBot 诞生，简单的 Node.js 机器人框架。由于协议、开源等问题先后更名为「keli」、「mioki」。"
+    "description": "[KiviBot](https://b.viki.moe) 诞生，简单的 [Node.js](https://nodejs.org/) 机器人框架。由于协议、开源等问题先后更名为 [keli](https://keli.viki.moe)、[mioki](https://mioki.viki.moe)。"
   },
   {
     "date": "2020",
-    "description": "接触到「酷喵」，一个内置了 [gocq-http](https://github.com/Mrs4s/go-cqhttp)、使用易语言编写的机器人框架，暴露了多种语言 SDK 接口。我刚学会 [Node.js](https://nodejs.org/) 不久，尝试用 JavaScript 和易语言给它写了不少插件。"
+    "description": "接触到「酷喵」，一个内置了 [gocq-http](https://github.com/Mrs4s/go-cqhttp)、使用易语言编写的机器人框架，暴露了多种语言 SDK 接口。我刚学会 [Node.js](https://nodejs.org/) 不久，尝试用 [JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript) 和 [易语言](https://www.dywt.com.cn/) 给它写了不少插件。"
   },
   {
     "date": "2020",
@@ -105,7 +105,7 @@
   },
   {
     "date": "2020",
-    "description": "顺手写给自己用的网盘倍速脚本 [被用户打赏](/first-tip) 了，第一次通过代码收获实质性肯定。"
+    "description": "顺手写给自己用的网盘倍速脚本 [被用户打赏了](/first-tip)，第一次通过代码收获实质性肯定。"
   },
   {
     "date": "2020",
@@ -117,7 +117,7 @@
   },
   {
     "date": "2019",
-    "description": "在学长指导下，使用 [GitHub Pages](https://pages.github.com/) 和 [Jekyll](https://jekyllrb.com/) 构建了个人博客，并使用 vikiboss 作为 GitHub ID，启用 vikiboss.top 域名，同时发布了我的第一篇博客文章：[Hello World](https://blog.viki.moe/blog-journey)。"
+    "description": "在学长指导下，使用 [GitHub Pages](https://pages.github.com/) 和 [Jekyll](https://jekyllrb.com/) 构建了个人博客，并使用 [vikiboss](https://github.com/vikiboss) 作为 GitHub ID，启用 [vikiboss.top](https://vikiboss.top) 域名，同时发布了我的第一篇博客文章：[Hello World](/blog-journey)。"
   },
   {
     "date": "2019",
@@ -145,11 +145,11 @@
   },
   {
     "date": "2016",
-    "description": "重装家里的台式电脑，我要用 [Windows 10](https://www.microsoft.com/zh-cn/software-download/windows10)！但是爸妈用不习惯，后面又叫人给搞回去了..."
+    "description": "重装家里的台式电脑，我要用 [Windows 10](https://www.microsoft.com/zh-cn/software-download/windows10)！但是爸妈用不习惯，后面又给搞回去了..."
   },
   {
     "date": "2016",
-    "description": "高中信息课，我的天下。天生爱好计算机加上易语言的基础，各种问答和实操手到擒来。~~可惜的是学校没有开设计算机竞赛相关课程和社团，错过了参加竞赛的机会。~~"
+    "description": "高中信息课，我的天下。天生爱好计算机加上 [易语言](https://www.dywt.com.cn/) 的基础，各种问答和实操手到擒来。~~可惜的是学校没有开设计算机竞赛相关课程和社团，错过了参加竞赛的机会。~~"
   },
   {
     "date": "2014",
@@ -169,7 +169,7 @@
   },
   {
     "date": "2013",
-    "description": "尝试使用易语言 ~~换皮~~ 修改别人的源码（如本地音乐播放器），虽然本质只是在改 UI，~~第一步一定要设计一个高大上的图标~~，不过让我对 UI 和 UX 有了初步认识。"
+    "description": "尝试使用 [易语言](https://www.dywt.com.cn/) ~~换皮~~ 修改别人的源码（如本地音乐播放器），虽然本质只是在改 UI，~~第一步一定要设计一个高大上的图标~~，不过让我对 UI 和 UX 有了初步认识。"
   },
   {
     "date": "2013",
@@ -181,7 +181,7 @@
   },
   {
     "date": "2013",
-    "description": "爱用美图秀秀等软件搞些花里胡哨的东西，上古审美、自我熏陶。（~~他喵的什么狗屎审美~~）"
+    "description": "爱用 [美图秀秀](https://www.meituxiuxiu.com/zh-Hans) 等软件搞些花里胡哨的东西，上古审美、自我熏陶。（~~他喵的什么狗屎审美~~）"
   },
   {
     "date": "2012",
@@ -193,7 +193,7 @@
   },
   {
     "date": "2012",
-    "description": "开始探索与计算机相关的一切东西，比如鼓捣路由器的配置页面，~~虽然很多地方看不懂，但是最常见的 192.168.1.1 背的滚瓜烂熟~~，改个 Wi-Fi 名字和密码还是小菜一碟，荣誉感满满。"
+    "description": "开始探索与计算机相关的一切东西，比如鼓捣路由器的配置页面，~~虽然很多地方看不懂，但是最常见的 [192.168.1.1](https://baike.baidu.com/item/192.168.1.1) 背的滚瓜烂熟~~，改个 Wi-Fi 名字和密码还是小菜一碟，荣誉感满满。"
   },
   {
     "date": "2012",
@@ -213,7 +213,7 @@
   },
   {
     "date": "2006",
-    "description": "从幼儿园开始，被爸妈接出去和他们一起在镇上租房住。"
+    "description": "从幼儿园开始，被爸妈接出去和他们一起在小镇上租房住，准备开始上小学。"
   },
   {
     "date": "2001",
