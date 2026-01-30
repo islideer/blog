@@ -100,19 +100,19 @@ export function UABadge({ ua }: UABadgeProps) {
 
   return (
     <Tooltip
-      content={`${os.name} ${isTrustedSystem(os.name, model) ? os.version : ''} - ${browser.name} ${browser.version}`}
+      content={`${os.name} ${isTrustedSystem(os.name, model) ? os.version || '-' : '-'} - ${browser.name || '-'} ${browser.version || '-'}`}
     >
       <div className="group relative inline-flex items-center gap-1 text-xs opacity-60">
         <OSIcon className="h-3 w-3" />
         <span className="text-text-tertiary">
-          {os.name}
+          {os.name || '-'}
           {isTrustedSystem(os.name, model) && (
             <span className="mx-1">{os.version?.split('.')[0] || ''}</span>
           )}
         </span>
         <BrowserIconComponent className="h-3 w-3" />
         <span className="text-text-tertiary">
-          {browser.name?.replace(/browser/i, '')?.replace(/mobile/i, '')}
+          {browser.name?.replace(/browser/i, '')?.replace(/mobile/i, '') || '-'}
           <span className="mx-1">{browser.version?.split('.')[0] || ''}</span>
         </span>
       </div>
