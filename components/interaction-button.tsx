@@ -78,7 +78,7 @@ export function InteractionButton({
         const rollbackCount = clickCount
         setLocalCount((prev) => (prev !== null ? prev - rollbackCount : displayCount))
 
-        if (result.error === '点击次数已达上限') {
+        if (result.error === `今日${config?.ariaLabel || '点击'}次数已达上限`) {
           // 今天已达到限制，使用服务端返回的用户点击次数
           if (typeof result.userClickCount === 'number') {
             setUserClickCount(result.userClickCount)
@@ -106,7 +106,7 @@ export function InteractionButton({
       const rollbackCount = clickCount
       setLocalCount((prev) => (prev !== null ? prev - rollbackCount : displayCount))
       setUserClickCount((prev) => Math.max(0, prev - rollbackCount))
-      toast.error('网络错误了，请稍后重试～')
+      toast.error('网络错误，请稍后重试...')
       console.error('Failed to update interaction:', error)
       setIsSubmitting(false)
     }
@@ -209,7 +209,11 @@ export function InteractionButton({
               iconClassName,
             )}
           />
-          {displayCount > 0 && <ClientCounterUp start={prevLocalCount} end={displayCount} />}
+          {displayCount > 0 ? (
+            <ClientCounterUp start={prevLocalCount} end={displayCount} />
+          ) : (
+            <span className="text-sm">{config.ariaLabel}</span>
+          )}
         </button>
       </div>
     </Tooltip>

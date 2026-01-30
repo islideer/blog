@@ -22,7 +22,7 @@ export function PostLike({ slug, initialCount }: PostLikeProps) {
   return (
     <>
       {/* PC 端 - 固定在左侧，与目录对称 */}
-      <div className="fixed top-1/2 left-4 z-10 hidden min-h-64 w-60 -translate-y-1/2 text-right transition-all xl:block">
+      <div className="fixed top-1/2 left-4 z-10 hidden w-60 -translate-y-1/2 text-right transition-all xl:block">
         {icon}
       </div>
 
