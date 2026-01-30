@@ -13,17 +13,24 @@ import { ChevronUpIcon } from '../../icons/chevron-up'
 import { ChevronDownIcon } from '../../icons/chevron-down'
 import { CollapsibleContent } from './collapsible-content'
 import { MessageAuthor } from './message-author'
-import { ReplyForm } from './reply-form'
+import { MessageReplyForm } from './message-reply-form'
 
+import type { MessageAuthor as Author } from '@/lib/messages'
 import type { MessageReply } from '@/lib/messages'
 
 interface MessageActionsProps {
   messageId: string
+  repliedAuthor?: Author
   replies: MessageReply[]
   replyHtmls: string[]
 }
 
-export function MessageActions({ messageId, replies, replyHtmls }: MessageActionsProps) {
+export function MessageActions({
+  messageId,
+  repliedAuthor,
+  replies,
+  replyHtmls,
+}: MessageActionsProps) {
   const [showReplyForm, setShowReplyForm] = useState(false)
   const [showReplies, setShowReplies] = useState(false)
 
@@ -68,8 +75,9 @@ export function MessageActions({ messageId, replies, replyHtmls }: MessageAction
       {/* 回复表单 */}
       {showReplyForm && (
         <div className="mt-3">
-          <ReplyForm
+          <MessageReplyForm
             messageId={messageId}
+            repliedAuthor={repliedAuthor}
             onSuccess={handleReplySuccess}
             onCancel={() => setShowReplyForm(false)}
           />

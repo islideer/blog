@@ -5,16 +5,24 @@
 
 'use client'
 
-import { BaseMessageForm } from './base-message-form'
 import { submitReply } from '@/actions/messages'
+import { BaseMessageForm } from './base-message-form'
 
-interface ReplyFormProps {
+import type { MessageAuthor } from '@/lib/messages'
+
+interface MessageReplyFormProps {
   messageId: string
+  repliedAuthor?: MessageAuthor
   onSuccess?: () => void
   onCancel?: () => void
 }
 
-export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
+export function MessageReplyForm({
+  messageId,
+  repliedAuthor,
+  onSuccess,
+  onCancel,
+}: MessageReplyFormProps) {
   const handleSubmit = async (formData: {
     name: string
     email: string
@@ -39,6 +47,7 @@ export function ReplyForm({ messageId, onSuccess, onCancel }: ReplyFormProps) {
       onSuccess={onSuccess}
       onCancel={onCancel}
       messageId={messageId}
+      repliedAuthor={repliedAuthor}
       maxLength={800}
       rows={3}
     />

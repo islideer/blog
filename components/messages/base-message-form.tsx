@@ -5,18 +5,19 @@
 
 'use client'
 
+import Image from 'next/image'
+import { cn } from '@/lib/cn'
+import { md5 } from 'js-md5'
 import { toast } from 'sonner'
+import { XIcon } from '@/icons/x'
 import { Button } from '../button'
 import { SendIcon } from '@/icons/send'
-import { XIcon } from '@/icons/x'
 import { EmojiPicker } from './emoji-picker'
 import { useState, useRef, useEffect } from 'react'
 import { useFormStatus } from 'react-dom'
-import Image from 'next/image'
-import { cn } from '@/lib/cn'
 import { loadMessageAuthor, saveMessageAuthor } from '@/lib/storage'
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const md5 = require('js-md5')
+
+import type { MessageAuthor } from '@/lib/messages'
 
 // 客户端版本的头像生成逻辑（与服务端 generateAvatarUrl 保持一致）
 function generateClientAvatarUrl(email: string): string {
@@ -55,6 +56,8 @@ interface BaseMessageFormProps {
   onCancel?: () => void
   /** 留言 ID（仅回复表单） */
   messageId?: string
+  /** 被回复的作者信息（仅回复表单） */
+  repliedAuthor?: MessageAuthor
   /** 内容最大长度 */
   maxLength?: number
   /** 文本框行数 */
@@ -78,6 +81,7 @@ export function BaseMessageForm({
   onSuccess,
   onCancel,
   messageId,
+  repliedAuthor,
   maxLength = 1200,
   rows = 5,
 }: BaseMessageFormProps) {
@@ -167,8 +171,8 @@ export function BaseMessageForm({
 
     toast.success(
       type === 'message'
-        ? '留言成功，AI 审核后可显示（约半分钟）'
-        : '回复成功，AI 审核后可显示（约半分钟）',
+        ? '留言成功，AI 审核后显示（约半分钟）'
+        : '回复成功，AI 审核后显示（约半分钟）',
     )
 
     // 保存作者信息到 localStorage
@@ -257,7 +261,7 @@ export function BaseMessageForm({
             />
             {/* 头像预览 */}
             {showAvatar && avatarUrl && (
-              <div className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2">
+              <div className="pointer-events-none absolute top-1/2 right-2 -translate-y-1/2">
                 <Image
                   src={avatarUrl}
                   alt="头像预览"
@@ -298,7 +302,11 @@ export function BaseMessageForm({
           onChange={handleChange}
           maxLength={maxLength}
           rows={rows}
-          placeholder={isMessage ? '留下你的想法和故事...' : '写下你的回复...'}
+          placeholder={
+            isMessage
+              ? '还在等什么？来都来了，键盘敲起。'
+              : `回复 @${repliedAuthor?.name || '留言作者'} ...`
+          }
           className="no-focus w-full"
           required
         />

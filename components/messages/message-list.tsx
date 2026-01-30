@@ -59,6 +59,7 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
               actions={
                 <MessageActions
                   messageId={message.id}
+                  repliedAuthor={message.author}
                   replies={message.replies || []}
                   replyHtmls={replyHtmls}
                 />
