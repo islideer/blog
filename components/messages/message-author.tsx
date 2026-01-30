@@ -11,6 +11,7 @@ import { RelativeTime } from '../relative-time'
 import { siteConfig, websiteUrl } from '@/lib/config'
 
 import type { MessageAuthor as Author } from '@/lib/messages'
+import { Tooltip } from '../tooltip'
 
 interface MessageAuthorProps {
   /** 作者信息 */
@@ -73,11 +74,13 @@ export function MessageAuthor({
 
         {/* VIP 角标（博主专属） */}
         {isAuthor && (
-          <VipBadge
-            className="absolute -right-0.5 -bottom-0.5"
-            size={avatarSize === 'sm' ? 'sm' : 'md'}
-            title="博主"
-          />
+          <Tooltip content="博主标识">
+            <VipBadge
+              className="absolute -right-0.5 -bottom-0.5"
+              size={avatarSize === 'sm' ? 'sm' : 'md'}
+              title="博主标识"
+            />
+          </Tooltip>
         )}
       </div>
 
@@ -94,7 +97,14 @@ export function MessageAuthor({
               {authorName}
             </a>
           ) : (
-            <span className={`text-text-primary font-medium ${nameTextSize}`}>{authorName}</span>
+            <div className="flex items-center gap-2">
+              <span className={`text-text-primary font-medium ${nameTextSize}`}>{authorName}</span>
+              {isAuthor && (
+                <span className="bg-bg-tertiary text-text-primary rounded px-1 py-px text-[10px]">
+                  博主
+                </span>
+              )}
+            </div>
           )}
         </div>
 
