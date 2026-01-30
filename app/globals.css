@@ -284,7 +284,7 @@ html.dark .spoiler:focus {
 }
 
 /* Prevent iOS zoom on input focus */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   input,
   select,
   textarea {

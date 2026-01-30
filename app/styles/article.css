@@ -135,6 +135,13 @@
   background-color: var(--color-bg-secondary);
   margin-top: 1.2em;
   margin-bottom: 1.2em;
+  max-width: 360px;
+}
+
+@media (max-width: 640px) {
+  .prose img:not(.emoji) {
+    max-width: 100%;
+  }
 }
 
 /* Code Blocks - 防止代码块撑开页面 */
