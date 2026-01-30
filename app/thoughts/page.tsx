@@ -63,26 +63,32 @@ export default async function ThoughtsPage() {
   const counts = await getInteractionCounts('thoughts', ids)
 
   return (
-    <div className="space-y-12 py-8 sm:py-12">
-      {/* Header */}
-      <section className="space-y-3">
-        <h1 className="text-3xl font-bold">{pages.thoughts.title}</h1>
-        <p className="text-text-secondary">
-          {`${pages.thoughts.description}，共 ${sortedThoughts.length.toLocaleString('zh-Hans-CN')} 条内容，月均 ${averagePerMonth.toLocaleString('zh-Hans-CN')} 条，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
-        </p>
-      </section>
+    <>
+      {/* Preconnect to external domains for better performance */}
+      <link rel="preconnect" href="https://s2.loli.net" />
+      <link rel="dns-prefetch" href="https://s2.loli.net" />
 
-      {/* Thoughts Timeline */}
-      <section className="space-y-4">
-        <div className="border-border-tertiary sm:border-l-2 sm:pl-6">
-          <ThoughtsList
-            thoughts={sortedThoughts}
-            counts={counts}
-            emptyMessage="还没有碎碎念，快来记录吧"
-            contentPrefix="碎碎念"
-          />
-        </div>
-      </section>
-    </div>
+      <div className="space-y-12 py-8 sm:py-12">
+        {/* Header */}
+        <section className="space-y-3">
+          <h1 className="text-3xl font-bold">{pages.thoughts.title}</h1>
+          <p className="text-text-secondary">
+            {`${pages.thoughts.description}，共 ${sortedThoughts.length.toLocaleString('zh-Hans-CN')} 条内容，月均 ${averagePerMonth.toLocaleString('zh-Hans-CN')} 条，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
+          </p>
+        </section>
+
+        {/* Thoughts Timeline */}
+        <section className="space-y-4">
+          <div className="border-border-tertiary sm:border-l-2 sm:pl-6">
+            <ThoughtsList
+              thoughts={sortedThoughts}
+              counts={counts}
+              emptyMessage="还没有碎碎念，快来记录吧"
+              contentPrefix="碎碎念"
+            />
+          </div>
+        </section>
+      </div>
+    </>
   )
 }

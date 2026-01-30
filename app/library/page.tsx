@@ -53,6 +53,12 @@ export default async function LibraryPage() {
 
   return (
     <>
+      {/* Preconnect to external domains for better performance */}
+      <link rel="preconnect" href="https://i0.hdslb.com" />
+      <link rel="dns-prefetch" href="https://i0.hdslb.com" />
+      <link rel="preconnect" href="https://doubanio.viki.moe" />
+      <link rel="dns-prefetch" href="https://doubanio.viki.moe" />
+
       <StaticTableOfContents
         items={[
           { id: 'movies', title: '影视', level: 1 },

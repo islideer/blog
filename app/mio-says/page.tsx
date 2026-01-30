@@ -58,41 +58,48 @@ export default async function MioSaysPage() {
   const counts = await getInteractionCounts('mio-says', ids)
 
   return (
-    <div className="space-y-12 py-8 sm:py-12">
-      {/* Header */}
-      <section className="flex flex-row gap-6 sm:items-start sm:justify-between">
-        <div className="flex-1 space-y-3">
-          <h1 className="text-3xl font-bold" style={{ color: 'var(--color-mio-pink)' }}>
-            {pages.mioSays.title}
-          </h1>
-          <p className="text-text-secondary">
-            {`${pages.mioSays.description}，共 ${sortedMioSays.length.toLocaleString('zh-Hans-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
-          </p>
-        </div>
-        <div className="shrink-0 self-end">
-          <Image
-            src="https://s2.loli.net/2025/11/21/CcTp4FnkGH6dO1g.png"
-            alt={`${siteConfig.lover.name} with ${siteConfig.author.name}`}
-            width={160}
-            height={100}
-            className="h-auto w-32 rounded-md sm:w-40"
-            priority
-          />
-        </div>
-      </section>
+    <>
+      {/* Preconnect to external domains for better performance */}
+      <link rel="preconnect" href="https://s2.loli.net" />
+      <link rel="dns-prefetch" href="https://s2.loli.net" />
 
-      {/* Mio Says Timeline */}
-      <section className="space-y-4">
-        <div className="sm:border-l-2 sm:pl-6" style={{ borderColor: 'var(--color-mio-border)' }}>
-          <ThoughtsList
-            thoughts={sortedMioSays}
-            counts={counts}
-            mioTheme
-            emptyMessage={`${siteConfig.lover.name} 还没有说什么，敬请期待`}
-            contentPrefix={`${siteConfig.lover.name} 说`}
-          />
-        </div>
-      </section>
-    </div>
+      {/* 页面内容 */}
+      <div className="space-y-12 py-8 sm:py-12">
+        {/* Header */}
+        <section className="flex flex-row gap-6 sm:items-start sm:justify-between">
+          <div className="flex-1 space-y-3">
+            <h1 className="text-3xl font-bold" style={{ color: 'var(--color-mio-pink)' }}>
+              {pages.mioSays.title}
+            </h1>
+            <p className="text-text-secondary">
+              {`${pages.mioSays.description}，共 ${sortedMioSays.length.toLocaleString('zh-Hans-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
+            </p>
+          </div>
+          <div className="shrink-0 self-end">
+            <Image
+              src="https://s2.loli.net/2025/11/21/CcTp4FnkGH6dO1g.png"
+              alt={`${siteConfig.lover.name} with ${siteConfig.author.name}`}
+              width={160}
+              height={100}
+              className="h-auto w-32 rounded-md sm:w-40"
+              priority
+            />
+          </div>
+        </section>
+
+        {/* Mio Says Timeline */}
+        <section className="space-y-4">
+          <div className="sm:border-l-2 sm:pl-6" style={{ borderColor: 'var(--color-mio-border)' }}>
+            <ThoughtsList
+              thoughts={sortedMioSays}
+              counts={counts}
+              mioTheme
+              emptyMessage={`${siteConfig.lover.name} 还没有说什么，敬请期待`}
+              contentPrefix={`${siteConfig.lover.name} 说`}
+            />
+          </div>
+        </section>
+      </div>
+    </>
   )
 }

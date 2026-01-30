@@ -86,6 +86,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
+      {/* Preconnect to external domains for better performance */}
+      <link rel="preconnect" href="https://i.loli.net" />
+      <link rel="dns-prefetch" href="https://i.loli.net" />
+      <link rel="preconnect" href="https://s2.loli.net" />
+      <link rel="dns-prefetch" href="https://s2.loli.net" />
+
       {/* JSON-LD 结构化数据 */}
       <script
         type="application/ld+json"

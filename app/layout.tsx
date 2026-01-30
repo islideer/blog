@@ -81,29 +81,8 @@ export default function RootLayout({
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
         {/* Preconnect to external domains for better performance */}
-        <link rel="preconnect" href="https://i.loli.net" />
-        <link rel="dns-prefetch" href="https://i.loli.net" />
-        <link rel="preconnect" href="https://s2.loli.net" />
-        <link rel="dns-prefetch" href="https://s2.loli.net" />
-        <link rel="preconnect" href="https://i0.hdslb.com" />
-        <link rel="dns-prefetch" href="https://i0.hdslb.com" />
-        <link rel="preconnect" href="https://doubanio.viki.moe" />
-        <link rel="dns-prefetch" href="https://doubanio.viki.moe" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-
-        <link rel="preconnect" href="https://cdn.jsdmirror.com" />
-        <link rel="dns-prefetch" href="https://cdn.jsdmirror.com" />
-        <link rel="preconnect" href="https://i1.hdslb.com" />
-        <link rel="dns-prefetch" href="https://i1.hdslb.com" />
-        <link rel="preconnect" href="https://tb3.bdstatic.com" />
-        <link rel="dns-prefetch" href="https://tb3.bdstatic.com" />
-        <link rel="preconnect" href="https://picasso-static.xiaohongshu.com" />
-        <link rel="dns-prefetch" href="https://picasso-static.xiaohongshu.com" />
+        {/* <link rel="preconnect" href="https://www.googletagmanager.com" /> */}
+        {/* <link rel="dns-prefetch" href="https://www.googletagmanager.com" /> */}
         <link
           rel="alternate"
           type="application/rss+xml"

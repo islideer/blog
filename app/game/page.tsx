@@ -57,6 +57,22 @@ export default async function GamePage() {
 
   return (
     <>
+      {/* Preconnect to external domains for better performance */}
+      <link rel="preconnect" href="https://s2.loli.net" />
+      <link rel="dns-prefetch" href="https://s2.loli.net" />
+
+      <link rel="preconnect" href="https://avatars.steamstatic.com" />
+      <link rel="dns-prefetch" href="https://avatars.steamstatic.com" />
+
+      <link rel="preconnect" href="https://shared.akamai.steamstatic.com" />
+      <link rel="dns-prefetch" href="https://shared.akamai.steamstatic.com" />
+
+      <link rel="preconnect" href="https://community.akamai.steamstatic.com" />
+      <link rel="dns-prefetch" href="https://community.akamai.steamstatic.com" />
+
+      <link rel="preconnect" href="https://game-1255653016.file.myqcloud.com" />
+      <link rel="dns-prefetch" href="https://game-1255653016.file.myqcloud.com" />
+
       <StaticTableOfContents
         items={[
           { id: 'profile', title: '个人资料', level: 1 },
