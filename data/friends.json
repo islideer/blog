@@ -114,5 +114,11 @@
     "description": "⎛⎝喵~⎠⎞",
     "avatar": "https://cdn.luvying.com/files/images/avatar.jpg",
     "rss": "https://blog.luvying.com/atom.xml"
+  },
+  {
+    "id": "handsonic",
+    "name": "HandSonic’s Blog",
+    "url": "https://handsonic.top",
+    "avatar": "https://handsonic.top/img/avatar.jpg"
   }
 ]
