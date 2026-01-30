@@ -5,7 +5,6 @@
 
 'use client'
 
-import Image from 'next/image'
 import { useState } from 'react'
 import { Button } from '../button'
 import { ReplyIcon } from '@/icons/reply'
@@ -13,12 +12,10 @@ import { XIcon } from '@/icons/x'
 import { ChevronUpIcon } from '../../icons/chevron-up'
 import { ChevronDownIcon } from '../../icons/chevron-down'
 import { CollapsibleContent } from './collapsible-content'
-import { UABadge } from './ua-badge'
-import { RelativeTime } from '../relative-time'
+import { MessageAuthor } from './message-author'
 import { ReplyForm } from './reply-form'
 
 import type { MessageReply } from '@/lib/messages'
-import { siteConfig, websiteUrl } from '@/lib/config'
 
 interface MessageActionsProps {
   messageId: string
@@ -82,72 +79,23 @@ export function MessageActions({ messageId, replies, replyHtmls }: MessageAction
       {/* 回复列表 */}
       {showReplies && replies.length > 0 && (
         <div className="border-border divide-border mt-3 ml-4 space-y-2 divide-y border-l pl-4">
-          {replies.map((reply, index) => {
-            const authorName = reply.author.name || '匿名'
-            const firstChar = authorName.charAt(0)
-            const useTextAvatar = !reply.author.avatar && !reply.author.email
-
-            const cleanedWebsite = (reply.author.website || '').replace(/https?:\/\//, 'https://')
-            const isCurrentSite = cleanedWebsite === websiteUrl
-            const isAuthor = reply.author.email === siteConfig.author.email
-
-            return (
-              <div key={reply.id} className="bg-bg-primary p-3">
-                {/* 回复作者 */}
-                <div className="mb-2 flex items-start gap-2.5">
-                  {useTextAvatar || !reply.author.avatar ? (
-                    <div className="bg-bg-tertiary text-text-secondary flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-medium">
-                      {firstChar}
-                    </div>
-                  ) : (
-                    <Image
-                      src={reply.author.avatar}
-                      alt={authorName}
-                      className="h-9 w-9 shrink-0 rounded-full object-cover"
-                      height={36}
-                      width={36}
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                    />
-                  )}
-
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-1.5">
-                      {reply.author.website && !isCurrentSite ? (
-                        <a
-                          href={reply.author.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-text-primary text-xs font-medium underline decoration-dotted underline-offset-2 hover:decoration-solid"
-                        >
-                          {authorName}
-                        </a>
-                      ) : (
-                        <div className="flex items-center gap-2">
-                          <span className="text-text-primary text-sm font-medium">
-                            {authorName}
-                          </span>
-                          {isAuthor && (
-                            <span className="bg-bg-tertiary text-text-primary rounded px-1 py-px text-[10px]">
-                              博主
-                            </span>
-                          )}
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="text-text-tertiary mt-0.5 flex items-center gap-1.5 text-xs">
-                      <RelativeTime date={reply.createdAt} short />
-                      {reply.ua && <UABadge ua={reply.ua} />}
-                    </div>
-                  </div>
-                </div>
-
-                {/* 回复内容 */}
-                <CollapsibleContent html={replyHtmls[index]} maxLines={3} />
+          {replies.map((reply, index) => (
+            <div key={reply.id} className="bg-bg-primary p-3">
+              {/* 回复作者 */}
+              <div className="mb-2">
+                <MessageAuthor
+                  author={reply.author}
+                  createdAt={reply.createdAt}
+                  ua={reply.ua}
+                  avatarSize="sm"
+                  textSize="sm"
+                />
               </div>
-            )
-          })}
+
+              {/* 回复内容 */}
+              <CollapsibleContent html={replyHtmls[index]} maxLines={3} />
+            </div>
+          ))}
         </div>
       )}
     </div>

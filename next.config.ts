@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
       { hostname: '**.viki.moe' },
       { hostname: 'media.steampowered.com' },
 
+      // 头像服务
+      { hostname: 'q.qlogo.cn' },
+      { hostname: 'gravatar.loli.net' },
+
       // 友链头像部分
       { hostname: 'www.shiro.team' },
       { hostname: 'thricecola.com' },

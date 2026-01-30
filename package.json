@@ -34,6 +34,7 @@
     "feed": "^5.2.0",
     "flexsearch": "^0.8.212",
     "gray-matter": "^4.0.3",
+    "js-md5": "^0.8.3",
     "lunar-typescript": "^1.8.6",
     "medium-zoom": "^1.1.0",
     "next": "^16.1.4",
