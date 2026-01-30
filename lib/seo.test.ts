@@ -7,7 +7,7 @@ vi.mock('./config', () => ({
     name: 'Viki 写东西的地方',
     description: '分享技术和日常',
     url: 'https://blog.viki.moe',
-    locale: 'zh-Hans-CN',
+    locale: 'zh-CN',
     author: {
       name: 'Viki',
       email: 'hi@viki.moe',
@@ -156,7 +156,7 @@ describe('SEO Functions', () => {
     it('应该包含必需的 SEO 字段', () => {
       const schema = generateBlogPostingSchema(mockPost)
 
-      expect(schema.inLanguage).toBe('zh-Hans-CN')
+      expect(schema.inLanguage).toBe('zh-CN')
       expect(schema.isFamilyFriendly).toBe('true')
       expect(schema.isAccessibleForFree).toBe('true')
     })
