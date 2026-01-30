@@ -75,7 +75,7 @@ function getBrowserIcon(browser?: string) {
 
   // 国内浏览器
   if (browserLower.includes('qq')) return QQBrowserIcon
-  if (browserLower.includes('wechat')) return WeChatIcon
+  if (browserLower.includes('wechat') || browserLower.includes('micromessenger')) return WeChatIcon
 
   // 主流浏览器
   if (browserLower.includes('chrome')) return ChromeIcon
