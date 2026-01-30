@@ -98,10 +98,16 @@ export function UABadge({ ua }: UABadgeProps) {
   const OSIcon = getOSIcon(os.name)
   const BrowserIconComponent = getBrowserIcon(browser.name)
 
+  const tooltip = (
+    os.name
+      ? isTrustedSystem(os.name, model) && os.version
+        ? `${os.name} ${os.version} / ${browser.name || ''} ${browser.version || ''}`
+        : `${os.name} / ${browser.name || ''} ${browser.version || ''}`
+      : `${browser.name || ''} ${browser.version || ''}`
+  ).trim()
+
   return (
-    <Tooltip
-      content={`${os.name} ${isTrustedSystem(os.name, model) ? os.version || '-' : '-'} - ${browser.name || '-'} ${browser.version || '-'}`}
-    >
+    <Tooltip content={tooltip}>
       <div className="group relative inline-flex items-center gap-1 text-xs opacity-60">
         <OSIcon className="h-3 w-3" />
         <span className="text-text-tertiary">
