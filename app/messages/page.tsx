@@ -7,6 +7,7 @@ import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { MessageForm } from '@/components/messages/message-form'
 import { MessageList } from '@/components/messages/message-list'
+import { ImageZoomProvider } from '@/components/image-zoom-provider'
 import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
@@ -60,7 +61,9 @@ export default async function MessagesPage({ searchParams }: PageProps) {
 
       {/* 大家都在聊 */}
       <section>
-        <MessageList page={page} perPage={10} />
+        <ImageZoomProvider>
+          <MessageList page={page} perPage={10} />
+        </ImageZoomProvider>
       </section>
     </>
   )

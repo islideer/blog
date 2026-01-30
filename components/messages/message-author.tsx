@@ -4,10 +4,12 @@
  */
 
 import Image from 'next/image'
-import { RelativeTime } from '../relative-time'
+import { cn } from '@/lib/cn'
 import { UABadge } from './ua-badge'
 import { VipBadge } from './vip-badge'
+import { RelativeTime } from '../relative-time'
 import { siteConfig, websiteUrl } from '@/lib/config'
+
 import type { MessageAuthor as Author } from '@/lib/messages'
 
 interface MessageAuthorProps {
@@ -45,10 +47,10 @@ export function MessageAuthor({
   const avatarSizeClass = avatarSize === 'sm' ? 'h-7 w-7' : 'h-9 w-9'
   const avatarTextSize = avatarSize === 'sm' ? 'text-sm' : 'text-base'
   const nameTextSize = textSize === 'sm' ? 'text-xs' : 'text-sm'
-  const metaTextSize = 'text-xs'
+  const metaTextSize = textSize === 'sm' ? 'text-[10px]' : 'text-xs'
 
   return (
-    <div className="flex items-start gap-3">
+    <div className="flex items-center gap-3">
       {/* 头像 */}
       <div className="relative shrink-0">
         {useTextAvatar || !author.avatar ? (
@@ -80,7 +82,7 @@ export function MessageAuthor({
       </div>
 
       {/* 作者信息 */}
-      <div className="min-w-0 flex-1">
+      <div className={cn('min-w-0', textSize === 'sm' ? 'flex-0.5' : 'flex-1')}>
         <div className="flex items-center gap-2">
           {author.website && !isCurrentSite ? (
             <a

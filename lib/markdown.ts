@@ -164,6 +164,7 @@ const messageProcessor = unified()
   .use(remarkEmojiPack)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
+  .use(rehypeZoomImage)
   .use(rehypeSanitize, {
     ...defaultSchema,
     attributes: {

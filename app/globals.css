@@ -66,7 +66,7 @@ a:not(.no-underline):active {
   text-decoration-color: var(--color-text-primary);
 }
 
-@media (width >= 40rem /* 640px */) {
+@media (width >= 640px) {
   a:not(.no-underline):hover {
     text-decoration-style: solid;
     text-decoration-color: var(--color-text-primary);
@@ -270,7 +270,7 @@ html.dark .spoiler:focus {
   vertical-align: text-bottom;
   object-fit: contain;
   margin: 0 0.1em;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
 }
 
 /* 隐藏滚动条但保持滚动功能 */
@@ -289,5 +289,22 @@ html.dark .spoiler:focus {
   select,
   textarea {
     font-size: 16px !important;
+  }
+}
+
+/* 留言板图片样式 */
+.message-content img {
+  max-width: 320px;
+  max-height: 120px;
+  border-radius: 0.5rem;
+
+  [data-zoomable] {
+    cursor: zoom-in;
+  }
+}
+
+@media (max-width: 640px) {
+  .message-content img {
+    max-width: 100%;
   }
 }

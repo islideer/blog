@@ -1,5 +1,6 @@
-import type { Root, Element } from 'hast'
 import { visit } from 'unist-util-visit'
+
+import type { Root, Element } from 'hast'
 
 /**
  * Rehype 插件：为图片添加 zoom 支持
@@ -10,7 +11,10 @@ import { visit } from 'unist-util-visit'
 export default function rehypeZoomImage() {
   return (tree: Root) => {
     visit(tree, 'element', (node: Element) => {
-      if (node.tagName === 'img') {
+      const isEmoji =
+        Array.isArray(node.properties.className) && node.properties.className.includes('emoji')
+
+      if (node.tagName === 'img' && !isEmoji) {
         node.properties = node.properties || {}
         node.properties['dataZoomable'] = true
       }

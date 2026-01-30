@@ -41,7 +41,7 @@ export function CollapsibleContent({ html, maxLines = 3 }: CollapsibleContentPro
         ref={(el) => {
           if (el && !isExpanded) checkOverflow(el)
         }}
-        className={`prose prose-sm dark:prose-invert max-w-none ${!isExpanded ? `line-clamp-${maxLines}` : ''}`}
+        className={`message-content prose prose-sm dark:prose-invert max-w-none ${!isExpanded ? `line-clamp-${maxLines}` : ''}`}
         dangerouslySetInnerHTML={{ __html: html }}
       />
       {showButton && (
