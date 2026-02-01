@@ -59,7 +59,6 @@ export function InteractionButton({
   // 从 localStorage 加载用户点击状态
   useEffect(() => {
     const count = getUserClickCount(type, id)
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setUserClickCount(count)
   }, [type, id])
 

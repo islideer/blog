@@ -66,7 +66,7 @@ function SocialLinks({ className }: { className?: string }) {
 function Tagline() {
   return (
     <p className="text-text-secondary flex items-center gap-2">
-      <Link href="/">
+      <Link passHref href="/">
         <Image
           className="inline-block rounded-full align-middle"
           src="/avatar.png"

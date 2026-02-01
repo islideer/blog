@@ -54,14 +54,12 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
   // 搜索结果变化时重置选中索引
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedIndex(0)
   }, [results])
 
   // 重置状态
   useEffect(() => {
     if (!isOpen) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setQuery('')
       setSelectedIndex(0)
       clearResults()

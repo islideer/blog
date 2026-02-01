@@ -6,7 +6,6 @@ import { RandomFriends } from '@/components/friend/random-friends'
 import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
-import Link from 'next/link'
 
 export const revalidate = 86400 // 缓存 1 天
 
@@ -69,9 +68,9 @@ export default function FriendsPage() {
           <div className="text-text-secondary space-y-4 text-sm">
             <p>
               欢迎和我交换友链！本博客支持展示以下字段，作为交换，你可使用我的以下信息，并在
-              <Link href="/messages" className="mx-1">
+              <a href="/messages" className="mx-1">
                 话匣子
-              </Link>
+              </a>
               页面留言告知我你的站点信息即可。
             </p>
             <p className="text-text-tertiary text-xs italic">

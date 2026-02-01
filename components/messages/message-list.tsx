@@ -3,7 +3,6 @@
  * 服务端组件，负责获取数据并渲染留言卡片
  */
 
-import Link from 'next/link'
 import { MessageCard } from './message-card'
 import { MessageActions } from './message-actions'
 import { parseMessage } from '@/lib/markdown'
@@ -72,9 +71,9 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-3">
             {hasPrevPage && (
-              <Link href={`/messages?page=${page - 1}`} className="no-icon">
+              <a href={`/messages?page=${page - 1}`} className="no-icon">
                 <Button>← 上一页</Button>
-              </Link>
+              </a>
             )}
 
             <span className="text-text-tertiary text-xs">
@@ -82,9 +81,9 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
             </span>
 
             {hasNextPage && (
-              <Link href={`/messages?page=${page + 1}`} className="no-icon">
+              <a href={`/messages?page=${page + 1}`} className="no-icon">
                 <Button>下一页 →</Button>
-              </Link>
+              </a>
             )}
           </div>
         )}

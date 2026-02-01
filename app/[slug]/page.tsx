@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ViewTransition } from 'react'
 import { getPostBySlug, getAllPostSlugs, getRecommendedPosts } from '@/lib/posts'
@@ -172,9 +171,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <ChatIconIcon className="h-5 w-5" />
             <span>
               交流讨论、反馈建议，请到
-              <Link href="/messages" className="mx-1">
+              <a href="/messages" className="mx-1">
                 话匣子
-              </Link>
+              </a>
               页面留言。
             </span>
           </p>
