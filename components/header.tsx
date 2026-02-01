@@ -45,7 +45,7 @@ export function Header() {
           >
             文章
           </Link>
-          <Link
+          <a
             href={pages.thoughts.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
@@ -53,8 +53,8 @@ export function Header() {
             )}
           >
             碎碎念
-          </Link>
-          <Link
+          </a>
+          <a
             href={pages.mioSays.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
@@ -62,9 +62,9 @@ export function Header() {
             )}
           >
             Mio 说
-          </Link>
+          </a>
 
-          <Link
+          <a
             href={pages.library.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
@@ -72,9 +72,9 @@ export function Header() {
             )}
           >
             书影音
-          </Link>
+          </a>
 
-          <Link
+          <a
             href={pages.game.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
@@ -82,9 +82,9 @@ export function Header() {
             )}
           >
             游戏
-          </Link>
+          </a>
 
-          <Link
+          <a
             href={pages.about.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
@@ -92,7 +92,7 @@ export function Header() {
             )}
           >
             关于
-          </Link>
+          </a>
 
           {/* "更多"下拉菜单 */}
           <div className="relative flex items-center">
@@ -116,7 +116,7 @@ export function Header() {
             {isMoreOpen && (
               <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
                 <div className="sm:hidden">
-                  <Link
+                  <a
                     href={pages.library.slug}
                     className={cn(
                       'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
@@ -125,9 +125,9 @@ export function Header() {
                     onClick={() => setIsMoreOpen(false)}
                   >
                     书影音
-                  </Link>
+                  </a>
 
-                  <Link
+                  <a
                     href={pages.game.slug}
                     className={cn(
                       'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
@@ -136,10 +136,10 @@ export function Header() {
                     onClick={() => setIsMoreOpen(false)}
                   >
                     游戏
-                  </Link>
+                  </a>
                 </div>
 
-                <Link
+                <a
                   href={pages.timeline.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
@@ -148,9 +148,9 @@ export function Header() {
                   onClick={() => setIsMoreOpen(false)}
                 >
                   大事记
-                </Link>
+                </a>
 
-                <Link
+                <a
                   href={pages.reading.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
@@ -159,9 +159,9 @@ export function Header() {
                   onClick={() => setIsMoreOpen(false)}
                 >
                   岛读
-                </Link>
+                </a>
 
-                <Link
+                <a
                   href={pages.messages.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
@@ -170,9 +170,9 @@ export function Header() {
                   onClick={() => setIsMoreOpen(false)}
                 >
                   话匣子
-                </Link>
+                </a>
 
-                <Link
+                <a
                   href={pages.friends.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
@@ -181,7 +181,7 @@ export function Header() {
                   onClick={() => setIsMoreOpen(false)}
                 >
                   好朋友们
-                </Link>
+                </a>
                 <div className="sm:hidden">
                   <div className="border-border my-2 border-t" />
                   <a
