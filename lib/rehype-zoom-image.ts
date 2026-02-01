@@ -16,7 +16,15 @@ export default function rehypeZoomImage() {
 
       if (node.tagName === 'img' && !isEmoji) {
         node.properties = node.properties || {}
+
         node.properties['dataZoomable'] = true
+        node.properties['referrerPolicy'] = 'no-referrer'
+
+        const src = node.properties['src'] || ''
+
+        if (src) {
+          node.properties['dataZoomSrc'] = src
+        }
       }
     })
   }

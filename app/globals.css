@@ -218,13 +218,16 @@ html.dark .spoiler:focus {
 }
 
 .medium-zoom-overlay,
-.medium-zoom-image--opene,
 .medium-zoom-image--opened,
 [data-rmiz-modal-overlay='visible'],
 [data-rmiz-modal-content],
 [data-rmiz-modal-img] {
-  z-index: 100;
+  z-index: 100 !important;
   background-color: var(--color-bg-primary) !important;
+}
+
+.medium-zoom-image--opened {
+  object-fit: contain !important;
 }
 
 [data-rmiz-btn-unzoom] {
