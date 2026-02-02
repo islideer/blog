@@ -78,6 +78,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   // 生成结构化数据
   const blogPostingSchema = generateBlogPostingSchema(post)
+
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: '首页', url: '/' },
     { name: post.title, url: `/${post.slug}` },

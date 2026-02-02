@@ -10,6 +10,7 @@ import { kv } from '@vercel/kv'
 import { headers } from 'next/headers'
 import { revalidatePath } from 'next/cache'
 import { getInteractionConfig } from '@/lib/interactions'
+import { dayjs, TZ_SHANGHAI } from '@/lib/dayjs'
 
 /**
  * 获取客户端真实 IP
@@ -94,8 +95,7 @@ export async function submitInteraction(
     const newUserClickCount = await kv.incrby(ipCountKey, actualClickCount)
 
     // 设置过期时间（当天 23:59:59）
-    const tomorrow = new Date()
-    tomorrow.setHours(23, 59, 59, 999)
+    const tomorrow = dayjs().tz(TZ_SHANGHAI).endOf('day').toDate()
     const expiresAt = Math.floor(tomorrow.getTime() / 1000)
     await kv.expireat(ipCountKey, expiresAt)
 
