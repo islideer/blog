@@ -18,6 +18,7 @@
   "githubRepo": "blog",
   "links": {
     "rss": "/rss",
+    "avatar": "/avatar.png",
     "travellings": "https://www.travellings.cn/plain.html"
   },
   "keywords": [

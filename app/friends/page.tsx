@@ -67,15 +67,14 @@ export default function FriendsPage() {
           <h2 className="text-text-primary text-base font-semibold">交换友链</h2>
           <div className="text-text-secondary space-y-4 text-sm">
             <p>
-              欢迎和我交换友链！本博客支持展示以下字段，作为交换，你可使用我的以下信息，并在
+              欢迎交换友链！本博客支持展示以下字段，按以下格式在
               <a href="/messages" className="mx-1">
                 话匣子
               </a>
-              页面留言告知我你的站点信息即可。
+              页面留下你的站点信息即可。
             </p>
             <p className="text-text-tertiary text-xs italic">
-              注：虽不强制，但建议你的站点建站半年以上，有一定原创内容基础和深度，非商业化、AI
-              内容农场。
+              注：建议你的站点建站半年以上，有一定原创内容，非商业化、非 AI 内容农场。
             </p>
             <div className="space-y-1.5">
               <div>
@@ -92,7 +91,7 @@ export default function FriendsPage() {
               </div>
               <div>
                 <span className="text-text-tertiary">头像：</span>
-                <span className="text-text-primary">{`${siteConfig.url}/avatar.png`}</span>
+                <span className="text-text-primary">{`${siteConfig.url}${siteConfig.links.avatar}`}</span>
               </div>
               <div>
                 <span className="text-text-tertiary">RSS：</span>
@@ -101,14 +100,14 @@ export default function FriendsPage() {
             </div>
 
             {/* 预览 */}
-            <div className="text-text-tertiary mt-4">站点信息预览：</div>
+            <div className="text-text-tertiary mt-4">本站信息预览：</div>
             <FriendCard
               friend={{
                 id: 'preview',
-                name: 'Viki 写东西的地方',
-                url: '/',
-                description: '生活需要记录。',
-                avatar: '/avatar.png',
+                name: siteConfig.name,
+                url: siteConfig.url,
+                description: siteConfig.tagline,
+                avatar: siteConfig.links.avatar,
                 rss: siteConfig.links.rss,
               }}
             />
