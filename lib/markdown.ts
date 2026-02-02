@@ -400,14 +400,14 @@ export function cleanMarkdownContent(markdown: string): string {
   content = content.replace(/^\s*\|?(\s*[:-]+[-| :]*\|)+\s*$/gm, '')
 
   // 移除代码块（``` 或 ~~~）
-  content = content.replace(/```[\s\S]*?```/g, '')
-  content = content.replace(/~~~[\s\S]*?~~~/g, '')
+  content = content.replace(/```[\s\S]*?```/g, '[代码块]')
+  content = content.replace(/~~~[\s\S]*?~~~/g, '[代码块]')
 
   // 移除内联代码
   content = content.replace(/`[^`]+`/g, '')
 
   // 移除图片（![alt](url)）
-  content = content.replace(/!\[([^\]]*)\]\([^\)]+\)/g, '$1')
+  content = content.replace(/!\[([^\]]*)\]\([^\)]+\)/g, '[图片]')
 
   // 移除链接保留文本（[text](url) → text）
   content = content.replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1')
