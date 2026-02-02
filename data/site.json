@@ -62,6 +62,11 @@
   "pwa": {
     "display": "standalone"
   },
+  "seo": {
+    "baidu": "codeva-WRZ5iKLRD8",
+    "bing": "5A1EAA48FF40C5246D99C6C8721F090A",
+    "google": ""
+  },
   "analytics": {
     "google": "G-YCP5HPQZXN"
   }

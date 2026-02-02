@@ -89,6 +89,13 @@ export default function RootLayout({
           title={siteConfig.name}
           href={siteConfig.links.rss}
         />
+        {siteConfig.seo.bing && <meta name="msvalidate.01" content={siteConfig.seo.bing} />}
+        {siteConfig.seo.google && (
+          <meta name="google-site-verification" content={siteConfig.seo.google} />
+        )}
+        {siteConfig.seo.baidu && (
+          <meta name="baidu-site-verification" content={siteConfig.seo.baidu} />
+        )}
       </head>
       <body className="bg-bg-primary text-text-primary font-sans antialiased">
         <ThemeProvider
