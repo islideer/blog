@@ -211,7 +211,7 @@ export function InteractionButton({
           {displayCount > 0 ? (
             <ClientCounterUp start={prevLocalCount} end={displayCount} />
           ) : (
-            <span className="text-sm">{config.ariaLabel}</span>
+            <span className="text-xs">{config.ariaLabel}</span>
           )}
         </button>
       </div>
