@@ -7,13 +7,10 @@
 
 import Image from 'next/image'
 import { cn } from '@/lib/cn'
-import { useState } from 'react'
 import { UABadge } from './ua-badge'
 import { Tooltip } from '../tooltip'
 import { VipBadge } from './vip-badge'
-import { useMount } from '@shined/react-use'
 import { RelativeTime } from '../relative-time'
-import { getAuthorAvatar } from '@/lib/gravatar'
 import { siteConfig, websiteUrl } from '@/lib/config'
 
 import type { MessageAuthor as Author } from '@/lib/messages'
@@ -43,7 +40,6 @@ export function MessageAuthor({
 
   // 判断是否使用文字头像（无 avatar 且无 email）
   const useTextAvatar = !author.avatar && !author.email
-  const [authorAvatar, setAuthorAvatar] = useState<string>(author.avatar || '')
 
   // 清理网站 URL，统一为 https://
   const cleanedWebsite = (author.website || '').replace(/https?:\/\//, 'https://')
@@ -56,17 +52,11 @@ export function MessageAuthor({
   const nameTextSize = textSize === 'sm' ? 'text-xs' : 'text-sm'
   const metaTextSize = textSize === 'sm' ? 'text-[10px]' : 'text-xs'
 
-  useMount(async () => {
-    const url = await getAuthorAvatar(author)
-
-    setAuthorAvatar(url)
-  })
-
   return (
     <div className="flex items-center gap-3">
       {/* 头像 */}
       <div className="relative shrink-0">
-        {useTextAvatar || !authorAvatar ? (
+        {useTextAvatar || !author.avatar ? (
           <div
             className={`bg-bg-tertiary text-text-secondary flex items-center justify-center rounded-full font-medium ${avatarSizeClass} ${avatarTextSize}`}
           >
@@ -74,7 +64,7 @@ export function MessageAuthor({
           </div>
         ) : (
           <Image
-            src={authorAvatar}
+            src={author.avatar}
             alt={authorName}
             className={`rounded-full object-cover ${avatarSizeClass}`}
             height={avatarSize === 'sm' ? 28 : 36}

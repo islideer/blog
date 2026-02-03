@@ -81,7 +81,6 @@ export async function createReply(
   ua?: string,
 ): Promise<number> {
   const authorName = getAuthorName(author)
-  const authorAvatar = await getAuthorAvatar(author)
 
   // 构建 Front Matter
   const frontMatterData: Record<string, unknown> = {
@@ -89,7 +88,6 @@ export async function createReply(
     created_at: new Date().toISOString(),
   }
 
-  if (authorAvatar) frontMatterData.avatar = authorAvatar
   if (author.email) frontMatterData.email = author.email
   if (author.website) frontMatterData.website = author.website
   if (ua) frontMatterData.ua = ua
@@ -139,7 +137,7 @@ export const getMessages = cache(async function getMessages(
           name: frontMatter.name,
           email: frontMatter.email,
           website: frontMatter.website,
-          avatar: frontMatter.avatar,
+          avatar: frontMatter.avatar || (await getAuthorAvatar(frontMatter)),
         },
         content: issueContent,
         createdAt: frontMatter.created_at,
@@ -176,30 +174,32 @@ export const getReplies = cache(async function getReplies(
     issue_number: issueNumber,
   })
 
-  return comments
-    .filter((e) => (e.reactions?.['+1'] || 0) > 0)
-    .map((comment) => {
-      const { data: frontMatter, content: commentContent } = matter(comment.body || '')
+  return await Promise.all(
+    comments
+      .filter((e) => (e.reactions?.['+1'] || 0) > 0)
+      .map(async (comment) => {
+        const { data: frontMatter, content: commentContent } = matter(comment.body || '')
 
-      const reply: MessageReply = {
-        id: String(comment.id),
-        author: {
-          name: frontMatter.name,
-          email: frontMatter.email,
-          website: frontMatter.website,
-          avatar: frontMatter.avatar,
-        },
-        content: commentContent,
-        createdAt: frontMatter.created_at,
-      }
+        const reply: MessageReply = {
+          id: String(comment.id),
+          author: {
+            name: frontMatter.name,
+            email: frontMatter.email,
+            website: frontMatter.website,
+            avatar: frontMatter.avatar || (await getAuthorAvatar(frontMatter)),
+          },
+          content: commentContent,
+          createdAt: frontMatter.created_at,
+        }
 
-      // 可选：保存原始 UA 字符串
-      if (frontMatter.ua) {
-        reply.ua = frontMatter.ua as string
-      }
+        // 可选：保存原始 UA 字符串
+        if (frontMatter.ua) {
+          reply.ua = frontMatter.ua as string
+        }
 
-      return reply
-    })
+        return reply
+      }),
+  )
 })
 
 /**
