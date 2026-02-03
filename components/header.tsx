@@ -84,7 +84,7 @@ export function Header() {
             游戏
           </a>
 
-          <a
+          <Link
             href={pages.about.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
@@ -92,7 +92,7 @@ export function Header() {
             )}
           >
             关于
-          </a>
+          </Link>
 
           {/* "更多"下拉菜单 */}
           <div className="relative flex items-center">
@@ -139,7 +139,7 @@ export function Header() {
                   </a>
                 </div>
 
-                <a
+                <Link
                   href={pages.timeline.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
@@ -148,7 +148,7 @@ export function Header() {
                   onClick={() => setIsMoreOpen(false)}
                 >
                   大事记
-                </a>
+                </Link>
 
                 <a
                   href={pages.reading.slug}
@@ -172,7 +172,7 @@ export function Header() {
                   话匣子
                 </a>
 
-                <a
+                <Link
                   href={pages.friends.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
@@ -181,7 +181,7 @@ export function Header() {
                   onClick={() => setIsMoreOpen(false)}
                 >
                   好朋友们
-                </a>
+                </Link>
                 <div className="sm:hidden">
                   <div className="border-border my-2 border-t" />
                   <a
