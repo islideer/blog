@@ -2,7 +2,7 @@
   {
     "id": "115",
     "date": "2026-02-03T11:47:35+08:00",
-    "content": "Gravatar 在 2023 年偷偷 [添加了对 SHA256 的支持](https://docs.gravatar.com/general/hash/)，但官网找不到任何更新说明。\n\n现在 SHA256 是首选哈希算法。也就是说，构造 Gravatar URL 时可以使用 SHA256 哈希，不再强制要求客户端安装 MD5 库来生成哈希值了，因为 Web Crypto API 已经原生支持 SHA256，可以在浏览器直接调用。当然，MD5 仍然是被支持的，只是官方推荐使用 SHA256 了。",
+    "content": "Gravatar 在 2023 年偷偷 [添加了对 SHA256 的支持并将其作为首选哈希算法](https://docs.gravatar.com/general/hash/)，但官网找不到任何更新说明。\n\n也就是说，现在构造 Gravatar URL 时可以使用 SHA256 哈希，不再强制要求客户端安装 MD5 库来生成 MD5 哈希了，因为 Web Crypto API 已经原生支持 SHA256，浏览器可以直接调用。当然，MD5 仍然受支持，只是官方推荐使用 SHA256 了。",
     "images": [
       "https://s2.loli.net/2026/02/03/tuVWHQI8AKj4qvr.png"
     ]
