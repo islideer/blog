@@ -1,5 +1,6 @@
 import { friends } from '@/lib/data'
 import { pages } from '@/lib/data'
+import { createHighlighter } from 'shiki/bundle-web.mjs'
 import { siteConfig } from '@/lib/config'
 import { FriendCard } from '@/components/friend/friend-card'
 import { RandomFriends } from '@/components/friend/random-friends'
@@ -41,7 +42,31 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function FriendsPage() {
+const shiki = await createHighlighter({
+  themes: ['one-dark-pro', 'one-light'],
+  langs: ['json'],
+})
+
+const json = JSON.stringify(
+  {
+    name: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.tagline,
+    avatar: `${siteConfig.url}${siteConfig.links.avatar}`,
+    rss: `${siteConfig.url}/rss`,
+  },
+  null,
+  2,
+)
+
+export default async function FriendsPage() {
+  const html = shiki.codeToHtml(json, {
+    lang: 'json',
+    theme: 'one-dark-pro',
+    defaultColor: false,
+    cssVariablePrefix: '--shiki-',
+  })
+
   return (
     <>
       {/* 头像服务 */}
@@ -67,38 +92,16 @@ export default function FriendsPage() {
           <h2 className="text-text-primary text-base font-semibold">交换友链</h2>
           <div className="text-text-secondary space-y-4 text-sm">
             <p>
-              欢迎交换友链！本博客支持展示以下字段，按以下格式在
+              欢迎交换友链！本博客支持展示以下字段，仅名称和地址必须。如需交换，请按以下格式在
               <a href="/messages" className="mx-1">
                 话匣子
               </a>
-              页面留下你的站点信息即可。
+              页面留言。
             </p>
             <p className="text-text-tertiary text-xs italic">
-              注：建议你的站点建站半年以上，有一定原创内容，非商业化、非 AI 内容农场。
+              注：建议建站半年以上，有一定原创内容，非商业化、AI 内容农场。交换完记得经常来玩哦！
             </p>
-            <div className="space-y-1.5">
-              <div>
-                <span className="text-text-tertiary">名称：</span>
-                <span className="text-text-primary">{siteConfig.name}</span>
-              </div>
-              <div>
-                <span className="text-text-tertiary">地址：</span>
-                <span className="text-text-primary">{siteConfig.url}</span>
-              </div>
-              <div>
-                <span className="text-text-tertiary">描述：</span>
-                <span className="text-text-primary">{siteConfig.tagline}</span>
-              </div>
-              <div>
-                <span className="text-text-tertiary">头像：</span>
-                <span className="text-text-primary">{`${siteConfig.url}${siteConfig.links.avatar}`}</span>
-              </div>
-              <div>
-                <span className="text-text-tertiary">RSS：</span>
-                <span className="text-text-primary">{`${siteConfig.url}/rss`}</span>
-              </div>
-            </div>
-
+            <div className="prose-sm" dangerouslySetInnerHTML={{ __html: html }}></div>
             {/* 预览 */}
             <div className="text-text-tertiary mt-4">本站信息预览：</div>
             <FriendCard

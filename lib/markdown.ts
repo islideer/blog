@@ -1,18 +1,18 @@
+import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
+import rehypeSlug from 'rehype-slug'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
-import remarkGfm from 'remark-gfm'
+import rehypeShiki from '@shikijs/rehype'
 import remarkBreaks from 'remark-breaks'
 import remarkRehype from 'remark-rehype'
-import rehypeRaw from 'rehype-raw'
-import rehypeShiki from '@shikijs/rehype'
-import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeExternalLinks from 'rehype-external-links'
-import rehypeStringify from 'rehype-stringify'
-import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
 import remarkSpoiler from './remark-spoiler'
 import rehypeZoomImage from './rehype-zoom-image'
 import remarkEmojiPack from './remark-emoji-pack'
+import rehypeStringify from 'rehype-stringify'
+import rehypeExternalLinks from 'rehype-external-links'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
 
 /**
  * 统一的 Markdown 解析器（基于 unified）
@@ -23,44 +23,29 @@ import remarkEmojiPack from './remark-emoji-pack'
  * 3. 更简单：单一处理链，易于理解和维护
  * 4. 缓存友好：可缓存编译结果
  */
-
-/**
- * 短内容处理器（碎碎念、Mio 说）
- * - 启用换行
- * - 无标题锚点
- */
-const shortContentProcessor = unified()
+const processor = unified()
   .use(remarkParse)
   .use(remarkGfm)
   .use(remarkBreaks)
   .use(remarkSpoiler)
+  .use(remarkEmojiPack)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
-  // .use(rehypeShiki, {
-  //   themes: {
-  //     light: 'one-light',
-  //     dark: 'one-dark-pro',
-  //   },
-  //   defaultColor: false,
-  //   cssVariablePrefix: '--shiki-',
-  // })
-  .use(rehypeExternalLinks, {
-    target: '_blank',
-    rel: ['noopener', 'noreferrer'],
+  .use(rehypeSanitize, {
+    ...defaultSchema,
+    attributes: {
+      ...defaultSchema.attributes,
+      img: [
+        ...(defaultSchema.attributes?.img || []),
+        ['loading', 'lazy', 'eager'],
+        ['className', 'emoji', 'spoiler'],
+        ['referrerPolicy'],
+        ['width'],
+        ['height'],
+        ['crossOrigin'],
+      ],
+    },
   })
-  .use(rehypeStringify)
-
-/**
- * 博客文章处理器
- * - 不启用换行
- * - 有标题锚点
- */
-const articleProcessor = unified()
-  .use(remarkParse, {})
-  .use(remarkGfm)
-  .use(remarkSpoiler)
-  .use(remarkRehype, { allowDangerousHtml: true })
-  .use(rehypeRaw)
   .use(rehypeShiki, {
     themes: {
       light: 'one-light',
@@ -68,6 +53,7 @@ const articleProcessor = unified()
     },
     defaultColor: false,
     cssVariablePrefix: '--shiki-',
+    lazy: true,
   })
   .use(rehypeSlug)
   .use(rehypeAutolinkHeadings, {
@@ -85,10 +71,6 @@ const articleProcessor = unified()
   })
   .use(rehypeStringify)
 
-// HTML 缓存
-const htmlCache = new Map<string, string>()
-const MAX_CACHE_SIZE = 500
-
 /**
  * 解析 Markdown 为 HTML
  * 用于碎碎念、Mio 说等短内容（启用换行，无标题锚点）
@@ -98,21 +80,12 @@ export async function parseMarkdown(content: string): Promise<string> {
     return ''
   }
 
-  const cacheKey = `short:${content}`
-  const cached = htmlCache.get(cacheKey)
-  if (cached) return cached
+  // const t = content.slice(0, 10).replace(/\s+/g, '_')
+  // console.time(`s-${t}`)
+  const result = await processor.process(content)
+  // console.timeEnd(`s-${t}`)
 
-  const result = await shortContentProcessor.process(content)
-  const html = String(result)
-
-  // 缓存管理
-  if (htmlCache.size >= MAX_CACHE_SIZE) {
-    const firstKey = htmlCache.keys().next().value
-    if (firstKey) htmlCache.delete(firstKey)
-  }
-  htmlCache.set(cacheKey, html)
-
-  return html
+  return String(result)
 }
 
 /**
@@ -124,21 +97,9 @@ export async function parseArticle(content: string): Promise<string> {
     return ''
   }
 
-  const cacheKey = `article:${content}`
-  const cached = htmlCache.get(cacheKey)
-  if (cached) return cached
+  const result = await processor.process(content)
 
-  const result = await articleProcessor.process(content)
-  const html = String(result)
-
-  // 缓存管理
-  if (htmlCache.size >= MAX_CACHE_SIZE) {
-    const firstKey = htmlCache.keys().next().value
-    if (firstKey) htmlCache.delete(firstKey)
-  }
-  htmlCache.set(cacheKey, html)
-
-  return html
+  return String(result)
 }
 
 /**
@@ -149,219 +110,6 @@ export async function parseMarkdownBatch(contents: string[]): Promise<string[]> 
 }
 
 /**
- * 留言板内容处理器
- * - 启用换行（remark-breaks）
- * - 剧透语法（remark-spoiler）
- * - 自定义表情包（remark-emoji-pack）
- * - 代码高亮（Shiki）
- * - 安全过滤（rehype-sanitize）
- */
-const messageProcessor = unified()
-  .use(remarkParse)
-  .use(remarkGfm)
-  .use(remarkBreaks)
-  .use(remarkSpoiler)
-  .use(remarkEmojiPack)
-  .use(remarkRehype, { allowDangerousHtml: true })
-  .use(rehypeRaw)
-  .use(rehypeZoomImage)
-  .use(rehypeSanitize, {
-    ...defaultSchema,
-    attributes: {
-      ...defaultSchema.attributes,
-      // 所有元素都可以使用的通用属性
-      '*': [
-        ...(defaultSchema.attributes?.['*'] || []),
-        ['className'],
-        ['id'],
-        ['title'],
-        ['dir'], // 文本方向 (ltr, rtl)
-        ['lang'], // 语言标识
-        // data-* 属性（用于自定义数据）
-        ['data*'],
-        // ARIA 无障碍属性
-        'aria*',
-        // 样式属性（白名单控制）
-        [
-          'style',
-          // 安全的 CSS 属性白名单
-          'color',
-          'backgroundColor',
-          'fontSize',
-          'fontWeight',
-          'fontStyle',
-          'textAlign',
-          'textDecoration',
-          'margin',
-          'marginTop',
-          'marginRight',
-          'marginBottom',
-          'marginLeft',
-          'padding',
-          'paddingTop',
-          'paddingRight',
-          'paddingBottom',
-          'paddingLeft',
-          'border',
-          'borderColor',
-          'borderWidth',
-          'borderStyle',
-          'borderRadius',
-          'width',
-          'height',
-          'maxWidth',
-          'maxHeight',
-          'minWidth',
-          'minHeight',
-          'display',
-          'opacity',
-          'lineHeight',
-          'letterSpacing',
-          'wordSpacing',
-        ],
-      ],
-      // 图片增强
-      img: [
-        ...(defaultSchema.attributes?.img || []),
-        ['loading', 'lazy', 'eager'],
-        ['className', 'emoji', 'spoiler'],
-        ['referrerPolicy'],
-        ['width'],
-        ['height'],
-        ['align', 'left', 'right', 'center'],
-        ['crossOrigin'], // CORS 支持
-      ],
-      // Span 增强
-      span: [...(defaultSchema.attributes?.span || []), ['className', 'spoiler']],
-      // 表格增强
-      table: [
-        ...(defaultSchema.attributes?.table || []),
-        ['align', 'left', 'right', 'center'],
-        ['border'],
-        ['cellPadding'],
-        ['cellSpacing'],
-      ],
-      td: [
-        ...(defaultSchema.attributes?.td || []),
-        ['align', 'left', 'right', 'center', 'justify'],
-        ['valign', 'top', 'middle', 'bottom'],
-        ['colSpan'],
-        ['rowSpan'],
-        ['width'],
-        ['height'],
-      ],
-      th: [
-        ...(defaultSchema.attributes?.th || []),
-        ['align', 'left', 'right', 'center', 'justify'],
-        ['valign', 'top', 'middle', 'bottom'],
-        ['colSpan'],
-        ['rowSpan'],
-        ['width'],
-        ['scope', 'row', 'col', 'rowGroup', 'colGroup'],
-      ],
-      // 链接增强
-      a: [
-        ...(defaultSchema.attributes?.a || []),
-        ['download'], // 下载链接
-        ['hreflang'], // 链接语言
-      ],
-      // Div 容器
-      div: [...(defaultSchema.attributes?.div || [])],
-      // 视频支持
-      video: [
-        ...(defaultSchema.attributes?.video || []),
-        ['controls'],
-        ['autoplay'],
-        ['loop'],
-        ['muted'],
-        ['poster'], // 封面图
-        ['width'],
-        ['height'],
-        ['preload', 'auto', 'metadata', 'none'],
-      ],
-      source: [...(defaultSchema.attributes?.source || []), ['src'], ['type']],
-      // 音频支持
-      audio: [
-        ...(defaultSchema.attributes?.audio || []),
-        ['controls'],
-        ['autoplay'],
-        ['loop'],
-        ['muted'],
-        ['preload', 'auto', 'metadata', 'none'],
-      ],
-      // 代码块增强
-      code: [...(defaultSchema.attributes?.code || []), ['className']],
-      pre: [...(defaultSchema.attributes?.pre || []), ['className']],
-      // 列表增强
-      ol: [...(defaultSchema.attributes?.ol || []), ['start'], ['type', '1', 'a', 'A', 'i', 'I']],
-      // 引用增强
-      blockquote: [...(defaultSchema.attributes?.blockquote || []), ['cite']],
-      q: [...(defaultSchema.attributes?.q || []), ['cite']],
-      // 细节/摘要（折叠面板）
-      details: [...(defaultSchema.attributes?.details || []), ['open']],
-      summary: [...(defaultSchema.attributes?.summary || [])],
-      // 其他语义化标签
-      abbr: [...(defaultSchema.attributes?.abbr || [])],
-      mark: [...(defaultSchema.attributes?.mark || [])],
-      kbd: [...(defaultSchema.attributes?.kbd || [])],
-      sub: [...(defaultSchema.attributes?.sub || [])],
-      sup: [...(defaultSchema.attributes?.sup || [])],
-      time: [...(defaultSchema.attributes?.time || []), ['datetime']],
-      ins: [...(defaultSchema.attributes?.ins || []), ['cite'], ['datetime']],
-      del: [...(defaultSchema.attributes?.del || []), ['cite'], ['datetime']],
-    },
-    tagNames: [
-      ...(defaultSchema.tagNames || []),
-      // 基础结构
-      'span',
-      'div',
-      'section',
-      'article',
-      'aside',
-      'header',
-      'footer',
-      'main',
-      'nav',
-      // 语义化标签
-      'mark', // 高亮文本
-      'kbd', // 键盘输入
-      'sub', // 下标
-      'sup', // 上标
-      'abbr', // 缩写
-      'time', // 时间
-      'ins', // 插入文本
-      'del', // 删除文本
-      'cite', // 引用标题
-      'dfn', // 术语定义
-      'samp', // 示例输出
-      'var', // 变量
-      // 折叠面板
-      'details',
-      'summary',
-      // 多媒体
-      'video',
-      'audio',
-      'source',
-      'track', // 字幕轨道
-      'figure', // 图文容器
-      'figcaption', // 图文说明
-      'picture', // 响应式图片
-      // 表格增强
-      'caption',
-      'colgroup',
-      'col',
-      'tbody',
-      'thead',
-      'tfoot',
-    ],
-  })
-  .use(rehypeExternalLinks, {
-    target: '_blank',
-    rel: ['noopener', 'noreferrer'],
-  })
-  .use(rehypeStringify)
-
-/**
  * 解析留言板 Markdown 为 HTML
  * 用于留言板（启用换行、表情包、剧透、安全过滤）
  */
@@ -370,21 +118,12 @@ export async function parseMessage(content: string): Promise<string> {
     return ''
   }
 
-  const cacheKey = `message:${content}`
-  const cached = htmlCache.get(cacheKey)
-  if (cached) return cached
+  // const t = content.slice(0, 10).replace(/\s+/g, '_')
+  // console.time(`s-${t}`)
+  const result = await processor.process(content)
+  // console.timeEnd(`s-${t}`)
 
-  const result = await messageProcessor.process(content)
-  const html = String(result)
-
-  // 缓存管理
-  if (htmlCache.size >= MAX_CACHE_SIZE) {
-    const firstKey = htmlCache.keys().next().value
-    if (firstKey) htmlCache.delete(firstKey)
-  }
-  htmlCache.set(cacheKey, html)
-
-  return html
+  return String(result)
 }
 
 /**

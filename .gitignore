@@ -51,3 +51,5 @@ scripts/imgs.*
 
 .vercel
 .env*.local
+
+tests/

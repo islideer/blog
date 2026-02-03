@@ -150,7 +150,16 @@
   overflow-x: auto;
   max-width: 100%;
   margin-top: 1.2em;
-  /* 确保代码块不会撑开容器 */
+  width: 100%;
+}
+
+.prose-sm pre {
+  border-radius: var(--radius-sm);
+  background-color: var(--color-code-bg);
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  max-width: 100%;
+  margin-top: 1em;
   width: 100%;
 }
 
@@ -321,11 +330,27 @@
 
 /* Shiki Dual Theme Support */
 .prose pre {
-  background-color: var(--color-code-bg);
-  color: var(--shiki-light);
+  background-color: var(--color-code-bg) !important;
+  color: var(--shiki-light) !important;
+}
+
+.prose-sm pre {
+  background-color: var(--color-code-bg) !important;
+  color: var(--shiki-light) !important;
+
+  code {
+    font-size: 1em !important;
+  }
 }
 
 .prose pre span {
+  color: var(--shiki-light);
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+  text-decoration: var(--shiki-light-text-decoration);
+}
+
+.prose-sm pre span {
   color: var(--shiki-light);
   font-style: var(--shiki-light-font-style);
   font-weight: var(--shiki-light-font-weight);
@@ -337,7 +362,19 @@ html.dark .prose pre {
   color: var(--shiki-dark);
 }
 
+html.dark .prose-sm pre {
+  background-color: var(--color-code-bg);
+  color: var(--shiki-dark);
+}
+
 html.dark .prose pre span {
+  color: var(--shiki-dark);
+  font-style: var(--shiki-dark-font-style);
+  font-weight: var(--shiki-dark-font-weight);
+  text-decoration: var(--shiki-dark-text-decoration);
+}
+
+html.dark .prose-sm pre span {
   color: var(--shiki-dark);
   font-style: var(--shiki-dark-font-style);
   font-weight: var(--shiki-dark-font-weight);
