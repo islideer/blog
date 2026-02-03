@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   description: '页面走丢了',
 }
 
+export const dynamic = 'force-static'
+export const revalidate = 31536000 // 缓存 1 年
+
 export default function NotFound() {
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center text-center">

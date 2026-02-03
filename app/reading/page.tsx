@@ -17,7 +17,7 @@ import type { Metadata } from 'next'
 //   preload: true,
 // })
 
-export const revalidate = 600 // 缓存 10 分钟
+export const revalidate = 86400 // 缓存 1 天
 
 export const metadata: Metadata = {
   title: pages.reading.title,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: `${pages.reading.slug}/opengraph-image`,
+        url: `${siteConfig.url}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: pages.reading.title,
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${pages.reading.title} | ${siteConfig.name}`,
     description: pages.reading.description,
-    images: [`${pages.reading.slug}/opengraph-image`],
+    images: [`${siteConfig.url}/opengraph-image`],
   },
 }
 

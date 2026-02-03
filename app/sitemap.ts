@@ -4,6 +4,7 @@ import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
 
 export const dynamic = 'force-static'
+export const revalidate = 86400 // 缓存 1 天
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPosts()

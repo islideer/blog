@@ -3,6 +3,7 @@ import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
 
 export const dynamic = 'force-static'
+export const revalidate = 86400 // 缓存 1 天
 
 export async function GET() {
   const posts = await getAllPosts()

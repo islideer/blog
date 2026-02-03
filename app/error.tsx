@@ -2,6 +2,9 @@
 
 import { useEffect } from 'react'
 
+export const dynamic = 'force-static'
+export const revalidate = 31536000 // 缓存 1 年
+
 export default function Error({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
     console.error('Error:', error)

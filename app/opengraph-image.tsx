@@ -14,6 +14,7 @@ export const size = {
 
 export const dynamic = 'force-static'
 export const contentType = 'image/png'
+export const revalidate = 31536000 // 缓存 1 年
 
 export async function generateAlt(): Promise<string> {
   return siteConfig.name

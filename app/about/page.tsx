@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: `${pages.about.slug}/opengraph-image`,
+        url: `${siteConfig.url}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: pages.about.title,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${pages.about.title} | ${siteConfig.name}`,
     description: pages.about.description,
-    images: [`${pages.about.slug}/opengraph-image`],
+    images: [`${siteConfig.url}/opengraph-image`],
   },
 }
 

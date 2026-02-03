@@ -3,6 +3,8 @@ import { siteConfig } from '@/lib/config'
 
 export const dynamic = 'force-static'
 
+export const revalidate = 86400 // 缓存 1 天
+
 const disallow = [
   '/api/', // 禁止爬取 API 路由
   '/out/', // 禁止爬取构建输出目录

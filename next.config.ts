@@ -11,7 +11,6 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   reactCompiler: true,
   crossOrigin: 'anonymous',
-  expireTime: 60 * 10, // 10 分钟
   images: {
     unoptimized: true,
   },

@@ -288,7 +288,7 @@ async function generateSearchIndex() {
 
   // 输出到 public/search-index.json
   const outputPath = path.join(process.cwd(), 'public', 'search-index.json')
-  await fs.writeFile(outputPath, JSON.stringify(searchIndex, null, 2), 'utf-8')
+  await fs.writeFile(outputPath, JSON.stringify(searchIndex), 'utf-8')
 
   // 计算文件大小
   const stats = await fs.stat(outputPath)

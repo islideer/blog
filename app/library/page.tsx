@@ -11,7 +11,7 @@ import { getDoubanBooks, getDoubanMovies } from '@/lib/douban'
 
 import type { Metadata } from 'next'
 
-export const revalidate = 600 // 缓存 10 分钟
+export const revalidate = 86400 // 缓存 1 天
 
 export const metadata: Metadata = {
   title: pages.library.title,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: `${pages.library.slug}/opengraph-image`,
+        url: `${siteConfig.url}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: pages.library.title,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${pages.library.title} | ${siteConfig.name}`,
     description: pages.library.description,
-    images: [`${pages.library.slug}/opengraph-image`],
+    images: [`${siteConfig.url}/opengraph-image`],
   },
 }
 

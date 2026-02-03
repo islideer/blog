@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: `${pages.messages.slug}/opengraph-image`,
+        url: `${siteConfig.url}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: pages.messages.title,
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${pages.library.title} | ${siteConfig.name}`,
-    description: pages.library.description,
-    images: [`${pages.library.slug}/opengraph-image`],
+    title: `${pages.messages.title} | ${siteConfig.name}`,
+    description: pages.messages.description,
+    images: [`${siteConfig.url}/opengraph-image`],
   },
 }
 

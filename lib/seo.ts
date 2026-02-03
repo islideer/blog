@@ -118,7 +118,7 @@ export function generateCanonicalUrl(path: string) {
  * Generate Open Graph metadata for a blog post
  */
 export function generatePostOpenGraph(post: Post) {
-  const ogImageUrl = `${siteConfig.url}/${post.slug}/opengraph-image`
+  const ogImageUrl = `${siteConfig.url}/opengraph-image`
 
   return {
     type: 'article' as const,
@@ -146,7 +146,7 @@ export function generatePostOpenGraph(post: Post) {
  * Generate Twitter Card metadata for a blog post
  */
 export function generatePostTwitterCard(post: Post) {
-  const ogImageUrl = `${siteConfig.url}/${post.slug}/opengraph-image`
+  const ogImageUrl = `${siteConfig.url}/opengraph-image`
 
   return {
     card: 'summary_large_image' as const,

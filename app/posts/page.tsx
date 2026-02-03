@@ -70,7 +70,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       images: [
         {
-          url: `${pages.posts.slug}/opengraph-image`,
+          url: `${siteConfig.url}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: pages.posts.title,
@@ -81,7 +81,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${pages.posts.title} | ${siteConfig.name}`,
       description: pages.posts.description,
-      images: [`${pages.posts.slug}/opengraph-image`],
+      images: [`${siteConfig.url}/opengraph-image`],
     },
   }
 }

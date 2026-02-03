@@ -3,6 +3,7 @@ import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
 
 export const dynamic = 'force-static'
+export const revalidate = 31536000 // 缓存 1 年
 
 export default function manifest(): MetadataRoute.Manifest {
   return {

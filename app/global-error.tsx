@@ -3,6 +3,9 @@
 import Error from './error'
 import { useEffect } from 'react'
 
+export const dynamic = 'force-static'
+export const revalidate = 31536000 // 缓存 1 年
+
 export default function GlobalError({
   error,
   reset,

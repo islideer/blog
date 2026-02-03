@@ -24,7 +24,8 @@ import { getInteractionCounts } from '@/lib/interactions'
 
 import type { Metadata } from 'next'
 
-export const revalidate = 86400 // 缓存 1 天
+export const dynamic = 'force-static'
+export const revalidate = 31536000 // 缓存 1 年
 
 export async function generateStaticParams() {
   const slugs = await getAllPostSlugs()
