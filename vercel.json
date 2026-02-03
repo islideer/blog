@@ -2,11 +2,20 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
-      "source": "/(.*.(png|jpe?g|gif|svg|webp|ico|json))",
+      "source": "/(apple-icon|icon-.*|avatar|vip)\\.(png|jpe?g|webp|avif)",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/search-index\\.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=3600"
         }
       ]
     }
