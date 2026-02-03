@@ -7,7 +7,6 @@
 
 import Image from 'next/image'
 import { cn } from '@/lib/cn'
-import { md5 } from 'js-md5'
 import { toast } from 'sonner'
 import { XIcon } from '@/icons/x'
 import { Button } from '../button'
@@ -19,8 +18,23 @@ import { loadMessageAuthor, saveMessageAuthor } from '@/lib/storage'
 
 import type { MessageAuthor } from '@/lib/messages'
 
-// 客户端版本的头像生成逻辑（与服务端 generateAvatarUrl 保持一致）
-function generateClientAvatarUrl(email: string): string {
+/**
+ * 使用 Web Crypto API 生成 SHA256 哈希
+ */
+async function sha256(text: string): Promise<string> {
+  const encoder = new TextEncoder()
+  const data = encoder.encode(text)
+  const hashBuffer = await window.crypto.subtle.digest('SHA-256', data)
+  const hashArray = Array.from(new Uint8Array(hashBuffer))
+  const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
+  return hashHex
+}
+
+/**
+ * 客户端版本的头像生成逻辑（与服务端 generateAvatarUrl 保持一致）
+ * 使用 SHA256 哈希（Gravatar 官方推荐）
+ */
+async function generateClientAvatarUrl(email: string): Promise<string> {
   if (!email) return ''
 
   const qqMailPattern = /^([1-9][0-9]{4,10})@qq\.com$/i
@@ -31,8 +45,11 @@ function generateClientAvatarUrl(email: string): string {
     return `https://q1.qlogo.cn/g?b=qq&nk=${qqNumber}&s=100`
   }
 
-  // 使用真正的 MD5 哈希，与服务端完全一致
-  const hash = md5(email.toLowerCase().trim()) as string
+  // CRITICAL: Generate the SHA256 hash correctly for all Gravatar operations
+  // Trim and lowercase the email - BOTH steps are required
+  const normalizedEmail = email.trim().toLowerCase()
+  const hash = await sha256(normalizedEmail)
+
   return `https://gravatar.loli.net/avatar/${hash}?d=identicon&s=80`
 }
 
@@ -112,8 +129,10 @@ export function BaseMessageForm({
 
       // 如果有保存的邮箱，立即显示头像
       if (savedAuthor.email) {
-        setAvatarUrl(generateClientAvatarUrl(savedAuthor.email))
-        setShowAvatar(true)
+        generateClientAvatarUrl(savedAuthor.email).then((url) => {
+          setAvatarUrl(url)
+          setShowAvatar(true)
+        })
       }
     }
   }, [])
@@ -125,10 +144,13 @@ export function BaseMessageForm({
     }))
   }
 
-  const handleEmailBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+  const handleEmailBlur = async (e: React.FocusEvent<HTMLInputElement>) => {
     const email = e.target.value.trim()
+
     if (email && email.includes('@')) {
-      setAvatarUrl(generateClientAvatarUrl(email))
+      const url = await generateClientAvatarUrl(email)
+
+      setAvatarUrl(url)
       setShowAvatar(true)
     } else {
       setShowAvatar(false)

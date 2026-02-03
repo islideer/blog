@@ -17,6 +17,7 @@ const REPO = process.env.MESSAGES_REPO_NAME || 'blog-messages'
 
 /**
  * 生成 Gravatar 头像 URL
+ * 使用 SHA256 哈希（Gravatar 官方推荐）
  */
 export function generateAvatarUrl(email?: string): string {
   if (!email) return ''
@@ -29,9 +30,11 @@ export function generateAvatarUrl(email?: string): string {
     return `https://q1.qlogo.cn/g?b=qq&nk=${qqNumber}&s=100`
   }
 
-  const hash = crypto.createHash('md5').update(email.toLowerCase().trim()).digest('hex')
-  // return `https://gravatar.com/avatar/${hash}?d=identicon&s=80`
-  // return `https://weavatar.com/avatar/${hash}?d=identicon&s=80`
+  // CRITICAL: Generate the SHA256 hash correctly for all Gravatar operations
+  // Trim and lowercase the email - BOTH steps are required
+  const normalizedEmail = email.trim().toLowerCase()
+  const hash = crypto.createHash('sha256').update(normalizedEmail).digest('hex')
+
   return `https://gravatar.loli.net/avatar/${hash}?d=identicon&s=80`
 }
 
