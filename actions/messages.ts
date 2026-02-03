@@ -5,11 +5,11 @@
 
 'use server'
 
-import { revalidatePath } from 'next/cache'
 import { kv } from '@vercel/kv'
 import crypto from 'node:crypto'
 import { headers } from 'next/headers'
-import { createMessage, createReply, isSuspiciousUA } from '@/lib/messages-github'
+import { revalidatePath } from 'next/cache'
+import { createMessage, createReply, isSuspiciousUA } from '@/lib/messages'
 
 /**
  * 获取客户端真实 IP

@@ -11,47 +11,14 @@ import { toast } from 'sonner'
 import { XIcon } from '@/icons/x'
 import { Button } from '../button'
 import { SendIcon } from '@/icons/send'
+import { useMount } from '@shined/react-use'
 import { EmojiPicker } from './emoji-picker'
-import { useState, useRef, useEffect } from 'react'
 import { useFormStatus } from 'react-dom'
+import { useState, useRef } from 'react'
+import { generateAvatarUrl } from '@/lib/gravatar'
 import { loadMessageAuthor, saveMessageAuthor } from '@/lib/storage'
 
 import type { MessageAuthor } from '@/lib/messages'
-
-/**
- * 使用 Web Crypto API 生成 SHA256 哈希
- */
-async function sha256(text: string): Promise<string> {
-  const encoder = new TextEncoder()
-  const data = encoder.encode(text)
-  const hashBuffer = await window.crypto.subtle.digest('SHA-256', data)
-  const hashArray = Array.from(new Uint8Array(hashBuffer))
-  const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
-  return hashHex
-}
-
-/**
- * 客户端版本的头像生成逻辑（与服务端 generateAvatarUrl 保持一致）
- * 使用 SHA256 哈希（Gravatar 官方推荐）
- */
-async function generateClientAvatarUrl(email: string): Promise<string> {
-  if (!email) return ''
-
-  const qqMailPattern = /^([1-9][0-9]{4,10})@qq\.com$/i
-  const qq = email.match(qqMailPattern)
-
-  if (qq) {
-    const qqNumber = qq[1] || ''
-    return `https://q1.qlogo.cn/g?b=qq&nk=${qqNumber}&s=100`
-  }
-
-  // CRITICAL: Generate the SHA256 hash correctly for all Gravatar operations
-  // Trim and lowercase the email - BOTH steps are required
-  const normalizedEmail = email.trim().toLowerCase()
-  const hash = await sha256(normalizedEmail)
-
-  return `https://gravatar.loli.net/avatar/${hash}?d=identicon&s=80`
-}
 
 interface MessageFormData {
   name: string
@@ -116,7 +83,7 @@ export function BaseMessageForm({
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   // 组件挂载时读取存储的作者信息
-  useEffect(() => {
+  useMount(async () => {
     const savedAuthor = loadMessageAuthor()
     if (savedAuthor) {
       const newData = {
@@ -129,13 +96,13 @@ export function BaseMessageForm({
 
       // 如果有保存的邮箱，立即显示头像
       if (savedAuthor.email) {
-        generateClientAvatarUrl(savedAuthor.email).then((url) => {
-          setAvatarUrl(url)
-          setShowAvatar(true)
-        })
+        const url = await generateAvatarUrl(savedAuthor.email)
+
+        setAvatarUrl(url)
+        setShowAvatar(true)
       }
     }
-  }, [])
+  })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({
@@ -148,7 +115,7 @@ export function BaseMessageForm({
     const email = e.target.value.trim()
 
     if (email && email.includes('@')) {
-      const url = await generateClientAvatarUrl(email)
+      const url = await generateAvatarUrl(email)
 
       setAvatarUrl(url)
       setShowAvatar(true)

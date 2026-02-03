@@ -3,11 +3,11 @@
  * 服务端组件，负责获取数据并渲染留言卡片
  */
 
-import { MessageCard } from './message-card'
-import { MessageActions } from './message-actions'
-import { parseMessage } from '@/lib/markdown'
-import { getMessages } from '@/lib/messages-github'
 import { Button } from '../button'
+import { MessageCard } from './message-card'
+import { getMessages } from '@/lib/messages'
+import { parseMessage } from '@/lib/markdown'
+import { MessageActions } from './message-actions'
 
 interface MessageListProps {
   page?: number

@@ -15,8 +15,7 @@ import { CollapsibleContent } from './collapsible-content'
 import { MessageAuthor } from './message-author'
 import { MessageReplyForm } from './message-reply-form'
 
-import type { MessageAuthor as Author } from '@/lib/messages'
-import type { MessageReply } from '@/lib/messages'
+import type { MessageReply, MessageAuthor as Author } from '@/lib/messages'
 
 interface MessageActionsProps {
   messageId: string

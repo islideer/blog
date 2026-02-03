@@ -1,5 +1,5 @@
-import { createAppAuth } from '@octokit/auth-app'
 import { Octokit } from '@octokit/rest'
+import { createAppAuth } from '@octokit/auth-app'
 
 export const botOctokit = new Octokit({
   authStrategy: createAppAuth,
