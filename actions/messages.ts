@@ -65,7 +65,7 @@ export async function submitMessage(formData: FormData) {
     const name = formData.get('name')?.toString().trim()
     const email = formData.get('email')?.toString().trim()
     const website = formData.get('website')?.toString().trim()
-    const content = formData.get('content')?.toString().trim()
+    const content = formData.get('content')?.toString()
 
     // 5. 内容验证
     if (!content) {
@@ -188,7 +188,7 @@ export async function submitReply(formData: FormData) {
     const name = formData.get('name')?.toString().trim()
     const email = formData.get('email')?.toString().trim()
     const website = formData.get('website')?.toString().trim()
-    const content = formData.get('content')?.toString().trim()
+    const content = formData.get('content')?.toString()
 
     // 5. 验证必填字段
     if (!messageId) {
