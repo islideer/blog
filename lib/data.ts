@@ -109,6 +109,7 @@ export interface AboutData {
   intro: {
     title: string
     paragraphs: string[]
+    aboutParagraphs: string[]
   }
   contact: {
     title: string

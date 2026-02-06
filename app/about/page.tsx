@@ -55,7 +55,7 @@ export default function AboutPage() {
       />
 
       <div className="space-y-12 py-8 sm:space-y-16 sm:py-12">
-        <AboutIntro id="intro" title={about.intro.title} paragraphs={about.intro.paragraphs} />
+        <AboutIntro id="intro" title={about.intro.title} paragraphs={about.intro.aboutParagraphs} />
         <AboutContact id="contact" title={about.contact.title} links={about.contact.list} />
         <AboutOpenSource
           id="open-source"

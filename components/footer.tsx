@@ -75,7 +75,7 @@ function Tagline() {
           height={20}
         />
       </Link>
-      {siteConfig.tagline}
+      {siteConfig.name}
     </p>
   )
 }
