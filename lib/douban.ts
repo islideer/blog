@@ -14,6 +14,25 @@ export interface DoubanResponse {
   doings: DoubanItem[] // 在读/在看
 }
 
+export interface DoubanProfile {
+  name: string
+  avatar: string
+  join_date: string
+  join_date_at: number
+  movies: {
+    collect: number
+    wish: number
+    doings: number
+    person: number
+  }
+  books: {
+    collect: number
+    wish: number
+    doings: number
+    person: number
+  }
+}
+
 // 服务端数据获取函数
 
 const DOUBAN_API_BASE = 'https://api.viki.moe/douban'
@@ -69,5 +88,29 @@ export async function getDoubanMovies(): Promise<DoubanResponse> {
   } catch (error) {
     console.error('Error fetching douban movies:', error)
     return { collect: [], wish: [], doings: [] }
+  }
+}
+
+/**
+ * 获取豆瓣个人资料（服务端）
+ * 用于 SSR 初始数据
+ */
+export async function getDoubanProfile(): Promise<DoubanProfile | null> {
+  try {
+    const response = await fetch(`${DOUBAN_API_BASE}/profile`, {
+      next: { revalidate: 3600 }, // 1 小时缓存
+    })
+
+    if (!response.ok) {
+      console.error('Failed to fetch douban profile:', response.statusText)
+      return null
+    }
+
+    const data: DoubanProfile = await response.json()
+    console.log('Douban profile data:', data)
+    return data
+  } catch (error) {
+    console.error('Error fetching douban profile:', error)
+    return null
   }
 }

@@ -1,6 +1,7 @@
 import { Books } from '@/components/library/books'
 import { Movies } from '@/components/library/movies'
 import { Bangumi } from '@/components/library/bangumi'
+import { DoubanProfile } from '@/components/library/douban-profile'
 import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
 import { getBangumiList } from '@/lib/bangumi'
@@ -8,8 +9,10 @@ import { generateCanonicalUrl } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { RefreshButton } from '@/components/refresh-button'
 import { getDoubanBooks, getDoubanMovies } from '@/lib/douban'
+// import { getDoubanBooks, getDoubanMovies, getDoubanProfile } from '@/lib/douban'
 
 import type { Metadata } from 'next'
+import { dayjs, TZ_SHANGHAI } from '@/lib/dayjs'
 
 export const revalidate = 86400 // 缓存 1 天
 
@@ -51,6 +54,13 @@ export default async function LibraryPage() {
     getDoubanMovies(),
   ])
 
+  // const [bangumi, booksData, moviesData, doubanProfile] = await Promise.all([
+  //   getBangumiList(),
+  //   getDoubanBooks(),
+  //   getDoubanMovies(),
+  //   getDoubanProfile(),
+  // ])
+
   return (
     <>
       {/* Preconnect to external domains for better performance */}
@@ -61,6 +71,7 @@ export default async function LibraryPage() {
 
       <StaticTableOfContents
         items={[
+          { id: 'douban-profile', title: '豆瓣个人资料', level: 1 },
           { id: 'movies', title: '影视', level: 1 },
           { id: 'movies-collect', title: '看过', level: 3 },
           { id: 'movies-doings', title: '在看', level: 3 },
@@ -85,6 +96,21 @@ export default async function LibraryPage() {
           </div>
           <p className="text-text-secondary">{`${pages.library.description}。`}</p>
         </section>
+
+        {/* 豆瓣个人资料 */}
+        <DoubanProfile
+          id="douban-profile"
+          profile={{
+            name: 'Viki',
+            avatar: 'https://doubanio.viki.moe/icon/ul263298170-5.jpg',
+            join_date: '2022-10-04',
+            join_date_at: dayjs('2022-10-04').tz(TZ_SHANGHAI).valueOf(),
+            books: { collect: 0, wish: 0, doings: 0, person: 0 },
+            movies: { collect: 0, wish: 0, doings: 0, person: 0 },
+          }}
+          books={booksData}
+          movies={moviesData}
+        />
 
         {/* 影视 - 豆瓣 API 数据 */}
         <Movies id="movies" data={moviesData} />
