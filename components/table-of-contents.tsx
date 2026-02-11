@@ -199,6 +199,8 @@ interface TableOfContentsProps {
   containerSelector?: string
   /** PC 端显示的标题数量，默认为 5 */
   showCount?: number
+  /** 滚动行为，默认为 'smooth' */
+  behavior?: 'smooth' | 'auto'
 }
 
 /**
@@ -210,6 +212,7 @@ interface TableOfContentsProps {
  */
 export function TableOfContents({
   containerSelector = '.prose',
+  behavior = 'smooth',
   showCount = 5,
 }: TableOfContentsProps) {
   const [items, setItems] = useState<StaticTocItem[]>([])
@@ -229,7 +232,6 @@ export function TableOfContents({
       level: h.level,
     }))
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setItems(tocItems)
   }, [containerSelector])
 
@@ -237,12 +239,7 @@ export function TableOfContents({
     return null
   }
 
-  return (
-    <>
-      <StaticTableOfContentsPC items={items} showCount={showCount} />
-      <StaticTableOfContentsMobile items={items} />
-    </>
-  )
+  return <StaticTableOfContents items={items} behavior={behavior} showCount={showCount} />
 }
 
 /**
@@ -255,11 +252,15 @@ export function TableOfContents({
  * - PC 端：固定在右侧，默认半透明只显示当前标题，hover 显示全部
  * - 移动端：隐藏（由移动端专用组件处理）
  */
-export function StaticTableOfContents({ items = [], showCount = 5 }: StaticTableOfContentsProps) {
+export function StaticTableOfContents({
+  items = [],
+  showCount = 5,
+  behavior = 'smooth',
+}: StaticTableOfContentsProps) {
   return (
     <>
-      <StaticTableOfContentsPC items={items} showCount={showCount} />
-      <StaticTableOfContentsMobile items={items} />
+      <StaticTableOfContentsPC behavior={behavior} items={items} showCount={showCount} />
+      <StaticTableOfContentsMobile behavior={behavior} items={items} />
     </>
   )
 }
@@ -272,6 +273,7 @@ export interface StaticTocItem {
 
 export interface StaticTableOfContentsProps {
   showCount?: number
+  behavior?: 'smooth' | 'auto'
   items: StaticTocItem[]
 }
 
@@ -285,7 +287,11 @@ export interface StaticTableOfContentsProps {
  * - PC 端：固定在右侧，默认半透明只显示当前标题，hover 显示全部
  * - 移动端：隐藏（由移动端专用组件处理）
  */
-export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTableOfContentsProps) {
+export function StaticTableOfContentsPC({
+  showCount = 5,
+  items = [],
+  behavior = 'smooth',
+}: StaticTableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('')
   const [isHovered, setIsHovered] = useState(false)
 
@@ -330,10 +336,7 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
     const elementPosition = element.getBoundingClientRect().top + window.scrollY
     const offsetPosition = elementPosition - offset
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    })
+    window.scrollTo({ top: offsetPosition, behavior })
 
     // 更新 URL hash（不触发跳转）
     window.history.pushState(null, '', `#${id}`)
@@ -345,7 +348,7 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
     <>
       {/* PC 端 TOC - 固定在右侧 */}
       <nav
-        className="fixed transition-all! top-1/2 right-4 z-10 hidden max-h-[70vh] w-60 -translate-y-1/2 overflow-y-auto opacity-48 hover:opacity-100 xl:block"
+        className="fixed top-1/2 right-4 z-10 hidden max-h-[70vh] w-60 -translate-y-1/2 overflow-y-auto opacity-48 transition-all! hover:opacity-100 xl:block"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         aria-label="文章目录"
@@ -407,7 +410,10 @@ export function StaticTableOfContentsPC({ showCount = 5, items = [] }: StaticTab
  * - 滚动时高亮当前章节
  * - 点击标题后自动关闭抽屉并滚动到对应位置
  */
-export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContentsProps) {
+export function StaticTableOfContentsMobile({
+  items = [],
+  behavior = 'smooth',
+}: StaticTableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('')
   const [isOpen, setIsOpen] = useState(false)
 
@@ -425,7 +431,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: 'smooth',
+      behavior,
     })
 
     // 更新 URL hash（不触发跳转）
@@ -445,7 +451,7 @@ export function StaticTableOfContentsMobile({ items = [] }: StaticTableOfContent
       {/* 浮动按钮 - 仅移动端显示 */}
       <button
         onClick={() => setIsOpen(true)}
-        className="bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-4 bottom-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl active:scale-90 xl:hidden"
+        className="bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-4 bottom-10 z-40 flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl active:scale-90 xl:hidden"
         aria-label="打开文章目录"
       >
         <MenuIcon className="h-6 w-6" />

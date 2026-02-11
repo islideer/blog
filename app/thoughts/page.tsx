@@ -1,11 +1,12 @@
-import { siteConfig } from '@/lib/config'
-import { thoughts } from '@/lib/data'
-import { generateCanonicalUrl } from '@/lib/seo'
 import { pages } from '@/lib/data'
-
+import { thoughts } from '@/lib/data'
+import { BackToTop } from '@/components/back-to-top'
+import { siteConfig } from '@/lib/config'
 import { countWords } from '@/lib/word-count'
 import { ThoughtsList } from '@/components/thoughts/thoughts-list'
+import { generateCanonicalUrl } from '@/lib/seo'
 import { getInteractionCounts } from '@/lib/interactions'
+import { StaticTableOfContents } from '@/components/table-of-contents'
 
 import type { Metadata } from 'next'
 
@@ -64,6 +65,17 @@ export default async function ThoughtsPage() {
 
   return (
     <>
+      <StaticTableOfContents
+        behavior="auto"
+        items={ids.map((id) => ({
+          id,
+          title: `${pages.thoughts.title} #${id} (${counts[id]} 干杯)`,
+        }))}
+      />
+
+      {/* Back to Top Button */}
+      <BackToTop />
+
       {/* Preconnect to external domains for better performance */}
       <link rel="preconnect" href="https://s2.loli.net" />
       <link rel="dns-prefetch" href="https://s2.loli.net" />

@@ -1,8 +1,11 @@
-import { siteConfig } from '@/lib/config'
-import { generateCanonicalUrl } from '@/lib/seo'
-import { timeline } from '@/lib/data'
-import { TimelineView } from '@/components/timeline/timeline-view'
 import { pages } from '@/lib/data'
+import { timeline } from '@/lib/data'
+import { BackToTop } from '@/components/back-to-top'
+import { siteConfig } from '@/lib/config'
+import { TimelineView } from '@/components/timeline/timeline-view'
+import { generateCanonicalUrl } from '@/lib/seo'
+import { StaticTableOfContents } from '@/components/table-of-contents'
+import { cleanMarkdownContent, truncateText } from '@/lib/markdown'
 
 import type { Metadata } from 'next'
 
@@ -40,17 +43,30 @@ export const metadata: Metadata = {
 
 export default function TimelinePage() {
   return (
-    <div className="space-y-12 py-8 sm:py-12">
-      {/* Header */}
-      <section className="space-y-3">
-        <h1 className="text-3xl font-bold">{pages.timeline.title}</h1>
-        <p className="text-text-secondary">
-          {`${pages.timeline.description}，共 ${timeline.length.toLocaleString('zh-Hans-CN')} 条记录，按年份分组展示。`}
-        </p>
-      </section>
+    <>
+      <StaticTableOfContents
+        behavior="auto"
+        items={timeline.map((item, idx) => ({
+          id: String(timeline.length - idx), // 反向 ID，最新的在前
+          title: `${item.date} / ${truncateText(cleanMarkdownContent(item.description), 10)}`,
+        }))}
+      />
 
-      {/* Timeline Content */}
-      <TimelineView items={timeline} />
-    </div>
+      {/* Back to Top Button */}
+      <BackToTop />
+
+      <div className="space-y-12 py-8 sm:py-12">
+        {/* Header */}
+        <section className="space-y-3">
+          <h1 className="text-3xl font-bold">{pages.timeline.title}</h1>
+          <p className="text-text-secondary">
+            {`${pages.timeline.description}，共 ${timeline.length.toLocaleString('zh-Hans-CN')} 条记录，按年份分组展示。`}
+          </p>
+        </section>
+
+        {/* Timeline Content */}
+        <TimelineView items={timeline} />
+      </div>
+    </>
   )
 }

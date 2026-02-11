@@ -21,7 +21,7 @@ import { TableOfContents } from '@/components/table-of-contents'
 import { RecommendedPosts } from '@/components/post/recommended-posts'
 import { ZoomImageForArticle } from '@/components/zoom-image'
 import { getInteractionCounts } from '@/lib/interactions'
-import { ScrollToTop } from '@/components/scroll-to-top'
+import { BackToTop } from '@/components/back-to-top'
 
 import type { Metadata } from 'next'
 
@@ -88,8 +88,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
-      {/* 路由变化时自动滚动到顶部 */}
-      <ScrollToTop />
+      {/* Table of Contents */}
+      <TableOfContents />
+
+      {/* Back to Top Button */}
+      <BackToTop />
 
       {/* Preconnect to external domains for better performance */}
       <link rel="preconnect" href="https://i.loli.net" />
@@ -188,9 +191,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Recommended Posts */}
         <RecommendedPosts posts={recommendedPosts} />
       </div>
-
-      {/* Table of Contents */}
-      <TableOfContents />
     </>
   )
 }

@@ -103,7 +103,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
 
                 return (
                   <article
-                    id={String(startIdxOfAll + index + 1)}
+                    id={String(items.length - (startIdxOfAll + index))} // 反向 ID，最新的在前
                     key={index}
                     className="flex flex-col gap-1 px-1 py-3 sm:flex-row sm:items-baseline sm:gap-2 sm:px-2 sm:py-4"
                   >

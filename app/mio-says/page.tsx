@@ -1,11 +1,13 @@
 import Image from 'next/image'
-import { siteConfig } from '@/lib/config'
-import { mioSays } from '@/lib/data'
-import { generateCanonicalUrl } from '@/lib/seo'
 import { pages } from '@/lib/data'
+import { mioSays } from '@/lib/data'
+import { BackToTop } from '@/components/back-to-top'
 import { countWords } from '@/lib/word-count'
+import { siteConfig } from '@/lib/config'
 import { ThoughtsList } from '@/components/thoughts/thoughts-list'
+import { generateCanonicalUrl } from '@/lib/seo'
 import { getInteractionCounts } from '@/lib/interactions'
+import { StaticTableOfContents } from '@/components/table-of-contents'
 
 import type { Metadata } from 'next'
 
@@ -59,6 +61,17 @@ export default async function MioSaysPage() {
 
   return (
     <>
+      <StaticTableOfContents
+        behavior="auto"
+        items={ids.map((id) => ({
+          id,
+          title: `${pages.mioSays.title} #${id} (${counts[id]} 献花)`,
+        }))}
+      />
+
+      {/* Back to Top Button */}
+      <BackToTop />
+
       {/* Preconnect to external domains for better performance */}
       <link rel="preconnect" href="https://s2.loli.net" />
       <link rel="dns-prefetch" href="https://s2.loli.net" />
