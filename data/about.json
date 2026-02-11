@@ -62,6 +62,13 @@
       ],
       "applications": [
         {
+          "name": "R2 Web",
+          "url": "https://github.com/vikiboss/r2-web",
+          "description": "Cloudflare 的 R2 Web 端，Web 原生，支持浏览、上传和管理",
+          "status": "active",
+          "homepage": "https://r2.viki.moe/"
+        },
+        {
           "name": "Major Winner",
           "url": "https://github.com/vikiboss/major-winner",
           "description": "主播/职业选手的 CS2 Major 竞猜结果 & 排行",
