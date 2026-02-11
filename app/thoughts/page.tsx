@@ -69,7 +69,7 @@ export default async function ThoughtsPage() {
         behavior="auto"
         items={ids.map((id) => ({
           id,
-          title: `${pages.thoughts.title} #${id} (${counts[id]} 干杯)`,
+          title: `${pages.thoughts.title} #${id}`,
         }))}
       />
 

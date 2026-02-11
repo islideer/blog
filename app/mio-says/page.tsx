@@ -65,7 +65,7 @@ export default async function MioSaysPage() {
         behavior="auto"
         items={ids.map((id) => ({
           id,
-          title: `${pages.mioSays.title} #${id} (${counts[id]} 献花)`,
+          title: `${pages.mioSays.title} #${id}`,
         }))}
       />
 
