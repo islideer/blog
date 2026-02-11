@@ -1,11 +1,11 @@
 [
   {
     "date": "2026",
-    "description": "[60s API](https://github.com/vikiboss/60s) 项目被 [HelloGitHub](https://hellogithub.com/) 推荐为 2025 年度十大热门项目之一。"
+    "description": "[60s API](https://github.com/vikiboss/60s) 被 [HelloGitHub](https://hellogithub.com/) 推荐为 2025 年度十大热门项目之一。"
   },
   {
     "date": "2026",
-    "description": "第一次去上海，在 Mio 身边陪她过的第一个生日。"
+    "description": "第一次去上海。在 Mio 身边陪她过的第一个生日。"
   },
   {
     "date": "2026",
@@ -25,7 +25,7 @@
   },
   {
     "date": "2026",
-    "description": "和 Mio 一起跨年，迎接 2026。"
+    "description": "第一次和 Mio 陪在身边跨年，迎接 2026。"
   },
   {
     "date": "2025",
@@ -37,15 +37,23 @@
   },
   {
     "date": "2025",
-    "description": "[60s API](https://github.com/vikiboss/60s) 项目有幸被 [HelloGitHub](https://hellogithub.com/) 推荐，Star 从 300+ 一路飙到 4K+。"
+    "description": "[60s API](https://github.com/vikiboss/60s) 有幸被 [HelloGitHub](https://hellogithub.com/) 推荐，Star 从 300+ 一路飙到 4K+。"
   },
   {
     "date": "2025",
-    "description": "半年后退坑 VRC。这期间认识了不少有趣的朋友，学了一点 [C#](https://learn.microsoft.com/zh-cn/dotnet/csharp/) 和 [Unity](https://unity.com/)、买了不少正版模型和衣服、插件、改了一点点模、开发了属于自己的地图。中文吧、中文教程吧、中文咖啡厅、台北 K 歌、动漫屋等是喜欢且常去的地图。"
+    "description": "半年后退坑 [VRChat](https://hello.vrchat.com/)。中文吧、中文教程吧、中文咖啡厅、台北 K 歌、动漫屋等是喜欢且常去的地图。"
   },
   {
     "date": "2025",
-    "description": "年初迷上了 [VRChat](https://hello.vrchat.com/) 虚拟社交，买了全新的 [PICO 4](https://www.picoxr.com/global/products/pico4) 头显和配套的三个 [PICO 体感追踪器](https://www.picoxr.com/global/products/pico-motion-tracker)，俗称「腿环」，一套极具性价比的全身追踪方案。"
+    "description": "学了一点 [C#](https://learn.microsoft.com/zh-cn/dotnet/csharp/) 和 [Unity](https://unity.com/)，买了不少正版模型、衣服、插件，改了一点点模，开发了属于自己的地图。"
+  },
+  {
+    "date": "2025",
+    "description": "买了全新的 [PICO 4](https://www.picoxr.com/global/products/pico4) 头显和配套的三个 [PICO 体感追踪器](https://www.picoxr.com/global/products/pico-motion-tracker)，俗称「腿环」，一套极具性价比的全身追踪方案。"
+  },
+  {
+    "date": "2025",
+    "description": "迷上了 [VRChat](https://hello.vrchat.com/) 虚拟社交平台，认识了不少有趣的朋友，感受虚拟社交的乐趣。"
   },
   {
     "date": "2024",
