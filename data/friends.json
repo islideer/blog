@@ -121,5 +121,13 @@
     "name": "HandSonic’s Blog",
     "url": "https://handsonic.top",
     "avatar": "https://handsonic.top/img/avatar.jpg"
+  },
+  {
+    "id": "rita",
+    "name": "木风",
+    "url": "https://rita.cc.cd",
+    "description": "愿你每一天都充满阳光 ☀️",
+    "avatar": "https://rita.cc.cd/favicon.ico",
+    "rss": "https://rita.cc.cd/rss.xml"
   }
 ]
