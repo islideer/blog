@@ -27,18 +27,19 @@ const processor = unified()
   .use(remarkParse)
   .use(remarkGfm)
   .use(remarkBreaks)
-  .use(remarkSpoiler)
   .use(remarkEmojiPack)
+  .use(remarkSpoiler)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
   .use(rehypeSanitize, {
     ...defaultSchema,
     attributes: {
       ...defaultSchema.attributes,
+      span: [...(defaultSchema.attributes?.span || []), ['className', 'spoiler'], ['title']],
       img: [
         ...(defaultSchema.attributes?.img || []),
         ['loading', 'lazy', 'eager'],
-        ['className', 'emoji', 'spoiler'],
+        ['className', 'emoji'],
         ['referrerPolicy'],
         ['width'],
         ['height'],
