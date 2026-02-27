@@ -13,6 +13,8 @@ import { useState, useTransition, useEffect, useRef } from 'react'
 import { submitInteraction } from '@/actions/interactions'
 import { getInteractionConfig, getUserClickCount, recordUserClick } from '@/lib/interactions'
 
+const BATCH_SUBMIT_DELAY = 2000 // 2 秒内的点击会被批量提交
+
 // 图标映射表（易于扩展）
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   cheers: CheersIcon,
@@ -166,7 +168,7 @@ export function InteractionButton({
       if (clicksToSubmit > 0) {
         submitBatch(clicksToSubmit)
       }
-    }, 1000)
+    }, BATCH_SUBMIT_DELAY)
   }
 
   // 动态获取图标组件
@@ -193,7 +195,7 @@ export function InteractionButton({
           className={cn(
             'inline-flex items-center gap-1 text-xs transition-all active:scale-72',
             canClick && !isSubmitting ? 'cursor-pointer hover:opacity-80' : 'cursor-default',
-            // isSubmitting ? 'opacity-80' : '',
+            isSubmitting ? 'opacity-80' : '',
             className,
           )}
           style={{
