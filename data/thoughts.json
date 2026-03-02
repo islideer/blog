@@ -1,5 +1,13 @@
 [
   {
+    "id": "126",
+    "date": "2026-03-02T11:13:28+08:00",
+    "content": "Node.js 发布计划即将更新：主要版本发布频率将从每年两个降低为每年一个，并引入全新的 Alpha 测试渠道作为奇数版本号的补充。新计划废弃了奇偶数版本区分 LTS 的方式，每年仅发布一个主要版本，且每个版本都将进入 LTS 阶段。新计划从即将在 2027 年发布的 Node.js 27.x 起实施。\n\n官方解释更新原因：基于十年使用数据，奇数版本采用率极低；奇偶版本的区分让新手感到困惑；许多组织完全跳过奇数版本，只升级到 LTS 版本；每年两版导致维护线过多，志愿者难以持续更新。\n\n~~也就是说 2027 年发布 Nod.js 27，2028 年发布 Node.js 28... 通过年份就知道当前最新版本号了，好耶 😆~~\n\n- [Node.js 官方博客文章（预览）](https://nodejs-org-git-fork-ulisesgascon-release-announcement-openjs.vercel.app/en/blog/announcements/evolving-the-nodejs-release-schedule#nodejs-26-schedule-existing-model)\n- [Node.js 官方博客文章 PR](https://github.com/nodejs/nodejs.org/pull/8631)\n- [Node.js 新版发布计划提案](https://github.com/nodejs/Release/issues/1113)",
+    "images": [
+      "https://image.viki.moe/blog/ccc7ab.png"
+    ]
+  },
+  {
     "id": "125",
     "date": "2026-02-28T16:01:04+08:00",
     "content": "发现了一个 macOS 端宝藏应用「Dorso」。它可以通过摄像头或者 AirPods 精确捕捉你的坐姿，然后通过模糊屏幕等方式来提醒你别驼背。我自己非常需要这个功能，实测搭配自己的 AirPods 4 体感非常好，反应很灵敏，应用又是纯开源，UX 也不错。推荐有相关需求和设备的小伙伴装个试试。\n\n开源地址 https://github.com/tldev/dorso",
