@@ -1,5 +1,10 @@
 [
   {
+    "id": "129",
+    "date": "2026-03-04T10:57:54+08:00",
+    "content": "[Node.js SEA](https://nodejs.org/api/single-executable-applications.html) (Single Executable Application) 已支持 ESM，可将 ESM 代码打包成单文件可执行程序：\n\n```sh\nnode --build-sea sea.config.json\n\n# sea.config.json\n# { \"main\": \"main.mjs\", \"mainFormat\": \"module\", \"output\": \"main\" }\n```\n\n对于 TypeScript 项目，可以用 [tsdown](https://main.tsdown.dev/options/exe) (>= 0.21) 一步到位：\n\n```sh\ntsdown --exe main.ts\n```\n\n除了 Node.js SEA，Bun 和 Deno 也支持生成单文件可执行程序：\n\n```sh\nbun build --compile --target bun-darwin-arm64 main.ts\n\ndeno compile --target aarch64-apple-darwin main.ts\n```\n\n- [ESM support in Node.js SEA - Bluesky](https://bsky.app/profile/joyeecheung.bsky.social/post/3mf624y55vc2v)\n- [nodejs/node#61813 - GitHub](https://github.com/nodejs/node/pull/61813)\n- [Single-file executable - Bun](https://bun.com/docs/bundler/executables)\n- [deno compile, standalone executables](https://docs.deno.com/runtime/reference/cli/compile/)"
+  },
+  {
     "id": "128",
     "date": "2026-03-03T23:08:18+08:00",
     "content": "浅浅期待一下手游（搓手",
