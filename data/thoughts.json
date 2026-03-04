@@ -1,5 +1,13 @@
 [
   {
+    "id": "130",
+    "date": "2026-03-04T11:43:00+08:00",
+    "content": "NestJS 拖了很久的全量 ESM 终于要来了。这主要得益于 `require(ESM)` 的推进。新版本还集成了 Vitest 和 Zod 等校验库，更加现代化。\n\n- [Big updates coming in NestJS v12 - X](https://x.com/nestframework/status/2025894197044158491)\n- [nestjs/nest#16391 - GitHub](https://github.com/nestjs/nest/pull/16391)",
+    "images": [
+      "https://image.viki.moe/blog/a9a813.png"
+    ]
+  },
+  {
     "id": "129",
     "date": "2026-03-04T10:57:54+08:00",
     "content": "[Node.js SEA](https://nodejs.org/api/single-executable-applications.html) (Single Executable Application) 已支持 ESM，可将 ESM 代码打包成单文件可执行程序：\n\n```sh\nnode --build-sea sea.config.json\n\n# sea.config.json\n# { \"main\": \"main.mjs\", \"mainFormat\": \"module\", \"output\": \"main\" }\n```\n\n对于 TypeScript 项目，可以用 [tsdown](https://main.tsdown.dev/options/exe) (>= 0.21) 一步到位：\n\n```sh\ntsdown --exe main.ts\n```\n\n除了 Node.js SEA，Bun 和 Deno 也支持生成单文件可执行程序：\n\n```sh\nbun build --compile --target bun-darwin-arm64 main.ts\n\ndeno compile --target aarch64-apple-darwin main.ts\n```\n\n- [ESM support in Node.js SEA - Bluesky](https://bsky.app/profile/joyeecheung.bsky.social/post/3mf624y55vc2v)\n- [nodejs/node#61813 - GitHub](https://github.com/nodejs/node/pull/61813)\n- [Single-file executable - Bun](https://bun.com/docs/bundler/executables)\n- [deno compile, standalone executables](https://docs.deno.com/runtime/reference/cli/compile/)"
