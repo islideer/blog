@@ -1,5 +1,14 @@
 [
   {
+    "id": "131",
+    "date": "2026-03-04T13:29:13+08:00",
+    "content": "第一次试，还不错。实测冷藏蛋也差不多六分半，冷水代替冰水大概八到十分钟。 下图我做的这个，沸水煮了七分钟，冷水浸了八分钟。",
+    "images": [
+      "https://image.viki.moe/blog/333baa.jpeg",
+      "https://image.viki.moe/blog/746a11.jpeg"
+    ]
+  },
+  {
     "id": "130",
     "date": "2026-03-04T11:43:00+08:00",
     "content": "NestJS 拖了很久的全量 ESM 终于要来了。这主要得益于 `require(ESM)` 的推进。新版本还集成了 Vitest 和 Zod 等校验库，更加现代化。\n\n- [Big updates coming in NestJS v12 - X](https://x.com/nestframework/status/2025894197044158491)\n- [nestjs/nest#16391 - GitHub](https://github.com/nestjs/nest/pull/16391)",
