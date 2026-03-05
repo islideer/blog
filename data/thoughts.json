@@ -1,5 +1,14 @@
 [
   {
+    "id": "132",
+    "date": "2026-03-05T16:26:02+08:00",
+    "content": "最近写了一个开发单文件应用的自用 Skill，顺手写了几个小游戏、小项目测试了一下，感觉效果还行。基本上一行提示词就能呈现不错的效果，然后辅以局部细节微调就能长期用了。快来玩扫雷和推箱子！~~虽然小时候在老式电视上玩推箱子，基本玩不到第十关...~~\n\n- [单 HTML 扫雷游戏](https://html.viki.moe/minesweeper.html)\n- [单 HTML 推箱子游戏](https://html.viki.moe/sokoban.html)\n- [Viki 的单页 HTML 应用列表](https://html.viki.moe/)\n- [vikiboss/single-html-app - GitHub](https://github.com/vikiboss/single-html-app)",
+    "images": [
+      "https://image.viki.moe/blog/ec7114.jpeg",
+      "https://image.viki.moe/blog/10f8da.jpeg"
+    ]
+  },
+  {
     "id": "131",
     "date": "2026-03-04T13:29:13+08:00",
     "content": "第一次试水煮溏心蛋，还不错。实测冷藏蛋也差不多六分半，冷水代替冰水大概八到十分钟。 下图我做的这个，沸水煮了七分钟，冷水浸了八分钟。",
