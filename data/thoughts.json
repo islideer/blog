@@ -1,5 +1,14 @@
 [
   {
+    "id": "134",
+    "date": "2026-03-06T11:03:43+08:00",
+    "content": "🎉 [R2 Web](https://github.com/vikiboss/r2-web) 项目被 [阮一峰](https://github.com/ruanyf) 大佬的科技周刊推荐了，非常开心。传送门: [科技爱好者周刊（第 387 期）：你是领先的](https://www.ruanyifeng.com/blog/2026/03/weekly-issue-387.html)\n\n> 一直用的 sm.ms 图床最近升级迁移到 s.ee 了，定位不再是仅图床服务，主观感觉有点臃肿，不符合我最早用它的初衷：简单、纯粹。于是开始用一直没怎么深度用的 Cloudflare R2 做自建图床。找了一圈没合适的 Web 端管理应用，要么审美不在线要么功能不到位。需求这不就来了？所以我用 Claude 搓了个 R2 Web 项目来管理，一切在浏览器完成，能充当图床角色，支持私有部署，尤其注重轻量、用户体验。这个项目年前写的，快一个月了，觉得其他人也可能会需要，于是去阮一峰大佬的周刊投稿，然后被推荐了。",
+    "images": [
+      "https://image.viki.moe/blog/ec23c5.png",
+      "https://image.viki.moe/blog/12700b.jpeg"
+    ]
+  },
+  {
     "id": "133",
     "date": "2026-03-06T00:38:35+08:00",
     "content": "60 级记录留念，三块金土地。",
