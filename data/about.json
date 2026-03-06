@@ -62,9 +62,16 @@
       ],
       "applications": [
         {
+          "name": "单 HTML 文件应用",
+          "url": "https://github.com/vikiboss/single-html-app",
+          "description": "基于自用单页应用 Skill 开发的单文件应用列表",
+          "status": "active",
+          "homepage": "https://html.viki.moe/"
+        },
+        {
           "name": "R2 Web",
           "url": "https://github.com/vikiboss/r2-web",
-          "description": "Cloudflare 的 R2 Web 端，Web 原生，支持浏览、上传和管理",
+          "description": "Cloudflare R2 Web 端，支持浏览、上传和管理",
           "status": "active",
           "homepage": "https://r2.viki.moe/"
         },
