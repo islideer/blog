@@ -105,13 +105,13 @@ export function Header() {
                 }
               }}
               className={cn(
-                'text-text-secondary sm:hover:text-text-primary active:text-text-primary transition-all active:scale-90',
+                'group text-text-secondary sm:hover:text-text-primary active:text-text-primary',
                 'text-xs sm:text-sm',
               )}
               aria-expanded={isMoreOpen}
               aria-haspopup="true"
             >
-              更多 ▾
+              <span className="inline-block transition-transform group-active:scale-90">更多 ▾</span>
             </button>
             {isMoreOpen && (
               <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
