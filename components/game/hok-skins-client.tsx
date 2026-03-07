@@ -78,25 +78,25 @@ export function HokSkinsClient({ id, data }: HokSkinsClientProps) {
           <button
             onClick={() => setSortBy('time')}
             className={cn(
-              'text-xs font-medium transition-all active:scale-90',
+              'group text-xs font-medium transition-colors',
               sortBy === 'time'
                 ? 'text-text-primary'
                 : 'text-text-secondary sm:hover:text-text-primary',
             )}
           >
-            按时间
+            <span className="transition-transform group-active:scale-90">按时间</span>
           </button>
           <span className="text-text-tertiary text-xs">·</span>
           <button
             onClick={() => setSortBy('quality')}
             className={cn(
-              'text-xs font-medium transition-all active:scale-90',
+              'group text-xs font-medium transition-colors',
               sortBy === 'quality'
                 ? 'text-text-primary'
                 : 'text-text-secondary sm:hover:text-text-primary',
             )}
           >
-            按品质
+            <span className="transition-transform group-active:scale-90">按品质</span>
           </button>
         </div>
       </div>
@@ -155,19 +155,21 @@ export function HokSkinsClient({ id, data }: HokSkinsClientProps) {
         <div className="flex justify-center pt-2">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-all active:scale-90"
+            className="group hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm transition-colors"
           >
-            {showAll ? (
-              <>
-                <ChevronUpIcon className="h-4 w-4" />
-                收起
-              </>
-            ) : (
-              <>
-                <ChevronDownIcon className="h-4 w-4" />
-                展示全部 ({sortedSkins.length - initialDisplayCount})
-              </>
-            )}
+            <span className="inline-flex items-center gap-2 transition-transform group-active:scale-90">
+              {showAll ? (
+                <>
+                  <ChevronUpIcon className="h-4 w-4" />
+                  收起
+                </>
+              ) : (
+                <>
+                  <ChevronDownIcon className="h-4 w-4" />
+                  展示全部 ({sortedSkins.length - initialDisplayCount})
+                </>
+              )}
+            </span>
           </button>
         </div>
       )}

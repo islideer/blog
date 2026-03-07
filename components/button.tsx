@@ -16,12 +16,12 @@ export function Button({ size = 'md', className, children, disabled, ...props }:
     <button
       className={cn(
         // 基础样式
-        'inline-flex items-center justify-center gap-1.5 rounded-md font-medium transition-all',
+        'group inline-flex items-center justify-center rounded-md font-medium transition-colors',
         'text-text-secondary',
 
         // 只在未 disabled 时生效的交互效果
         'enabled:hover:bg-bg-secondary enabled:hover:text-text-primary',
-        'enabled:active:bg-bg-secondary enabled:active:text-text-primary enabled:active:scale-90',
+        'enabled:active:bg-bg-secondary enabled:active:text-text-primary',
 
         // disabled 状态
         'disabled:cursor-not-allowed disabled:opacity-50',
@@ -36,7 +36,9 @@ export function Button({ size = 'md', className, children, disabled, ...props }:
       disabled={disabled}
       {...props}
     >
-      {children}
+      <span className="inline-flex items-center gap-1.5 transition-transform group-active:scale-90">
+        {children}
+      </span>
     </button>
   )
 }

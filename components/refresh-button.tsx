@@ -37,11 +37,13 @@ export function RefreshButton({ text = '刷新数据' }: { text?: string }) {
       <button
         onClick={handleRefresh}
         disabled={refreshing}
-        className="text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs transition-all active:scale-90 disabled:cursor-not-allowed disabled:opacity-50"
+        className="group text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-2.5 py-1.5 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-50"
         aria-label="刷新数据"
       >
-        <RefreshIcon className={cn('h-3.5 w-3.5', refreshing && 'animate-spin')} />
-        {text}
+        <span className="inline-flex items-center gap-1.5 transition-transform group-active:scale-90">
+          <RefreshIcon className={cn('h-3.5 w-3.5', refreshing && 'animate-spin')} />
+          {text}
+        </span>
       </button>
     </Tooltip>
   )

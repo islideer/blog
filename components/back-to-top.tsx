@@ -51,24 +51,24 @@ export function BackToTop() {
       <button
         onClick={scrollToTop}
         className={cn(
-          'bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-4 bottom-24 z-40 flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl active:scale-90 xl:hidden',
+          'group bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-4 bottom-24 z-40 flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl xl:hidden',
           isVisible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0',
         )}
         aria-label="回到顶部"
       >
-        <ChevronUpIcon className="h-6 w-6" />
+        <ChevronUpIcon className="h-6 w-6 transition-transform group-active:scale-90" />
       </button>
 
       {/* PC 端按钮 - 固定在右下角 */}
       <button
         onClick={scrollToTop}
         className={cn(
-          'bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-8 bottom-8 z-40 hidden h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl active:scale-90 xl:flex',
+          'group bg-bg-secondary border-border text-text-secondary hover:text-text-primary fixed right-8 bottom-8 z-40 hidden h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-all! hover:shadow-xl xl:flex',
           isVisible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0',
         )}
         aria-label="回到顶部"
       >
-        <ChevronUpIcon className="h-6 w-6" />
+        <ChevronUpIcon className="h-6 w-6 transition-transform group-active:scale-90" />
       </button>
     </>
   )

@@ -47,25 +47,29 @@ export function SteamGameListClient({ id, libraryGames, recentGames }: SteamGame
           <button
             onClick={() => setView('recent')}
             className={cn(
-              'text-xs font-medium transition-all active:scale-90',
+              'group text-xs font-medium transition-colors',
               view === 'recent'
                 ? 'text-text-primary'
                 : 'text-text-secondary sm:hover:text-text-primary',
             )}
           >
-            最近在玩 ({filteredRecentGames.length})
+            <span className="transition-transform group-active:scale-90">
+              最近在玩 ({filteredRecentGames.length})
+            </span>
           </button>
           <span className="text-text-tertiary text-xs">·</span>
           <button
             onClick={() => setView('library')}
             className={cn(
-              'text-xs font-medium transition-all active:scale-90',
+              'group text-xs font-medium transition-colors',
               view === 'library'
                 ? 'text-text-primary'
                 : 'text-text-secondary sm:hover:text-text-primary',
             )}
           >
-            游戏库 ({libraryGames.length})
+            <span className="transition-transform group-active:scale-90">
+              游戏库 ({libraryGames.length})
+            </span>
           </button>
         </div>
       </div>
@@ -185,19 +189,21 @@ function GamesList({
         <div className="flex justify-center pt-2">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-all active:scale-90"
+            className="group hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm transition-colors"
           >
-            {showAll ? (
-              <>
-                <ChevronUpIcon className="h-4 w-4" />
-                收起
-              </>
-            ) : (
-              <>
-                <ChevronDownIcon className="h-4 w-4" />
-                展示全部 ({games.length - initialDisplayCount})
-              </>
-            )}
+            <span className="inline-flex items-center gap-2 transition-transform group-active:scale-90">
+              {showAll ? (
+                <>
+                  <ChevronUpIcon className="h-4 w-4" />
+                  收起
+                </>
+              ) : (
+                <>
+                  <ChevronDownIcon className="h-4 w-4" />
+                  展示全部 ({games.length - initialDisplayCount})
+                </>
+              )}
+            </span>
           </button>
         </div>
       )}

@@ -26,10 +26,10 @@ export function SearchTrigger() {
       <Tooltip content="搜索 · Cmd+K">
         <button
           onClick={() => setIsOpen(true)}
-          className="text-text-secondary sm:hover:bg-bg-tertiary flex h-6 w-6 items-center justify-center rounded-sm transition-all active:scale-90 sm:h-8 sm:w-8"
+          className="group text-text-secondary sm:hover:bg-bg-tertiary flex h-6 w-6 items-center justify-center rounded-sm transition-colors sm:h-8 sm:w-8"
           aria-label="打开搜索"
         >
-          <SearchIcon className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
+          <SearchIcon className="h-4 w-4 sm:h-4.5 sm:w-4.5 transition-transform group-active:scale-90" />
         </button>
       </Tooltip>
 

@@ -58,14 +58,16 @@ function CommentItem({ comment }: CommentItemProps) {
         {showButton && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-text-secondary hover:text-text mt-2 inline-flex items-center gap-1 text-sm font-medium transition-all active:scale-90 sm:mt-4"
+            className="group text-text-secondary hover:text-text mt-2 inline-flex items-center justify-center text-sm font-medium transition-colors sm:mt-4"
           >
-            {isExpanded ? '收起' : '更多'}
-            {isExpanded ? (
-              <ChevronUpIcon className="h-4 w-4" />
-            ) : (
-              <ChevronDownIcon className="h-4 w-4" />
-            )}
+            <span className="inline-flex items-center gap-1 transition-transform group-active:scale-90">
+              {isExpanded ? '收起' : '更多'}
+              {isExpanded ? (
+                <ChevronUpIcon className="h-4 w-4" />
+              ) : (
+                <ChevronDownIcon className="h-4 w-4" />
+              )}
+            </span>
           </button>
         )}
       </div>

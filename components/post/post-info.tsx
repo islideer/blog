@@ -42,13 +42,13 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
           </span>
           <button
             onClick={handleCopyTitle}
-            className="text-text-tertiary hover:text-text-primary shrink-0 transition-all active:scale-90"
+            className="group text-text-tertiary hover:text-text-primary shrink-0 transition-colors"
             aria-label={copiedTitle ? '已复制' : '复制标题'}
           >
             {copiedTitle ? (
-              <CheckIcon className="h-3.5 w-3.5" />
+              <CheckIcon className="h-3.5 w-3.5 transition-transform group-active:scale-90" />
             ) : (
-              <CopyIcon className="h-3.5 w-3.5" />
+              <CopyIcon className="h-3.5 w-3.5 transition-transform group-active:scale-90" />
             )}
           </button>
         </div>
@@ -64,13 +64,13 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
           </code>
           <button
             onClick={handleCopyUrl}
-            className="text-text-tertiary hover:text-text-primary shrink-0 transition-all active:scale-90"
+            className="group text-text-tertiary hover:text-text-primary shrink-0 transition-colors"
             aria-label={copiedUrl ? '已复制' : '复制链接'}
           >
             {copiedUrl ? (
-              <CheckIcon className="h-3.5 w-3.5" />
+              <CheckIcon className="h-3.5 w-3.5 transition-transform group-active:scale-90" />
             ) : (
-              <CopyIcon className="h-3.5 w-3.5" />
+              <CopyIcon className="h-3.5 w-3.5 transition-transform group-active:scale-90" />
             )}
           </button>
         </div>
