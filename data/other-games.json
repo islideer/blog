@@ -8,7 +8,7 @@
     "playtime": "5000+ 场",
     "description": "腾讯游戏天美工作室群研发的 MOBA 类国产手游。",
     "url": "https://pvp.qq.com/",
-    "achievements": ["最高段位王者 50+ 颗星", "常玩辅助位和射手位", "本命英雄「鲁班七号」"]
+    "achievements": ["最高段位王者 50+ 颗星", "常玩「辅助」和「射手」", "本命英雄「鲁班七号」"]
   },
   {
     "id": "qq-speed-mobile",
@@ -19,7 +19,7 @@
     "playtime": "约两年",
     "description": "腾讯游戏天美工作室群研发的《QQ飞车》手游版本。",
     "url": "https://speedm.qq.com/",
-    "achievements": ["偏移比端游更爽更简单", "被几期赛季勋章套牢了", "比较喜欢开「S-冰魄」"]
+    "achievements": ["漂移比端游更爽更简单", "被几期赛季勋章套牢了", "比较喜欢开「S-冰魄」"]
   },
   {
     "id": "qq-fps",
@@ -30,7 +30,7 @@
     "playtime": "约两年",
     "description": "成都雨神电竞研发、在腾讯运营的次世代 FPS 页游。",
     "url": "https://fps.qq.com/",
-    "achievements": ["FPS 入门作（没下 CF）", "良心页游、FPS 经典", "周末就爱玩，喜欢打狙"]
+    "achievements": ["FPS 入门作（玩不了 CF）", "良心页游、FPS 经典", "周末就爱玩，喜欢玩狙"]
   },
   {
     "id": "qq-speed",
@@ -41,7 +41,7 @@
     "playtime": "约三年",
     "description": "腾讯游戏琳琅天上工作室研发的多人赛车竞速端游。",
     "url": "https://speed.qq.com/",
-    "achievements": ["从此迷恋上了赛车游戏", "陪伴了好几个夏天", "最爱地图「玫瑰之恋」"]
+    "achievements": ["赛车游戏入坑作", "陪伴了好几个夏天", "最爱地图「玫瑰之恋」"]
   },
   {
     "id": "4399-zmxy",
