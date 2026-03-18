@@ -2,12 +2,16 @@
   {
     "id": "137",
     "date": "2026-03-18T10:33:21+08:00",
-    "content": "Chrome 146 Canary 版本开始支持 WebMCP，在 `chrome://flags` 页面开启 WebMCP 功能后，可以通过 navigator.modelContext.registerTool() 等方法进行注册和管理。\n\n> WebMCP 是由 Chrome 提出的一项 Web 标准草案，可以让网站向浏览器内的 AI 代理暴露结构化工具接口，旨在代替当前只能通过截图或 DOM 猜测操作等过于低效的交互方式。"
+    "content": "Chrome 146 Canary 版本开始支持 WebMCP，在 `chrome://flags` 页面开启 WebMCP 功能后，可以通过 navigator.modelContext.registerTool() 等方法进行注册和管理。\n\n多说一嘴：Chrome 144 版本带来了官方 DevTools MCP，在 `chrome://inspect#remote-debugging` 页面开启后，可搭配 `chrome-devtools-mcp` 直接控制浏览器。\n\n> WebMCP 是由 Chrome 提出的一项 Web 标准草案，可以让网站向浏览器内的 AI 代理暴露结构化工具接口，旨在代替当前只能通过截图或 DOM 猜测操作等过于低效的交互方式。",
+    "images": [
+      "https://image.viki.moe/blog/b63cd3.png",
+      "https://image.viki.moe/blog/de0ff8.png"
+    ]
   },
   {
     "id": "136",
     "date": "2026-03-13T14:58:01+08:00",
-    "content": "Web 滤镜不只有 CSS 的 `filter` 内置值，还可以通过 SVG Filter 定义更复杂的滤镜效果。通过 \\<svg\\> 元素定义滤镜，然后使用 filter: url(#filter-id) 方式引用。\n\n[webkit.org](https://webkit.org/blog/17808/interop-2025-review/) 就利用了 SVG Filter 在夜间模式下实现图片素材的亮度反转效果。\n\n```html\n<div>\n  <img style=\"filter: url(#invertLightness);\" src=\"https://image.viki.moe/blog/96fbf0.png\" width=\"200\" />\n  <img src=\"https://image.viki.moe/blog/96fbf0.png\" width=\"200\" />\n</div>\n\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <filter id=\"invertLightness\" x=\"0\" y=\"0\" style=\"color-interpolation-filters: sRGB\">\n  <feColorMatrix type=\"matrix\" in=\"SourceGraphic\" result=\"red\" values=\"1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1\"></feColorMatrix>\n  <feColorMatrix type=\"matrix\" in=\"SourceGraphic\" result=\"green\" values=\"0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 1\"></feColorMatrix>\n  <feColorMatrix type=\"matrix\" in=\"SourceGraphic\" result=\"blue\" values=\"0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 1\"></feColorMatrix>\n  <feBlend in=\"red\" in2=\"green\" mode=\"lighten\" result=\"maxyellow\"></feBlend>\n  <feBlend in=\"maxyellow\" in2=\"blue\" mode=\"lighten\" result=\"max\"></feBlend>\n  <feBlend in=\"red\" in2=\"green\" mode=\"darken\" result=\"minyellow\"></feBlend>\n  <feBlend in=\"minyellow\" in2=\"blue\" mode=\"darken\" result=\"min\"></feBlend>\n  <feComponentTransfer result=\"adjustment\" in=\"min\">\n  <feFuncR type=\"linear\" intercept=\"1\" slope=\"-1\"></feFuncR>\n  <feFuncG type=\"linear\" intercept=\"1\" slope=\"-1\"></feFuncG>\n  <feFuncB type=\"linear\" intercept=\"1\" slope=\"-1\"></feFuncB>\n  </feComponentTransfer>\n  <feComposite operator=\"arithmetic\" in=\"SourceGraphic\" in2=\"adjustment\" k1=\"0\" k2=\"1\" k3=\"1\" k4=\"-1\" result=\"channelAdjustment\"></feComposite>\n  <feComposite operator=\"arithmetic\" in=\"channelAdjustment\" in2=\"max\" k1=\"0\" k2=\"1\" k3=\"-1\" k4=\"1\" result=\"finalColors\"></feComposite>\n  <feComposite operator=\"in\" in=\"finalColors\" in2=\"SourceAlpha\"></feComposite>\n  </filter>\n</svg>\n```",
+    "content": "Web 滤镜不只有 CSS 的 `filter` 内置值，还可以通过 SVG Filter 定义更复杂的滤镜效果。通过 \\<svg\\> 元素定义滤镜，然后使用 filter: url(#filter-id) 方式引用。[webkit.org](https://webkit.org/blog/17808/interop-2025-review/) 就利用了 SVG Filter 在夜间模式下实现图片素材的亮度反转效果。\n\nSVG Filter 内容可参考 [svg-filter.txt](https://image.viki.moe/share/svg-filter.txt)。",
     "images": [
       "https://image.viki.moe/blog/2d2c16.png"
     ]
