@@ -5,7 +5,7 @@
       "一名热爱生活的 Web 前端仔 👨🏻‍💻，[INFP-T](https://www.16personalities.com/ch/infp-%E4%BA%BA%E6%A0%BC) 小蝴蝶 🦋，热爱 [Web 技术](https://developer.mozilla.org/zh-CN/docs/Web)，相信 [开源](https://github.com/vikiboss) 的力量 💪。喜欢 [把想法 💭 变成现实](/about#open-source)，没事就拷打 AI 🤖 帮我干活，享受编程带来的乐趣 🥳。有幸与 Mio 相伴 💞，享受真诚而简单的生活，朝着属于我们的小家 🏠 努力。闲暇之余还喜欢 [看点剧](/library) 🎥、[打打游戏](/game) 🎮、[看电竞直播](https://live.bilibili.com/1883358196) 📺 和 [自言自语](/thoughts) 💬。你可以看看我写的乱七八糟的 [文章](/posts) 📝，也可以在 [大事记](/timeline) 🗓️ 和 [关于](/about) ℹ️ 页面了解更多。最后，欢迎 [交换友链](/friends)！有任何问题请在 [话匣子](/messages) 📬 页面给我留言。"
     ],
     "aboutParagraphs": [
-      "一名热爱生活的 Web 前端仔 👨🏻‍💻，[INFP-T](https://www.16personalities.com/ch/infp-%E4%BA%BA%E6%A0%BC) 小蝴蝶 🦋，热爱 [Web 技术](https://developer.mozilla.org/zh-CN/docs/Web)，相信 [开源](https://github.com/vikiboss) 的力量 💪。喜欢 [把想法 💭 变成现实](/about#open-source)，没事就拷打 AI 🤖 帮我干活，享受编程带来的乐趣 🥳。有幸与 Mio 相伴 💞，享受真诚而简单的生活，朝着属于我们的小家 🏠 努力。闲暇之余还喜欢 [看点剧](/library) 🎥、[打打游戏](/game) 🎮、[看电竞直播](https://live.bilibili.com/1883358196) 📺 和 [自言自语](/thoughts) 💬。你可以看看我写的乱七八糟的 [文章](/posts) 📝，也可以在 [大事记](/timeline) 🗓️ 和此页面下方了解更多。最后，欢迎 [交换友链](/friends)！有任何问题请在 [话匣子](/messages) 📬 页面给我留言。"
+      "一名热爱生活的 Web 前端开发、开源爱好者、影视/音乐爱好者、电子游戏玩家。"
     ]
   },
   "contact": {
@@ -25,6 +25,7 @@
           "name": "mioki",
           "url": "https://github.com/vikiboss/mioki",
           "description": "基于 NapCat 的 OneBot 机器人框架，KiviBot 精神继任者",
+          "stars": "12+",
           "status": "active"
         },
         {
@@ -43,6 +44,7 @@
           "name": "@shined/react-use",
           "url": "https://github.com/sheinsight/react-use",
           "description": "SSR 友好的 React Hooks 库",
+          "stars": "60+",
           "status": "active",
           "homepage": "https://sheinsight.github.io/react-use/"
         },
@@ -50,6 +52,7 @@
           "name": "@shined/reactive",
           "url": "https://github.com/sheinsight/reactive",
           "description": "JavaScript 响应式状态管理库",
+          "stars": "30+",
           "status": "active",
           "homepage": "https://sheinsight.github.io/reactive/"
         },
@@ -57,6 +60,7 @@
           "name": "KiviBot",
           "url": "https://npm.im/kivibot",
           "description": "基于 OICQ 和 ICQQ 的 QQ 机器人框架（已闭源）",
+          "stars": "历史 60+",
           "status": "archived"
         }
       ],
@@ -71,6 +75,7 @@
         {
           "name": "R2 Web",
           "url": "https://github.com/vikiboss/r2-web",
+          "stars": "150+",
           "description": "Cloudflare R2 Web 端，支持浏览、上传和管理",
           "status": "active",
           "homepage": "https://r2.viki.moe/"
@@ -79,6 +84,7 @@
           "name": "Major Winner",
           "url": "https://github.com/vikiboss/major-winner",
           "description": "主播/职业选手的 CS2 Major 竞猜结果 & 排行",
+          "stars": "12+",
           "status": "active",
           "homepage": "https://major.viki.moe/"
         },
@@ -86,6 +92,7 @@
           "name": "Viki 写东西的地方",
           "url": "https://github.com/vikiboss/blog",
           "description": "本博客，基于 Next.js 与 Tailwind CSS",
+          "stars": "16+",
           "status": "active"
         },
         {
@@ -125,6 +132,7 @@
           "name": "原神助手",
           "url": "https://github.com/vikiboss/gs-helper",
           "description": "原神 PC 端小工具：祈愿分析、便签状态和游戏数据",
+          "stars": "120+",
           "status": "archived"
         },
         {
@@ -147,13 +155,22 @@
           "url": "https://github.com/vikiboss/60s",
           "description": "60 秒资讯、API 聚合服务",
           "status": "active",
-          "stars": "4K+",
+          "stars": "5K+",
           "homepage": "https://docs.60s-api.viki.moe/"
+        },
+        {
+          "name": "60s 静态资源",
+          "url": "https://github.com/vikiboss/60s-static-host",
+          "description": "60s API 项目使用的静态资源托管服务",
+          "stars": "60+",
+          "status": "active",
+          "homepage": "https://60s-static.viki.moe/"
         },
         {
           "name": "Deno Functions",
           "url": "https://github.com/vikiboss/deno-functions",
           "description": "实用的无服务函数，部署在 Deno Deploy",
+          "stars": "20+",
           "status": "active",
           "homepage": "https://viki.deno.dev/"
         },
@@ -168,6 +185,7 @@
           "name": "v50",
           "url": "https://github.com/vikiboss/v50",
           "description": "KFC 疯狂星期四文案数据、API",
+          "stars": "16+",
           "status": "active",
           "homepage": "https://v50.viki.moe/"
         }
@@ -194,6 +212,7 @@
         {
           "name": "BaidupanPlaySpeedControl",
           "url": "https://github.com/vikiboss/BaidupanPlaySpeedControl",
+          "stars": "12+",
           "description": "百度网盘视频倍速播放脚本",
           "status": "archived"
         }
