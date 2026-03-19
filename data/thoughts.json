@@ -1,5 +1,13 @@
 [
   {
+    "id": "138",
+    "date": "2026-03-18T12:14:54+08:00",
+    "content": "昨天抢了大半天的成果",
+    "images": [
+      "https://image.viki.moe/blog/2e15a8.jpeg"
+    ]
+  },
+  {
     "id": "137",
     "date": "2026-03-18T10:33:21+08:00",
     "content": "Chrome 146 Canary 版本开始支持 WebMCP，在 `chrome://flags` 页面开启 WebMCP 功能后，可以通过 navigator.modelContext.registerTool() 等方法进行注册和管理。\n\n> WebMCP 是由 Chrome 提出的一项 Web 标准草案，可以让网站向浏览器内的 AI 代理暴露结构化工具接口，旨在代替当前只能通过截图或 DOM 猜测操作等过于低效的交互方式。\n\n多说一嘴：Chrome 144 版本带来了官方 DevTools MCP，在 `chrome://inspect#remote-debugging` 页面开启后，可搭配 `chrome-devtools-mcp` 直接控制浏览器。",
