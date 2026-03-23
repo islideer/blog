@@ -16,7 +16,7 @@ export function Button({ size = 'md', className, children, disabled, ...props }:
     <button
       className={cn(
         // 基础样式
-        'group inline-flex items-center justify-center rounded-md font-medium transition-colors',
+        'group/btn inline-flex items-center justify-center rounded-md font-medium transition-colors',
         'text-text-secondary',
 
         // 只在未 disabled 时生效的交互效果
@@ -36,7 +36,7 @@ export function Button({ size = 'md', className, children, disabled, ...props }:
       disabled={disabled}
       {...props}
     >
-      <span className="inline-flex items-center gap-1.5 transition-transform group-active:scale-90">
+      <span className="inline-flex items-center gap-1.5 transition-transform group-active/btn:scale-90">
         {children}
       </span>
     </button>

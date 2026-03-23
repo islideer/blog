@@ -34,13 +34,13 @@ export function ThemeToggle() {
     () => false,
   )
 
-  const iconClass = 'h-4 w-4 sm:h-4.5 sm:w-4.5 transition-transform group-active:scale-90'
+  const iconClass = 'h-4 w-4 sm:h-4.5 sm:w-4.5 transition-transform group-active/btn:scale-90'
 
   if (!mounted) {
     return (
       <Tooltip content="切换主题">
         <button
-          className="group text-text-secondary sm:hover:bg-bg-tertiary flex h-6 w-6 items-center justify-center rounded-sm transition-colors sm:h-8 sm:w-8"
+          className="group/btn text-text-secondary sm:hover:bg-bg-tertiary flex h-6 w-6 items-center justify-center rounded-sm transition-colors sm:h-8 sm:w-8"
           aria-label="切换主题"
           disabled
         >

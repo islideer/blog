@@ -21,7 +21,7 @@ export function Header() {
   return (
     <header
       role="banner"
-      className="group border-border bg-bg-primary/80 sticky top-0 z-40 max-w-3xl border-b px-4 backdrop-blur-sm select-none sm:px-6"
+      className="border-border bg-bg-primary/80 sticky top-0 z-40 max-w-3xl border-b px-4 backdrop-blur-sm select-none sm:px-6"
     >
       <div className="flex items-center justify-between py-2 sm:py-2.5">
         <Link href="/" passHref className="no-underline">
@@ -105,13 +105,13 @@ export function Header() {
                 }
               }}
               className={cn(
-                'group text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+                'group/btn text-text-secondary sm:hover:text-text-primary active:text-text-primary',
                 'text-xs sm:text-sm',
               )}
               aria-expanded={isMoreOpen}
               aria-haspopup="true"
             >
-              <span className="inline-block transition-transform group-active:scale-90">更多 ▾</span>
+              <span className="inline-block transition-transform group-active/btn:scale-90">更多 ▾</span>
             </button>
             {isMoreOpen && (
               <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">

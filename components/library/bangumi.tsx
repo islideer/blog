@@ -162,9 +162,9 @@ export function BangumiSection({ id, title, items }: BangumiSectionProps) {
         <div className="flex justify-center pt-2">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="group hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm transition-colors"
+            className="group/btn hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm transition-colors"
           >
-            <span className="inline-flex items-center gap-2 transition-transform group-active:scale-90">
+            <span className="inline-flex items-center gap-2 transition-transform group-active/btn:scale-90">
               {showAll ? (
                 <>
                   <ChevronUpIcon className="h-4 w-4" />

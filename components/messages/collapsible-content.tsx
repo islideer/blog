@@ -47,9 +47,9 @@ export function CollapsibleContent({ html, maxLines = 3 }: CollapsibleContentPro
       {showButton && (
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="group text-text-secondary hover:text-text-primary mt-1.5 inline-flex items-center justify-center text-xs font-medium transition-colors"
+          className="group/btn text-text-secondary hover:text-text-primary mt-1.5 inline-flex items-center justify-center text-xs font-medium transition-colors"
         >
-          <span className="inline-flex items-center gap-0.5 transition-transform group-active:scale-90">
+          <span className="inline-flex items-center gap-0.5 transition-transform group-active/btn:scale-90">
             {isExpanded ? '收起' : '更多'}
             {isExpanded ? (
               <ChevronUpIcon className="h-3.5 w-3.5" />

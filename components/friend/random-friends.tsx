@@ -46,10 +46,10 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
           <Tooltip content="重新随机排序友链">
             <button
               onClick={() => void startTransition(() => setShuffledFriends(shuffleArray(friends)))}
-              className="group text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-2.5 py-1.5 text-xs transition-colors"
+              className="group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-2.5 py-1.5 text-xs transition-colors"
               aria-label="重新随机排序友链"
             >
-              <span className="inline-flex items-center gap-1.5 transition-transform group-active:scale-90">
+              <span className="inline-flex items-center gap-1.5 transition-transform group-active/btn:scale-90">
                 <RandomIcon className="h-3.5 w-3.5" />
                 换个顺序
               </span>
@@ -58,10 +58,10 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
           <Tooltip content="随机访问一位好友的博客">
             <button
               onClick={handleRandomVisit}
-              className="group text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-2.5 py-1.5 text-xs transition-colors"
+              className="group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-2.5 py-1.5 text-xs transition-colors"
               aria-label="随机访问一位好友的博客"
             >
-              <span className="inline-flex items-center gap-1.5 transition-transform group-active:scale-90">
+              <span className="inline-flex items-center gap-1.5 transition-transform group-active/btn:scale-90">
                 <DiceIcon className="h-3.5 w-3.5" />
                 试试手气
               </span>
