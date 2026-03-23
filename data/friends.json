@@ -97,9 +97,8 @@
     "id": "xiaohui",
     "name": "Xiaohui'Blog",
     "url": "https://yunnet.top/",
-    "description": "技术 Blog。",
-    "avatar": "https://yunnet.top/upload/psc.jpg",
-    "rss": "https://yunnet.top/rss.xml"
+    "description": "日常崩溃的技术 Blog。",
+    "avatar": "https://q1.qlogo.cn/g?b=qq&nk=1798468479&s=100"
   },
   {
     "id": "jyi",
@@ -129,5 +128,12 @@
     "description": "愿你每一天都充满阳光 ☀️",
     "avatar": "https://rita.cc.cd/favicon.ico",
     "rss": "https://rita.cc.cd/rss.xml"
+  },
+  {
+    "id": "nevolar",
+    "name": "Nevolar",
+    "url": "https://blog.eval.moe",
+    "description": "为了更美好的明天而战。",
+    "avatar": "https://cn.cravatar.com/avatar/7e52725e1bebc3875d0d0871c6a7e65f?s=250&r=G&d=mp"
   }
 ]
