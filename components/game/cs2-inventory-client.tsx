@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { useState, useMemo } from 'react'
 import { useAutoSize } from '../../hooks/use-auto-size'
-import { ChevronUpIcon } from '../../icons/chevron-up'
 import { ChevronDownIcon } from '../../icons/chevron-down'
 
 import type { CS2InventoryItem } from '@/lib/steam'
@@ -34,8 +33,8 @@ const RARITY_WEIGHT: Record<string, number> = {
  * - 处理"显示更多"交互
  */
 export function CS2InventoryClient({ id, items }: CS2InventoryClientProps) {
-  const [showAll, setShowAll] = useState(false)
-  const initialDisplayCount = useAutoSize({ xs: 6, sm: 8 })
+  const pageSize = useAutoSize({ xs: 6, sm: 8 })
+  const [visibleCount, setVisibleCount] = useState(pageSize)
 
   // 按名称分组并计数，然后按稀有度排序
   const groupedAndSortedItems = useMemo(() => {
@@ -66,11 +65,12 @@ export function CS2InventoryClient({ id, items }: CS2InventoryClientProps) {
     })
   }, [items])
 
-  // 根据显示状态决定展示的物品
-  const displayedItems = showAll
-    ? groupedAndSortedItems
-    : groupedAndSortedItems.slice(0, initialDisplayCount)
-  const hasMore = groupedAndSortedItems.length > initialDisplayCount
+  const displayedItems = groupedAndSortedItems.slice(0, visibleCount)
+  const hasMore = visibleCount < groupedAndSortedItems.length
+
+  const loadMore = () => {
+    setVisibleCount((prev) => Math.min(prev + pageSize, groupedAndSortedItems.length))
+  }
 
   return (
     <>
@@ -152,25 +152,15 @@ export function CS2InventoryClient({ id, items }: CS2InventoryClientProps) {
         ))}
       </div>
 
-      {/* 展示全部按钮 */}
       {hasMore && (
         <div className="flex justify-center pt-2">
           <button
-            onClick={() => setShowAll(!showAll)}
-            className="group/btn hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm transition-colors"
+            onClick={loadMore}
+            className="group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-3 py-1.5 text-xs transition-colors"
           >
-            <span className="inline-flex items-center gap-2 transition-transform group-active/btn:scale-90">
-              {showAll ? (
-                <>
-                  <ChevronUpIcon className="h-4 w-4" />
-                  收起
-                </>
-              ) : (
-                <>
-                  <ChevronDownIcon className="h-4 w-4" />
-                  展示全部 ({groupedAndSortedItems.length - initialDisplayCount})
-                </>
-              )}
+            <span className="inline-flex items-center gap-1.5">
+              <ChevronDownIcon className="h-3.5 w-3.5 transition-transform group-active/btn:translate-y-0.5" />
+              加载更多（还剩 {groupedAndSortedItems.length - visibleCount} 件）
             </span>
           </button>
         </div>

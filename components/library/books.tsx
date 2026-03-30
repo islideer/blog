@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { dayjs } from '@/lib/dayjs'
 import { useState } from 'react'
 import { useAutoSize } from '../../hooks/use-auto-size'
-import { ChevronUpIcon } from '../../icons/chevron-up'
 import { ChevronDownIcon } from '../../icons/chevron-down'
 
 import type { DoubanItem, DoubanResponse } from '@/lib/douban'
@@ -55,10 +54,14 @@ interface BookSectionProps {
 }
 
 function BookSection({ id, title, books }: BookSectionProps) {
-  const [showAll, setShowAll] = useState(false)
-  const initialDisplayCount = useAutoSize({ xs: 3, sm: 4 })
-  const displayedBooks = showAll ? books : books.slice(0, initialDisplayCount)
-  const hasMore = books.length > initialDisplayCount
+  const pageSize = useAutoSize({ xs: 3, sm: 4 })
+  const [visibleCount, setVisibleCount] = useState(pageSize)
+  const displayedBooks = books.slice(0, visibleCount)
+  const hasMore = visibleCount < books.length
+
+  const loadMore = () => {
+    setVisibleCount((prev) => Math.min(prev + pageSize, books.length))
+  }
 
   return (
     <div className="space-y-3">
@@ -112,25 +115,15 @@ function BookSection({ id, title, books }: BookSectionProps) {
         ))}
       </div>
 
-      {/* 展示全部按钮 */}
       {hasMore && (
         <div className="flex justify-center pt-2">
           <button
-            onClick={() => setShowAll(!showAll)}
-            className="group/btn hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm transition-colors"
+            onClick={loadMore}
+            className="group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-3 py-1.5 text-xs transition-colors"
           >
-            <span className="inline-flex items-center gap-2 transition-transform group-active/btn:scale-90">
-              {showAll ? (
-                <>
-                  <ChevronUpIcon className="h-4 w-4" />
-                  收起
-                </>
-              ) : (
-                <>
-                  <ChevronDownIcon className="h-4 w-4" />
-                  展示全部 ({books.length - initialDisplayCount})
-                </>
-              )}
+            <span className="inline-flex items-center gap-1.5">
+              <ChevronDownIcon className="h-3.5 w-3.5 transition-transform group-active/btn:translate-y-0.5" />
+              加载更多（还剩 {books.length - visibleCount} 本）
             </span>
           </button>
         </div>

@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { cn } from '@/lib/cn'
 import { siteConfig } from '@/lib/config'
 import { PlatformIcon } from './platform-icon'
-import { ChevronUpIcon } from '../../icons/chevron-up'
 import { ChevronDownIcon } from '../../icons/chevron-down'
 import { useState, useMemo } from 'react'
 
@@ -99,12 +98,15 @@ function GamesList({
   hideDetails?: boolean
   showRecently?: boolean
 }) {
-  const [showAll, setShowAll] = useState(false)
-  const initialDisplayCount = 6 // 默认显示 6 个游戏
+  const pageSize = 6
+  const [visibleCount, setVisibleCount] = useState(pageSize)
 
-  // 无论哪个视图，都限制显示数量
-  const displayedGames = showAll ? games : games.slice(0, initialDisplayCount)
-  const hasMore = games.length > initialDisplayCount
+  const displayedGames = games.slice(0, visibleCount)
+  const hasMore = visibleCount < games.length
+
+  const loadMore = () => {
+    setVisibleCount((prev) => Math.min(prev + pageSize, games.length))
+  }
 
   return (
     <>
@@ -184,25 +186,15 @@ function GamesList({
         ))}
       </div>
 
-      {/* 展示全部按钮 */}
       {hasMore && (
         <div className="flex justify-center pt-2">
           <button
-            onClick={() => setShowAll(!showAll)}
-            className="group hover:bg-bg-secondary text-text-secondary hover:text-text-primary inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm transition-colors"
+            onClick={loadMore}
+            className="group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-3 py-1.5 text-xs transition-colors"
           >
-            <span className="inline-flex items-center gap-2 transition-transform group-active/btn:scale-90">
-              {showAll ? (
-                <>
-                  <ChevronUpIcon className="h-4 w-4" />
-                  收起
-                </>
-              ) : (
-                <>
-                  <ChevronDownIcon className="h-4 w-4" />
-                  展示全部 ({games.length - initialDisplayCount})
-                </>
-              )}
+            <span className="inline-flex items-center gap-1.5">
+              <ChevronDownIcon className="h-3.5 w-3.5 transition-transform group-active/btn:translate-y-0.5" />
+              加载更多（还剩 {games.length - visibleCount} 个）
             </span>
           </button>
         </div>

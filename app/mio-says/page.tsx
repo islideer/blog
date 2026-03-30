@@ -63,9 +63,9 @@ export default async function MioSaysPage() {
     <>
       <StaticTableOfContents
         behavior="auto"
-        items={ids.map((id) => ({
-          id,
-          title: `${pages.mioSays.title} #${id}`,
+        items={sortedMioSays.map((mioSay) => ({
+          id: mioSay.id,
+          title: `#${mioSay.id} ${mioSay.content ? mioSay.content.slice(0, 20) : '无内容'}...`,
         }))}
       />
 

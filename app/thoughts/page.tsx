@@ -67,9 +67,9 @@ export default async function ThoughtsPage() {
     <>
       <StaticTableOfContents
         behavior="auto"
-        items={ids.map((id) => ({
-          id,
-          title: `${pages.thoughts.title} #${id}`,
+        items={sortedThoughts.map((thought) => ({
+          id: thought.id,
+          title: `#${thought.id} ${thought.content ? thought.content.slice(0, 20) : '无内容'}...`,
         }))}
       />
 
