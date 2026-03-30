@@ -2,7 +2,7 @@
   {
     "id": "143",
     "date": "2026-03-30T18:09:09+08:00",
-    "content": "近期在看 CC (Claude Code) 的东西，一些浅显的收获：\n\n- 系统提示词最好不要带上时间戳等动态内容，非常容易破坏缓存，成本、性能都受影响。\n- 动态内容可以用 `\\<system-reminder\\>` 追加到用户消息中，CC 自己也是这么做的。\n- 会话中减少模型切换（subagent 替代）、减少 Tools 动态增删（Agent 开发中），可以提高缓存命中率。\n- CC 中双击 `ESC` 可以回溯编辑历史，快速重新编辑消息、撤销文件改动、回滚会画等，非常好用。\n- 使用 [RTK (Rust Token Killer)](https://github.com/rtk-ai/rtk) 可精简常见命令输出，大幅节省 Token。\n- 如果要用 `RTK`，建议设置环境变量 `RTK_TELEMETRY_DISABLED=1` 屏蔽匿名数据收集。\n- CC 有一个 [ToolSearch](https://platform.claude.com/docs/zh-CN/agents-and-tools/tool-use/tool-search-tool) Tool 用来搜索 Tools，有一个 [ProgrammaticTool](https://platform.claude.com/docs/zh-CN/agents-and-tools/tool-use/programmatic-tool-calling) 以编程方式调用 Tools。\n- 将 Tool 的 `defer_loading` 标记为 `true`，默认不加载到上下文，搭配 ToolSearch 可实现按需加载。\n- `/clear` / `/compact` 看得多，做得少，还是得多用，搭配 `/context` / `/memory` 管理好上下文。",
+    "content": "最近在看 CC (Claude Code) 的东西，一些浅显的收获：\n\n- 系统提示词最好不要带上时间戳等动态内容，非常容易破坏缓存，成本、性能都受影响。\n- 动态内容可以用 `\<system-reminder\>` 追加到用户消息中，CC 自己也是这么做的。\n- 会话中减少模型切换（Subagent 替代）、减少 Tools 动态增删（Agent 开发中），可以提高缓存命中率。\n- CC 中双击 `ESC` 可以回溯历史，快速重新编辑消息、撤销文件改动、回滚会话等，非常好用。\n- 使用 [RTK (Rust Token Killer)](https://github.com/rtk-ai/rtk) 可精简常见命令输出，大幅节省 Token。\n- 如果要用 `RTK`，建议设置环境变量 `RTK_TELEMETRY_DISABLED=1` 屏蔽匿名数据收集。\n- CC 有一个 [ToolSearch](https://platform.claude.com/docs/zh-CN/agents-and-tools/tool-use/tool-search-tool) Tool 用来搜索 Tools，有一个 [ProgrammaticTool](https://platform.claude.com/docs/zh-CN/agents-and-tools/tool-use/programmatic-tool-calling) Tool 以编程方式调用 Tools。\n- 将 Tool 的 `defer_loading` 标记为 `true`，默认不加载到上下文，搭配 ToolSearch 可实现按需加载。\n- `/clear` 和 `/compact` 看得多，用得少，还是得多用，搭配 `/context` 和 `/memory` 管理好上下文。",
     "images": [
       "https://image.viki.moe/blog/6fc519.png"
     ]
