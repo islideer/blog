@@ -5,6 +5,7 @@ import { siteConfig } from '@/lib/config'
 import { countWords } from '@/lib/word-count'
 import { ThoughtsList } from '@/components/thoughts/thoughts-list'
 import { generateCanonicalUrl } from '@/lib/seo'
+import { cleanMarkdownContent } from '@/lib/markdown'
 import { getInteractionCounts } from '@/lib/interactions'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 
@@ -69,7 +70,7 @@ export default async function ThoughtsPage() {
         behavior="auto"
         items={sortedThoughts.map((thought) => ({
           id: thought.id,
-          title: `#${thought.id} ${thought.content ? thought.content.slice(0, 20) : '无内容'}...`,
+          title: `#${thought.id} ${thought.content ? Array.from(cleanMarkdownContent(thought.content)).slice(0, 20).join('') : '无内容'}...`,
         }))}
       />
 

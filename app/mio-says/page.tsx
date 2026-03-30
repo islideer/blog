@@ -6,6 +6,7 @@ import { countWords } from '@/lib/word-count'
 import { siteConfig } from '@/lib/config'
 import { ThoughtsList } from '@/components/thoughts/thoughts-list'
 import { generateCanonicalUrl } from '@/lib/seo'
+import { cleanMarkdownContent } from '@/lib/markdown'
 import { getInteractionCounts } from '@/lib/interactions'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 
@@ -65,7 +66,7 @@ export default async function MioSaysPage() {
         behavior="auto"
         items={sortedMioSays.map((mioSay) => ({
           id: mioSay.id,
-          title: `#${mioSay.id} ${mioSay.content ? mioSay.content.slice(0, 20) : '无内容'}...`,
+          title: `#${mioSay.id} ${mioSay.content ? Array.from(cleanMarkdownContent(mioSay.content)).slice(0, 20).join('') : '无内容'}...`,
         }))}
       />
 
