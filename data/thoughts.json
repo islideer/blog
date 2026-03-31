@@ -1,5 +1,13 @@
 [
   {
+    "id": "146",
+    "date": "2026-03-31T18:16:40+08:00",
+    "content": "乐，Claude Code 的完整源码以 Sourcemap 源码映射文件的方式泄漏了，这是哪个粗心大手子干的好事。相信马上 Codex、Gemini CLI 以及各大国产闭源 AI Coding 工具将迎来一波史诗级增强更新。",
+    "images": [
+      "https://image.viki.moe/blog/572959.png"
+    ]
+  },
+  {
     "id": "145",
     "date": "2026-03-31T11:48:46+08:00",
     "content": "Axios 也被投毒了…… 🤷"
