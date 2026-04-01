@@ -59,6 +59,13 @@
   text-wrap: wrap;
   orphans: 2;
   widows: 2;
+  line-height: var(--leading-relaxed);
+  font-size: var(--font-size-lg);
+}
+
+.prose-sm p {
+  line-height: var(--leading-normal);
+  font-size: var(--font-size-xs);
 }
 
 /* ============================================
@@ -151,6 +158,10 @@
   max-width: 100%;
   margin-top: 1.2em;
   width: 100%;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .prose-sm pre {
@@ -161,6 +172,10 @@
   max-width: 100%;
   margin-top: 1em;
   width: 100%;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 /* Code Block Scrollbar - Hide by default, show on hover */
