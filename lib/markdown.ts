@@ -3,7 +3,7 @@ import rehypeRaw from 'rehype-raw'
 import rehypeSlug from 'rehype-slug'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
-import rehypeShiki from '@shikijs/rehype'
+// import rehypeShiki from '@shikijs/rehype'
 import remarkBreaks from 'remark-breaks'
 import remarkRehype from 'remark-rehype'
 import remarkSpoiler from './remark-spoiler'
@@ -13,6 +13,7 @@ import rehypeStringify from 'rehype-stringify'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
+import rehypePrettyCode from 'rehype-pretty-code'
 
 /**
  * 统一的 Markdown 解析器（基于 unified）
@@ -47,14 +48,21 @@ const processor = unified()
       ],
     },
   })
-  .use(rehypeShiki, {
-    themes: {
+  // .use(rehypeShiki, {
+  //   themes: {
+  //     light: 'one-light',
+  //     dark: 'one-dark-pro',
+  //   },
+  //   defaultColor: false,
+  //   cssVariablePrefix: '--shiki-',
+  //   lazy: true,
+  // })
+  .use(rehypePrettyCode, {
+    keepBackground: false,
+    theme: {
       light: 'one-light',
       dark: 'one-dark-pro',
     },
-    defaultColor: false,
-    cssVariablePrefix: '--shiki-',
-    lazy: true,
   })
   .use(rehypeSlug)
   .use(rehypeAutolinkHeadings, {
@@ -98,7 +106,10 @@ export async function parseArticle(content: string): Promise<string> {
     return ''
   }
 
+  // const t = content.slice(0, 10).replace(/\s+/g, '_')
+  // console.time(`s-${t}`)
   const result = await processor.process(content)
+  // console.timeEnd(`s-${t}`)
 
   return String(result)
 }
