@@ -1,4 +1,5 @@
 import { dayjs } from '@/lib/dayjs'
+import { YEAR_DESC_MAP } from '@/lib/year-desc'
 import { MarkdownLite } from '../markdown-lite'
 
 import type { TimelineItem } from '@/lib/data'
@@ -6,35 +7,6 @@ import type { TimelineItem } from '@/lib/data'
 interface TimelineViewProps {
   items: TimelineItem[]
 }
-
-const YEAR_DESC_MAP = new Map<number, string>([
-  [2001, '破壳年'],
-  [2002, '1 岁，幼年期'],
-  [2003, '2 岁，幼年期'],
-  [2004, '3 岁，幼年期'],
-  [2005, '4 岁，童年期'],
-  [2006, '5 岁，童年期'],
-  [2007, '6 岁，小学一年级'],
-  [2008, '7 岁，小学二年级'],
-  [2009, '8 岁，小学三年级'],
-  [2010, '9 岁，小学四年级'],
-  [2011, '10 岁，小学五年级'],
-  [2012, '11 岁，小学六年级'],
-  [2013, '12 岁，初一'],
-  [2014, '13 岁，初二'],
-  [2015, '14 岁，初三'],
-  [2016, '15 岁，高一'],
-  [2017, '16 岁，高二'],
-  [2018, '17 岁，高三'],
-  [2019, '18 岁，大一'],
-  [2020, '19 岁，大二'],
-  [2021, '20 岁，大三'],
-  [2022, '21 岁，大四'],
-  [2023, '22 岁'],
-  [2024, '23 岁'],
-  [2025, '24 岁'],
-  [2026, '25 岁'],
-])
 
 export async function TimelineView({ items }: TimelineViewProps) {
   // 按年份分组（使用现代化的 Object.groupBy）

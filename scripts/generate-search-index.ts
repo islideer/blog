@@ -5,7 +5,7 @@ import { getAllPostsWithContent } from '../lib/posts.ts'
 /**
  * 截断文本到指定长度
  */
-export function truncateText(text: string, maxLength: number = 30): string {
+function truncateText(text: string, maxLength: number = 30): string {
   if (text.length <= maxLength) return text
   return text.slice(0, maxLength).trim() + '...'
 }
@@ -13,7 +13,7 @@ export function truncateText(text: string, maxLength: number = 30): string {
 /**
  * 清洗 Markdown 内容，移除语法保留纯文本
  */
-export function cleanMarkdownContent(markdown: string): string {
+function cleanMarkdownContent(markdown: string): string {
   let content = markdown
 
   // 移除 Front Matter
@@ -79,6 +79,8 @@ export function cleanMarkdownContent(markdown: string): string {
   return content
 }
 
+import { dayjs } from '../lib/dayjs.ts'
+
 // 导入 JSON 数据
 import thoughtsData from '../data/thoughts.json' with { type: 'json' }
 import mioSaysData from '../data/mio-says.json' with { type: 'json' }
@@ -120,12 +122,9 @@ export interface SearchIndex {
  * 生成搜索索引
  */
 async function generateSearchIndex() {
-  console.log('🔍 开始生成搜索索引...')
-
   const items: SearchIndexItem[] = []
 
   // 1. 处理文章
-  console.log('📄 处理文章数据...')
   const posts = await getAllPostsWithContent()
   for (const post of posts) {
     const cleanedContent = cleanMarkdownContent(post.content)
@@ -144,10 +143,7 @@ async function generateSearchIndex() {
       url: `/${post.slug}`,
     })
   }
-  console.log(`  ✓ 处理了 ${posts.length} 篇文章`)
-
   // 2. 处理碎碎念
-  console.log('💭 处理碎碎念数据...')
   for (const thought of thoughtsData) {
     const cleanedContent = cleanMarkdownContent(thought.content)
 
@@ -161,10 +157,7 @@ async function generateSearchIndex() {
       url: `/thoughts#${thought.id}`,
     })
   }
-  console.log(`  ✓ 处理了 ${thoughtsData.length} 条碎碎念`)
-
   // 3. 处理 Mio 说
-  console.log('💕 处理 Mio 说数据...')
   for (const mioSay of mioSaysData) {
     const cleanedContent = cleanMarkdownContent(mioSay.content)
 
@@ -178,10 +171,7 @@ async function generateSearchIndex() {
       url: `/mio-says#${mioSay.id}`,
     })
   }
-  console.log(`  ✓ 处理了 ${mioSaysData.length} 条 Mio 说`)
-
   // 4. 处理集合/储物箱
-  console.log('🔖 处理集合数据...')
   let collectionCount = 0
   for (const category of collectionData) {
     for (const item of category.items) {
@@ -197,27 +187,36 @@ async function generateSearchIndex() {
       collectionCount++
     }
   }
-  console.log(`  ✓ 处理了 ${collectionCount} 个集合项`)
+  // 5. 处理时间线（ID 逻辑与 timeline-view.tsx 保持一致：按年份降序、年内按日期降序，反向计数）
+  const timelineByYear = Object.groupBy(timelineData, (item) => {
+    const date = dayjs(item.date)
+    return date.isValid() ? date.year() : 0
+  })
+  const sortedTimelineYears = Object.keys(timelineByYear)
+    .map(Number)
+    .toSorted((a, b) => b - a)
 
-  // 5. 处理时间线
-  console.log('📅 处理时间线数据...')
-  for (let i = 0; i < timelineData.length; i++) {
-    const event = timelineData[i]
-    const cleanedDescription = cleanMarkdownContent(event.description)
-
-    items.push({
-      id: `timeline-${i}`,
-      type: 'timeline',
-      title: cleanedDescription,
-      content: cleanedDescription,
-      date: event.date,
-      url: `/timeline#${i + 1}`,
+  let timelineGlobalIdx = 0
+  for (const year of sortedTimelineYears) {
+    const yearItems = (timelineByYear[year] ?? []).toSorted((a, b) => {
+      return dayjs(b.date).valueOf() - dayjs(a.date).valueOf()
     })
+    for (const event of yearItems) {
+      const id = timelineData.length - timelineGlobalIdx
+      const cleanedDescription = cleanMarkdownContent(event.description)
+      items.push({
+        id: `timeline-${id}`,
+        type: 'timeline',
+        title: cleanedDescription,
+        content: cleanedDescription,
+        date: event.date,
+        url: `/timeline#${id}`,
+      })
+      timelineGlobalIdx++
+    }
   }
-  console.log(`  ✓ 处理了 ${timelineData.length} 个时间线事件`)
 
   // 6. 处理关于页面
-  console.log('👤 处理关于页面数据...')
   let aboutCount = 0
 
   // 个人介绍段落
@@ -253,10 +252,7 @@ async function generateSearchIndex() {
     }
   }
 
-  console.log(`  ✓ 处理了 ${aboutCount} 个关于页面项`)
-
   // 7. 处理友链
-  console.log('👥 处理友链数据...')
   for (const friend of friendsData) {
     items.push({
       id: `friend-${friend.id}`,
@@ -267,8 +263,6 @@ async function generateSearchIndex() {
       url: `/friends#${friend.id}`,
     })
   }
-  console.log(`  ✓ 处理了 ${friendsData.length} 个友链`)
-
   // 生成索引
   const searchIndex: SearchIndex = {
     version: '1.0.0',
@@ -290,29 +284,16 @@ async function generateSearchIndex() {
   const outputPath = path.join(process.cwd(), 'public', 'search-index.json')
   await fs.writeFile(outputPath, JSON.stringify(searchIndex), 'utf-8')
 
-  // 计算文件大小
   const stats = await fs.stat(outputPath)
   const fileSizeKB = (stats.size / 1024).toFixed(2)
 
-  console.log('\n✅ 搜索索引生成成功！')
-  console.log(`  📊 总计: ${items.length} 个索引项`)
-  console.log(`  📝 文章: ${posts.length}`)
-  console.log(`  💭 碎碎念: ${thoughtsData.length}`)
-  console.log(`  💕 Mio 说: ${mioSaysData.length}`)
-  console.log(`  🔖 集合: ${collectionCount}`)
-  console.log(`  📅 时间线: ${timelineData.length}`)
-  console.log(`  👤 关于: ${aboutCount}`)
-  console.log(`  👥 友链: ${friendsData.length}`)
-  console.log(`  💾 文件大小: ${fileSizeKB} KB`)
-  console.log(`  📁 输出路径: ${outputPath}\n`)
+  console.log(
+    `✅ 搜索索引生成成功: ${fileSizeKB} KB，${items.length} 项（文章${posts.length}+碎碎念${thoughtsData.length}+Mio说${mioSaysData.length}+集合${collectionCount}+时间线${timelineData.length}+关于${aboutCount}+友链${friendsData.length}）\n`,
+  )
 }
 
-// 执行生成
 generateSearchIndex()
-  .then(() => {
-    console.log('🎉 索引文件生成成功！')
-    process.exit(0)
-  })
+  .then(() => process.exit(0))
   .catch((error) => {
     console.error('❌ 生成搜索索引失败:', error)
     process.exit(1)
