@@ -16,7 +16,7 @@ tags:
 
 ![ncm-vip.jpeg](https://image.viki.moe/share/ncm-vip.jpeg "网易云音乐会员分享")
 
-> 领取入口：[灝***雲送你网易云音乐 3 月黑胶会员卡～][ncm]
+👉 领取入口：[灝灝網易雲送你网易云音乐 4 月黑胶会员卡～][ncm]
 
 ## QQ 音乐
 
@@ -24,7 +24,7 @@ tags:
 
 ![qqm-vip.jpeg](https://image.viki.moe/share/qqm-vip.jpeg "QQ 音乐会员分享")
 
-> 领取入口：[Viki 赠送你免费 3 天豪华绿钻会员卡][qqm]
+👉 领取入口：[Viki 赠送你免费 3 天豪华绿钻会员卡][qqm]
 
 ---
 
@@ -36,7 +36,8 @@ tags:
 
 ## 更新记录
 
-- 2026-03-18：发布文章，已更新 3 月份会员分享链接。
+- 2026-04-02：已更新 4 月份会员分享链接。
+- 2026-03-18：发布文章。
 
-[ncm]: https://y.music.163.com/g/vip-invite-cashier/radsjl693?app_version=9.4.70&userid=5127559361&token=D8147E1D84362F97CE26485473290201B5F2098C1F543F2323846CBBD76062AC&dlt=0846
-[qqm]: https://y.qq.com/m/basic/client/experience_card/index.html?ADTAG=yy_gnyy_hytyk&from=share&cardid=d6t1ed63deaovjigcif0&hostName=Viki&hosteuin=oK6PoK-F7eSkNn**
+[ncm]: https://163cn.tv/4nsO24x
+[qqm]: https://c6.y.qq.com/base/fcgi-bin/u?__=Fl4LdCk0a6dO
