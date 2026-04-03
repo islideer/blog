@@ -1,5 +1,13 @@
 [
   {
+    "id": "148",
+    "date": "2026-04-03T11:24:57+08:00",
+    "content": "第一次见把邮箱验证码做成图片的... 离谱",
+    "images": [
+      "https://image.viki.moe/blog/a9f9f8.png"
+    ]
+  },
+  {
     "id": "147",
     "date": "2026-04-02T14:47:56+08:00",
     "content": "写了一个简单的 Shell 函数来快速获取 GitHub 仓库基本信息，主要关注仓库大小、创建时间等无法直接在仓库页看到的信息。每次用 GitHub 来 Clone 或者打包下载一些带资源的仓库时，你都得猜它有多大、还要下多久，十分讨厌。\n\n源码 & 使用方式参考 [repo.sh - GitHub Gist](https://gist.github.com/vikiboss/16efac49015739c3273f68e52ce21570)。",
