@@ -32,11 +32,16 @@ interface UABadgeProps {
  */
 function parseUA(uaString: string) {
   const parser = new UAParser(uaString)
+  const browser = parser.getBrowser()
+
+  if (/headless/.test(browser.name || '')) {
+    browser.name = `无头 ${browser.name?.replace(/\s*headless/i, '').trim() || ''}`
+  }
 
   return {
     model: parser.getDevice().model || '',
     os: parser.getOS(),
-    browser: parser.getBrowser(),
+    browser: browser,
   }
 }
 

@@ -37,6 +37,7 @@ export function MessageAuthor({
 }: MessageAuthorProps) {
   const authorName = author.name || '匿名'
   const firstChar = authorName.charAt(0)
+  const isThisYear = new Date(createdAt).getFullYear() === new Date().getFullYear()
 
   // 判断是否使用文字头像（无 avatar 且无 email）
   const useTextAvatar = !author.avatar && !author.email
@@ -111,7 +112,7 @@ export function MessageAuthor({
         </div>
 
         <div className={`text-text-tertiary mt-0.5 flex items-center gap-2 ${metaTextSize}`}>
-          <span>{formatFull(createdAt, 'YYYY/M/D HH:mm')}</span>
+          <span>{formatFull(createdAt, isThisYear ? 'M/D HH:mm' : 'YYYY/M/D HH:mm')}</span>
           {ua && <UABadge ua={ua} />}
         </div>
       </div>
