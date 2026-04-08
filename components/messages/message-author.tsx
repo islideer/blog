@@ -10,7 +10,7 @@ import { cn } from '@/lib/cn'
 import { UABadge } from './ua-badge'
 import { Tooltip } from '../tooltip'
 import { VipBadge } from './vip-badge'
-import { RelativeTime } from '../relative-time'
+import { formatFull } from '@/lib/dayjs'
 import { siteConfig, websiteUrl } from '@/lib/config'
 
 import type { MessageAuthor as Author } from '@/lib/messages'
@@ -111,7 +111,7 @@ export function MessageAuthor({
         </div>
 
         <div className={`text-text-tertiary mt-0.5 flex items-center gap-2 ${metaTextSize}`}>
-          <RelativeTime date={createdAt} short />
+          <span>{formatFull(createdAt)}</span>
           {ua && <UABadge ua={ua} />}
         </div>
       </div>

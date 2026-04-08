@@ -82,11 +82,6 @@ export default async function FriendsPage() {
           </p>
         </section>
 
-        {/* Friends Grid */}
-        <section>
-          <RandomFriends friends={friends} />
-        </section>
-
         {/* Friend Link Info */}
         <section className="border-border-tertiary mt-8 space-y-3 border-l-2 pl-4 sm:mt-12">
           <h2 className="text-text-primary text-base font-semibold">交换友链</h2>
@@ -99,7 +94,7 @@ export default async function FriendsPage() {
               页面留言。
             </p>
             <p className="text-text-tertiary text-xs italic">
-              注：建议建站半年以上，有一定原创内容，非商业化、AI 内容农场。交换完记得经常来玩哦！
+              注：建议贵站建站半年以上，站点稳定，原创内容为主，非商业化。交换完记得经常来玩哦！
             </p>
             <div className="prose-sm" dangerouslySetInnerHTML={{ __html: html }}></div>
             {/* 预览 */}
@@ -115,6 +110,11 @@ export default async function FriendsPage() {
               }}
             />
           </div>
+        </section>
+
+        {/* Friends Grid */}
+        <section>
+          <RandomFriends friends={friends} />
         </section>
       </div>
     </>
