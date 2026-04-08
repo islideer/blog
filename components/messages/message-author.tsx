@@ -111,7 +111,7 @@ export function MessageAuthor({
         </div>
 
         <div className={`text-text-tertiary mt-0.5 flex items-center gap-2 ${metaTextSize}`}>
-          <span>{formatFull(createdAt)}</span>
+          <span>{formatFull(createdAt, 'YYYY/M/D HH:mm')}</span>
           {ua && <UABadge ua={ua} />}
         </div>
       </div>
