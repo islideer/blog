@@ -46,7 +46,21 @@ const processor = unified()
         ['height'],
         ['crossOrigin'],
       ],
+      video: [
+         ...(defaultSchema.attributes?.video || []),
+        ['controls'],
+        ['src'],
+        ['style'],
+        ['class'],
+        ['poster'],
+        ['width'],
+        ['height'],
+      ]
     },
+    tagNames:[
+      ...(defaultSchema.tagNames || []),
+      'video',
+    ]
   })
   // .use(rehypeShiki, {
   //   themes: {
