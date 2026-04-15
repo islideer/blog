@@ -3,6 +3,7 @@ import { YEAR_DESC_MAP } from '@/lib/year-desc'
 import { MarkdownLite } from '../markdown-lite'
 
 import type { TimelineItem } from '@/lib/data'
+import { cn } from '@/lib/cn'
 
 interface TimelineViewProps {
   items: TimelineItem[]
@@ -73,20 +74,27 @@ export async function TimelineView({ items }: TimelineViewProps) {
                   }
                 }
 
+                const hasDay = formattedDate.includes('日')
+
                 return (
                   <article
                     id={String(items.length - (startIdxOfAll + index))} // 反向 ID，最新的在前
                     key={index}
-                    className="flex flex-col gap-1 px-1 py-3 sm:flex-row sm:items-baseline sm:gap-2 sm:px-2 sm:py-4"
+                    className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-2 sm:py-3"
                   >
                     {formattedDate && (
-                      <time className="text-text-tertiary shrink-0 text-xs sm:w-12 sm:text-sm">
+                      <time
+                        className={cn(
+                          'text-text-tertiary shrink-0 text-xs',
+                          hasDay ? 'sm:w-16' : 'sm:w-8',
+                        )}
+                      >
                         {formattedDate}
                       </time>
                     )}
                     <MarkdownLite
-                      size="md"
-                      className="text-text-secondary! text-xs leading-5 sm:text-sm sm:leading-6"
+                      size="sm"
+                      className="text-text-secondary! text-xs leading-5 sm:leading-6"
                       content={item.description}
                     />
                   </article>
