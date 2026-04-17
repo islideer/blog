@@ -101,6 +101,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <link rel="dns-prefetch" href="https://s2.loli.net" />
       <link rel="preconnect" href="https://image.viki.moe" />
       <link rel="dns-prefetch" href="https://image.viki.moe" />
+      <link rel="preconnect" href="https://file.viki.moe" />
+      <link rel="dns-prefetch" href="https://file.viki.moe" />
 
       {/* JSON-LD 结构化数据 */}
       <script

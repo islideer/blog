@@ -80,6 +80,8 @@ export default async function ThoughtsPage() {
       {/* Preconnect to external domains for better performance */}
       <link rel="preconnect" href="https://s2.loli.net" />
       <link rel="dns-prefetch" href="https://s2.loli.net" />
+      <link rel="preconnect" href="https://image.viki.moe" />
+      <link rel="dns-prefetch" href="https://image.viki.moe" />
 
       <div className="space-y-12 py-8 sm:py-12">
         {/* Header */}
