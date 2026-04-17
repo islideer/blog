@@ -22,7 +22,7 @@
         {
           "name": "mioki",
           "url": "https://github.com/vikiboss/mioki",
-          "description": "基于 NapCat 的 OneBot 机器人框架，KiviBot 精神继任者",
+          "description": "基于 NapCat 的 OneBot 框架，KiviBot 精神继任者",
           "status": "active"
         },
         {
@@ -66,7 +66,7 @@
         {
           "name": "R2 Web",
           "url": "https://github.com/vikiboss/r2-web",
-          "stars": "160+",
+          "stars": "180+",
           "description": "Cloudflare R2 Web 端，支持浏览、上传和管理",
           "status": "active",
           "homepage": "https://r2.viki.moe/"
@@ -108,7 +108,7 @@
         {
           "name": "Chat One",
           "url": "https://github.com/vikiboss/chat-one",
-          "description": "OneBot 聊天平台，适用于 KiviBot",
+          "description": "网页端 OneBot 在线聊天平台，适用于 KiviBot",
           "status": "active",
           "homepage": "https://chat-one.viki.moe/"
         },
@@ -126,16 +126,17 @@
           "status": "archived"
         },
         {
-          "name": "听雨",
+          "name": "听雨 / Ting",
           "url": "https://github.com/vikiboss/ting",
-          "description": "静下来，专注一会 / 在线极简白噪音",
+          "description": "静下来，专注一会 / 在线极简时钟+白噪音项目",
           "homepage": "https://ting.viki.moe/",
           "status": "active"
         },
         {
           "name": "aiueo",
           "url": "https://github.com/vikiboss/aiueo",
-          "description": "给日语初学者练习假名的 Python 应用",
+          "description": "给日语初学者练习五十音/假名的 Python 终端小应用",
+          "homepage": "https://github.com/vikiboss/aiueo",
           "status": "active"
         }
       ],
@@ -143,16 +144,16 @@
         {
           "name": "60s API",
           "url": "https://github.com/vikiboss/60s",
-          "description": "60 秒资讯、API 聚合服务",
+          "description": "每天 60 秒新闻资讯、各种数据 API 聚合服务",
           "status": "active",
-          "stars": "5K+",
+          "stars": "5.2K+",
           "homepage": "https://docs.60s-api.viki.moe/"
         },
         {
           "name": "60s 静态资源",
           "url": "https://github.com/vikiboss/60s-static-host",
           "description": "60s API 项目使用的静态资源托管服务",
-          "stars": "60+",
+          "stars": "70+",
           "status": "active",
           "homepage": "https://60s-static.viki.moe/"
         },
@@ -167,14 +168,14 @@
         {
           "name": "Face",
           "url": "https://github.com/vikiboss/face",
-          "description": "QQ 黄脸表情包系列静态资源、API",
+          "description": "QQ 黄脸表情包系列静态资源托管、公开 API",
           "status": "active",
           "homepage": "https://face.viki.moe/"
         },
         {
           "name": "v50",
           "url": "https://github.com/vikiboss/v50",
-          "description": "KFC 疯狂星期四文案数据、API",
+          "description": "肯德基 KFC 疯狂星期四的文案数据托管、公开 API",
           "status": "active",
           "homepage": "https://v50.viki.moe/"
         }
@@ -183,7 +184,7 @@
         {
           "name": "booth-price-cny",
           "url": "https://github.com/vikiboss/booth-price-cny",
-          "description": "显示 booth.pm 上日元商品的人民币价格",
+          "description": "换算 booth.pm 上日元商品的人民币价格的脚本",
           "status": "active"
         },
         {
@@ -213,29 +214,29 @@
       "languages": [
         {
           "name": "TypeScript",
-          "description": "带有类型语法的 JavaScript",
+          "description": "带有静态类型的 JavaScript 超集",
           "link": "https://www.typescriptlang.org/"
         },
         {
           "name": "JavaScript",
-          "description": "函数为一等公民的轻量级解释型编程语言",
+          "description": "网页交互与应用开发的核心语言",
           "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
         },
         {
           "name": "HTML5",
-          "description": "Web 最基本的构建模块",
+          "description": "Web 最基本的构建模块语言",
           "link": "https://developer.mozilla.org/en-US/docs/Web/HTML"
         },
         {
           "name": "CSS3",
-          "description": "用于描述 HTML/XML 样式的样式表语言",
+          "description": "描述 HTML/XML 样式的样式表语言",
           "link": "https://developer.mozilla.org/en-US/docs/Web/CSS"
         }
       ],
       "frontend": [
         {
           "name": "React",
-          "description": "用于构建 Web 和原生用户界面的库",
+          "description": "构建 Web 和原生用户界面的库",
           "link": "https://react.dev/"
         },
         {
@@ -282,22 +283,22 @@
       "backend": [
         {
           "name": "Node.js",
-          "description": "免费、开源、跨平台的 JavaScript 运行时",
+          "description": "开源免费且跨平台的 JavaScript 运行时",
           "link": "https://nodejs.org/"
         },
         {
           "name": "Bun",
-          "description": "一个快速、全能的 JS/TS/JSX 运行时、工具包",
+          "description": "快速全能的 JS/TS/JSX 运行时、工具包",
           "link": "https://bun.sh/"
         },
         {
           "name": "Deno",
-          "description": "开源的现代 Web JavaScript 运行时",
+          "description": "现代的开源 JavaScript 运行时",
           "link": "https://deno.com/"
         },
         {
           "name": "Elysia",
-          "description": "符合人体工学、用 Bun 驱动的 Web 框架",
+          "description": "Bun 驱动、符合人体工学的  Web 框架",
           "link": "https://elysiajs.com/"
         },
         {
@@ -312,7 +313,7 @@
         },
         {
           "name": "NestJS",
-          "description": "渐进式 Node.js 框架，构建高效稳定的服务端应用",
+          "description": "构建高效稳定服务的渐进式 Node.js 框架",
           "link": "https://nestjs.com/"
         },
         {
@@ -322,19 +323,19 @@
         },
         {
           "name": "Express",
-          "description": "快速、无偏见、极简的 Node.js Web 框架",
+          "description": "极简快速无偏见的 Node.js Web 框架",
           "link": "https://expressjs.com/"
         }
       ],
       "crossPlatform": [
         {
           "name": "Electron",
-          "description": "使用 Web 技术构建桌面应用",
+          "description": "使用 Web 技术构建桌面应用的框架",
           "link": "https://www.electronjs.org/"
         },
         {
           "name": "React Native",
-          "description": "使用 React 构建原生移动应用",
+          "description": "使用 React 构建原生移动应用的框架",
           "link": "https://reactnative.dev/"
         }
       ]

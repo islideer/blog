@@ -43,7 +43,7 @@ export function Header() {
               'text-xs sm:text-sm',
             )}
           >
-            文章
+            {pages.posts.title}
           </Link>
           <a
             href={pages.thoughts.slug}
@@ -52,7 +52,7 @@ export function Header() {
               'text-xs sm:text-sm',
             )}
           >
-            碎碎念
+            {pages.thoughts.title}
           </a>
           <a
             href={pages.mioSays.slug}
@@ -61,7 +61,7 @@ export function Header() {
               'text-xs sm:text-sm',
             )}
           >
-            Mio 说
+            {pages.mioSays.title}
           </a>
 
           <a
@@ -71,7 +71,7 @@ export function Header() {
               'hidden text-xs sm:inline sm:text-sm',
             )}
           >
-            书影音
+            {pages.library.title}
           </a>
 
           <a
@@ -81,17 +81,17 @@ export function Header() {
               'hidden text-xs sm:inline sm:text-sm',
             )}
           >
-            游戏
+            {pages.game.title}
           </a>
 
           <Link
-            href={pages.about.slug}
+            href={pages.timeline.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
               'text-xs sm:text-sm',
             )}
           >
-            关于
+            {pages.timeline.title}
           </Link>
 
           {/* "更多"下拉菜单 */}
@@ -111,7 +111,9 @@ export function Header() {
               aria-expanded={isMoreOpen}
               aria-haspopup="true"
             >
-              <span className="inline-block transition-transform group-active/btn:scale-90">更多 ▾</span>
+              <span className="inline-block transition-transform group-active/btn:scale-90">
+                更多 ▾
+              </span>
             </button>
             {isMoreOpen && (
               <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
@@ -124,7 +126,7 @@ export function Header() {
                     )}
                     onClick={() => setIsMoreOpen(false)}
                   >
-                    书影音
+                    {pages.library.title}
                   </a>
 
                   <a
@@ -135,19 +137,19 @@ export function Header() {
                     )}
                     onClick={() => setIsMoreOpen(false)}
                   >
-                    游戏
+                    {pages.game.title}
                   </a>
                 </div>
 
                 <Link
-                  href={pages.timeline.slug}
+                  href={pages.about.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
                     'block px-4 py-2 text-xs',
                   )}
                   onClick={() => setIsMoreOpen(false)}
                 >
-                  大事记
+                  {pages.about.title}
                 </Link>
 
                 <a
@@ -158,7 +160,7 @@ export function Header() {
                   )}
                   onClick={() => setIsMoreOpen(false)}
                 >
-                  岛读
+                  {pages.reading.title}
                 </a>
 
                 <a
@@ -169,7 +171,7 @@ export function Header() {
                   )}
                   onClick={() => setIsMoreOpen(false)}
                 >
-                  话匣子
+                  {pages.messages.title}
                 </a>
 
                 <Link
@@ -180,7 +182,7 @@ export function Header() {
                   )}
                   onClick={() => setIsMoreOpen(false)}
                 >
-                  好朋友们
+                  {pages.friends.title}
                 </Link>
                 <div className="sm:hidden">
                   <div className="border-border my-2 border-t" />

@@ -62,12 +62,12 @@ export const pages = {
     slug: '/mio-says',
   },
   about: {
-    title: '关于',
+    title: '关于我',
     description: `前端开发者，热衷于开源和技术分享，相信技术改变世界`,
     slug: '/about',
   },
   game: {
-    title: '游戏',
+    title: '电子游戏',
     description: `记录 ${siteConfig.author.name} 的游戏时光，游戏库和游戏时长统计等`,
     slug: '/game',
   },

@@ -27,9 +27,9 @@ export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourcePr
           if (categoryProjects.length === 0) return null
 
           return (
-            <div key={category} className="space-y-3">
+            <div key={category} className="space-y-4">
               <h3 className="text-text-primary text-sm font-medium">{categoryNames[category]}</h3>
-              <ul className="space-y-2">
+              <ul className="space-y-4 sm:space-y-3">
                 {categoryProjects.map((project) => (
                   <li key={project.name} className="text-text-secondary">
                     <div className="inline-flex flex-wrap items-baseline gap-2">
@@ -59,7 +59,7 @@ export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourcePr
                           主页
                         </a>
                       )}
-                      <span className="text-text-tertiary text-sm">— {project.description}</span>
+                      <span className="text-text-tertiary text-sm">{project.description}</span>
                     </div>
                   </li>
                 ))}

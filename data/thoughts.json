@@ -254,7 +254,7 @@
   {
     "id": "120",
     "date": "2026-02-10T18:38:28+08:00",
-    "content": "🎉 [60s API](https://github.com/vikiboss/60s) 位列 [HelloGitHub 年度盘点](https://mp.weixin.qq.com/s/QlwZi058jbak5ImC23ZxWw) 第四名。\n\n[HelloGitHub](https://hellogithub.com/) 在公众号、知乎、头条、博客园、掘金、开源中国、V2EX、Linux.do 等平台都有运营，有幸受到大家的关注和喜欢，非常开心～ 感谢支持！",
+    "content": "🎉 [60s](https://github.com/vikiboss/60s) 项目位列 [HelloGitHub 年度盘点](https://mp.weixin.qq.com/s/QlwZi058jbak5ImC23ZxWw) 第四名。\n\n[HelloGitHub](https://hellogithub.com/) 在公众号、知乎、头条、博客园、掘金、开源中国、V2EX、Linux.do 等平台都有运营，有幸受到大家的关注和喜欢，非常开心～ 感谢支持！",
     "images": [
       "https://image.viki.moe/blog/a9da371c.png",
       "https://image.viki.moe/blog/8afe0bb2.png"
@@ -503,7 +503,7 @@
   {
     "id": "86",
     "date": "2026-01-04T16:22:59+08:00",
-    "content": "只要把 X-Real-IP 和 X-Forwarded-For 请求头设置成国内 IP，就能绕过不少服务的地区限制。\n\n> 之前用 CloudFlare Worker 部署 [60s API](https://github.com/vikiboss/60s) 的 B 站热搜接口一直失效，因为 B 站会限制海外 IP。最近在 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi/issues/29#issuecomment-298357483) 项目的 Issue 里偶然学到这个方法，亲测有效，思路很巧妙。其实 60s API 项目的 `/ip` 接口本身返回的 IP 也是从这些请求头里取的，刚好 B 站也是这样判断 IP 的，所以用这个办法就能让 CF Worker 也能正常访问 B 站热搜数据了。"
+    "content": "只要把 X-Real-IP 和 X-Forwarded-For 请求头设置成国内 IP，就能绕过不少服务的地区限制。\n\n> 之前用 CloudFlare Worker 部署 [60s](https://github.com/vikiboss/60s) 的 B 站热搜接口一直失效，因为 B 站会限制海外 IP。最近在 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi/issues/29#issuecomment-298357483) 项目的 Issue 里偶然学到这个方法，亲测有效，思路很巧妙。其实 60s 项目的 `/ip` 接口本身返回的 IP 也是从这些请求头里取的，刚好 B 站也是这样判断 IP 的，所以用这个办法就能让 CF Worker 也能正常访问 B 站热搜数据了。"
   },
   {
     "id": "85",
