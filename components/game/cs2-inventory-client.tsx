@@ -34,7 +34,8 @@ const RARITY_WEIGHT: Record<string, number> = {
  */
 export function CS2InventoryClient({ id, items }: CS2InventoryClientProps) {
   const pageSize = useAutoSize({ xs: 6, sm: 8 })
-  const [visibleCount, setVisibleCount] = useState(pageSize)
+  const [pages, setPages] = useState(1)
+  const visibleCount = pages * pageSize
 
   // 按名称分组并计数，然后按稀有度排序
   const groupedAndSortedItems = useMemo(() => {
@@ -68,9 +69,7 @@ export function CS2InventoryClient({ id, items }: CS2InventoryClientProps) {
   const displayedItems = groupedAndSortedItems.slice(0, visibleCount)
   const hasMore = visibleCount < groupedAndSortedItems.length
 
-  const loadMore = () => {
-    setVisibleCount((prev) => Math.min(prev + pageSize, groupedAndSortedItems.length))
-  }
+  const loadMore = () => setPages((prev) => prev + 1)
 
   return (
     <>

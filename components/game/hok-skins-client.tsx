@@ -35,7 +35,8 @@ type SortType = 'time' | 'quality'
 export function HokSkinsClient({ id, data }: HokSkinsClientProps) {
   const [sortBy, setSortBy] = useState<SortType>('time')
   const pageSize = useAutoSize({ xs: 8, sm: 10 })
-  const [visibleCount, setVisibleCount] = useState(pageSize)
+  const [pages, setPages] = useState(1)
+  const visibleCount = pages * pageSize
 
   // 排序逻辑
   const sortedSkins = useMemo(() => {
@@ -56,9 +57,7 @@ export function HokSkinsClient({ id, data }: HokSkinsClientProps) {
   const displayedSkins = sortedSkins.slice(0, visibleCount)
   const hasMore = visibleCount < sortedSkins.length
 
-  const loadMore = () => {
-    setVisibleCount((prev) => Math.min(prev + pageSize, sortedSkins.length))
-  }
+  const loadMore = () => setPages((prev) => prev + 1)
 
   return (
     <>

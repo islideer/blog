@@ -54,14 +54,13 @@ interface BookSectionProps {
 }
 
 function BookSection({ id, title, books }: BookSectionProps) {
-  const pageSize = useAutoSize({ xs: 3, sm: 4 })
-  const [visibleCount, setVisibleCount] = useState(pageSize)
+  const pageSize = useAutoSize({ xs: 6, sm: 8 })
+  const [pages, setPages] = useState(1)
+  const visibleCount = pages * pageSize
   const displayedBooks = books.slice(0, visibleCount)
   const hasMore = visibleCount < books.length
 
-  const loadMore = () => {
-    setVisibleCount((prev) => Math.min(prev + pageSize, books.length))
-  }
+  const loadMore = () => setPages((prev) => prev + 1)
 
   return (
     <div className="space-y-3">

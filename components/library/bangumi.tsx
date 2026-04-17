@@ -58,14 +58,13 @@ interface BangumiSectionProps {
 }
 
 export function BangumiSection({ id, title, items }: BangumiSectionProps) {
-  const pageSize = useAutoSize({ xs: 3, sm: 4 })
-  const [visibleCount, setVisibleCount] = useState(pageSize)
+  const pageSize = useAutoSize({ xs: 6, sm: 8 })
+  const [pages, setPages] = useState(1)
+  const visibleCount = pages * pageSize
   const displayedBangumi = items.slice(0, visibleCount)
   const hasMore = visibleCount < items.length
 
-  const loadMore = () => {
-    setVisibleCount((prev) => Math.min(prev + pageSize, items.length))
-  }
+  const loadMore = () => setPages((prev) => prev + 1)
 
   if (items.length === 0) return null
 
