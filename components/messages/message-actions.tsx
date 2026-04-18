@@ -100,7 +100,7 @@ export function MessageActions({
               </div>
 
               {/* 回复内容 */}
-              <CollapsibleContent html={replyHtmls[index]} maxLines={6} />
+              <CollapsibleContent html={replyHtmls[index]} maxLines={9} />
             </div>
           ))}
         </div>
