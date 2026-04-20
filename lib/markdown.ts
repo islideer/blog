@@ -47,7 +47,7 @@ const processor = unified()
         ['crossOrigin'],
       ],
       video: [
-         ...(defaultSchema.attributes?.video || []),
+        ...(defaultSchema.attributes?.video || []),
         ['controls'],
         ['src'],
         ['style'],
@@ -55,12 +55,9 @@ const processor = unified()
         ['poster'],
         ['width'],
         ['height'],
-      ]
+      ],
     },
-    tagNames:[
-      ...(defaultSchema.tagNames || []),
-      'video',
-    ]
+    tagNames: [...(defaultSchema.tagNames || []), 'video'],
   })
   // .use(rehypeShiki, {
   //   themes: {

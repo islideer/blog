@@ -8,7 +8,10 @@ interface FriendCardProps {
   friend: Friend
 }
 
-const STATUS_CONFIG: Record<Exclude<FriendStatus, 'active'>, { label: string; className: string }> = {
+const STATUS_CONFIG: Record<
+  Exclude<FriendStatus, 'active'>,
+  { label: string; className: string }
+> = {
   pending: {
     label: '等待中',
     className: 'text-text-tertiary border-border',
@@ -33,7 +36,7 @@ export function FriendCard({ friend }: FriendCardProps) {
       id={friend.id}
       className={cn(
         'group relative flex items-start gap-3 opacity-80 transition-opacity hover:opacity-100',
-        isInactive && 'grayscale hover:grayscale-0 transition-[opacity,filter]',
+        isInactive && 'grayscale transition-[opacity,filter] hover:grayscale-0',
       )}
     >
       <a
@@ -71,7 +74,7 @@ export function FriendCard({ friend }: FriendCardProps) {
           {statusConfig && (
             <span
               className={cn(
-                'relative z-10 inline-flex shrink-0 items-center gap-1 rounded border px-1.5 py-0.5 text-[10px] font-medium leading-none',
+                'relative z-10 inline-flex shrink-0 items-center gap-1 rounded border px-1.5 py-0.5 text-[10px] leading-none font-medium',
                 statusConfig.className,
               )}
             >

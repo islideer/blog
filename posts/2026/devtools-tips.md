@@ -72,10 +72,10 @@ CSS 样式有更多的发挥空间，可以设置颜色、字体、背景等各�
 
 ```js
 // 使用 ANSI 转义序列
-console.log('\x1b[31m红色字体的日志\x1b[0m');
+console.log('\x1b[31m红色字体的日志\x1b[0m')
 
 // 使用 CSS 样式
-console.log('%c炫酷吊炸天的日志', 'color: white; background: linear-gradient(90deg, #00f, #f0f); padding: 4px 8px; border-radius: 4px; text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); animation: glow 1s infinite alternate;');
+console.log('%c炫酷吊炸天的日志', 'color: white; background: linear-gradient(90deg, #00f, #f0f); padding: 4px 8px; border-radius: 4px; text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); animation: glow 1s infinite alternate;')
 ```
 
 ![c93e51.png](https://image.viki.moe/blog/c93e51.png)

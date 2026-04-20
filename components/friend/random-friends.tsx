@@ -93,10 +93,10 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
       {otherFriends.length > 0 && (
         <div className="space-y-4">
           <div className="border-border-tertiary flex items-center gap-3 border-t pt-6">
-            <span className="text-text-tertiary text-xs font-medium tracking-wide uppercase">其他</span>
-            <span className="text-text-quaternary text-xs">
-              共 {otherFriends.length} 位
+            <span className="text-text-tertiary text-xs font-medium tracking-wide uppercase">
+              其他
             </span>
+            <span className="text-text-quaternary text-xs">共 {otherFriends.length} 位</span>
           </div>
           <div className="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2">
             {otherFriends.map((friend) => (

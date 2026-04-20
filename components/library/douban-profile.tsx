@@ -103,7 +103,7 @@ export function DoubanProfile({ id, profile, books, movies }: DoubanProfileProps
 
         {/* 统计数据 - Steam 风格 */}
         {(profile.movies.collect > 0 || profile.books.collect > 0) && (
-          <div className="grid gap-4 p-4 grid-cols-2">
+          <div className="grid grid-cols-2 gap-4 p-4">
             <div className="space-y-1">
               <p className="text-text-tertiary text-xs">看过 / 在看 / 想看</p>
               <p className="text-text-primary text-lg font-semibold">

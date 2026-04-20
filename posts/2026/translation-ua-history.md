@@ -10,11 +10,11 @@ tags:
 ---
 
 > 原文标题：History of the browser user-agent string
-> 
+>
 > 发布时间：2008 年 9 月 3 日
-> 
+>
 > 原文作者：Aaron Andersen
-> 
+>
 > 原文链接：https://webaim.org/blog/user-agent-string-history/
 
 ---
@@ -68,7 +68,7 @@ Gecko 是好的，IE 则不然，于是嗅探重生，Gecko 得到好的网页�
 
 这篇文章写于 2008 年，那时 Chrome 才刚出生。如果作者今天续写，大概还得加上 Edge 投降 Chromium 的故事，然后 User Agent 字符串继续混乱，直到彻底变成一串没人看得懂的咒语。好在现代浏览器已经在慢慢放弃这套把戏了。
 
-延伸阅读: *[History of the user-agent string](https://humanwhocodes.com/blog/2010/01/12/history-of-the-user-agent-string/)*（另一篇内容类似但说明更加详细、严肃的文章。）
+延伸阅读: _[History of the user-agent string](https://humanwhocodes.com/blog/2010/01/12/history-of-the-user-agent-string/)_（另一篇内容类似但说明更加详细、严肃的文章。）
 
 ---
 

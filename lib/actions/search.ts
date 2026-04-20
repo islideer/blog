@@ -125,7 +125,9 @@ async function getAllSearchItems(): Promise<SearchIndexItem[]> {
     const d = dayjs(item.date)
     return d.isValid() ? d.year() : 0
   })
-  const sortedYears = Object.keys(byYear).map(Number).toSorted((a, b) => b - a)
+  const sortedYears = Object.keys(byYear)
+    .map(Number)
+    .toSorted((a, b) => b - a)
   let globalIdx = 0
   for (const year of sortedYears) {
     const yearItems = (byYear[year] ?? []).toSorted(

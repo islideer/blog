@@ -114,7 +114,7 @@
   {
     "id": "140",
     "date": "2026-03-25T02:13:04+08:00",
-    "content": "我宣布，今晚的 MVP 是 *那天下雨了*，最佳助攻 *七月的极光*。",
+    "content": "我宣布，今晚的 MVP 是 _那天下雨了_，最佳助攻 _七月的极光_。",
     "images": [
       "https://image.viki.moe/blog/970ca8.jpeg"
     ]
@@ -160,7 +160,7 @@
   {
     "id": "134",
     "date": "2026-03-06T11:03:43+08:00",
-    "content": "🎉 开心，[R2 Web](https://github.com/vikiboss/r2-web) 被 [阮一峰](https://github.com/ruanyf) 大佬的科技周刊推荐了: *[科技爱好者周刊（第 387 期）：你是领先的](https://www.ruanyifeng.com/blog/2026/03/weekly-issue-387.html)*\n\n> 一直用的 sm.ms 图床最近升级迁移到 s.ee 了，定位不再是仅图床服务，主观感觉有点臃肿，不符合我最早用它的初衷：简单、纯粹。于是开始用一直没怎么深度用的 Cloudflare R2 做自建图床。找了一圈没合适的 Web 端管理应用，要么审美不在线要么功能不到位。需求这不就来了？所以我用 Claude 搓了个 R2 Web 项目来管理，一切在浏览器完成，能充当图床角色，支持私有部署，尤其注重轻量、用户体验。这个项目年前写的，快一个月了，觉得其他人也可能会需要，于是去阮一峰大佬的周刊投稿，然后被推荐了。",
+    "content": "🎉 开心，[R2 Web](https://github.com/vikiboss/r2-web) 被 [阮一峰](https://github.com/ruanyf) 大佬的科技周刊推荐了: _[科技爱好者周刊（第 387 期）：你是领先的](https://www.ruanyifeng.com/blog/2026/03/weekly-issue-387.html)_\n\n> 一直用的 sm.ms 图床最近升级迁移到 s.ee 了，定位不再是仅图床服务，主观感觉有点臃肿，不符合我最早用它的初衷：简单、纯粹。于是开始用一直没怎么深度用的 Cloudflare R2 做自建图床。找了一圈没合适的 Web 端管理应用，要么审美不在线要么功能不到位。需求这不就来了？所以我用 Claude 搓了个 R2 Web 项目来管理，一切在浏览器完成，能充当图床角色，支持私有部署，尤其注重轻量、用户体验。这个项目年前写的，快一个月了，觉得其他人也可能会需要，于是去阮一峰大佬的周刊投稿，然后被推荐了。",
     "images": [
       "https://image.viki.moe/blog/93c1205d.png"
     ]
@@ -332,7 +332,7 @@
   {
     "id": "111",
     "date": "2026-01-26T13:17:56+08:00",
-    "content": "*爱情公寓* 第一季第 15 集，吕子乔在 Party 上拿着酒瓶醉醺醺地对害怕失败的展博说：\n\n> 勇敢点，冲上去。这就好比，有一辆列车在你面前，列车员问你，小伙子要上车吗？你就问，这车去哪？下一站什么时候到？车上还有座位吗？火车早就开走了，你只能等下一辆。可是下一辆来了，你还是面临同样的问题。等了很久，别人已经到西伯利亚了，你还在车站上。管它呢，上去啊，火车是朝前开的，去哪并不重要，关键在于窗外的风景。等你下了火车，你就会感谢我的，因为就算有辆飞机停在旁边，你也会二话不说地冲上去的，因为你嫌火车太慢了。",
+    "content": "_爱情公寓_ 第一季第 15 集，吕子乔在 Party 上拿着酒瓶醉醺醺地对害怕失败的展博说：\n\n> 勇敢点，冲上去。这就好比，有一辆列车在你面前，列车员问你，小伙子要上车吗？你就问，这车去哪？下一站什么时候到？车上还有座位吗？火车早就开走了，你只能等下一辆。可是下一辆来了，你还是面临同样的问题。等了很久，别人已经到西伯利亚了，你还在车站上。管它呢，上去啊，火车是朝前开的，去哪并不重要，关键在于窗外的风景。等你下了火车，你就会感谢我的，因为就算有辆飞机停在旁边，你也会二话不说地冲上去的，因为你嫌火车太慢了。",
     "images": [
       "https://s2.loli.net/2026/01/26/d6EgVRbnYMN75WO.png"
     ]
@@ -411,7 +411,7 @@
   {
     "id": "100",
     "date": "2026-01-15T17:10:36+08:00",
-    "content": "Joshua Comeau 发布了一篇 SVG 介绍文章 *[A Friendly Introduction to SVG](https://www.joshwcomeau.com/svg/friendly-introduction-to-svg)*，文章除了基础文字科普，还提供了一些可视化、可交互的 Demo，对了解一些 SVG 特性很有帮助。"
+    "content": "Joshua Comeau 发布了一篇 SVG 介绍文章 _[A Friendly Introduction to SVG](https://www.joshwcomeau.com/svg/friendly-introduction-to-svg)_，文章除了基础文字科普，还提供了一些可视化、可交互的 Demo，对了解一些 SVG 特性很有帮助。"
   },
   {
     "id": "99",
@@ -503,7 +503,7 @@
   {
     "id": "87",
     "date": "2026-01-05T23:10:47+08:00",
-    "content": "知乎问答：*[为什么很多物理代码不开源？](https://www.zhihu.com/question/1903913432203371825/answer/1991608662985285760)* ~~这张图精准的说明了什么是屎山代码。~~",
+    "content": "知乎问答：_[为什么很多物理代码不开源？](https://www.zhihu.com/question/1903913432203371825/answer/1991608662985285760)_ ~~这张图精准的说明了什么是屎山代码。~~",
     "images": [
       "https://s2.loli.net/2026/01/05/WLJSQdRpojbuk1c.png"
     ]
@@ -620,7 +620,7 @@
   {
     "id": "69",
     "date": "2025-12-19T17:50:05+08:00",
-    "content": "之前有提到可以 [自定义 \\<select\\> 元素](#48)，具体来说是通过设置 CSS 属性 appearance 为 `base-select` 来实现的，不得不说，效果确实很牛批，不仅是样式可自定义，连布局排版都可以高度定制化。目前已在 Chrome 135 可用，Chrome 官方发布了一篇文章说明这个功能: *[现在可以使用 CSS 自定义 \\<select\\> 元素](https://developer.chrome.com/blog/a-customizable-select?hl=zh-cn)*，团队成员 Una 也发了篇个人博客来讲述技术细节: *[Updates to the customizable select API](https://una.im/select-updates/)*",
+    "content": "之前有提到可以 [自定义 \\<select\\> 元素](#48)，具体来说是通过设置 CSS 属性 appearance 为 `base-select` 来实现的，不得不说，效果确实很牛批，不仅是样式可自定义，连布局排版都可以高度定制化。目前已在 Chrome 135 可用，Chrome 官方发布了一篇文章说明这个功能: _[现在可以使用 CSS 自定义 \\<select\\> 元素](https://developer.chrome.com/blog/a-customizable-select?hl=zh-cn)_，团队成员 Una 也发了篇个人博客来讲述技术细节: _[Updates to the customizable select API](https://una.im/select-updates/)_",
     "images": [
       "https://s2.loli.net/2025/12/19/yN6muwvZDgdbJX2.png",
       "https://s2.loli.net/2025/12/19/YiD5v2fUV4L3q7F.png"
@@ -645,7 +645,7 @@
   {
     "id": "66",
     "date": "2025-12-18T21:32:08+08:00",
-    "content": "新的小玩具 o (*￣▽￣*) ブ [猛戳这里试用](https://github.com/vikiboss/mioki)",
+    "content": "新的小玩具 o (\\*￣▽￣\\*) ブ [猛戳这里试用](https://github.com/vikiboss/mioki)",
     "images": [
       "https://s2.loli.net/2025/12/18/WgV4I6BnvXeZfwS.png"
     ]
@@ -760,12 +760,12 @@
   {
     "id": "49",
     "date": "2025-12-10T11:16:35+08:00",
-    "content": "优雅的 Toast 库 [Sonner](https://sonner.emilkowal.ski/) 的作者 Emil Kowalski 最近分享了一篇文章: *[Build a Toast Component](https://emilkowal.ski/ui/building-a-toast-component)*，讲述了 Sonner 的从头到尾，包括命名、设计和实现细节等，挺有参考价值。有意思的是，文章最后提到了他的动画课程的卖课网站，~~果然程序员的尽头都是卖课么。~~"
+    "content": "优雅的 Toast 库 [Sonner](https://sonner.emilkowal.ski/) 的作者 Emil Kowalski 最近分享了一篇文章: _[Build a Toast Component](https://emilkowal.ski/ui/building-a-toast-component)_，讲述了 Sonner 的从头到尾，包括命名、设计和实现细节等，挺有参考价值。有意思的是，文章最后提到了他的动画课程的卖课网站，~~果然程序员的尽头都是卖课么。~~"
   },
   {
     "id": "48",
     "date": "2025-12-10T10:20:18+08:00",
-    "content": "强烈推荐阅读由微软 Edge 平台产品经理 Patrick Brosset 发布的博客文章：*[Masonry: Things You Won’t Need A Library For Anymore](https://www.smashingmagazine.com/2025/12/masonry-things-you-wont-need-library-anymore/)*。文中他详细阐述了一系列现代网络特性和替代方案，这些特性和方案可以帮助开发者减少对第三方库的依赖，从而简化代码库并提升性能。\n\n阅读笔记：\n\n- [corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/corner-shape) 属性带来了比 [border-radius](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/border-radius) 更花里胡哨的转角形状\n- [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)、[\\<dialog\\>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/dialog) 和 [::backdrop](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors/::backdrop) 帮助摆脱对弹出框、提示框和对话框库的依赖\n- [\\<details\\>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/details) 元素、其 name 属性以及 [::details-content](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::details-content) 伪元素消除了对手风琴组件的需求\n- [Cascade layers](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@layer) （层叠层）使 CSS 更加有序，[CSS Nesting](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Nesting) （嵌套）使 CSS 更加紧凑\n- 新颜色函数、[相对颜色](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Using_relative_colors) 和 [@supports](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@supports)，新数学函数如 [color-mix](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/color_value/color-mix)、[abs()](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/abs) 等\n- [:has()](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors/:has) 是长期以来最受欢迎的功能之一，消除了对更复杂的基于 JavaScript 解决方案的需求\n- 数组新的 [findLast()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast)、[at()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/at) 以及 Set 新的 [difference()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set/difference)、[intersection()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/intersection)、[union()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set/union)\n- [Container queries](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Containment/Container_queries) （容器查询）使 UI 组件能够响应除视口大小之外的其他因素\n- [Grid](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Grid_layout)、[Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Subgrid)、[Flexbox](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Flexible_box_layout) 或 [multi-column](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/columns) 布局已经成为基线特性很长时间\n- [Anchor positioning](https://developer.mozilla.org/docs/Web/CSS/CSS_anchor_positioning) （铆点定位）处理弹出框和工具提示的相对定位，是对 [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) 的很好补充\n- [Navigation API](https://developer.mozilla.org/zh-CN/docs/Web/API/Navigation_API) 可用于处理单页应用中的导航，可能是各种路由库的绝佳补充\n- [View Transitions API](https://developer.mozilla.org/zh-CN/docs/Web/API/View_Transition_API) 使状态之间平滑过渡变得非常容易\n- [Scroll-driven animations](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations) （滚动驱动动画）基于滚动位置运行，是讲述故事和产品导览的 [绝佳方案](https://codepen.io/pimskie/pen/OPMQVjP)\n- 可定制的 [\\<select\\>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/select) 让你能够完全自定义其外观和内容，同时确保无障碍访问和性能优势\n- 即将推出的原生瀑布流布局 [Masonry](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Grid_layout/Masonry_layout) 是作品集和图片库等场景的绝佳选择，但远不止于此"
+    "content": "强烈推荐阅读由微软 Edge 平台产品经理 Patrick Brosset 发布的博客文章：_[Masonry: Things You Won’t Need A Library For Anymore](https://www.smashingmagazine.com/2025/12/masonry-things-you-wont-need-library-anymore/)_。文中他详细阐述了一系列现代网络特性和替代方案，这些特性和方案可以帮助开发者减少对第三方库的依赖，从而简化代码库并提升性能。\n\n阅读笔记：\n\n- [corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/corner-shape) 属性带来了比 [border-radius](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/border-radius) 更花里胡哨的转角形状\n- [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)、[\\<dialog\\>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/dialog) 和 [::backdrop](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors/::backdrop) 帮助摆脱对弹出框、提示框和对话框库的依赖\n- [\\<details\\>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/details) 元素、其 name 属性以及 [::details-content](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::details-content) 伪元素消除了对手风琴组件的需求\n- [Cascade layers](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@layer) （层叠层）使 CSS 更加有序，[CSS Nesting](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Nesting) （嵌套）使 CSS 更加紧凑\n- 新颜色函数、[相对颜色](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Using_relative_colors) 和 [@supports](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@supports)，新数学函数如 [color-mix](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/color_value/color-mix)、[abs()](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/abs) 等\n- [:has()](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors/:has) 是长期以来最受欢迎的功能之一，消除了对更复杂的基于 JavaScript 解决方案的需求\n- 数组新的 [findLast()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast)、[at()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/at) 以及 Set 新的 [difference()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set/difference)、[intersection()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set/intersection)、[union()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set/union)\n- [Container queries](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Containment/Container_queries) （容器查询）使 UI 组件能够响应除视口大小之外的其他因素\n- [Grid](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Grid_layout)、[Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Subgrid)、[Flexbox](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Flexible_box_layout) 或 [multi-column](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/columns) 布局已经成为基线特性很长时间\n- [Anchor positioning](https://developer.mozilla.org/docs/Web/CSS/CSS_anchor_positioning) （铆点定位）处理弹出框和工具提示的相对定位，是对 [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) 的很好补充\n- [Navigation API](https://developer.mozilla.org/zh-CN/docs/Web/API/Navigation_API) 可用于处理单页应用中的导航，可能是各种路由库的绝佳补充\n- [View Transitions API](https://developer.mozilla.org/zh-CN/docs/Web/API/View_Transition_API) 使状态之间平滑过渡变得非常容易\n- [Scroll-driven animations](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations) （滚动驱动动画）基于滚动位置运行，是讲述故事和产品导览的 [绝佳方案](https://codepen.io/pimskie/pen/OPMQVjP)\n- 可定制的 [\\<select\\>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/select) 让你能够完全自定义其外观和内容，同时确保无障碍访问和性能优势\n- 即将推出的原生瀑布流布局 [Masonry](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Grid_layout/Masonry_layout) 是作品集和图片库等场景的绝佳选择，但远不止于此"
   },
   {
     "id": "47",
@@ -852,7 +852,7 @@
   {
     "id": "33",
     "date": "2025-12-04T09:59:16+08:00",
-    "content": "听 Tom Forsyth 讲述在 *半条命 2 (Half Life 2)*  的 VR 版本移植过程中发生的趣事：[一个由「门」引发并存在了十几年的严重游戏 bug](https://mastodon.gamedev.place/@TomF/115589875974658415)。（剧透提示：||这个 bug 是由于浮点运算精度变化导致的。2004 年编译用 32 位精度，2013 年用 64 位精度，小数点差异造成守卫脚趾位置偏移几毫米，碰到了门导致门无法打开。||）"
+    "content": "听 Tom Forsyth 讲述在 _半条命 2 (Half Life 2)_  的 VR 版本移植过程中发生的趣事：[一个由「门」引发并存在了十几年的严重游戏 bug](https://mastodon.gamedev.place/@TomF/115589875974658415)。（剧透提示：||这个 bug 是由于浮点运算精度变化导致的。2004 年编译用 32 位精度，2013 年用 64 位精度，小数点差异造成守卫脚趾位置偏移几毫米，碰到了门导致门无法打开。||）"
   },
   {
     "id": "32",
@@ -870,7 +870,7 @@
   {
     "id": "30",
     "date": "2025-12-03T20:48:15+08:00",
-    "content": "TC39 成员 [Marco Ippolito](https://github.com/marco-ippolito)最近分享了一篇 *[我在夏天发布了类型剥离功能](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping)*，讲述了将 TypeScript 带到 Node.js 的故事，挺有意思的。他最近正在推进 [--experimental-config-fileconfig](https://nodejs.org/api/cli.html#--experimental-config-fileconfig)。没想到的是，开源大神 [Anthony Fu](https://github.com/antfu) 竟然还 [赞助](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping#:~:text=Two%20hundred%20fifty%20from%20Anthony%20Fu) 了他。"
+    "content": "TC39 成员 [Marco Ippolito](https://github.com/marco-ippolito)最近分享了一篇 _[我在夏天发布了类型剥离功能](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping)_，讲述了将 TypeScript 带到 Node.js 的故事，挺有意思的。他最近正在推进 [--experimental-config-fileconfig](https://nodejs.org/api/cli.html#--experimental-config-fileconfig)。没想到的是，开源大神 [Anthony Fu](https://github.com/antfu) 竟然还 [赞助](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping#:~:text=Two%20hundred%20fifty%20from%20Anthony%20Fu) 了他。"
   },
   {
     "id": "29",
@@ -947,7 +947,7 @@
   {
     "id": "19",
     "date": "2025-12-02T08:43:15+08:00",
-    "content": "`<Tooltip />` 这种组件确实非常不友好，在规范的 Web 开发中很可能出现过度使用、误用、可访问性差、信息隐藏和不确定性等问题。 GitHub 官方的 [Primer 设计系统](https://primer.style/) 有提到 [Tooltip 的替代方案](https://primer.style/product/components/tooltip/guidelines/#alternatives-to-tooltips)。另可参考这篇博客 *[Tooltip Components Should Not Exist](https://tkdodo.eu/blog/tooltip-components-should-not-exist)*。"
+    "content": "`<Tooltip />` 这种组件确实非常不友好，在规范的 Web 开发中很可能出现过度使用、误用、可访问性差、信息隐藏和不确定性等问题。 GitHub 官方的 [Primer 设计系统](https://primer.style/) 有提到 [Tooltip 的替代方案](https://primer.style/product/components/tooltip/guidelines/#alternatives-to-tooltips)。另可参考这篇博客 _[Tooltip Components Should Not Exist](https://tkdodo.eu/blog/tooltip-components-should-not-exist)_。"
   },
   {
     "id": "18",
@@ -1044,7 +1044,7 @@
   {
     "id": "5",
     "date": "2025-11-20T20:50:27+08:00",
-    "content": "测试一下发布碎碎念的 API 以及 Markdown 渲染格式是否正常。\n- 这是 **加粗**\n- 这是 *斜体*\n- 这是 ~~删除线~~\n- 这是 [链接](https://blog.viki.moe)\n- 这是 `code`\n\n下面是代码块。\n\n```ts\nconst message = \"Hello world!\"\n```\n\n下面是测试图片。",
+    "content": "测试一下发布碎碎念的 API 以及 Markdown 渲染格式是否正常。\n- 这是 **加粗**\n- 这是 _斜体_\n- 这是 ~~删除线~~\n- 这是 [链接](https://blog.viki.moe)\n- 这是 `code`\n\n下面是代码块。\n\n```ts\nconst message = \"Hello world!\"\n```\n\n下面是测试图片。",
     "images": [
       "https://s2.loli.net/2025/11/24/IQ8CxRO49U2lrMV.png"
     ]
@@ -1061,7 +1061,7 @@
   {
     "id": "3",
     "date": "2025-11-15T08:37:00+08:00",
-    "content": "最近看到一篇文章: *[High-Performance Syntax Highlighting with CSS Highlights API](https://pavi2410.com/blog/high-performance-syntax-highlighting-with-css-highlights-api/)*，并了解到了 [CSS.highlights](https://developer.mozilla.org/zh-CN/docs/Web/API/Highlight) API。这种高亮方式通过消除对包裹 DOM 元素的需求，提供更高的性能，同时让代码更简洁、更易维护，对于代码高亮来说是一个颠覆性的创新。"
+    "content": "最近看到一篇文章: _[High-Performance Syntax Highlighting with CSS Highlights API](https://pavi2410.com/blog/high-performance-syntax-highlighting-with-css-highlights-api/)_，并了解到了 [CSS.highlights](https://developer.mozilla.org/zh-CN/docs/Web/API/Highlight) API。这种高亮方式通过消除对包裹 DOM 元素的需求，提供更高的性能，同时让代码更简洁、更易维护，对于代码高亮来说是一个颠覆性的创新。"
   },
   {
     "id": "2",
