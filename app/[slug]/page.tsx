@@ -120,7 +120,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <header className="mb-8 space-y-4 sm:mb-12 sm:space-y-6">
             {/* Top Image */}
             {post.topImage && (
-              <div className="-mx-4 mt-2 overflow-hidden rounded-none! sm:mx-0 sm:mt-4 sm:rounded-md!">
+              <div className="-mx-4 mt-0 overflow-hidden rounded-none! sm:mx-0 sm:mt-4 sm:rounded-md!">
                 <ZoomImageForArticle
                   src={post.topImage}
                   alt={post.title}
