@@ -168,5 +168,13 @@
     "description": "Village",
     "status": "pending",
     "avatar": "https://q1.qlogo.cn/g?b=qq&nk=1627126029&s=100"
+  },
+  {
+    "id": "shizukanamori",
+    "name": "静かな森",
+    "url": "https://innei.in/",
+    "description": "致虚极，守静笃。",
+    "status": "pending",
+    "avatar": "https://avatars.githubusercontent.com/u/41265413?v=4"
   }
 ]
