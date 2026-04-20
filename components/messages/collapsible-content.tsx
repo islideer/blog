@@ -26,7 +26,7 @@ export function CollapsibleContent({ html, maxLines = 3 }: CollapsibleContentPro
           if (el && !isExpanded) checkOverflow(el)
         }}
         className="message-content prose prose-sm dark:prose-invert max-w-none"
-        style={!isExpanded ? { maxHeight: `${maxLines * 1.6}em`, overflow: 'hidden' } : undefined}
+        style={!isExpanded ? { maxHeight: `${maxLines * 1.72}em`, overflow: 'hidden' } : undefined}
         dangerouslySetInnerHTML={{ __html: html }}
       />
       {showButton && (
