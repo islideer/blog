@@ -5,7 +5,7 @@ import { SearchInput } from './search-input'
 import { useStableFn } from '@shined/react-use'
 import { createPortal } from 'react-dom'
 import { SearchResults } from './search-results'
-import { useState, useEffect, useSyncExternalStore, useRef } from 'react'
+import { useState, useEffect, useSyncExternalStore } from 'react'
 
 const emptySubscribe = () => () => {}
 
@@ -29,26 +29,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
   const handleClose = useStableFn(onClose)
 
-  // 防抖搜索
-  const debounceTimerRef = useRef<ReturnType<typeof setTimeout>>(null)
-
   useEffect(() => {
-    if (debounceTimerRef.current) {
-      clearTimeout(debounceTimerRef.current)
-    }
-
-    debounceTimerRef.current = setTimeout(() => {
-      if (query) {
-        search(query)
-      } else {
-        clearResults()
-      }
-    }, 300)
-
-    return () => {
-      if (debounceTimerRef.current) {
-        clearTimeout(debounceTimerRef.current)
-      }
+    if (query) {
+      search(query)
+    } else {
+      clearResults()
     }
   }, [query, search, clearResults])
 

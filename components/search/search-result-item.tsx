@@ -10,7 +10,7 @@ import {
   extractMatchingSnippet,
 } from '@/lib/search-utils'
 
-import type { SearchIndexItem } from '@/scripts/generate-search-index'
+import type { SearchIndexItem } from '@/lib/actions/search'
 
 interface SearchResultItemProps {
   result: SearchIndexItem
