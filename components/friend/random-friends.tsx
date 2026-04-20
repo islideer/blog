@@ -95,7 +95,7 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
           <div className="border-border-tertiary flex items-center gap-3 border-t pt-6">
             <span className="text-text-tertiary text-xs font-medium tracking-wide uppercase">其他</span>
             <span className="text-text-quaternary text-xs">
-              {otherFriends.length} 位好友目前状态异常
+              共 {otherFriends.length} 位
             </span>
           </div>
           <div className="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2">
