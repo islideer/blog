@@ -255,6 +255,6 @@ const defaultFriends: Friend[] = [
 export const mioSays: MioSay[] = mioSaysData
 export const thoughts: Thought[] = thoughtsData
 export const timeline: TimelineItem[] = timelineData
-export const friends: Friend[] = friendsData.length === 0 && isDev ? defaultFriends : friendsData
+export const friends: Friend[] = friendsData.length === 0 && isDev ? defaultFriends : (friendsData as Friend[])
 export const otherGames: OtherGame[] = otherGamesData
 export const collection: CollectionData = collectionData as CollectionData
