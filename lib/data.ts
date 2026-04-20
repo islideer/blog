@@ -151,13 +151,16 @@ export interface TimelineItem {
 }
 
 // --- Friends Types ---
+export type FriendStatus = 'active' | 'pending' | 'offline' | 'lost'
+
 export interface Friend {
   id: string
   name: string
   url: string
-  description?: string // 可选的描述
-  avatar?: string // 可选的头像
-  rss?: string // 可选的 RSS 订阅地址
+  description?: string
+  avatar?: string
+  rss?: string
+  status?: FriendStatus // 默认 active；pending=呼唤中、offline=访问异常、lost=已失联
 }
 
 // --- Other Games Types ---

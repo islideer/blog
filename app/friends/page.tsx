@@ -113,7 +113,11 @@ export default async function FriendsPage() {
         </section>
 
         {/* Friends Grid */}
-        <section>
+        <section className="space-y-4">
+          <div className="border-border-tertiary flex items-center gap-3 border-t pt-6">
+            <span className="text-text-tertiary text-xs font-medium tracking-wide uppercase">好朋友们</span>
+            <span className="text-text-quaternary text-xs">共 {friends.filter((f) => !f.status || f.status === 'active').length} 位</span>
+          </div>
           <RandomFriends friends={friends} />
         </section>
       </div>

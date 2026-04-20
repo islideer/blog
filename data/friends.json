@@ -28,6 +28,7 @@
     "name": "琼西往事",
     "url": "https://fushaolei.fun/",
     "description": "Fuck the world.",
+    "status": "lost",
     "avatar": "https://cdn.jsdelivr.net/gh/fushaolei/img/20200524104925.jpg"
   },
   {
@@ -51,8 +52,7 @@
     "name": "三瓶可乐不过岗",
     "url": "https://thricecola.com/",
     "description": "看看～ 看看～",
-    "avatar": "https://thricecola.com/assets/512-t_MlOS14.jpg",
-    "rss": "https://xlog.thricecola.com/feed"
+    "avatar": "https://thricecola.com/assets/512-t_MlOS14.jpg"
   },
   {
     "id": "14k",
@@ -97,6 +97,7 @@
     "id": "xiaohui",
     "name": "Xiaohui'Blog",
     "url": "https://yunnet.top/",
+    "status": "offline",
     "description": "日常崩溃的技术 Blog。",
     "avatar": "https://q1.qlogo.cn/g?b=qq&nk=1798468479&s=100"
   },
@@ -119,13 +120,14 @@
     "id": "handsonic",
     "name": "HandSonic’s Blog",
     "url": "https://handsonic.top",
+    "status": "pending",
     "avatar": "https://handsonic.top/img/avatar.jpg"
   },
   {
     "id": "rita",
     "name": "木风",
     "url": "https://rita.cc.cd",
-    "description": "愿你每一天都充满阳光 ☀️",
+    "description": "愿你每一天都充满阳光",
     "avatar": "https://rita.cc.cd/favicon.ico",
     "rss": "https://rita.cc.cd/rss.xml"
   },
@@ -135,5 +137,12 @@
     "url": "https://blog.eval.moe",
     "description": "为了更美好的明天而战。",
     "avatar": "https://cn.cravatar.com/avatar/7e52725e1bebc3875d0d0871c6a7e65f?s=250&r=G&d=mp"
+  },
+  {
+    "id": "hzy",
+    "name": "HZY 的个人网站",
+    "url": "https://hzy.us.kg",
+    "description": "主页、游戏、博客、oj、mio 语言等",
+    "avatar": "https://cdn.luogu.com.cn/upload/usericon/1394471.png"
   }
 ]

@@ -1,17 +1,40 @@
 import Image from 'next/image'
 import { RSSIcon } from '../rss-icon'
+import { cn } from '@/lib/cn'
 
-import type { Friend } from '@/lib/data'
+import type { Friend, FriendStatus } from '@/lib/data'
 
 interface FriendCardProps {
   friend: Friend
 }
 
+const STATUS_CONFIG: Record<Exclude<FriendStatus, 'active'>, { label: string; className: string }> = {
+  pending: {
+    label: '等待中',
+    className: 'text-text-tertiary border-border',
+  },
+  offline: {
+    label: '访问异常',
+    className: 'text-text-tertiary border-border',
+  },
+  lost: {
+    label: '已失联',
+    className: 'text-text-tertiary border-border',
+  },
+}
+
 export function FriendCard({ friend }: FriendCardProps) {
+  const status = friend.status ?? 'active'
+  const isInactive = status !== 'active'
+  const statusConfig = status !== 'active' ? STATUS_CONFIG[status] : null
+
   return (
     <div
       id={friend.id}
-      className="group relative flex items-start gap-3 opacity-80 transition-opacity hover:opacity-100"
+      className={cn(
+        'group relative flex items-start gap-3 opacity-80 transition-opacity hover:opacity-100',
+        isInactive && 'grayscale hover:grayscale-0 transition-[opacity,filter]',
+      )}
     >
       <a
         title={`${friend.name}: ${friend.description || '这位朋友很懒，什么也没留下。'}`}
@@ -22,7 +45,6 @@ export function FriendCard({ friend }: FriendCardProps) {
       />
 
       <a href={friend.url} className="no-icon no-underline">
-        {/* Avatar */}
         {friend.avatar ? (
           <Image
             src={friend.avatar}
@@ -38,15 +60,23 @@ export function FriendCard({ friend }: FriendCardProps) {
         )}
       </a>
 
-      {/* Info */}
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2 sm:h-7!">
           <h3 className="text-text-primary truncate font-medium">{friend.name}</h3>
-          {/* RSS 图标 - 使用 relative z-10 确保在链接层之上 */}
-          {friend.rss && (
+          {friend.rss && status === 'active' && (
             <div className="relative z-10">
               <RSSIcon href={friend.rss} tooltip="支持 RSS 订阅" className="z-10 sm:h-7! sm:w-7!" />
             </div>
+          )}
+          {statusConfig && (
+            <span
+              className={cn(
+                'relative z-10 inline-flex shrink-0 items-center gap-1 rounded border px-1.5 py-0.5 text-[10px] font-medium leading-none',
+                statusConfig.className,
+              )}
+            >
+              {statusConfig.label}
+            </span>
           )}
         </div>
 
