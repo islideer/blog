@@ -85,6 +85,7 @@ export function BaseMessageForm({
   // 组件挂载时读取存储的作者信息
   useMount(async () => {
     const savedAuthor = loadMessageAuthor()
+
     if (savedAuthor) {
       const newData = {
         ...formData,
@@ -92,6 +93,7 @@ export function BaseMessageForm({
         email: savedAuthor.email || '',
         website: savedAuthor.website || '',
       }
+
       setFormData(newData)
 
       // 如果有保存的邮箱，立即显示头像

@@ -53,7 +53,7 @@ export const pages = {
   },
   thoughts: {
     title: '碎碎念',
-    description: `${siteConfig.author.name} 的碎碎念小角落，记录生活中的点滴想法和言论`,
+    description: `${siteConfig.author.name} 的碎碎念小角落，记录点滴想法和言论`,
     slug: '/thoughts',
   },
   mioSays: {

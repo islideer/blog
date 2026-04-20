@@ -4,6 +4,7 @@
  */
 
 import { pages } from '@/lib/data'
+import { Suspense } from 'react'
 import { siteConfig } from '@/lib/config'
 import { MessageForm } from '@/components/messages/message-form'
 import { MessageList } from '@/components/messages/message-list'
@@ -62,7 +63,9 @@ export default async function MessagesPage({ searchParams }: PageProps) {
       {/* 大家都在聊 */}
       <section>
         <ImageZoomProvider>
-          <MessageList page={page} perPage={10} />
+          <Suspense fallback={<div className="text-text-secondary">留言加载中...</div>}>
+            <MessageList page={page} perPage={10} />
+          </Suspense>
         </ImageZoomProvider>
       </section>
     </>

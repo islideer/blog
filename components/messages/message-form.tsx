@@ -25,12 +25,5 @@ export function MessageForm() {
     return await submitMessage(formDataObj)
   }
 
-  return (
-    <BaseMessageForm
-      type="message"
-      onSubmit={handleSubmit}
-      maxLength={1200}
-      rows={5}
-    />
-  )
+  return <BaseMessageForm type="message" onSubmit={handleSubmit} maxLength={1200} rows={5} />
 }

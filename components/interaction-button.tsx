@@ -8,9 +8,9 @@ import { FlowerIcon } from '../icons/flower'
 import { CheersIcon } from '../icons/cheers'
 import { ClientCounterUp } from './client-counter-up'
 import { HeartFilledIcon } from '@/icons/heart-filled'
-import { usePrevious, useStableFn } from '@shined/react-use'
-import { useState, useTransition, useEffect, useRef } from 'react'
 import { submitInteraction } from '@/actions/interactions'
+import { useMount, usePrevious, useStableFn } from '@shined/react-use'
+import { useState, useTransition, useEffect, useRef } from 'react'
 import { getInteractionConfig, getUserClickCount, recordUserClick } from '@/lib/interactions'
 
 const BATCH_SUBMIT_DELAY = 2000 // 2 秒内的点击会被批量提交
@@ -52,8 +52,13 @@ export function InteractionButton({
   const [isSubmitting, setIsSubmitting] = useState(false)
   const pendingClicksRef = useRef(0)
   const submitTimerRef = useRef<NodeJS.Timeout | null>(null)
-
   const prevLocalCount = usePrevious(localCount) || localCount || 0
+
+  const [isMounted, setIsMounted] = useState(false)
+
+  useMount(() => {
+    setIsMounted(true)
+  })
 
   // 从配置系统获取类型配置
   const config = getInteractionConfig(type)
@@ -211,7 +216,7 @@ export function InteractionButton({
                 iconClassName,
               )}
             />
-            {displayCount > 0 ? (
+            {displayCount > 0 && isMounted ? (
               <ClientCounterUp start={prevLocalCount} end={displayCount} />
             ) : (
               <span className="text-xs">{config.ariaLabel}</span>
