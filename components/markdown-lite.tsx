@@ -1,4 +1,5 @@
 import { parseMarkdown } from '@/lib/markdown'
+import { CodeBlockEnhancer } from './code-block-enhancer'
 
 interface MarkdownLiteProps {
   content: string
@@ -26,6 +27,8 @@ export async function MarkdownLite({ size = 'sm', content, className = '' }: Mar
   const html = await parseMarkdown(content)
 
   return (
-    <div className={`prose ${sizeClass} ${className}`} dangerouslySetInnerHTML={{ __html: html }} />
+    <CodeBlockEnhancer>
+      <div className={`prose ${sizeClass} ${className}`} dangerouslySetInnerHTML={{ __html: html }} />
+    </CodeBlockEnhancer>
   )
 }

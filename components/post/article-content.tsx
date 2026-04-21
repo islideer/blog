@@ -1,5 +1,6 @@
 import { parseArticle } from '@/lib/markdown'
 import { ImageZoomProvider } from '../image-zoom-provider'
+import { CodeBlockEnhancer } from '../code-block-enhancer'
 
 interface ArticleContentProps {
   content: string
@@ -24,7 +25,9 @@ export async function ArticleContent({ content, className = '' }: ArticleContent
 
   return (
     <ImageZoomProvider>
-      <div className={`prose ${className}`} dangerouslySetInnerHTML={{ __html: html }} />
+      <CodeBlockEnhancer>
+        <div className={`prose ${className}`} dangerouslySetInnerHTML={{ __html: html }} />
+      </CodeBlockEnhancer>
     </ImageZoomProvider>
   )
 }

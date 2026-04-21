@@ -23,7 +23,7 @@ export function FriendJsonBlock({ html, json }: FriendJsonBlockProps) {
       <button
         onClick={handleCopy}
         aria-label="复制"
-        className="absolute top-3 right-3 z-10 rounded p-1 text-[#abb2bf] opacity-0 transition-all hover:text-white focus-visible:opacity-100 [div:hover>&]:opacity-100 active:scale-90"
+        className="absolute top-3 right-3 z-10 rounded p-1 text-[#abb2bf]/45 opacity-0 transition-all hover:text-white focus-visible:opacity-100 [div:hover>&]:opacity-100 active:scale-90"
       >
         {copied ? <CheckIcon className="h-3.5 w-3.5" /> : <CopyIcon className="h-3.5 w-3.5" />}
       </button>

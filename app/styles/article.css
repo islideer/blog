@@ -160,8 +160,12 @@
   padding: 1rem 1.5rem;
   overflow-x: auto;
   max-width: 100%;
-  margin-top: 1.2em;
   width: 100%;
+}
+
+/* 没有 figure 包裹时保留 margin（内联代码块场景） */
+.prose pre:not(figure > pre) {
+  margin-top: 1.2em;
 
   &:first-child {
     margin-top: 0;
@@ -174,8 +178,11 @@
   padding: 0.75rem 1rem;
   overflow-x: auto;
   max-width: 100%;
-  margin-top: 1em;
   width: 100%;
+}
+
+.prose-sm pre:not(figure > pre) {
+  margin-top: 1em;
 
   &:first-child {
     margin-top: 0;
@@ -438,6 +445,90 @@ html.dark .prose-sm pre span {
 .prose > blockquote > p {
   margin-top: 0.2em;
   margin-bottom: 0.2em;
+}
+
+/* ============================================
+   Code Block Enhancements - Language Badge & Copy Button
+   ============================================ */
+
+figure[data-rehype-pretty-code-figure] {
+  position: relative;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+
+  /* 把原本在 pre 上的 margin 移到 figure */
+  > pre {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+/* Language badge */
+figure[data-rehype-pretty-code-figure] > pre[data-language]:not([data-language='']) {
+  padding-top: 2.2rem;
+
+  &::before {
+    content: attr(data-language);
+    position: absolute;
+    top: 0.65rem;
+    left: 1.25rem;
+    font-size: 0.65rem;
+    font-family: var(--font-mono, monospace);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-quaternary);
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+/* Copy button */
+.code-copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: var(--radius-xs);
+  color: rgb(171 178 191 / 0.45);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: color 0.15s, opacity 0.15s, transform 0.1s;
+
+  [data-icon='check'] {
+    display: none;
+  }
+
+  &[data-copied] {
+    [data-icon='copy'] {
+      display: none;
+    }
+    [data-icon='check'] {
+      display: flex;
+    }
+  }
+
+  &:hover {
+    color: #fff;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+figure[data-rehype-pretty-code-figure]:hover .code-copy-btn {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .code-copy-btn {
+    opacity: 1;
+  }
 }
 
 /* ============================================
