@@ -98,7 +98,7 @@
     "name": "Xiaohui'Blog",
     "url": "https://yunnet.top/",
     "status": "offline",
-    "description": "日常崩溃的技术 Blog。",
+    "description": "日常崩溃的技术 Blog",
     "avatar": "https://q1.qlogo.cn/g?b=qq&nk=1798468479&s=100"
   },
   {
@@ -172,7 +172,7 @@
     "id": "handsonic",
     "name": "HandSonic’s Blog",
     "url": "https://handsonic.top/",
-    "status": "pending",
+    "status": "archived",
     "avatar": "https://handsonic.top/img/avatar.jpg"
   }
 ]

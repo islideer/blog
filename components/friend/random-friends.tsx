@@ -25,8 +25,9 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
   const activeFriends = friends.filter((f) => !f.status || f.status === 'active')
   const STATUS_ORDER: Record<string, number> = { pending: 0, offline: 1, lost: 2 }
   const otherFriends = friends
-    .filter((f) => f.status && f.status !== 'active')
+    .filter((f) => f.status && f.status !== 'active' && f.status !== 'archived')
     .sort((a, b) => (STATUS_ORDER[a.status!] ?? 99) - (STATUS_ORDER[b.status!] ?? 99))
+  const archivedFriends = friends.filter((f) => f.status === 'archived')
 
   const [shuffledActive, setShuffledActive] = useState(activeFriends)
 
@@ -47,10 +48,22 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
 
   return (
     <div className="space-y-10">
-      {/* 正常友链组 */}
-      <div className="space-y-4 sm:space-y-6">
-        <div className="flex justify-end">
-          <div className="flex items-center gap-2">
+      {/* 正常友链组（默认展开） */}
+      <details className="group/active" open>
+        <summary className="border-border-tertiary flex cursor-pointer list-none items-center gap-3 border-t pt-6 select-none">
+          <svg
+            className="text-text-quaternary h-3 w-3 transition-transform group-open/active:rotate-90"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M8 5l8 7-8 7V5z" />
+          </svg>
+          <span className="text-text-tertiary text-xs font-medium tracking-wide uppercase">
+            好朋友们
+          </span>
+          <span className="text-text-quaternary text-xs">共 {activeFriends.length} 位</span>
+          {/* 点击按钮时阻止 summary 的折叠事件 */}
+          <div className="ml-auto flex items-center gap-2" onClick={(e) => e.preventDefault()}>
             <Tooltip content="重新随机排序友链">
               <button
                 onClick={() =>
@@ -78,32 +91,69 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
               </button>
             </Tooltip>
           </div>
-        </div>
+        </summary>
 
-        <div className="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2" suppressHydrationWarning>
+        <div
+          className="mt-4 grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2"
+          suppressHydrationWarning
+        >
           {shuffledActive.map((friend) => (
             <ViewTransition key={friend.id} name={`friend-${friend.id}`} default="transform">
               <FriendCard friend={friend} />
             </ViewTransition>
           ))}
         </div>
-      </div>
+      </details>
 
-      {/* 其他状态组 */}
+      {/* 其他状态组（默认展开） */}
       {otherFriends.length > 0 && (
-        <div className="space-y-4">
-          <div className="border-border-tertiary flex items-center gap-3 border-t pt-6">
+        <details className="group/other" open>
+          <summary className="border-border-tertiary flex cursor-pointer list-none items-center gap-3 border-t pt-6 select-none">
+            <svg
+              className="text-text-quaternary h-3 w-3 transition-transform group-open/other:rotate-90"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M8 5l8 7-8 7V5z" />
+            </svg>
             <span className="text-text-tertiary text-xs font-medium tracking-wide uppercase">
-              其他
+              还在吗
             </span>
             <span className="text-text-quaternary text-xs">共 {otherFriends.length} 位</span>
-          </div>
-          <div className="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2">
+          </summary>
+          <div className="mt-4 grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2">
             {otherFriends.map((friend) => (
               <FriendCard key={friend.id} friend={friend} />
             ))}
           </div>
-        </div>
+        </details>
+      )}
+
+      {/* 归档组（默认折叠） */}
+      {archivedFriends.length > 0 && (
+        <details className="group/archived">
+          <summary className="border-border-tertiary flex cursor-pointer list-none items-center gap-3 border-t pt-6 select-none">
+            <svg
+              className="text-text-quaternary h-3 w-3 transition-transform group-open/archived:rotate-90"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M8 5l8 7-8 7V5z" />
+            </svg>
+            <span className="text-text-tertiary text-xs font-medium tracking-wide uppercase">
+              已归档
+            </span>
+            <span className="text-text-quaternary text-xs">共 {archivedFriends.length} 位</span>
+          </summary>
+          <p className="text-text-quaternary mt-3 mb-4 text-xs">
+            以下友链因 pending 过久、长期失联或其他原因已归档，不再作为活跃推荐。
+          </p>
+          <div className="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2">
+            {archivedFriends.map((friend) => (
+              <FriendCard key={friend.id} friend={friend} />
+            ))}
+          </div>
+        </details>
       )}
     </div>
   )

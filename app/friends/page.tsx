@@ -4,6 +4,7 @@ import { createHighlighter } from 'shiki/bundle-web.mjs'
 import { siteConfig } from '@/lib/config'
 import { FriendCard } from '@/components/friend/friend-card'
 import { RandomFriends } from '@/components/friend/random-friends'
+import { FriendJsonBlock } from '@/components/friend/friend-json-block'
 import { generateCanonicalUrl } from '@/lib/seo'
 
 import type { Metadata } from 'next'
@@ -78,7 +79,7 @@ export default async function FriendsPage() {
         <section className="space-y-3">
           <h1 className="text-3xl font-bold">好朋友们</h1>
           <p className="text-text-secondary">
-            {`${pages.friends.description}。共收录 ${friends.length} 位好朋友。`}
+            {`${pages.friends.description}。共收录 ${friends.filter((f) => f.status !== 'archived').length} 位好朋友。`}
           </p>
         </section>
 
@@ -96,7 +97,7 @@ export default async function FriendsPage() {
             <p className="text-text-tertiary text-xs italic">
               注：建议贵站建站半年以上，站点稳定，原创内容为主，非商业化。交换完记得经常来玩哦！
             </p>
-            <div className="prose-sm" dangerouslySetInnerHTML={{ __html: html }}></div>
+            <FriendJsonBlock html={html} json={json} />
             {/* 预览 */}
             <div className="text-text-tertiary mt-4">本站信息预览：</div>
             <FriendCard
@@ -113,15 +114,7 @@ export default async function FriendsPage() {
         </section>
 
         {/* Friends Grid */}
-        <section className="space-y-4">
-          <div className="border-border-tertiary flex items-center gap-3 border-t pt-6">
-            <span className="text-text-tertiary text-xs font-medium tracking-wide uppercase">
-              好朋友们
-            </span>
-            <span className="text-text-quaternary text-xs">
-              共 {friends.filter((f) => !f.status || f.status === 'active').length} 位
-            </span>
-          </div>
+        <section>
           <RandomFriends friends={friends} />
         </section>
       </div>

@@ -151,7 +151,7 @@ export interface TimelineItem {
 }
 
 // --- Friends Types ---
-export type FriendStatus = 'active' | 'pending' | 'offline' | 'lost'
+export type FriendStatus = 'active' | 'pending' | 'offline' | 'lost' | 'archived'
 
 export interface Friend {
   id: string
@@ -160,7 +160,7 @@ export interface Friend {
   description?: string
   avatar?: string
   rss?: string
-  status?: FriendStatus // 默认 active；pending=呼唤中、offline=访问异常、lost=已失联
+  status?: FriendStatus // 默认 active；pending=呼唤中、offline=访问异常、lost=已失联、archived=已归档
 }
 
 // --- Other Games Types ---
