@@ -1,3 +1,4 @@
+import { cn } from '@/lib/cn'
 import { parseMarkdown } from '@/lib/markdown'
 import { CodeBlockEnhancer } from './code-block-enhancer'
 
@@ -28,7 +29,10 @@ export async function MarkdownLite({ size = 'sm', content, className = '' }: Mar
 
   return (
     <CodeBlockEnhancer>
-      <div className={`prose ${sizeClass} ${className}`} dangerouslySetInnerHTML={{ __html: html }} />
+      <div
+        className={cn('prose', sizeClass, className)}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </CodeBlockEnhancer>
   )
 }

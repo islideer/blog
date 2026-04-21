@@ -3,7 +3,6 @@ import rehypeRaw from 'rehype-raw'
 import rehypeSlug from 'rehype-slug'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
-// import rehypeShiki from '@shikijs/rehype'
 import remarkBreaks from 'remark-breaks'
 import remarkRehype from 'remark-rehype'
 import remarkSpoiler from './remark-spoiler'
@@ -59,15 +58,6 @@ const processor = unified()
     },
     tagNames: [...(defaultSchema.tagNames || []), 'video'],
   })
-  // .use(rehypeShiki, {
-  //   themes: {
-  //     light: 'one-light',
-  //     dark: 'one-dark-pro',
-  //   },
-  //   defaultColor: false,
-  //   cssVariablePrefix: '--shiki-',
-  //   lazy: true,
-  // })
   .use(rehypePrettyCode, {
     keepBackground: false,
     theme: {

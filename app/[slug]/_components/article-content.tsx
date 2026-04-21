@@ -1,3 +1,4 @@
+import { cn } from '@/lib/cn'
 import { parseArticle } from '@/lib/markdown'
 import { ImageZoomProvider } from '@/components/image-zoom-provider'
 import { CodeBlockEnhancer } from '@/components/code-block-enhancer'
@@ -26,7 +27,7 @@ export async function ArticleContent({ content, className = '' }: ArticleContent
   return (
     <ImageZoomProvider>
       <CodeBlockEnhancer>
-        <div className={`prose ${className}`} dangerouslySetInnerHTML={{ __html: html }} />
+        <div className={cn('prose', className)} dangerouslySetInnerHTML={{ __html: html }} />
       </CodeBlockEnhancer>
     </ImageZoomProvider>
   )

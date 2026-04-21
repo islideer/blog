@@ -9,7 +9,7 @@ import { siteConfig } from '@/lib/config'
 import { GitHubIcon } from './github-icon'
 import { usePathname } from 'next/navigation'
 import { ThemeToggle } from './theme-toggle'
-import { TravellingsIcon } from './travellings-iocn'
+import { TravellingsIcon } from './travellings-icon'
 import { SearchTrigger } from './search/search-trigger'
 
 export function Header() {

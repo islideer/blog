@@ -1,3 +1,4 @@
+import { cn } from '@/lib/cn'
 import { dayjs } from '@/lib/dayjs'
 
 interface OldPostBannerProps {
@@ -26,7 +27,7 @@ export function OldPostTip({
   return (
     <>
       {separator && <span className="shrink-0">·</span>}
-      <span className={`text-text-tertiary shrink-0 ${className}`}>
+      <span className={cn('text-text-tertiary shrink-0', className)}>
         {short ? '请注意时效性' : `已发布 ${daysAgo.toLocaleString('zh-Hans-CN')} 天，请注意时效性`}
       </span>
     </>

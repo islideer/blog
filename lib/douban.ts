@@ -107,7 +107,7 @@ export async function getDoubanProfile(): Promise<DoubanProfile | null> {
     }
 
     const data: DoubanProfile = await response.json()
-    console.log('Douban profile data:', data)
+
     return data
   } catch (error) {
     console.error('Error fetching douban profile:', error)
