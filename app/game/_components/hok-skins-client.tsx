@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { cn } from '@/lib/cn'
+import { formatDate } from '@/lib/dayjs'
 import { useAutoSize } from '@/hooks/use-auto-size'
 import { ChevronDownIcon } from '@/icons/chevron-down'
 import { useState, useMemo } from 'react'
@@ -139,13 +140,13 @@ export function HokSkinsClient({ id, data }: HokSkinsClientProps) {
             {/* 皮肤信息 - PC */}
             <div className="absolute right-0 bottom-0 left-0 hidden flex-col gap-1.5 p-2 sm:flex">
               <h3 className="line-clamp-2 text-sm font-medium text-white">{skin.skin_name}</h3>
-              {skin.acquired && <p className="text-xs text-white/60">获得于 {skin.acquired}</p>}
+              {skin.acquired_at > 0 && <p className="text-xs text-white/60">获得于 {formatDate(skin.acquired_at, 'full')}</p>}
             </div>
 
             {/* 皮肤信息 - 移动端 */}
             <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-0.5 p-2 sm:hidden">
               <h3 className="line-clamp-2 text-[10px] font-medium text-white">{skin.skin_name}</h3>
-              {skin.acquired && <p className="text-[10px] text-white/60">{skin.acquired}</p>}
+              {skin.acquired_at > 0 && <p className="text-[10px] text-white/60">{formatDate(skin.acquired_at, 'full')}</p>}
             </div>
           </div>
         ))}

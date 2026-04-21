@@ -1,14 +1,9 @@
 'use client'
 
 import { cn } from '@/lib/cn'
-import { dayjs } from '@/lib/dayjs'
+import { formatDate, fromNow } from '@/lib/dayjs'
 import { useEffect, useRef } from 'react'
-import {
-  formatRelativeDate,
-  highlightKeywords,
-  extractKeywords,
-  extractMatchingSnippet,
-} from '@/lib/search-utils'
+import { highlightKeywords, extractKeywords, extractMatchingSnippet } from '@/lib/search-utils'
 
 import type { SearchIndexItem } from '@/actions/search'
 
@@ -108,11 +103,9 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
           {result.date && (
             <>
               <span className="text-text-tertiary">·</span>
-              <span>{formatRelativeDate(result.date)}</span>
+              <span>{fromNow(result.date)}</span>
               <span className="text-text-tertiary">·</span>
-              <span>
-                {dayjs(result.date).format(result.type === 'timeline' ? 'YYYY 年' : 'YYYY-MM-DD')}
-              </span>
+              <span>{formatDate(result.date, 'full')}</span>
             </>
           )}
         </div>

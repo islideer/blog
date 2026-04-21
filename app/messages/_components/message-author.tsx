@@ -10,7 +10,7 @@ import { cn } from '@/lib/cn'
 import { UABadge } from './ua-badge'
 import { Tooltip } from '@/components/tooltip'
 import { VipBadge } from './vip-badge'
-import { formatFull } from '@/lib/dayjs'
+import { formatDate } from '@/lib/dayjs'
 import { siteConfig, websiteUrl } from '@/lib/config'
 
 import type { MessageAuthor as Author } from '@/lib/messages'
@@ -37,7 +37,6 @@ export function MessageAuthor({
 }: MessageAuthorProps) {
   const authorName = author.name || '匿名'
   const firstChar = authorName.charAt(0)
-  const isThisYear = new Date(createdAt).getFullYear() === new Date().getFullYear()
 
   // 判断是否使用文字头像（无 avatar 且无 email）
   const useTextAvatar = !author.avatar && !author.email
@@ -112,7 +111,7 @@ export function MessageAuthor({
         </div>
 
         <div className={`text-text-tertiary mt-0.5 flex items-center gap-2 ${metaTextSize}`}>
-          <span>{formatFull(createdAt, isThisYear ? 'M/D HH:mm' : 'YYYY/M/D HH:mm')}</span>
+          <span>{formatDate(createdAt, 'date-time')}</span>
           {ua && <UABadge ua={ua} />}
         </div>
       </div>

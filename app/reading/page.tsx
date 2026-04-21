@@ -1,5 +1,5 @@
 import { cn } from '@/lib/cn'
-import { dayjs } from '@/lib/dayjs'
+import { dayjs, TZ_SHANGHAI } from '@/lib/dayjs'
 import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 // import { Noto_Serif_SC } from 'next/font/google'
@@ -55,8 +55,8 @@ export default async function ReadingDetailPage() {
   // 获取农历信息
   const readingDate = new Date(reading.date)
   const lunar = getLunarInfo(readingDate)
-  const day = dayjs(reading.date).format('D')
-  const yearMonth = dayjs(reading.date).format('YYYY 年 M 月')
+  const day = dayjs(reading.date).tz(TZ_SHANGHAI).format('D')
+  const yearMonth = dayjs(reading.date).tz(TZ_SHANGHAI).format('YYYY 年 M 月')
 
   return (
     <>

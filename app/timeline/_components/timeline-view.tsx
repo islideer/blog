@@ -1,4 +1,4 @@
-import { dayjs } from '@/lib/dayjs'
+import { dayjs, TZ_SHANGHAI } from '@/lib/dayjs'
 import { YEAR_DESC_MAP } from '@/lib/year-desc'
 import { MarkdownLite } from '@/components/markdown-lite'
 
@@ -63,11 +63,9 @@ export async function TimelineView({ items }: TimelineViewProps) {
                   const hasMonth = /\d{4}[-/]\d{2}/.test(item.date)
 
                   if (hasDay) {
-                    // 完整日期：显示 MM.DD
-                    formattedDate = date.format('M 月 D 日')
+                    formattedDate = date.tz(TZ_SHANGHAI).format('M 月 D 日')
                   } else if (hasMonth) {
-                    // 只有年月：显示 MM 月
-                    formattedDate = date.format('M 月')
+                    formattedDate = date.tz(TZ_SHANGHAI).format('M 月')
                   } else {
                     // 只有年份：不显示（年份已在标题中）
                     formattedDate = ''

@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { dayjs } from '@/lib/dayjs'
+import { formatDate } from '@/lib/dayjs'
 import { useState } from 'react'
 import { useAutoSize } from '@/hooks/use-auto-size'
 import { ChevronDownIcon } from '@/icons/chevron-down'
@@ -106,7 +106,7 @@ function BookSection({ id, title, books }: BookSectionProps) {
               </h3>
               {book.date && (
                 <p className="text-[10px] text-white/60 sm:text-xs">
-                  {dayjs(book.date).format('标记于 YYYY-MM-DD')}
+                  {`标记于 ${formatDate(book.date, 'full')}`}
                 </p>
               )}
             </div>

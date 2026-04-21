@@ -11,22 +11,32 @@ dayjs.extend(relativeTime)
 
 export const TZ_SHANGHAI = 'Asia/Shanghai'
 
-export const formatDate = (date: dayjs.ConfigType, formatStr: string = 'YYYY.MM.DD'): string => {
-  return dayjs(date).tz(TZ_SHANGHAI).format(formatStr)
+type DatePreset = 'date' | 'date-time' | 'full' | 'full-time' | 'month-day'
+
+const DATE_PRESETS: Record<DatePreset, { withYear: string; withoutYear: string }> = {
+  'date': { withYear: 'YYYY.M.D', withoutYear: 'M.D' },
+  'date-time': { withYear: 'YYYY.M.D HH:mm', withoutYear: 'M.D HH:mm' },
+  'full': { withYear: 'YYYY.M.D', withoutYear: 'YYYY.M.D' },
+  'full-time': { withYear: 'YYYY.M.D HH:mm', withoutYear: 'YYYY.M.D HH:mm' },
+  'month-day': { withYear: 'MM.DD', withoutYear: 'MM.DD' },
 }
 
-export const formatTime = (date: dayjs.ConfigType, formatStr: string = 'HH:mm'): string => {
-  return dayjs(date).tz(TZ_SHANGHAI).format(formatStr)
+function isCurrentYear(d: dayjs.Dayjs): boolean {
+  return d.year() === dayjs().tz(TZ_SHANGHAI).year()
 }
 
-export const formatFull = (
-  date: dayjs.ConfigType,
-  formatStr: string = 'YYYY.MM.DD HH:mm',
-): string => {
-  return dayjs(date).tz(TZ_SHANGHAI).format(formatStr)
+export function formatDate(date: dayjs.ConfigType, preset: DatePreset = 'date'): string {
+  const d = dayjs(date).tz(TZ_SHANGHAI)
+  const { withYear, withoutYear } = DATE_PRESETS[preset]
+  return d.format(isCurrentYear(d) ? withoutYear : withYear)
 }
 
-export const fromNow = (date: dayjs.ConfigType): string => {
+export function formatDateCN(date: dayjs.ConfigType): string {
+  const d = dayjs(date).tz(TZ_SHANGHAI)
+  return d.format(isCurrentYear(d) ? 'M 月 D 日' : 'YYYY 年 M 月 D 日')
+}
+
+export function fromNow(date: dayjs.ConfigType): string {
   return dayjs(date).tz(TZ_SHANGHAI).fromNow()
 }
 

@@ -49,7 +49,7 @@ export async function RecentPosts({ posts, totalCount, showMoreThreshold }: Rece
                   </ViewTransition>
                 </div>
                 <div className="text-text-tertiary group-hover:text-text-secondary flex shrink-0 items-baseline gap-1.5 text-xs">
-                  <PostDate date={post.date} format="short" />
+                  <PostDate date={post.date} />
                   <span>·</span>
                   <ReadingTime minutes={post.readingTime} />
                 </div>

@@ -3,7 +3,7 @@ import { OgImageStatsItem, OgImageTemplate } from '@/components/og-image-templat
 import { siteConfig } from '@/lib/config'
 import { getAllPosts } from '@/lib/posts'
 import { thoughts, mioSays, timeline } from '@/lib/data'
-import { dayjs } from '@/lib/dayjs'
+import { dayjs, formatDateCN } from '@/lib/dayjs'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
@@ -39,7 +39,7 @@ export default async function Image() {
     .toSorted((a, b) => b.valueOf() - a.valueOf()) // 按时间戳降序排序
 
   const latestDate = allDates.at(0)
-  const lastUpdated = latestDate ? latestDate.format('YYYY 年 MM 月 DD 日') : ''
+  const lastUpdated = latestDate ? formatDateCN(latestDate) : ''
 
   const options = {
     ...size,

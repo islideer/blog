@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { siteConfig } from '@/lib/config'
+import { formatDate } from '@/lib/dayjs'
 import { ClientCounterUp } from '@/components/client-counter-up'
 
 import type { DoubanProfile as DoubanProfileType, DoubanResponse } from '@/lib/douban'
@@ -97,7 +98,7 @@ export function DoubanProfile({ id, profile, books, movies }: DoubanProfileProps
                 </span>
               )}
             </div>
-            <span className="text-text-tertiary text-xs">加入于 {profile.join_date}</span>
+            <span className="text-text-tertiary text-xs">加入于 {formatDate(profile.join_date, 'full')}</span>
           </div>
         </div>
 

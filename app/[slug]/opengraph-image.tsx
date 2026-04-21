@@ -66,7 +66,7 @@ export default async function Image({ params }: Props) {
   }
 
   // 格式化日期
-  const formattedDate = formatDate(post.date)
+  const formattedDate = formatDate(post.date, 'full')
 
   return new ImageResponse(
     <OgImageTemplate
