@@ -4,7 +4,7 @@ import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 // import { Noto_Serif_SC } from 'next/font/google'
 import { RefreshButton } from '@/components/refresh-button'
-import { ReadingComments } from '@/components/reading/comments'
+import { ReadingComments } from './_components/comments'
 import { generateCanonicalUrl } from '@/lib/seo'
 import { getReadingByDate, getLunarInfo } from '@/lib/reading'
 

@@ -1,4 +1,4 @@
-import { CollectionList } from '@/components/collection/collection-list'
+import { CollectionList } from './_components/collection-list'
 import { collection, pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { generateCanonicalUrl } from '@/lib/seo'

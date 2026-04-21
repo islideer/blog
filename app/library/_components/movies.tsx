@@ -1,0 +1,134 @@
+'use client'
+
+import Image from 'next/image'
+import { dayjs } from '@/lib/dayjs'
+import { useState } from 'react'
+import { useAutoSize } from '@/hooks/use-auto-size'
+import { ChevronDownIcon } from '@/icons/chevron-down'
+
+import type { DoubanItem, DoubanResponse } from '@/lib/douban'
+
+interface MoviesProps {
+  id?: string
+  data: DoubanResponse
+}
+
+export function Movies({ id, data }: MoviesProps) {
+  const totalCount = data.collect.length + data.wish.length + data.doings.length
+
+  if (totalCount === 0) {
+    return (
+      <section className="space-y-4">
+        <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
+          影视
+        </h2>
+        <p className="text-text-tertiary text-sm">暂无影视数据</p>
+      </section>
+    )
+  }
+
+  return (
+    <section className="space-y-6">
+      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
+        影视 ({totalCount.toLocaleString()})
+      </h2>
+
+      {/* 看过 */}
+      {data.collect.length > 0 && (
+        <MovieSection id="movies-collect" title="看过" movies={data.collect} />
+      )}
+
+      {/* 在看 */}
+      {data.doings.length > 0 && (
+        <MovieSection id="movies-doings" title="在看" movies={data.doings} />
+      )}
+
+      {/* 想看 */}
+      {data.wish.length > 0 && <MovieSection id="movies-wish" title="想看" movies={data.wish} />}
+    </section>
+  )
+}
+
+interface MovieSectionProps {
+  id: string
+  title: string
+  movies: DoubanItem[]
+}
+
+function MovieSection({ id, title, movies }: MovieSectionProps) {
+  const pageSize = useAutoSize({ xs: 6, sm: 8 })
+  const [pages, setPages] = useState(1)
+  const visibleCount = pages * pageSize
+  const displayedMovies = movies.slice(0, visibleCount)
+  const hasMore = visibleCount < movies.length
+
+  const loadMore = () => setPages((prev) => prev + 1)
+
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center gap-2">
+        <h3 className="text-text-secondary text-xs font-medium" id={id}>
+          {title}
+        </h3>
+        <span className="text-text-tertiary text-xs">({movies.length})</span>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4">
+        {displayedMovies.map((movie) => (
+          <a
+            key={movie.id}
+            href={movie.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative aspect-3/4 overflow-hidden rounded-lg"
+          >
+            {/* 影视封面 */}
+            <Image
+              src={movie.cover}
+              alt={movie.title}
+              width={240}
+              height={320}
+              className="h-full w-full object-cover transition-all! duration-300 group-hover:scale-110"
+            />
+
+            {/* 状态角标 */}
+            <div
+              className={`absolute top-1 right-1 rounded-full border border-white/20 bg-black/48 px-2 py-0.5 text-[10px] text-white backdrop-blur-[2px] sm:top-2 sm:right-2`}
+            >
+              {title}
+            </div>
+
+            {/* 渐变遮罩 */}
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
+
+            {/* 影视信息 */}
+            <div className="absolute right-0 bottom-0 left-0 flex flex-col gap-1.5 p-2">
+              <h3 className="line-clamp-2 text-xs font-medium text-white sm:text-sm">
+                {movie.title}
+              </h3>
+              {movie.date && (
+                <p className="text-[10px] text-white/60 sm:text-xs">
+                  {dayjs(movie.date).format('标记于 YYYY-MM-DD')}
+                </p>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+
+      {hasMore && (
+        <div className="flex justify-center pt-2">
+          <button
+            onClick={loadMore}
+            className="group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-3 py-1.5 text-xs transition-colors"
+          >
+            <span className="inline-flex items-center gap-1.5">
+              <ChevronDownIcon className="h-3.5 w-3.5 transition-transform group-active/btn:translate-y-0.5" />
+              加载更多（还剩 {movies.length - visibleCount} 部）
+            </span>
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}

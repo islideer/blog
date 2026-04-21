@@ -6,8 +6,8 @@
 import { pages } from '@/lib/data'
 import { Suspense } from 'react'
 import { siteConfig } from '@/lib/config'
-import { MessageForm } from '@/components/messages/message-form'
-import { MessageList } from '@/components/messages/message-list'
+import { MessageForm } from './_components/message-form'
+import { MessageList } from './_components/message-list'
 import { ImageZoomProvider } from '@/components/image-zoom-provider'
 import { generateCanonicalUrl } from '@/lib/seo'
 

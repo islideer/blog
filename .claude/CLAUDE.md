@@ -51,6 +51,13 @@ pnpm test -- <file>   # 运行单个测试文件
 
 基于 `@vercel/kv` 的配置驱动互动系统（`lib/interactions.ts`），支持点赞等互动，按天限制次数。
 
+### 组件组织
+
+- **页面专属组件** — 内聚在对应路由的 `_components/` 子目录中（如 `app/game/_components/`），page.tsx 用相对路径 import（`./_components/xxx`）
+- **公共组件** — 保留在顶层 `components/`，用 `@/components/xxx` import
+- **Server Actions** — `actions/` 目录
+- `_components` 内部互引用 `./` 相对路径，引用公共模块用 `@/` alias
+
 ### 关键工具模块
 
 | 模块 | 用途 |
