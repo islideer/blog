@@ -100,6 +100,12 @@
   --color-viki-bg: oklch(0.14 0.02 240);
 }
 
+/* Transition Durations */
+:root {
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+}
+
 /* ============================================
    Typography Enhancements for Better Readability
    ============================================ */

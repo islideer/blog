@@ -3,7 +3,7 @@ import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { countWords } from '@/lib/word-count'
 import { PostListItem } from '@/components/post-list-item'
-import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 import { getAllPosts, getAllPostsWithContent } from '@/lib/posts'
 import { YEAR_DESC_MAP } from '@/lib/year-desc'
 
@@ -89,10 +89,21 @@ export default async function PostsPage() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: '首页', url: '/' },
+              { name: pages.posts.title, url: pages.posts.slug },
+            ]),
+          ),
+        }}
+      />
       <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
-        <h1 className="text-3xl font-bold">{pages.posts.title}</h1>
+        <h1 className="text-3xl font-bold sm:text-4xl">{pages.posts.title}</h1>
         <p className="text-text-secondary">
           {`${pages.posts.description}，共 ${allPosts.length.toLocaleString('zh-Hans-CN')} 篇，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字，按年份分组展示。`}
         </p>

@@ -106,8 +106,11 @@ export default function RootLayout({
         >
           <ToastProvider />
           <div className="flex min-h-screen min-w-sm flex-col sm:mx-auto sm:max-w-3xl">
+            <a href="#main-content" className="skip-to-content">
+              跳转到主要内容
+            </a>
             <Header />
-            <main className="flex-1">
+            <main id="main-content" className="flex-1">
               <div className="container mx-auto max-w-3xl px-4 sm:px-6">{children}</div>
             </main>
             <Footer />

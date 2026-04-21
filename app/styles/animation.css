@@ -1,10 +1,10 @@
 /* View Transition animations */
 ::view-transition-old(.transform) {
-  animation-duration: 300ms;
+  animation-duration: var(--duration-normal);
 }
 
 ::view-transition-new(.transform) {
-  animation-duration: 300ms;
+  animation-duration: var(--duration-normal);
 }
 
 /* Anchor target highlight animation - blinks twice */

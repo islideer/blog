@@ -7,7 +7,7 @@ import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
 import { getHokSkins } from '@/lib/hok'
 import { RefreshButton } from '@/components/refresh-button'
-import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { getSteamProfile, getLibraryGames, getRecentlyPlayed, getCS2Inventory } from '@/lib/steam'
 
@@ -91,11 +91,22 @@ export default async function GamePage() {
         ]}
       />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: '首页', url: '/' },
+              { name: pages.game.title, url: pages.game.slug },
+            ]),
+          ),
+        }}
+      />
       <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
         {/* Header */}
         <section className="space-y-3" id="title">
           <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold">{pages.game.title}</h1>
+            <h1 className="text-3xl font-bold sm:text-4xl">{pages.game.title}</h1>
             <RefreshButton />
           </div>
           <p className="text-text-secondary">{`${pages.game.description}。`}</p>

@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/config'
 import { FriendCard } from './_components/friend-card'
 import { RandomFriends } from './_components/random-friends'
 import { FriendJsonBlock } from './_components/friend-json-block'
-import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
@@ -85,10 +85,21 @@ export default async function FriendsPage() {
       <link rel="preconnect" href="https://q1.qlogo.cn" />
       <link rel="dns-prefetch" href="https://q1.qlogo.cn" />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: '首页', url: '/' },
+              { name: pages.friends.title, url: pages.friends.slug },
+            ]),
+          ),
+        }}
+      />
       <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
         {/* Header */}
         <section className="space-y-3">
-          <h1 className="text-3xl font-bold">好朋友们</h1>
+          <h1 className="text-3xl font-bold sm:text-4xl">好朋友们</h1>
           <p className="text-text-secondary">
             {`${pages.friends.description}。共收录 ${friends.filter((f) => f.status !== 'archived').length} 位好朋友。`}
           </p>

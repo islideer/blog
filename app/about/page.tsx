@@ -5,7 +5,7 @@ import { AboutTechStack } from './_components/tech-stack'
 import { about } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
-import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 
 import type { Metadata } from 'next'
@@ -50,6 +50,17 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             generateWebPageSchema(pages.about.title, pages.about.description, pages.about.slug),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: '首页', url: '/' },
+              { name: pages.about.title, url: pages.about.slug },
+            ]),
           ),
         }}
       />

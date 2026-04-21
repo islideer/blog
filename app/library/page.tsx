@@ -5,7 +5,7 @@ import { DoubanProfile } from './_components/douban-profile'
 import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
 import { getBangumiList } from '@/lib/bangumi'
-import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { RefreshButton } from '@/components/refresh-button'
 import { getDoubanBooks, getDoubanMovies } from '@/lib/douban'
@@ -99,11 +99,22 @@ export default async function LibraryPage() {
         ]}
       />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: '首页', url: '/' },
+              { name: pages.library.title, url: pages.library.slug },
+            ]),
+          ),
+        }}
+      />
       <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
         {/* Header */}
         <section className="space-y-3" id="title">
           <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold">{pages.library.title}</h1>
+            <h1 className="text-3xl font-bold sm:text-4xl">{pages.library.title}</h1>
             <RefreshButton />
           </div>
           <p className="text-text-secondary">{`${pages.library.description}。`}</p>

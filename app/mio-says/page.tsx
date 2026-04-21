@@ -5,7 +5,7 @@ import { BackToTop } from '@/components/back-to-top'
 import { countWords } from '@/lib/word-count'
 import { siteConfig } from '@/lib/config'
 import { ThoughtsList } from '@/components/thoughts-list'
-import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 import { cleanMarkdownContent } from '@/lib/markdown'
 import { getInteractionCounts } from '@/lib/interactions'
 import { StaticTableOfContents } from '@/components/table-of-contents'
@@ -91,12 +91,23 @@ export default async function MioSaysPage() {
       <link rel="preconnect" href="https://image.viki.moe" />
       <link rel="dns-prefetch" href="https://image.viki.moe" />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: '首页', url: '/' },
+              { name: pages.mioSays.title, url: pages.mioSays.slug },
+            ]),
+          ),
+        }}
+      />
       {/* 页面内容 */}
       <div className="space-y-12 py-8 sm:py-12">
         {/* Header */}
         <section className="flex flex-row gap-6 sm:items-start sm:justify-between">
           <div className="flex-1 space-y-3">
-            <h1 className="text-3xl font-bold text-mio-pink">
+            <h1 className="text-3xl font-bold text-mio-pink sm:text-4xl">
               {pages.mioSays.title}
             </h1>
             <p className="text-text-secondary">

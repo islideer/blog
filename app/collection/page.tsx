@@ -1,7 +1,7 @@
 import { CollectionList } from './_components/collection-list'
 import { collection, pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
-import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 
 import type { Metadata } from 'next'
@@ -60,10 +60,21 @@ export default function CollectionPage() {
         }))}
       />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: '首页', url: '/' },
+              { name: pages.collection.title, url: pages.collection.slug },
+            ]),
+          ),
+        }}
+      />
       <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
         {/* Header */}
         <section className="space-y-3" id="title">
-          <h1 className="text-3xl font-bold">{pages.collection.title}</h1>
+          <h1 className="text-3xl font-bold sm:text-4xl">{pages.collection.title}</h1>
           <p className="text-text-secondary">{`${pages.collection.description}。`}</p>
         </section>
 

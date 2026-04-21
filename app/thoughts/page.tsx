@@ -4,7 +4,7 @@ import { BackToTop } from '@/components/back-to-top'
 import { siteConfig } from '@/lib/config'
 import { countWords } from '@/lib/word-count'
 import { ThoughtsList } from '@/components/thoughts-list'
-import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 import { cleanMarkdownContent } from '@/lib/markdown'
 import { getInteractionCounts } from '@/lib/interactions'
 import { StaticTableOfContents } from '@/components/table-of-contents'
@@ -95,10 +95,21 @@ export default async function ThoughtsPage() {
       <link rel="preconnect" href="https://image.viki.moe" />
       <link rel="dns-prefetch" href="https://image.viki.moe" />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: '首页', url: '/' },
+              { name: pages.thoughts.title, url: pages.thoughts.slug },
+            ]),
+          ),
+        }}
+      />
       <div className="space-y-12 py-8 sm:py-12">
         {/* Header */}
         <section className="space-y-3">
-          <h1 className="text-3xl font-bold">{pages.thoughts.title}</h1>
+          <h1 className="text-3xl font-bold sm:text-4xl">{pages.thoughts.title}</h1>
           <p className="text-text-secondary">
             {`${pages.thoughts.description}，共 ${sortedThoughts.length.toLocaleString('zh-Hans-CN')} 条内容，月均 ${averagePerMonth.toLocaleString('zh-Hans-CN')} 条，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
           </p>

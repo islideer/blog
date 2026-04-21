@@ -112,7 +112,7 @@
   color: var(--color-text-tertiary);
   font-weight: 400;
   user-select: none;
-  transition: opacity 0.2s ease;
+  transition: opacity var(--duration-fast) ease;
   display: inline-flex;
   align-items: center;
   height: 100%;
@@ -497,7 +497,7 @@ figure[data-rehype-pretty-code-figure] > pre[data-language]:not([data-language='
   border: none;
   cursor: pointer;
   opacity: 0;
-  transition: color 0.15s, opacity 0.15s, transform 0.1s;
+  transition: color var(--duration-fast), opacity var(--duration-fast), transform var(--duration-fast);
 
   [data-icon='check'] {
     display: none;

@@ -35,7 +35,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
       <div className="space-y-8 pt-8 pb-16 sm:space-y-12 sm:pt-12 sm:pb-24">
         {/* 页面标题 */}
         <section className="space-y-3" id="title">
-          <h1 className="text-3xl font-bold">
+          <h1 className="text-3xl font-bold sm:text-4xl">
             话
             <ruby>
               匣<rp>(</rp>

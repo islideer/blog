@@ -3,7 +3,7 @@ import { timeline } from '@/lib/data'
 import { BackToTop } from '@/components/back-to-top'
 import { siteConfig } from '@/lib/config'
 import { TimelineView } from './_components/timeline-view'
-import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { cleanMarkdownContent, truncateText } from '@/lib/markdown'
 
@@ -67,10 +67,21 @@ export default function TimelinePage() {
       {/* Back to Top Button */}
       <BackToTop />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: '首页', url: '/' },
+              { name: pages.timeline.title, url: pages.timeline.slug },
+            ]),
+          ),
+        }}
+      />
       <div className="space-y-12 py-8 sm:py-12">
         {/* Header */}
         <section className="space-y-3">
-          <h1 className="text-3xl font-bold">{pages.timeline.title}</h1>
+          <h1 className="text-3xl font-bold sm:text-4xl">{pages.timeline.title}</h1>
           <p className="text-text-secondary">
             {`${pages.timeline.description}，共 ${timeline.length.toLocaleString('zh-Hans-CN')} 条记录，按年份分组展示。`}
           </p>

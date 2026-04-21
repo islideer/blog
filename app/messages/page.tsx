@@ -9,7 +9,7 @@ import { siteConfig } from '@/lib/config'
 import { MessageForm } from './_components/message-form'
 import { MessageList } from './_components/message-list'
 import { ImageZoomProvider } from '@/components/image-zoom-provider'
-import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
@@ -64,6 +64,17 @@ export default async function MessagesPage({ searchParams }: PageProps) {
               pages.messages.description,
               pages.messages.slug,
             ),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: '首页', url: '/' },
+              { name: pages.messages.title, url: pages.messages.slug },
+            ]),
           ),
         }}
       />
