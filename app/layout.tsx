@@ -41,7 +41,6 @@ export async function generateMetadata(): Promise<Metadata> {
       telephone: false,
     },
     icons: {
-      icon: '/favicon.ico',
       apple: '/apple-icon.png',
     },
     alternates: {
