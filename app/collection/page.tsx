@@ -1,7 +1,7 @@
 import { CollectionList } from './_components/collection-list'
 import { collection, pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
-import { generateCanonicalUrl } from '@/lib/seo'
+import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 
 import type { Metadata } from 'next'
@@ -41,6 +41,18 @@ export const metadata: Metadata = {
 export default function CollectionPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateWebPageSchema(
+              pages.collection.title,
+              pages.collection.description,
+              pages.collection.slug,
+            ),
+          ),
+        }}
+      />
       <StaticTableOfContents
         items={collection.map((category) => ({
           id: category.category,

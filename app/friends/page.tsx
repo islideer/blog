@@ -1,11 +1,10 @@
-import { friends } from '@/lib/data'
-import { pages } from '@/lib/data'
+import { friends, pages } from '@/lib/data'
 import { createHighlighter } from 'shiki/bundle-web.mjs'
 import { siteConfig } from '@/lib/config'
 import { FriendCard } from './_components/friend-card'
 import { RandomFriends } from './_components/random-friends'
 import { FriendJsonBlock } from './_components/friend-json-block'
-import { generateCanonicalUrl } from '@/lib/seo'
+import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
@@ -70,11 +69,23 @@ export default async function FriendsPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateWebPageSchema(
+              pages.friends.title,
+              pages.friends.description,
+              pages.friends.slug,
+            ),
+          ),
+        }}
+      />
       {/* 头像服务 */}
       <link rel="preconnect" href="https://q1.qlogo.cn" />
       <link rel="dns-prefetch" href="https://q1.qlogo.cn" />
 
-      <div className="space-y-6 py-8 sm:space-y-8 sm:py-12">
+      <div className="space-y-8 py-8 sm:space-y-12 sm:py-12">
         {/* Header */}
         <section className="space-y-3">
           <h1 className="text-3xl font-bold">好朋友们</h1>

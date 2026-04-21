@@ -5,7 +5,7 @@ import { DoubanProfile } from './_components/douban-profile'
 import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
 import { getBangumiList } from '@/lib/bangumi'
-import { generateCanonicalUrl } from '@/lib/seo'
+import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { RefreshButton } from '@/components/refresh-button'
 import { getDoubanBooks, getDoubanMovies } from '@/lib/douban'
@@ -63,6 +63,18 @@ export default async function LibraryPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateWebPageSchema(
+              pages.library.title,
+              pages.library.description,
+              pages.library.slug,
+            ),
+          ),
+        }}
+      />
       {/* Preconnect to external domains for better performance */}
       <link rel="preconnect" href="https://i0.hdslb.com" />
       <link rel="dns-prefetch" href="https://i0.hdslb.com" />

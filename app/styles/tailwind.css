@@ -38,6 +38,10 @@
   --color-mio-border: var(--color-mio-border);
   --color-mio-bg: var(--color-mio-bg);
 
+  /* Steam Status */
+  --color-steam-playing: var(--color-steam-playing);
+  --color-steam-online: var(--color-steam-online);
+
   /* Thoughts Theme */
   --color-viki-blue: var(--color-viki-blue);
   --color-viki-blue-muted: var(--color-viki-blue-muted);

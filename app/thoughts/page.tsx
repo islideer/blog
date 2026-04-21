@@ -4,7 +4,7 @@ import { BackToTop } from '@/components/back-to-top'
 import { siteConfig } from '@/lib/config'
 import { countWords } from '@/lib/word-count'
 import { ThoughtsList } from '@/components/thoughts-list'
-import { generateCanonicalUrl } from '@/lib/seo'
+import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
 import { cleanMarkdownContent } from '@/lib/markdown'
 import { getInteractionCounts } from '@/lib/interactions'
 import { StaticTableOfContents } from '@/components/table-of-contents'
@@ -66,6 +66,18 @@ export default async function ThoughtsPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateWebPageSchema(
+              pages.thoughts.title,
+              pages.thoughts.description,
+              pages.thoughts.slug,
+            ),
+          ),
+        }}
+      />
       <StaticTableOfContents
         behavior="auto"
         items={sortedThoughts.map((thought) => ({

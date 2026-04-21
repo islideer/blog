@@ -1,12 +1,16 @@
 'use client'
 
+import { cn } from '@/lib/cn'
 import { ZoomImage } from './zoom-image'
 import { useState, useEffect, useRef } from 'react'
 
 import type { ImageProps } from 'next/image'
 
-export function LazyImage(props: ImageProps) {
-  const { src, alt, width, height, className, preload, ...rest } = props
+interface LazyImageProps extends ImageProps {
+  preload?: boolean
+}
+
+export function LazyImage({ preload, className, ...rest }: LazyImageProps) {
   const [isVisible, setIsVisible] = useState(preload || false)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -32,18 +36,11 @@ export function LazyImage(props: ImageProps) {
     return () => observer.disconnect()
   }, [isVisible])
 
-  const imageClasses = `w-full aspect-video object-contain ${className || ''}`
-
   if (isVisible) {
     return (
       <ZoomImage
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        className={imageClasses}
-        preload={preload}
         {...rest}
+        className={cn('w-full aspect-video object-contain', className)}
       />
     )
   }
@@ -51,7 +48,7 @@ export function LazyImage(props: ImageProps) {
   return (
     <div
       ref={containerRef}
-      className={`bg-bg-tertiary aspect-video w-full animate-pulse ${className || ''}`}
+      className={cn('bg-bg-tertiary aspect-video w-full animate-pulse', className)}
     />
   )
 }

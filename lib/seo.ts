@@ -107,6 +107,30 @@ export function generateBreadcrumbSchema(items: { name: string; url: string }[])
 }
 
 /**
+ * Generate JSON-LD structured data for WebPage
+ */
+export function generateWebPageSchema(title: string, description: string, path: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `${title} - ${siteConfig.name}`,
+    description,
+    url: `${siteConfig.url}${path}`,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    author: {
+      '@type': 'Person',
+      name: siteConfig.author.name,
+      url: siteConfig.author.github,
+    },
+    inLanguage: siteConfig.locale,
+  }
+}
+
+/**
  * Generate canonical URL
  */
 export function generateCanonicalUrl(path: string) {

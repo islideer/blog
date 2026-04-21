@@ -5,7 +5,7 @@ import { AboutTechStack } from './_components/tech-stack'
 import { about } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
-import { generateCanonicalUrl } from '@/lib/seo'
+import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 
 import type { Metadata } from 'next'
@@ -45,6 +45,14 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateWebPageSchema(pages.about.title, pages.about.description, pages.about.slug),
+          ),
+        }}
+      />
       <StaticTableOfContents
         items={[
           { id: 'intro', title: about.intro.title },
@@ -54,7 +62,7 @@ export default function AboutPage() {
         ]}
       />
 
-      <div className="space-y-12 py-8 sm:space-y-16 sm:py-12">
+      <div className="space-y-12 py-8 sm:py-12">
         <AboutIntro id="intro" title={about.intro.title} paragraphs={about.intro.aboutParagraphs} />
         <AboutContact id="contact" title={about.contact.title} links={about.contact.list} />
         <AboutOpenSource

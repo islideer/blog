@@ -5,7 +5,7 @@ import { BackToTop } from '@/components/back-to-top'
 import { countWords } from '@/lib/word-count'
 import { siteConfig } from '@/lib/config'
 import { ThoughtsList } from '@/components/thoughts-list'
-import { generateCanonicalUrl } from '@/lib/seo'
+import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
 import { cleanMarkdownContent } from '@/lib/markdown'
 import { getInteractionCounts } from '@/lib/interactions'
 import { StaticTableOfContents } from '@/components/table-of-contents'
@@ -62,6 +62,18 @@ export default async function MioSaysPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateWebPageSchema(
+              pages.mioSays.title,
+              pages.mioSays.description,
+              pages.mioSays.slug,
+            ),
+          ),
+        }}
+      />
       <StaticTableOfContents
         behavior="auto"
         items={sortedMioSays.map((mioSay) => ({
@@ -84,7 +96,7 @@ export default async function MioSaysPage() {
         {/* Header */}
         <section className="flex flex-row gap-6 sm:items-start sm:justify-between">
           <div className="flex-1 space-y-3">
-            <h1 className="text-3xl font-bold" style={{ color: 'var(--color-mio-pink)' }}>
+            <h1 className="text-3xl font-bold text-mio-pink">
               {pages.mioSays.title}
             </h1>
             <p className="text-text-secondary">
@@ -105,7 +117,7 @@ export default async function MioSaysPage() {
 
         {/* Mio Says Timeline */}
         <section className="space-y-4">
-          <div className="sm:border-l-2 sm:pl-6" style={{ borderColor: 'var(--color-mio-border)' }}>
+          <div className="sm:border-l-2 sm:border-mio-border sm:pl-6">
             <ThoughtsList
               thoughts={sortedMioSays}
               counts={counts}

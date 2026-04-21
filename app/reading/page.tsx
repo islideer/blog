@@ -5,7 +5,7 @@ import { siteConfig } from '@/lib/config'
 // import { Noto_Serif_SC } from 'next/font/google'
 import { RefreshButton } from '@/components/refresh-button'
 import { ReadingComments } from './_components/comments'
-import { generateCanonicalUrl } from '@/lib/seo'
+import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
 import { getReadingByDate, getLunarInfo } from '@/lib/reading'
 
 import type { Metadata } from 'next'
@@ -59,7 +59,20 @@ export default async function ReadingDetailPage() {
   const yearMonth = dayjs(reading.date).format('YYYY 年 M 月')
 
   return (
-    <div className={cn('mx-auto max-w-3xl px-2 py-12 sm:px-6')}>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateWebPageSchema(
+              pages.reading.title,
+              pages.reading.description,
+              pages.reading.slug,
+            ),
+          ),
+        }}
+      />
+      <div className={cn('mx-auto max-w-3xl px-2 py-12 sm:px-6')}>
       {/* 日期标题 - 文艺布局 */}
       <header className="relative mb-8 sm:mb-12">
         <div className="mb-6 flex items-center justify-between gap-2 text-sm italic opacity-60 sm:mb-8 sm:text-base">
@@ -125,5 +138,6 @@ export default async function ReadingDetailPage() {
       {/* 评论区 */}
       <ReadingComments comments={reading.comments} />
     </div>
+    </>
   )
 }

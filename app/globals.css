@@ -113,15 +113,6 @@ header > div > a {
   text-decoration: none;
 }
 
-/* Selection styles */
-::selection {
-  background-color: rgba(128, 128, 128, 0.3);
-}
-
-/* Focus styles for links */
-a:focus-visible {
-  text-decoration: solid;
-}
 
 /* Smooth scrollbar */
 ::-webkit-scrollbar {

@@ -56,8 +56,8 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
                   'block text-lg font-medium transition-colors duration-300',
                   profile.is_online
                     ? profile.game_info
-                      ? 'text-[#91C252] dark:text-[#E2FFB9]'
-                      : 'text-[#31b0e2] dark:text-[#6dcff6]'
+                      ? 'text-steam-playing'
+                      : 'text-steam-online'
                     : 'text-text-secondary',
                 )}
               >
@@ -83,8 +83,8 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
                 'text-xs transition-colors duration-300',
                 profile.is_online
                   ? profile.game_info
-                    ? 'text-[#91C252] dark:text-[#91C252]'
-                    : 'text-[#4dbfec] dark:text-[#6dcff680]'
+                    ? 'text-steam-playing'
+                    : 'text-steam-online'
                   : 'text-text-tertiary',
               )}
             >

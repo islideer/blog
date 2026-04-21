@@ -9,7 +9,7 @@ import { siteConfig } from '@/lib/config'
 import { MessageForm } from './_components/message-form'
 import { MessageList } from './_components/message-list'
 import { ImageZoomProvider } from '@/components/image-zoom-provider'
-import { generateCanonicalUrl } from '@/lib/seo'
+import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
@@ -55,6 +55,18 @@ export default async function MessagesPage({ searchParams }: PageProps) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateWebPageSchema(
+              pages.messages.title,
+              pages.messages.description,
+              pages.messages.slug,
+            ),
+          ),
+        }}
+      />
       {/* 说点什么 */}
       <section className="mb-16">
         <MessageForm />

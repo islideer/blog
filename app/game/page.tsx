@@ -7,7 +7,7 @@ import { siteConfig } from '@/lib/config'
 import { pages } from '@/lib/data'
 import { getHokSkins } from '@/lib/hok'
 import { RefreshButton } from '@/components/refresh-button'
-import { generateCanonicalUrl } from '@/lib/seo'
+import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { getSteamProfile, getLibraryGames, getRecentlyPlayed, getCS2Inventory } from '@/lib/steam'
 
@@ -57,6 +57,14 @@ export default async function GamePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateWebPageSchema(pages.game.title, pages.game.description, pages.game.slug),
+          ),
+        }}
+      />
       {/* Preconnect to external domains for better performance */}
       <link rel="preconnect" href="https://s2.loli.net" />
       <link rel="dns-prefetch" href="https://s2.loli.net" />

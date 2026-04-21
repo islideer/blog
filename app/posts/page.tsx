@@ -3,7 +3,7 @@ import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { countWords } from '@/lib/word-count'
 import { PostListItem } from '@/components/post-list-item'
-import { generateCanonicalUrl } from '@/lib/seo'
+import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
 import { getAllPosts, getAllPostsWithContent } from '@/lib/posts'
 import { YEAR_DESC_MAP } from '@/lib/year-desc'
 
@@ -80,7 +80,16 @@ export default async function PostsPage() {
   }
 
   return (
-    <div className="space-y-12 py-8 sm:py-12">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateWebPageSchema(pages.posts.title, pages.posts.description, pages.posts.slug),
+          ),
+        }}
+      />
+      <div className="space-y-12 py-8 sm:py-12">
       {/* Header */}
       <section className="space-y-3">
         <h1 className="text-3xl font-bold">{pages.posts.title}</h1>
@@ -137,5 +146,6 @@ export default async function PostsPage() {
         })}
       </section>
     </div>
+    </>
   )
 }

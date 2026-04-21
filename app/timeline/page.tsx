@@ -3,7 +3,7 @@ import { timeline } from '@/lib/data'
 import { BackToTop } from '@/components/back-to-top'
 import { siteConfig } from '@/lib/config'
 import { TimelineView } from './_components/timeline-view'
-import { generateCanonicalUrl } from '@/lib/seo'
+import { generateCanonicalUrl, generateWebPageSchema } from '@/lib/seo'
 import { StaticTableOfContents } from '@/components/table-of-contents'
 import { cleanMarkdownContent, truncateText } from '@/lib/markdown'
 
@@ -44,6 +44,18 @@ export const metadata: Metadata = {
 export default function TimelinePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateWebPageSchema(
+              pages.timeline.title,
+              pages.timeline.description,
+              pages.timeline.slug,
+            ),
+          ),
+        }}
+      />
       <StaticTableOfContents
         behavior="auto"
         items={timeline.map((item, idx) => ({

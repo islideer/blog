@@ -2,6 +2,7 @@
 
 import Zoom from 'react-medium-image-zoom'
 import Image from 'next/image'
+import { cn } from '@/lib/cn'
 import { useState, useEffect } from 'react'
 
 import 'react-medium-image-zoom/dist/styles.css'
@@ -21,6 +22,7 @@ function useAutoMargin(initialMargin: number = 20) {
 
 export function ZoomImage(props: typeof Image extends React.ComponentType<infer P> ? P : never) {
   const zoomMargin = useAutoMargin()
+  const { preload: _, ...imageProps } = props as typeof props & { preload?: boolean }
 
   return (
     <Zoom zoomMargin={zoomMargin}>
@@ -29,11 +31,11 @@ export function ZoomImage(props: typeof Image extends React.ComponentType<infer 
         className="image-wrapper rounded-md"
       >
         <Image
-          {...props}
+          {...imageProps}
           src={props.src}
           width={props.width ?? 800}
           height={props.height ?? 450}
-          className={`h-auto w-full rounded-md ${props.className || ''}`}
+          className={cn('h-auto w-full rounded-md', props.className)}
           alt={props.alt}
         />
       </div>
@@ -53,7 +55,7 @@ export function ZoomImageForArticle(
         src={props.src}
         width={props.width ?? 800}
         height={props.height ?? 450}
-        className={`h-auto w-full rounded-md ${props.className || ''}`}
+        className={cn('h-auto w-full rounded-md', props.className)}
         alt={props.alt}
       />
     </Zoom>
