@@ -9,7 +9,7 @@ interface FriendCardProps {
 }
 
 const STATUS_CONFIG: Record<
-  Exclude<FriendStatus, 'active'>,
+  Exclude<FriendStatus, 'active' | 'archived'>,
   { label: string; className: string }
 > = {
   pending: {
@@ -29,7 +29,8 @@ const STATUS_CONFIG: Record<
 export function FriendCard({ friend }: FriendCardProps) {
   const status = friend.status ?? 'active'
   const isInactive = status !== 'active'
-  const statusConfig = status !== 'active' ? STATUS_CONFIG[status] : null
+  const isArchived = status === 'archived'
+  const statusConfig = isInactive && !isArchived ? STATUS_CONFIG[status] : null
 
   return (
     <div
