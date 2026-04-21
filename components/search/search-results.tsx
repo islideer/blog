@@ -1,5 +1,5 @@
 import { SearchResultItem } from './search-result-item'
-import type { SearchIndexItem } from '@/lib/actions/search'
+import type { SearchIndexItem } from '@/actions/search'
 
 interface SearchResultsProps {
   results: SearchIndexItem[]

@@ -1,7 +1,7 @@
 import { useState, useCallback, useTransition, useRef } from 'react'
-import { searchContent, type SearchIndexItem } from '@/lib/actions/search'
+import { searchContent, type SearchIndexItem } from '@/actions/search'
 
-export type { SearchIndexItem } from '@/lib/actions/search'
+export type { SearchIndexItem } from '@/actions/search'
 
 export interface UseSearchReturn {
   results: SearchIndexItem[]
