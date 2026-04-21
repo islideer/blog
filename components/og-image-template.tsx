@@ -191,8 +191,8 @@ export function OgImageTemplate({
           <img
             src={`data:image/png;base64,${base64Icon}`}
             alt="Blog Icon"
-            width="72"
-            height="72"
+            width={72}
+            height={72}
             style={{
               borderRadius: '14px',
               border: '2px solid rgba(0, 0, 0, 0.1)',
