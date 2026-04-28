@@ -57,13 +57,6 @@
       ],
       "applications": [
         {
-          "name": "单 HTML 文件应用",
-          "url": "https://github.com/vikiboss/single-html-app",
-          "description": "基于自用单页应用 Skill 开发的单文件应用列表",
-          "status": "active",
-          "homepage": "https://html.viki.moe/"
-        },
-        {
           "name": "R2 Web",
           "url": "https://github.com/vikiboss/r2-web",
           "stars": "180+",
@@ -86,12 +79,6 @@
           "status": "active"
         },
         {
-          "name": "Stardust（星尘）",
-          "url": "https://github.com/vikiboss/stardust",
-          "description": "写给 VRChat 玩家的 PC 端小工具（WIP），已退游",
-          "status": "active"
-        },
-        {
           "name": "React Online",
           "url": "https://github.com/vikiboss/react-online",
           "description": "React 在线编辑器，支持 ESM、TS 和 Tailwind CSS",
@@ -106,13 +93,6 @@
           "homepage": "https://guitar.viki.moe/"
         },
         {
-          "name": "Chat One",
-          "url": "https://github.com/vikiboss/chat-one",
-          "description": "网页端 OneBot 在线聊天平台，适用于 KiviBot",
-          "status": "active",
-          "homepage": "https://chat-one.viki.moe/"
-        },
-        {
           "name": "Chatee",
           "url": "https://github.com/vikiboss/chatee",
           "description": "简单的终端聊天应用，基于 React、ink 和 ICQQ",
@@ -124,20 +104,6 @@
           "description": "原神 PC 端小工具：祈愿分析、便签状态和游戏数据",
           "stars": "120+",
           "status": "archived"
-        },
-        {
-          "name": "听雨 / Ting",
-          "url": "https://github.com/vikiboss/ting",
-          "description": "静下来，专注一会 / 在线极简时钟+白噪音项目",
-          "homepage": "https://ting.viki.moe/",
-          "status": "active"
-        },
-        {
-          "name": "aiueo",
-          "url": "https://github.com/vikiboss/aiueo",
-          "description": "给日语初学者练习五十音/假名的 Python 终端小应用",
-          "homepage": "https://github.com/vikiboss/aiueo",
-          "status": "active"
         }
       ],
       "services": [
@@ -148,57 +114,9 @@
           "status": "active",
           "stars": "5.2K+",
           "homepage": "https://docs.60s-api.viki.moe/"
-        },
-        {
-          "name": "60s 静态资源",
-          "url": "https://github.com/vikiboss/60s-static-host",
-          "description": "60s API 项目使用的静态资源托管服务",
-          "stars": "70+",
-          "status": "active",
-          "homepage": "https://60s-static.viki.moe/"
-        },
-        {
-          "name": "Deno Functions",
-          "url": "https://github.com/vikiboss/deno-functions",
-          "description": "实用的无服务函数，部署在 Deno Deploy",
-          "stars": "20+",
-          "status": "active",
-          "homepage": "https://viki.deno.dev/"
-        },
-        {
-          "name": "Face",
-          "url": "https://github.com/vikiboss/face",
-          "description": "QQ 黄脸表情包系列静态资源托管、公开 API",
-          "status": "active",
-          "homepage": "https://face.viki.moe/"
-        },
-        {
-          "name": "v50",
-          "url": "https://github.com/vikiboss/v50",
-          "description": "肯德基 KFC 疯狂星期四的文案数据托管、公开 API",
-          "status": "active",
-          "homepage": "https://v50.viki.moe/"
         }
       ],
       "scripts": [
-        {
-          "name": "booth-price-cny",
-          "url": "https://github.com/vikiboss/booth-price-cny",
-          "description": "换算 booth.pm 上日元商品的人民币价格的脚本",
-          "status": "active"
-        },
-        {
-          "name": "star-rail-gacha-export",
-          "url": "https://github.com/vikiboss/star-rail-gacha-export",
-          "description": "「崩坏：星穹铁道」跃迁记录导出脚本",
-          "status": "archived"
-        },
-        {
-          "name": "ncu-auto-login-script",
-          "url": "https://github.com/vikiboss/ncu-auto-login-script",
-          "description": "南昌大学（NCU）校园网自动登录脚本",
-          "status": "active"
-        },
         {
           "name": "BaidupanPlaySpeedControl",
           "url": "https://github.com/vikiboss/BaidupanPlaySpeedControl",
@@ -216,21 +134,6 @@
           "name": "TypeScript",
           "description": "带有静态类型的 JavaScript 超集",
           "link": "https://www.typescriptlang.org/"
-        },
-        {
-          "name": "JavaScript",
-          "description": "网页交互与应用开发的核心语言",
-          "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-        },
-        {
-          "name": "HTML5",
-          "description": "Web 最基本的构建模块语言",
-          "link": "https://developer.mozilla.org/en-US/docs/Web/HTML"
-        },
-        {
-          "name": "CSS3",
-          "description": "描述 HTML/XML 样式的样式表语言",
-          "link": "https://developer.mozilla.org/en-US/docs/Web/CSS"
         }
       ],
       "frontend": [
@@ -240,19 +143,9 @@
           "link": "https://react.dev/"
         },
         {
-          "name": "Vue",
-          "description": "渐进式 JavaScript 框架",
-          "link": "https://vuejs.org/"
-        },
-        {
           "name": "Next.js",
           "description": "用于 Web 的 React 框架",
           "link": "https://nextjs.org/"
-        },
-        {
-          "name": "Nuxt",
-          "description": "全栈 Vue 框架",
-          "link": "https://nuxt.com/"
         },
         {
           "name": "Tailwind CSS",
@@ -260,24 +153,9 @@
           "link": "https://tailwindcss.com/"
         },
         {
-          "name": "UnoCSS",
-          "description": "即时按需的原子化 CSS 引擎",
-          "link": "https://unocss.dev/"
-        },
-        {
           "name": "Vite",
           "description": "用于 Web 的构建工具",
           "link": "https://vite.dev/"
-        },
-        {
-          "name": "tsdown",
-          "description": "优雅的库打包工具",
-          "link": "https://tsdown.dev/"
-        },
-        {
-          "name": "tsup",
-          "description": "轻松打包 TypeScript 库",
-          "link": "https://tsup.egoist.dev/"
         }
       ],
       "backend": [
@@ -292,14 +170,14 @@
           "link": "https://bun.sh/"
         },
         {
-          "name": "Deno",
-          "description": "现代的开源 JavaScript 运行时",
-          "link": "https://deno.com/"
+          "name": "Hono",
+          "description": "超快、轻量的 Web 应用框架",
+          "link": "https://hono.dev/"
         },
         {
-          "name": "Elysia",
-          "description": "Bun 驱动、符合人体工学的  Web 框架",
-          "link": "https://elysiajs.com/"
+          "name": "NestJS",
+          "description": "构建高效稳定服务的渐进式 Node.js 框架",
+          "link": "https://nestjs.com/"
         },
         {
           "name": "Prisma ORM",
@@ -310,21 +188,6 @@
           "name": "Drizzle ORM",
           "description": "有头的无头 TypeScript ORM",
           "link": "https://orm.drizzle.team/"
-        },
-        {
-          "name": "NestJS",
-          "description": "构建高效稳定服务的渐进式 Node.js 框架",
-          "link": "https://nestjs.com/"
-        },
-        {
-          "name": "Koa",
-          "description": "下一代 Node.js Web 框架",
-          "link": "https://koajs.com/"
-        },
-        {
-          "name": "Express",
-          "description": "极简快速无偏见的 Node.js Web 框架",
-          "link": "https://expressjs.com/"
         }
       ],
       "crossPlatform": [
