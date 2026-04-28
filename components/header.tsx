@@ -94,6 +94,17 @@ export function Header() {
             {pages.timeline.title}
           </Link> */}
 
+          <a
+            href={pages.messages.slug}
+            className={cn(
+              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+              'text-xs sm:text-sm',
+            )}
+            onClick={() => setIsMoreOpen(false)}
+          >
+            {pages.messages.title}
+          </a>
+
           <Link
             href={pages.about.slug}
             className={cn(
@@ -174,7 +185,7 @@ export function Header() {
                   {pages.reading.title}
                 </a>
 
-                <a
+                {/* <a
                   href={pages.messages.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
@@ -183,7 +194,7 @@ export function Header() {
                   onClick={() => setIsMoreOpen(false)}
                 >
                   {pages.messages.title}
-                </a>
+                </a> */}
 
                 <Link
                   href={pages.friends.slug}
