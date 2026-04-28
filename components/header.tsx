@@ -45,7 +45,7 @@ export function Header() {
           >
             {pages.posts.title}
           </Link>
-          <a
+          {/* <a
             href={pages.thoughts.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
@@ -62,9 +62,9 @@ export function Header() {
             )}
           >
             {pages.mioSays.title}
-          </a>
+          </a> */}
 
-          <a
+          {/* <a
             href={pages.library.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
@@ -82,9 +82,9 @@ export function Header() {
             )}
           >
             {pages.game.title}
-          </a>
+          </a> */}
 
-          <Link
+          {/* <Link
             href={pages.timeline.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
@@ -92,6 +92,17 @@ export function Header() {
             )}
           >
             {pages.timeline.title}
+          </Link> */}
+
+          <Link
+            href={pages.about.slug}
+            className={cn(
+              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+              'text-xs sm:text-sm',
+            )}
+            onClick={() => setIsMoreOpen(false)}
+          >
+            {pages.about.title}
           </Link>
 
           {/* "更多"下拉菜单 */}
@@ -117,7 +128,7 @@ export function Header() {
             </button>
             {isMoreOpen && (
               <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
-                <div className="sm:hidden">
+                {/* <div className="sm:hidden">
                   <a
                     href={pages.library.slug}
                     className={cn(
@@ -139,9 +150,9 @@ export function Header() {
                   >
                     {pages.game.title}
                   </a>
-                </div>
+                </div> */}
 
-                <Link
+                {/* <Link
                   href={pages.about.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
@@ -150,7 +161,7 @@ export function Header() {
                   onClick={() => setIsMoreOpen(false)}
                 >
                   {pages.about.title}
-                </Link>
+                </Link> */}
 
                 <a
                   href={pages.reading.slug}
