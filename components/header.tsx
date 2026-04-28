@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { cn } from '@/lib/cn'
 import { RSSIcon } from './rss-icon'
-import { useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { GitHubIcon } from './github-icon'
@@ -12,11 +12,40 @@ import { ThemeToggle } from './theme-toggle'
 import { TravellingsIcon } from './travellings-icon'
 import { SearchTrigger } from './search/search-trigger'
 
+const LONG_PRESS_MS = 1000 // 长按持续时间，单位毫秒
+
+const SECRET_PAGES = [
+  pages.thoughts,
+  pages.mioSays,
+  pages.library,
+  pages.game,
+  pages.timeline,
+] as const
+
 export function Header() {
   const pathname = usePathname()
   const isHome = pathname === '/'
   const TitleTag = isHome ? 'h1' : 'div'
   const [isMoreOpen, setIsMoreOpen] = useState(false)
+  const [showSecret, setShowSecret] = useState(false)
+  const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const longPressTriggered = useRef(false)
+
+  const startLongPress = useCallback(() => {
+    longPressTriggered.current = false
+    longPressTimer.current = setTimeout(() => {
+      longPressTriggered.current = true
+      setShowSecret(true)
+      setIsMoreOpen(true)
+    }, LONG_PRESS_MS)
+  }, [])
+
+  const cancelLongPress = useCallback(() => {
+    if (longPressTimer.current) {
+      clearTimeout(longPressTimer.current)
+      longPressTimer.current = null
+    }
+  }, [])
 
   return (
     <header
@@ -119,11 +148,26 @@ export function Header() {
           {/* "更多"下拉菜单 */}
           <div className="relative flex items-center">
             <button
-              onClick={() => setIsMoreOpen(!isMoreOpen)}
+              onClick={() => {
+                if (longPressTriggered.current) {
+                  longPressTriggered.current = false
+                  return
+                }
+                setIsMoreOpen(!isMoreOpen)
+              }}
+              onMouseDown={startLongPress}
+              onMouseUp={cancelLongPress}
+              onMouseLeave={cancelLongPress}
+              onTouchStart={startLongPress}
+              onTouchEnd={cancelLongPress}
+              onTouchCancel={cancelLongPress}
+              onContextMenu={(e) => e.preventDefault()}
               onBlur={(e) => {
-                // 延迟关闭，让点击链接有时间触发
                 if (!e.currentTarget.contains(e.relatedTarget)) {
-                  setTimeout(() => setIsMoreOpen(false), 150)
+                  setTimeout(() => {
+                    setIsMoreOpen(false)
+                    setShowSecret(false)
+                  }, 150)
                 }
               }}
               className={cn(
@@ -173,6 +217,28 @@ export function Header() {
                 >
                   {pages.about.title}
                 </Link> */}
+
+                {showSecret && (
+                  <>
+                    {SECRET_PAGES.map((page) => (
+                      <a
+                        key={page.slug}
+                        href={page.slug}
+                        className={cn(
+                          'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                          'block px-4 py-2 text-xs',
+                        )}
+                        onClick={() => {
+                          setIsMoreOpen(false)
+                          setShowSecret(false)
+                        }}
+                      >
+                        {page.title}
+                      </a>
+                    ))}
+                    <div className="border-border my-1 border-t" />
+                  </>
+                )}
 
                 <a
                   href={pages.reading.slug}
