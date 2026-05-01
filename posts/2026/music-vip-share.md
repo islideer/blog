@@ -38,8 +38,9 @@ QQ 音乐固定每月 7 张，每张 3 天，先到先得，领完为止。
 
 ## 更新记录
 
+- 2026-05-02：五月已更新。
 - 2026-04-02：四月已更新。
 - 2026-03-18：发布文章，三月已更新。
 
-[ncm]: https://y.music.163.com/g/vip-invite-cashier/radsjl626?app_version=9.4.89&userid=5127559361&token=AF2259E9D71F0400C4664BDFF74542C3B4501B5C588586445AA6D689591CF4E1&dlt=0846
-[qqm]: https://y.qq.com/m/basic/client/experience_card/index.html?ADTAG=yy_gnyy_hytyk&from=share&cardid=d772iou3deas4th1nf70&hostName=Viki&hosteuin=oK6PoK-F7eSkNn**
+[ncm]: https://y.music.163.com/g/vip-invite-cashier/radsjl027?app_version=9.5.05&userid=5127559361&qq_aio_chat_type=3&token=F859BDB15CD25DF5728CA7A8510B807D620110FE498B6F7E51B6F47E56984FD8&dlt=0846
+[qqm]: https://y.qq.com/m/basic/client/experience_card/index.html?cardid=d7qjrmm3death0h6tibg&hosteuin=oK6PoK-F7eSkNn%2A%2A&hostName=Viki&ADTAG=yy_gnyy_hytyk&qq_aio_chat_type=3&from=share
