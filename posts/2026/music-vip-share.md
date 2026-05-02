@@ -16,7 +16,7 @@ tags:
 
 ![ncm-vip.jpeg](https://image.viki.moe/share/ncm-vip.jpeg '网易云音乐会员分享')
 
-> 👉 领取入口：[灝灝網易雲送你网易云音乐 4 月黑胶会员卡～][ncm]
+> 👉 领取入口：[灝灝網易雲送你网易云音乐黑胶会员卡～][ncm]
 >
 > PS: 桌面端可右键复制链接到手机领取。移动端可直接点开跳转 APP 领取。
 
@@ -26,7 +26,7 @@ QQ 音乐固定每月 7 张，每张 3 天，先到先得，领完为止。
 
 ![qqm-vip.jpeg](https://image.viki.moe/share/qqm-vip.jpeg 'QQ 音乐会员分享')
 
-> 👉 领取入口：[Viki 赠送你免费 3 天豪华绿钻会员卡][qqm]
+> 👉 领取入口：[Viki 赠送你免费豪华绿钻会员卡][qqm]
 >
 > PS: 桌面端可右键复制链接到手机领取。移动端可直接点开跳转 APP 领取。
 
