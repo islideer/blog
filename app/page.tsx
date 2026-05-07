@@ -62,7 +62,7 @@ export default async function BlogPage() {
         </section>
 
         {/* 最近动态 */}
-        {/* {recentThoughts.length > 0 && (
+        {recentThoughts.length > 0 && (
           <>
             <div className="border-border border-t" />
             <RecentActivities
@@ -72,7 +72,7 @@ export default async function BlogPage() {
               showMoreThreshold={siteConfig.home.shortPostsToShow}
             />
           </>
-        )} */}
+        )}
 
         {/* {recentMioSays.length > 0 && (
           <>

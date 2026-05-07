@@ -47,13 +47,21 @@ export const metadata: Metadata = {
 
 export default async function GamePage() {
   // 在服务端并行获取所有游戏数据
-  const [profile, libraryGames, recentGames, cs2Inventory, hokSkins] = await Promise.all([
+  const [profile, libraryGames, recentGames, cs2Inventory] = await Promise.all([
     getSteamProfile(),
     getLibraryGames(),
     getRecentlyPlayed(),
     getCS2Inventory(),
-    getHokSkins(),
   ])
+
+  // // 在服务端并行获取所有游戏数据
+  // const [profile, libraryGames, recentGames, cs2Inventory, hokSkins] = await Promise.all([
+  //   getSteamProfile(),
+  //   getLibraryGames(),
+  //   getRecentlyPlayed(),
+  //   getCS2Inventory(),
+  //   getHokSkins(),
+  // ])
 
   return (
     <>
@@ -125,7 +133,7 @@ export default async function GamePage() {
         <CS2Inventory id="cs2" items={cs2Inventory} />
 
         {/* 王者皮肤 - 纯服务端组件 */}
-        <HokSkins id="hok" data={hokSkins} />
+        {/* <HokSkins id="hok" data={hokSkins} /> */}
       </div>
     </>
   )

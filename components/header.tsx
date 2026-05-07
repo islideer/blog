@@ -14,16 +14,11 @@ import { SearchTrigger } from './search/search-trigger'
 import { toast } from 'sonner'
 import { printEasterEgg } from '@/lib/easter-egg'
 
-const SECRET_PAGES = [
-  pages.thoughts,
-  pages.mioSays,
-  pages.library,
-  pages.game,
-  pages.timeline,
-] as const
+const SECRET_PAGES = [pages.library, pages.game, pages.timeline] as const
 
 const CLICK_THRESHOLD = 3
 const CLICK_WINDOW_MS = 2000
+const EASTER_EGG_KEY = 'easter-egg-unlocked'
 
 export function Header() {
   const pathname = usePathname()
@@ -36,6 +31,10 @@ export function Header() {
   const clickTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
+    if (localStorage.getItem(EASTER_EGG_KEY) === 'true') {
+      setShowSecret(true)
+    }
+
     if (consolePrinted.current) return
     consolePrinted.current = true
 
@@ -43,8 +42,6 @@ export function Header() {
   }, [])
 
   function handleTitleClick(e: React.MouseEvent) {
-    if (showSecret) return
-
     clickCount.current += 1
 
     if (clickCount.current > 1) {
@@ -60,6 +57,7 @@ export function Header() {
       clickCount.current = 0
       if (clickTimer.current) clearTimeout(clickTimer.current)
       setShowSecret(true)
+      localStorage.setItem(EASTER_EGG_KEY, 'true')
       toast('隐藏页面已解锁，可在「更多」中查看 ✦')
     }
   }
@@ -91,6 +89,26 @@ export function Header() {
           >
             {pages.posts.title}
           </Link>
+
+          <a
+            href={pages.thoughts.slug}
+            className={cn(
+              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+              'text-xs sm:text-sm',
+            )}
+          >
+            {pages.thoughts.title}
+          </a>
+
+          <a
+            href={pages.mioSays.slug}
+            className={cn(
+              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
+              'text-xs sm:text-sm',
+            )}
+          >
+            {pages.mioSays.title}
+          </a>
 
           <a
             href={pages.messages.slug}
