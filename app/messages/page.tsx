@@ -86,7 +86,7 @@ export default async function MessagesPage({ searchParams }: PageProps) {
       {/* 大家都在聊 */}
       <section>
         <ImageZoomProvider>
-          <Suspense fallback={<div className="text-text-secondary">留言加载中...</div>}>
+          <Suspense fallback={<div className="text-text-secondary">正在打开话匣子...</div>}>
             <MessageList page={page} perPage={10} />
           </Suspense>
         </ImageZoomProvider>

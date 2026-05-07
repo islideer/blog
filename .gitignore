@@ -53,3 +53,5 @@ scripts/imgs.*
 .env*.local
 
 tests/
+
+.claude/plans

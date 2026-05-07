@@ -3,8 +3,8 @@
  * 服务端组件，负责获取数据并渲染留言卡片
  */
 
-import { Button } from '@/components/button'
 import { MessageCard } from './message-card'
+import { Pagination } from '@/components/pagination'
 import { getMessages } from '@/lib/messages'
 import { parseMessage } from '@/lib/markdown'
 import { MessageActions } from './message-actions'
@@ -32,8 +32,6 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
   )
 
   const totalPages = Math.ceil(total / perPage)
-  const hasNextPage = page < totalPages
-  const hasPrevPage = page > 1
 
   return (
     <>
@@ -67,26 +65,12 @@ export async function MessageList({ page = 1, perPage = 10 }: MessageListProps) 
           ))}
         </div>
 
-        {/* 分页控制 */}
-        {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-3">
-            {hasPrevPage && (
-              <a href={`/messages?page=${page - 1}`} className="no-icon">
-                <Button>← 上一页</Button>
-              </a>
-            )}
-
-            <span className="text-text-tertiary text-xs">
-              第 {page} 页 / 共 {totalPages} 页
-            </span>
-
-            {hasNextPage && (
-              <a href={`/messages?page=${page + 1}`} className="no-icon">
-                <Button>下一页 →</Button>
-              </a>
-            )}
-          </div>
-        )}
+        {/* 分页 */}
+        <Pagination
+          currentPage={page}
+          totalPages={totalPages}
+          buildHref={(p) => `/messages?page=${p}`}
+        />
       </div>
     </>
   )
