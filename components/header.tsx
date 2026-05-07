@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { cn } from '@/lib/cn'
 import { RSSIcon } from './rss-icon'
-import { useCallback, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
 import { GitHubIcon } from './github-icon'
@@ -11,8 +11,8 @@ import { usePathname } from 'next/navigation'
 import { ThemeToggle } from './theme-toggle'
 import { TravellingsIcon } from './travellings-icon'
 import { SearchTrigger } from './search/search-trigger'
-
-const LONG_PRESS_MS = 1000 // 长按持续时间，单位毫秒
+import { toast } from 'sonner'
+import { printEasterEgg } from '@/lib/easter-egg'
 
 const SECRET_PAGES = [
   pages.thoughts,
@@ -22,30 +22,47 @@ const SECRET_PAGES = [
   pages.timeline,
 ] as const
 
+const CLICK_THRESHOLD = 3
+const CLICK_WINDOW_MS = 2000
+
 export function Header() {
   const pathname = usePathname()
   const isHome = pathname === '/'
   const TitleTag = isHome ? 'h1' : 'div'
   const [isMoreOpen, setIsMoreOpen] = useState(false)
   const [showSecret, setShowSecret] = useState(false)
-  const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const longPressTriggered = useRef(false)
+  const consolePrinted = useRef(false)
+  const clickCount = useRef(0)
+  const clickTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const startLongPress = useCallback(() => {
-    longPressTriggered.current = false
-    longPressTimer.current = setTimeout(() => {
-      longPressTriggered.current = true
-      setShowSecret(true)
-      setIsMoreOpen(true)
-    }, LONG_PRESS_MS)
+  useEffect(() => {
+    if (consolePrinted.current) return
+    consolePrinted.current = true
+
+    printEasterEgg(SECRET_PAGES, siteConfig.url)
   }, [])
 
-  const cancelLongPress = useCallback(() => {
-    if (longPressTimer.current) {
-      clearTimeout(longPressTimer.current)
-      longPressTimer.current = null
+  function handleTitleClick(e: React.MouseEvent) {
+    if (showSecret) return
+
+    clickCount.current += 1
+
+    if (clickCount.current > 1) {
+      e.preventDefault()
     }
-  }, [])
+
+    if (clickTimer.current) clearTimeout(clickTimer.current)
+    clickTimer.current = setTimeout(() => {
+      clickCount.current = 0
+    }, CLICK_WINDOW_MS)
+
+    if (clickCount.current >= CLICK_THRESHOLD) {
+      clickCount.current = 0
+      if (clickTimer.current) clearTimeout(clickTimer.current)
+      setShowSecret(true)
+      toast('隐藏页面已解锁，可在「更多」中查看 ✦')
+    }
+  }
 
   return (
     <header
@@ -53,7 +70,7 @@ export function Header() {
       className="border-border bg-bg-primary/80 sticky top-0 z-40 max-w-3xl border-b px-4 backdrop-blur-sm select-none sm:px-6"
     >
       <div className="flex items-center justify-between py-2 sm:py-2.5">
-        <Link href="/" passHref className="no-underline">
+        <Link href="/" passHref className="no-underline" onClick={handleTitleClick}>
           <div>
             <TitleTag className="text-text-primary text-sm font-semibold sm:text-base">
               {siteConfig.name}
@@ -74,54 +91,6 @@ export function Header() {
           >
             {pages.posts.title}
           </Link>
-          {/* <a
-            href={pages.thoughts.slug}
-            className={cn(
-              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-              'text-xs sm:text-sm',
-            )}
-          >
-            {pages.thoughts.title}
-          </a>
-          <a
-            href={pages.mioSays.slug}
-            className={cn(
-              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-              'text-xs sm:text-sm',
-            )}
-          >
-            {pages.mioSays.title}
-          </a> */}
-
-          {/* <a
-            href={pages.library.slug}
-            className={cn(
-              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-              'hidden text-xs sm:inline sm:text-sm',
-            )}
-          >
-            {pages.library.title}
-          </a>
-
-          <a
-            href={pages.game.slug}
-            className={cn(
-              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-              'hidden text-xs sm:inline sm:text-sm',
-            )}
-          >
-            {pages.game.title}
-          </a> */}
-
-          {/* <Link
-            href={pages.timeline.slug}
-            className={cn(
-              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-              'text-xs sm:text-sm',
-            )}
-          >
-            {pages.timeline.title}
-          </Link> */}
 
           <a
             href={pages.messages.slug}
@@ -149,24 +118,12 @@ export function Header() {
           <div className="relative flex items-center">
             <button
               onClick={() => {
-                if (longPressTriggered.current) {
-                  longPressTriggered.current = false
-                  return
-                }
                 setIsMoreOpen(!isMoreOpen)
               }}
-              onMouseDown={startLongPress}
-              onMouseUp={cancelLongPress}
-              onMouseLeave={cancelLongPress}
-              onTouchStart={startLongPress}
-              onTouchEnd={cancelLongPress}
-              onTouchCancel={cancelLongPress}
-              onContextMenu={(e) => e.preventDefault()}
               onBlur={(e) => {
                 if (!e.currentTarget.contains(e.relatedTarget)) {
                   setTimeout(() => {
                     setIsMoreOpen(false)
-                    setShowSecret(false)
                   }, 150)
                 }
               }}
@@ -183,41 +140,6 @@ export function Header() {
             </button>
             {isMoreOpen && (
               <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
-                {/* <div className="sm:hidden">
-                  <a
-                    href={pages.library.slug}
-                    className={cn(
-                      'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                      'block px-4 py-2 text-xs',
-                    )}
-                    onClick={() => setIsMoreOpen(false)}
-                  >
-                    {pages.library.title}
-                  </a>
-
-                  <a
-                    href={pages.game.slug}
-                    className={cn(
-                      'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                      'block px-4 py-2 text-xs',
-                    )}
-                    onClick={() => setIsMoreOpen(false)}
-                  >
-                    {pages.game.title}
-                  </a>
-                </div> */}
-
-                {/* <Link
-                  href={pages.about.slug}
-                  className={cn(
-                    'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                    'block px-4 py-2 text-xs',
-                  )}
-                  onClick={() => setIsMoreOpen(false)}
-                >
-                  {pages.about.title}
-                </Link> */}
-
                 {showSecret && (
                   <>
                     {SECRET_PAGES.map((page) => (
@@ -230,7 +152,6 @@ export function Header() {
                         )}
                         onClick={() => {
                           setIsMoreOpen(false)
-                          setShowSecret(false)
                         }}
                       >
                         {page.title}
