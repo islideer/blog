@@ -10,9 +10,11 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
   const [copiedTitle, setCopiedTitle] = useState(false)
   const [copiedUrl, setCopiedUrl] = useState(false)
 
+  const displayTitle = `${title} | ${siteConfig.name}`
+
   const handleCopyTitle = async () => {
     try {
-      await navigator.clipboard.writeText(title)
+      await navigator.clipboard.writeText(displayTitle)
       setCopiedTitle(true)
       setTimeout(() => setCopiedTitle(false), 2000)
     } catch (err) {
@@ -38,7 +40,7 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
         <span className="text-text-tertiary shrink-0">·</span>
         <div className="flex min-w-0 flex-1 items-center gap-1 truncate sm:gap-2">
           <span className="text-text-secondary min-w-0 truncate wrap-break-word">
-            {title} | {siteConfig.name}
+            {displayTitle}
           </span>
           <button
             onClick={handleCopyTitle}
