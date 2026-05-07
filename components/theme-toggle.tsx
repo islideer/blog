@@ -40,7 +40,7 @@ export function ThemeToggle() {
     return (
       <Tooltip content="切换主题">
         <button
-          className="group/btn text-text-secondary sm:hover:bg-bg-tertiary flex h-6 w-6 items-center justify-center rounded-sm transition-colors sm:h-8 sm:w-8"
+          className="group text-text-secondary sm:hover:bg-bg-tertiary flex h-6 w-6 items-center justify-center rounded-sm transition-colors sm:h-8 sm:w-8"
           aria-label="切换主题"
           disabled
         >

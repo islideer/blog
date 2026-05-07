@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@/lib/cn'
 import { siteConfig } from '@/lib/config'
+import { ThemeToggle } from './theme-toggle'
 
 function CopyrightText() {
   return (
@@ -65,7 +66,7 @@ function SocialLinks({ className }: { className?: string }) {
 
 function Tagline() {
   return (
-    <p className="text-text-secondary flex items-center gap-2">
+    <div className="text-text-secondary flex items-center gap-2">
       <Link passHref href="/">
         <Image
           className="inline-block rounded-full align-middle"
@@ -76,7 +77,10 @@ function Tagline() {
         />
       </Link>
       {siteConfig.name}
-    </p>
+      <div className="inline sm:hidden">
+        <ThemeToggle />
+      </div>
+    </div>
   )
 }
 

@@ -110,17 +110,6 @@ export function Header() {
             {pages.mioSays.title}
           </a>
 
-          <a
-            href={pages.messages.slug}
-            className={cn(
-              'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-              'text-xs sm:text-sm',
-            )}
-            onClick={() => setIsMoreOpen(false)}
-          >
-            {pages.messages.title}
-          </a>
-
           <Link
             href={pages.about.slug}
             className={cn(
@@ -179,6 +168,28 @@ export function Header() {
                   </>
                 )}
 
+                <Link
+                  href={pages.friends.slug}
+                  className={cn(
+                    'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                    'block px-4 py-2 text-xs',
+                  )}
+                  onClick={() => setIsMoreOpen(false)}
+                >
+                  {pages.friends.title}
+                </Link>
+
+                <a
+                  href={pages.messages.slug}
+                  className={cn(
+                    'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                    'block px-4 py-2 text-xs',
+                  )}
+                  onClick={() => setIsMoreOpen(false)}
+                >
+                  {pages.messages.title}
+                </a>
+
                 <a
                   href={pages.reading.slug}
                   className={cn(
@@ -190,27 +201,6 @@ export function Header() {
                   {pages.reading.title}
                 </a>
 
-                {/* <a
-                  href={pages.messages.slug}
-                  className={cn(
-                    'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                    'block px-4 py-2 text-xs',
-                  )}
-                  onClick={() => setIsMoreOpen(false)}
-                >
-                  {pages.messages.title}
-                </a> */}
-
-                <Link
-                  href={pages.friends.slug}
-                  className={cn(
-                    'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                    'block px-4 py-2 text-xs',
-                  )}
-                  onClick={() => setIsMoreOpen(false)}
-                >
-                  {pages.friends.title}
-                </Link>
                 <div className="sm:hidden">
                   <div className="border-border my-2 border-t" />
                   <a
@@ -258,7 +248,9 @@ export function Header() {
             <RSSIcon href={siteConfig.links.rss} className="hidden sm:flex" />
             <TravellingsIcon href={siteConfig.links.travellings} className="hidden sm:flex" />
             <SearchTrigger />
-            <ThemeToggle />
+            <div className="hidden sm:inline">
+              <ThemeToggle />
+            </div>
           </div>
         </nav>
       </div>
