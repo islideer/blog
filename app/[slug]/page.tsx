@@ -24,6 +24,7 @@ import { getInteractionCounts } from '@/lib/interactions'
 import { BackToTop } from '@/components/back-to-top'
 
 import type { Metadata } from 'next'
+import { isDev } from '@/lib/env'
 
 export const dynamic = 'force-static'
 export const revalidate = 31536000 // 缓存 1 年
@@ -65,7 +66,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { slug } = await params
   const post = await getPostBySlug(slug)
 
-  if (!post) {
+  if (!post || (!isDev && post.draft)) {
     notFound()
   }
 

@@ -154,7 +154,9 @@ export async function getAllPostSlugs(): Promise<string[]> {
     }),
   )
 
-  return slugsWithDraft.filter((item) => !item.draft).map((item) => item.slug)
+  return isDev
+    ? slugsWithDraft.map((item) => item.slug)
+    : slugsWithDraft.filter((item) => !item.draft).map((item) => item.slug)
 }
 
 /**
