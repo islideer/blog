@@ -8,6 +8,7 @@ import {
   generatePostOpenGraph,
   generatePostTwitterCard,
 } from '@/lib/seo'
+import { isDev } from '@/lib/env'
 import { PostDate } from '@/components/post-date'
 import { PostInfo } from './_components/post-info'
 import { PostLike } from './_components/post-like'
@@ -24,7 +25,6 @@ import { getInteractionCounts } from '@/lib/interactions'
 import { BackToTop } from '@/components/back-to-top'
 
 import type { Metadata } from 'next'
-import { isDev } from '@/lib/env'
 
 export const dynamic = 'force-static'
 export const revalidate = 31536000 // 缓存 1 年
