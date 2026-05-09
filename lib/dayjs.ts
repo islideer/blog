@@ -11,12 +11,13 @@ dayjs.extend(relativeTime)
 
 export const TZ_SHANGHAI = 'Asia/Shanghai'
 
-type DatePreset = 'date' | 'date-time' | 'full' | 'full-time' | 'month-day'
+export type DatePreset = 'date' | 'date-time' | 'full' | 'full-mono' | 'full-time' | 'month-day'
 
 const DATE_PRESETS: Record<DatePreset, { withYear: string; withoutYear: string }> = {
-  'date': { withYear: 'YYYY.M.D', withoutYear: 'M.D' },
+  date: { withYear: 'YYYY.M.D', withoutYear: 'M.D' },
   'date-time': { withYear: 'YYYY.M.D HH:mm', withoutYear: 'M.D HH:mm' },
-  'full': { withYear: 'YYYY.M.D', withoutYear: 'YYYY.M.D' },
+  full: { withYear: 'YYYY.M.D', withoutYear: 'YYYY.M.D' },
+  'full-mono': { withYear: 'YYYY.MM.DD', withoutYear: 'YYYY.MM.DD' },
   'full-time': { withYear: 'YYYY.M.D HH:mm', withoutYear: 'YYYY.M.D HH:mm' },
   'month-day': { withYear: 'MM.DD', withoutYear: 'MM.DD' },
 }

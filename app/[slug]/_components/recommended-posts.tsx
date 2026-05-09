@@ -16,7 +16,7 @@ export function RecommendedPosts({ posts }: RecommendedPostsProps) {
       <h2 className="text-text-secondary text-base font-medium sm:text-lg">也可以看看</h2>
       <div className="border-border-tertiary space-y-1 border-l-2 pl-4 sm:pl-6">
         {posts.map((post) => (
-          <PostListItem key={post.slug} post={post} dateFormat="full" />
+          <PostListItem key={post.slug} post={post} dateFormat="full-mono" />
         ))}
       </div>
     </section>

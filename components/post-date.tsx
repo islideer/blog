@@ -1,8 +1,8 @@
-import { formatDate, formatDateCN } from '@/lib/dayjs'
+import { formatDate, formatDateCN, type DatePreset } from '@/lib/dayjs'
 
 export interface PostDateProps {
   date: string
-  format?: 'date' | 'full' | 'month-day' | 'detail'
+  format?: DatePreset | 'detail'
   className?: string
 }
 
