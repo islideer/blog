@@ -1,5 +1,9 @@
 [
   {
+    "date": "2026-05",
+    "description": "第一次露营。第一次到重庆、乐山玩。第一次坐轻轨。第一次吃冷锅串串、脆皮鸭、蛋烘糕、钵钵鸡、油炸串串、雪媚娘。"
+  },
+  {
     "date": "2026-04",
     "description": "拥有第二只小猫「雪球」，矮脚长毛 [米努特](https://baike.baidu.com/item/%E6%8B%BF%E7%A0%B4%E4%BB%91%E7%8C%AB)。"
   },
@@ -21,7 +25,7 @@
   },
   {
     "date": "2026-02",
-    "description": "第一次去上海。第一次陪 Mio 过生日。"
+    "description": "第一次去上海。第一次陪 Mio 过生日。第一次住全季。"
   },
   {
     "date": "2026-01",
@@ -42,6 +46,10 @@
   {
     "date": "2025-11",
     "description": "使用 [Next.js](https://nextjs.org/) 和 [Tailwind CSS](https://tailwindcss.com/) 重构博客，一贯的简洁风。"
+  },
+  {
+    "date": "2025-10",
+    "description": "飞往成都找 Mio 一起过国庆假期。第一次住汉庭。第一次吃火锅串串、绵绵冰。第一次做陶艺、拼豆。"
   },
   {
     "date": "2025-08",
