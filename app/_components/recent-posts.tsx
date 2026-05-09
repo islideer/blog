@@ -50,8 +50,12 @@ export async function RecentPosts({ posts, totalCount, showMoreThreshold }: Rece
                 </div>
                 <div className="text-text-tertiary group-hover:text-text-secondary flex shrink-0 items-baseline gap-1.5 text-xs">
                   <PostDate date={post.date} />
-                  <span>·</span>
-                  <ReadingTime minutes={post.readingTime} />
+                  <span className="shrink-0">·</span>
+                  <span className="shrink-0">
+                    <ReadingTime minutes={post.readingTime} />
+                  </span>
+                  <span className="shrink-0">·</span>
+                  <span className="shrink-0">{post.wordCount.toLocaleString('zh-Hans-CN')} 字</span>
                 </div>
               </div>
               {post.excerpt && (

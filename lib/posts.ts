@@ -1,8 +1,9 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { calculateReadingTime } from './reading-time.ts'
 import { isDev } from './env.ts'
+import { countWords } from './word-count.ts'
+import { calculateReadingTime } from './reading-time.ts'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -17,6 +18,7 @@ export interface PostMetadata {
   top?: boolean
   topImage?: string
   readingTime: number
+  wordCount: number
 }
 
 export interface Post extends PostMetadata {
@@ -77,6 +79,7 @@ export async function getAllPosts(): Promise<PostMetadata[]> {
         top: data.top || false,
         topImage: data.top_image || undefined,
         readingTime: calculateReadingTime(content),
+        wordCount: countWords(content),
       }
     }),
   )
@@ -135,6 +138,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       draft: data.draft || false,
       topImage: data.top_image || undefined,
       content,
+      wordCount: countWords(content),
       readingTime: calculateReadingTime(content),
     }
   } catch (error) {

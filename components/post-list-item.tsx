@@ -1,39 +1,25 @@
-import { ViewTransition } from 'react'
-
 import Link from 'next/link'
-import { PostDate, type PostDateProps } from './post-date'
+import { PostDate } from './post-date'
 import { DraftBadge } from './draft-badge'
 import { ReadingTime } from './reading-time'
+import { ViewTransition } from 'react'
+
+import type { PostMetadata } from '@/lib/posts'
+import type { PostDateProps } from './post-date'
 
 interface PostListItemProps {
   dateFormat?: PostDateProps['format']
-  post: {
-    slug: string
-    date: string
-    readingTime: number
-    draft?: boolean
-    title: string
-  }
+  post: PostMetadata
 }
 
 export function PostListItem({ post, dateFormat }: PostListItemProps) {
   return (
     <article
       key={post.slug}
-      className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 py-2 sm:grid-cols-[6rem_1fr_auto] sm:gap-x-4 sm:py-1.5"
+      className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 py-2 sm:grid-cols-[5rem_1fr_auto] sm:py-1.5"
     >
       <div className="text-text-tertiary flex shrink-0 items-center gap-2 font-mono text-xs sm:text-sm">
         <PostDate date={post.date} format={dateFormat ?? 'month-day'} />
-      </div>
-      <div className="text-text-tertiary flex items-center gap-2 font-mono text-xs sm:col-start-3 sm:row-start-1 sm:text-xs">
-        <span className="shrink-0 sm:hidden">·</span>
-        <ReadingTime minutes={post.readingTime} />
-        {post.draft && (
-          <>
-            <span className="shrink-0 sm:hidden">·</span>
-            {<DraftBadge className="inline sm:hidden" />}
-          </>
-        )}
       </div>
       <div className="col-span-2 flex items-start gap-2 sm:col-span-1 sm:col-start-2 sm:row-start-1">
         {post.draft && <DraftBadge className="mt-0.5 hidden sm:inline" />}
@@ -45,6 +31,14 @@ export function PostListItem({ post, dateFormat }: PostListItemProps) {
             {post.title}
           </Link>
         </ViewTransition>
+      </div>
+      <div className="text-text-tertiary col-start-2 row-start-1 flex items-center gap-2 font-mono text-xs sm:col-start-3 sm:row-start-1 sm:text-xs">
+        <span className="shrink-0 sm:hidden">·</span>
+        <span className="shrink-0">{post.wordCount.toLocaleString('zh-Hans-CN')} 字，约</span>
+        <span className="shrink-0">
+          <ReadingTime minutes={post.readingTime} />
+        </span>
+        {post.draft && <DraftBadge className="inline sm:hidden" />}
       </div>
     </article>
   )
