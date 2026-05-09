@@ -66,7 +66,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { slug } = await params
   const post = await getPostBySlug(slug)
 
-  if (!post || (!isDev && post.draft)) {
+  if (!post) {
     notFound()
   }
 
@@ -142,7 +142,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <div className="inline-flex items-center gap-2">
                   <DraftBadge />
                   <span className="text-text-tertiary text-xs sm:text-sm">
-                    此文章尚未正式发布，仅在开发环境可见
+                    此篇文章处于草稿状态，尚未正式发布，内容可能不完整或存在错误，仅供参考。
                   </span>
                 </div>
               )}
