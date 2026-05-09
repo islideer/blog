@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { cn } from '@/lib/cn'
 import { PostDate } from './post-date'
 import { DraftBadge } from './draft-badge'
 import { ReadingTime } from './reading-time'
@@ -9,14 +10,19 @@ import type { PostDateProps } from './post-date'
 
 interface PostListItemProps {
   dateFormat?: PostDateProps['format']
+  gap?: '5rem' | '6rem'
   post: PostMetadata
 }
 
-export function PostListItem({ post, dateFormat }: PostListItemProps) {
+export function PostListItem({ post, gap = '5rem', dateFormat }: PostListItemProps) {
   return (
     <article
       key={post.slug}
-      className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 py-2 sm:grid-cols-[5rem_1fr_auto] sm:py-1.5"
+      className={cn(
+        'grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 py-2 sm:py-1.5',
+        gap === '5rem' && 'sm:grid-cols-[5rem_1fr_auto]',
+        gap === '6rem' && 'sm:grid-cols-[6rem_1fr_auto]',
+      )}
     >
       <div className="text-text-tertiary flex shrink-0 items-center gap-2 font-mono text-xs sm:text-sm">
         <PostDate date={post.date} format={dateFormat ?? 'month-day'} />
