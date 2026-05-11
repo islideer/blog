@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { pages } from '@/lib/data'
 import { PinIcon } from '@/components/pin-icon'
 import { PostDate } from '@/components/post-date'
+import { ImageIcon } from '@/components/image-icon'
 import { DraftBadge } from '@/components/draft-badge'
 import { ReadingTime } from '@/components/reading-time'
 import { ViewTransition } from 'react'
@@ -48,23 +49,23 @@ export async function RecentPosts({ posts, totalCount, showMoreThreshold }: Rece
                     </h2>
                   </ViewTransition>
                 </div>
-                <div className="text-text-tertiary group-hover:text-text-secondary flex shrink-0 items-baseline gap-1.5 text-xs">
+                {post.excerpt && (
+                  <p className="text-text-tertiary group-hover:text-text-secondary line-clamp-2 text-xs leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                )}
+                <div className="text-text-tertiary group-hover:text-text-secondary flex shrink-0 items-center gap-1.5 text-xs">
                   <PostDate date={post.date} />
                   <span className="shrink-0">·</span>
                   <span className="shrink-0">#{post.topic}</span>
                   <span className="shrink-0">·</span>
                   <span className="shrink-0">
-                    <ReadingTime minutes={post.readingTime} />
+                    约需 <ReadingTime minutes={post.readingTime} />
                   </span>
                   <span className="shrink-0">·</span>
                   <span className="shrink-0">{post.wordCount.toLocaleString('zh-Hans-CN')} 字</span>
                 </div>
               </div>
-              {post.excerpt && (
-                <p className="text-text-tertiary group-hover:text-text-secondary line-clamp-2 text-xs leading-relaxed">
-                  {post.excerpt}
-                </p>
-              )}
             </article>
           </Link>
         ))}

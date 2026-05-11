@@ -7,6 +7,7 @@ import { ViewTransition } from 'react'
 
 import type { PostMetadata } from '@/lib/posts'
 import type { PostDateProps } from './post-date'
+import { ImageIcon } from './image-icon'
 
 interface PostListItemProps {
   dateFormat?: PostDateProps['format']

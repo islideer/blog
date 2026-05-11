@@ -40,9 +40,9 @@ export function stripMarkdown(markdown: string): string {
  * 计算阅读时间（分钟）
  *
  * 基于科学的阅读速度研究：
- * - 中文阅读速度：每分钟 300-500 字，取平均值 400 字/分钟
- * - 英文阅读速度：每分钟 200-250 词，取平均值 225 词/分钟
- * - 数字阅读速度：与英文单词相同，每分钟 225 个数字组
+ * - 中文阅读速度：每分钟 300-500 字，取略高值 600 字/分钟
+ * - 英文阅读速度：每分钟 200-250 词，取略高值 300 词/分钟
+ * - 数字阅读速度：与英文单词相同，每分钟 225 个数字组，取略高值 300 数字组/分钟
  *
  * 注意：
  * - 代码块不计入阅读时间（代码需要理解和思考，不是简单阅读）
@@ -70,9 +70,8 @@ export function calculateReadingTime(content: string): number {
   const wordCount = countWords(plainText)
 
   // 根据阅读速度计算时间
-  // 假设平均阅读速度为 400 字/分钟（混合中英文的情况）
-  // 这个值是中文（400 字/分钟）和英文（225 词/分钟）的折中
-  const readingTime = Math.ceil(wordCount / 400)
+  // 假设平均阅读速度为 600 字/分钟（混合中英文的较高阅读速度）
+  const readingTime = Math.ceil(wordCount / 600)
 
   // 至少 1 分钟
   return Math.max(1, readingTime)
