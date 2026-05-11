@@ -1,5 +1,10 @@
 [
   {
+    "id": "164",
+    "date": "2026-05-11T18:04:30+08:00",
+    "content": "今天看到了好玩的新 API `JSON.rawJSON()`，给 `JSON.stringify()` 用的。它可以让一段 JSON 文本原样输出，不再普通序列化。在大整数、精确控制内容时很实用。\n\n```js\nJSON.stringify({ value: 12345678901234567890 })\n// {\"value\":12345678901234567000} // 精度丢失了\n\nJSON.stringify({ value: JSON.rawJSON(\"12345678901234567890\") })\n// {\"value\":12345678901234567890} // 原样输出了，精度没有丢失\n```\n\n往下深挖了一下，发现 `JSON.rawJSON()` 会返回一个 `{rawJSON: \"...\"}` 格式的「普通」对象，`JSON.stringify()` 可以识别它。好奇的我尝试手动构造一个表面特征几乎一样的对象，但是发现完全骗不到 `JSON.stringify()`。\n\n```js\n// 和 JSON.rawJSON 一样，null 原型 + 冻结 + 不可扩展\nconst fake = Object.freeze(Object.create(null, {\n  rawJSON: {\n    value: \"12345678901234567890\", enumerable: true,\n    writable: false, configurable: false\n  }\n}))\n\nJSON.stringify({ value: fake }) // 欺骗失败 😂\n// {\"value\":{\"rawJSON\":\"12345678901234567890\"}}\n```\n\n深入了解才明白，这个「普通」对象其实并不普通。它带上了引擎内部的特殊标记，也就是规范里定义的「内部槽位」，无法通过 JS 代码构造出来，也很难看出区别。"
+  },
+  {
     "id": "163",
     "date": "2026-05-11T16:06:12+08:00",
     "content": "电话短信一顿轰，真当我没脾气 🤷",
