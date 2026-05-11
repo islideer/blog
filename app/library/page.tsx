@@ -1,18 +1,18 @@
+import { pages } from '@/lib/data'
 import { Books } from './_components/books'
 import { Movies } from './_components/movies'
 import { Bangumi } from './_components/bangumi'
-import { DoubanProfile } from './_components/douban-profile'
 import { siteConfig } from '@/lib/config'
-import { pages } from '@/lib/data'
-import { getBangumiList } from '@/lib/bangumi'
-import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
-import { StaticTableOfContents } from '@/components/table-of-contents'
 import { RefreshButton } from '@/components/refresh-button'
+import { DoubanProfile } from './_components/douban-profile'
+import { getBangumiList } from '@/lib/bangumi'
+import { dayjs, TZ_SHANGHAI } from '@/lib/dayjs'
+import { StaticTableOfContents } from '@/components/table-of-contents'
 import { getDoubanBooks, getDoubanMovies } from '@/lib/douban'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 // import { getDoubanBooks, getDoubanMovies, getDoubanProfile } from '@/lib/douban'
 
 import type { Metadata } from 'next'
-import { dayjs, TZ_SHANGHAI } from '@/lib/dayjs'
 
 export const revalidate = 86400 // 缓存 1 天
 
@@ -48,11 +48,13 @@ export const metadata: Metadata = {
 
 export default async function LibraryPage() {
   // 在服务端并发获取数据
-  const [bangumi, booksData, moviesData] = await Promise.all([
-    getBangumiList(),
-    getDoubanBooks(),
-    getDoubanMovies(),
-  ])
+  const [booksData, moviesData] = await Promise.all([getDoubanBooks(), getDoubanMovies()])
+
+  // const [bangumi, booksData, moviesData] = await Promise.all([
+  //   getBangumiList(),
+  //   getDoubanBooks(),
+  //   getDoubanMovies(),
+  // ])
 
   // const [bangumi, booksData, moviesData, doubanProfile] = await Promise.all([
   //   getBangumiList(),
@@ -76,8 +78,8 @@ export default async function LibraryPage() {
         }}
       />
       {/* Preconnect to external domains for better performance */}
-      <link rel="preconnect" href="https://i0.hdslb.com" />
-      <link rel="dns-prefetch" href="https://i0.hdslb.com" />
+      {/* <link rel="preconnect" href="https://i0.hdslb.com" />
+      <link rel="dns-prefetch" href="https://i0.hdslb.com" /> */}
       <link rel="preconnect" href="https://doubanio.viki.moe" />
       <link rel="dns-prefetch" href="https://doubanio.viki.moe" />
 
@@ -92,10 +94,10 @@ export default async function LibraryPage() {
           { id: 'books-collect', title: '读过', level: 3 },
           { id: 'books-doings', title: '在读', level: 3 },
           { id: 'books-wish', title: '想读', level: 3 },
-          { id: 'bangumi', title: '追番', level: 1 },
-          { id: 'bangumi-collect', title: '看过', level: 3 },
-          { id: 'bangumi-doings', title: '在看', level: 3 },
-          { id: 'bangumi-wish', title: '想看', level: 3 },
+          // { id: 'bangumi', title: '追番', level: 1 },
+          // { id: 'bangumi-collect', title: '看过', level: 3 },
+          // { id: 'bangumi-doings', title: '在看', level: 3 },
+          // { id: 'bangumi-wish', title: '想看', level: 3 },
         ]}
       />
 
@@ -142,7 +144,7 @@ export default async function LibraryPage() {
         <Books id="books" data={booksData} />
 
         {/* 追番 - API 数据 */}
-        <Bangumi id="bangumi" bangumi={bangumi} />
+        {/* <Bangumi id="bangumi" bangumi={bangumi} /> */}
       </div>
     </>
   )

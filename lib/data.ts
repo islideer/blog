@@ -68,12 +68,12 @@ export const pages = {
   },
   game: {
     title: '电子游戏',
-    description: `记录 ${siteConfig.author.name} 的游戏时光，游戏库和游戏时长统计等`,
+    description: `记录 ${siteConfig.author.name} 的游戏时光，游戏库和时长统计`,
     slug: '/game',
   },
   library: {
     title: '书影音',
-    description: `记录 ${siteConfig.author.name} 看的影视、读的书、追的番剧等`,
+    description: `记录 ${siteConfig.author.name} 看的影视、读的书籍`,
     slug: '/library',
   },
   timeline: {
