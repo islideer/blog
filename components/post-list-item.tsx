@@ -27,7 +27,8 @@ export function PostListItem({ post, gap = '5rem', dateFormat }: PostListItemPro
       <div className="text-text-tertiary flex shrink-0 items-center gap-2 font-mono text-xs sm:text-sm">
         <PostDate date={post.date} format={dateFormat ?? 'month-day'} />
       </div>
-      <div className="col-span-2 flex items-start gap-2 sm:col-span-1 sm:col-start-2 sm:row-start-1">
+
+      <div className="col-span-2 flex items-center gap-2 sm:col-span-1 sm:col-start-2 sm:row-start-1">
         {post.draft && <DraftBadge className="mt-0.5 hidden sm:inline" />}
         <ViewTransition name={`post-title-${post.slug}`} default="transform">
           <Link
@@ -37,11 +38,18 @@ export function PostListItem({ post, gap = '5rem', dateFormat }: PostListItemPro
             {post.title}
           </Link>
         </ViewTransition>
+        <span className="text-text-tertiary hidden text-xs sm:inline sm:text-sm">
+          #{post.topic}
+        </span>
       </div>
+
       <div className="text-text-tertiary col-start-2 row-start-1 flex items-center gap-2 font-mono text-xs sm:col-start-3 sm:row-start-1 sm:text-xs">
         <span className="shrink-0 sm:hidden">·</span>
-        <span className="shrink-0">{post.wordCount.toLocaleString('zh-Hans-CN')} 字，约</span>
         <span className="shrink-0">
+          <span className="inline sm:hidden">#{post.topic}</span>
+        </span>
+        <span className="shrink-0 sm:hidden">·</span>
+        <span className="w-12 shrink-0 sm:text-right">
           <ReadingTime minutes={post.readingTime} />
         </span>
         {post.draft && <DraftBadge className="inline sm:hidden" />}

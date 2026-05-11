@@ -1,7 +1,8 @@
 ---
 title: 'Guitar Studio! （吉他工作室）'
 date: 2024-01-12
-excerpt: 'Guitar Studio 是一个开源的在线吉他工具箱，集成了调音器、节拍器、和弦库等实用功能。基于 React + TypeScript + Vite 开发，旨在让练琴变得更简单高效。'
+topic: '生活'
+excerpt: 'Guitar Studio 是一个开源的在线吉他工具箱，集成了调音器、节拍器、和弦库等实用功能。'
 tags:
   - Project
   - React
@@ -28,14 +29,13 @@ tags:
 - **在线访问** - 打开浏览器就能用，不用下载任何 App
 - **现代化界面** - 简洁、直观、响应式设计
 - **和弦库** - 使用 [chords-db](https://github.com/tombatossals/chords-db) 数据，查询各种和弦指法
-
-### 正在开发（TODO）
-
 - **调音器** - 基于 [pitchy](https://github.com/ianprime0509/pitchy) 实现，帮你快速调准琴弦
 - **节拍器** - 练习节奏感的好帮手
+
+### TODO
+
 - **六线谱** - 查看和学习吉他谱
 - **听力训练** - 基于 [Tone.js](https://tonejs.github.io/) 实现，提升音乐素养
-- **吉他模拟器** - 在线弹奏体验
 
 ## 技术栈
 

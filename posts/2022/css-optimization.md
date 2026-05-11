@@ -1,13 +1,14 @@
 ---
 title: 'CSS 样式隔离与性能优化'
 date: 2022-02-21
+topic: '笔记'
+excerpt: '探讨 CSS 样式隔离与性能优化策略。从 BEM 命名法、CSS Modules 到 CSS-in-JS，分析方案优劣；分享文件合并、选择器优化等实用性能提升技巧。'
 tags:
   - 'CSS'
   - 'BEM'
   - '性能'
   - 'CSS 模块'
   - 'PostCSS'
-excerpt: '探讨 CSS 样式隔离与性能优化策略。从 BEM 命名法、CSS Modules 到 CSS-in-JS，分析不同隔离方案的优劣；分享文件合并、选择器优化等实用性能提升技巧。'
 ---
 
 ## CSS 的发展历程

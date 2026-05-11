@@ -1,6 +1,7 @@
 ---
 title: '你不知道的 Chrome DevTools'
 date: 2026-02-26
+topic: '技术'
 excerpt: '偶然间逛到 DevTools 官方文档，发现了很多没用过的小功能，特地码了篇文章给自己加强印象。'
 tags:
   - 'Chrome'

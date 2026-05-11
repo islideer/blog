@@ -1,7 +1,8 @@
 ---
 title: '让 TypeScript 类型 "cat" | string 支持补全提示'
 date: 2023-10-19
-excerpt: '在 TypeScript 中定义 "cat" | string 联合类型时，字面量提示往往会失效。本文介绍使用 string & {} 等技巧，让 IDE 在保留字符串灵活性的同时，也能提供字面量补全。'
+topic: '前端'
+excerpt: '在 TypeScript 中定义联合类型时，字面量提示往往会失效。本文介绍使用小技巧，让 IDE 在保留字符串灵活性的同时，也能提供字面量补全。'
 tags:
   - TypeScript
   - 类型提示

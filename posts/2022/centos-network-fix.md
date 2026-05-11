@@ -1,13 +1,14 @@
 ---
 title: 'VMware 17 安装 CentOS 7 无法连接网络'
 date: 2022-11-30
+topic: '笔记'
+excerpt: '解决 VMware 17 安装 CentOS 7 后无法联网的常见问题。详细介绍如何通过修改 ifcfg 网卡配置文件启用 ONBOOT 选项，并重启网络服务以恢复连接。'
 tags:
   - 'Linux'
   - 'CentOS'
   - '虚拟机'
   - '网络'
   - '解决方案'
-excerpt: '解决 VMware 17 安装 CentOS 7 后无法联网的常见问题。详细介绍如何通过修改 ifcfg 网卡配置文件启用 ONBOOT 选项，并重启网络服务以恢复连接。'
 ---
 
 之前电脑的一次 Win11 大版本更新把系统搞坏了，重装之后就没怎么用过 VMware。最近发现 VMware 出了 17 新版本，兼容 Win11，就下载安装了一个，顺便下了个 CentOS 7 的镜像。结果安装完发现连不上网络。

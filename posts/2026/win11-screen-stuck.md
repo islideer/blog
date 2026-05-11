@@ -1,6 +1,7 @@
 ---
 title: 'Windows 11 浏览器滚动时部分区域不更新的解决方案'
 date: 2026-01-18
+topic: '技术'
 excerpt: '沟槽的微软 MPO，你知道我受了多大委屈吗？'
 tags:
   - 'Windows'

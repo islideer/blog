@@ -1,14 +1,16 @@
 ---
 title: '写的东西 の 搬家记录（Jekyll 到 Hexo）'
 date: 2020-03-23
+topic: '技术'
 top_image: 'https://i.loli.net/2020/11/21/QJqGlbrP1RiYhIL.png'
+excerpt: '记录博客演化历程。'
+archived: true
 tags:
   - 'Hexo'
   - 'Jekyll'
   - '迁移'
   - '博客'
   - '主题'
-excerpt: '记录博客从 Jekyll 迁移到 Hexo 的完整过程。分享 Geek 主题的定制化改造、One Dark 代码高亮配置、sm.ms 图床选择以及 Valine 评论系统的集成经验。'
 ---
 
 ## 好累 o((>ω< ))o

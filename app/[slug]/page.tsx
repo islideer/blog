@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { ViewTransition } from 'react'
-import { getPostBySlug, getAllPostSlugs, getRecommendedPosts } from '@/lib/posts'
+import { getPostBySlug, getAllPosts, getRecommendedPosts } from '@/lib/posts'
 import {
   generateBlogPostingSchema,
   generateBreadcrumbSchema,
@@ -8,11 +8,9 @@ import {
   generatePostOpenGraph,
   generatePostTwitterCard,
 } from '@/lib/seo'
-import { isDev } from '@/lib/env'
 import { PostDate } from '@/components/post-date'
 import { PostInfo } from './_components/post-info'
 import { PostLike } from './_components/post-like'
-import { countWords } from '@/lib/word-count'
 import { DraftBadge } from '@/components/draft-badge'
 import { OldPostTip } from './_components/old-post-tip'
 import { ReadingTime } from '@/components/reading-time'
@@ -30,8 +28,8 @@ export const dynamic = 'force-static'
 export const revalidate = 31536000 // 缓存 1 年
 
 export async function generateStaticParams() {
-  const slugs = await getAllPostSlugs()
-  return slugs.map((slug) => ({ slug }))
+  const posts = await getAllPosts()
+  return posts.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({
@@ -147,6 +145,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
             <div className="text-text-tertiary flex items-baseline gap-1 overflow-x-auto text-xs sm:gap-2 sm:text-sm">
               <PostDate date={post.date} format="detail" className="shrink-0" />
+              <span className="shrink-0">·</span>
+              <span className="shrink-0">#{post.topic}</span>
               <span className="shrink-0">·</span>
               <span className="shrink-0">
                 <ReadingTime minutes={post.readingTime} />

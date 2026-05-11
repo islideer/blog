@@ -1,7 +1,8 @@
 ---
 title: '什么是 Shebang (或 Hashbang)'
 date: 2023-03-14
-excerpt: 'Shebang (#!) 是脚本文件首行的特殊字符序列，用于指定解释器。本文详解 Shebang 的工作原理、常见写法，以及为何推荐使用 #!/usr/bin/env 以提高跨平台兼容性。'
+topic: '技术'
+excerpt: 'Shebang (#!) 是脚本文件首行的特殊字符序列，用于指定解释器。'
 tags:
   - Linux
   - Shell

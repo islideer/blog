@@ -1,14 +1,15 @@
 ---
 title: '使用 scp 命令跨服务器双向传输文件'
 date: 2020-02-14
+topic: '技术'
 top_image: 'https://i.loli.net/2020/11/21/wYd3n5xtlVofF7E.jpg'
+excerpt: '详解 Linux 系统中 scp 命令的使用方法。'
 tags:
   - 'Linux'
   - 'SSH'
   - 'SCP'
   - '命令行'
   - '服务器'
-excerpt: '详解 Linux 系统中 scp 命令的使用方法。涵盖本地与远程服务器之间的文件及文件夹双向传输、端口指定、压缩传输等实用技巧，助你高效管理服务器文件。'
 ---
 
 ## 什么是 SCP
@@ -35,7 +36,7 @@ scp /home/project/demo.txt root@xxx.xxx.xxx.xxx:/home/
 scp -r /home/project root@xxx.xxx.xxx.xxx:/home/
 ```
 
-> 💡 `-r` 参数表示递归（recursive），用于传输整个目录。
+> `-r` 参数表示递归（recursive），用于传输整个目录。
 
 ### 从服务器下载文件或文件夹
 
@@ -70,7 +71,7 @@ scp -r root@xxx.xxx.xxx.xxx:/home/project /home/
 scp -P 2222 /home/project/demo.txt root@xxx.xxx.xxx.xxx:/home/
 ```
 
-> ⚠️ 注意：是大写的 `-P`，不是小写的 `-p`。
+> 注意：是大写的 `-P`，不是小写的 `-p`。
 
 ### 加速传输
 

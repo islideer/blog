@@ -1,6 +1,7 @@
 ---
 title: '如何优雅地畅玩 4399 等 Flash 游戏'
 date: 2022-12-31
+topic: '生活'
 tags:
   - 'Flash'
   - '浏览器'

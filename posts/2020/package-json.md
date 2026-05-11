@@ -1,14 +1,16 @@
 ---
 title: 'Node.js 项目的 package.json 文件详解'
 date: 2020-04-23
+topic: '技术'
 top_image: 'https://i.loli.net/2020/11/21/UHTc1bZPxszuQYa.png'
+excerpt: '深入解析 Node.js 项目中的 package.json 文件。详细介绍常见字段的含义与作用、版本号管理规则等。'
+archived: true
 tags:
   - 'Node.js'
   - 'npm'
   - 'package.json'
   - 'JavaScript'
   - '配置'
-excerpt: '深入解析 Node.js 项目中的 package.json 文件。详细介绍 name、version、scripts、dependencies 等常见字段的含义与作用，以及版本号管理规则。'
 ---
 
 此篇文章适合于对 Node.js 和 npm 有一定了解，但不清楚 `package.json` 文件具体作用及其含义的读者。

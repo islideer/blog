@@ -1,7 +1,8 @@
 ---
 title: '公网访问 TP-LINK 路由管理页绕过 tplogin.cn 跳转'
 date: 2024-09-30
-excerpt: 'TP-LINK 路由器管理页限制公网访问？本文介绍如何通过 Nginx 反向代理配合 subs_filter 模块替换页面内容，绕过 tplogin.cn 域名检测，实现远程管理。'
+topic: '技术'
+excerpt: '本文介绍如何通过 Nginx 反向代理配合 subs_filter 模块替换页面内容，绕过 tplogin.cn 域名检测，实现远程管理。'
 tags:
   - Nginx
   - DevOps

@@ -1,14 +1,16 @@
 ---
 title: 'Windows 命令行实用指南'
 date: 2019-12-18
+topic: '笔记'
 top_image: 'https://i.loli.net/2020/11/21/Q7DG9uSYmPJXov8.jpg'
+excerpt: '从基础到进阶，全面掌握 Windows 命令行（CMD & PowerShell）的常用操作。涵盖目录导航、文件管理、效率技巧及常用命令速查。'
+archived: true
 tags:
   - 'Windows'
   - 'CMD'
   - 'PowerShell'
   - 'CLI'
   - '命令行'
-excerpt: '从基础到进阶，全面掌握 Windows 命令行（CMD & PowerShell）的常用操作。涵盖目录导航、文件管理、效率技巧及常用命令速查，助你提升系统操作效率。'
 ---
 
 命令行是 Windows 系统中强大的工具，熟练掌握命令行操作可以大幅提升工作效率。本文整理了常用的命令行操作和实用技巧，帮助你快速上手。

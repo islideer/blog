@@ -1,6 +1,7 @@
 ---
 title: '使用 smee-it 解决本地接收 GitHub Webhook 的难题'
 date: 2025-11-28
+topic: '技术'
 tags: ['TypeScript', 'Webhook', 'GitHub', '开源']
 excerpt: '介绍 smee-it，一个简洁、类型安全的 smee.io 客户端，用于在本地接收 GitHub Webhook 等事件。'
 ---

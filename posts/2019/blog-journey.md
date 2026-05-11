@@ -1,14 +1,16 @@
 ---
 title: 'Hello World'
 date: 2019-11-08
+topic: '笔记'
+excerpt: '新建项目时的默认文章，也是首篇文章，留作纪念。同时用来记录博客演进的完整过程。'
 tags:
-  - 'Blog'
-  - 'Hexo'
-  - 'Next.js'
-  - 'Jekyll'
   - '博客'
   - '迁移'
-excerpt: '记录我的博客从 Jekyll 到 Hexo，再到 xLog，最终迁移至 Next.js 的完整历程。分享技术选型背后的思考与折腾经历，见证个人博客的演进之路。'
+  - 'Blog'
+  - 'Jekyll'
+  - 'Hexo'
+  - 'xLog'
+  - 'Next.js'
 ---
 
 ## 2019.11.8

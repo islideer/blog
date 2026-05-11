@@ -1,27 +1,45 @@
-import { promises as fs } from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { isDev } from './env.ts'
 import { countWords } from './word-count.ts'
+import { promises as fs } from 'fs'
 import { calculateReadingTime } from './reading-time.ts'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
 export interface PostMetadata {
-  title: string
-  date: string
-  excerpt: string
-  tags?: string[]
-  author?: string
+  /** 文章唯一标识，基于文件名生成，例如 "2022/css-history-and-perf.md" -> "css-history-and-perf" */
   slug: string
-  draft?: boolean
-  top?: boolean
-  topImage?: string
-  readingTime: number
+  /** 文章标题，默认为 slug */
+  title: string
+  /** ISO 格式的发布日期字符串，例如 "2022-01-01T00:00:00.000Z" */
+  date: string
+  /** 文章主题，前端/技术/生活/笔记，四选一，默认为 "生活" */
+  topic: string
+  /** 文章标签数组，例如 ["JavaScript", "性能"] */
+  tags: string[]
+  /** 文章中使用的图片 URL 数组，包含 frontmatter 中的 top_image 和正文中的图片 */
+  images: string[]
+  /** 文章字数 */
   wordCount: number
+  /** 文章预计阅读时间，单位分钟 */
+  readingTime: number
+  /** 文章摘要，默认为空字符串 */
+  excerpt: string
+  /** 文章作者，默认为空字符串 */
+  author: string
+  /** 文章是否为草稿，默认为 false */
+  draft: boolean
+  /** 文章是否归档，默认为 false */
+  archived: boolean
+  /** 文章是否置顶，默认为 false */
+  top: boolean
+  /** 文章置顶图片 URL，frontmatter 中的 top_image，默认为 undefined */
+  topImage: string | undefined
 }
 
 export interface Post extends PostMetadata {
+  /** 文章内容，Markdown 格式 */
   content: string
 }
 
@@ -55,8 +73,11 @@ async function getAllMarkdownFiles(dir: string, baseDir: string = dir): Promise<
   return files
 }
 
-export async function getAllPosts(): Promise<PostMetadata[]> {
+export async function getAllPosts(withContent: true): Promise<Post[]>
+export async function getAllPosts(withContent?: false): Promise<PostMetadata[]>
+export async function getAllPosts(withContent = false): Promise<(PostMetadata | Post)[]> {
   const markdownFiles = await getAllMarkdownFiles(postsDirectory)
+  const imgRegExp = /!\[[^\]]*]\(\s*<?([^>\s)]+(?:\)[^>\s)]*)?)>?(?:\s+["'(].*?["')])?\s*\)/g
 
   const allPostsData: PostMetadata[] = await Promise.all(
     markdownFiles.map(async (relativePath) => {
@@ -67,100 +88,40 @@ export async function getAllPosts(): Promise<PostMetadata[]> {
 
       const fileContents = await fs.readFile(fullPath, 'utf8')
       const { data, content } = matter(fileContents)
+      const images = [...content.matchAll(imgRegExp)].map((m) => m[1])
 
       return {
         slug,
         title: data.title || slug,
+        topic: data.topic || '生活',
         date: new Date(data.date).toISOString(),
-        excerpt: data.excerpt || '',
         tags: data.tags || [],
+        images: data.top_image ? [...new Set([data.top_image, ...images])] : images,
+        wordCount: countWords(content),
+        readingTime: calculateReadingTime(content),
+        excerpt: data.excerpt || '',
         author: data.author || '',
         draft: data.draft || false,
+        archived: data.archived || false,
         top: data.top || false,
         topImage: data.top_image || undefined,
-        readingTime: calculateReadingTime(content),
-        wordCount: countWords(content),
+        ...(withContent ? { content } : {}),
       }
     }),
   )
 
-  // 开发模式下显示所有文章（包括草稿），生产环境下过滤草稿
-  const filteredPosts = isDev ? allPostsData : allPostsData.filter((post) => !post.draft)
-
-  return filteredPosts.toSorted((a, b) => (a.date < b.date ? 1 : -1))
-}
-
-/**
- * 获取所有文章（包含内容）
- * 用于需要访问文章内容的场景，如字数统计
- */
-export async function getAllPostsWithContent(): Promise<Post[]> {
-  const markdownFiles = await getAllMarkdownFiles(postsDirectory)
-
-  const allPostsData: Post[] = await Promise.all(
-    markdownFiles.map(async (relativePath) => {
-      // 生成 slug: 只使用文件名部分，例如 "2022/css-history-and-perf.md" -> "css-history-and-perf"
-      const fileName = path.basename(relativePath, path.extname(relativePath))
-      return getPostBySlug(fileName) as Promise<Post>
-    }),
-  )
-
-  // 开发模式下显示所有文章（包括草稿），生产环境下过滤草稿
-  const filteredPosts = isDev ? allPostsData : allPostsData.filter((post) => !post.draft)
+  // 开发模式下显示所有文章（包括草稿），生产环境下过滤草稿。归档文章统一不显示。
+  const filteredPosts = isDev
+    ? allPostsData.filter((post) => !post.archived)
+    : allPostsData.filter((post) => !post.draft && !post.archived)
 
   return filteredPosts.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
-  try {
-    // 在所有目录中查找匹配的文件名
-    const markdownFiles = await getAllMarkdownFiles(postsDirectory)
-    const matchingFile = markdownFiles.find((relativePath) => {
-      const fileName = path.basename(relativePath, path.extname(relativePath))
-      return fileName === slug
-    })
-
-    if (!matchingFile) {
-      return null
-    }
-
-    const fullPath = path.join(postsDirectory, matchingFile)
-    const fileContents = await fs.readFile(fullPath, 'utf8')
-    const { data, content } = matter(fileContents)
-
-    return {
-      slug,
-      title: data.title || slug,
-      date: new Date(data.date).toISOString(),
-      excerpt: data.excerpt || '',
-      tags: data.tags || [],
-      author: data.author || '',
-      draft: data.draft || false,
-      topImage: data.top_image || undefined,
-      content,
-      wordCount: countWords(content),
-      readingTime: calculateReadingTime(content),
-    }
-  } catch (error) {
-    console.error(`Error reading post ${slug}:`, error)
-    return null
-  }
-}
-
-export async function getAllPostSlugs(): Promise<string[]> {
-  const markdownFiles = await getAllMarkdownFiles(postsDirectory)
-
-  const slugsWithDraft = await Promise.all(
-    markdownFiles.map(async (relativePath) => {
-      const fileName = path.basename(relativePath, path.extname(relativePath))
-      const post = (await getPostBySlug(fileName)) as Post
-      return { slug: post.slug || fileName, draft: post.draft || false }
-    }),
-  )
-
-  return isDev
-    ? slugsWithDraft.map((item) => item.slug)
-    : slugsWithDraft.filter((item) => !item.draft).map((item) => item.slug)
+  const allPosts = await getAllPosts(true)
+  const post = allPosts.find((p) => p.slug === slug)
+  return post || null
 }
 
 /**

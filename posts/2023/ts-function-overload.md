@@ -1,7 +1,8 @@
 ---
 title: '探索 TypeScript 中函数重载的两种实现方法'
 date: 2023-11-09
-excerpt: '函数重载是 TypeScript 的强大特性，允许基于不同参数类型执行不同逻辑。本文介绍函数重载的意义，并详解通过多个函数定义和接口定义实现重载的两种方法。'
+topic: '前端'
+excerpt: '函数重载是 TypeScript 的强大特性，允许基于不同参数类型执行不同逻辑。本文介绍通过多个函数定义和接口定义实现重载的两种方法。'
 tags:
   - TypeScript
   - JavaScript

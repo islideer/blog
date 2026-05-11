@@ -1,6 +1,6 @@
 'use server'
 
-import { getAllPostsWithContent } from '@/lib/posts'
+import { getAllPosts } from '@/lib/posts'
 import { about, thoughts, mioSays, timeline, friends, collection } from '@/lib/data'
 import { dayjs } from '@/lib/dayjs'
 
@@ -63,7 +63,8 @@ async function getAllSearchItems(): Promise<SearchIndexItem[]> {
   const items: SearchIndexItem[] = []
 
   // 文章
-  const posts = await getAllPostsWithContent()
+  const posts = await getAllPosts(true)
+
   for (const post of posts) {
     items.push({
       id: `post-${post.slug}`,

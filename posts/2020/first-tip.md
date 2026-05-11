@@ -1,13 +1,14 @@
 ---
 title: '随手写的一个油猴脚本竟然有人给我打赏了'
 date: 2020-06-17
+topic: '生活'
+excerpt: '记录一次开发油猴脚本的经历：利用 Video.js API 实现百度网盘视频倍速播放。分享从发现问题、动手开发到开源分享的过程，以及意外获得打赏的喜悦。'
 tags:
   - 'Tampermonkey'
   - 'JavaScript'
   - '开源'
   - '故事'
   - 'Video.js'
-excerpt: '记录一次开发油猴脚本的经历：利用 Video.js API 实现百度网盘视频倍速播放。分享从发现问题、动手开发到开源分享的过程，以及意外获得打赏的喜悦。'
 ---
 
 > **2022 年更新**：百度网盘网页端已更新，本文提到的脚本和示例代码已失效。如仍有倍速播放需求，可以使用 Chrome 浏览器扩展 [Global Speed](https://chrome.google.com/webstore/detail/global-speed/jpbjcnkcffbooppibceonlgknpkniiff?hl=zh-CN)。

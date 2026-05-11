@@ -1,11 +1,10 @@
 import { dayjs } from '@/lib/dayjs'
 import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
-import { countWords } from '@/lib/word-count'
 import { PostListItem } from '@/components/post-list-item'
-import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
-import { getAllPosts, getAllPostsWithContent } from '@/lib/posts'
+import { getAllPosts } from '@/lib/posts'
 import { YEAR_DESC_MAP } from '@/lib/year-desc'
+import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 
 import type { Metadata } from 'next'
 
@@ -45,14 +44,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PostsPage() {
   const allPosts = await getAllPosts()
-  const allPostsWithContent = await getAllPostsWithContent()
   const pinnedPosts = allPosts.filter((post) => post.top)
   const posts = allPosts.filter((post) => !post.top)
 
   // 计算总字数
-  const totalWords = allPostsWithContent.reduce((sum, post) => {
-    return sum + countWords(post.content)
-  }, 0)
+  const totalWords = allPosts.reduce((sum, post) => sum + post.wordCount, 0)
 
   // 按年份分组
   const postsByYear = Object.groupBy(posts, (post) => dayjs(post.date).year())
@@ -101,62 +97,62 @@ export default async function PostsPage() {
         }}
       />
       <div className="space-y-12 py-8 sm:py-12">
-      {/* Header */}
-      <section className="space-y-3">
-        <h1 className="text-3xl font-bold sm:text-4xl">{pages.posts.title}</h1>
-        <p className="text-text-secondary">
-          {`${pages.posts.description}，共 ${allPosts.length.toLocaleString('zh-Hans-CN')} 篇，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字，按年份分组展示。`}
-        </p>
-      </section>
-
-      {/* Pinned Posts */}
-      {pinnedPosts.length > 0 && (
-        <section className="space-y-4">
-          <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
-            置顶{' '}
-            <span className="text-text-tertiary text-base font-normal sm:text-lg">
-              ({pinnedPosts.length.toLocaleString('zh-Hans-CN')})
-            </span>
-          </h2>
-          <div className="border-border-tertiary space-y-1 border-l-2 pl-4 sm:pl-6">
-            {pinnedPosts.map((post) => (
-              <PostListItem key={post.slug} post={post} />
-            ))}
-          </div>
+        {/* Header */}
+        <section className="space-y-3">
+          <h1 className="text-3xl font-bold sm:text-4xl">{pages.posts.title}</h1>
+          <p className="text-text-secondary">
+            {`${pages.posts.description}，共 ${allPosts.length.toLocaleString('zh-Hans-CN')} 篇，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字，按年份分组展示。`}
+          </p>
         </section>
-      )}
 
-      {/* Posts by Year */}
-      <section className="space-y-12">
-        {allYears.map((year) => {
-          const yearPosts = postsByYear[year] || []
-          const hasNoPosts = yearPosts.length === 0
-
-          return (
-            <div key={year} className="space-y-4 sm:space-y-6">
-              {/* 年份标题 */}
-              <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
-                <span>{year}</span>
-                <span className="text-text-tertiary/60 mx-1">/</span>
-                <span className="text-text-tertiary">{YEAR_DESC_MAP.get(year)}</span>
-                <span className="text-text-tertiary mx-1 text-base font-normal sm:text-lg">
-                  ({yearPosts.length.toLocaleString('zh-Hans-CN')})
-                </span>
-              </h2>
-              <div className="border-border-tertiary space-y-1 border-l-2 pl-4 sm:pl-6">
-                {hasNoPosts ? (
-                  <p className="text-text-tertiary text-xs italic opacity-60 sm:text-sm">
-                    {getEmptyYearMessage(year)}
-                  </p>
-                ) : (
-                  yearPosts.map((post) => <PostListItem key={post.slug} post={post} />)
-                )}
-              </div>
+        {/* Pinned Posts */}
+        {pinnedPosts.length > 0 && (
+          <section className="space-y-4">
+            <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
+              置顶{' '}
+              <span className="text-text-tertiary text-base font-normal sm:text-lg">
+                ({pinnedPosts.length.toLocaleString('zh-Hans-CN')})
+              </span>
+            </h2>
+            <div className="border-border-tertiary space-y-1 border-l-2 pl-4 sm:pl-6">
+              {pinnedPosts.map((post) => (
+                <PostListItem key={post.slug} post={post} />
+              ))}
             </div>
-          )
-        })}
-      </section>
-    </div>
+          </section>
+        )}
+
+        {/* Posts by Year */}
+        <section className="space-y-12">
+          {allYears.map((year) => {
+            const yearPosts = postsByYear[year] || []
+            const hasNoPosts = yearPosts.length === 0
+
+            return (
+              <div key={year} className="space-y-4 sm:space-y-6">
+                {/* 年份标题 */}
+                <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
+                  <span>{year}</span>
+                  <span className="text-text-tertiary/60 mx-1">/</span>
+                  <span className="text-text-tertiary">{YEAR_DESC_MAP.get(year)}</span>
+                  <span className="text-text-tertiary mx-1 text-base font-normal sm:text-lg">
+                    ({yearPosts.length.toLocaleString('zh-Hans-CN')})
+                  </span>
+                </h2>
+                <div className="border-border-tertiary space-y-1 border-l-2 pl-4 sm:pl-6">
+                  {hasNoPosts ? (
+                    <p className="text-text-tertiary text-xs italic opacity-60 sm:text-sm">
+                      {getEmptyYearMessage(year)}
+                    </p>
+                  ) : (
+                    yearPosts.map((post) => <PostListItem key={post.slug} post={post} />)
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </section>
+      </div>
     </>
   )
 }

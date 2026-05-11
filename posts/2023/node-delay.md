@@ -1,13 +1,14 @@
 ---
 title: '来试试 Node.js 内置的 "delay" 函数'
 date: 2023-10-26
+topic: '前端'
+excerpt: '介绍 Node.js v15+ 内置的 Timers Promises API。详解 setTimeout 的 Promise 版本用法，探讨其相比传统手写延时函数的优势与高级特性。'
 tags:
   - 'Node.js'
   - 'JavaScript'
   - '异步'
   - 'Promise'
   - 'API'
-excerpt: '告别手写 delay 函数！介绍 Node.js v15+ 内置的 Timers Promises API。详解 setTimeout 的 Promise 版本用法，探讨其相比传统手写延时函数的优势与高级特性。'
 ---
 
 ## 前言

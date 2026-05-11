@@ -1,14 +1,16 @@
 ---
 title: '2020 Hackathon React Native 项目总结'
 date: 2020-04-21
+topic: '技术'
 top_image: 'https://i.loli.net/2020/11/21/3XTAsgFaRyBLvOz.png'
+excerpt: '2020 年家园工作室 Hackathon 大赛 React Native 项目复盘。总结从零开始构建同人创作平台 App 的实战经验与踩坑记录。'
+archived: true
 tags:
   - 'React Native'
   - 'Hackathon'
   - 'TypeScript'
   - '移动开发'
   - '项目总结'
-excerpt: '2020 年家园工作室 Hackathon 大赛 React Native 项目复盘。总结从零开始构建同人创作平台 App 的技术选型、路由管理、状态验证等实战经验与踩坑记录。'
 ---
 
 ## 2020 Hackathon 总结（RN 项目）

@@ -1,6 +1,8 @@
 ---
 title: 'webpack 4.x 基础'
 date: 2020-08-20
+topic: '笔记'
+archived: true
 top_image: 'https://i.loli.net/2020/11/21/ePLUKyEQr2NDxko.jpg'
 tags:
   - 'Webpack'
