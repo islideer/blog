@@ -164,6 +164,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Article End */}
         <div className="border-border mt-8 border-t pt-8 sm:mt-16">
           <p className="text-text-tertiary mb-4 text-center text-sm">—— 本文完 ——</p>
+          <p className="text-text-tertiary mx-auto flex justify-center gap-2 text-center text-sm">
+            <ChatIconIcon className="h-5 w-5" />
+            <span>
+              交流讨论、反馈建议，请到
+              <a href="/messages" className="mx-1">
+                话匣子
+              </a>
+              页面留言。
+            </span>
+          </p>
         </div>
 
         {/* Post Like */}
@@ -175,19 +185,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="flex flex-1 truncate px-2 sm:justify-center">
             <PostInfo title={post.title} slug={post.slug} />
           </div>
-        </div>
-
-        <div className="border-border mt-8 border-t pt-8 sm:mt-16">
-          <p className="text-text-tertiary mx-auto flex justify-center gap-2 text-center text-sm">
-            <ChatIconIcon className="h-5 w-5" />
-            <span>
-              交流讨论、反馈建议，请到
-              <a href="/messages" className="mx-1">
-                话匣子
-              </a>
-              页面留言。
-            </span>
-          </p>
         </div>
 
         {/* Recommended Posts */}

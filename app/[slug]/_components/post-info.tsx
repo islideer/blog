@@ -61,7 +61,7 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
         <span className="text-text-tertiary shrink-0">链接</span>
         <span className="text-text-tertiary shrink-0">·</span>
         <div className="flex min-w-0 flex-1 items-center gap-1 sm:gap-2">
-          <code className="text-text-tertiary min-w-0 truncate font-mono text-[11px] break-all">
+          <code className="text-text-secondary min-w-0 truncate font-mono text-[11px] break-all">
             {url}
           </code>
           <button
@@ -82,13 +82,13 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
       <div className="flex items-center gap-1 sm:gap-2">
         <span className="text-text-tertiary shrink-0">版权</span>
         <span className="text-text-tertiary shrink-0">·</span>
-        <span className="text-text-tertiary flex-1">
+        <span className="text-text-secondary flex-1">
           文章以
           <a
             href={siteConfig.copyright.license.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text-secondary hover:text-text-primary mx-1"
+            className="hover:text-text-primary mx-1"
           >
             {siteConfig.copyright.license.name}
           </a>
