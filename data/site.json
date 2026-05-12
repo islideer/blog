@@ -68,6 +68,7 @@
     "google": ""
   },
   "analytics": {
-    "google": "G-YCP5HPQZXN"
+    "google": "G-YCP5HPQZXN",
+    "cloudflare": "3a3386027d4f4a87970abdf089eaa71c"
   }
 }

@@ -1,14 +1,15 @@
 import './globals.css'
 
 import { Header } from '@/components/header'
-import { GoogleAnalytics } from '@next/third-parties/google'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import { siteConfig } from '@/lib/config'
-import { generateCanonicalUrl } from '@/lib/seo'
-import { Analytics } from '@vercel/analytics/next'
 import { Footer } from '@/components/footer'
+import { siteConfig } from '@/lib/config'
 import { ThemeProvider } from '@/components/theme-provider'
 import { ToastProvider } from '@/components/toast-provider'
+import { GoogleAnalytics } from '@next/third-parties/google'
+import { CloudflareAnalytics } from './_components/cloudflare-analytics'
+import { generateCanonicalUrl } from '@/lib/seo'
+import { Analytics as VercelAnalytics } from '@vercel/analytics/next'
+import { SpeedInsights as VercelSpeedInsights } from '@vercel/speed-insights/next'
 
 import type { Metadata, Viewport } from 'next'
 
@@ -116,9 +117,14 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
 
-        <Analytics />
-        <GoogleAnalytics gaId={siteConfig.analytics.google} />
-        <SpeedInsights />
+        {siteConfig.analytics.cloudflare && (
+          <CloudflareAnalytics token={siteConfig.analytics.cloudflare} />
+        )}
+
+        {siteConfig.analytics.google && <GoogleAnalytics gaId={siteConfig.analytics.google} />}
+
+        <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   )
