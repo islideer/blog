@@ -26,7 +26,7 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
   const STATUS_ORDER: Record<string, number> = { pending: 0, offline: 1, lost: 2 }
   const otherFriends = friends
     .filter((f) => f.status && f.status !== 'active' && f.status !== 'archived')
-    .sort((a, b) => (STATUS_ORDER[a.status!] ?? 99) - (STATUS_ORDER[b.status!] ?? 99))
+    .toSorted((a, b) => (STATUS_ORDER[a.status!] ?? 99) - (STATUS_ORDER[b.status!] ?? 99))
   const archivedFriends = friends.filter((f) => f.status === 'archived')
 
   const [shuffledActive, setShuffledActive] = useState(activeFriends)
@@ -141,12 +141,12 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
               <path d="M8 5l8 7-8 7V5z" />
             </svg>
             <span className="text-text-tertiary text-xs font-medium tracking-wide uppercase">
-              已归档
+              已折叠
             </span>
             <span className="text-text-quaternary text-xs">共 {archivedFriends.length} 位</span>
           </summary>
           <p className="text-text-quaternary mt-3 mb-4 text-xs">
-            以下友链因 pending 过久、长期失联或其他原因已归档，不再作为活跃推荐。
+            以下站点因 Pending 过久、网站异常或长期失联等原因被折叠。
           </p>
           <div className="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2">
             {archivedFriends.map((friend) => (
