@@ -1,39 +1,47 @@
 import { countWords } from './word-count.ts'
 
-/**
- * 移除 Markdown 语法标记，保留纯文本内容
- *
- * @param markdown - Markdown 格式的文本
- * @returns 移除 Markdown 语法后的纯文本
- */
-export function stripMarkdown(markdown: string): string {
-  return (
-    markdown
-      // 移除 frontmatter
-      .replace(/^---[\s\S]*?---/m, '')
-      // 移除代码块
-      .replace(/```[\s\S]*?```/g, '')
-      // 移除行内代码
-      .replace(/`[^`]+`/g, '')
-      // 移除图片（必须在链接之前处理）
-      .replace(/!\[([^\]]*)\]\([^)]+\)/g, '')
-      // 移除链接，保留文本
+export interface StripMarkdownOptions {
+  hideCodeBlockContent?: boolean
+  normalizeWhitespace?: boolean
+}
+
+export function stripMarkdown(markdown: string, options: StripMarkdownOptions = {}): string {
+  const { hideCodeBlockContent = false, normalizeWhitespace = false } = options
+  let result = markdown
+      // 移除 frontmatter（^ 不加 m 标志，只匹配字符串开头）
+      .replace(/^---[\s\S]*?---/, '')
+      // fenced 代码块（``` 和 ~~~，反向引用匹配同数量分隔符）
+      .replace(/(`{3,}|~{3,})[^\n]*\n([\s\S]*?)\1/g, hideCodeBlockContent ? '[代码块]' : '$2')
+      // 行内代码：移除标记，保留内容
+      .replace(/`([^`]+)`/g, '$1')
+      // 图片 → [图片]（必须在链接之前处理）
+      .replace(/!\[([^\]]*)\]\([^)]+\)/g, '[图片]')
+      // 链接：移除标记，保留文本
       .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-      // 移除标题标记
+      // 标题标记
       .replace(/#{1,6}\s+/g, '')
-      // 移除强调标记（加粗、斜体、删除线）
+      // 加粗、斜体、删除线
       .replace(/[*_~]{1,2}([^*_~]+)[*_~]{1,2}/g, '$1')
-      // 移除引用标记
+      // 剧透标记 ||text||
+      .replace(/\|\|([^|]+)\|\|/g, '$1')
+      // 任务列表（必须在无序列表之前）
+      .replace(/^[\s]*-\s*\[[x\s]\]\s+/gim, '')
+      // 引用标记
       .replace(/^>\s*/gm, '')
-      // 移除无序列表标记
+      // 无序列表标记
       .replace(/^[-*+]\s+/gm, '')
-      // 移除有序列表标记
+      // 有序列表标记
       .replace(/^\d+\.\s+/gm, '')
-      // 移除水平分割线
+      // 表格分隔行
+      .replace(/^\s*\|?(\s*[:-]+[-| :]*\|)+\s*$/gm, '')
+      // 水平分割线
       .replace(/^[-*_]{3,}$/gm, '')
-      // 移除 HTML 标签
+      // HTML 标签
       .replace(/<[^>]+>/g, '')
-  )
+  if (normalizeWhitespace) {
+    result = result.replace(/\n{3,}/g, '\n\n').trim()
+  }
+  return result
 }
 
 /**
