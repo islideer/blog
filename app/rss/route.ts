@@ -35,6 +35,13 @@ export async function GET() {
   const recentPosts = posts.slice(0, 20)
 
   recentPosts.forEach((post) => {
+    const rawImage = post.topImage || post.images[0]
+    const imageUrl = rawImage
+      ? rawImage.startsWith('http')
+        ? rawImage
+        : `${siteConfig.url}${rawImage}`
+      : undefined
+
     feed.addItem({
       title: post.title,
       id: `${siteConfig.url}/${post.slug}`,
@@ -49,10 +56,10 @@ export async function GET() {
         },
       ],
       date: new Date(post.date),
-      published: new Date(post.date), // 发布日期
+      published: new Date(post.date),
       category: post.tags?.map((tag) => ({ name: tag })) || [],
-      // 添加文章的 GUID，确保唯一性
       guid: `${siteConfig.url}/${post.slug}`,
+      ...(imageUrl ? { image: imageUrl } : {}),
     })
   })
 

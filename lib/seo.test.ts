@@ -96,9 +96,16 @@ describe('SEO Functions', () => {
         date: '2024-01-01',
         excerpt: '这是一篇测试文章',
         content: '这是文章内容 This is the content',
+        topic: '技术',
         tags: ['技术', 'React'],
+        images: [],
+        wordCount: 20,
         author: 'Viki',
         readingTime: 5,
+        draft: false,
+        archived: false,
+        top: false,
+        topImage: undefined,
       }
     })
 
@@ -140,6 +147,7 @@ describe('SEO Functions', () => {
 
     it('应该处理没有 tags 的文章', () => {
       const postWithoutTags = { ...mockPost, tags: undefined }
+      // @ts-expect-error for test
       const schema = generateBlogPostingSchema(postWithoutTags)
 
       expect(schema.keywords).toBeUndefined()
@@ -148,6 +156,7 @@ describe('SEO Functions', () => {
 
     it('应该使用 siteConfig.author.name 作为默认作者', () => {
       const postWithoutAuthor = { ...mockPost, author: undefined }
+      // @ts-expect-error for test
       const schema = generateBlogPostingSchema(postWithoutAuthor)
 
       expect(schema.author.name).toBe('Viki')
@@ -289,8 +298,16 @@ describe('SEO Functions', () => {
         date: '2024-01-01',
         excerpt: '这是一篇测试文章',
         content: '这是文章内容',
+        topic: '技术',
         tags: ['技术', 'React'],
+        images: [],
+        wordCount: 10,
+        author: 'Viki',
         readingTime: 5,
+        draft: false,
+        archived: false,
+        top: false,
+        topImage: undefined,
       }
     })
 
@@ -347,8 +364,16 @@ describe('SEO Functions', () => {
         date: '2024-01-01',
         excerpt: '这是一篇测试文章',
         content: '这是文章内容',
+        topic: '技术',
         tags: ['技术', 'React'],
+        images: [],
+        wordCount: 10,
+        author: 'Viki',
         readingTime: 5,
+        draft: false,
+        archived: false,
+        top: false,
+        topImage: undefined,
       }
     })
 
@@ -384,7 +409,16 @@ describe('SEO Functions', () => {
         date: '2024-01-01',
         excerpt: 'Test',
         content: 'Test',
+        topic: '生活',
+        tags: [],
+        images: [],
+        wordCount: 4,
+        author: '',
         readingTime: 1,
+        draft: false,
+        archived: false,
+        top: false,
+        topImage: undefined,
       }
 
       const baseUrl = 'https://blog.viki.moe'
@@ -401,7 +435,16 @@ describe('SEO Functions', () => {
         date: '2024-01-01',
         excerpt: 'Test',
         content: 'Test',
+        topic: '生活',
+        tags: [],
+        images: [],
+        wordCount: 4,
+        author: '',
         readingTime: 1,
+        draft: false,
+        archived: false,
+        top: false,
+        topImage: undefined,
       }
 
       expect(generateOrganizationSchema()['@context']).toBe('https://schema.org')

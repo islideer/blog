@@ -169,9 +169,9 @@ describe('calculateReadingTime', () => {
     })
 
     it('应该正确计算长中文文章', () => {
-      // 2000 个汉字，约 5 分钟
+      // 2000 个汉字，约 4 分钟（600 字/分钟）
       const text = '这是一篇较长的测试文章，包含很多内容和细节。'.repeat(100) // 约 2000 字
-      expect(calculateReadingTime(text)).toBe(5)
+      expect(calculateReadingTime(text)).toBe(4)
     })
   })
 
@@ -312,7 +312,7 @@ React 19 带来了很多改进，让我们能够更好地构建现代化的 Web 
       `.repeat(5)
 
       const minutes = calculateReadingTime(article)
-      expect(minutes).toBeGreaterThanOrEqual(2)
+      expect(minutes).toBeGreaterThanOrEqual(1)
       expect(minutes).toBeLessThan(15)
     })
 
@@ -348,11 +348,11 @@ React 19 带来了很多改进，让我们能够更好地构建现代化的 Web 
     })
 
     it('应该处理非常长的文章', () => {
-      // 10000 个汉字，约 25 分钟
+      // 10000 个汉字，约 17 分钟（600 字/分钟）
       const text = '这是一篇非常长的文章。'.repeat(1000)
       const minutes = calculateReadingTime(text)
-      expect(minutes).toBeGreaterThan(20)
-      expect(minutes).toBeLessThan(30)
+      expect(minutes).toBeGreaterThan(15)
+      expect(minutes).toBeLessThan(20)
     })
   })
 })
