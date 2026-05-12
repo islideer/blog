@@ -47,6 +47,7 @@ const processor = unified()
       ],
       video: [
         ...(defaultSchema.attributes?.video || []),
+        ['loading'],
         ['controls'],
         ['src'],
         ['style'],
