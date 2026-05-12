@@ -466,7 +466,7 @@ Deno 处于 [v2 版本](https://deno.com/blog/v2.0) 有一阵子了。据我所�
 
 ### AI
 
-可能在这儿顺便提一下 AI 最合适，鉴于 TypeScript 在开发者实际使用和可用于开源大模型训练两方面的极端流行，如今的 AI 写代码，尤其是写 TypeScript 代码，做得非常出色。他们提到 92% 的开发者在某种程度上用 AI 写代码，这个增长速度惊人，无疑是当下开发领域最大的故事。
+可能在这儿顺便提一下 AI 最合适，鉴于 TypeScript 在「开发者实际使用」和「可用于开源大模型训练」两方面的极端流行，如今的 AI 写代码，尤其是写 TypeScript 代码，做得非常出色。他们提到 92% 的开发者在某种程度上用 AI 写代码，增长速度惊人，无疑是当下开发领域最大的故事。
 
 ## 测试
 
@@ -480,7 +480,7 @@ Deno 处于 [v2 版本](https://deno.com/blog/v2.0) 有一阵子了。据我所�
 
 如果你频繁使用 AI 来辅助开发你的 Next.js 网站，值得注意他们 [现在有一个 MCP 服务器了](https://nextjs.org/docs/app/guides/mcp)。这基本上意味着，一旦连上它，你的 AI 在研究你的网站时会变得聪明得多。
 
-它也是基于 React 19，这意味着有了 `<ViewTransition>` 支持，我们 [之前在这里做过探讨](https://frontendmasters.com/blog/reacts-viewtransition-element/)。
+它也是基于 React 19，这意味着带来了 `<ViewTransition>` 支持，[之前在这里做过探讨](https://frontendmasters.com/blog/reacts-viewtransition-element/)。
 
 ### Remix / React Router
 
@@ -506,7 +506,7 @@ Remix 动荡的余波可能让 [TanStack 宇宙](https://tanstack.com/) 获益�
 
 ## **npm**
 
-[npm](https://www.npmjs.com/) 领域似乎没什么大事发生。距离微软/GitHub 收购它已经过去六年了，看起来运行良好。倒是 GitHub 自身在 [保证正常运行时间上有点挣扎](https://damrnelson.github.io/github-historical-uptime/)。
+[npm](https://www.npmjs.com/) 领域似乎没什么大事发生。距离微软 / GitHub 收购它已经过去六年了，看起来运行良好。倒是 GitHub 自身在 [保证正常运行时间上有点挣扎](https://damrnelson.github.io/github-historical-uptime/)。
 
 而 npm 这边不太妙的是供应链事件，比如 [s1ngularity](https://nx.dev/blog/s1ngularity-postmortem)，它窃取了人们的凭证/令牌/配置文件并公然贴到 GitHub 上 😳。然后是 [debug/chalk](https://www.wiz.io/blog/widespread-npm-supply-chain-attack-breaking-down-impact-scope-across-debug-chalk) 事件，恶意的包更新被推送出去，可以把加密货币交易重定向到某个坏蛋的钱包。再然后是 Shai-Hulud 蠕虫（抱歉，是**多条**蠕虫），某种自复制窃取凭证的恶意软件，其 2.0 版本还会覆盖/删除用户主目录下的每一个文件。那个事件波及了 796 个 npm 包，累计下载量超过 2000 万次，所以…… 哇哦。从安全角度看，npm 的这一年不算好。
 
