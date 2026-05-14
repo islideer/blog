@@ -23,7 +23,7 @@ tags:
 
 ---
 
-我们会介绍 JavaScript 语言的新东西，但作为天天都跟它打交道的人，我们并不只关乎语言本身，还会延伸到运行时、框架、库和工具链。那我们直接开始吧，反正你大概率已经往下翻了。
+我们会介绍 JavaScript 语言的新东西，但作为它的从业者，我们并不只关乎语言本身，还会延伸到运行时、框架、库和工具链。那我们直接开始吧，反正你大概率已经往下翻了。
 
 ## 语言中的新功能
 
@@ -31,17 +31,17 @@ JavaScript 每年发布一个新版本，要我说，这种做法真不错！
 
 ### ECMAScript 2025
 
-最新版是 **ECMAScript 2025**，于 2025 年 6 月发布，[该版本的全部规范在此](https://tc39.es/ecma262/2025/)。
+最新版是 **ECMAScript 2025**，于 2025 年 6 月发布，[该版本规范全文可在这里查看](https://tc39.es/ecma262/2025/)。
 
 #### 迭代器辅助方法（Iterator Helpers）
 
-现在迭代器上直接有了 `.map()`、`.filter()`、`.take()`、`.drop()` 等方法，并且采用惰性求值。说实话，对我这种前端开发来说，这感觉有点小众。我们本来就能对数组进行映射操作，这又有什么大不了的？但我确实理解性能方面的价值，这就是其中一个点。
+现在迭代器上可以直接访问 `.map()`、`.filter()`、`.take()`、`.drop()` 等方法，并且采用惰性求值。说实话，对我这种前端开发来说，这感觉有点小众。我们本来就能对数组进行映射操作，这又有什么大不了的？但我确实理解性能方面的价值，这就是其中一个点。
 
 ```javascript
 const result = array
   .map(x => x * 2)      // 在内存中创建一个新数组
-  .filter(x => x > 10)  // ... 又一个新数组
-  .slice(0, 3);         // ... 再来一个
+  .filter(x => x > 10)  // 又一个新数组
+  .slice(0, 3);         // 再来一个
 ```
 
 所以说这样「慢」而且「占用内存」，特别是当数组非常大、你做的操作很「重」的时候。流行的新写法是这样：
@@ -129,21 +129,21 @@ const goodRe = new RegExp(RegExp.escape(query), "g");
 ```javascript
 // 一个可能是异步，也可能同步抛出错误的函数
 function loadUser(id) {
-  if (!id) throw new Error("No ID");          // 同步抛出错误
-  return fetch(`/api/users/${id}`);           // 异步
+  if (!id) throw new Error("No ID");  // 同步抛出错误
+  return fetch(`/api/users/${id}`);   // 异步
 }
 
 // ❌ 之前 —— 两条独立的错误处理路径
 let p;
 try {
-  p = loadUser(id);                           // 在这里捕获同步抛出的错误……
+  p = loadUser(id);                   // 在这里捕获同步抛出的错误
 } catch (e) { handleError(e); }
-p?.catch(e => handleError(e));                // ……再在这里捕获异步 reject
+p?.catch(e => handleError(e));        // 再在这里捕获异步 reject
 
 // ✅ ES2025 —— 一行代码，一个 .catch() 搞定
 Promise.try(() => loadUser(id))
   .then(user  => render(user))
-  .catch(err  => showError(err));             // 捕获两种错误
+  .catch(err  => showError(err));     // 捕获两种错误
 ```
 
 我再给你指路到一个 [Claude Code 做的演示](https://codepen.io/editor/chriscoyier/pen/019cc8dc-9bde-7597-9b57-d91d6ef0a6c2)，它在展示这个概念上做得意外地好。
@@ -158,7 +158,7 @@ import data from "./file.json" with { type: 'json' }
 
 这里的 `with` 部分加上后面这个对象，就是所谓的「导入属性」，它还有一些别的妙用，我们待会儿会说到。
 
-JSON 导入在我看来就是简洁好看，省下一两行代码，但公平地讲，它也有一些 Jake Archibald 在 [《导入 JSON vs 获取 JSON》](https://jakearchibald.com/2025/importing-vs-fetching-json/) 中指出的显著缺点。其中一个大问题：如果导入失败，「它会把整个模块依赖图都搞崩」，这，呃，非常糟糕。你可以改用动态的 `import()` 来捕获失败……
+JSON 导入在我看来就是简洁好看，省下一两行代码，但公平地讲，它也有一些 Jake Archibald 在 [《导入 JSON vs 获取 JSON》](https://jakearchibald.com/2025/importing-vs-fetching-json/) 中指出的显著缺点。其中一个大问题：如果导入失败，「它会把整个模块依赖图都搞崩」，这，呃，非常糟糕。你可以改用动态的 `import()` 来捕获失败。
 
 ```javascript
 try {
@@ -189,11 +189,11 @@ class MyComponent extends HTMLElement {
     const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.adoptedStyleSheets = [sheet];
   }
-  
-  ...
+  // ...
+}
 ```
 
-* * *
+---
 
 这当然不是 ES2025 的全部内容，还有很多专门介绍这些的文章。我觉得 Matthew Tyson 为 InfoWorld 写的 [《ECMAScript 2025：JavaScript 的最佳新特性》](https://www.infoworld.com/article/4021944/ecmascript-2025-the-best-new-features-in-javascript.html) 挺有帮助。里面提到 `Float16Array` 之类的东西，稍微超出我的知识范围，不过大体上是在你知道有用的时候，用精度换内存占用。
 
@@ -211,6 +211,7 @@ class MyComponent extends HTMLElement {
 
 ```javascript
 const now = Temporal.Now.zonedDateTimeISO("America/New_York");
+
 // 编程格式的日期
 console.log(now.toString());
 
@@ -233,9 +234,9 @@ Temporal 能做一百万件事，但再举几个以前非常糟心的例子。
 比如我们给一月的最后一天「加一个月」，以前会得到很离谱的结果：
 
 ```javascript
-const date = new Date(2026, 0, 31); // 1月31日
-date.setMonth(date.getMonth() + 1); // 「加一个月」
-console.log(date.toDateString()); // Sun Mar 03 2026 ❌ 😬
+const date = new Date(2026, 0, 31); // 1 月 31 日
+date.setMonth(date.getMonth() + 1); // 加一个月
+console.log(date.toDateString()); // 3 月 3 日 ❌ 😬
 ```
 
 但用上了可爱的 Temporal API，就没问题了：
@@ -246,14 +247,14 @@ const feb = jan31.add({ months: 1 });
 console.log(feb.toString()); // 2026-02-28 ✅
 ```
 
-另外，现在进行比较操作…… 结果也是正确的了。
+另外，现在进行比较操作，结果也是正确的了。
 
 ```javascript
 const a = Temporal.Duration.from({ hours: 25 });
 const b = Temporal.Duration.from({ days: 1 });
 
 const cmp = Temporal.Duration.compare(a, b, { relativeTo: Temporal.Now.plainDateISO() });
-console.log(cmp); // 1  (25h 大于 1 天) ✅
+console.log(cmp); // 1  (25 小时大于 1 天) ✅
 ```
 
 #### 显式资源管理（Explicit Resource Management）
@@ -294,7 +295,7 @@ async function runJob() {
   const file = stack.use(new FileHandle("output.txt"));
   const tmpDir = stack.defer(async () => removeTempDir("/tmp/job"));
 
-  // 干活……
+  // 使用 db、file 和 tmpDir 做一些工作
   await file.write(await db.query("SELECT * FROM jobs"));
 
   // 三个资源都会在这里按逆序清理，即使有异常抛出也一样
@@ -366,9 +367,9 @@ console.log(bytes.toHex());
 
 但 React 19 是一次相当大的更新，带来了他们所称的 [「RSC」（React 服务器组件）](https://react.dev/reference/rsc/server-components)、[React 编译器](https://react.dev/learn/react-compiler)以及 [服务器操作](https://18.react.dev/reference/rsc/server-actions)。简单概括如下：
 
-*   **RSC**：如果你能部署一个 Node.js 服务器，**或许，只是或许**，有些原本会打包进客户端 JavaScript 包袱里的组件可以省去，这部分工作改在服务器上完成，只传回需要的数据。
-*   **服务器操作**：同样在你有可用 Node.js 服务器的前提下，这能让你调用专门在服务器上存在的函数。表单处理是典型例子。
-*   **编译器**：有些性能优化传统上得靠开发者自己琢磨。你是 `useMemo` 高手吗？反正我不是。把你的 React 代码先用这个编译器过一遍，它就能自动帮你做这些优化。稍微增加一点构建复杂度，换来一点性能收益。
+- **RSC**：如果你能部署一个 Node.js 服务器，**或许，只是或许**，有些原本会打包进客户端 JavaScript 包袱里的组件可以省去，这部分工作改在服务器上完成，只传回需要的数据。
+- **服务器操作**：同样在你有可用 Node.js 服务器的前提下，这能让你调用专门在服务器上存在的函数。表单处理是典型例子。
+- **编译器**：有些性能优化传统上得靠开发者自己琢磨。你是 `useMemo` 高手吗？反正我不是。把你的 React 代码先用这个编译器过一遍，它就能自动帮你做这些优化。稍微增加一点构建复杂度，换来一点性能收益。
 
 自然还有一大堆小更新，但粗略来说，这些是你要知道存在的大东西。[React Native 更新到了 0.83](https://reactnative.dev/blog/2025/12/10/react-native-0.83)，我对它了解甚少，抱歉，但我注意到他们（算是）宣布了 1.0 版本，在经历了十年的开发历程后，所有参与其中的人肯定都感觉不错。我找不到这个链接，我想这个消息是在 React Universe 大会上口头公布的一个里程碑。
 
@@ -400,7 +401,7 @@ node my-script.ts
 
 从 Node.js 22.18.0 版本起这已可用，不再需要 `--experimental-strip-types` 标志。注意它依然是 **剥离** 类型，意味着如果 TypeScript 代码存在真正的问题，它不会帮你发出警告。
 
-Node 领域最大的新闻往往是些简单但关键的、基础的、重要的事情，比如安全性、性能的提升，以及向浏览器 JavaScript API 靠拢。
+Node.js 领域最大的新闻往往是些简单但关键的、基础的、重要的事情，比如安全性、性能的提升，以及向浏览器 JavaScript API 靠拢。
 
 就个人而言，我对 Node.js 的进展相当满意。我曾参与过一些项目，把它们切换到了 Node.js 内置的测试运行器，减少依赖的感觉很不错。我也很赞赏 Node.js 在 [权限模型](https://nodejs.org/api/permissions.html#permissions) 上的努力，这让处理不可信代码的场景变得更实用了些。
 
@@ -411,7 +412,7 @@ Node 领域最大的新闻往往是些简单但关键的、基础的、重要的
 ```bash
 bun './**/*.html'
 ```
-代码语言：Bash (bash)
+
 这同样完成了所有的处理和打包工作，使 Bun 在这个场景下某种程度上成为了 Vite 的替代品。
 
 或许对 Bun 最大的新闻是，[Anthropic（例如 Claude 的缔造者）在去年晚些时候收购了 Bun](https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone)。我认为普遍的观感是这对 Bun 是件好事，给它提供了一个稳定且资金充足的归宿。
@@ -504,11 +505,11 @@ Remix 动荡的余波可能让 [TanStack 宇宙](https://tanstack.com/) 获益�
 
 [Astro 的最新版本是 6.0](https://astro.build/blog/astro-6/)，带来了许多成熟的功能，比如自定义开发时使用的运行时、内容安全策略，以及一个实验性的更快的编译器。紧随其后[又发了 6.1 版本](https://astro.build/blog/astro-610/) ，带来了诸多细小贴心的配置优化等等，证明了他们有多致力于成为一个好用的框架。
 
-## **npm**
+## npm
 
 [npm](https://www.npmjs.com/) 领域似乎没什么大事发生。距离微软 / GitHub 收购它已经过去六年了，看起来运行良好。倒是 GitHub 自身在 [保证正常运行时间上有点挣扎](https://damrnelson.github.io/github-historical-uptime/)。
 
-而 npm 这边不太妙的是供应链事件，比如 [s1ngularity](https://nx.dev/blog/s1ngularity-postmortem)，它窃取了人们的凭证/令牌/配置文件并公然贴到 GitHub 上 😳。然后是 [debug/chalk](https://www.wiz.io/blog/widespread-npm-supply-chain-attack-breaking-down-impact-scope-across-debug-chalk) 事件，恶意的包更新被推送出去，可以把加密货币交易重定向到某个坏蛋的钱包。再然后是 Shai-Hulud 蠕虫（抱歉，是**多条**蠕虫），某种自复制窃取凭证的恶意软件，其 2.0 版本还会覆盖/删除用户主目录下的每一个文件。那个事件波及了 796 个 npm 包，累计下载量超过 2000 万次，所以…… 哇哦。从安全角度看，npm 的这一年不算好。
+而 npm 这边不太妙的是供应链事件，比如 [s1ngularity](https://nx.dev/blog/s1ngularity-postmortem)，它窃取了人们的凭证/令牌/配置文件并公然贴到 GitHub 上 😳。然后是 [debug/chalk](https://www.wiz.io/blog/widespread-npm-supply-chain-attack-breaking-down-impact-scope-across-debug-chalk) 事件，恶意的包更新被推送出去，可以把加密货币交易重定向到某个坏蛋的钱包。再然后是 Shai-Hulud 蠕虫（抱歉，是 **多条** 蠕虫），某种自复制窃取凭证的恶意软件，其 2.0 版本还会覆盖/删除用户主目录下的每一个文件。那个事件波及了 796 个 npm 包，累计下载量超过 2000 万次，所以…… 哇哦。从安全角度看，npm 的这一年不算好。
 
 如果你有正经的生产应用在使用 npm，或许可以了解一下 [Socket](https://socket.dev/) 这样工具来寻求保护。
 
