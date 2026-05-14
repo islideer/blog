@@ -27,38 +27,44 @@ export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourcePr
           if (categoryProjects.length === 0) return null
 
           return (
-            <div key={category} className="space-y-4">
+            <div
+              key={category}
+              className="border-border-tertiary space-y-4 border-l-2 pl-2 sm:pl-4"
+            >
               <h3 className="text-text-primary text-sm font-medium">{categoryNames[category]}</h3>
               <ul className="space-y-4 sm:space-y-3">
                 {categoryProjects.map((project) => (
                   <li key={project.name} className="text-text-secondary">
-                    <div className="inline-flex flex-wrap items-baseline gap-2">
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-text-primary font-medium"
-                      >
-                        {project.name}
-                      </a>
-                      {project.status === 'archived' && (
-                        <span className="text-text-tertiary bg-bg-secondary rounded-sm px-1.5 py-0.5 text-xs leading-none">
-                          已归档
-                        </span>
-                      )}
-                      {project.stars && (
-                        <span className="text-text-tertiary text-xs">★ {project.stars}</span>
-                      )}
-                      {project.homepage && (
+                    <div className="inline-flex flex-col flex-wrap gap-3 sm:flex-row sm:items-center">
+                      <div className="inline-flex items-center gap-2">
                         <a
-                          href={project.homepage}
+                          href={project.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-text-tertiary hover:text-text-secondary text-xs"
+                          className="hover:text-text-primary font-medium"
                         >
-                          主页
+                          {project.name}
                         </a>
-                      )}
+                        {project.status === 'archived' && (
+                          <span className="text-text-tertiary bg-bg-secondary rounded-sm px-1.5 py-0.5 text-xs leading-none">
+                            已归档
+                          </span>
+                        )}
+                        {project.stars && (
+                          <span className="text-text-tertiary text-xs">★ {project.stars}</span>
+                        )}
+                        {project.homepage && (
+                          <a
+                            href={project.homepage}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-text-tertiary hover:text-text-secondary text-xs"
+                          >
+                            主页
+                          </a>
+                        )}
+                      </div>
+
                       <span className="text-text-tertiary text-sm">{project.description}</span>
                     </div>
                   </li>

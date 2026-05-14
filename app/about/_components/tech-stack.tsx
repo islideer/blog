@@ -21,7 +21,7 @@ export function AboutTechStack({ techStacks: stacks, id, title }: AboutTechStack
       </h2>
       <div className="space-y-8">
         {(Object.keys(stacks) as Array<keyof TechStackData>).map((category) => (
-          <div key={category} className="space-y-3">
+          <div key={category} className="border-border-tertiary space-y-3 border-l-2 pl-2 sm:pl-4">
             <h3 className="text-text-primary text-sm font-medium">{categoryNames[category]}</h3>
             <ul className="space-y-2">
               {stacks[category].map((tech) => (

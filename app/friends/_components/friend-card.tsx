@@ -8,36 +8,36 @@ interface FriendCardProps {
   friend: Friend
 }
 
-const STATUS_CONFIG: Record<
-  Exclude<FriendStatus, 'active' | 'archived'>,
-  { label: string; className: string }
-> = {
+const STATUS_CONFIG: Record<FriendStatus, { label: string }> = {
+  archived: {
+    label: '已归档',
+  },
+  active: {
+    label: '活跃',
+  },
   pending: {
-    label: '等待中',
-    className: 'text-text-tertiary border-border',
+    label: '等待确认',
   },
   offline: {
     label: '访问异常',
-    className: 'text-text-tertiary border-border',
   },
   lost: {
     label: '已失联',
-    className: 'text-text-tertiary border-border',
   },
 }
 
 export function FriendCard({ friend }: FriendCardProps) {
   const status = friend.status ?? 'active'
-  const isInactive = status !== 'active'
+  const isActive = status === 'active'
   const isArchived = status === 'archived'
-  const statusConfig = isInactive && !isArchived ? STATUS_CONFIG[status] : null
+  const statusConfig = isActive || isArchived ? null : STATUS_CONFIG[status]
 
   return (
     <div
       id={friend.id}
       className={cn(
         'group relative flex items-start gap-3 opacity-80 transition-opacity hover:opacity-100',
-        isInactive && 'grayscale transition-[opacity,filter] hover:grayscale-0',
+        !isActive && 'grayscale transition-[opacity,filter] hover:grayscale-0',
       )}
     >
       <a
@@ -75,8 +75,7 @@ export function FriendCard({ friend }: FriendCardProps) {
           {statusConfig && (
             <span
               className={cn(
-                'relative z-10 inline-flex shrink-0 items-center gap-1 rounded border px-1.5 py-0.5 text-[10px] leading-none font-medium',
-                statusConfig.className,
+                'text-text-tertiary border-border relative z-10 inline-flex shrink-0 items-center gap-1 rounded border px-1.5 py-0.5 text-[10px] leading-none font-medium',
               )}
             >
               {statusConfig.label}

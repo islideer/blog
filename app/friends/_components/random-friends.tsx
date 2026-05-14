@@ -47,10 +47,10 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
   }
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-6">
       {/* 正常友链组（默认展开） */}
       <details className="group/active" open>
-        <summary className="border-border-tertiary flex cursor-pointer list-none items-center gap-3 border-t pt-6 select-none">
+        <summary className="border-border flex cursor-pointer list-none items-center gap-3 border-t pt-6 select-none">
           <svg
             className="text-text-quaternary h-3 w-3 transition-transform group-open/active:rotate-90"
             viewBox="0 0 24 24"
@@ -108,7 +108,7 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
       {/* 其他状态组（默认展开） */}
       {otherFriends.length > 0 && (
         <details className="group/other" open>
-          <summary className="border-border-tertiary flex cursor-pointer list-none items-center gap-3 border-t pt-6 select-none">
+          <summary className="border-border flex cursor-pointer list-none items-center gap-3 border-t pt-6 select-none">
             <svg
               className="text-text-quaternary h-3 w-3 transition-transform group-open/other:rotate-90"
               viewBox="0 0 24 24"
@@ -132,7 +132,7 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
       {/* 归档组（默认折叠） */}
       {archivedFriends.length > 0 && (
         <details className="group/archived">
-          <summary className="border-border-tertiary flex cursor-pointer list-none items-center gap-3 border-t pt-6 select-none">
+          <summary className="border-border flex cursor-pointer list-none items-center gap-3 border-t pt-6 select-none">
             <svg
               className="text-text-quaternary h-3 w-3 transition-transform group-open/archived:rotate-90"
               viewBox="0 0 24 24"
@@ -146,7 +146,7 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
             <span className="text-text-quaternary text-xs">共 {archivedFriends.length} 位</span>
           </summary>
           <p className="text-text-quaternary mt-3 mb-4 text-xs">
-            以下站点因 Pending 过久、网站异常或长期失联等原因被折叠。
+            以下站点因友链确认较久、网站长期异常或失联，已暂时折叠。
           </p>
           <div className="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2">
             {archivedFriends.map((friend) => (

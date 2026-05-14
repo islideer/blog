@@ -8,7 +8,7 @@ interface AboutContactProps {
 
 export function AboutContact({ id, links, title }: AboutContactProps) {
   return (
-    <section className="space-y-6">
+    <section className="border-border-tertiary space-y-6 border-l-2 pl-2 sm:pl-4">
       <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
         {title}
       </h2>

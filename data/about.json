@@ -21,6 +21,7 @@
       "libraries": [
         {
           "name": "mioki",
+          "homepage": "https://mioki.viki.moe/",
           "url": "https://github.com/vikiboss/mioki",
           "description": "基于 NapCat 的 OneBot 框架，KiviBot 精神继任者",
           "status": "active"
@@ -28,7 +29,7 @@
         {
           "name": "smee-it",
           "url": "https://github.com/vikiboss/smee-it",
-          "description": "轻量级 smee.io 客户端，通过 SSE 本地接收 webhooks",
+          "description": "轻量 smee.io 客户端，通过 SSE 本地接收 Webhooks",
           "status": "active"
         },
         {
