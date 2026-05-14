@@ -69,7 +69,11 @@ const processor = unified()
   })
   .use(rehypeSlug)
   .use(rehypeAutolinkHeadings, {
-    behavior: 'prepend',
+    behavior: 'append',
+    content: {
+      type: 'text',
+      value: '#',
+    },
     properties: {
       className: ['heading-anchor'],
       ariaHidden: true,

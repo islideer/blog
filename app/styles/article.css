@@ -104,32 +104,21 @@
 
 /* Heading Anchors */
 .prose .heading-anchor {
-  position: absolute;
-  left: -1.2em;
-  padding-right: 0.2em;
+  padding-left: 0.48em;
   opacity: 0;
-  text-decoration: none;
   color: var(--color-text-tertiary);
-  font-weight: 400;
   user-select: none;
+  text-decoration: none;
   transition: opacity var(--duration-fast) ease;
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-  top: 0;
 }
 
 .prose h1:hover .heading-anchor,
 .prose h2:hover .heading-anchor,
 .prose h3:hover .heading-anchor,
-.prose h4:hover .heading-anchor {
+.prose h4:hover .heading-anchor,
+.prose h5:hover .heading-anchor {
   opacity: 1;
 }
-
-.prose .heading-anchor::before {
-  content: '#';
-}
-
 .prose .heading-anchor:hover {
   text-decoration: underline;
   color: var(--color-text-primary);
@@ -497,7 +486,10 @@ figure[data-rehype-pretty-code-figure] > pre[data-language]:not([data-language='
   border: none;
   cursor: pointer;
   opacity: 0;
-  transition: color var(--duration-fast), opacity var(--duration-fast), transform var(--duration-fast);
+  transition:
+    color var(--duration-fast),
+    opacity var(--duration-fast),
+    transform var(--duration-fast);
 
   [data-icon='check'] {
     display: none;
