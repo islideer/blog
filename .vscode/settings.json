@@ -7,7 +7,6 @@
     "strings": "on"
   },
   "css.lint.unknownAtRules": "ignore",
-  "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
     "Chiikawa",
     "eventsource",
@@ -17,5 +16,6 @@
     "stattrak",
     "Travellings",
     "unzoom"
-  ]
+  ],
+  "markdown.validate.enabled": true
 }

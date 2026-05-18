@@ -97,7 +97,7 @@ export async function getAllPosts(
 export async function getAllPosts(
   options: GetAllPostsOptions = {},
 ): Promise<(PostMetadata | Post)[]> {
-  const { withContent = false } = options
+  const { withContent = false, includeDrafts = false } = options
   const markdownFiles = await getAllMarkdownFiles(postsDirectory)
   const imgRegExp = /!\[[^\]]*]\(\s*<?([^>\s)]+(?:\)[^>\s)]*)?)>?(?:\s+["'(].*?["')])?\s*\)/g
 
@@ -133,7 +133,7 @@ export async function getAllPosts(
   )
 
   // 开发模式下显示所有文章（包括草稿），生产环境下过滤草稿。归档文章统一不显示。
-  const filteredPosts = isDev
+  const filteredPosts = isDev || includeDrafts
     ? allPostsData.filter((post) => !post.archived)
     : allPostsData.filter((post) => !post.draft && !post.archived)
 
