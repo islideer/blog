@@ -63,7 +63,7 @@ async function getAllSearchItems(): Promise<SearchIndexItem[]> {
   const items: SearchIndexItem[] = []
 
   // 文章
-  const posts = await getAllPosts(true)
+  const posts = await getAllPosts({ withContent: true })
 
   for (const post of posts) {
     items.push({

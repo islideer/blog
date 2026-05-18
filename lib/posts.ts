@@ -73,9 +73,31 @@ async function getAllMarkdownFiles(dir: string, baseDir: string = dir): Promise<
   return files
 }
 
-export async function getAllPosts(withContent: true): Promise<Post[]>
-export async function getAllPosts(withContent?: false): Promise<PostMetadata[]>
-export async function getAllPosts(withContent = false): Promise<(PostMetadata | Post)[]> {
+interface GetAllPostsOptions {
+  /**
+   * 是否包含文章内容（content 字段）。默认为 false，仅返回元数据（PostMetadata）。设置为 true 时返回完整文章数据（Post），包含 content 字段。
+   *
+   * @default false
+   */
+  withContent?: boolean
+  /**
+   * 是否包含草稿文章。默认为 false，生产环境下会过滤掉 draft: true 的文章。设置为 true 时会包含草稿文章（仅开发环境有效，生产环境始终过滤草稿）。
+   *
+   * @default false
+   */
+  includeDrafts?: boolean
+}
+
+export async function getAllPosts(
+  options: GetAllPostsOptions & { withContent: true },
+): Promise<Post[]>
+export async function getAllPosts(
+  options?: GetAllPostsOptions & { withContent?: false },
+): Promise<PostMetadata[]>
+export async function getAllPosts(
+  options: GetAllPostsOptions = {},
+): Promise<(PostMetadata | Post)[]> {
+  const { withContent = false } = options
   const markdownFiles = await getAllMarkdownFiles(postsDirectory)
   const imgRegExp = /!\[[^\]]*]\(\s*<?([^>\s)]+(?:\)[^>\s)]*)?)>?(?:\s+["'(].*?["')])?\s*\)/g
 
@@ -119,7 +141,7 @@ export async function getAllPosts(withContent = false): Promise<(PostMetadata | 
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
-  const allPosts = await getAllPosts(true)
+  const allPosts = await getAllPosts({ withContent: true, includeDrafts: true })
   const post = allPosts.find((p) => p.slug === slug)
   return post || null
 }
