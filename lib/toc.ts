@@ -21,8 +21,8 @@ export function extractHeadings(container: HTMLElement): TocHeading[] {
 
   headingElements.forEach((heading) => {
     const id = heading.id
-    // 移除 # 锚点符号，只保留文本内容
-    const text = heading.textContent?.replace(/^#\s*/, '').trim() || ''
+    // 移除收尾可能存在的潜在 # 锚点符号，只保留文本内容
+    const text = heading.textContent?.replace(/^#\s*|\s*#$/, '').trim() || ''
     const level = parseInt(heading.tagName[1], 10)
 
     if (id && text) {
