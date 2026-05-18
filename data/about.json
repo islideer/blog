@@ -20,6 +20,12 @@
     "data": {
       "libraries": [
         {
+          "name": "bark-it",
+          "url": "https://github.com/vikiboss/bark-it",
+          "description": "Bark SDK for TypeScript，无需服务端，直连 Apple 推送服务",
+          "status": "active"
+        },
+        {
           "name": "mioki",
           "homepage": "https://mioki.viki.moe/",
           "url": "https://github.com/vikiboss/mioki",

@@ -1,15 +1,62 @@
 # Viki 写东西的地方
 
-> Viki 的个人博客，记录前端开发技术与生活点滴。
+> 生活需要记录。Viki 的个人博客，记录前端开发技术与生活点滴。
 
-## 关于作者
+## 文章
 
-Viki，Web 前端开发，开源爱好者。主要使用 TypeScript、React、Next.js 技术栈，喜欢通过代码把奇思妙想变成现实。同时也是影视、音乐爱好者和电子游戏玩家。
+- [闪击苏州：走进课本里的江南水乡](/suzhou-journey) (2026-05-18) #生活
+- [[译] 2026 年 JavaScript 与前端生态综述](/translation-javascript-in-2026) (2026-05-12) #前端
+- [五一川渝美食行：走走停停，尝遍烟火气与山城夜色](/chuanyu-journey) (2026-05-07) #生活
+- [青岛漫游生日篇：海浪、海风、落日与晚霞](/qingdao-journey) (2026-04-08) #生活
+- [每月更新丨免费领网易云音乐、QQ 音乐会员体验卡](/music-vip-share) (2026-03-18) #生活
+- [你不知道的 Chrome DevTools](/devtools-tips) (2026-02-26) #技术
+- [2026 公司年会小记：依旧分母，明年再来](/annual-party-2026) (2026-01-30) #生活
+- [[译] 浏览器 User Agent 字符串的历史](/translation-ua-history) (2026-01-29) #技术
+- [Windows 11 浏览器滚动时部分区域不更新的解决方案](/win11-screen-stuck) (2026-01-18) #技术
+- [建设博客过程中的一些副产物，敏感肌也能用！](/blog-goodies) (2026-01-15) #技术
+- [中国古代文化常识速查清单（全）](/classic-notes) (2026-01-07) #笔记
+- [GitHub 语言统计又双叒叕抽风？手把手教你驯服](/github-linguist) (2026-01-05) #技术
+- [我写了一个 CS2 Major 竞猜在线抄作业项目](/major-winner) (2025-12-08) #生活
+- [你也许并不需要那么多 npm 包：Node.js 现代化之路](/modern-nodejs) (2025-12-02) #前端
+- [使用 smee-it 解决本地接收 GitHub Webhook 的难题](/smee-it) (2025-11-28) #技术
+- [记一次由 TypeScript 配置引发的运行时逻辑异常](/ts-class-fields) (2025-11-26) #前端
+- [博客重写记：当 xLog 落幕，数据掌控欲与爱情同时降临](/blog-rewrite) (2025-11-24) #技术
+- [Git Submodules 备忘录](/git-submodules) (2024-12-09) #笔记
+- [解决 git/ssh 报错：too many authentication failures](/ssh-auth-failures) (2024-10-14) #技术
+- [公网访问 TP-LINK 路由管理页绕过 tplogin.cn 跳转](/nginx-tp-link) (2024-09-30) #技术
+- [现代化的高质量 React Hooks 库（已开源）](/shined-react-use) (2024-07-04) #前端
+- [Guitar Studio! （吉他工作室）](/guitar-studio) (2024-01-12) #生活
+- [探索 TypeScript 中函数重载的两种实现方法](/ts-function-overload) (2023-11-09) #前端
+- [JavaScript 的函数参数竟然能相互访问到？](/js-default-params) (2023-11-04) #前端
+- [来试试 Node.js 内置的 "delay" 函数](/node-delay) (2023-10-26) #前端
+- [让 TypeScript 类型 "cat" | string 支持补全提示](/ts-string-completion) (2023-10-19) #前端
+- [频繁发布 npm 包时如何确保始终安装最新版本](/npm-latest-install) (2023-03-26) #前端
+- [绕过 B 站"应版权方要求，本片仅支持 App 观看"的限制](/bili-app-limit) (2023-03-26) #生活
+- [什么是 Shebang (或 Hashbang)](/shebang) (2023-03-14) #技术
+- [如何优雅地畅玩 4399 等 Flash 游戏](/flash) (2022-12-31) #生活
+- [JavaScript 正则的高级用法](/regex-advanced) (2022-12-26) #笔记
+- [浅谈 HTML 中的字符实体（如 `&nbsp;`、`&lt;` 等）](/html-entities) (2022-12-25) #前端
+- [记录 Axios 的 `Z_BUF_ERROR` Bug](/axios-buf-error) (2022-12-25) #笔记
+- [由 emoji 字符分割问题引发的对 emoji 的重新认识](/emoji-characters) (2022-12-02) #技术
+- [VMware 17 安装 CentOS 7 无法连接网络](/centos-network-fix) (2022-11-30) #笔记
+- [每天 60 秒读懂世界 API](/60s) (2022-11-29) #技术
+- [爆肝数月后，我写了一个开源原神工具「原神助手」](/genshin-helper) (2022-11-26) #生活
+- [简单实现一下 JavaScript 中的深拷贝与浅拷贝](/js-cloning) (2022-03-06) #前端
+- [CSS 元素居中与常用布局方式](/css-layouts) (2022-02-22) #笔记
+- [CSS 样式隔离与性能优化](/css-optimization) (2022-02-21) #笔记
+- [CSS 选择器小归纳](/css-selectors) (2022-02-16) #笔记
+- [Node.js 报错 Cannot find module 'fs/promises'](/node-fs-promises) (2022-02-15) #笔记
+- [记一次使用 Python 爬取 B 站 UP 主信息的经历](/bilibili-crawler) (2020-11-29) #技术
+- [NCUHOME 研发组前端培训之 DOM 操作 & AJAX](/dom-and-ajax) (2020-10-30) #前端
+- [Git 常用命令速览](/git-command) (2020-10-11) #笔记
+- [随手写的一个油猴脚本竟然有人给我打赏了](/first-tip) (2020-06-17) #生活
+- [setTimeout 初探](/settimeout-explained) (2020-04-02) #前端
+- [使用 scp 命令跨服务器双向传输文件](/scp) (2020-02-14) #技术
+- [关于 CentOS 7 中 yum 命令失效问题的解决方案](/centos-yum-fix) (2020-01-12) #笔记
+- [2020 寒假学习计划和进度记录](/winter-learning) (2020-01-10) #笔记
+- [Hello World](/blog-journey) (2019-11-08) #笔记
 
-联系方式：hi@viki.moe
-GitHub：https://github.com/vikiboss
-
-## 主要页面
+## 页面
 
 - [首页](https://blog.viki.moe/) — 最新文章与碎碎念
 - [文章归档](https://blog.viki.moe/posts) — 所有技术与生活文章
@@ -22,12 +69,22 @@ GitHub：https://github.com/vikiboss
 - [关于](https://blog.viki.moe/about) — 关于 Viki
 - [RSS](https://blog.viki.moe/rss) — RSS Feed
 
-## 开源项目
+## 关于作者
+
+Viki，Web 前端开发，开源爱好者。主要使用 TypeScript、React、Next.js 技术栈，喜欢通过代码把奇思妙想变成现实。同时也是影视、音乐爱好者和电子游戏玩家。
+
+### 联系方式
+
+- E-mail：hi@viki.moe
+- GitHub：https://github.com/vikiboss
+
+### 开源项目
 
 - [60s API](https://github.com/vikiboss/60s) — 每天 60 秒新闻资讯与各种数据 API 聚合服务（5.2K+ stars），文档：https://docs.60s-api.viki.moe/
 - [R2 Web](https://github.com/vikiboss/r2-web) — Cloudflare R2 对象存储 Web 端，支持浏览、上传和管理（180+ stars）
 - [@shined/react-use](https://github.com/sheinsight/react-use) — SSR 友好的 React Hooks 库（60+ stars）
 - [@shined/reactive](https://github.com/sheinsight/reactive) — JavaScript 响应式状态管理库（30+ stars）
+- [bark-it](https://github.com/vikiboss/bark-it) — Bark SDK for TypeScript，无需服务端，直连 Apple 推送服务
 - [mioki](https://github.com/vikiboss/mioki) — 基于 NapCat 的 OneBot 框架，KiviBot 精神继任者
 - [smee-it](https://github.com/vikiboss/smee-it) — 轻量级 smee.io 客户端，通过 SSE 本地接收 Webhooks
 - [Major Winner](https://github.com/vikiboss/major-winner) — 主播与职业选手的 CS2 Major 竞猜结果排行
