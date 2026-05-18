@@ -50,14 +50,14 @@
           "name": "@shined/reactive",
           "url": "https://github.com/sheinsight/reactive",
           "description": "JavaScript 响应式状态管理库",
-          "stars": "30+",
+          "stars": "20+",
           "status": "active",
           "homepage": "https://sheinsight.github.io/reactive/"
         },
         {
           "name": "KiviBot",
           "url": "https://npm.im/kivibot",
-          "description": "基于 OICQ/ICQQ 的 QQ 机器人框架（已闭源）",
+          "description": "基于 OICQ/ICQQ 的 QQ Bot 框架（已闭源）",
           "stars": "历史 60+",
           "status": "archived"
         }
@@ -66,7 +66,7 @@
         {
           "name": "R2 Web",
           "url": "https://github.com/vikiboss/r2-web",
-          "stars": "180+",
+          "stars": "200+",
           "description": "Cloudflare R2 Web 端，支持浏览、上传和管理",
           "status": "active",
           "homepage": "https://r2.viki.moe/"
@@ -119,7 +119,7 @@
           "url": "https://github.com/vikiboss/60s",
           "description": "每天 60 秒新闻资讯、各种数据 API 聚合服务",
           "status": "active",
-          "stars": "5.2K+",
+          "stars": "5.3K+",
           "homepage": "https://docs.60s-api.viki.moe/"
         }
       ],
