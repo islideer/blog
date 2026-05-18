@@ -3,8 +3,8 @@
  * 统一管理网站的基本信息、元数据和常量
  */
 
-import siteData from '@/data/site.json'
-import { isDev } from './env'
+import siteData from '../data/site.json' with { type: 'json' }
+import { isDev } from './env.ts'
 
 export const websiteUrl = 'https://blog.viki.moe'
 

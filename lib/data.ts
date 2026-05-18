@@ -1,12 +1,12 @@
-import aboutData from '@/data/about.json' with { type: 'json' }
-import mioSaysData from '@/data/mio-says.json' with { type: 'json' }
-import thoughtsData from '@/data/thoughts.json' with { type: 'json' }
-import timelineData from '@/data/timeline.json' with { type: 'json' }
-import friendsData from '@/data/friends.json' with { type: 'json' }
-import otherGamesData from '@/data/other-games.json' with { type: 'json' }
-import collectionData from '@/data/collection.json' with { type: 'json' }
-import { isDev } from './env'
-import { siteConfig } from './config'
+import aboutData from '../data/about.json' with { type: 'json' }
+import mioSaysData from '../data/mio-says.json' with { type: 'json' }
+import thoughtsData from '../data/thoughts.json' with { type: 'json' }
+import timelineData from '../data/timeline.json' with { type: 'json' }
+import friendsData from '../data/friends.json' with { type: 'json' }
+import otherGamesData from '../data/other-games.json' with { type: 'json' }
+import collectionData from '../data/collection.json' with { type: 'json' }
+import { isDev } from './env.ts'
+import { siteConfig } from './config.ts'
 
 // --- About Types ---
 export interface OpenSourceProject {
@@ -20,11 +20,11 @@ export interface OpenSourceProject {
 }
 
 export interface ProjectsData {
-  libraries: OpenSourceProject[]
-  tools: OpenSourceProject[]
-  services: OpenSourceProject[]
-  scripts: OpenSourceProject[]
-  applications: OpenSourceProject[]
+  applications?: OpenSourceProject[]
+  libraries?: OpenSourceProject[]
+  services?: OpenSourceProject[]
+  scripts?: OpenSourceProject[]
+  tools?: OpenSourceProject[]
 }
 
 export interface ContactLink {
