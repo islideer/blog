@@ -72,14 +72,14 @@
 
 Viki，一名 Web 前端开发，热爱 Web 技术，相信开源的力量。喜欢通过代码把奇思妙想 [变成现实](/about#open-source)。没事就拷打 AI 帮我干活，享受编程带来的乐趣。你可以翻翻我写的 [文章](/posts)，也可以在 [关于](/about) 页面了解更多。欢迎和我 [交换友链](/friends)，有事可在 [话匣子](/messages) 留言。
 
-### 联系方式
-
-- [hi@viki.moe](mailto:hi@viki.moe)
-- [GitHub](https://github.com/vikiboss)
-- [RSS 订阅](/rss)
-
 ### 开源项目
 
+- [bark-it](https://github.com/vikiboss/bark-it) - Bark SDK for TypeScript，无需服务端，直连 Apple 推送服务
+- [mioki](https://github.com/vikiboss/mioki) - 基于 NapCat 的 OneBot 框架，KiviBot 精神继任者
+- [smee-it](https://github.com/vikiboss/smee-it) - 轻量 smee.io 客户端，通过 SSE 本地接收 Webhooks
+- [@shined/react-use](https://github.com/sheinsight/react-use) - SSR 友好的 React Hooks 库
+- [@shined/reactive](https://github.com/sheinsight/reactive) - JavaScript 响应式状态管理库
+- [KiviBot](https://npm.im/kivibot) - 基于 OICQ/ICQQ 的 QQ Bot 框架（已闭源）
 - [R2 Web](https://github.com/vikiboss/r2-web) - Cloudflare R2 Web 端，支持浏览、上传和管理
 - [Major Winner](https://github.com/vikiboss/major-winner) - 主播/职业选手的 CS2 Major 竞猜结果 & 排行
 - [Viki 写东西的地方](https://github.com/vikiboss/blog) - 本博客，基于 Next.js 与 Tailwind CSS
@@ -87,11 +87,11 @@ Viki，一名 Web 前端开发，热爱 Web 技术，相信开源的力量。喜
 - [Guitar Studio](https://github.com/vikiboss/guitar-studio) - 多合一吉他工具：调音、和弦、节奏（WIP）
 - [Chatee](https://github.com/vikiboss/chatee) - 简单的终端聊天应用，基于 React、ink 和 ICQQ
 - [原神助手](https://github.com/vikiboss/gs-helper) - 原神 PC 端小工具：祈愿分析、便签状态和游戏数据
-- [bark-it](https://github.com/vikiboss/bark-it) - Bark SDK for TypeScript，无需服务端，直连 Apple 推送服务
-- [mioki](https://github.com/vikiboss/mioki) - 基于 NapCat 的 OneBot 框架，KiviBot 精神继任者
-- [smee-it](https://github.com/vikiboss/smee-it) - 轻量 smee.io 客户端，通过 SSE 本地接收 Webhooks
-- [@shined/react-use](https://github.com/sheinsight/react-use) - SSR 友好的 React Hooks 库
-- [@shined/reactive](https://github.com/sheinsight/reactive) - JavaScript 响应式状态管理库
-- [KiviBot](https://npm.im/kivibot) - 基于 OICQ/ICQQ 的 QQ Bot 框架（已闭源）
 - [60s API](https://github.com/vikiboss/60s) - 每天 60 秒新闻资讯、各种数据 API 聚合服务
 - [BaidupanPlaySpeedControl](https://github.com/vikiboss/BaidupanPlaySpeedControl) - [已失效] 百度网盘视频倍速播放脚本
+
+### 联系方式
+
+- [hi@viki.moe](mailto:hi@viki.moe)
+- [GitHub](https://github.com/vikiboss)
+- [RSS 订阅](/rss)

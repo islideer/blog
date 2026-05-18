@@ -8,5 +8,14 @@
   },
   "css.lint.unknownAtRules": "ignore",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["eventsource", "flexsearch", "keli", "rmiz", "stattrak", "Travellings", "unzoom"]
+  "cSpell.words": [
+    "Chiikawa",
+    "eventsource",
+    "flexsearch",
+    "keli",
+    "rmiz",
+    "stattrak",
+    "Travellings",
+    "unzoom"
+  ]
 }
