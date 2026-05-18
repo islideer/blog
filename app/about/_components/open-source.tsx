@@ -23,7 +23,8 @@ export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourcePr
       </h2>
       <div className="space-y-8">
         {(Object.keys(data) as Array<keyof ProjectsData>).map((category) => {
-          const categoryProjects = data[category]
+          const categoryProjects = data[category] || []
+
           if (categoryProjects.length === 0) return null
 
           return (
