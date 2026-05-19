@@ -16,7 +16,7 @@ top_image: 'https://image.viki.moe/blog/96fbf0.png'
 
 ## 隔壁大妈都知道的 DevTools 功能
 
-首先说一些大家都知道的基础功能热热身：
+首先简单列一些大家都知道的基础功能热热身：
 
 - Element 面板: 查看/修改 HTML 的结构/样式，实时预览。
 - Console 面板: 看报错和警告、跑跑简单 JS，`clear()` 清空。
@@ -25,6 +25,8 @@ top_image: 'https://image.viki.moe/blog/96fbf0.png'
 - 切换设备模式: 模拟不同屏幕尺寸、分辨率、用户代理（UA）。
 
 ## 你可能不知道的 DevTools 骚功能
+
+除了以上基础功能，DevTools 还有很多隐藏的骚功能，能让你的调试效率和体验更上一层楼。
 
 ### 1. `$_` 和 `$0`、`$1` 等快捷变量
 
@@ -56,6 +58,10 @@ top_image: 'https://image.viki.moe/blog/96fbf0.png'
 我猜你之前肯定手动写过不少 `document.querySelector()`。但实际上你可以直接在 Console 面板中使用 `$()` 来选择单个元素，使用 `$$()` 来选择多个元素。
 
 ![297488.png](https://image.viki.moe/blog/297488.png)
+
+**2026-05-19 更新**
+
+Firefox 还额外支持了 `$$$()` 函数，能够穿透 Shadow DOM 进行元素查询。
 
 ### 4. `time()` 和 `timeEnd()` 计时函数
 
