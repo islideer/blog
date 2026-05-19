@@ -1,5 +1,10 @@
 [
   {
+    "id": "168",
+    "date": "2026-05-19T15:47:02+08:00",
+    "content": "通过返回永不解析的 Promise 可以实现异步中断，是 JavaScript 中最优雅的解决方案。\n\n```js\nasync function interrupt() {\n  return new Promise(() => {});\n}\n```\n\n这个方法使用原生异步语法（`await`）符合直觉，无需抛出异常（避开了 `try`/`catch`），且 GC 会自动清理未引用的 Pending Promise，无需担心内存问题。"
+  },
+  {
     "id": "167",
     "date": "2026-05-19T15:11:04+08:00",
     "content": "[DESIGN.md](https://github.com/google-labs-code/design.md) 是 Google 提出的一个给 Coding Agents 用的设计系统描述格式，有一份正式的 [规范标准](https://stitch.withgoogle.com/docs/design-md/specification)。它用 YAML 格式前置定义颜色、字体、圆角、间距等可机器读取的 Design Tokens，再用 Markdown 补充设计理念、规则和组件用法，让 AI 和代码生成工具能长期、稳定地理解并复用同一套视觉规范。它还配套 `lint`、`diff`、`export` 等工具，便于校验、比较和导出设计系统。"
