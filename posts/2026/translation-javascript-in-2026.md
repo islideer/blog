@@ -389,7 +389,7 @@ Svelte 正 [基于 v5 稳步向前](https://svelte.dev/blog/svelte-5-is-alive)�
 
 ## **JavaScript 运行时**
 
-最大的运行时显然是浏览器内置的那些。但就你可以自己选择、自行运行代码的运行时而言，Node 仍然是主导者，同时有两家有趣的竞争对手。[我们探讨过 Deno 或 Bun 何时能成为比 Node.js 更好的解决方案](https://frontendmasters.com/blog/when-deno-or-bun-is-a-better-solution-than-node-js/)。最近它们更多是趋同而非分化，三者都原生支持 TypeScript，并对 Node.js 规范提供更多的支持。
+最大的运行时显然是浏览器内置的那些。但就你可以自己选择、自行运行代码的运行时而言，Node.js 仍然是主导者，同时有两家有趣的竞争对手。[我们探讨过 Deno 或 Bun 何时能成为比 Node.js 更好的解决方案](https://frontendmasters.com/blog/when-deno-or-bun-is-a-better-solution-than-node-js/)。最近它们更多是趋同而非分化，三者都原生支持 TypeScript，并对 Node.js 规范提供更多的支持。
 
 ### Node.js
 
