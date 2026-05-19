@@ -2,7 +2,7 @@
 title: '[译] 从库到标准：9 次 Web 平台的演进轨迹'
 date: 2026-05-19
 topic: '前端'
-excerpt: ''
+excerpt: '本文梳理了前端库对 Web 平台的几次关键影响，揭示了社区实践如何倒逼 Web 标准演进。'
 tags:
   - 'Web Platform'
   - 'JavaScript'
