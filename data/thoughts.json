@@ -1,5 +1,10 @@
 [
   {
+    "id": "167",
+    "date": "2026-05-19T15:11:04+08:00",
+    "content": "[DESIGN.md](https://github.com/google-labs-code/design.md) 是 Google 提出的一个给 Coding Agents 用的设计系统描述格式，有一份正式的 [规范标准](https://stitch.withgoogle.com/docs/design-md/specification)。它用 YAML 格式前置定义颜色、字体、圆角、间距等可机器读取的 Design Tokens，再用 Markdown 补充设计理念、规则和组件用法，让 AI 和代码生成工具能长期、稳定地理解并复用同一套视觉规范。它还配套 `lint`、`diff`、`export` 等工具，便于校验、比较和导出设计系统。"
+  },
+  {
     "id": "166",
     "date": "2026-05-18T10:12:54+08:00",
     "content": "让我们恭喜绿龙 3-0 击败猎鹰夺得 PGL 冠军，顺势来到了 V 社积分榜世界第二。🎉\n\n时隔九个月，绿龙再度登顶，上一次夺冠还是和 Mio 确定在一起的前几天，那段时期我们已经在一起关注绿龙的 CS2 赛事，见证了绿龙在 BLAST 赏金赛 S2 线下决赛夺冠。",
