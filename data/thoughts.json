@@ -1,5 +1,10 @@
 [
   {
+    "id": "169",
+    "date": "2026-05-19T16:14:19+08:00",
+    "content": "Cloudflare 正在重构和 [测试](https://blog.cloudflare.com/cf-cli-local-explorer/) 新的统一 CLI `cf`，预计今年年底上线，明年逐步取代 Wrangler CLI。目的是把分散、不一致的工具链变成覆盖全平台的统一 CLI，让开发者和 AI Agents 都能以同一套规则调用 Cloudflare 的产品与 API。"
+  },
+  {
     "id": "168",
     "date": "2026-05-19T15:47:02+08:00",
     "content": "通过返回永不解析的 Promise 可以实现异步中断，是 JavaScript 中最优雅的解决方案。\n\n```js\nasync function interrupt() {\n  return new Promise(() => {});\n}\n```\n\n这个方法使用原生异步语法（`await`）符合直觉，无需抛出异常（避开了 `try`/`catch`），且 GC 会自动清理未引用的 Pending Promise，无需担心内存问题。"
