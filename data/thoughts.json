@@ -1,5 +1,13 @@
 [
   {
+    "id": "170",
+    "date": "2026-05-21T00:31:27+08:00",
+    "content": "还在农。",
+    "images": [
+      "https://image.viki.moe/blog/2aa6cb.jpeg"
+    ]
+  },
+  {
     "id": "169",
     "date": "2026-05-19T16:14:19+08:00",
     "content": "Cloudflare 正在重构和 [测试](https://blog.cloudflare.com/cf-cli-local-explorer/) 新的统一 CLI `cf`，预计今年年底上线，明年逐步取代 Wrangler CLI。目的是把分散、不一致的工具链变成覆盖全平台的统一 CLI，让开发者和 AI Agents 都能以同一套规则调用 Cloudflare 的产品与 API。"
