@@ -9,7 +9,7 @@ tags:
   - '音乐'
 ---
 
-> 快速入口: [领取网易云音乐会员体验卡][ncm] | [领取 QQ 音乐会员体验卡][qqm]
+> 快速入口: [💎 网易云][ncm] | [💎 QQ 音乐][qqm]
 
 网易云音乐和 QQ 音乐都支持会员分享，每个月能分享几张体验卡给别人。我的会员体验卡没地方用，已经浪费好几年了。与其让它过期失效，不如直接挂出来，欢迎有需要的朋友自取。
 
@@ -17,7 +17,7 @@ tags:
 
 网易云每月总共有两百多天，每人 ～7 天，时长随机，全看运气。
 
-![ncm-vip.jpeg](https://image.viki.moe/share/ncm-vip.jpeg '网易云音乐会员分享')
+[![ncm-vip.jpeg](https://image.viki.moe/share/ncm-vip.jpeg '网易云音乐会员分享')][ncm]
 
 > 💎 领取入口：[灝灝網易雲送你网易云音乐黑胶会员卡～][ncm]
 >
@@ -27,7 +27,7 @@ tags:
 
 QQ 音乐固定每月 7 张，每张 3 天，先到先得，领完为止。
 
-![qqm-vip.jpeg](https://image.viki.moe/share/qqm-vip.jpeg 'QQ 音乐会员分享')
+[![qqm-vip.jpeg](https://image.viki.moe/share/qqm-vip.jpeg 'QQ 音乐会员分享')][qqm]
 
 > 💎 领取入口：[Viki 赠送你免费豪华绿钻会员卡][qqm]
 >
