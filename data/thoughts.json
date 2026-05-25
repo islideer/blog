@@ -1,5 +1,10 @@
 [
   {
+    "id": "173",
+    "date": "2026-05-25T18:03:18+08:00",
+    "content": "SQLite 是开源的，但它的高级测试套件不开源，测试的代码量甚至是源码的数倍。这也成就了它数十年在嵌入式数据库领域的统治级地位。\n\nBun 作者利用 AI 在极短时间完成 Bun 从 Zig 到 Rust 的 100% 重写，并已自信合并入主分支。这样工程奇迹，庞大的测试代码同样功不可没。\n\n在 AI 时代，虽然生产代码的门槛被无限拉低，但软件工程实践最重要的基石依然是测试。几十年前的 SQLite 是，追赶 AI 浪潮的 Bun 也是。"
+  },
+  {
     "id": "172",
     "date": "2026-05-25T17:40:22+08:00",
     "content": "npm 官方支持了 [阶段发布](https://docs.npmjs.com/staged-publishing) 的功能，通过以下命令使用，主要就是在直接发布前，加了一层更严格的双因素认证（2FA）审核，也算是近期高频出现的供应链攻击的一个防范措施吧。\n\n```bash\n# 阶段发布\nnpm stage publish\n# 阶段审查\nnpm stage list # npm stage view <stage-id>\n# 最终批准\nnpm stage approve <stage-id>\n```"
