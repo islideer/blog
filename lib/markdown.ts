@@ -7,6 +7,7 @@ import remarkBreaks from 'remark-breaks'
 import remarkRehype from 'remark-rehype'
 import remarkSpoiler from './remark-spoiler'
 import rehypeZoomImage from './rehype-zoom-image'
+import rehypeImageCaption from './rehype-image-caption'
 import remarkEmojiPack from './remark-emoji-pack'
 import rehypeStringify from 'rehype-stringify'
 import rehypeExternalLinks from 'rehype-external-links'
@@ -81,6 +82,7 @@ const processor = unified()
     },
   })
   .use(rehypeZoomImage)
+  .use(rehypeImageCaption)
   .use(rehypeExternalLinks, {
     target: '_blank',
     rel: ['noopener', 'noreferrer'],

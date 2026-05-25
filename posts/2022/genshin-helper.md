@@ -61,7 +61,7 @@ tags:
 - 原神材料日历
 - 多账户支持并可快速切换
 
-![Genshin Helper UI](https://s2.loli.net/2022/11/03/ycCK9j6usTDGw4x.png)
+![原神助手主界面](https://s2.loli.net/2022/11/03/ycCK9j6usTDGw4x.png)
 
 ## 欢迎下载使用
 

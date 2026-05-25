@@ -10,7 +10,7 @@ tags:
   - TypeScript
 ---
 
-![shined-react-use-logo](https://s2.loli.net/2024/07/03/XjReoNwi5mI7MbO.png)
+![@shined/react-use 文档首页](https://s2.loli.net/2024/07/03/XjReoNwi5mI7MbO.png)
 
 ## 为什么做这个库
 

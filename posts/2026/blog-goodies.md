@@ -33,7 +33,7 @@ GET https://api.viki.moe/steam/:id
 
 **展示效果**
 
-![steam-profile](https://s2.loli.net/2026/01/15/5yBZfMCOlpkPzje.png)
+![博客的 Steam 资料展示](https://s2.loli.net/2026/01/15/5yBZfMCOlpkPzje.png)
 
 > 如 CS 职业选手 ropz 的 Steam 资料信息：
 >
@@ -97,7 +97,7 @@ GET https://api.viki.moe/steam/:id/recently-played
 
 **展示效果**
 
-![steam-recently-played](https://s2.loli.net/2026/01/15/qMGlTBR7PcIDQax.png)
+![博客的 Steam 最近在玩游戏展示](https://s2.loli.net/2026/01/15/qMGlTBR7PcIDQax.png)
 
 > 如 ropz 最近在玩的游戏：
 >
@@ -136,7 +136,7 @@ GET https://api.viki.moe/steam/:id/games
 
 **展示效果**
 
-![steam-games](https://s2.loli.net/2026/01/15/UkvfLtzPXouM5bD.png)
+![博客的 Steam 游戏库存展示](https://s2.loli.net/2026/01/15/UkvfLtzPXouM5bD.png)
 
 > 如 ropz 的游戏库存：
 >
@@ -215,7 +215,7 @@ GET https://api.viki.moe/douban/:id/movies
 
 **展示效果**
 
-![douban-movies](https://s2.loli.net/2026/01/15/bOpjKCGl92oIF1e.png)
+![博客的豆瓣电影列表展示](https://s2.loli.net/2026/01/15/bOpjKCGl92oIF1e.png)
 
 > 如我的电影列表：[https://api.viki.moe/douban/vikiqaq/movies](https://api.viki.moe/douban/vikiqaq/movies)。
 
@@ -267,7 +267,7 @@ GET https://api.viki.moe/douban/:id/books
 
 **展示效果**
 
-![douban-books](https://s2.loli.net/2026/01/15/AtgEUHqMalxjZw8.png)
+![博客的豆瓣书籍列表展示](https://s2.loli.net/2026/01/15/AtgEUHqMalxjZw8.png)
 
 > 如 VikiQAQ 的书籍列表：[https://api.viki.moe/douban/vikiqaq/books](https://api.viki.moe/douban/vikiqaq/books)。
 
@@ -376,7 +376,7 @@ GET https://api.viki.moe/bili/u/:id/bangumi
 
 **展示效果**
 
-![bili-bangumi](https://s2.loli.net/2026/01/15/jXKuvsz38B9wG6o.png)
+![博客的 B 站追番列表展示](https://s2.loli.net/2026/01/15/jXKuvsz38B9wG6o.png)
 
 > 如我的追番列表：[https://api.viki.moe/bili/u/381636335/bangumi](https://api.viki.moe/bili/u/381636335/bangumi)
 

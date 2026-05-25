@@ -59,7 +59,7 @@ tags:
 
 ##### 目录树
 
-![零几目录.jpg](https://i.loli.net/2020/04/21/SJzf6H8Ne27o3kQ.jpg)
+![零几目录](https://i.loli.net/2020/04/21/SJzf6H8Ne27o3kQ.jpg)
 
 ##### 登录状态验证
 

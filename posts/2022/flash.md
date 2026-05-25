@@ -25,25 +25,25 @@ excerpt: 'Adobe Flash Player 停止支持后的优雅解决方案。推荐开源
 
 这里推荐一款专为 Flash 打造的浏览器，由 [Mzying2001](https://github.com/Mzying2001) 大佬开源的 [CefFlashBrowser](https://github.com/Mzying2001/CefFlashBrowser)。它自带 Flash 插件，支持多语言、收藏夹和打开本地 SWF 文件，界面清爽高效。你可以直接前往 [release](https://github.com/Mzying2001/CefFlashBrowser/releases) 页下载使用。
 
-![CefFlashBrowser](https://s2.loli.net/2022/12/31/hsac4W16YL9832v.png)
+![浏览器主页面](https://s2.loli.net/2022/12/31/hsac4W16YL9832v.png)
 
-![CefFlashBrowser](https://s2.loli.net/2022/12/31/UQK9z6E3RFeLkM8.png)
+![用这个浏览器玩洛克王国](https://s2.loli.net/2022/12/31/UQK9z6E3RFeLkM8.png)
 
 ### 方案 2：使用自带 Flash 的旧版浏览器
 
-内置 Flash 的 Chrome 最高版本是 53 版本，你可以点击[这里](https://viki.lanzout.com/ilIu50jrdpmh)跳转到蓝奏网盘下载 Chrome 53 版本。无需任何其他操作，下载后直接打开浏览器，就可以畅玩 Flash 游戏了。
+内置 Flash 的 Chrome 最高版本是 53 版本，你可以点击 [这里](https://viki.lanzout.com/ilIu50jrdpmh) 跳转到蓝奏网盘下载 Chrome 53 版本。无需任何其他操作，下载后直接打开浏览器，就可以畅玩 Flash 游戏了。
 
 这里仅提供旧版 Chrome 下载。当然，如果你不喜欢 Chrome，也可以自行搜索其他内置 Flash 的浏览器旧版本进行下载。
 
-![Chrome-53](https://s2.loli.net/2022/12/31/j4eDXdUVWpxwNh1.png)
+![Chrome 53 玩洛克王国](https://s2.loli.net/2022/12/31/j4eDXdUVWpxwNh1.png)
 
 ### 方案 3：使用纯净的 Flash + 支持 Flash 的浏览器
 
-你可以点击[这里](https://github.com/darktohka/clean-flash-builds/releases/tag/v1.30)到 GitHub 的 release 页下载并安装 Flash 的纯净三合一版本。（注：GitHub 上的这个是移植的，原项目在 [GitLab](https://gitlab.com/cleanflash/installer) 上）
+你可以点击 [这里](https://github.com/darktohka/clean-flash-builds/releases/tag/v1.30) 到 GitHub 的 release 页下载并安装 Flash 的纯净三合一版本。（注：GitHub 上的这个是移植的，原项目在 [GitLab](https://gitlab.com/cleanflash/installer) 上）
 
 支持 Flash 的浏览器比较多，像国内的 QQ 浏览器、360 安全浏览器等均支持。但如果你像我一样厌恶国内这些「毒瘤」，那么推荐你使用旧版的 Chrome。
 
-国外各大知名浏览器从 Chrome 88、Edge 88、Firefox 85 开始都不再支持 Flash。Chrome 支持 Flash 但没有内置 Flash 的最高版本是 87 版本，你可以点击[这里](https://viki.lanzout.com/ilIu50jrdpmh)跳转到蓝奏网盘下载 Chrome 87 版本。
+国外各大知名浏览器从 Chrome 88、Edge 88、Firefox 85 开始都不再支持 Flash。Chrome 支持 Flash 但没有内置 Flash 的最高版本是 87 版本，你可以点击 [这里](https://viki.lanzout.com/ilIu50jrdpmh) 跳转到蓝奏网盘下载 Chrome 87 版本。
 
 当然，你也可以使用支持 Flash 的 Firefox 等其他浏览器的旧版本，或者在安装 Adobe Flash ActiveX 后（三合一安装包安装时可选勾选安装）使用 Edge 的 IE 兼容模式，看你个人喜好。
 

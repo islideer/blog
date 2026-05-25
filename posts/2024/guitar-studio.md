@@ -12,11 +12,11 @@ tags:
   - 吉他
 ---
 
-![guitar-studio](https://s2.loli.net/2025/11/19/fpWaixzZGSovCmE.png)
+![Guitar Studio 主界面](https://s2.loli.net/2025/11/19/fpWaixzZGSovCmE.png)
 
 ## 项目介绍
 
-🎸 + 🌐 = 你的**一站式**在线吉他工具箱！
+🎸 + 🌐 = 你的 **一站式** 在线吉他工具箱！
 
 作为一个吉他爱好者，练琴时总要在各种工具之间切换：调音器、节拍器、和弦查询、六线谱... 索性就做了这个小项目，把常用的吉他工具都整合到一个网页里。
 

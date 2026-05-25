@@ -13,7 +13,7 @@ tags:
 
 选择器是 CSS 规则的一部分，位于 CSS 声明块之前。它告诉浏览器应该将样式应用到哪些 HTML 元素上。简单来说，选择器就是用来「选中」页面元素的工具。
 
-![image.png](https://s2.loli.net/2022/02/16/grAe6BM4mC2Tzdh.png)
+![选择器示例](https://s2.loli.net/2022/02/16/grAe6BM4mC2Tzdh.png)
 
 ## 基础选择器
 
@@ -270,9 +270,3 @@ p ~ span {
   color: red;
 }
 ```
-
----
-
-以上就是 CSS 选择器的常见用法啦！掌握这些选择器，你就能精准地选中页面上的任何元素了。
-
-![image.png](https://s2.loli.net/2022/02/16/v9MONfgh8RVJxu1.png)

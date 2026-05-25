@@ -523,8 +523,36 @@ figure[data-rehype-pretty-code-figure]:hover .code-copy-btn {
   }
 }
 
-/* ============================================
-   Drop Cap (首字下沉)
+/* Image Caption */
+.prose figure.image-figure {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  img {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.prose .image-caption {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  margin-top: 0.5em;
+  font-style: italic;
+
+  .message-content & {
+    display: none;
+  }
+}
+
+/* Drop Cap (首字下沉)
    ============================================ */
 
 /* 首字下沉效果 - 应用于文章第一个段落的首字母 */

@@ -60,13 +60,13 @@ const animal: Animal = '' // 现在输入引号后可以看到 'cat' 和 'dog' �
 
 ### 优化前（没有补全提示）
 
-![no-completion](https://s2.loli.net/2025/11/19/Uebrph2gZRfJVdE.png)
+![没有补全提示](https://s2.loli.net/2025/11/19/Uebrph2gZRfJVdE.png)
 
 ### 优化后（完美的补全提示）
 
-![with-completion-1](https://s2.loli.net/2025/11/19/XeviQjFsHDbRhmn.png)
+![方案一的补全提示](https://s2.loli.net/2025/11/19/XeviQjFsHDbRhmn.png)
 
-![with-completion-2](https://s2.loli.net/2025/11/19/wivfsRGpydTxOSj.png)
+![方案二的补全提示](https://s2.loli.net/2025/11/19/wivfsRGpydTxOSj.png)
 
 ## 小结
 

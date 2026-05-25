@@ -24,21 +24,21 @@ tags:
 
 大概半小时，打车到了酒店大堂。找电梯，上五楼，找大堂。到了大堂门口，外边儿摆了一个公司年会的大招牌，还挺有格调。
 
-![gate](https://s2.loli.net/2026/01/30/dwSrEvhQHgb1IYT.jpg)
+![大厅入口的欢迎牌、拍照打卡的同事](https://s2.loli.net/2026/01/30/dwSrEvhQHgb1IYT.jpg)
 
 进大堂放眼望去，大概摆了有二十桌，还有广州的分会场没算。分会场是通过腾讯会议连线的，后面一起开奖的时候有连线互动。确实今年年会规模比以往大了不少，还是挺气派、挺高大上的。
 
-![hall](https://s2.loli.net/2026/01/30/J6WugIcEvjtVdFy.jpg)
+![年会宴会大厅](https://s2.loli.net/2026/01/30/J6WugIcEvjtVdFy.jpg)
 
 我们打车算比较快的，晚上六点过一点就到了。坐到提前分配的桌子上，十人一桌。每桌摆了八个凉菜，三瓶啤酒，一瓶可乐，一瓶雪碧。可乐和雪碧看着像 1.25L，有点怀疑，这点饮料十个人够喝？
 
 等其他同事到场的间隙，手机奈何没啥电，干不了啥，无聊就摆了一个筷子。
 
-![chopsticks](https://s2.loli.net/2026/01/30/uF8nmaM7o1G4Pxg.jpg)
+![摆筷子](https://s2.loli.net/2026/01/30/uF8nmaM7o1G4Pxg.jpg)
 
 同事也等不及了，陆续先倒上可乐，吃点凉菜。因为中午没怎么吃，确实给我吃饿了。有一个腰豆凉拌的，挺好吃的，我吃了好几口，有点像八宝粥里的腰豆，但更甜一些。长下面这个样子。
 
-![kidney-beans](https://s2.loli.net/2026/01/30/gyZlROFVYEdIz9c.jpg)
+![腰豆凉拌](https://s2.loli.net/2026/01/30/gyZlROFVYEdIz9c.jpg)
 
 活动开场是两个部门长致辞。另一个部门的部门长应该是提前做了准备，讲了很多客套、敞亮话。我们部门长比较随性，一句祝大家吃好喝好玩好就结束了。随后到吃饭环节了，开吃！
 
@@ -48,17 +48,17 @@ tags:
 
 开始走菜了，年会不管中不中得了大奖，吃怎么也得吃回来。不过，第一道竟然上的枸杞鸡汤，666。喝第一口汤的同事锐评：这鸡汤怎么像兑了水，有点稀啊。确实，这鸡肉也有点柴。
 
-![chicken-soup](https://s2.loli.net/2026/01/30/b6WuUs7ZBXvhIml.jpg)
+![枸杞鸡汤](https://s2.loli.net/2026/01/30/b6WuUs7ZBXvhIml.jpg)
 
 后续上了很多，有几个还值得说一说。比如甲鱼，炒得还不错，肉质挺嫩的。我挺爱吃甲鱼，做得还行。不过要是有得选，还是更喜欢吃用酸辣椒炒的甲鱼，味道更浓郁一些。
 
 然后是芹菜，炒得也不错，色香味都还可以，清脆可口，摆盘也挺好看的。就是对不吃芹菜香菜的人来说，是一个噩梦。
 
-![celery](https://s2.loli.net/2026/01/30/kV4Yf6TXMQWqzPH.jpg)
+![芹菜](https://s2.loli.net/2026/01/30/kV4Yf6TXMQWqzPH.jpg)
 
 至于蔬菜嘛，在下边儿，自己看吧。这个量真的是少得可怜，这么大个盘不嫌空吗？过于小气了嗷。不过炒得挺好吃的。我吃了好几口，转一圈下来也没剩多少了。最后服务员撤盘子的时候，我一个人把剩下的都挑干净吃完了。
 
-![vegetables](https://s2.loli.net/2026/01/30/vVRYQFJcsTC9Aib.jpg)
+![清炒时蔬](https://s2.loli.net/2026/01/30/vVRYQFJcsTC9Aib.jpg)
 
 后面还上了虾和鱼。虾的蘸汁一股醋味，鱼也不入味，不好吃。~~感觉鱼还不如吃老乡鸡的。~~
 
@@ -70,44 +70,44 @@ tags:
 
 中途还有人唱歌，是《铿锵玫瑰》。实话说，挺佩服他的勇气，但可能他是紧张，没什么基础哈哈哈，发挥得非常一般。
 
-![singing](https://s2.loli.net/2026/01/30/1tiCy8bHQ2hX3jl.jpg)
+![唱歌的同事](https://s2.loli.net/2026/01/30/1tiCy8bHQ2hX3jl.jpg)
 
 快到晚饭结尾了，上了个蒸糕，不是很好吃，跟紫薯馒头一样。同事说，不好吃别说不好吃，得说它正宗，正宗就代表不好吃。不过样子还挺好看的。
 
-![steamed-cake](https://s2.loli.net/2026/01/30/mHhyWeQKOGgSB4a.jpg)
+![蒸糕](https://s2.loli.net/2026/01/30/mHhyWeQKOGgSB4a.jpg)
 
 后面还上了个炒饭。总感觉这菜单设计得怪怪的，说不上来是哪里的问题。
 
-![fried-rice](https://s2.loli.net/2026/01/30/mLoyenRXd8EgYuB.jpg)
+![炒饭](https://s2.loli.net/2026/01/30/mLoyenRXd8EgYuB.jpg)
 
 水果上的是西瓜、白心火龙果和圣女果，吃了点西瓜和火龙果，挺甜的。正常量正常摆盘，就懒得拍了。
 
 还记得刚才提到的掉在桌上的冰块吗？它在餐布上融化了，一圈圈慢慢渗开。我开始注意到的那一瞬间，思绪进入了哲学的境界。人生就如这融化的冰块，终将归于平淡无奇的水渍，留下的只是时间的痕迹。
 
-![melted-ice](https://s2.loli.net/2026/01/30/XmDSGCL3RVQBrM8.jpg)
+![融化的冰块](https://s2.loli.net/2026/01/30/XmDSGCL3RVQBrM8.jpg)
 
 还有击鼓传花的环节，现场挑选一些同事作为玩家上舞台玩汉字游戏。奈何传到了一个老外手里，老外人直接懵了哈哈。然后还有一轮，俩哥们传花，追着传，跑大堂外边去了，给主持人急坏了可还行，一看就是哥俩好。
 
 最后的大奖，是用抽奖盒现场摇匀后由领导来抽的，一等奖是三个大疆 vlog 手持云台相机，特等奖是两个 iPhone 17。果不其然，大奖全部擦肩而过，注定轮不到我这种分母。
 
-![lottery-1](https://s2.loli.net/2026/01/30/DT5CldMviIgfj1x.jpg)
+![一等奖](https://s2.loli.net/2026/01/30/DT5CldMviIgfj1x.jpg)
 
-![lottery-2](https://s2.loli.net/2026/01/30/naMq8N61p5IAFzO.jpg)
+![特等奖](https://s2.loli.net/2026/01/30/naMq8N61p5IAFzO.jpg)
 
 到了喜闻乐见的刮刮乐环节，阳光普照。不得不说，今天运气真背，连刮刮乐也没刮着，属实是颗粒无收。
 
-![scratch-card](https://s2.loli.net/2026/01/30/LC5WpfbhksQjimE.jpg)
+![刮刮乐](https://s2.loli.net/2026/01/30/LC5WpfbhksQjimE.jpg)
 
 最后差不多九点多，大奖揭晓结束后，大家陆续散场，打车回家。一个中了五等奖的同事说，他来给我们打专车，弥补一下没中奖的遗憾，哈哈哈。
 
 在酒店楼下的小水池里看见了锦鲤，好久没见到可爱的小鱼了。
 
-![fish](https://s2.loli.net/2026/01/30/F8nBdpQvIEDU15O.jpg)
+![水池里的锦鲤](https://s2.loli.net/2026/01/30/F8nBdpQvIEDU15O.jpg)
 
 整体还行吧，就是啥也没中，连刮刮乐都刮不到，中将绝缘体了属于是。不过和我一届的另一个校招生同事也差不多哈哈哈。
 
-![no-prize](https://s2.loli.net/2026/01/30/F7bfUndhksAKZB5.jpg)
+![同事群的聊天](https://s2.loli.net/2026/01/30/F7bfUndhksAKZB5.jpg)
 
 嗐，明年再来呗，机会还有，总会轮到我的。相信。
 
-![dinner](https://s2.loli.net/2026/01/30/KpUTqeY2AsCDwi7.jpg)
+![晚宴餐桌](https://s2.loli.net/2026/01/30/KpUTqeY2AsCDwi7.jpg)
