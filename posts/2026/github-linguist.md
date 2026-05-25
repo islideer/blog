@@ -14,7 +14,7 @@ tags:
 
 在 GitHub 项目主页里，有一个区域专门用来显示该项目的主要编程语言分布情况。比如下面这张截取自 Linux 内核仓库主页的语言统计图：
 
-![Linux-Language](https://s2.loli.net/2026/01/05/GlJYDSUOt2naKC4.png)
+![Linux 的语言分布](https://s2.loli.net/2026/01/05/GlJYDSUOt2naKC4.png)
 
 > 从图中可以看到，截止本文发布时，Linux 内核虽然开始 Rust 化，但 C 语言仍然还是以 98% 的比例占据着主导地位，遥遥领先。~~Rust 大哥再使把劲儿，争取超过 10%。~~
 
@@ -24,7 +24,7 @@ tags:
 
 举例来说，之前用过的一个博客主题因为内联了大量 CSS 库的代码，Linguist 就以为这个项目用 CSS 写的，然后就开始给我乱搞：
 
-![Blog-Theme-Language](https://s2.loli.net/2026/01/05/XY6lDwrf8bJumeM.png)
+![博客主题的语言分布](https://s2.loli.net/2026/01/05/XY6lDwrf8bJumeM.png)
 
 > 实际上，它主要用 HTML （Pug 模板语言） 和 JavaScript 写的，CSS 只是从第三方库里拷贝过来的样式代码而已，并不是我自己写的。
 
@@ -60,7 +60,7 @@ build/* linguist-generated
 
 相关功能完美实现，美滋滋地 push 了，打开主页一看，好家伙，Top 语言直接变成了 JavaScript，占比高达 95.8%，TypeScript 大哥已经被挤到犄角旮旯去了：
 
-![Bili-Protobuf-Language](https://s2.loli.net/2026/01/05/7KrOMpiqsBfVygF.png)
+![B 站弹幕项目的语言分布（修复前）](https://s2.loli.net/2026/01/05/7KrOMpiqsBfVygF.png)
 
 认真看完整篇文章的你，想必已经知道该怎么办了吧？
 
@@ -74,4 +74,4 @@ src/modules/bili/proto/compiled.d.ts linguist-generated
 
 再次美滋滋地 push 一遍，完美解决。
 
-![Bili-Protobuf-Language-Fixed](https://s2.loli.net/2026/01/05/JT4jKvp189ed6QM.png)
+![B 站弹幕项目的语言分布（修复后）](https://s2.loli.net/2026/01/05/JT4jKvp189ed6QM.png)
