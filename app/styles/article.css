@@ -544,7 +544,7 @@ figure[data-rehype-pretty-code-figure]:hover .code-copy-btn {
   text-align: center;
   font-size: var(--font-size-sm);
   color: var(--color-text-tertiary);
-  margin-top: 0.5em;
+  margin-top: 0.8em;
   font-style: italic;
 
   .message-content & {
