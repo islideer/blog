@@ -755,7 +755,7 @@
   {
     "id": "69",
     "date": "2025-12-19T17:50:05+08:00",
-    "content": "之前有提到可以 [自定义 \\<select\\> 元素](#48)，具体来说是通过设置 CSS 属性 appearance 为 `base-select` 来实现的，不得不说，效果确实很牛批，不仅是样式可自定义，连布局排版都可以高度定制化。目前已在 Chrome 135 可用，Chrome 官方发布了一篇文章说明这个功能: _[现在可以使用 CSS 自定义 \\<select\\> 元素](https://developer.chrome.com/blog/a-customizable-select?hl=zh-cn)_，团队成员 Una 也发了篇个人博客来讲述技术细节: _[Updates to the customizable select API](https://una.im/select-updates/)_",
+    "content": "之前有提到可以 [自定义 \\<select\\> 元素](/thoughts/48)，具体来说是通过设置 CSS 属性 appearance 为 `base-select` 来实现的，不得不说，效果确实很牛批，不仅是样式可自定义，连布局排版都可以高度定制化。目前已在 Chrome 135 可用，Chrome 官方发布了一篇文章说明这个功能: _[现在可以使用 CSS 自定义 \\<select\\> 元素](https://developer.chrome.com/blog/a-customizable-select?hl=zh-cn)_，团队成员 Una 也发了篇个人博客来讲述技术细节: _[Updates to the customizable select API](https://una.im/select-updates/)_",
     "images": [
       "https://s2.loli.net/2025/12/19/yN6muwvZDgdbJX2.png",
       "https://s2.loli.net/2025/12/19/YiD5v2fUV4L3q7F.png"
@@ -801,7 +801,7 @@
   {
     "id": "63",
     "date": "2025-12-15T18:04:31+08:00",
-    "content": "之前有提到 [无 token 的 npm 包发布方案](#21)，今天下午尝试了之后，踩了几个坑卡了好久，记下来长个记性。😭\n\n1. 只有最新的 npm 才支持，需要在 GitHb Workflow 里加一个将 npm 升级到最新版本的步骤\n2. pnpm publish 底层直接调用的 npm publish 命令，升级 pnpm 版本无法解决问题\n2. 确保 GitHb Workflow 文件名无误（注意扩展名是 yml 还是 yaml）\n3. GitHb Workflow 要开启 id token 写权限"
+    "content": "之前有提到 [无 token 的 npm 包发布方案](/thoughts/21)，今天下午尝试了之后，踩了几个坑卡了好久，记下来长个记性。😭\n\n1. 只有最新的 npm 才支持，需要在 GitHb Workflow 里加一个将 npm 升级到最新版本的步骤\n2. pnpm publish 底层直接调用的 npm publish 命令，升级 pnpm 版本无法解决问题\n2. 确保 GitHb Workflow 文件名无误（注意扩展名是 yml 还是 yaml）\n3. GitHb Workflow 要开启 id token 写权限"
   },
   {
     "id": "62",
@@ -814,7 +814,7 @@
   {
     "id": "61",
     "date": "2025-12-15T10:52:25+08:00",
-    "content": "12 月 4 号爆出的 [React RSC 漏洞](#31) 虽然修了，但只修了一点点... -_-||| 被发现还 [存在 DoS 和源码泄漏问题](https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components)。手快的人（比如我）还得再把 React 相关包升级到 19.2.3 及以上版本才行。"
+    "content": "12 月 4 号爆出的 [React RSC 漏洞](/thoughts/31) 虽然修了，但只修了一点点... -_-||| 被发现还 [存在 DoS 和源码泄漏问题](https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components)。手快的人（比如我）还得再把 React 相关包升级到 19.2.3 及以上版本才行。"
   },
   {
     "id": "60",
@@ -872,7 +872,7 @@
   {
     "id": "53",
     "date": "2025-12-11T14:26:47+08:00",
-    "content": "Francisco Miranda 构建了一个完全流式传输、即时加载的 [GitHub 仓库视图](https://wtbb.vercel.app/)，保留了原生浏览器搜索功能，移除了蓝色加载条，体验比原版快得多，如 [Next.js 的仓库主页](https://wtbb.vercel.app/vercel/next.js)。之前发的 [CSS 原生的长页面渲染优化](#51) 灵感正来源此项目。"
+    "content": "Francisco Miranda 构建了一个完全流式传输、即时加载的 [GitHub 仓库视图](https://wtbb.vercel.app/)，保留了原生浏览器搜索功能，移除了蓝色加载条，体验比原版快得多，如 [Next.js 的仓库主页](https://wtbb.vercel.app/vercel/next.js)。之前发的 [CSS 原生的长页面渲染优化](/thoughts/51) 灵感正来源此项目。"
   },
   {
     "id": "52",
@@ -1010,7 +1010,7 @@
   {
     "id": "29",
     "date": "2025-12-03T17:21:09+08:00",
-    "content": "都是神队，[第二阶段作业](#14) 果然给我炸光了，只对了三个。~~不过好消息是，大家都彼此彼此，哈哈哈哈哈哈哈哈。~~ 可惜天禄还是没把握住机会啊，本来能多赢两图的。",
+    "content": "都是神队，[第二阶段作业](/thoughts/14) 果然给我炸光了，只对了三个。~~不过好消息是，大家都彼此彼此，哈哈哈哈哈哈哈哈。~~ 可惜天禄还是没把握住机会啊，本来能多赢两图的。",
     "images": [
       "https://s2.loli.net/2025/12/03/rnUJ8hvtMLbOYNf.png"
     ]
@@ -1118,7 +1118,7 @@
   {
     "id": "13",
     "date": "2025-11-28T07:39:58+08:00",
-    "content": "[Major 第一阶段作业](#8) 开局 3-0、0-3 炸差不多了还能救回来是我没想到的 😂。LVG 和 RA 怎么双双 0-3 回家，一图都没赢啊？？~~RNM 退钱 😡~~。Faze 依旧地狱归来 👻。菊花果然被淘汰了，~~真给力啊 (๑¯◡¯๑)，不救我的 3-0 那就直接淘汰让其他人作业都爆炸吧~~。💥 后面就看天禄了，加油。",
+    "content": "[Major 第一阶段作业](/thoughts/8) 开局 3-0、0-3 炸差不多了还能救回来是我没想到的 😂。LVG 和 RA 怎么双双 0-3 回家，一图都没赢啊？？~~RNM 退钱 😡~~。Faze 依旧地狱归来 👻。菊花果然被淘汰了，~~真给力啊 (๑¯◡¯๑)，不救我的 3-0 那就直接淘汰让其他人作业都爆炸吧~~。💥 后面就看天禄了，加油。",
     "images": [
       "https://s2.loli.net/2025/11/28/hKwMScrjY6tZb9A.png"
     ]
