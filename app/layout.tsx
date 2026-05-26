@@ -12,6 +12,7 @@ import { Analytics as VercelAnalytics } from '@vercel/analytics/next'
 import { SpeedInsights as VercelSpeedInsights } from '@vercel/speed-insights/next'
 
 import type { Metadata, Viewport } from 'next'
+import { pages } from '@/lib/data'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -88,6 +89,18 @@ export default function RootLayout({
           type="application/rss+xml"
           title={siteConfig.name}
           href={siteConfig.links.rss}
+        />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${pages.thoughts.title} | ${siteConfig.name}`}
+          href={`${pages.thoughts.slug}${siteConfig.links.rss}`}
+        />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${pages.mioSays.title} | ${siteConfig.name}`}
+          href={`${pages.mioSays.slug}${siteConfig.links.rss}`}
         />
         {siteConfig.seo.bing && <meta name="msvalidate.01" content={siteConfig.seo.bing} />}
         {siteConfig.seo.google && (

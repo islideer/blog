@@ -110,55 +110,53 @@ export default async function ThoughtPage({ params }: { params: Promise<{ id: st
           <h1 className="text-mio-pink text-3xl font-bold sm:text-4xl">
             {pages.mioSays.title} #{id}
           </h1>
-          <p className="text-text-secondary flex items-center gap-2 text-sm">
-            发布于 <PostDate date={mioSay.date} format="full-time" className="shrink-0" />
+          <p className="text-text-secondary flex items-baseline gap-1">
+            {siteConfig.lover.name} 发布于 <PostDate date={mioSay.date} format="detail" />
+            {totalWords >= 20 ? `，共 ${totalWords} 字` : ''}
           </p>
         </section>
 
-        {/* Thoughts Timeline */}
-        <section className="space-y-4">
-          <div>
-            <article id={mioSay.id} className="thought-card space-y-2 pb-4 sm:pb-6">
-              {/* 文本内容 */}
-              {mioSay.content && mioSay.content.trim() !== '' && (
-                <MarkdownLite content={mioSay.content} />
-              )}
+        <section>
+          <article id={mioSay.id} className="thought-card space-y-2 pb-4 sm:pb-6">
+            {/* 文本内容 */}
+            {mioSay.content && mioSay.content.trim() !== '' && (
+              <MarkdownLite content={mioSay.content} />
+            )}
 
-              {/* 图片 */}
-              {mioSay.images && mioSay.images.length > 0 && (
-                <div
-                  className={cn(
-                    'grid grid-cols-1 gap-2 pt-1',
-                    mioSay.images.length > 1 ? 'sm:grid-cols-2' : '',
-                  )}
-                >
-                  {mioSay.images.map((image, imageIndex) => {
-                    return (
-                      <div
-                        key={imageIndex}
-                        className="border-border flex w-full items-center justify-center overflow-hidden rounded-md border"
-                        style={{ backgroundColor: 'var(--color-image-bg)' }}
-                      >
-                        <ZoomImage
-                          src={image}
-                          alt={
-                            mioSay.content && mioSay.content.trim() !== ''
-                              ? `${mioSay.content.slice(0, 20)}... 的图片 ${imageIndex + 1}`
-                              : `${pages.mioSays.title} 图片 ${imageIndex + 1}`
-                          }
-                          width={800}
-                          height={450}
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                          preload
-                          className={cn('aspect-video w-full object-contain')}
-                        />
-                      </div>
-                    )
-                  })}
-                </div>
-              )}
-            </article>
-          </div>
+            {/* 图片 */}
+            {mioSay.images && mioSay.images.length > 0 && (
+              <div
+                className={cn(
+                  'grid grid-cols-1 gap-2 pt-1',
+                  mioSay.images.length > 1 ? 'sm:grid-cols-2' : '',
+                )}
+              >
+                {mioSay.images.map((image, imageIndex) => {
+                  return (
+                    <div
+                      key={imageIndex}
+                      className="border-border flex w-full items-center justify-center overflow-hidden rounded-md border"
+                      style={{ backgroundColor: 'var(--color-image-bg)' }}
+                    >
+                      <ZoomImage
+                        src={image}
+                        alt={
+                          mioSay.content && mioSay.content.trim() !== ''
+                            ? `${mioSay.content.slice(0, 20)}... 的图片 ${imageIndex + 1}`
+                            : `${pages.mioSays.title} 图片 ${imageIndex + 1}`
+                        }
+                        width={800}
+                        height={450}
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        preload
+                        className={cn('aspect-video w-full object-contain')}
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+            )}
+          </article>
         </section>
 
         <section className="flex items-center justify-center">

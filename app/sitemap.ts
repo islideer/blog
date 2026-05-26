@@ -1,7 +1,7 @@
-import { MetadataRoute } from 'next'
-import { getAllPosts } from '@/lib/posts'
 import { siteConfig } from '@/lib/config'
-import { pages } from '@/lib/data'
+import { getAllPosts } from '@/lib/posts'
+import { MetadataRoute } from 'next'
+import { mioSays, pages, thoughts } from '@/lib/data'
 
 export const dynamic = 'force-static'
 export const revalidate = 86400 // 缓存 1 天
@@ -115,59 +115,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   })
 
-  // // 碎碎念页面
-  // const postPages: MetadataRoute.Sitemap = posts.map((post) => {
-  //   const postDate = new Date(post.date)
-  //   const now = new Date()
-  //   const daysSincePublished = Math.floor(
-  //     (now.getTime() - postDate.getTime()) / (1000 * 60 * 60 * 24),
-  //   )
+  // 碎碎念页面
+  const thoughtPages: MetadataRoute.Sitemap = thoughts.map((thought) => {
+    const thoughtDate = new Date(thought.date)
+    const daysSincePublished = Math.floor(
+      (Date.now() - thoughtDate.getTime()) / (1000 * 60 * 60 * 24),
+    )
 
-  //   // 根据文章新旧程度调整优先级
-  //   // 新文章（30 天内）：0.9
-  //   // 中等新鲜度（30-180 天）：0.8
-  //   // 旧文章（180 天以上）：0.7
-  //   let priority = 0.7
-  //   if (daysSincePublished <= 30) {
-  //     priority = 0.9
-  //   } else if (daysSincePublished <= 180) {
-  //     priority = 0.8
-  //   }
+    return {
+      url: `${siteConfig.url}${pages.thoughts.slug}/${thought.id}`,
+      lastModified: thoughtDate,
+      changeFrequency: 'monthly' as const,
+      priority: daysSincePublished <= 7 ? 0.9 : 0.8, // 最近一周的碎碎念优先级更高
+    }
+  })
 
-  //   return {
-  //     url: `${siteConfig.url}/${post.slug}`,
-  //     lastModified: postDate,
-  //     changeFrequency: 'monthly' as const,
-  //     priority,
-  //   }
-  // })
+  // Mio 说页面
+  const mioSayPages: MetadataRoute.Sitemap = mioSays.map((mioSay) => {
+    const mioSayDate = new Date(mioSay.date)
+    const daysSincePublished = Math.floor(
+      (Date.now() - mioSayDate.getTime()) / (1000 * 60 * 60 * 24),
+    )
 
-  // // Mio 说页面
-  // const postPages: MetadataRoute.Sitemap = posts.map((post) => {
-  //   const postDate = new Date(post.date)
-  //   const now = new Date()
-  //   const daysSincePublished = Math.floor(
-  //     (now.getTime() - postDate.getTime()) / (1000 * 60 * 60 * 24),
-  //   )
+    return {
+      url: `${siteConfig.url}${pages.mioSays.slug}/${mioSay.id}`,
+      lastModified: mioSayDate,
+      changeFrequency: 'monthly' as const,
+      priority: daysSincePublished <= 7 ? 0.9 : 0.8, // 最近一周的 Mio 说优先级更高
+    }
+  })
 
-  //   // 根据文章新旧程度调整优先级
-  //   // 新文章（30 天内）：0.9
-  //   // 中等新鲜度（30-180 天）：0.8
-  //   // 旧文章（180 天以上）：0.7
-  //   let priority = 0.7
-  //   if (daysSincePublished <= 30) {
-  //     priority = 0.9
-  //   } else if (daysSincePublished <= 180) {
-  //     priority = 0.8
-  //   }
-
-  //   return {
-  //     url: `${siteConfig.url}/${post.slug}`,
-  //     lastModified: postDate,
-  //     changeFrequency: 'monthly' as const,
-  //     priority,
-  //   }
-  // })
-
-  return [...staticPages, ...postPages]
+  return [...staticPages, ...postPages, ...thoughtPages, ...mioSayPages]
 }
