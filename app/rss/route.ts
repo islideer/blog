@@ -5,13 +5,19 @@ import { siteConfig } from '@/lib/config'
 export const dynamic = 'force-static'
 export const revalidate = 86400 // 缓存 1 天
 
+const author = {
+  name: siteConfig.author.name,
+  email: siteConfig.author.email,
+  link: siteConfig.author.github,
+}
+
 export async function GET() {
   const posts = await getAllPosts()
 
   const feed = new Feed({
+    id: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
-    id: siteConfig.url,
     link: siteConfig.url,
     language: siteConfig.language,
     image: `${siteConfig.url}/apple-icon.png`, // RSS 阅读器显示的图片
@@ -24,11 +30,7 @@ export async function GET() {
       // json: `${siteConfig.url}/feed.json`, // 可选：JSON Feed
       // atom: `${siteConfig.url}/atom.xml`, // 可选：Atom Feed
     },
-    author: {
-      name: siteConfig.author.name,
-      email: siteConfig.author.email,
-      link: siteConfig.author.github,
-    },
+    author,
   })
 
   // 只包含最新的 20 篇文章（博客最佳实践）
@@ -43,18 +45,12 @@ export async function GET() {
       : undefined
 
     feed.addItem({
-      title: post.title,
       id: `${siteConfig.url}/${post.slug}`,
-      link: `${siteConfig.url}/${post.slug}`,
+      title: post.title,
       description: post.excerpt,
-      content: `${post.excerpt}<br /><a href="${siteConfig.url}/${post.slug}" rel="nofollow noopener noreferrer" target="_blank">阅读全文 &raquo;</a>`,
-      author: [
-        {
-          name: siteConfig.author.name,
-          email: siteConfig.author.email,
-          link: siteConfig.author.github,
-        },
-      ],
+      link: `${siteConfig.url}/${post.slug}`,
+      content: `<p>${post.excerpt}</p><br /><a href="${siteConfig.url}/${post.slug}" rel="nofollow noopener noreferrer" target="_blank">阅读全文 &raquo;</a>`,
+      author: [author],
       date: new Date(post.date),
       published: new Date(post.date),
       category: post.tags?.map((tag) => ({ name: tag })) || [],

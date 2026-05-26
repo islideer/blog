@@ -88,7 +88,7 @@ async function getAllSearchItems(): Promise<SearchIndexItem[]> {
       excerpt: truncate(content),
       content,
       date: thought.date,
-      url: `/thoughts#${thought.id}`,
+      url: `/thoughts/${thought.id}`,
     })
   }
 
@@ -102,7 +102,7 @@ async function getAllSearchItems(): Promise<SearchIndexItem[]> {
       excerpt: truncate(content),
       content,
       date: mioSay.date,
-      url: `/mio-says#${mioSay.id}`,
+      url: `/mio-says/${mioSay.id}`,
     })
   }
 

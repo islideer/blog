@@ -35,7 +35,7 @@ interface InteractionButtonProps {
   initialCount?: number // 服务端传入的初始计数
   className?: string
   iconClassName?: string
-  revalidatePagePath?: string // 提交后需要重新验证的页面路径
+  revalidatePagePath?: string | string[] // 提交后需要重新验证的页面路径
 }
 
 export function InteractionButton({

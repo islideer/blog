@@ -41,7 +41,7 @@ export async function submitInteraction(
   type: string,
   id: string,
   count: number = 1,
-  revalidatePagePath?: string,
+  revalidatePagePath?: string | string[],
 ) {
   // 验证类型是否启用
   const config = getInteractionConfig(type)
@@ -101,7 +101,11 @@ export async function submitInteraction(
 
     // 触发路径重新验证以更新缓存
     if (revalidatePagePath) {
-      revalidatePath(revalidatePagePath)
+      if (Array.isArray(revalidatePagePath)) {
+        revalidatePagePath.forEach((path) => revalidatePath(path))
+      } else {
+        revalidatePath(revalidatePagePath)
+      }
     }
 
     return {

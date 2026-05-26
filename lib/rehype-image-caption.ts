@@ -18,7 +18,8 @@ export default function rehypeImageCaption() {
       if (isEmoji) return
 
       const alt = node.properties.alt as string
-      if (!alt || alt.trim() === '') return
+
+      if (!alt || alt.trim() === '' || alt === 'image') return
 
       const parentEl = parent as Element
 
@@ -45,11 +46,9 @@ export default function rehypeImageCaption() {
       }
 
       if (parentEl.tagName === 'a') {
-        console.log('123')
         const cls = parentEl.properties.className
 
         if (typeof cls === 'undefined' || typeof cls === 'string' || Array.isArray(cls)) {
-          console.log('444')
           parentEl.properties.className = [cls || '', 'no-underline'].filter((e) => !!e).flat(1)
         }
       }

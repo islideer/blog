@@ -3,6 +3,7 @@ import { LazyImage } from './lazy-image'
 import { MarkdownLite } from './markdown-lite'
 import { RelativeTime } from './relative-time'
 import { InteractionButton } from './interaction-button'
+import { pages } from '@/lib/data'
 
 export interface ThoughtItem {
   id: string
@@ -14,8 +15,8 @@ export interface ThoughtItem {
 interface ThoughtCardProps {
   thought: ThoughtItem
   initialCount?: number
-  index: number
-  total: number
+  index?: number
+  total?: number
   /** 是否使用 Mio 粉色主题 */
   mioTheme?: boolean
   /** 内容描述前缀（用于图片 alt） */
@@ -30,8 +31,8 @@ interface ThoughtCardProps {
 export async function ThoughtCard({
   thought,
   initialCount,
-  index,
-  total,
+  index = 0,
+  total = 1,
   mioTheme = false,
   contentPrefix = '碎碎念',
 }: ThoughtCardProps) {
@@ -58,7 +59,7 @@ export async function ThoughtCard({
       {/* 序号和日期时间 */}
       <div className="flex items-center gap-2 text-xs">
         <a
-          href={`#${thought.id}`}
+          href={`${mioTheme ? pages.mioSays.slug : pages.thoughts.slug}/${thought.id}`}
           className="cursor-pointer font-mono font-semibold no-underline hover:underline"
           style={mioTheme ? { color: 'var(--color-mio-pink)' } : undefined}
         >
@@ -85,7 +86,7 @@ export async function ThoughtCard({
         <div
           className={cn(
             'grid grid-cols-1 gap-2 pt-1',
-            thought.images.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-md',
+            thought.images.length > 1 ? 'sm:grid-cols-2' : '',
           )}
         >
           {thought.images.map((image, imageIndex) => {

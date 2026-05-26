@@ -115,5 +115,59 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   })
 
+  // // 碎碎念页面
+  // const postPages: MetadataRoute.Sitemap = posts.map((post) => {
+  //   const postDate = new Date(post.date)
+  //   const now = new Date()
+  //   const daysSincePublished = Math.floor(
+  //     (now.getTime() - postDate.getTime()) / (1000 * 60 * 60 * 24),
+  //   )
+
+  //   // 根据文章新旧程度调整优先级
+  //   // 新文章（30 天内）：0.9
+  //   // 中等新鲜度（30-180 天）：0.8
+  //   // 旧文章（180 天以上）：0.7
+  //   let priority = 0.7
+  //   if (daysSincePublished <= 30) {
+  //     priority = 0.9
+  //   } else if (daysSincePublished <= 180) {
+  //     priority = 0.8
+  //   }
+
+  //   return {
+  //     url: `${siteConfig.url}/${post.slug}`,
+  //     lastModified: postDate,
+  //     changeFrequency: 'monthly' as const,
+  //     priority,
+  //   }
+  // })
+
+  // // Mio 说页面
+  // const postPages: MetadataRoute.Sitemap = posts.map((post) => {
+  //   const postDate = new Date(post.date)
+  //   const now = new Date()
+  //   const daysSincePublished = Math.floor(
+  //     (now.getTime() - postDate.getTime()) / (1000 * 60 * 60 * 24),
+  //   )
+
+  //   // 根据文章新旧程度调整优先级
+  //   // 新文章（30 天内）：0.9
+  //   // 中等新鲜度（30-180 天）：0.8
+  //   // 旧文章（180 天以上）：0.7
+  //   let priority = 0.7
+  //   if (daysSincePublished <= 30) {
+  //     priority = 0.9
+  //   } else if (daysSincePublished <= 180) {
+  //     priority = 0.8
+  //   }
+
+  //   return {
+  //     url: `${siteConfig.url}/${post.slug}`,
+  //     lastModified: postDate,
+  //     changeFrequency: 'monthly' as const,
+  //     priority,
+  //   }
+  // })
+
   return [...staticPages, ...postPages]
 }
