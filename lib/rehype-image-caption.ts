@@ -14,8 +14,7 @@ export default function rehypeImageCaption() {
       if (!parent || index === undefined) return
 
       const isEmoji =
-        Array.isArray(node.properties.className) &&
-        node.properties.className.includes('emoji')
+        Array.isArray(node.properties.className) && node.properties.className.includes('emoji')
       if (isEmoji) return
 
       const alt = node.properties.alt as string
@@ -37,7 +36,7 @@ export default function rehypeImageCaption() {
             {
               type: 'element',
               tagName: 'figcaption',
-              properties: { className: ['image-caption'] },
+              properties: { className: ['image-caption', 'no-underline'] },
               children: [{ type: 'text', value: alt }],
             } as Element,
           ]
@@ -45,11 +44,22 @@ export default function rehypeImageCaption() {
         }
       }
 
+      if (parentEl.tagName === 'a') {
+        console.log('123')
+        const cls = parentEl.properties.className
+
+        if (typeof cls === 'undefined' || typeof cls === 'string' || Array.isArray(cls)) {
+          console.log('444')
+          parentEl.properties.className = [cls || '', 'no-underline'].filter((e) => !!e).flat(1)
+        }
+      }
+
       // 降级：img 在其他容器中，直接在后面插入 span
-      parent.children.splice(index + 1, 0, {
+
+      parentEl.children.splice(index + 1, 0, {
         type: 'element',
         tagName: 'span',
-        properties: { className: ['image-caption'] },
+        properties: { className: ['image-caption', 'no-underline'] },
         children: [{ type: 'text', value: alt }],
       } as Element)
     })

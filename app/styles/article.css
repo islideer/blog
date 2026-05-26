@@ -73,14 +73,14 @@
    ============================================ */
 
 /* Links */
-.prose a {
+.prose a:not(.no-underline) {
   text-decoration: underline dashed;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
   font-weight: 400;
 }
 
-.prose a:hover {
+.prose a:not(.no-underline):hover {
   text-decoration-style: solid;
   color: var(--color-text-primary);
 }
@@ -119,7 +119,7 @@
 .prose h5:hover .heading-anchor {
   opacity: 1;
 }
-.prose .heading-anchor:hover {
+.prose .heading-anchor:not(.no-underline):hover {
   text-decoration: underline;
   color: var(--color-text-primary);
 }
