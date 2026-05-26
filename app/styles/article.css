@@ -526,7 +526,7 @@ figure[data-rehype-pretty-code-figure]:hover .code-copy-btn {
 /* Image Caption */
 .prose figure.image-figure {
   margin-top: 1.2em;
-  margin-bottom: 1.2em;
+  margin-bottom: 1.6em;
 
   &:first-child {
     margin-top: 0;
