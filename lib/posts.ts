@@ -4,6 +4,7 @@ import { isDev } from './env.ts'
 import { countWords } from './word-count.ts'
 import { promises as fs } from 'fs'
 import { calculateReadingTime } from './reading-time.ts'
+import { cleanMarkdownContent } from './markdown.ts'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -119,7 +120,7 @@ export async function getAllPosts(
         date: new Date(data.date).toISOString(),
         tags: data.tags || [],
         images: data.top_image ? [...new Set([data.top_image, ...images])] : images,
-        wordCount: countWords(content),
+        wordCount: countWords(cleanMarkdownContent(content)),
         readingTime: calculateReadingTime(content),
         excerpt: data.excerpt || '',
         author: data.author || '',
@@ -133,9 +134,10 @@ export async function getAllPosts(
   )
 
   // 开发模式下显示所有文章（包括草稿），生产环境下过滤草稿。归档文章统一不显示。
-  const filteredPosts = isDev || includeDrafts
-    ? allPostsData.filter((post) => !post.archived)
-    : allPostsData.filter((post) => !post.draft && !post.archived)
+  const filteredPosts =
+    isDev || includeDrafts
+      ? allPostsData.filter((post) => !post.archived)
+      : allPostsData.filter((post) => !post.draft && !post.archived)
 
   return filteredPosts.toSorted((a, b) => (a.date < b.date ? 1 : -1))
 }
