@@ -1,9 +1,9 @@
 import { visit } from 'unist-util-visit'
-import emojiPacks from '../data/emoji-packs.json'
-import { getEmojiPackSize } from './emoji-packs'
+import emojiPacks from '../data/emoji-packs.json' with { type: 'json' }
+import { getEmojiPackSize } from './emoji-packs.ts'
 
 import type { Plugin } from 'unified'
-import type { EmojiPacks } from './emoji-packs'
+import type { EmojiPacks } from './emoji-packs.ts'
 import type { Root, Text, Html, PhrasingContent } from 'mdast'
 
 /** 插件选项 */
