@@ -136,7 +136,7 @@ export default async function ThoughtPage({ params }: { params: Promise<{ id: st
             {thought.images && thought.images.length > 0 && (
               <div
                 className={cn(
-                  'grid grid-cols-1 gap-2 pt-1',
+                  'grid grid-cols-1 gap-2 pt-2',
                   thought.images.length > 1 ? 'sm:grid-cols-2' : '',
                 )}
               >
