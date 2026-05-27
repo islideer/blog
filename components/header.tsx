@@ -224,7 +224,7 @@ export function Header() {
                     )}
                     onClick={() => setIsMoreOpen(false)}
                   >
-                    RSS 订阅
+                    RSS
                   </a>
 
                   <a

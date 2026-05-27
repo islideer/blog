@@ -9,6 +9,7 @@ import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema }
 import { cleanMarkdownContent } from '@/lib/markdown'
 import { getInteractionCounts } from '@/lib/interactions'
 import { StaticTableOfContents } from '@/components/table-of-contents'
+import { RSSIcon } from '@/icons/rss'
 
 import type { Metadata } from 'next'
 
@@ -107,9 +108,23 @@ export default async function MioSaysPage() {
         {/* Header */}
         <section className="flex flex-row gap-6 sm:items-start sm:justify-between">
           <div className="flex-1 space-y-3">
-            <h1 className="text-3xl font-bold text-mio-pink sm:text-4xl">
-              {pages.mioSays.title}
-            </h1>
+            <div className="flex items-baseline gap-2">
+              <h1 className="text-mio-pink text-3xl font-bold sm:text-4xl">
+                {pages.mioSays.title}
+              </h1>
+              <a
+                href="/mio-says/rss"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="no-icon group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-2.5 py-1.5 text-xs no-underline transition-colors"
+                aria-label="RSS"
+              >
+                <span className="inline-flex items-center gap-1.5 transition-transform group-active/btn:scale-90">
+                  <RSSIcon className="h-3.5 w-3.5" />
+                  RSS
+                </span>
+              </a>
+            </div>
             <p className="text-text-secondary">
               {`${pages.mioSays.description}，共 ${sortedMioSays.length.toLocaleString('zh-Hans-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}
             </p>
@@ -128,7 +143,7 @@ export default async function MioSaysPage() {
 
         {/* Mio Says Timeline */}
         <section className="space-y-4">
-          <div className="sm:border-l-2 sm:border-mio-border sm:pl-6">
+          <div className="sm:border-mio-border sm:border-l-2 sm:pl-6">
             <ThoughtsList
               thoughts={sortedMioSays}
               counts={counts}

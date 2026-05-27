@@ -69,7 +69,7 @@ export function FriendCard({ friend }: FriendCardProps) {
           <h3 className="text-text-primary truncate font-medium">{friend.name}</h3>
           {friend.rss && status === 'active' && (
             <div className="relative z-10">
-              <RSSIcon href={friend.rss} tooltip="支持 RSS 订阅" className="z-10 sm:h-7! sm:w-7!" />
+              <RSSIcon href={friend.rss} tooltip="支持 RSS" className="z-10 sm:h-7! sm:w-7!" />
             </div>
           )}
           {statusConfig && (

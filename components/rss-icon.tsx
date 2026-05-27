@@ -11,7 +11,7 @@ interface RSSIconProps {
   className?: string
 }
 
-export function RSSIcon({ href, className, tooltip = 'RSS 订阅' }: RSSIconProps) {
+export function RSSIcon({ href, className, tooltip = 'RSS' }: RSSIconProps) {
   if (href) {
     return (
       <IconLink

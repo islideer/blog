@@ -11,7 +11,7 @@
     "list": [
       { "label": "hi@viki.moe", "url": "mailto:hi@viki.moe" },
       { "label": "GitHub", "url": "https://github.com/vikiboss" },
-      { "label": "RSS 订阅", "url": "/rss" }
+      { "label": "RSS", "url": "/rss" }
     ]
   },
   "openSource": {

@@ -47,9 +47,9 @@ function SocialLinks({ className }: { className?: string }) {
         target="_blank"
         rel="noopener noreferrer"
         className="text-text-secondary hover:text-text-primary"
-        title="RSS 订阅"
+        title="RSS"
       >
-        RSS 订阅
+        RSS
       </a>
       <a
         href={siteConfig.links.travellings}
