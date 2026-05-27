@@ -12,7 +12,7 @@ async function generateLLMsTxt() {
   const posts = await getAllPosts()
 
   const postListContent = posts
-    .map((post) => `- [${post.title}](${post.slug}) (${post.date.slice(0, 10)}) #${post.topic}`)
+    .map((post) => `- [${post.title}](/${post.slug}) #${post.topic} #${post.date.slice(0, 10)}`)
     .join('\n')
 
   const content = `
@@ -20,21 +20,27 @@ async function generateLLMsTxt() {
 
 > ${siteConfig.tagline} ${siteConfig.description}
 
-## 文章
+## 关于作者
+
+${about.intro.title}，${about.intro.paragraphs.join('')}
+
+## 所有文章
 
 ${postListContent}
 
-## 页面
+## 博客页面
 
 ${Object.entries(pages)
   .map(([_, page]) => `- [${page.title}](${page.slug}) - ${page.description}`)
   .join('\n')}
 
-## 关于作者
+## 订阅 RSS
 
-${about.intro.title}，${about.intro.paragraphs.join('')}
+- [文章 RSS](${siteConfig.links.rss}) - 文章更新
+- [碎碎念 RSS](${pages.thoughts.slug}${siteConfig.links.rss}) - 碎碎念更新
+- [Mio 说 RSS](${pages.mioSays.slug}${siteConfig.links.rss}) - Mio 说更新
 
-### 开源项目
+## 开源项目
 
 ${[
   ...(about.openSource.data?.libraries ?? []),
@@ -46,7 +52,7 @@ ${[
   .map((app) => `- [${app.name}](${app.url}) - ${app.description}`)
   .join('\n')}
 
-### 联系方式
+## 联系方式
 
 ${about.contact.list.map((contact) => `- [${contact.label}](${contact.url})`).join('\n')}
 `.trim()
