@@ -66,13 +66,13 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
           </code>
           <button
             onClick={handleCopyUrl}
-            className="group/btn text-text-tertiary hover:text-text-primary shrink-0 transition-colors"
+            className="group/btn text-text-tertiary hover:text-text-primary shrink-0"
             aria-label={copiedUrl ? '已复制' : '复制链接'}
           >
             {copiedUrl ? (
-              <CheckIcon className="h-3.5 w-3.5 transition-transform group-active/btn:scale-90" />
+              <CheckIcon className="h-3.5 w-3.5 group-active/btn:scale-90" />
             ) : (
-              <CopyIcon className="h-3.5 w-3.5 transition-transform group-active/btn:scale-90" />
+              <CopyIcon className="h-3.5 w-3.5 group-active/btn:scale-90" />
             )}
           </button>
         </div>

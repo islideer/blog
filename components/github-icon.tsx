@@ -13,7 +13,9 @@ export function GitHubIcon({ href, className }: GitHubIconProps) {
     <IconLink
       href={href}
       tooltip="GitHub"
-      icon={<GitHubIconBase className="text-text-secondary h-4 w-4 sm:h-4.5 sm:w-4.5" />}
+      icon={
+        <GitHubIconBase className="text-text-secondary h-4 w-4 transition-transform group-active:scale-90 sm:h-4.5 sm:w-4.5" />
+      }
       className={className}
     />
   )

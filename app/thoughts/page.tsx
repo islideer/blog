@@ -1,13 +1,10 @@
-import { pages } from '@/lib/data'
-import { thoughts } from '@/lib/data'
+import { pages, thoughts } from '@/lib/data'
 import { BackToTop } from '@/components/back-to-top'
 import { siteConfig } from '@/lib/config'
 import { countWords } from '@/lib/word-count'
-import { ThoughtsList } from '@/components/thoughts-list'
+import { ThoughtsPageContent } from '@/components/thoughts-page-content'
 import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
-import { cleanMarkdownContent } from '@/lib/markdown'
-import { getInteractionCounts } from '@/lib/interactions'
-import { StaticTableOfContents } from '@/components/table-of-contents'
+import { getThoughtsPage } from '@/actions/thoughts'
 import { RSSIcon } from '@/icons/rss'
 
 import type { Metadata } from 'next'
@@ -59,11 +56,8 @@ export default async function ThoughtsPage() {
   const avg = (new Date(last).getTime() - new Date(first).getTime()) / (1000 * 60 * 60 * 24 * 30)
   const averagePerMonth = Math.round(sortedThoughts.length / Math.max(1, avg) || 1)
 
-  // 提取所有 ID 用于批量加载互动数据
-  const ids = sortedThoughts.map((t) => t.id)
-
-  // 服务端直接获取互动计数
-  const counts = await getInteractionCounts('thoughts', ids)
+  // 首屏加载前 5 条
+  const { items: initialItems, hasMore: initialHasMore } = await getThoughtsPage('thoughts', 1)
 
   return (
     <>
@@ -79,14 +73,6 @@ export default async function ThoughtsPage() {
           ),
         }}
       />
-      <StaticTableOfContents
-        behavior="auto"
-        items={sortedThoughts.map((thought) => ({
-          id: thought.id,
-          title: `#${thought.id} ${thought.content ? Array.from(cleanMarkdownContent(thought.content)).slice(0, 20).join('') : '无内容'}...`,
-        }))}
-      />
-
       {/* Back to Top Button */}
       <BackToTop />
 
@@ -133,9 +119,10 @@ export default async function ThoughtsPage() {
         {/* Thoughts Timeline */}
         <section className="space-y-4">
           <div className="border-border-tertiary sm:border-l-2 sm:pl-6">
-            <ThoughtsList
-              thoughts={sortedThoughts}
-              counts={counts}
+            <ThoughtsPageContent
+              type="thoughts"
+              initialItems={initialItems}
+              initialHasMore={initialHasMore}
               emptyMessage="还没有碎碎念，快来记录吧"
               contentPrefix="碎碎念"
             />

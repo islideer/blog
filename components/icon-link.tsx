@@ -21,7 +21,7 @@ export function IconLink({ href, tooltip, icon, className, iconClassName }: Icon
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          'no-icon text-text-secondary sm:hover:bg-bg-tertiary sm:hover:text-text-primary active:bg-bg-tertiary active:text-text-primary flex h-6 w-6 items-center justify-center rounded-sm sm:mr-0 sm:h-8 sm:w-8',
+          'group no-icon text-text-secondary sm:hover:bg-bg-tertiary sm:hover:text-text-primary active:bg-bg-tertiary active:text-text-primary flex h-6 w-6 items-center justify-center rounded-sm sm:mr-0 sm:h-8 sm:w-8',
           className,
         )}
       >

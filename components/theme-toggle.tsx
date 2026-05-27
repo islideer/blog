@@ -34,7 +34,7 @@ export function ThemeToggle() {
     () => false,
   )
 
-  const iconClass = 'h-4 w-4 sm:h-4.5 sm:w-4.5 transition-transform group-active/btn:scale-90'
+  const iconClass = 'h-4 w-4 sm:h-4.5 sm:w-4.5 transition-transform group-active:scale-90'
 
   if (!mounted) {
     return (

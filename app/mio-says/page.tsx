@@ -1,14 +1,11 @@
 import Image from 'next/image'
-import { pages } from '@/lib/data'
-import { mioSays } from '@/lib/data'
+import { pages, mioSays } from '@/lib/data'
 import { BackToTop } from '@/components/back-to-top'
 import { countWords } from '@/lib/word-count'
 import { siteConfig } from '@/lib/config'
-import { ThoughtsList } from '@/components/thoughts-list'
+import { ThoughtsPageContent } from '@/components/thoughts-page-content'
 import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
-import { cleanMarkdownContent } from '@/lib/markdown'
-import { getInteractionCounts } from '@/lib/interactions'
-import { StaticTableOfContents } from '@/components/table-of-contents'
+import { getThoughtsPage } from '@/actions/thoughts'
 import { RSSIcon } from '@/icons/rss'
 
 import type { Metadata } from 'next'
@@ -55,11 +52,8 @@ export default async function MioSaysPage() {
     return sum + (mioSay.content ? countWords(mioSay.content) : 0)
   }, 0)
 
-  // 提取所有 ID 用于批量加载互动数据
-  const ids = sortedMioSays.map((m) => m.id)
-
-  // 服务端直接获取互动计数
-  const counts = await getInteractionCounts('mio-says', ids)
+  // 首屏加载前 5 条
+  const { items: initialItems, hasMore: initialHasMore } = await getThoughtsPage('mio-says', 1)
 
   return (
     <>
@@ -75,14 +69,6 @@ export default async function MioSaysPage() {
           ),
         }}
       />
-      <StaticTableOfContents
-        behavior="auto"
-        items={sortedMioSays.map((mioSay) => ({
-          id: mioSay.id,
-          title: `#${mioSay.id} ${mioSay.content ? Array.from(cleanMarkdownContent(mioSay.content)).slice(0, 20).join('') : '无内容'}...`,
-        }))}
-      />
-
       {/* Back to Top Button */}
       <BackToTop />
 
@@ -144,9 +130,10 @@ export default async function MioSaysPage() {
         {/* Mio Says Timeline */}
         <section className="space-y-4">
           <div className="sm:border-mio-border sm:border-l-2 sm:pl-6">
-            <ThoughtsList
-              thoughts={sortedMioSays}
-              counts={counts}
+            <ThoughtsPageContent
+              type="mio-says"
+              initialItems={initialItems}
+              initialHasMore={initialHasMore}
               mioTheme
               emptyMessage={`${siteConfig.lover.name} 还没有说什么，敬请期待`}
               contentPrefix={`${siteConfig.lover.name} 说`}

@@ -36,8 +36,8 @@ export function FriendCard({ friend }: FriendCardProps) {
     <div
       id={friend.id}
       className={cn(
-        'group relative flex items-start gap-3 opacity-80 transition-opacity hover:opacity-100',
-        !isActive && 'grayscale transition-[opacity,filter] hover:grayscale-0',
+        'group relative flex items-start gap-3 opacity-80 hover:opacity-100',
+        !isActive && 'grayscale hover:grayscale-0',
       )}
     >
       <a
