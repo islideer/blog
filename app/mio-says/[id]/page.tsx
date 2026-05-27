@@ -8,6 +8,7 @@ import { siteConfig } from '@/lib/config'
 import { countWords } from '@/lib/word-count'
 import { MarkdownLite } from '@/components/markdown-lite'
 import { InteractionButton } from '@/components/interaction-button'
+import { cleanMarkdownContent } from '@/lib/markdown'
 import { getInteractionCounts } from '@/lib/interactions'
 import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 
@@ -27,10 +28,18 @@ export async function generateMetadata({
   const { id } = await params
 
   const path = `${pages.mioSays.slug}/${id}`
+  const mioSay = mioSays.find((t) => t.id === id)
+
+  if (!mioSay) {
+    return {
+      title: 'Mio Says Not Found',
+      description: 'The Mio Says you are looking for does not exist.',
+    }
+  }
 
   return {
-    title: `${pages.mioSays.title} #${id} | ${siteConfig.name}`,
-    description: pages.mioSays.description,
+    title: `${pages.mioSays.title} #${id}`,
+    description: cleanMarkdownContent(mioSay.content).slice(0, 160), // 从内容中提取描述，限制在 160 字符
     alternates: {
       canonical: generateCanonicalUrl(path),
     },
@@ -39,7 +48,7 @@ export async function generateMetadata({
       locale: siteConfig.locale.replace('-', '_'),
       url: generateCanonicalUrl(path),
       title: `${pages.mioSays.title} #${id} | ${siteConfig.name}`,
-      description: pages.mioSays.description,
+      description: cleanMarkdownContent(mioSay.content).slice(0, 160), // 从内容中提取描述，限制在 160 字符
       siteName: siteConfig.name,
       images: [
         {
@@ -53,7 +62,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title: `${pages.mioSays.title} #${id} | ${siteConfig.name}`,
-      description: pages.mioSays.description,
+      description: cleanMarkdownContent(mioSay.content).slice(0, 160), // 从内容中提取描述，限制在 160 字符
       images: [`${siteConfig.url}/opengraph-image`],
     },
   }

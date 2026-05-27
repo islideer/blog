@@ -11,14 +11,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 获取最新文章的发布时间
   const latestPostDate = posts[0]?.date ? new Date(posts[0].date) : new Date()
+  const latestThoughtDate = thoughts[0]?.date ? new Date(thoughts[0].date) : new Date()
+  const latestMioSayDate = mioSays[0]?.date ? new Date(mioSays[0].date) : new Date()
+
+  // 取三者中最新的日期作为首页和相关页面的 lastModified
+  const latestDate = new Date(
+    Math.max(latestPostDate.getTime(), latestThoughtDate.getTime(), latestMioSayDate.getTime()),
+  )
 
   // 静态页面
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: siteConfig.url,
-      lastModified: latestPostDate, // 首页随最新文章更新
+      lastModified: latestDate, // 首页随最新文章更新
       changeFrequency: 'daily',
       priority: 1.0, // 最高优先级
+    },
+    {
+      url: `${siteConfig.url}${siteConfig.links['llms.txt']}`,
+      lastModified: latestDate, // llms.txt 首页随最新文章更新
+      changeFrequency: 'daily',
+      priority: 0.9, // 次高优先级
     },
     {
       url: `${siteConfig.url}${pages.posts.slug}`,
@@ -28,13 +41,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${siteConfig.url}${pages.thoughts.slug}`,
-      lastModified: new Date(),
+      lastModified: latestThoughtDate, // 碎碎念列表页随最新文章更新
       changeFrequency: 'weekly', // 小时级别更新
       priority: 0.8, // 中高优先级（频繁更新）
     },
     {
       url: `${siteConfig.url}${pages.mioSays.slug}`,
-      lastModified: new Date(),
+      lastModified: latestMioSayDate, // Mio 说列表页随最新文章更新
       changeFrequency: 'weekly', // 小时级别更新
       priority: 0.8, // 中高优先级（频繁更新）
     },
@@ -71,7 +84,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${siteConfig.url}${pages.reading.slug}`,
       lastModified: new Date(),
-      changeFrequency: 'weekly', // 每日更新
+      changeFrequency: 'weekly',
       priority: 0.6, // 中等优先级
     },
     {

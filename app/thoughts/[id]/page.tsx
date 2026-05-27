@@ -8,6 +8,7 @@ import { siteConfig } from '@/lib/config'
 import { countWords } from '@/lib/word-count'
 import { MarkdownLite } from '@/components/markdown-lite'
 import { InteractionButton } from '@/components/interaction-button'
+import { cleanMarkdownContent } from '@/lib/markdown'
 import { getInteractionCounts } from '@/lib/interactions'
 import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 
@@ -27,10 +28,18 @@ export async function generateMetadata({
   const { id } = await params
 
   const path = `${pages.thoughts.slug}/${id}`
+  const thought = thoughts.find((t) => t.id === id)
+
+  if (!thought) {
+    return {
+      title: 'Thought Not Found',
+      description: 'The thought you are looking for does not exist.',
+    }
+  }
 
   return {
-    title: `${pages.thoughts.title} #${id} | ${siteConfig.name}`,
-    description: pages.thoughts.description,
+    title: `${pages.thoughts.title} #${id}`,
+    description: cleanMarkdownContent(thought.content).slice(0, 160), // 从内容中提取描述，限制在 160 字符
     alternates: {
       canonical: generateCanonicalUrl(path),
     },
@@ -39,7 +48,7 @@ export async function generateMetadata({
       locale: siteConfig.locale.replace('-', '_'),
       url: generateCanonicalUrl(path),
       title: `${pages.thoughts.title} #${id} | ${siteConfig.name}`,
-      description: pages.thoughts.description,
+      description: cleanMarkdownContent(thought.content).slice(0, 160), // 从内容中提取描述，限制在 160 字符
       siteName: siteConfig.name,
       images: [
         {
@@ -53,7 +62,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title: `${pages.thoughts.title} #${id} | ${siteConfig.name}`,
-      description: pages.thoughts.description,
+      description: cleanMarkdownContent(thought.content).slice(0, 160), // 从内容中提取描述，限制在 160 字符
       images: [`${siteConfig.url}/opengraph-image`],
     },
   }

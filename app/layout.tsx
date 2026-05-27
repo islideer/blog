@@ -1,5 +1,6 @@
 import './globals.css'
 
+import { pages } from '@/lib/data'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { siteConfig } from '@/lib/config'
@@ -12,7 +13,6 @@ import { Analytics as VercelAnalytics } from '@vercel/analytics/next'
 import { SpeedInsights as VercelSpeedInsights } from '@vercel/speed-insights/next'
 
 import type { Metadata, Viewport } from 'next'
-import { pages } from '@/lib/data'
 
 export const viewport: Viewport = {
   width: 'device-width',
