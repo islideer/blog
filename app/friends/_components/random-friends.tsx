@@ -146,7 +146,7 @@ export function RandomFriends({ friends }: FriendsListRandomProps) {
             <span className="text-text-quaternary text-xs">共 {archivedFriends.length} 位</span>
           </summary>
           <p className="text-text-quaternary mt-3 mb-4 text-xs">
-            以下站点因友链确认较久、网站长期异常或失联，已暂时折叠。
+            以下站点因友链确认较久、站长失联或长期异常，已暂时折叠。
           </p>
           <div className="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2">
             {archivedFriends.map((friend) => (

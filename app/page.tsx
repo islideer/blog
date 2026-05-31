@@ -57,7 +57,7 @@ export default async function BlogPage() {
           <MarkdownLite
             size="md"
             className="text-text-secondary!"
-            content={about.intro.paragraphs.join('\n')}
+            content={about.intro.paragraphs.join('\n\n')}
           />
         </section>
 

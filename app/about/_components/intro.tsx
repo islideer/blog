@@ -20,7 +20,7 @@ export async function AboutIntro({ title, paragraphs, id }: AboutIntroProps) {
         />
         {title}
       </h1>
-      <MarkdownLite size="md" className="text-text-secondary!" content={paragraphs.join('\n')} />
+      <MarkdownLite size="md" className="text-text-secondary!" content={paragraphs.join('\n\n')} />
     </section>
   )
 }

@@ -118,7 +118,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ToastProvider />
-          <div className="flex min-h-screen min-w-sm flex-col sm:mx-auto sm:max-w-3xl">
+          <div className="flex min-h-screen min-w-80 flex-col sm:mx-auto sm:max-w-3xl">
             <a href="#main-content" className="skip-to-content">
               跳转到主要内容
             </a>

@@ -79,47 +79,47 @@ export function Header() {
           </div>
         </Link>
 
-        <nav role="navigation" aria-label="主导航" className="flex items-center gap-1.5 sm:gap-4">
+        <nav
+          role="navigation"
+          aria-label="主导航"
+          className="flex items-center gap-2 text-xs sm:gap-4 sm:text-sm"
+        >
           <Link
             href={pages.posts.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-              'text-xs sm:text-sm',
             )}
           >
             {pages.posts.title}
           </Link>
 
-          <a
+          <Link
             href={pages.thoughts.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-              'text-xs sm:text-sm',
             )}
           >
             {pages.thoughts.title}
-          </a>
+          </Link>
 
-          <a
+          {/* <Link
             href={pages.mioSays.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-              'text-xs sm:text-sm',
             )}
           >
             {pages.mioSays.title}
-          </a>
+          </Link> */}
 
-          <Link
+          {/* <Link
             href={pages.about.slug}
             className={cn(
               'text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-              'text-xs sm:text-sm',
             )}
             onClick={() => setIsMoreOpen(false)}
           >
             {pages.about.title}
-          </Link>
+          </Link> */}
 
           {/* "更多"下拉菜单 */}
           <div className="relative flex items-center">
@@ -136,7 +136,6 @@ export function Header() {
               }}
               className={cn(
                 'group/btn text-text-secondary sm:hover:text-text-primary active:text-text-primary',
-                'text-xs sm:text-sm',
               )}
               aria-expanded={isMoreOpen}
               aria-haspopup="true"
@@ -147,32 +146,54 @@ export function Header() {
             </button>
             {isMoreOpen && (
               <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
-                {showSecret && (
-                  <>
-                    {SECRET_PAGES.map((page) => (
-                      <a
-                        key={page.slug}
-                        href={page.slug}
-                        className={cn(
-                          'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                          'block px-4 py-2 text-xs',
-                        )}
-                        onClick={() => {
-                          setIsMoreOpen(false)
-                        }}
-                      >
-                        {page.title}
-                      </a>
-                    ))}
-                    <div className="border-border my-1 border-t" />
-                  </>
-                )}
+                <Link
+                  key={pages.mioSays.slug}
+                  href={pages.mioSays.slug}
+                  className={cn(
+                    'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                    'block px-4 py-2',
+                  )}
+                  onClick={() => setIsMoreOpen(false)}
+                >
+                  {pages.mioSays.title}
+                </Link>
+
+                {showSecret &&
+                  SECRET_PAGES.map((page) => (
+                    <Link
+                      key={page.slug}
+                      href={page.slug}
+                      className={cn(
+                        'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                        'block px-4 py-2',
+                      )}
+                      onClick={() => {
+                        setIsMoreOpen(false)
+                      }}
+                    >
+                      {page.title}
+                    </Link>
+                  ))}
+
+                <Link
+                  key={pages.about.slug}
+                  href={pages.about.slug}
+                  className={cn(
+                    'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
+                    'block px-4 py-2',
+                  )}
+                  onClick={() => setIsMoreOpen(false)}
+                >
+                  {pages.about.title}
+                </Link>
+
+                <div className="border-border my-1 border-t" />
 
                 <Link
                   href={pages.friends.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                    'block px-4 py-2 text-xs',
+                    'block px-4 py-2',
                   )}
                   onClick={() => setIsMoreOpen(false)}
                 >
@@ -183,7 +204,7 @@ export function Header() {
                   href={pages.messages.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                    'block px-4 py-2 text-xs',
+                    'block px-4 py-2',
                   )}
                   onClick={() => setIsMoreOpen(false)}
                 >
@@ -194,7 +215,7 @@ export function Header() {
                   href={pages.reading.slug}
                   className={cn(
                     'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                    'block px-4 py-2 text-xs',
+                    'block px-4 py-2',
                   )}
                   onClick={() => setIsMoreOpen(false)}
                 >
@@ -208,7 +229,7 @@ export function Header() {
                     target="_blank"
                     className={cn(
                       'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                      'block px-4 py-2 text-xs',
+                      'block px-4 py-2',
                     )}
                     onClick={() => setIsMoreOpen(false)}
                   >
@@ -220,7 +241,7 @@ export function Header() {
                     target="_blank"
                     className={cn(
                       'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                      'block px-4 py-2 text-xs',
+                      'block px-4 py-2',
                     )}
                     onClick={() => setIsMoreOpen(false)}
                   >
@@ -232,7 +253,7 @@ export function Header() {
                     target="_blank"
                     className={cn(
                       'text-text-secondary hover:bg-bg-secondary hover:text-text-primary',
-                      'block px-4 py-2 text-xs',
+                      'block px-4 py-2',
                     )}
                     onClick={() => setIsMoreOpen(false)}
                   >
