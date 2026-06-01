@@ -18,7 +18,7 @@ tags:
 
 ## 网易云音乐
 
-网易云每月总共有两百多天，每人 ～7 天，时长随机，全看运气。
+网易云每月总共有两百多天，每人一般 3 或 7 天，时长随机，全看运气。
 
 [![网易云领取入口](https://image.viki.moe/share/ncm-vip.jpeg '网易云音乐会员分享')][ncm]
 
@@ -28,7 +28,7 @@ tags:
 
 ## QQ 音乐
 
-QQ 音乐固定每月 7 张，每张 3 天，先到先得，领完为止。
+QQ 音乐固定每月 10 张，每张 3 天，先到先得，领完为止。
 
 [![QQ 音乐领取入口](https://image.viki.moe/share/qqm-vip.jpeg 'QQ 音乐会员分享')][qqm]
 
@@ -44,9 +44,10 @@ QQ 音乐固定每月 7 张，每张 3 天，先到先得，领完为止。
 
 ## 更新记录
 
+- 2026-06-01：六月已更新。
 - 2026-05-02：五月已更新。
 - 2026-04-02：四月已更新。
 - 2026-03-18：发布文章，三月已更新。
 
-[ncm]: https://y.music.163.com/g/vip-invite-cashier/radsjl027?app_version=9.5.05&userid=5127559361&qq_aio_chat_type=3&token=F859BDB15CD25DF5728CA7A8510B807D620110FE498B6F7E51B6F47E56984FD8&dlt=0846
-[qqm]: https://y.qq.com/m/basic/client/experience_card/index.html?cardid=d7qjrmm3death0h6tibg&hosteuin=oK6PoK-F7eSkNn%2A%2A&hostName=Viki&ADTAG=yy_gnyy_hytyk&qq_aio_chat_type=3&from=share
+[ncm]: https://y.music.163.com/g/vip-invite-cashier/radsjl943?app_version=9.5.20&userid=5127559361&qq_aio_chat_type=3&token=15B18E630FECB27A4F1F0F041F2D4272659C889DBC441081277B84920A5693AE&dlt=0846
+[qqm]: https://y.qq.com/m/basic/client/experience_card/index.html?cardid=d8ed98m3deas07k762g0&hosteuin=oK6PoK-F7eSkNn%2A%2A&hostName=Viki&ADTAG=yy_gnyy_hytyk&qq_aio_chat_type=3&from=share
