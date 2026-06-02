@@ -269,9 +269,7 @@ export function Header() {
             <RSSIcon href={siteConfig.links.rss} className="hidden sm:flex" />
             <TravellingsIcon href={siteConfig.links.travellings} className="hidden sm:flex" />
             <SearchTrigger />
-            <div className="hidden sm:inline">
-              <ThemeToggle />
-            </div>
+            <ThemeToggle />
           </div>
         </nav>
       </div>
