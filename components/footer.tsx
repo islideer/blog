@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@/lib/cn'
 import { siteConfig } from '@/lib/config'
-import { ThemeToggle } from './theme-toggle'
 
 function CopyrightText() {
   return (
@@ -77,9 +76,6 @@ function Tagline() {
         />
       </Link>
       {siteConfig.name}
-      <div className="inline sm:hidden">
-        <ThemeToggle />
-      </div>
     </div>
   )
 }
