@@ -42,7 +42,7 @@ export function DoubanProfile({ id, profile, books, movies }: DoubanProfileProps
   profile.movies.doings ||= movies.doings.length
 
   // 计算账户年龄
-  const accountAgeYears = Math.floor((now - profile.join_date_at) / (365.25 * 24 * 60 * 60 * 1000))
+  const accountAgeYears = Math.round((now - profile.join_date_at) / (365.25 * 24 * 60 * 60 * 1000))
 
   return (
     <section className="space-y-4">
