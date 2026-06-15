@@ -2,9 +2,8 @@
 title: '遇见厦门？「屿‌」见厦门！'
 date: 2026-06-08
 topic: '生活'
-excerpt: '高考前错峰出行，从集美到鼓浪屿，四日厦门夏日漫步。'
+excerpt: '高考前的错峰出行，从集美学村到鼓浪屿，四日厦门夏日漫步～'
 top_image: 'https://image.viki.moe/b/xm/13511e.jpeg'
-draft: true
 tags:
   - '旅行'
   - '生活'
