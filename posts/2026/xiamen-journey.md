@@ -206,7 +206,7 @@ tags:
 
 ![不知道在拍什么的大哥](https://image.viki.moe/b/xm/aea48a.jpeg)
 
-![舒服的一家四口，带个萨摩耶在海边露营](https://image.viki.moe/b/xm/5a2633.jpeg)
+![舒服的一家四口 带着萨摩耶在海边露营](https://image.viki.moe/b/xm/5a2633.jpeg)
 
 ![漂亮的海景](https://image.viki.moe/b/xm/476f25.jpeg)
 
@@ -252,11 +252,11 @@ tags:
 
 路上还看到一辆奶龙痛车，啊？？难以想象，这得什么样的人才能驾驭它。
 
-![奶龙痛车。我看不懂但大受震惊](https://image.viki.moe/b/xm/d60db7.jpeg)
+![奶龙痛车 我看不懂但大受震惊](https://image.viki.moe/b/xm/d60db7.jpeg)
 
 路边看到一只低飞到路边草坪的小鸟，不怕人，蹲着看了它好久，它甚至在我脚边转悠。
 
-![不怕人的可爱小鸟。崽种，直视我！](https://image.viki.moe/b/xm/40a3af.jpeg)
+![不怕人的可爱小鸟 崽种，直视我！](https://image.viki.moe/b/xm/40a3af.jpeg)
 
 ### 报恩榴莲
 
@@ -278,7 +278,7 @@ tags:
 
 ![火锅串串](https://image.viki.moe/b/xm/ce8b8b.jpeg)
 
-![特写，有鲍鱼！](https://image.viki.moe/b/xm/069343.jpeg)
+![串串特写 有鲍鱼！](https://image.viki.moe/b/xm/069343.jpeg)
 
 ## 第四天 / 六月七日 / 周日
 
