@@ -85,9 +85,9 @@ tags:
 
 ![江汉步行街](https://image.viki.moe/b/wh/541a20.jpeg)
 
-看到一家巧克力专卖店，店门口有一个纯手工制作的大型摩天轮巧克力模型。
+看到一家巧克力专卖店，店门口有一个纯手工制作的大型巧克力摩天轮模型。
 
-![大型摩天轮巧克力模型](https://image.viki.moe/b/wh/02d79d.jpeg)
+![大型巧克力摩天轮模型](https://image.viki.moe/b/wh/02d79d.jpeg)
 
 ### 榴莲摊
 
