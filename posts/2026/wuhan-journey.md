@@ -149,7 +149,7 @@ tags:
 
 在黎黄陂路里面散步，发现了一个神奇的店。这家店名叫 Mio，店名下面的数字 027 刚好是 Mio 的生日。这两个元素加起来，就像是给 Mio 量身定做的一样。
 
-![Mio‌ 的店](https://image.viki.moe/b/wh/c07fe4.**jpeg**)
+![Mio‌ 的店](https://image.viki.moe/b/wh/c07fe4.jpeg)
 
 ### 手绘简笔画
 
