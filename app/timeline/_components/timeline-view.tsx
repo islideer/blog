@@ -78,7 +78,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
                   <article
                     id={String(items.length - (startIdxOfAll + index))} // 反向 ID，最新的在前
                     key={index}
-                    className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-2 sm:py-3"
+                    className="flex flex-col gap-1 py-2 sm:flex-row sm:items-baseline sm:gap-2"
                   >
                     {formattedDate && (
                       <time

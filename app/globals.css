@@ -324,3 +324,7 @@ html.dark .spoiler:focus {
     max-width: 100%;
   }
 }
+
+.round-cobblestone {
+  corner-shape: superellipse(1.2);
+}

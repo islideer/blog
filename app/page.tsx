@@ -46,7 +46,7 @@ export default async function BlogPage() {
         <section className="space-y-4 sm:space-y-6">
           <h2 className="flex items-center gap-3 text-3xl font-bold sm:text-4xl">
             <Image
-              className="inline-block rounded-full align-middle"
+              className="round-cobblestone inline-block rounded-full align-middle"
               src="/avatar.png"
               alt="头像"
               width={48}

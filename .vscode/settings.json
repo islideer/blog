@@ -17,5 +17,6 @@
     "Travellings",
     "unzoom"
   ],
-  "markdown.validate.enabled": true
+  "markdown.validate.enabled": true,
+  "css.lint.unknownProperties": "ignore"
 }
