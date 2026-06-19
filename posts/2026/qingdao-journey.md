@@ -3,7 +3,7 @@ title: '青岛漫游生日篇：海浪、海风、落日与晚霞'
 date: 2026-04-08
 topic: '生活'
 excerpt: '拾贝赏景品海鲜啤酒，简单行程里藏着旅行最舒服的样子；听风看海看人群来往，会觉得这是一座值得再来的城市。'
-top_image: 'https://image.viki.moe/b/qd/e0de14.png'
+top_image: 'https://image.viki.moe/blog/qingdao/e0de14.png'
 tags:
   - '旅行'
   - '生活'
@@ -17,7 +17,7 @@ tags:
 
 和 Mio 一起靠坐在小青岛海边的石凳上，听着海浪拍打岸边，抬头仰望点点繁星，看着人群来来往往，望着远方灯火通明。耳机里是陶喆的 _沙滩_ ，是杰伦的 _星晴_ 。时间仿佛在这一刻静止，眼前的一切都是那么治愈、那么浪漫、那么美好。 —— 青岛之行 / 2026.4.3-4.7
 
-![坐在小青岛海边的石凳上欣赏夜景](https://image.viki.moe/b/qd/8fa22a.png)
+![坐在小青岛海边的石凳上欣赏夜景](https://image.viki.moe/blog/qingdao/8fa22a.png)
 
 ---
 
@@ -37,7 +37,7 @@ tags:
 
 高铁上，看了两部电影，泡面当晚餐，百奇巧克力棒当零食，很喜欢吃（如图）。感觉路上时间被拉得很长，大概是因为心里装着焦急与期待，越盼着快一点到达，分分秒秒就越显缓慢。
 
-![百奇巧克力棒](https://image.viki.moe/b/qd/ba5136.jpeg)
+![百奇巧克力棒](https://image.viki.moe/blog/qingdao/ba5136.jpeg)
 
 四个多小时高铁，晚上十点半到达青岛北站。出站有点困，就放弃了原先的夜游安排，直接打车到酒店休息。晚上街景不明显，但隐约感觉很干净。半夜饿了，点了单烧烤外卖，令人气愤的是商家压根儿就没做，拖了一个多小时，最后只能无奈取消订单换一家点，两点才吃上。
 
@@ -49,43 +49,43 @@ tags:
 
 快到公园了，司机还没停稳，我已经看到了大海，心情一下子就激动了起来。下车后一路小跑到海边，面朝大海的这种感觉和在各种影视作品里看到的完全不一样，是需要身临其境才能体会到的震撼。下面这两张就是在这附近拍的。
 
-![海之恋公园海边和大石头](https://image.viki.moe/b/qd/cb6ac8.jpeg)
+![海之恋公园海边和大石头](https://image.viki.moe/blog/qingdao/cb6ac8.jpeg)
 
 特意买的安琳咸奶油咖啡和大海也很搭，听说是青岛特色。
 
-![咖啡和大海](https://image.viki.moe/b/qd/fddd14.jpeg)
+![咖啡和大海](https://image.viki.moe/blog/qingdao/fddd14.jpeg)
 
 海风吹在脸上，阵阵清凉。一边欣赏海景一边和 Mio 沿海岸线往南漫步，顺手拍照片。发现手腕上的 Apple Watch 也派上用场了，可以快速查看附近海域的潮涨潮落的时间。
 
-![海之恋公园的海景](https://image.viki.moe/b/qd/7c5c58.jpeg)
+![海之恋公园的海景](https://image.viki.moe/blog/qingdao/7c5c58.jpeg)
 
 Mio 在欣赏海边的风景。
 
-![Mio 在海边欣赏风景](https://image.viki.moe/b/qd/1e6238.jpeg)
+![Mio 在海边欣赏风景](https://image.viki.moe/blog/qingdao/1e6238.jpeg)
 
 走着走着突然意识到，一直往南错过了海之恋公园的主要区域，走到了小麦岛。小麦岛附近有所临海的学校，真羡慕那些能在这里上学的孩子们，操场上回头就是大海。
 
-![小麦岛附近的学校](https://image.viki.moe/b/qd/c8afbc.jpeg)
+![小麦岛附近的学校](https://image.viki.moe/blog/qingdao/c8afbc.jpeg)
 
 再往前走，能看到一面靠海的小石台，绕了一段路后还是上来了。在这里，视野更加开阔，眼里的风景更加纯粹，能很明显的听到海浪拍打岸边的声音。下面这张构图放远点看有点像五月天 _自传_ 的专辑封面，上蓝下绿的。
 
-![小石台的海景](https://image.viki.moe/b/qd/ee62f3.jpeg)
+![小石台的海景](https://image.viki.moe/blog/qingdao/ee62f3.jpeg)
 
 偷拍了两张 Mio 坐在石头台边上的照片，面朝大海，很美很出片。
 
-![Mio 坐在石头台边上](https://image.viki.moe/b/qd/3f1a1b.jpeg)
+![Mio 坐在石头台边上](https://image.viki.moe/blog/qingdao/3f1a1b.jpeg)
 
 坐下来，感受一会儿海风。
 
-![Mio 在感受海风](https://image.viki.moe/b/qd/74faf8.jpeg)
+![Mio 在感受海风](https://image.viki.moe/blog/qingdao/74faf8.jpeg)
 
 还捕捉到了一架低空飞行的直升机。
 
-![低空飞行的直升机](https://image.viki.moe/b/qd/052f7a.jpeg)
+![低空飞行的直升机](https://image.viki.moe/blog/qingdao/052f7a.jpeg)
 
 以及一张 Windows 壁纸。（这个角度适当拉近，搭配风景滤镜，有那味儿了，挺美的。）
 
-![神似 Windows 壁纸的一张照片](https://image.viki.moe/b/qd/aa1c9a.jpeg)
+![神似 Windows 壁纸的一张照片](https://image.viki.moe/blog/qingdao/aa1c9a.jpeg)
 
 看美食攻略找了附近一家地道的韩式料理，但因为排队巨长就放弃了，吃了紧挨在旁边的另一家韩式脊骨汤锅，味道一般，剩了好多没吃完。
 
@@ -93,161 +93,161 @@ Mio 在欣赏海边的风景。
 
 > 「镰仓」是日本神奈川县镰仓市知名旅游地，以海岸风光与独特的城市氛围闻名。西陵峡三路因临海街景与浓厚的文艺感，常被游客称为「小镰仓」，是颇受欢迎的拍照打卡地。
 
-![青岛的小镰仓](https://image.viki.moe/b/qd/59346b.jpeg)
+![青岛的小镰仓](https://image.viki.moe/blog/qingdao/59346b.jpeg)
 
 路边有石阶可以下到岸边。这里视野很开阔，岸边海水比较清澈，能听见明显的海浪拍打声。
 
-![清澈的海水](https://image.viki.moe/b/qd/8d48b4.jpeg)
+![清澈的海水](https://image.viki.moe/blog/qingdao/8d48b4.jpeg)
 
 岸边能看到海水非常清澈，能看到石头和海藻。
 
-![海边的石头和海藻被海水拍打着](https://image.viki.moe/b/qd/970cbd.jpeg)
+![海边的石头和海藻被海水拍打着](https://image.viki.moe/blog/qingdao/970cbd.jpeg)
 
 我们把脚伸直坐在岸边石阶上，听着海浪拍打岸边的声音，任凭咸咸的海风拂过脸颊。
 
-![我俩的臭鞋子](https://image.viki.moe/b/qd/3104f6.jpeg)
+![我俩的臭鞋子](https://image.viki.moe/blog/qingdao/3104f6.jpeg)
 
 坐了十来分钟，起身继续往前走，宽阔的路边旁边就是开阔的栈桥海水浴场了，免费向公众开放，有很多小孩子在父母陪同下在沙滩上玩沙子。
 
 > 「海水浴场」，是指专门向公众开放、供人们在海边游泳、戏水和休闲活动的区域，可以简单理解为临海沙滩，但通常配有相应的管理措施和服务设施。
 
-![栈桥海水浴场](https://image.viki.moe/b/qd/12bae7.jpeg)
+![栈桥海水浴场](https://image.viki.moe/blog/qingdao/12bae7.jpeg)
 
 什么叫水天一色啊？这就是了。
 
-![水天一色](https://image.viki.moe/b/qd/d3034c.jpeg)
+![水天一色](https://image.viki.moe/blog/qingdao/d3034c.jpeg)
 
 往前的道路尽头处能看到青岛站。
 
-![青岛站](https://image.viki.moe/b/qd/cf6ccd.jpeg)
+![青岛站](https://image.viki.moe/blog/qingdao/cf6ccd.jpeg)
 
 下面这张是最后一天站在道路的中段，往回来的方向拍的，天没有今天这么蓝。
 
-![栈桥海水浴场附近道路中段](https://image.viki.moe/b/qd/1555b6.jpeg)
+![栈桥海水浴场附近道路中段](https://image.viki.moe/blog/qingdao/1555b6.jpeg)
 
 看到如此壮观的沙滩和大海，挡不住心中想近距离感受海浪的激动，于是我们买了两套鞋套，两块一双，径直走向沙滩边感受海浪。到后来才知道，这里卖的是最便宜实惠的价格，其他地方鞋套一般卖五到十块一双，价格不等。
 
-![浴场旁边的小店和摊贩](https://image.viki.moe/b/qd/436d00.jpeg)
+![浴场旁边的小店和摊贩](https://image.viki.moe/blog/qingdao/436d00.jpeg)
 
 在这里见到了在岸边低空盘旋飞行的海鸥，有些海鸥飞的极其低、极其近。
 
-![低空飞行的海鸥](https://image.viki.moe/b/qd/7bb0d2.jpeg)
+![低空飞行的海鸥](https://image.viki.moe/blog/qingdao/7bb0d2.jpeg)
 
 抓拍到一张小哥喂海鸥的照片，画面很有爱。
 
-![小哥喂海鸥](https://image.viki.moe/b/qd/885e0c.jpeg)
+![小哥喂海鸥](https://image.viki.moe/blog/qingdao/885e0c.jpeg)
 
 在海浪刚好没过鞋子的位置，感受着潮起、潮落。迎面是海风，头顶是海鸥，心情愉悦。
 
-![靠近海边，感受潮起潮落](https://image.viki.moe/b/qd/44f044.jpeg)
+![靠近海边，感受潮起潮落](https://image.viki.moe/blog/qingdao/44f044.jpeg)
 
 Mio 专注地在沙滩上写名字。
 
-![Mio 在沙滩上写名字](https://image.viki.moe/b/qd/b531a5.jpeg)
+![Mio 在沙滩上写名字](https://image.viki.moe/blog/qingdao/b531a5.jpeg)
 
 还没写完呢，就被海浪冲没了，有点想笑。
 
-![名字被海浪冲掉了](https://image.viki.moe/b/qd/92a08a.jpeg)
+![名字被海浪冲掉了](https://image.viki.moe/blog/qingdao/92a08a.jpeg)
 
 最后她在远离岸边的地方重新写了，写完去洗手的时候，被我偷偷抓拍了一张。
 
-![重新写好的名字，背景是 Mio 去洗手](https://image.viki.moe/b/qd/7dab3d.jpeg)
+![重新写好的名字，背景是 Mio 去洗手](https://image.viki.moe/blog/qingdao/7dab3d.jpeg)
 
 离开浴场继续往前，路过青岛啤酒小店，买了一瓶蓝莓和凤梨椰奶味的果啤，蓝莓的味道比较喜欢。青岛这边，像这样的啤酒小店和小摊很多，打车来的路上也能看到不少这类小店，大都 15 块一瓶，一瓶有 500 毫升，大都是图中列出的这些味道。
 
-![青岛果啤菜单](https://image.viki.moe/b/qd/b141bb.jpeg)
+![青岛果啤菜单](https://image.viki.moe/blog/qingdao/b141bb.jpeg)
 
 这啤酒店附近的街道很清新，很干净，街景很漂亮，令人倍感舒适，忍不住多拍了几张。
 
-![酒店附近街道](https://image.viki.moe/b/qd/a7d5f5.jpeg)
+![酒店附近街道](https://image.viki.moe/blog/qingdao/a7d5f5.jpeg)
 
 去圣弥厄尔大教堂的路上。
 
-![去圣弥厄尔大教堂的路上](https://image.viki.moe/b/qd/357bcc.jpeg)
+![去圣弥厄尔大教堂的路上](https://image.viki.moe/blog/qingdao/357bcc.jpeg)
 
 继续往上走，能看到教堂，外观很标志，很漂亮，人流量不小。
 
-![圣弥厄尔大教堂](https://image.viki.moe/b/qd/d9fdfa.jpeg)
+![圣弥厄尔大教堂](https://image.viki.moe/blog/qingdao/d9fdfa.jpeg)
 
 正对面二楼有家自助照相馆，价格不便宜，给十五分钟随便拍，有拍立得常见道具可以使用。
 
-![自助照相馆](https://image.viki.moe/b/qd/e4d177.jpeg)
+![自助照相馆](https://image.viki.moe/blog/qingdao/e4d177.jpeg)
 
 没有专业摄影师，不看镜头、视角错位、人挤到镜头外的问题很多，拍出来的质量很一般，但好在高级的佳能相机搭配上效果不错的默认滤镜非常有质感，还是能挑出几张满意的。
 
 下一站，打车到福山支路。一路步行绕过小鱼山，到金口一路，路边有小吃摊，卖青岛特有的黄金海螺肉，十块钱四串，又好吃又实惠。下图是第三天晚上拍的，东西基本要卖完了。这种小吃摊在青岛很多，也基本都是这个价位，味道很不错，喜欢吃海鲜的朋友可以尝试一下。
 
-![黄金海螺肉小吃摊](https://image.viki.moe/b/qd/e9b4eb.jpeg)
+![黄金海螺肉小吃摊](https://image.viki.moe/blog/qingdao/e9b4eb.jpeg)
 
 继续往前到了鲁迅公园，有个大石山，能看到海景。因为地势高、视野开阔，我们就在这里找了块大石头，坐了很久，一边吃着海螺肉，一边欣赏着海景，等待夕阳。
 
-![站在鲁迅公园的大石山上欣赏海景](https://image.viki.moe/b/qd/b65849.jpeg)
+![站在鲁迅公园的大石山上欣赏海景](https://image.viki.moe/blog/qingdao/b65849.jpeg)
 
 晚霞渐现，天空被染成了橘红色。
 
-![晚霞渐现](https://image.viki.moe/b/qd/c4efc2.jpeg)
+![晚霞渐现](https://image.viki.moe/blog/qingdao/c4efc2.jpeg)
 
 以及，吃完了的竹签。是的，重点在竹签。
 
-![竹签](https://image.viki.moe/b/qd/076bbc.jpeg)
+![竹签](https://image.viki.moe/blog/qingdao/076bbc.jpeg)
 
 捕捉到了青岛的晚霞，非常绚丽。
 
-![鲁迅公园里的青岛晚霞](https://image.viki.moe/b/qd/b669ae.jpeg)
+![鲁迅公园里的青岛晚霞](https://image.viki.moe/blog/qingdao/b669ae.jpeg)
 
 还拍了一个视频，记录此刻。
 
-<video loading="lazy" src="https://file.viki.moe/b/qd//v/b4ac66.mp4" controls style="max-width: 360px; max-height: 360px; width: 100%;"></video>
+<video loading="lazy" src="https://file.viki.moe/blog/qingdao//v/b4ac66.mp4" controls style="max-width: 360px; max-height: 360px; width: 100%;"></video>
 
 继续往琴屿路走，这一路非常适合 City Walk，人流也很多，属于是网红打卡路线了。
 
-![去琴屿路途中看到的海景](https://image.viki.moe/b/qd/20f3cd.jpeg)
+![去琴屿路途中看到的海景](https://image.viki.moe/blog/qingdao/20f3cd.jpeg)
 
 下图是路上的一处海岸边，人很多，夕阳很美。
 
-![海岸边的夕阳](https://image.viki.moe/b/qd/ec073e.jpeg)
+![海岸边的夕阳](https://image.viki.moe/blog/qingdao/ec073e.jpeg)
 
 到了琴屿路，拍了下标志性建筑。
 
-![琴屿路的标志性建筑](https://image.viki.moe/b/qd/aece00.jpeg)
+![琴屿路的标志性建筑](https://image.viki.moe/blog/qingdao/aece00.jpeg)
 
 再往前就是小青岛，有一条专门通向小青岛的精致小路。
 
-![小青岛入口的精致小路](https://image.viki.moe/b/qd/38ec80.jpeg)
+![小青岛入口的精致小路](https://image.viki.moe/blog/qingdao/38ec80.jpeg)
 
 天色渐暗，在晚霞衬托下，景色格外迷人。
 
-![路上拍下的晚霞](https://image.viki.moe/b/qd/d6390f.jpeg)
+![路上拍下的晚霞](https://image.viki.moe/blog/qingdao/d6390f.jpeg)
 
 路上顺手拍了下脚下的光影，很有质感。
 
-![路上的光影](https://image.viki.moe/b/qd/0f62ea.jpeg)
+![路上的光影](https://image.viki.moe/blog/qingdao/0f62ea.jpeg)
 
 在夜色笼罩下，海军博物馆灯火通明，显得格外庄重、壮观。
 
-![海军博物馆夜景](https://image.viki.moe/b/qd/7818b3.jpeg)
+![海军博物馆夜景](https://image.viki.moe/blog/qingdao/7818b3.jpeg)
 
 到达小青岛，岛上的雕塑在晚霞下也很美。
 
-![小青岛岛上的雕塑](https://image.viki.moe/b/qd/04286b.jpeg)
+![小青岛岛上的雕塑](https://image.viki.moe/blog/qingdao/04286b.jpeg)
 
 从湖中心的广场正面看。
 
-![湖中心的广场正面](https://image.viki.moe/b/qd/499116.jpeg)
+![湖中心的广场正面](https://image.viki.moe/blog/qingdao/499116.jpeg)
 
 继续直走到岛的另一头，这里被海水环绕，也是这次旅行最浪漫的时刻了，回收开头。
 
-![Apple Map 记录下的此刻的地理位置](https://image.viki.moe/b/qd/4a259f.png)
+![Apple Map 记录下的此刻的地理位置](https://image.viki.moe/blog/qingdao/4a259f.png)
 
 > 和 Mio 一起靠坐在小青岛海边的石凳上，听着海浪拍打岸边，抬头仰望点点繁星，看着人群来来往往，望着远方灯火通明。耳机里是陶喆的 _沙滩_ ，是杰伦的 _星晴_ 。时间仿佛在这一刻静止，眼前的一切都是那么治愈、那么浪漫、那么美好。
 
 出来找了一圈美食，决定去一家本地人推荐的啤酒屋，叫小安啤酒屋。离得不算远，一路步行，就当作夜晚 City Walk 了，路上街景夜色不错。
 
-![青岛街头夜景](https://image.viki.moe/b/qd/5b5245.jpeg)
+![青岛街头夜景](https://image.viki.moe/blog/qingdao/5b5245.jpeg)
 
 漂亮的三岔路口。
 
-![三岔路口夜景](https://image.viki.moe/b/qd/1db76d.jpeg)
+![三岔路口夜景](https://image.viki.moe/blog/qingdao/1db76d.jpeg)
 
 这家小安啤酒屋是那种家楼下的街坊店，人手不多，上菜慢、不接受催。听啤酒屋老板说，青岛本地人都不吃什么海肠捞饭，那都是炒作出来的，也不吃小龙虾这类河鲜。
 
@@ -265,15 +265,15 @@ Mio 专注地在沙滩上写名字。
 
 这是另一个临海的沙滩，和之前的栈桥海水浴场相比，这里更大更开阔，游客也更多。
 
-![宽阔的石老人海水浴场](https://image.viki.moe/b/qd/b112e2.jpeg)
+![宽阔的石老人海水浴场](https://image.viki.moe/blog/qingdao/b112e2.jpeg)
 
 但天气没有昨天好，有点雾蒙蒙的，能见度不太好，远处的海景有些朦胧，但也别有一番风味。我们一起牵手走在海边，沿着海浪拍打的沙滩边，感受着海风和海浪。每次走在海边都会觉得心情特别放松，特别愉悦。
 
-![浴场的游客](https://image.viki.moe/b/qd/7e3294.jpeg)
+![浴场的游客](https://image.viki.moe/blog/qingdao/7e3294.jpeg)
 
 慢慢地，雾渐渐变大，能见度越来越差，海景也越来越模糊了，准备离开。
 
-![起雾了](https://image.viki.moe/b/qd/c1d092.jpeg)
+![起雾了](https://image.viki.moe/blog/qingdao/c1d092.jpeg)
 
 在附近找了家董记烧烤店吃了点东西，点了蛤蜊，吃完打车回酒店休息了。
 
@@ -283,25 +283,25 @@ Mio 专注地在沙滩上写名字。
 
 邻近中午才出门，前往附近一家口碑不错的火锅店吃了顿地道的川渝火锅，装修很川渝，肉眼可见红油锅底、汤汁很地道，让人有胃口，就是有点贵，人均到了一百块。
 
-![火锅和食材](https://image.viki.moe/b/qd/d9a58d.jpeg)
+![火锅和食材](https://image.viki.moe/blog/qingdao/d9a58d.jpeg)
 
 吃完回酒店浅睡了一会儿，然后退房打车前往桔子酒店的海景房。
 
 是的，海景房。因为过了今晚凌晨，4 月 7 日就是我的生日了，所以对象特意订了个海景房，小小奢侈一把。到了之后才知道，原来它就正对着「青岛小镰仓‌」路口，很开心，不经感叹，好近啊，楼下就是绝美的海景。
 
-![海景房的窗台](https://image.viki.moe/b/qd/81a4dc.jpeg)
+![海景房的窗台](https://image.viki.moe/blog/qingdao/81a4dc.jpeg)
 
 左右的视野都很开阔。
 
-![海景房右侧的视野](https://image.viki.moe/b/qd/755a77.jpeg)
+![海景房右侧的视野](https://image.viki.moe/blog/qingdao/755a77.jpeg)
 
 放完行李后，拿着酒店提供的柠檬橙子水，又在前天来的海边石阶上坐了会儿，静静地看着海景，听着海浪拍打岸边的声音，心情很放松。
 
-![两双臭鞋子和两杯柠檬橙子水](https://image.viki.moe/b/qd/e179ce.jpeg)
+![两双臭鞋子和两杯柠檬橙子水](https://image.viki.moe/blog/qingdao/e179ce.jpeg)
 
 Apple Watch 再次派上了用场，可以时刻看到潮涨潮落的时间，赶海拾贝的时候非常方便。
 
-![Apple Watch 显示的潮涨潮落时间](https://image.viki.moe/b/qd/f3adc7.jpeg)
+![Apple Watch 显示的潮涨潮落时间](https://image.viki.moe/blog/qingdao/f3adc7.jpeg)
 
 下一站，打车到第一海水浴场。
 
@@ -311,15 +311,15 @@ Apple Watch 再次派上了用场，可以时刻看到潮涨潮落的时间，�
 
 光顾着玩沙都没拍照，下面这张是玩完了之后拍的第一海水浴场。
 
-![第一海水浴场](https://image.viki.moe/b/qd/7fa3ce.jpeg)
+![第一海水浴场](https://image.viki.moe/blog/qingdao/7fa3ce.jpeg)
 
 玩沙时，旁边有个小孩一直在看我们，应该是爷爷陪同来的，像留守儿童。见他看了好久，我就把我的铲子递给他玩，他很开心。
 
-![小孩在用我们送的玩具玩沙](https://image.viki.moe/b/qd/2e9244.jpeg)
+![小孩在用我们送的玩具玩沙](https://image.viki.moe/blog/qingdao/2e9244.jpeg)
 
 后面我把所有装备都送给了他，果然儿童款的小车什么的还是小孩子玩起来更开心，一旁的爷爷也看的很开心。看到这一幕，心里觉得特别温暖，觉得这就是旅行的意义了，能把快乐传递给别人，哪怕是一个小孩子。
 
-![爷爷在孩子身后和蔼地看着](https://image.viki.moe/b/qd/f53096.jpeg)
+![爷爷在孩子身后和蔼地看着](https://image.viki.moe/blog/qingdao/f53096.jpeg)
 
 我们继续往前走了。
 
@@ -331,21 +331,21 @@ Apple Watch 再次派上了用场，可以时刻看到潮涨潮落的时间，�
 
 捡了不少，感觉差不多了就回到路边，沿着海边小路散了会儿步，看到了夕阳下的海鸥。
 
-![夕阳下的海鸥](https://image.viki.moe/b/qd/e6d8d5.jpeg)
+![夕阳下的海鸥](https://image.viki.moe/blog/qingdao/e6d8d5.jpeg)
 
 水面上的海鸥，随着海浪起伏，时而飞起，时而落下，非常惬意。
 
-![水面上歇息的海鸥](https://image.viki.moe/b/qd/61d69e.jpeg)
+![水面上歇息的海鸥](https://image.viki.moe/blog/qingdao/61d69e.jpeg)
 
 打车到宫崎骏漫画街，之前有看过不少宫崎骏的作品，龙猫、千与千寻等，能在现实中看到和这些作品相关的元素，还是很有趣的。旁边的建筑也很有特色，挺美的。
 
-![宫崎骏漫画街](https://image.viki.moe/b/qd/20ac61.jpeg)
+![宫崎骏漫画街](https://image.viki.moe/blog/qingdao/20ac61.jpeg)
 
 在这里也看到了十块钱四串的黄金海螺肉摊子。摊主说很晚了，不想卖了准备收摊，买海螺肉送烤肠。我们又来了四串海螺肉，我很爱吃，味道绝赞，斯哈斯哈～
 
 从巷子口出来，还看到一家无人的自助啤酒店，挺新奇的。
 
-![无人的自助啤酒店](https://image.viki.moe/b/qd/5e5301.jpeg)
+![无人的自助啤酒店](https://image.viki.moe/blog/qingdao/5e5301.jpeg)
 
 接着又打车去了银鱼巷，一条非常文青、艺术气息浓厚的小巷，里面有很多文艺小店，卖一些文创、手工艺品之类的东西。我们在这里买了冰箱贴，吃了舒芙蕾。
 
@@ -353,7 +353,7 @@ Apple Watch 再次派上了用场，可以时刻看到潮涨潮落的时间，�
 
 回来路上看到一家海鲜烧烤店，我觉得可以概括为比较典型的青岛海鲜烧烤店了，都喜欢把菜品、价格信息直接贴出来，多以海鲜为主，门口是啤酒台。
 
-![典型的青岛海鲜烧烤店](https://image.viki.moe/b/qd/6bd876.jpeg)
+![典型的青岛海鲜烧烤店](https://image.viki.moe/blog/qingdao/6bd876.jpeg)
 
 饱餐完回到酒店，躺在海景房里看老九的 CS2 赛事解说直播，窗外的海景夜色依旧迷人。
 
@@ -363,11 +363,11 @@ Mio 还特意定了零点的闹钟，在 25 岁生日的第一秒给我送上了
 
 特意录下了这一刻，很有纪念意义。
 
-<video loading="lazy" src="https://file.viki.moe/b/qd//v/fd76e2.mp4" controls style="max-width: 360px; max-height: 360px; width: 100%;"></video>
+<video loading="lazy" src="https://file.viki.moe/blog/qingdao//v/fd76e2.mp4" controls style="max-width: 360px; max-height: 360px; width: 100%;"></video>
 
 还收到了直播间其他观众的祝福。
 
-![直播间的观众祝福](https://image.viki.moe/b/qd/fcf20b.png)
+![直播间的观众祝福](https://image.viki.moe/blog/qingdao/fcf20b.png)
 
 至于生日礼物，其实有提到，就是现在手上戴的最新款 Apple Watch Series 11，早阵子 Mio 送给的我，她想一人一个，早点凑齐情侣款。
 
@@ -381,33 +381,33 @@ Mio 还特意定了零点的闹钟，在 25 岁生日的第一秒给我送上了
 
 早上醒得很早，在床边看了日出，可惜天空不作美，天色有点昏暗。
 
-![海景房窗台的日出](https://image.viki.moe/b/qd/9195b2.jpeg)
+![海景房窗台的日出](https://image.viki.moe/blog/qingdao/9195b2.jpeg)
 
 下楼吃了桔子酒店提供的早餐，不得不说，确实比汉庭的早餐更丰富，不管是种类还是味道都更好一些。吃完早餐，本想准备出发去附近的海水浴场继续捡点贝壳，但是 Mio 表现得奇奇怪怪的，好像在故意拖延时间一样。
 
 后来才知道，原来她老早就定制了一个生日蛋糕，想给我一个惊喜。蛋糕主题是线条小狗中的小鸡毛，很可爱，蛋糕也是我喜欢的树莓、蓝莓、草莓口味的，吃起来酸酸甜甜的，很满意。
 
-![生日蛋糕](https://image.viki.moe/b/qd/d272d9.jpeg)
+![生日蛋糕](https://image.viki.moe/blog/qingdao/d272d9.jpeg)
 
 小鸡毛，可爱捏 \~(￣▽￣)\~\*
 
-![生日蛋糕上的小鸡毛。小白和小鸡毛是热门的情侣 IP](https://image.viki.moe/b/qd/d9739d.jpeg)
+![生日蛋糕上的小鸡毛。小白和小鸡毛是热门的情侣 IP](https://image.viki.moe/blog/qingdao/d9739d.jpeg)
 
 吃完蛋糕，沿着西陵峡三路出发去栈桥海水浴场。在浴场小店里买了鞋套和铁铲铁桶套装。这次鞋套卖五块一双，讲价后五块买了两双，铲桶套装卖十块，一起十五，质量都很不错。
 
 在沙滩上看到了海鸥，在碧空下很壮观。不过请注意别一直傻站在海鸥群正下方，很容易被随机空投粪便砸到。~~我拍的时候差点中招。~~
 
-![海鸥低空飞翔](https://image.viki.moe/b/qd/983306.jpeg)
+![海鸥低空飞翔](https://image.viki.moe/blog/qingdao/983306.jpeg)
 
 如果想在海边玩沙子、捡贝壳，建议直接买这种铁铲铁桶套装和专用鞋套，价格不贵，质量也不错，能玩得更尽兴一些。那些塑料的玩沙工具看着种类多、颜色丰富，但质量很一般，而且主要就是用铲子挖沙子，其他工具基本没用处。
 
 今天收工的战利品。
 
-![捡的碎贝壳和使用的铲子](https://image.viki.moe/b/qd/4393e5.jpeg)
+![捡的碎贝壳和使用的铲子](https://image.viki.moe/blog/qingdao/4393e5.jpeg)
 
 最后回酒店前，Mio 在海边不舍地来回走了两趟，结束了这次的海边之旅。这张我很喜欢。
 
-![离开前，Mio 最后在海边又走了一次](https://image.viki.moe/b/qd/922df1.jpeg)
+![离开前，Mio 最后在海边又走了一次](https://image.viki.moe/blog/qingdao/922df1.jpeg)
 
 回去路上点了两份麦当劳的中薯，两桶返程吃的老坛酸菜。然后回酒店开始随便吃东西、整理行李、清洗贝壳，做最后的出门准备。然后出门，赶往红岛火车站。
 
@@ -415,7 +415,7 @@ Mio 还特意定了零点的闹钟，在 25 岁生日的第一秒给我送上了
 
 到了红岛火车站，可能是地理位置和工作日的缘故，比较冷清。进站的时候，看到四五个说着日语的年轻人，还带着位随身翻译，我猜可能是来青岛玩或者在这边出差。
 
-![红岛火车站站内](https://image.viki.moe/b/qd/820b15.jpeg)
+![红岛火车站站内](https://image.viki.moe/blog/qingdao/820b15.jpeg)
 
 我们车次早，提前进站安检坐在候车区。随后那几个日本人刚好也坐到我们后面交谈，旁边还有几个说着地道英语的外国人，顿时感觉左右耳进行着不同的听力考试哈哈哈。
 

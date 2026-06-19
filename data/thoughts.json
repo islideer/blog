@@ -4,7 +4,7 @@
     "date": "2026-06-18T09:43:50+08:00",
     "content": "偶然间注意到 [纸鹿的友链页面](https://blog.zhilu.site/link) 里的好友头像并不是纯圆的，轮廓带有一点弧形。简单进行了下页面检视和源码审查后，发现其实用到了 `corner-shape` 属性，最近刚好有看到。再搭配 `superellipse()` 改变了椭圆曲率，使头像的边缘过渡更加丰满自然。\n\n`superellipse()` 返回一个超椭圆形状，可用于 `corner-shape`。超椭圆是一种介于矩形和椭圆之间的闭合对称曲线形状。它看起来像一个椭圆，保留了两条轴的几何特征。\n\n核心 CSS 代码如下：\n\n```css\n.round-cobblestone {\n    corner-shape: superellipse(1.2);\n}\n```",
     "images": [
-      "https://image.viki.moe/b/t/c9560a.png"
+      "https://image.viki.moe/blog/viki/c9560a.png"
     ]
   },
   {
@@ -12,7 +12,7 @@
     "date": "2026-06-14T19:52:28+08:00",
     "content": "回成都了，就好这一口熊猫笋 😋",
     "images": [
-      "https://image.viki.moe/b/t/84c8df.jpeg"
+      "https://image.viki.moe/blog/viki/84c8df.jpeg"
     ]
   },
   {
@@ -25,7 +25,7 @@
     "date": "2026-05-30T15:47:32+08:00",
     "content": "苹果味芬达，鸭屎香冰红茶。还真别说，挺好喝的。",
     "images": [
-      "https://image.viki.moe/b/t/892c8e.jpeg"
+      "https://image.viki.moe/blog/viki/892c8e.jpeg"
     ]
   },
   {
@@ -33,7 +33,7 @@
     "date": "2026-05-28T18:06:54+08:00",
     "content": "",
     "images": [
-      "https://image.viki.moe/b/t/529840.jpeg"
+      "https://image.viki.moe/blog/viki/529840.jpeg"
     ]
   },
   {
@@ -41,7 +41,7 @@
     "date": "2026-05-27T11:58:33+08:00",
     "content": "小米的 mimo 模型这么癫 🐴",
     "images": [
-      "https://image.viki.moe/b/t/f2251d.jpeg"
+      "https://image.viki.moe/blog/viki/f2251d.jpeg"
     ]
   },
   {
@@ -49,7 +49,7 @@
     "date": "2026-05-26T13:35:57+08:00",
     "content": "交作业，第一阶段。\n\n- 6/1 更新：BB 因临时缺主力，和 B8 对调。",
     "images": [
-      "https://image.viki.moe/b/t/6a3c4c.png"
+      "https://image.viki.moe/blog/viki/6a3c4c.png"
     ]
   },
   {
@@ -67,7 +67,7 @@
     "date": "2026-05-21T22:55:33+08:00",
     "content": "一键务农，神了。",
     "images": [
-      "https://image.viki.moe/b/t/809195.jpeg"
+      "https://image.viki.moe/blog/viki/809195.jpeg"
     ]
   },
   {
@@ -75,7 +75,7 @@
     "date": "2026-05-21T00:31:27+08:00",
     "content": "还在农。",
     "images": [
-      "https://image.viki.moe/b/t/2aa6cb.jpeg"
+      "https://image.viki.moe/blog/viki/2aa6cb.jpeg"
     ]
   },
   {
@@ -98,7 +98,7 @@
     "date": "2026-05-18T10:12:54+08:00",
     "content": "让我们恭喜绿龙 3-0 击败猎鹰夺得 PGL 冠军，顺势来到了 V 社积分榜世界第二。🎉\n\n时隔九个月，绿龙再度登顶，上一次夺冠还是和 Mio 确定在一起的前几天，那段时期我们已经在一起关注绿龙的 CS2 赛事，见证了绿龙在 BLAST 赏金赛 S2 线下决赛夺冠。",
     "images": [
-      "https://image.viki.moe/b/t/efa37e.png"
+      "https://image.viki.moe/blog/viki/efa37e.png"
     ]
   },
   {
@@ -106,7 +106,7 @@
     "date": "2026-05-12T19:44:47+08:00",
     "content": "？Bun 也要 [转向 Rust](https://x.com/jarredsumner/status/2053808438644445230) 了吗",
     "images": [
-      "https://image.viki.moe/b/t/acd580.png"
+      "https://image.viki.moe/blog/viki/acd580.png"
     ]
   },
   {
@@ -119,7 +119,7 @@
     "date": "2026-05-11T16:06:12+08:00",
     "content": "电话短信一顿轰，真当我没脾气 🤷",
     "images": [
-      "https://image.viki.moe/b/t/e9d7e4.jpeg"
+      "https://image.viki.moe/blog/viki/e9d7e4.jpeg"
     ]
   },
   {
@@ -127,7 +127,7 @@
     "date": "2026-05-08T13:46:55+08:00",
     "content": "前人栽树，后人乘凉",
     "images": [
-      "https://image.viki.moe/b/t/58bf45.jpeg"
+      "https://image.viki.moe/blog/viki/58bf45.jpeg"
     ]
   },
   {
@@ -140,10 +140,10 @@
     "date": "2026-04-27T17:56:09+08:00",
     "content": "GPT Image 2 真好用，随便试试就能一次到位。",
     "images": [
-      "https://image.viki.moe/b/t/1c3e19.png",
-      "https://image.viki.moe/b/t/482739.png",
-      "https://image.viki.moe/b/t/c7dce5.png",
-      "https://image.viki.moe/b/t/33a20f.png"
+      "https://image.viki.moe/blog/viki/1c3e19.png",
+      "https://image.viki.moe/blog/viki/482739.png",
+      "https://image.viki.moe/blog/viki/c7dce5.png",
+      "https://image.viki.moe/blog/viki/33a20f.png"
     ]
   },
   {
@@ -151,7 +151,7 @@
     "date": "2026-04-24T23:05:53+08:00",
     "content": "100 级了，望周知。",
     "images": [
-      "https://image.viki.moe/b/t/e9643b.jpeg"
+      "https://image.viki.moe/blog/viki/e9643b.jpeg"
     ]
   },
   {
@@ -159,7 +159,7 @@
     "date": "2026-04-24T11:48:07+08:00",
     "content": "故意逗了一下 Claude，可爱捏 ʕ・ᴥ・ʔ",
     "images": [
-      "https://image.viki.moe/b/t/fef8f1.png"
+      "https://image.viki.moe/blog/viki/fef8f1.png"
     ]
   },
   {
@@ -167,8 +167,8 @@
     "date": "2026-04-21T17:51:52+08:00",
     "content": "新老平台根本不对等，功能乱砍、免费计划额度大幅缩减。只能说吃相太难看了，做不好又匆匆上线下线。 😅",
     "images": [
-      "https://image.viki.moe/b/t/bc912d.png",
-      "https://image.viki.moe/b/t/6ffc97.png"
+      "https://image.viki.moe/blog/viki/bc912d.png",
+      "https://image.viki.moe/blog/viki/6ffc97.png"
     ]
   },
   {
@@ -176,7 +176,7 @@
     "date": "2026-04-21T12:26:03+08:00",
     "content": "夺少？",
     "images": [
-      "https://image.viki.moe/b/t/a5f5b0.jpeg"
+      "https://image.viki.moe/blog/viki/a5f5b0.jpeg"
     ]
   },
   {
@@ -184,7 +184,7 @@
     "date": "2026-04-19T02:13:40+08:00",
     "content": "人火同出，没想到吧猎鹰",
     "images": [
-      "https://image.viki.moe/b/t/86bc72.jpeg"
+      "https://image.viki.moe/blog/viki/86bc72.jpeg"
     ]
   },
   {
@@ -192,7 +192,7 @@
     "date": "2026-04-15T17:58:39+08:00",
     "content": "macOS 软件打不开的常见提示：\n\n- 无法打开 “Codex”，因为无法验证开发者。\n- “Codex” 已损坏，无法打开。您应该将它移到废纸篓。\n- “Codex” 将对您的电脑造成伤害。您应该将它移到废纸篓。\n\n解决方案：\n\n> 请先确保应用来源可靠后再进行以下操作。\n\n前往 系统设置 -> 隐私和安全性，在 “安全性” 部分点击 “仍要打开”。如果没有看到该按钮，可以删除应用的下载隔离标记，以绕过该标记触发的检查：\n\n```bash\n# 应用路径可以直接从访达拖入终端，或通过 Tab 补全\nsudo xattr -dr com.apple.quarantine /Applications/AppName.app\n```\n\n如果仍然无法打开，尤其是系统提示“将对您的电脑造成伤害”时，更应优先怀疑应用本身、下载文件损坏、签名或公证异常、证书被撤销等问题。\n\n其他方案（不推荐，仅列出供参考）：\n\n- 通过 `codesign` 重新给应用签名\n- 在应用详情页勾选 “覆盖恶意软件保护” 选项\n- 通过命令开启 “任何来源” 选项并在系统设置中开启",
     "images": [
-      "https://image.viki.moe/b/t/435275.jpeg"
+      "https://image.viki.moe/blog/viki/435275.jpeg"
     ]
   },
   {
@@ -200,7 +200,7 @@
     "date": "2026-04-13T18:21:55+08:00",
     "content": "工作三年，不靠父母全款拿下第二辆猫 🐈\n矮脚长毛银点米努特，叫雪球，嘶哈嘶哈～",
     "images": [
-      "https://image.viki.moe/b/t/b8f284.jpeg"
+      "https://image.viki.moe/blog/viki/b8f284.jpeg"
     ]
   },
   {
@@ -208,7 +208,7 @@
     "date": "2026-04-13T07:30:56+08:00",
     "content": "大表哥要加入猎鹰了。也许能圆 NiKo 的 Major 冠军梦，谁知道呢？",
     "images": [
-      "https://image.viki.moe/b/t/48d035.jpeg"
+      "https://image.viki.moe/blog/viki/48d035.jpeg"
     ]
   },
   {
@@ -216,7 +216,7 @@
     "date": "2026-04-11T13:17:47+08:00",
     "content": "在南京待好几年了，终于来了次久违的中山陵。",
     "images": [
-      "https://image.viki.moe/b/t/15e6cc.jpeg"
+      "https://image.viki.moe/blog/viki/15e6cc.jpeg"
     ]
   },
   {
@@ -234,7 +234,7 @@
     "date": "2026-04-03T11:24:57+08:00",
     "content": "第一次见把邮箱验证码做成图片的... 离谱",
     "images": [
-      "https://image.viki.moe/b/t/a9f9f8.png"
+      "https://image.viki.moe/blog/viki/a9f9f8.png"
     ]
   },
   {
@@ -242,7 +242,7 @@
     "date": "2026-04-02T14:47:56+08:00",
     "content": "写了一个简单的 Shell 函数来快速获取 GitHub 仓库基本信息，主要关注仓库大小、创建时间等无法直接在仓库页看到的信息。每次用 GitHub 来 Clone 或者打包下载一些带资源的仓库时，你都得猜它有多大、还要下多久，十分讨厌。\n\n源码 & 使用方式参考 [repo.sh - GitHub Gist](https://gist.github.com/vikiboss/16efac49015739c3273f68e52ce21570)。",
     "images": [
-      "https://image.viki.moe/b/t/1db188.png"
+      "https://image.viki.moe/blog/viki/1db188.png"
     ]
   },
   {
@@ -250,7 +250,7 @@
     "date": "2026-03-31T17:33:40+08:00",
     "content": "乐，Claude Code 的完整源码以 Sourcemap 源码映射文件的方式泄漏了，这是哪个粗心大手子干的好事。相信马上 Codex、Gemini CLI 以及各大国产闭源 AI Coding 工具将迎来一波史诗级增强更新。",
     "images": [
-      "https://image.viki.moe/b/t/572959.png"
+      "https://image.viki.moe/blog/viki/572959.png"
     ]
   },
   {
@@ -263,8 +263,8 @@
     "date": "2026-03-31T11:44:08+08:00",
     "content": "[Jina](https://jina.ai/reader) 可以将 URL 转换为大模型友好的输入，也支持实时搜索，有需要自己实现 WebFetch / WebSearch 类似功能的可以集成试试，效果真的不错的同时还非常省 Token。",
     "images": [
-      "https://image.viki.moe/b/t/1d8bf1.jpeg",
-      "https://image.viki.moe/b/t/21c716.jpeg"
+      "https://image.viki.moe/blog/viki/1d8bf1.jpeg",
+      "https://image.viki.moe/blog/viki/21c716.jpeg"
     ]
   },
   {
@@ -272,7 +272,7 @@
     "date": "2026-03-30T18:09:09+08:00",
     "content": "最近在看 CC (Claude Code) 的东西，一些浅显的收获：\n\n- 系统提示词最好不要带上时间戳等动态内容，非常容易破坏缓存，成本、性能都受影响。\n- 动态内容可以用 `<system-reminder>` 追加到用户消息中，CC 自己也是这么做的。\n- 会话中减少模型切换（Subagent 替代）、减少 Tools 动态增删（Agent 开发中），可以提高缓存命中率。\n- CC 中双击 `ESC` 可以回溯历史，快速重新编辑消息、撤销文件改动、回滚会话等，非常好用。\n- 使用 [RTK (Rust Token Killer)](https://github.com/rtk-ai/rtk) 可精简常见命令输出，大幅节省 Token。\n- 如果要用 `RTK`，建议设置环境变量 `RTK_TELEMETRY_DISABLED=1` 屏蔽匿名数据收集。\n- CC 有一个 [ToolSearch](https://platform.claude.com/docs/zh-CN/agents-and-tools/tool-use/tool-search-tool) Tool 用来搜索 Tools，有一个 [ProgrammaticTool](https://platform.claude.com/docs/zh-CN/agents-and-tools/tool-use/programmatic-tool-calling) Tool 以编程方式调用 Tools。\n- 将 Tool 的 `defer_loading` 标记为 `true`，默认不加载到上下文，搭配 ToolSearch 可实现按需加载。\n- `/clear` 和 `/compact` 看得多，用得少，还是得多用，搭配 `/context` 和 `/memory` 管理好上下文。",
     "images": [
-      "https://image.viki.moe/b/t/6fc519.png"
+      "https://image.viki.moe/blog/viki/6fc519.png"
     ]
   },
   {
@@ -280,7 +280,7 @@
     "date": "2026-03-30T14:07:38+08:00",
     "content": "感觉自己精力很有限，已经玩不动年轻人的游戏了…",
     "images": [
-      "https://image.viki.moe/b/t/e6d719.jpeg"
+      "https://image.viki.moe/blog/viki/e6d719.jpeg"
     ]
   },
   {
@@ -288,7 +288,7 @@
     "date": "2026-03-26T12:16:41+08:00",
     "content": "🤬……",
     "images": [
-      "https://image.viki.moe/b/t/83a091.png"
+      "https://image.viki.moe/blog/viki/83a091.png"
     ]
   },
   {
@@ -296,7 +296,7 @@
     "date": "2026-03-25T02:13:04+08:00",
     "content": "我宣布，今晚的 MVP 是 _那天下雨了_，最佳助攻 _七月的极光_。",
     "images": [
-      "https://image.viki.moe/b/t/970ca8.jpeg"
+      "https://image.viki.moe/blog/viki/970ca8.jpeg"
     ]
   },
   {
@@ -304,7 +304,7 @@
     "date": "2026-03-24T10:34:14+08:00",
     "content": "技术人最可爱的时刻，就是为了热爱真的把东西做出来。\n\n> 为了调试产品，让 AI 锐评我的 GitHub 和博客内容看看效果。AI 给出的评论，我很喜欢。",
     "images": [
-      "https://image.viki.moe/b/t/f55445.png"
+      "https://image.viki.moe/blog/viki/f55445.png"
     ]
   },
   {
@@ -312,7 +312,7 @@
     "date": "2026-03-18T12:14:54+08:00",
     "content": "昨天抢了大半天的成果",
     "images": [
-      "https://image.viki.moe/b/t/2e15a8.jpeg"
+      "https://image.viki.moe/blog/viki/2e15a8.jpeg"
     ]
   },
   {
@@ -320,16 +320,16 @@
     "date": "2026-03-18T10:33:21+08:00",
     "content": "Chrome 146 Canary 版本开始支持 WebMCP，在 `chrome://flags` 页面开启 WebMCP 功能后，可以通过 navigator.modelContext.registerTool() 等方法进行注册和管理。\n\n> WebMCP 是由 Chrome 提出的一项 Web 标准草案，可以让网站向浏览器内的 AI 代理暴露结构化工具接口，旨在代替当前只能通过截图或 DOM 猜测操作等过于低效的交互方式。\n\n多说一嘴：Chrome 144 版本带来了官方 DevTools MCP，在 `chrome://inspect#remote-debugging` 页面开启后，可搭配 `chrome-devtools-mcp` 直接控制浏览器。",
     "images": [
-      "https://image.viki.moe/b/t/b63cd3.png",
-      "https://image.viki.moe/b/t/de0ff8.png"
+      "https://image.viki.moe/blog/viki/b63cd3.png",
+      "https://image.viki.moe/blog/viki/de0ff8.png"
     ]
   },
   {
     "id": "136",
     "date": "2026-03-13T14:58:01+08:00",
-    "content": "Web 滤镜不只有 CSS 的 `filter` 内置值，还可以通过 SVG Filter 定义更复杂的滤镜效果。通过 \\<svg\\> 元素定义滤镜，然后使用 filter: url(#filter-id) 方式引用。[webkit.org](https://webkit.org/b/t/17808/interop-2025-review/) 就利用了 SVG Filter 在夜间模式下实现图片素材的亮度反转效果。\n\nSVG Filter 内容可参考 [svg-filter.txt](https://image.viki.moe/share/svg-filter.txt)。",
+    "content": "Web 滤镜不只有 CSS 的 `filter` 内置值，还可以通过 SVG Filter 定义更复杂的滤镜效果。通过 \\<svg\\> 元素定义滤镜，然后使用 filter: url(#filter-id) 方式引用。[webkit.org](https://webkit.org/blog/viki/17808/interop-2025-review/) 就利用了 SVG Filter 在夜间模式下实现图片素材的亮度反转效果。\n\nSVG Filter 内容可参考 [svg-filter.txt](https://image.viki.moe/share/svg-filter.txt)。",
     "images": [
-      "https://image.viki.moe/b/t/2d2c16.png"
+      "https://image.viki.moe/blog/viki/2d2c16.png"
     ]
   },
   {
@@ -340,9 +340,9 @@
   {
     "id": "134",
     "date": "2026-03-06T11:03:43+08:00",
-    "content": "🎉 开心，[R2 Web](https://github.com/vikiboss/r2-web) 被 [阮一峰](https://github.com/ruanyf) 大佬的科技周刊推荐了: _[科技爱好者周刊（第 387 期）：你是领先的](https://www.ruanyifeng.com/b/t/2026/03/weekly-issue-387.html)_\n\n> 一直用的 sm.ms 图床最近升级迁移到 s.ee 了，定位不再是仅图床服务，主观感觉有点臃肿，不符合我最早用它的初衷：简单、纯粹。于是开始用一直没怎么深度用的 Cloudflare R2 做自建图床。找了一圈没合适的 Web 端管理应用，要么审美不在线要么功能不到位。需求这不就来了？所以我用 Claude 搓了个 R2 Web 项目来管理，一切在浏览器完成，能充当图床角色，支持私有部署，尤其注重轻量、用户体验。这个项目年前写的，快一个月了，觉得其他人也可能会需要，于是去阮一峰大佬的周刊投稿，然后被推荐了。",
+    "content": "🎉 开心，[R2 Web](https://github.com/vikiboss/r2-web) 被 [阮一峰](https://github.com/ruanyf) 大佬的科技周刊推荐了: _[科技爱好者周刊（第 387 期）：你是领先的](https://www.ruanyifeng.com/blog/viki/2026/03/weekly-issue-387.html)_\n\n> 一直用的 sm.ms 图床最近升级迁移到 s.ee 了，定位不再是仅图床服务，主观感觉有点臃肿，不符合我最早用它的初衷：简单、纯粹。于是开始用一直没怎么深度用的 Cloudflare R2 做自建图床。找了一圈没合适的 Web 端管理应用，要么审美不在线要么功能不到位。需求这不就来了？所以我用 Claude 搓了个 R2 Web 项目来管理，一切在浏览器完成，能充当图床角色，支持私有部署，尤其注重轻量、用户体验。这个项目年前写的，快一个月了，觉得其他人也可能会需要，于是去阮一峰大佬的周刊投稿，然后被推荐了。",
     "images": [
-      "https://image.viki.moe/b/t/93c1205d.png"
+      "https://image.viki.moe/blog/viki/93c1205d.png"
     ]
   },
   {
@@ -350,7 +350,7 @@
     "date": "2026-03-06T00:38:35+08:00",
     "content": "60 级记录留念，三块金土地。",
     "images": [
-      "https://image.viki.moe/b/t/c84494.jpeg"
+      "https://image.viki.moe/blog/viki/c84494.jpeg"
     ]
   },
   {
@@ -358,8 +358,8 @@
     "date": "2026-03-05T16:26:02+08:00",
     "content": "最近写了一个开发单文件应用的自用 Skill，顺手写了几个小游戏、小项目测试了一下，感觉效果还行。基本上一行提示词就能呈现不错的效果，然后辅以局部细节微调就能长期用了。快来玩扫雷和推箱子！~~虽然小时候在老式电视上玩推箱子，基本玩不到第十关...~~\n\n- [单 HTML 扫雷游戏](https://html.viki.moe/minesweeper.html)\n- [单 HTML 推箱子游戏](https://html.viki.moe/sokoban.html)\n- [Viki 的单页 HTML 应用列表](https://html.viki.moe/)\n- [vikiboss/single-html-app - GitHub](https://github.com/vikiboss/single-html-app)",
     "images": [
-      "https://image.viki.moe/b/t/ec7114.jpeg",
-      "https://image.viki.moe/b/t/10f8da.jpeg"
+      "https://image.viki.moe/blog/viki/ec7114.jpeg",
+      "https://image.viki.moe/blog/viki/10f8da.jpeg"
     ]
   },
   {
@@ -367,8 +367,8 @@
     "date": "2026-03-04T13:29:13+08:00",
     "content": "第一次试水煮溏心蛋，还不错。实测冷藏蛋也差不多六分半，冷水代替冰水大概八到十分钟。 下图我做的这个，沸水煮了七分钟，冷水浸了八分钟。",
     "images": [
-      "https://image.viki.moe/b/t/333baa.jpeg",
-      "https://image.viki.moe/b/t/746a11.jpeg"
+      "https://image.viki.moe/blog/viki/333baa.jpeg",
+      "https://image.viki.moe/blog/viki/746a11.jpeg"
     ]
   },
   {
@@ -376,7 +376,7 @@
     "date": "2026-03-04T11:43:00+08:00",
     "content": "NestJS 拖了很久的全量 ESM 终于要来了。这主要得益于 `require(ESM)` 的推进。新版本还集成了 Vitest 和 Zod 等校验库，更加现代化。\n\n- [Big updates coming in NestJS v12 - X](https://x.com/nestframework/status/2025894197044158491)\n- [nestjs/nest#16391 - GitHub](https://github.com/nestjs/nest/pull/16391)",
     "images": [
-      "https://image.viki.moe/b/t/a9a813.png"
+      "https://image.viki.moe/blog/viki/a9a813.png"
     ]
   },
   {
@@ -389,7 +389,7 @@
     "date": "2026-03-03T23:08:18+08:00",
     "content": "浅浅期待一下手游（搓手",
     "images": [
-      "https://image.viki.moe/b/t/15793c.jpeg"
+      "https://image.viki.moe/blog/viki/15793c.jpeg"
     ]
   },
   {
@@ -400,9 +400,9 @@
   {
     "id": "126",
     "date": "2026-03-02T11:13:28+08:00",
-    "content": "Node.js 发布计划即将更新：主要版本发布频率将从每年两个降低为每年一个，并引入全新的 Alpha 测试渠道作为奇数版本号的补充。新计划废弃了奇偶数版本区分 LTS 的方式，每年仅发布一个主要版本，且每个版本都将进入 LTS 阶段。新计划从即将在 2027 年发布的 Node.js 27.x 起实施。\n\n官方解释更新原因：基于十年使用数据，奇数版本采用率极低；奇偶版本的区分让新手感到困惑；许多组织完全跳过奇数版本，只升级到 LTS 版本；每年两版导致维护线过多，志愿者难以持续更新。\n\n~~也就是说 2027 年发布 Node.js 27，2028 年发布 Node.js 28... 通过年份就知道当前最新版本号了，好耶 😆~~\n\n- [Node.js 官方博客文章（预览）](https://nodejs-org-git-fork-ulisesgascon-release-announcement-openjs.vercel.app/en/b/t/announcements/evolving-the-nodejs-release-schedule#nodejs-26-schedule-existing-model)\n- [Node.js 官方博客文章 PR](https://github.com/nodejs/nodejs.org/pull/8631)\n- [Node.js 新版发布计划提案](https://github.com/nodejs/Release/issues/1113)",
+    "content": "Node.js 发布计划即将更新：主要版本发布频率将从每年两个降低为每年一个，并引入全新的 Alpha 测试渠道作为奇数版本号的补充。新计划废弃了奇偶数版本区分 LTS 的方式，每年仅发布一个主要版本，且每个版本都将进入 LTS 阶段。新计划从即将在 2027 年发布的 Node.js 27.x 起实施。\n\n官方解释更新原因：基于十年使用数据，奇数版本采用率极低；奇偶版本的区分让新手感到困惑；许多组织完全跳过奇数版本，只升级到 LTS 版本；每年两版导致维护线过多，志愿者难以持续更新。\n\n~~也就是说 2027 年发布 Node.js 27，2028 年发布 Node.js 28... 通过年份就知道当前最新版本号了，好耶 😆~~\n\n- [Node.js 官方博客文章（预览）](https://nodejs-org-git-fork-ulisesgascon-release-announcement-openjs.vercel.app/en/blog/viki/announcements/evolving-the-nodejs-release-schedule#nodejs-26-schedule-existing-model)\n- [Node.js 官方博客文章 PR](https://github.com/nodejs/nodejs.org/pull/8631)\n- [Node.js 新版发布计划提案](https://github.com/nodejs/Release/issues/1113)",
     "images": [
-      "https://image.viki.moe/b/t/b5ab57.jpg"
+      "https://image.viki.moe/blog/viki/b5ab57.jpg"
     ]
   },
   {
@@ -410,7 +410,7 @@
     "date": "2026-02-28T16:01:04+08:00",
     "content": "发现了一个 macOS 端宝藏应用「Dorso」。它可以通过摄像头或者 AirPods 精确捕捉你的坐姿，然后通过模糊屏幕等方式来提醒你别驼背。我自己非常需要这个功能，实测搭配自己的 AirPods 4 体感非常好，反应很灵敏，应用又是纯开源，UX 也不错。推荐有相关需求和设备的小伙伴装个试试。\n\n开源地址 https://github.com/tldev/dorso",
     "images": [
-      "https://image.viki.moe/b/t/0b66c9.png"
+      "https://image.viki.moe/blog/viki/0b66c9.png"
     ]
   },
   {
@@ -418,7 +418,7 @@
     "date": "2026-02-27T10:29:40+08:00",
     "content": "每次看到 First name 和 Last name 都得愣个一秒该怎么填。 GitHub Handle 原来也可以指 GitHub 账户 ID。",
     "images": [
-      "https://image.viki.moe/b/t/89de6c.png"
+      "https://image.viki.moe/blog/viki/89de6c.png"
     ]
   },
   {
@@ -436,7 +436,7 @@
     "date": "2026-02-13T23:25:29+08:00",
     "content": "坐高铁就是要吃大餐 🍜",
     "images": [
-      "https://image.viki.moe/b/t/948b9c.jpeg"
+      "https://image.viki.moe/blog/viki/948b9c.jpeg"
     ]
   },
   {
@@ -444,8 +444,8 @@
     "date": "2026-02-10T18:38:28+08:00",
     "content": "🎉 [60s](https://github.com/vikiboss/60s) 项目位列 [HelloGitHub 年度盘点](https://mp.weixin.qq.com/s/QlwZi058jbak5ImC23ZxWw) 第四名。\n\n[HelloGitHub](https://hellogithub.com/) 在公众号、知乎、头条、博客园、掘金、开源中国、V2EX、Linux.do 等平台都有运营，有幸受到大家的关注和喜欢，非常开心～ 感谢支持！",
     "images": [
-      "https://image.viki.moe/b/t/a9da371c.png",
-      "https://image.viki.moe/b/t/8afe0bb2.png"
+      "https://image.viki.moe/blog/viki/a9da371c.png",
+      "https://image.viki.moe/blog/viki/8afe0bb2.png"
     ]
   },
   {
@@ -800,7 +800,7 @@
   {
     "id": "69",
     "date": "2025-12-19T17:50:05+08:00",
-    "content": "之前有提到可以 [自定义 \\<select\\> 元素](/thoughts/48)，具体来说是通过设置 CSS 属性 appearance 为 `base-select` 来实现的，不得不说，效果确实很牛批，不仅是样式可自定义，连布局排版都可以高度定制化。目前已在 Chrome 135 可用，Chrome 官方发布了一篇文章说明这个功能: _[现在可以使用 CSS 自定义 \\<select\\> 元素](https://developer.chrome.com/b/t/a-customizable-select?hl=zh-cn)_，团队成员 Una 也发了篇个人博客来讲述技术细节: _[Updates to the customizable select API](https://una.im/select-updates/)_",
+    "content": "之前有提到可以 [自定义 \\<select\\> 元素](/thoughts/48)，具体来说是通过设置 CSS 属性 appearance 为 `base-select` 来实现的，不得不说，效果确实很牛批，不仅是样式可自定义，连布局排版都可以高度定制化。目前已在 Chrome 135 可用，Chrome 官方发布了一篇文章说明这个功能: _[现在可以使用 CSS 自定义 \\<select\\> 元素](https://developer.chrome.com/blog/viki/a-customizable-select?hl=zh-cn)_，团队成员 Una 也发了篇个人博客来讲述技术细节: _[Updates to the customizable select API](https://una.im/select-updates/)_",
     "images": [
       "https://s2.loli.net/2025/12/19/yN6muwvZDgdbJX2.png",
       "https://s2.loli.net/2025/12/19/YiD5v2fUV4L3q7F.png"
@@ -859,7 +859,7 @@
   {
     "id": "61",
     "date": "2025-12-15T10:52:25+08:00",
-    "content": "12 月 4 号爆出的 [React RSC 漏洞](/thoughts/31) 虽然修了，但只修了一点点... -_-||| 被发现还 [存在 DoS 和源码泄漏问题](https://react.dev/b/t/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components)。手快的人（比如我）还得再把 React 相关包升级到 19.2.3 及以上版本才行。"
+    "content": "12 月 4 号爆出的 [React RSC 漏洞](/thoughts/31) 虽然修了，但只修了一点点... -_-||| 被发现还 [存在 DoS 和源码泄漏问题](https://react.dev/blog/viki/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components)。手快的人（比如我）还得再把 React 相关包升级到 19.2.3 及以上版本才行。"
   },
   {
     "id": "60",
@@ -1042,7 +1042,7 @@
   {
     "id": "31",
     "date": "2025-12-04T08:05:50+08:00",
-    "content": "没想到 [React](https://react.dev/) 也整了个致命漏洞，还挺严重的。\n\n> React 19 版本正式引入的 [RSC](https://react.dev/reference/rsc/server-components) (React Server Component) 存在致命 RCE（Remote Code Execution，远程代码执行）[漏洞](https://react.dev/b/t/2025/12/03/critical-security-vulnerability-in-react-server-components#vulnerability-overviews)，评分 10.0。攻击者可在服务端执行任意危险代码，覆盖 19.0, 19.1, 19.2 等版本，影响了包括 [Next.js](https://nextjs.org/), [Waku](https://waku.gg/), [React Router](https://reactrouter.com/) 等在内的主流前端框架，只有「仅客户端应用」幸免。参考 [CVE-2025-55182](https://vercel.com/changelog/cve-2025-55182) 和 [React 官方公告](https://react.dev/b/t/2025/12/03/critical-security-vulnerability-in-react-server-components)。",
+    "content": "没想到 [React](https://react.dev/) 也整了个致命漏洞，还挺严重的。\n\n> React 19 版本正式引入的 [RSC](https://react.dev/reference/rsc/server-components) (React Server Component) 存在致命 RCE（Remote Code Execution，远程代码执行）[漏洞](https://react.dev/blog/viki/2025/12/03/critical-security-vulnerability-in-react-server-components#vulnerability-overviews)，评分 10.0。攻击者可在服务端执行任意危险代码，覆盖 19.0, 19.1, 19.2 等版本，影响了包括 [Next.js](https://nextjs.org/), [Waku](https://waku.gg/), [React Router](https://reactrouter.com/) 等在内的主流前端框架，只有「仅客户端应用」幸免。参考 [CVE-2025-55182](https://vercel.com/changelog/cve-2025-55182) 和 [React 官方公告](https://react.dev/blog/viki/2025/12/03/critical-security-vulnerability-in-react-server-components)。",
     "images": [
       "https://s2.loli.net/2025/12/04/zN7B3ZYhSeI6gQD.png"
     ]
@@ -1086,7 +1086,7 @@
   {
     "id": "24",
     "date": "2025-12-03T10:34:57+08:00",
-    "content": "[Bun 宣布加入 Anthropic](https://bun.sh/b/t/bun-joins-anthropic)，但其核心路线不变，变的是 [Claude Code](https://claude.com/product/claude-code) 及其 [SDK](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk) 因 Bun 团队而受益。Bun 在 22 年暑假发布了 v0.1.0，开始在前端领域掀起大浪。比较认同 Bun 的核心理念，性能、效率、Just Work，只是目前 Bun 在生态和兼容性上仍需完善。",
+    "content": "[Bun 宣布加入 Anthropic](https://bun.sh/blog/viki/bun-joins-anthropic)，但其核心路线不变，变的是 [Claude Code](https://claude.com/product/claude-code) 及其 [SDK](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk) 因 Bun 团队而受益。Bun 在 22 年暑假发布了 v0.1.0，开始在前端领域掀起大浪。比较认同 Bun 的核心理念，性能、效率、Just Work，只是目前 Bun 在生态和兼容性上仍需完善。",
     "images": [
       "https://s2.loli.net/2025/12/03/lN3kzVZOdAwom7P.png"
     ]
@@ -1110,7 +1110,7 @@
   {
     "id": "21",
     "date": "2025-12-02T09:50:50+08:00",
-    "content": "继 npm 支持 [Provenance](https://docs.npmjs.com/generating-provenance-statements) 以验证发布来源之后，又支持了 [Trusted Publisher](https://docs.npmjs.com/trusted-publishers) 以配置 [OIDC](https://docs.github.com/en/actions/concepts/security/openid-connect#overview-of-openid-connect-oidc) 来支持「无 Token 发布」，也是对近期 [npm 包供应链攻击频发](https://socket.dev/b/t/shai-hulud-strikes-again-v2) 而强制使用有到期时间的 Token 的一种用户体验和安全双保障的改进措施。",
+    "content": "继 npm 支持 [Provenance](https://docs.npmjs.com/generating-provenance-statements) 以验证发布来源之后，又支持了 [Trusted Publisher](https://docs.npmjs.com/trusted-publishers) 以配置 [OIDC](https://docs.github.com/en/actions/concepts/security/openid-connect#overview-of-openid-connect-oidc) 来支持「无 Token 发布」，也是对近期 [npm 包供应链攻击频发](https://socket.dev/blog/viki/shai-hulud-strikes-again-v2) 而强制使用有到期时间的 Token 的一种用户体验和安全双保障的改进措施。",
     "images": [
       "https://s2.loli.net/2025/12/02/9BqA6TjDovuPlK7.png",
       "https://s2.loli.net/2025/12/02/WLUuJqxoyl5OZYv.png"
@@ -1127,7 +1127,7 @@
   {
     "id": "19",
     "date": "2025-12-02T08:43:15+08:00",
-    "content": "`<Tooltip />` 这种组件确实非常不友好，在规范的 Web 开发中很可能出现过度使用、误用、可访问性差、信息隐藏和不确定性等问题。 GitHub 官方的 [Primer 设计系统](https://primer.style/) 有提到 [Tooltip 的替代方案](https://primer.style/product/components/tooltip/guidelines/#alternatives-to-tooltips)。另可参考这篇博客 _[Tooltip Components Should Not Exist](https://tkdodo.eu/b/t/tooltip-components-should-not-exist)_。"
+    "content": "`<Tooltip />` 这种组件确实非常不友好，在规范的 Web 开发中很可能出现过度使用、误用、可访问性差、信息隐藏和不确定性等问题。 GitHub 官方的 [Primer 设计系统](https://primer.style/) 有提到 [Tooltip 的替代方案](https://primer.style/product/components/tooltip/guidelines/#alternatives-to-tooltips)。另可参考这篇博客 _[Tooltip Components Should Not Exist](https://tkdodo.eu/blog/viki/tooltip-components-should-not-exist)_。"
   },
   {
     "id": "18",
@@ -1241,7 +1241,7 @@
   {
     "id": "3",
     "date": "2025-11-15T08:37:00+08:00",
-    "content": "最近看到一篇文章: _[High-Performance Syntax Highlighting with CSS Highlights API](https://pavi2410.com/b/t/high-performance-syntax-highlighting-with-css-highlights-api/)_，并了解到了 [CSS.highlights](https://developer.mozilla.org/zh-CN/docs/Web/API/Highlight) API。这种高亮方式通过消除对包裹 DOM 元素的需求，提供更高的性能，同时让代码更简洁、更易维护，对于代码高亮来说是一个颠覆性的创新。"
+    "content": "最近看到一篇文章: _[High-Performance Syntax Highlighting with CSS Highlights API](https://pavi2410.com/blog/viki/high-performance-syntax-highlighting-with-css-highlights-api/)_，并了解到了 [CSS.highlights](https://developer.mozilla.org/zh-CN/docs/Web/API/Highlight) API。这种高亮方式通过消除对包裹 DOM 元素的需求，提供更高的性能，同时让代码更简洁、更易维护，对于代码高亮来说是一个颠覆性的创新。"
   },
   {
     "id": "2",

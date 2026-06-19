@@ -3,7 +3,7 @@ title: '盐城周末游：寻访因盐而兴的黄海生态之滨'
 date: 2026-05-25
 topic: '生活'
 excerpt: '一天自然生态，一天人文历史，慢慢认识这座因盐而兴、临海而生的海滨之城。'
-top_image: 'https://image.viki.moe/b/yc/dd9e83.jpeg'
+top_image: 'https://image.viki.moe/blog/yancheng/dd9e83.jpeg'
 tags:
   - '旅行'
   - '生活'
@@ -27,7 +27,7 @@ tags:
 
 在小区附近买了盒切好的西瓜，带上 Mio 下午提前在家煮好的毛豆，打车赶往南京南站。高铁落座，19:25 发车，刚好赶上了 19:30 开始直播的 _《歌手 2026》_ 首播。~~美团打钱。~~
 
-![看着《歌手》，吃着西瓜](https://image.viki.moe/b/yc/9a2d11.jpeg)
+![看着《歌手》，吃着西瓜](https://image.viki.moe/blog/yancheng/9a2d11.jpeg)
 
 早在 2020 年初就喜欢尤长靖的 _《是你想成为的大人吗》_。他这次竞演也唱了这首歌，表现很不错，拿了第二名。胡彦斌这次重新编曲的 _《你要的全拿走》_ 也很好听，拿了第三名。在介绍胡彦斌时，提到他经常在自己的工作室里 Vibe Coding，还开发了他自己的 APP。Coding 恰好是我自己的兴趣和职业所在，双厨狂喜。
 
@@ -35,7 +35,7 @@ tags:
 
 下车后打车到酒店，有点小冷，比南京低个 8 到 10 度。22 日晚 22 点到达盐城，入住的汉庭酒店的房间号刚好也是 2222，嘻。
 
-![入住收据，2222 号房](https://image.viki.moe/b/yc/80a47d.png)
+![入住收据，2222 号房](https://image.viki.moe/blog/yancheng/80a47d.png)
 
 ---
 
@@ -57,107 +57,107 @@ tags:
 
 到了黄海森林公园下车，扑面而来的是森林的绿意和微风的凉爽。刚好今天是阴天，加上还是一个普通周末，人很少，很喜欢这种舒适惬意的错峰游体验。
 
-![下车后在森林公园入口处往回拍的景色](https://image.viki.moe/b/yc/da8ef7.jpeg)
+![下车后在森林公园入口处往回拍的景色](https://image.viki.moe/blog/yancheng/da8ef7.jpeg)
 
-![景区入口桥边的风景](https://image.viki.moe/b/yc/7e662e.jpeg)
+![景区入口桥边的风景](https://image.viki.moe/blog/yancheng/7e662e.jpeg)
 
 我们在门口租了个双人观光自行车。押金 200 元，每小时 40 元，不足一小时按一小时算。
 
-![Mio 坐在观光自行车的主控座位上](https://image.viki.moe/b/yc/cb8d90.jpeg)
+![Mio 坐在观光自行车的主控座位上](https://image.viki.moe/blog/yancheng/cb8d90.jpeg)
 
 在森林里骑着小车，吹着小风，非常放松，可以沉浸式地感受森林疗愈。
 
-![坐上观光车，准备出发](https://image.viki.moe/b/yc/fe2da2.jpeg)
+![坐上观光车，准备出发](https://image.viki.moe/blog/yancheng/fe2da2.jpeg)
 
 这一路上拍了不少，大多是林间、小桥和花草之类的风景照。
 
-![秀气的小路和两旁笔直纤细的树（本文封面）](https://image.viki.moe/b/yc/dd9e83.jpeg)
+![秀气的小路和两旁笔直纤细的树（本文封面）](https://image.viki.moe/blog/yancheng/dd9e83.jpeg)
 
-![途中经过的分叉小路，很漂亮](https://image.viki.moe/b/yc/8212c3.jpeg)
+![途中经过的分叉小路，很漂亮](https://image.viki.moe/blog/yancheng/8212c3.jpeg)
 
-![石板桥边的景色](https://image.viki.moe/b/yc/c66e12.jpeg)
+![石板桥边的景色](https://image.viki.moe/blog/yancheng/c66e12.jpeg)
 
-![两侧有木围栏的小桥](https://image.viki.moe/b/yc/1b582d.jpeg)
+![两侧有木围栏的小桥](https://image.viki.moe/blog/yancheng/1b582d.jpeg)
 
-![两旁挂满气球的路](https://image.viki.moe/b/yc/fa03aa.jpeg)
+![两旁挂满气球的路](https://image.viki.moe/blog/yancheng/fa03aa.jpeg)
 
-![木板平铺在地上的林间小路](https://image.viki.moe/b/yc/f8689c.jpeg)
+![木板平铺在地上的林间小路](https://image.viki.moe/blog/yancheng/f8689c.jpeg)
 
 路过黄海森林的空中栈道，栈道入口是交叉的木栏，装饰成了婚礼的主题，但是没有拍到入口。
 
-![空中栈道起始段](https://image.viki.moe/b/yc/bfdc6d.jpeg)
+![空中栈道起始段](https://image.viki.moe/blog/yancheng/bfdc6d.jpeg)
 
-![空中栈道的尽头，是一个林间婚礼场地](https://image.viki.moe/b/yc/66eee0.jpeg)
+![空中栈道的尽头，是一个林间婚礼场地](https://image.viki.moe/blog/yancheng/66eee0.jpeg)
 
 看到了开在公园里的 DQ，买了一杯冰淇淋，详情可参考 [这条 Mio 说](/mio-says/55)。
 
 路过了迷雾森林，里面有很多恐龙雕塑，还有很多用网围成、穿梭于树中段的小通道。
 
-![迷雾森林入口的恐龙](https://image.viki.moe/b/yc/11f85f.jpeg)
+![迷雾森林入口的恐龙](https://image.viki.moe/blog/yancheng/11f85f.jpeg)
 
-![翼龙和它的两个小翼龙宝宝](https://image.viki.moe/b/yc/3cc37c.jpeg)
+![翼龙和它的两个小翼龙宝宝](https://image.viki.moe/blog/yancheng/3cc37c.jpeg)
 
-![林间小木屋](https://image.viki.moe/b/yc/11cf82.jpeg)
+![林间小木屋](https://image.viki.moe/blog/yancheng/11cf82.jpeg)
 
-![Mio 坐在迷雾森林里的球型建筑里](https://image.viki.moe/b/yc/793f55.jpeg)
+![Mio 坐在迷雾森林里的球型建筑里](https://image.viki.moe/blog/yancheng/793f55.jpeg)
 
 黄海森林公园里面有一个比较热门的景点，叫「森林之眼」，是一个类似瞭望塔的建筑，站在上面可以俯瞰整个森林的景色。
 
-![从下往上仰视「森林之眼」](https://image.viki.moe/b/yc/a31158.jpeg)
+![从下往上仰视「森林之眼」](https://image.viki.moe/blog/yancheng/a31158.jpeg)
 
 我们边吃边逛到了这里。虽然天气阴沉，但还是能感受到这片人工林的整齐、壮丽和宁静。
 
-![「森林之眼」旋转楼梯处的照片](https://image.viki.moe/b/yc/a087b0.jpeg)
+![「森林之眼」旋转楼梯处的照片](https://image.viki.moe/blog/yancheng/a087b0.jpeg)
 
-![从「森林之眼」往下俯瞰整片森林](https://image.viki.moe/b/yc/bd52eb.jpeg)
+![从「森林之眼」往下俯瞰整片森林](https://image.viki.moe/blog/yancheng/bd52eb.jpeg)
 
-![从「森林之眼」俯瞰森林的近处](https://image.viki.moe/b/yc/29e57c.jpeg)
+![从「森林之眼」俯瞰森林的近处](https://image.viki.moe/blog/yancheng/29e57c.jpeg)
 
-![Mio 在感受森林的治愈和辽阔](https://image.viki.moe/b/yc/684339.jpeg)
+![Mio 在感受森林的治愈和辽阔](https://image.viki.moe/blog/yancheng/684339.jpeg)
 
-![Mio 通过望远镜观察森林](https://image.viki.moe/b/yc/66e62f.jpeg)
+![Mio 通过望远镜观察森林](https://image.viki.moe/blog/yancheng/66e62f.jpeg)
 
-![望远镜里真的只有茂密的森林](https://image.viki.moe/b/yc/6a6453.jpeg)
+![望远镜里真的只有茂密的森林](https://image.viki.moe/blog/yancheng/6a6453.jpeg)
 
 经过一座更大的桥，桥两边的景色非常治愈。
 
-![河的一侧](https://image.viki.moe/b/yc/3388d0.jpeg)
+![河的一侧](https://image.viki.moe/blog/yancheng/3388d0.jpeg)
 
-![河的另一侧](https://image.viki.moe/b/yc/963ca1.jpeg)
+![河的另一侧](https://image.viki.moe/blog/yancheng/963ca1.jpeg)
 
 继续走，走出了茂密高耸的树林，来到了西边更矮一些的树木片区。
 
-![这边的树木明显更矮](https://image.viki.moe/b/yc/c9cb7f.jpeg)
+![这边的树木明显更矮](https://image.viki.moe/blog/yancheng/c9cb7f.jpeg)
 
 这边有一家酒店。
 
-![建在森林公园里的酒店](https://image.viki.moe/b/yc/72d707.jpeg)
+![建在森林公园里的酒店](https://image.viki.moe/blog/yancheng/72d707.jpeg)
 
 然后我们继续往北走，有一条很长很长的小路，路边的树木很茂密、整齐。
 
-![平直漂亮的小路，望不到头](https://image.viki.moe/b/yc/da0965.jpeg)
+![平直漂亮的小路，望不到头](https://image.viki.moe/blog/yancheng/da0965.jpeg)
 
 还看见一边是小麦、一边是大树的奇特景象。
 
-![一边是小麦、一边是大树](https://image.viki.moe/b/yc/ebd792.jpeg)
+![一边是小麦、一边是大树](https://image.viki.moe/blog/yancheng/ebd792.jpeg)
 
-![小麦田特写](https://image.viki.moe/b/yc/1e1d7c.jpeg)
+![小麦田特写](https://image.viki.moe/blog/yancheng/1e1d7c.jpeg)
 
 走了将近 20 分钟，快到西北方尽头却被保安拦下。他说那边是酒店专用区域，不能进入。无奈又花了二十来分钟原路返回，好在路上也拍了不少好看的景色，赶在两小时内把观光车还了。
 
-![矮且齐整的片区，在这里看到了一只猫咪](https://image.viki.moe/b/yc/e6570f.jpeg)
+![矮且齐整的片区，在这里看到了一只猫咪](https://image.viki.moe/blog/yancheng/e6570f.jpeg)
 
 因为这边的树木都是按片区种植的，所以能明显看到不同片区的树木高度和种类都不太一样。
 
-![路两边的树林，一边高一边矮](https://image.viki.moe/b/yc/592bf7.jpeg)
+![路两边的树林，一边高一边矮](https://image.viki.moe/blog/yancheng/592bf7.jpeg)
 
-![路两边的树林，一边黄一边绿](https://image.viki.moe/b/yc/77a175.jpeg)
+![路两边的树林，一边黄一边绿](https://image.viki.moe/blog/yancheng/77a175.jpeg)
 
-![一棵蕨类植物吐新芽的特写](https://image.viki.moe/b/yc/b55b8e.jpeg)
+![一棵蕨类植物吐新芽的特写](https://image.viki.moe/blog/yancheng/b55b8e.jpeg)
 
 一路逛了很久，还完车出来已经三点了。早餐吃得晚，到现在有点饿了。我们就到景区内的德克士，花了六十多元，点了一份咖喱饭和一份鸡块。吃了一口发现一点味道没有，严重怀疑没放盐，卖得还贵，真心别来这里吃。
 
-![入口平原中心的建筑，德克士在这里](https://image.viki.moe/b/yc/c80290.jpeg)
+![入口平原中心的建筑，德克士在这里](https://image.viki.moe/blog/yancheng/c80290.jpeg)
 
 吃饭时，看到小哥半小时前发的微信消息，他问我们接下来的行程。跟他说我们还在公园里吃饭和接下来的行程。他说他正好现在在附近，我们就约好待会儿坐他的车到中华麋鹿园。有点包车的感觉了哈哈，不仅比直接打车便宜，比旅行团灵活，而且还是小鹏的电车，坐起来很舒服。
 
@@ -165,81 +165,81 @@ tags:
 
 在麋鹿园门口下车。这边非常大，对面还有一个巨大的湖，湖中央矗立着一座不知名的雕像。
 
-![湖中央的雕像和麋鹿园入口](https://image.viki.moe/b/yc/e7e86a.jpeg)
+![湖中央的雕像和麋鹿园入口](https://image.viki.moe/blog/yancheng/e7e86a.jpeg)
 
 买了两张成人票，55 元一张。买了两张必坐的观光车单程票，15 元一张，还买了一袋喂麋鹿的胡萝卜，10 元一袋。
 
-![可爱的观光车](https://image.viki.moe/b/yc/14e030.jpeg)
+![可爱的观光车](https://image.viki.moe/blog/yancheng/14e030.jpeg)
 
-![10 元一袋的景区专供胡萝卜](https://image.viki.moe/b/yc/3a8ed7.jpeg)
+![10 元一袋的景区专供胡萝卜](https://image.viki.moe/blog/yancheng/3a8ed7.jpeg)
 
 观光车启程了，慢慢地驶入了麋鹿园的内部。车子开得很慢，能看到这边的植被都很矮，环境偏湿地，适合麋鹿栖息。
 
-![麋鹿和湿地环境](https://image.viki.moe/b/yc/44333b.jpeg)
+![麋鹿和湿地环境](https://image.viki.moe/blog/yancheng/44333b.jpeg)
 
 全程共 15 分钟，能看到不同区域的麋鹿，有的在吃草，有的在水里游泳，还有的在休息。
 
-![正在戏水的小麋鹿和成年麋鹿们](https://image.viki.moe/b/yc/8d1217.jpeg)
+![正在戏水的小麋鹿和成年麋鹿们](https://image.viki.moe/blog/yancheng/8d1217.jpeg)
 
-![各自休息的麋鹿群，安逸祥和](https://image.viki.moe/b/yc/562306.jpeg)
+![各自休息的麋鹿群，安逸祥和](https://image.viki.moe/blog/yancheng/562306.jpeg)
 
-![和麋鹿合影](https://image.viki.moe/b/yc/4dc59c.jpeg)
+![和麋鹿合影](https://image.viki.moe/blog/yancheng/4dc59c.jpeg)
 
 可以通过它们头上的角来区分性别，成年公麋鹿通常有明显分叉的大角，母麋鹿一般没有角。年龄较小或者刚好处于换角期的公麋鹿可能会有较小的角或者没有角。
 
-![母麋鹿特写](https://image.viki.moe/b/yc/23519d.jpeg)
+![母麋鹿特写](https://image.viki.moe/blog/yancheng/23519d.jpeg)
 
-![在觅食休息的麋鹿群](https://image.viki.moe/b/yc/1b020b.jpeg)
+![在觅食休息的麋鹿群](https://image.viki.moe/blog/yancheng/1b020b.jpeg)
 
-![小麋鹿们和鹿妈妈一起躺着歇息](https://image.viki.moe/b/yc/908d91.jpeg)
+![小麋鹿们和鹿妈妈一起躺着歇息](https://image.viki.moe/blog/yancheng/908d91.jpeg)
 
-![一只鸟停留在麋鹿背上，在它身上啄食](https://image.viki.moe/b/yc/2e069d.jpeg)
+![一只鸟停留在麋鹿背上，在它身上啄食](https://image.viki.moe/blog/yancheng/2e069d.jpeg)
 
 很多麋鹿靠得很近，我们可以近距离和它们接触，甚至很多麋鹿会主动过来吃我们手里的胡萝卜，非常亲和。
 
-![主动靠近的年长公麋鹿](https://image.viki.moe/b/yc/7a392e.jpeg)
+![主动靠近的年长公麋鹿](https://image.viki.moe/blog/yancheng/7a392e.jpeg)
 
-![另一只凑过来要吃的麋鹿](https://image.viki.moe/b/yc/871407.jpeg)
+![另一只凑过来要吃的麋鹿](https://image.viki.moe/blog/yancheng/871407.jpeg)
 
-![Mio 给麋鹿喂胡萝卜](https://image.viki.moe/b/yc/8e18da.jpeg)
+![Mio 给麋鹿喂胡萝卜](https://image.viki.moe/blog/yancheng/8e18da.jpeg)
 
 途中还看到一只「拦鹿」，站在观光车行驶道路的正中间。它不慌不忙地站在那里，完全不理会车子和游客的存在。最后也给它喂了胡萝卜。
 
-![「拦鹿」](https://image.viki.moe/b/yc/55cd6f.jpeg)
+![「拦鹿」](https://image.viki.moe/blog/yancheng/55cd6f.jpeg)
 
-![给「拦鹿」「交过路费」](https://image.viki.moe/b/yc/6f6990.jpeg)
+![给「拦鹿」「交过路费」](https://image.viki.moe/blog/yancheng/6f6990.jpeg)
 
 到达下车点。这边靠近麋鹿园中心位置，还有其他地方可以步行参观。有一座塔，一个观鹿台。
 
-![塔，好像是叫封神台](https://image.viki.moe/b/yc/d8bdcc.jpeg)
+![塔，好像是叫封神台](https://image.viki.moe/blog/yancheng/d8bdcc.jpeg)
 
-![观鹿台](https://image.viki.moe/b/yc/29dbd3.jpeg)
+![观鹿台](https://image.viki.moe/blog/yancheng/29dbd3.jpeg)
 
-![从观鹿台看向塔的方向](https://image.viki.moe/b/yc/7634d7.jpeg)
+![从观鹿台看向塔的方向](https://image.viki.moe/blog/yancheng/7634d7.jpeg)
 
 还有一个森林迷宫，进去走了一圈，因为规模不大，很快就走出来了。
 
-![规模不大的森林迷宫](https://image.viki.moe/b/yc/d4dc9f.jpeg)
+![规模不大的森林迷宫](https://image.viki.moe/blog/yancheng/d4dc9f.jpeg)
 
 因为离出口不远，加上园区里环境优美空气清新，我们就没有买单独的返程票，想在里面多走走，步行到出口。
 
 路上看到了各种各样的花，就随手拍了几张。很鲜艳，很好看，~~我妈一定很喜欢~~。
 
-![花的特写合集](https://image.viki.moe/b/yc/174255.jpeg)
+![花的特写合集](https://image.viki.moe/blog/yancheng/174255.jpeg)
 
-![另一些花的特写合集](https://image.viki.moe/b/yc/8c3b18.jpeg)
+![另一些花的特写合集](https://image.viki.moe/blog/yancheng/8c3b18.jpeg)
 
 还看到了一个孔雀园，工作人员说可以直接让我们进去看孔雀。有点小激动。
 
-![进到孔雀园的景观](https://image.viki.moe/b/yc/ed17f1.jpeg)
+![进到孔雀园的景观](https://image.viki.moe/blog/yancheng/ed17f1.jpeg)
 
 有幸近距离看到了孔雀开屏，非常震撼。
 
-![一只孔雀在开屏](https://image.viki.moe/b/yc/8e1fc4.jpeg)
+![一只孔雀在开屏](https://image.viki.moe/blog/yancheng/8e1fc4.jpeg)
 
-![两只孔雀一起开屏](https://image.viki.moe/b/yc/5047e1.jpeg)
+![两只孔雀一起开屏](https://image.viki.moe/blog/yancheng/5047e1.jpeg)
 
-![在孔雀园外捡到的一片心形杨树叶](https://image.viki.moe/b/yc/821422.jpeg)
+![在孔雀园外捡到的一片心形杨树叶](https://image.viki.moe/blog/yancheng/821422.jpeg)
 
 结束参观后，我们和上午一样，又叫了顺风车回市区。因为车比较少，最后是接单的是拼座的司机，车上是一家三口，路上孩子的母亲还在让上小学的孩子背诵课文。~~要不是那个哥回市区了，我们就继续找他包车回去了。~~ 
 
@@ -247,7 +247,7 @@ tags:
 
 目的地是一家串串店，人均 50，味道一般，锅底不行，但是分量是足的。吃完，在附近简单散了一下步，然后决定打车到盐城水街逛一逛。到了之后，发现夜景还不错，就是人造气息比较重，更像是一个商业街区。
 
-![盐城水街夜景](https://image.viki.moe/b/yc/a2a63e.jpeg)
+![盐城水街夜景](https://image.viki.moe/blog/yancheng/a2a63e.jpeg)
 
 没逛多久，临时起了一个念头，想去 KTV 唱歌。说走就走，我们找了一家附近新开但性价比很高的 KTV，九点到店开唱。回过头来看，这家 KTV 不仅有独立卫生间，还有三个大沙发，空间也贼大，完全不像小包，物超所值。
 
@@ -259,11 +259,11 @@ tags:
 
 九点四十起来吃了早餐，外面一直在下大雨，被硬控在酒店三个多小时。 
 
-![此时的盐城降水量地图](https://image.viki.moe/b/yc/7e7dbc.jpeg)
+![此时的盐城降水量地图](https://image.viki.moe/blog/yancheng/7e7dbc.jpeg)
 
 趁着外面下雨，我们重新规划了今天的行程。准备先去吃盐城菜，吃完再去欧风花街逛一逛，顺路看看盐立方电视塔，然后去海盐博物馆和盐城博物馆，最后在高铁站附近吃个韩式料理。
 
-![雨停后，往下俯瞰阴雨中的盐城](https://image.viki.moe/b/yc/220d56.jpeg)
+![雨停后，往下俯瞰阴雨中的盐城](https://image.viki.moe/blog/yancheng/220d56.jpeg)
 
 本来还想去荷兰花海，但考虑到天气、距离，且这个季节很多花都凋谢了，最后还是放弃了。
 
@@ -273,59 +273,59 @@ tags:
 
 > _欧风花街_，顾名思义，是一条欧式风格的商业步行街。街区位于盐城市聚龙湖畔，沿河而建，以欧式建筑和威尼斯风格水岸景观为特色，全长约 800 米。这里有音乐喷泉、水上集市、鲜花布景与沿街小店相映成趣。
 
-![Mio 用可口可乐给带冰百事续上了，这是否...](https://image.viki.moe/b/yc/7f5c10.jpeg)
+![Mio 用可口可乐给带冰百事续上了，这是否...](https://image.viki.moe/blog/yancheng/7f5c10.jpeg)
 
 逛了欧风花街，整体的欧式风格还是挺漂亮的。
 
-![阴雨天的欧风花街街景合集](https://image.viki.moe/b/yc/2026b5.jpeg)
+![阴雨天的欧风花街街景合集](https://image.viki.moe/blog/yancheng/2026b5.jpeg)
 
 这里也有很多座桥，每一座都各有特色。
 
-![欧风花街各具特色的桥](https://image.viki.moe/b/yc/b0b547.jpeg)
+![欧风花街各具特色的桥](https://image.viki.moe/blog/yancheng/b0b547.jpeg)
 
-![Mio 走过紫藤花拱形通道](https://image.viki.moe/b/yc/3851d1.jpeg)
+![Mio 走过紫藤花拱形通道](https://image.viki.moe/blog/yancheng/3851d1.jpeg)
 
-![欧风花街地标打卡点和方言扑克](https://image.viki.moe/b/yc/e11d79.jpeg)
+![欧风花街地标打卡点和方言扑克](https://image.viki.moe/blog/yancheng/e11d79.jpeg)
 
 顺便在这边的文创店买了可爱的冰箱贴。
 
-![回南京高铁上补拍的冰箱贴](https://image.viki.moe/b/yc/c1466d.png)
+![回南京高铁上补拍的冰箱贴](https://image.viki.moe/blog/yancheng/c1466d.png)
 
 走完欧风花街，顺路去看了对面的盐立方电视塔，建筑设计风格很有「盐」的特色。
 
 > _盐立方电视塔_ 位于盐城市聚龙湖公园南侧，是盐城极具辨识度的城市地标。灵感取自「盐晶体」，通过层层叠加的立方体造型，呼应盐城作为全国唯一以「盐」命名城市的独特气质。主塔高约 195 米，集广播电视发射、城市观光、休闲旅游等功能于一体。
 
-![Mio 慵懒地在靠在长椅上休息，背景是盐立方](https://image.viki.moe/b/yc/b938e3.jpeg)
+![Mio 慵懒地在靠在长椅上休息，背景是盐立方](https://image.viki.moe/blog/yancheng/b938e3.jpeg)
 
 接着打车到海盐博物馆。来到了盐城，当然也得了解一下盐城当地的盐文化。海盐博物馆和盐城博物馆都不需要门票，也不需要预约，凭身份证直接入场，非常方便。
 
 > _海盐博物馆_ 位于江苏盐城，是全国唯一一座反映中国海盐历史文明的专题博物馆。馆内围绕海盐生产、盐业贸易、盐政制度和盐民生活等内容展开，通过文物、史料、模型与场景复原，系统呈现中国海盐发展的历史脉络。这里不仅能了解盐城因盐而兴的城市起源，也能感受海盐文化的深厚底蕴。
 
-![海盐博物馆门口](https://image.viki.moe/b/yc/fd5703.png)
+![海盐博物馆门口](https://image.viki.moe/blog/yancheng/fd5703.png)
 
-![海盐博物馆整体外观](https://image.viki.moe/b/yc/855cdf.png)
+![海盐博物馆整体外观](https://image.viki.moe/blog/yancheng/855cdf.png)
 
 之前 Mio 都对博物馆这样的地方不怎么感冒，经过这次的参观，她说感觉博物馆也没那么无聊了，还是挺有意思的。
 
-![各种海盐样本](https://image.viki.moe/b/yc/2a73bd.png)
+![各种海盐样本](https://image.viki.moe/blog/yancheng/2a73bd.png)
 
-![海盐制作工序](https://image.viki.moe/b/yc/335e3b.jpeg)
+![海盐制作工序](https://image.viki.moe/blog/yancheng/335e3b.jpeg)
 
-![缩放的古代制盐作业模型](https://image.viki.moe/b/yc/dd009d.jpeg)
+![缩放的古代制盐作业模型](https://image.viki.moe/blog/yancheng/dd009d.jpeg)
 
-![历代盐业管理制度变革](https://image.viki.moe/b/yc/179314.png)
+![历代盐业管理制度变革](https://image.viki.moe/blog/yancheng/179314.png)
 
 盐城在古代其实叫「盐渎（dú）」，其中「盐」指煮海为盐，「渎」在古汉语里指水道、沟渠，大致意思是「产盐、运盐的河港之地」。因境内盐河而得名「盐渎」，后来随着环城盐场兴盛、盐业发展，才改称「盐城」。
 
-![盐城名称的历史演变](https://image.viki.moe/b/yc/f95cd3.jpeg)
+![盐城名称的历史演变](https://image.viki.moe/blog/yancheng/f95cd3.jpeg)
 
 才知道，原来盐曾经是由朝廷、国家管控的，而且要征收盐税。只不过国家早在 1994 年就已经免除盐税了。
 
-![盐税、税种、税额](https://image.viki.moe/b/yc/0e2a75.jpeg)
+![盐税、税种、税额](https://image.viki.moe/blog/yancheng/0e2a75.jpeg)
 
 刚好有一个有关「历代金属货币」的临展也在展出，系统介绍了中国古代的金属货币发展史。我也是才知道除了铜钱那样的圆形钱币之外，还有刀币、布币、环钱等各种形状的金属货币。
 
-![看到一个古代的「印钞机」](https://image.viki.moe/b/yc/0869f3.jpeg)
+![看到一个古代的「印钞机」](https://image.viki.moe/blog/yancheng/0869f3.jpeg)
 
 参观完，打算去拍拍立得。我们在附近找了家拍立得小店，打车过去拍了两张拍立得。
 
@@ -333,25 +333,25 @@ tags:
 
 精挑细选了十分钟，最后决定要了一颗快五斤的榴莲，当榴莲壳打开的那一刻，心都碎了，壳贼厚。后面下楼吃了两块，发现根本没有榴莲味，大概率是死包，果肉还有点湿烂无味，吃了两口就全扔了。
 
-![永辉超市买到的报仇榴莲](https://image.viki.moe/b/yc/a1fff9.jpeg)
+![永辉超市买到的报仇榴莲](https://image.viki.moe/blog/yancheng/a1fff9.jpeg)
 
 收拾好心情，行程继续。我们打车到了盐城博物馆，这是盐城另一个重要的博物馆，主要展示盐城的历史、文化和自然资源。
 
 > _盐城博物馆_ 是展示盐城历史与城市文脉的重要文化场馆。馆内以盐城发展史为主线，系统呈现海盐文化、考古发现、民俗风情和城市变迁，帮助观众了解这座城市从古代盐业重镇到现代滨海城市的演变。
 
-![盐城博物馆外观](https://image.viki.moe/b/yc/b1ed90.png)
+![盐城博物馆外观](https://image.viki.moe/blog/yancheng/b1ed90.png)
 
 盐城博物馆整体偏向古建筑风格，在内容上其实和海盐博物馆有一些重叠，但也有一些独特的展区，比如介绍盐城的自然资源、生态环境和科技发展的部分。
 
-![展厅入口的盐城标志和旁边的 MBTI 方块](https://image.viki.moe/b/yc/bb369c.jpeg)
+![展厅入口的盐城标志和旁边的 MBTI 方块](https://image.viki.moe/blog/yancheng/bb369c.jpeg)
 
-![古代制盐流程介绍](https://image.viki.moe/b/yc/d24df5.jpeg)
+![古代制盐流程介绍](https://image.viki.moe/blog/yancheng/d24df5.jpeg)
 
-![自然展厅](https://image.viki.moe/b/yc/1dd6cd.jpeg)
+![自然展厅](https://image.viki.moe/blog/yancheng/1dd6cd.jpeg)
 
-![一个秋意盎然的角落](https://image.viki.moe/b/yc/c8ed8d.jpeg)
+![一个秋意盎然的角落](https://image.viki.moe/blog/yancheng/c8ed8d.jpeg)
 
-![盐城的经济与发展展厅的宣传墙](https://image.viki.moe/b/yc/92c842.png)
+![盐城的经济与发展展厅的宣传墙](https://image.viki.moe/blog/yancheng/92c842.png)
 
 我们在这里参观了大约一个小时，了解了盐城的历史、经济、文化背景等方面。
 
@@ -361,9 +361,9 @@ tags:
 
 从取号到轮到我们，大概等了 25 分钟，终于也是坐到了座位上。点了几样韩式料理，边吃边等其他菜上来。
 
-![韩式料理店内部的菜单墙](https://image.viki.moe/b/yc/18ad57.jpeg)
+![韩式料理店内部的菜单墙](https://image.viki.moe/blog/yancheng/18ad57.jpeg)
 
-![点的一些韩式料理](https://image.viki.moe/b/yc/c5c769.jpeg)
+![点的一些韩式料理](https://image.viki.moe/blog/yancheng/c5c769.jpeg)
 
 吃过好多次韩式料理，老实说，本以为青岛、盐城这样的沿海城市离韩国近，韩式料理会更地道一些。可谁知道，不管是泡菜还是其他料理，这些店的味道其实都大差不差。仔细分析了一下，菜品本身其实没什么大问题，都很地道很正宗。我觉得大概率是我们吃不惯韩式料理的口味。
 
@@ -371,11 +371,11 @@ tags:
 
 出店后在旁边小超市买了瓶雪碧，打车到高铁站，赶上高铁，回南京。
 
-![盐城站](https://image.viki.moe/b/yc/aaa0b9.jpeg)
+![盐城站](https://image.viki.moe/blog/yancheng/aaa0b9.jpeg)
 
 到家后，重新闪购了一份榴莲。出肉率高，榴莲味浓厚，香甜软糯，这才是榴莲该有的样子啊！
 
-![重新闪购的榴莲其中一房](https://image.viki.moe/b/yc/fda998.jpeg)
+![重新闪购的榴莲其中一房](https://image.viki.moe/blog/yancheng/fda998.jpeg)
 
 ---
 

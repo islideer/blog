@@ -3,7 +3,7 @@ title: '遇见厦门？「屿‌」见厦门！'
 date: 2026-06-08
 topic: '生活'
 excerpt: '高考前的错峰出行，从集美学村到鼓浪屿，四日厦门夏日漫步～'
-top_image: 'https://image.viki.moe/b/xm/13511e.jpeg'
+top_image: 'https://image.viki.moe/blog/xiamen/13511e.jpeg'
 tags:
   - '旅行'
   - '生活'
@@ -22,11 +22,11 @@ tags:
 
 ## 抵达
 
-![在飞机上俯瞰沿海景色](https://image.viki.moe/b/xm/2fc6ee.jpeg)
+![在飞机上俯瞰沿海景色](https://image.viki.moe/blog/xiamen/2fc6ee.jpeg)
 
 厦门今天阴天多云，30 多度，体感 35 度左右，有点小热。没托运行李，直接去高崎机场的露天网约车上车点。这个上车点比之前见过的都要开阔漂亮。
 
-![高崎机场的露天网约车上车点](https://image.viki.moe/b/xm/cdbfa2.jpeg)
+![高崎机场的露天网约车上车点](https://image.viki.moe/blog/xiamen/cdbfa2.jpeg)
 
 十点打车到汉庭。提前入住，放行李。因为极度缺乏睡眠，先在酒店睡几个小时再说。
 
@@ -34,7 +34,7 @@ tags:
 
 下午三点，睡醒出门，有点小饿。楼下点了两碗米线，味道一般，玫瑰花茶有股糖浆味。
 
-![云南小锅米线和玫瑰花茶](https://image.viki.moe/b/xm/258509.jpeg)
+![云南小锅米线和玫瑰花茶](https://image.viki.moe/blog/xiamen/258509.jpeg)
 
 吃完，步行到附近地铁站，路上看到很多潮汕相关的店名。准备坐地铁去集美学村，沿途会经过海上地铁，这也是我们的行程点之一。在地铁站里，除了常规的普通话和英语播报，还听到了闽南语播报。厦门正处福建靠海，是典型的闽南区域，闽南味浓厚。
 
@@ -42,9 +42,9 @@ tags:
 
 中途经过的海上地铁，阴天看着有点朦胧。
 
-![阴天海上地铁的窗外一侧](https://image.viki.moe/b/xm/a2e252.jpeg)
+![阴天海上地铁的窗外一侧](https://image.viki.moe/blog/xiamen/a2e252.jpeg)
 
-![集美学村站的「我爱厦门‌」墙](https://image.viki.moe/b/xm/34dc9b.jpeg)
+![集美学村站的「我爱厦门‌」墙](https://image.viki.moe/blog/xiamen/34dc9b.jpeg)
 
 出站，站外有非常多电动车可供租赁，各种颜色和款式都有，看外观并不像平台统一定制的，更像是个人或者小商户经营的。
 
@@ -54,21 +54,21 @@ tags:
 
 > _集美学村_，得名于 1923 年孙中山批复「承认集美学校为中国永久和平学村‌」。村内汇聚大中小学十余所，图书馆、科学馆、医院等设施齐备。嘉庚风格建筑错落有致，闽南红砖燕尾脊与西洋石柱廊柱相映成趣。
 
-![集美学村](https://image.viki.moe/b/xm/7e0ada.jpeg)
+![集美学村](https://image.viki.moe/blog/xiamen/7e0ada.jpeg)
 
 ### 不问东西艺术街区
 
 沿着嘉庚路步行前往不问东西街区，没来得及拍，图是网图。
 
-![不问东西街区的地标](https://image.viki.moe/b/xm/c9e93a.jpeg)
+![不问东西街区的地标](https://image.viki.moe/blog/xiamen/c9e93a.jpeg)
 
-![不问东西街区的一角](https://image.viki.moe/b/xm/dc9747.jpeg)
+![不问东西街区的一角](https://image.viki.moe/blog/xiamen/dc9747.jpeg)
 
 ### 楚雨寻家
 
 楚雨寻家的取景地也在这边，取景地门口有流星雨相关的文创店和打卡点。漂亮的小房子。
 
-![楚雨寻家取景地](https://image.viki.moe/b/xm/aee7ed.jpeg)
+![楚雨寻家取景地](https://image.viki.moe/blog/xiamen/aee7ed.jpeg)
 
 ### 集美大社
 
@@ -76,29 +76,29 @@ tags:
 
 > _集美大社_，位于厦门集美区，是集美半岛最南端的历史聚落，因人口众多俗称「大社‌」。这里以融合闽南、南洋、西欧风格的侨楼建筑和深厚的宗族文化闻名，是集历史、旅游、商业于一体的活力社区。
 
-![集美大社厦门地标](https://image.viki.moe/b/xm/630e74.jpeg)
+![集美大社厦门地标](https://image.viki.moe/blog/xiamen/630e74.jpeg)
 
-![街区里的厦门字样文艺墙](https://image.viki.moe/b/xm/05b9b7.jpeg)
+![街区里的厦门字样文艺墙](https://image.viki.moe/blog/xiamen/05b9b7.jpeg)
 
 ### 小八大厨冰淇淋
 
 在集美大社街区看到一家颜值挺高的冰淇淋店，点了两个冰淇淋、小熊布丁和 Hello Kitty 鸡蛋仔。
 
-![小八大厨和乌撒奇大厨主题的冰淇淋](https://image.viki.moe/b/xm/049c06.jpeg)
+![小八大厨和乌撒奇大厨主题的冰淇淋](https://image.viki.moe/blog/xiamen/049c06.jpeg)
 
-![小熊布丁和 Hello Kitty 鸡蛋仔](https://image.viki.moe/b/xm/531937.jpeg)
+![小熊布丁和 Hello Kitty 鸡蛋仔](https://image.viki.moe/blog/xiamen/531937.jpeg)
 
 ### Chiikawa 拍立得
 
 找了一家拍立得店，拍了两张拍立得。店里布景是 Chiikawa，看得出来店主也很喜欢三小只。
 
-![拍立得店内的 Chiikawa 布景](https://image.viki.moe/b/xm/32cb1c.jpeg)
+![拍立得店内的 Chiikawa 布景](https://image.viki.moe/blog/xiamen/32cb1c.jpeg)
 
-![一家文艺可爱的小熊甜品店](https://image.viki.moe/b/xm/cc499a.jpeg)
+![一家文艺可爱的小熊甜品店](https://image.viki.moe/blog/xiamen/cc499a.jpeg)
 
 路上还看到了三小只的墙绘。~~虽然丑丑的。~~
 
-![三小只的墙绘](https://image.viki.moe/b/xm/d77523.jpeg)
+![三小只的墙绘](https://image.viki.moe/blog/xiamen/d77523.jpeg)
 
 ### 十里长堤
 
@@ -106,19 +106,19 @@ tags:
 
 >  _十里长堤_，是厦门集美与杏林海堤的雅称，全长 5032 米，建于 1955 年。现为新晋网红景点，可赏海景日落、远眺杏林大桥与公铁两用桥，地铁穿海而过。长堤划分六大功能区，被誉为「城市会客厅‌」，是市民游客休闲打卡的热门目的地。
 
-![十里长堤道路内侧往集美学村方向看去](https://image.viki.moe/b/xm/78722d.jpeg)
+![十里长堤道路内侧往集美学村方向看去](https://image.viki.moe/blog/xiamen/78722d.jpeg)
 
-![沿着十里长堤道路内侧的另一个方向看去](https://image.viki.moe/b/xm/9fc265.jpeg)
+![沿着十里长堤道路内侧的另一个方向看去](https://image.viki.moe/blog/xiamen/9fc265.jpeg)
 
 天色渐暗，天气原因没有星星。坐在岸堤旁边，感受微微的海风吹过来，还算舒服惬意。继续往前走，有很多直播唱歌的人和散步的人，岸边有一些发光的文艺小建筑。
 
-![十里长堤岸边的文艺建筑](https://image.viki.moe/b/xm/d6973b.jpeg)
+![十里长堤岸边的文艺建筑](https://image.viki.moe/blog/xiamen/d6973b.jpeg)
 
 ### 火锅串串
 
 打车回来，晚上在万象城吃了个火锅串串结尾，边吃边看最近在打的科隆 Major，第一阶段作业已经炸光了。
 
-![厦门万象城附近的火锅串串](https://image.viki.moe/b/xm/2904c3.jpeg)
+![厦门万象城附近的火锅串串](https://image.viki.moe/blog/xiamen/2904c3.jpeg)
 
 ## 第二天 / 六月五日 / 周五
 
@@ -128,41 +128,41 @@ tags:
 
 >  _八市_，即第八海鲜市场，是厦门岛内规模最大、种类最齐全的海鲜菜市场。始建于上世纪 20 年代，连接开禾路、轮渡与大中路，是老厦门人的「厨房‌」。这里市井气息浓厚，海鲜新鲜价廉，小吃丰富，如今已成为游客体验厦门烟火气的热门打卡地。
 
-![八市中段](https://image.viki.moe/b/xm/67b1fb.jpeg)
+![八市中段](https://image.viki.moe/blog/xiamen/67b1fb.jpeg)
 
 散步的时候，看到很多地方在卖这种水果，昨天也是，看它标出来才知道叫火参果。卖得不是很贵，但是听本地人说，它的味道和老黄瓜味道差不多。
 
-![少见的火参果](https://image.viki.moe/b/xm/e0ce2a.jpeg)
+![少见的火参果](https://image.viki.moe/blog/xiamen/e0ce2a.jpeg)
 
 厦门的沙茶面、海蛎煎和姜母鸭比较出名，有很多店都会卖这些东西。
 
-![八市附近的街边店铺](https://image.viki.moe/b/xm/ba64e4.jpeg)
+![八市附近的街边店铺](https://image.viki.moe/blog/xiamen/ba64e4.jpeg)
 
 ### 八市小吃
 
 在八市边走边逛，买了一些小吃，加一起四十多块钱。
 
-![在八市买的一些小吃](https://image.viki.moe/b/xm/3f7536.jpeg)
+![在八市买的一些小吃](https://image.viki.moe/blog/xiamen/3f7536.jpeg)
 
-![典型的八市海鲜小吃摊](https://image.viki.moe/b/xm/c636a8.jpeg)
+![典型的八市海鲜小吃摊](https://image.viki.moe/blog/xiamen/c636a8.jpeg)
 
 ### 海鲜小店
 
 一直在这边步行，看到一家平价海鲜小店，叫 _相约厦门平价海鲜城_，进去点了一个海鲜双人套餐，很便宜，用完券才五十几。主菜三选一，没点姜母鸭，更想吃大螃蟹。
 
-![实惠的海鲜套餐](https://image.viki.moe/b/xm/32b4ac.png)
+![实惠的海鲜套餐](https://image.viki.moe/blog/xiamen/32b4ac.png)
 
 还点了两杯一树一叶外卖，是厦门本地的特色奶茶品牌。
 
-![后上的鲍鱼和竹蛏（chēng） & 本地特色奶茶](https://image.viki.moe/b/xm/7f2bde.jpeg)
+![后上的鲍鱼和竹蛏（chēng） & 本地特色奶茶](https://image.viki.moe/blog/xiamen/7f2bde.jpeg)
 
 ### 中山路步行街
 
 打车到中山路步行街。工作日白天人不多，加上阴天原因，不是很出片。但人少也挺舒服的。
 
-![中山路入口](https://image.viki.moe/b/xm/0158bc.jpeg)
+![中山路入口](https://image.viki.moe/blog/xiamen/0158bc.jpeg)
 
-![中山路照片碎片](https://image.viki.moe/b/xm/f44afc.jpeg)
+![中山路照片碎片](https://image.viki.moe/blog/xiamen/f44afc.jpeg)
 
 下午三点多，走不动了，打车回酒店睡大觉，顺便更新各 UP 主的 Major 作业。
 
@@ -170,7 +170,7 @@ tags:
 
 晚上点的外卖和卤味，看 Major 比赛直到凌晨四五点，见证了 BIG 和 NRG 两个神队让 12 追 16 的历史性时刻。 
 
-![NRG 被 BIG 让 12 追 16](https://image.viki.moe/b/xm/03602f.png)
+![NRG 被 BIG 让 12 追 16](https://image.viki.moe/blog/xiamen/03602f.png)
 
 地图是米垃圾（Mirage），NRG 作为防守方开局，上半场 12-0 遥遥领先。原本是毫无悬念的一场比赛，结果愣是让 BIG 连拿 12 分拖入加时，并在加时赛 4-0 一举拿下比赛，创下了让 12 追 16 的历史壮举。 ~~看得出来两个神队都是本质好人，上半场 0 分还真够~~
 
@@ -178,7 +178,7 @@ tags:
 
 > [Major Winner](https://major.viki.moe/) 是去年为了方便查看 UP 主竞猜作业写的一个小项目。最近是全新的 Major 赛季。近半月 16K+ 人用过，近 80K+ 次的访问量，最高日活 4K+，同时在线超 160 人。通过这些数据能明显看出，还是有很多人真实在用的。自己写的东西帮助到了不少人，就会很开心。
 
-![Major Winner 近半个月用户数据](https://image.viki.moe/b/xm/4772f4.png)
+![Major Winner 近半个月用户数据](https://image.viki.moe/blog/xiamen/4772f4.png)
 
 ## 第三天 / 六月六日 / 周六
 
@@ -188,97 +188,97 @@ tags:
 
 到三点半，雨停了有一阵了，外边是小阴天。我们打车到黄厝海滩。这里地处厦门岛东南靠海的区域，有很长的海岸线，大片沙滩。
 
-![广阔的黄厝海滩](https://image.viki.moe/b/xm/9f941b.jpeg)
+![广阔的黄厝海滩](https://image.viki.moe/blog/xiamen/9f941b.jpeg)
 
-![海滩一角](https://image.viki.moe/b/xm/ae1b5b.jpeg)
+![海滩一角](https://image.viki.moe/blog/xiamen/ae1b5b.jpeg)
 
-![Mio 在沙滩上写的东西](https://image.viki.moe/b/xm/5d060d.jpeg)
+![Mio 在沙滩上写的东西](https://image.viki.moe/blog/xiamen/5d060d.jpeg)
 
-![玩沙子的小孩哥](https://image.viki.moe/b/xm/dbc04d.jpeg)
+![玩沙子的小孩哥](https://image.viki.moe/blog/xiamen/dbc04d.jpeg)
 
-![大礁石上的海景](https://image.viki.moe/b/xm/9b9626.jpeg)
+![大礁石上的海景](https://image.viki.moe/blog/xiamen/9b9626.jpeg)
 
-![海滩边的礁石群](https://image.viki.moe/b/xm/5a767f.jpeg)
+![海滩边的礁石群](https://image.viki.moe/blog/xiamen/5a767f.jpeg)
 
-![小孩、礁石、大海、沙滩](https://image.viki.moe/b/xm/076b87.jpeg)
+![小孩、礁石、大海、沙滩](https://image.viki.moe/blog/xiamen/076b87.jpeg)
 
-![沙滩上的碎贝壳](https://image.viki.moe/b/xm/acdda3.jpeg)
+![沙滩上的碎贝壳](https://image.viki.moe/blog/xiamen/acdda3.jpeg)
 
-![不知道在拍什么的大哥](https://image.viki.moe/b/xm/aea48a.jpeg)
+![不知道在拍什么的大哥](https://image.viki.moe/blog/xiamen/aea48a.jpeg)
 
-![舒服的一家四口 带着萨摩耶在海边露营](https://image.viki.moe/b/xm/5a2633.jpeg)
+![舒服的一家四口 带着萨摩耶在海边露营](https://image.viki.moe/blog/xiamen/5a2633.jpeg)
 
-![漂亮的海景](https://image.viki.moe/b/xm/476f25.jpeg)
+![漂亮的海景](https://image.viki.moe/blog/xiamen/476f25.jpeg)
 
-![椰树、小道、沙滩、大海](https://image.viki.moe/b/xm/5d1361.jpeg)
+![椰树、小道、沙滩、大海](https://image.viki.moe/blog/xiamen/5d1361.jpeg)
 
 ### 沙滩酒吧
 
 我们一直沿路走了好久，一直逛到天色渐暗。期间看到了不怕人的小鸟，看到了沙滩酒吧，看到了开在海边的瑞幸，看到了沿途的美景。 
 
-![沙滩酒吧入口处](https://image.viki.moe/b/xm/4f8bc7.jpeg)
+![沙滩酒吧入口处](https://image.viki.moe/blog/xiamen/4f8bc7.jpeg)
 
-![沙滩酒吧](https://image.viki.moe/b/xm/0fda7b.jpeg)
+![沙滩酒吧](https://image.viki.moe/blog/xiamen/0fda7b.jpeg)
 
-![另一家沙滩酒吧](https://image.viki.moe/b/xm/ccac51.jpeg)
+![另一家沙滩酒吧](https://image.viki.moe/blog/xiamen/ccac51.jpeg)
 
-![附近的文艺建筑](https://image.viki.moe/b/xm/b23ba7.jpeg)
+![附近的文艺建筑](https://image.viki.moe/blog/xiamen/b23ba7.jpeg)
 
-![附近的艺术装饰](https://image.viki.moe/b/xm/91f362.jpeg)
+![附近的艺术装饰](https://image.viki.moe/blog/xiamen/91f362.jpeg)
 
 ### 沙滩边的瑞幸
 
-![沙滩边的瑞幸](https://image.viki.moe/b/xm/c935a3.jpeg)
+![沙滩边的瑞幸](https://image.viki.moe/blog/xiamen/c935a3.jpeg)
 
-![瑞幸的路边入口](https://image.viki.moe/b/xm/ee87c7.jpeg)
+![瑞幸的路边入口](https://image.viki.moe/blog/xiamen/ee87c7.jpeg)
 
-![靠海的瑞幸标语牌](https://image.viki.moe/b/xm/f4c4bb.jpeg)
+![靠海的瑞幸标语牌](https://image.viki.moe/blog/xiamen/f4c4bb.jpeg)
 
 ### 环岛路
 
 只是遗憾天公不作美，没有看到厦门海边的绝美晚霞。Mio 骑着单车载着我，沿着环岛路一路舒服地骑行。
 
-![沙滩街景 其一](https://image.viki.moe/b/xm/34ccf1.jpeg)
+![沙滩街景 其一](https://image.viki.moe/blog/xiamen/34ccf1.jpeg)
 
-![沙滩街景 其二](https://image.viki.moe/b/xm/a8e314.jpeg)
+![沙滩街景 其二](https://image.viki.moe/blog/xiamen/a8e314.jpeg)
 
-![沙滩街景 其三](https://image.viki.moe/b/xm/19bd33.jpeg)
+![沙滩街景 其三](https://image.viki.moe/blog/xiamen/19bd33.jpeg)
 
-![沙滩街景 其四](https://image.viki.moe/b/xm/41fd18.jpeg)
+![沙滩街景 其四](https://image.viki.moe/blog/xiamen/41fd18.jpeg)
 
-![沙滩街景 其五](https://image.viki.moe/b/xm/b41547.jpeg)
+![沙滩街景 其五](https://image.viki.moe/blog/xiamen/b41547.jpeg)
 
-![本地特色拼成的厦门字样](https://image.viki.moe/b/xm/ac6697.jpeg)
+![本地特色拼成的厦门字样](https://image.viki.moe/blog/xiamen/ac6697.jpeg)
 
 路上还看到一辆奶龙痛车，啊？？难以想象，这得什么样的人才能驾驭它。
 
-![奶龙痛车 我看不懂但大受震惊](https://image.viki.moe/b/xm/d60db7.jpeg)
+![奶龙痛车 我看不懂但大受震惊](https://image.viki.moe/blog/xiamen/d60db7.jpeg)
 
 路边看到一只低飞到路边草坪的小鸟，不怕人，蹲着看了它好久，它甚至在我脚边转悠。
 
-![不怕人的可爱小鸟 崽种，直视我！](https://image.viki.moe/b/xm/40a3af.jpeg)
+![不怕人的可爱小鸟 崽种，直视我！](https://image.viki.moe/blog/xiamen/40a3af.jpeg)
 
 ### 报恩榴莲
 
 天暗下来，我们准备打车去沙坡尾街区看看。因为路上堵，提前下了车，路上看到一家水果店，榴莲 19.9 一斤。我二话不说挑了一只感觉出肉还可以的榴莲直接上称。大概两斤半，50 多快钱。出肉率还可以，果肉饱满，干湿适宜，榴莲味浓厚。这个报恩榴莲我很满意，毕竟按正常价 30 一斤来算，大概得七八十。
 
-![便宜且出肉率很高的报恩榴莲](https://image.viki.moe/b/xm/076867.jpeg)
+![便宜且出肉率很高的报恩榴莲](https://image.viki.moe/blog/xiamen/076867.jpeg)
 
 ### 沙坡尾
 
 沙坡尾是一条文创街区，有很多文创店和小吃店。边走边逛，逛了很多冰箱贴店。
 
-![沙坡尾](https://image.viki.moe/b/xm/e78ec5.jpeg)
+![沙坡尾](https://image.viki.moe/blog/xiamen/e78ec5.jpeg)
 
-![门口有小狗的小店](https://image.viki.moe/b/xm/54f15c.jpeg)
+![门口有小狗的小店](https://image.viki.moe/blog/xiamen/54f15c.jpeg)
 
 ### 火锅串串
 
 晚上，又找了一家串串店，是的我们是真的喜欢吃串串，而且这家店有鲍鱼。打车过来爽吃，人均 60，贼 tm 好吃。酒足饭饱过后，美美打车回汉庭。晚上看了 Major 比赛，TYLOO 在第二阶段拿下 1-1 的战绩，超出预期，为 CNCS 加油。
 
-![火锅串串](https://image.viki.moe/b/xm/ce8b8b.jpeg)
+![火锅串串](https://image.viki.moe/blog/xiamen/ce8b8b.jpeg)
 
-![串串特写 有鲍鱼！](https://image.viki.moe/b/xm/069343.jpeg)
+![串串特写 有鲍鱼！](https://image.viki.moe/blog/xiamen/069343.jpeg)
 
 ## 第四天 / 六月七日 / 周日
 
@@ -288,11 +288,11 @@ tags:
 
 十一点半打车到东渡客运码头，买了人均 35 的往返船票，准备去鼓浪屿看看。上一次坐轮渡是在上海，这次是在厦门。
 
-![登上码头的客运船](https://image.viki.moe/b/xm/aaf770.jpeg)
+![登上码头的客运船](https://image.viki.moe/blog/xiamen/aaf770.jpeg)
 
 最靠近鼓浪屿边上的码头是居民专用的，游客得在更远的东渡码头上船。这个码头比较远，要绕一段距离。整个行程大概 25 到 30 分钟。轮船 20 分钟一班，返程票 20 天内有效，可以在任意支持的码头上船回厦门岛，也就意味着你可以在鼓浪屿上待很久。虽然可以从任意码头回任意岸边，但实际上开放给游客的码头有限，一般从东渡码头过来三丘田码头，然后从三丘田码头回东渡码头。而且回的时候也是 20 分钟一班，如果有赶高铁和飞机需求，记得提前15 分钟进站排队，不然又得等 20 分钟。~~亲身经历，哪怕提前十分钟进站，也可能在登船口拦住你等下一班，差点误机。~~
 
-![回程时在船上拍的沿途海景](https://image.viki.moe/b/xm/13511e.jpeg)
+![回程时在船上拍的沿途海景](https://image.viki.moe/blog/xiamen/13511e.jpeg)
 
 在轮船上会有旅游讲解和文创品供应，船上卖的文创还挺便宜的。一个带有鼓浪屿字样的编织棉线袋，放了两瓶纯净水，一个冰箱贴，两三个挂在袋口的小装饰品，才 30 块钱。 毕竟要知道，在外边的文创店，一个冰箱贴动不动 30、40 起步的。
 
@@ -300,63 +300,63 @@ tags:
 
 我之前一直以为鼓浪屿是那种临近海边，不到一个别墅大的小岛和礁石群的景区，其实并不然。
 
-![鼓浪屿入口](https://image.viki.moe/b/xm/ad16fe.jpeg)
+![鼓浪屿入口](https://image.viki.moe/blog/xiamen/ad16fe.jpeg)
 
-![鼓浪屿入口右侧](https://image.viki.moe/b/xm/c74d73.jpeg)
+![鼓浪屿入口右侧](https://image.viki.moe/blog/xiamen/c74d73.jpeg)
 
-![岛上往回看](https://image.viki.moe/b/xm/c074e2.jpeg)
+![岛上往回看](https://image.viki.moe/blog/xiamen/c074e2.jpeg)
 
 鼓浪屿是一个很大的岛屿，岛上有各种人文建筑和商业街区，消费水平并不很高，各种小店的菜品还算平价，算得上一个相对独立的生活区了。
 
-![鼓浪屿的街区样貌](https://image.viki.moe/b/xm/43ba3f.jpeg)
+![鼓浪屿的街区样貌](https://image.viki.moe/blog/xiamen/43ba3f.jpeg)
 
-![鼓浪屿上的厦门文艺墙](https://image.viki.moe/b/xm/d24c0e.jpeg)
+![鼓浪屿上的厦门文艺墙](https://image.viki.moe/blog/xiamen/d24c0e.jpeg)
 
-![鼓浪屿上的中国音乐馆](https://image.viki.moe/b/xm/c5dcf6.jpeg)
+![鼓浪屿上的中国音乐馆](https://image.viki.moe/blog/xiamen/c5dcf6.jpeg)
 
-![鼓浪屿字样的文艺墙](https://image.viki.moe/b/xm/7c017e.png)
+![鼓浪屿字样的文艺墙](https://image.viki.moe/blog/xiamen/7c017e.png)
 
 我们沿着鼓浪屿中间的错落小路，逆时针小转了一圈。中途看到了不少的风景，还看到了很多国家的领事馆旧址。
 
-![欧式风格的上坡路](https://image.viki.moe/b/xm/eb7f0b.jpeg)
+![欧式风格的上坡路](https://image.viki.moe/blog/xiamen/eb7f0b.jpeg)
 
-![倒在鼓浪屿路上的大树](https://image.viki.moe/b/xm/df3009.jpeg)
+![倒在鼓浪屿路上的大树](https://image.viki.moe/blog/xiamen/df3009.jpeg)
 
-![林巧稚纪念馆旁边的小路](https://image.viki.moe/b/xm/a55323.jpeg)  
+![林巧稚纪念馆旁边的小路](https://image.viki.moe/blog/xiamen/a55323.jpeg)  
 
-![鼓浪屿的音乐学校](https://image.viki.moe/b/xm/7b0ded.jpeg)
+![鼓浪屿的音乐学校](https://image.viki.moe/blog/xiamen/7b0ded.jpeg)
 
 岛内除了官方绕岛的观光车外，没有任何交通工具，连自行车都没有。
 
-![鼓浪屿上的建筑 其一](https://image.viki.moe/b/xm/f958a4.jpeg)
+![鼓浪屿上的建筑 其一](https://image.viki.moe/blog/xiamen/f958a4.jpeg)
 
-![鼓浪屿上的建筑 其二](https://image.viki.moe/b/xm/a35757.jpeg)
+![鼓浪屿上的建筑 其二](https://image.viki.moe/blog/xiamen/a35757.jpeg)
 
 走了一个小时，有点累了，在岛上找了一家酒店开了个钟点房睡了两个小时。然后起来出门接着绕着沿海小路一直走。
 
-![鼓浪屿的沿海小路 其一](https://image.viki.moe/b/xm/2e58e7.jpeg)
+![鼓浪屿的沿海小路 其一](https://image.viki.moe/blog/xiamen/2e58e7.jpeg)
 
-![鼓浪屿的沿海小路 其二](https://image.viki.moe/b/xm/8eb291.jpeg)
+![鼓浪屿的沿海小路 其二](https://image.viki.moe/blog/xiamen/8eb291.jpeg)
 
-![鼓浪屿的沿海小路 其三](https://image.viki.moe/b/xm/d10339.jpeg)
+![鼓浪屿的沿海小路 其三](https://image.viki.moe/blog/xiamen/d10339.jpeg)
 
 路过一家小店，玻璃墙走过一直三花猫猫
 
-![鼓浪屿的三花猫猫](https://image.viki.moe/b/xm/23c69c.jpeg)
+![鼓浪屿的三花猫猫](https://image.viki.moe/blog/xiamen/23c69c.jpeg)
 
-![在鼓浪屿上往岸边看](https://image.viki.moe/b/xm/74091e.jpeg)
+![在鼓浪屿上往岸边看](https://image.viki.moe/blog/xiamen/74091e.jpeg)
 
-![鼓浪屿上的小植物园入口](https://image.viki.moe/b/xm/088b3a.jpeg)
+![鼓浪屿上的小植物园入口](https://image.viki.moe/blog/xiamen/088b3a.jpeg)
 
 ### 鼓浪屿沙滩
 
-![鼓浪屿沙滩 其一](https://image.viki.moe/b/xm/d4913a.jpeg)
+![鼓浪屿沙滩 其一](https://image.viki.moe/blog/xiamen/d4913a.jpeg)
 
-![鼓浪屿沙滩 其二](https://image.viki.moe/b/xm/c7bf58.jpeg)
+![鼓浪屿沙滩 其二](https://image.viki.moe/blog/xiamen/c7bf58.jpeg)
 
 ### 最美转角
 
-![最美转角](https://image.viki.moe/b/xm/639480.jpeg)
+![最美转角](https://image.viki.moe/blog/xiamen/639480.jpeg)
 
 ### 日光岩和菽庄花园
 
@@ -367,7 +367,7 @@ tags:
 
 沿着岛屿边上的小路走，能看到郑成功雕像。
 
-![郑成功雕像](https://image.viki.moe/b/xm/271c60.jpeg)
+![郑成功雕像](https://image.viki.moe/blog/xiamen/271c60.jpeg)
 
 ### 海上钢琴
 

@@ -3,7 +3,7 @@ title: '快闪苏州：走进课本里的江南水乡'
 date: 2026-05-18
 topic: '生活'
 excerpt: '一场周末临时起意的苏州之行，穿行古城旧巷，品赏园林雅韵，让课本里的江南水乡在眼前徐徐鲜活起来。'
-top_image: 'https://image.viki.moe/b/sz/fea9b9.jpeg'
+top_image: 'https://image.viki.moe/blog/suzhou/fea9b9.jpeg'
 tags:
   - '旅行'
   - '生活'
@@ -31,7 +31,7 @@ tags:
 
 到站，在便利店花了 10 块买了原本 4 块一瓶的 1L 大瓶冰红茶，小跑赶上了前往苏州北站的高铁。运气不好，这次又是靠隔板的座位，没有完整的车窗和窗沿，不好放东西。
 
-![高铁站便利店里 10 块的冰红茶](https://image.viki.moe/b/sz/0b7dbf.jpeg)
+![高铁站便利店里 10 块的冰红茶](https://image.viki.moe/blog/suzhou/0b7dbf.jpeg)
 
 群友锐评：「🐂🍻，便利店里卖 3.9，一坤倍啊。」 ~~这里的 1 坤是计量单位，指 2.5，因为某坤是两年半的练习生。~~
 
@@ -39,7 +39,7 @@ tags:
 
 这功能是之前一次打车看到司机用了才知道的。入口不显眼，在目的地输入框旁边，但你还别说，对打车出行来说真挺方便的。出去玩可以直接开始顺路规划，不绕路、不走回头路。如果你之前也没用过，一定得试试。~~声明：非广告，某导航 APP 的运营要是看到了请给我打钱。~~
 
-![路线规划和途径点功能](https://image.viki.moe/b/sz/f206c7.jpeg)
+![路线规划和途径点功能](https://image.viki.moe/blog/suzhou/f206c7.jpeg)
 
 下了高铁，直接换乘二号线到了七里山塘。苏州这边和重庆一样，叫轨道交通不叫地铁，途中能看到窗外的景色，明显感觉苏州的绿化率非常高。不管是路中、路边、街区还是闹市，都绿意盎然的，能感觉得到城市的规划和建设都很注重生态环境和绿化。
 
@@ -47,31 +47,31 @@ tags:
 
 继续沿着山塘街走，有好多家馆子都摆出了招牌菜「松鼠桂鱼」，想必是苏帮菜的代表。慢慢往前走，能看到一面写着「苏州」和「山塘街」，有着江南水乡风格特色的墙。
 
-![苏州山塘街特色墙](https://image.viki.moe/b/sz/a05807.jpeg)
+![苏州山塘街特色墙](https://image.viki.moe/blog/suzhou/a05807.jpeg)
 
 这条街中间有很多小平台，延伸到河岸，可以看到河两边的景色，典型的江南水乡映入眼帘，亲眼看到还是很震撼的。
 
-![山塘街的江南水乡景色](https://image.viki.moe/b/sz/75f951.jpeg)
+![山塘街的江南水乡景色](https://image.viki.moe/blog/suzhou/75f951.jpeg)
 
 苏州整体是「水陆并行、河街相邻」的格局，古城到现在仍然保留着很完整的江南水城风貌。从另一个方向看也是类似的壮丽景观。
 
-![另一侧的景色](https://image.viki.moe/b/sz/6f908c.jpeg)
+![另一侧的景色](https://image.viki.moe/blog/suzhou/6f908c.jpeg)
 
 以及岸边小花园、路边花草和街巷内的小学。
 
-![岸边小花园、路边花草和街巷内的小学](https://image.viki.moe/b/sz/27715a.jpeg)
+![岸边小花园、路边花草和街巷内的小学](https://image.viki.moe/blog/suzhou/27715a.jpeg)
 
 路上，抓拍到一艘游船驶过，同时也是本文的封面。常言道，上有天堂下有「苏杭」，苏州不愧是中国最典型、最有江南韵味的千年古城。
 
-![一艘游船驶过小河道](https://image.viki.moe/b/sz/fea9b9.jpeg)
+![一艘游船驶过小河道](https://image.viki.moe/blog/suzhou/fea9b9.jpeg)
 
 继续走，看到了一个很漂亮的拱桥，搭配两边的绿植和喝茶小店，很有感觉。
 
-![漂亮的拱桥](https://image.viki.moe/b/sz/845de1.jpeg)
+![漂亮的拱桥](https://image.viki.moe/blog/suzhou/845de1.jpeg)
 
 以及看到两辆宰客的老头乐相向驶来，其中一辆还是靓号车牌。
 
-![宰客的老头乐](https://image.viki.moe/b/sz/44efde.jpeg)
+![宰客的老头乐](https://image.viki.moe/blog/suzhou/44efde.jpeg)
 
 为什么说宰客呢？ 因为开老头乐的大妈主动停在我们前面，然后过来搭讪并反复强调说前面几公里只有一条路，连买水的地方都没有，要走出去必须得坐这种小车，可以出 20 送我们出去。
 
@@ -81,7 +81,7 @@ tags:
 
 到达目的地，发现街边都是我们刚才看到的菜馆子。仔细看，原来一整条街都是川菜，各种火锅、串串香、自贡帮川菜等。到店坐下来，拿了些想吃的串串，点了瓶大窑，开吃了。锅底还是之前得老毛病，水火锅。我们点的中辣，中途叫服务员加了块辣锅底料，可是依旧不够辣。
 
-![川菜串串香](https://image.viki.moe/b/sz/5d1605.jpeg)
+![川菜串串香](https://image.viki.moe/blog/suzhou/5d1605.jpeg)
 
 但是除开锅底，整体还不错，食材都很新鲜，苕粉质量很可以，Mio 说可以「载入她的苕粉史册」。重要的是还很实惠，美团代金券一键买单，人均不到 50。
 
@@ -91,95 +91,95 @@ tags:
 
 穿过前厅进到里面，发现它并没有想象中的大，一眼就看到了留园最中心的湖，也是这整个 5A 级景区最核心的位置。
 
-![留园中心湖](https://image.viki.moe/b/sz/d76949.jpeg)
+![留园中心湖](https://image.viki.moe/blog/suzhou/d76949.jpeg)
 
 留园里有很多假山，错落有致。从各个视角可以拍到不一样的景观。
 
-![留园假山景观](https://image.viki.moe/b/sz/fe554d.jpeg)
+![留园假山景观](https://image.viki.moe/blog/suzhou/fe554d.jpeg)
 
 还有很多穿着汉服的游客配有专门的摄影师，在给她们拍照，我猜还得给他们付门票钱。
 
-![汉服游客拍照](https://image.viki.moe/b/sz/b86182.jpeg)
+![汉服游客拍照](https://image.viki.moe/blog/suzhou/b86182.jpeg)
 
 竹林，各种盆栽，以及盆栽园里的假山，分布在留园的各个角落。
 
-![假山合集](https://image.viki.moe/b/sz/0c6767.jpeg)
+![假山合集](https://image.viki.moe/blog/suzhou/0c6767.jpeg)
 
 能够明显地观察到，园林景区里老年游客很多，还看到一个由老外组成的老年旅游团。
 
-![国外老年旅游团](https://image.viki.moe/b/sz/c62398.jpeg)
+![国外老年旅游团](https://image.viki.moe/blog/suzhou/c62398.jpeg)
  
 园林确实挺漂亮的，也看得出建造和打理都很用心。只是这点体量，一张成人票 55，对于对人造景观不是很感冒的我们来说，有点贵了。毕竟整个园子我们 30 分钟就逛完了，我感觉 15/20 块钱差不多了。
 
-![园林合集](https://image.viki.moe/b/sz/e7ee98.jpeg)
+![园林合集](https://image.viki.moe/blog/suzhou/e7ee98.jpeg)
 
 为了让这 110 的门票钱花得值，我们特意找了个高处小亭子的板凳歇息，想着多待一会儿。
 
-![园林合集](https://image.viki.moe/b/sz/3d0d88.jpeg)
+![园林合集](https://image.viki.moe/blog/suzhou/3d0d88.jpeg)
 
 这个地方刚好是阴凉处，还刮着小风，包里有周黑鸭。掏出 iPad 和周黑鸭的鸭锁骨，看了半小时凌晨猎鹰对阵黑豹精彩的 BO3。
 
-![周黑鸭和 iPad](https://image.viki.moe/b/sz/14c86b.jpeg)
+![周黑鸭和 iPad](https://image.viki.moe/blog/suzhou/14c86b.jpeg)
 
 不得不说，这一刻非常舒适且惬意，经过的游客看到盒子里的鸭锁骨都不由得咽口水。
 
 吃完收拾好随身垃圾离开留园，向外走到不拥挤的大路口，打车到观前街，打算在这边拍拍立得。这是一条苏州典型的江南旧巷，颇有艺术和生活的气息。
 
-![颇有艺术和生活的气息的江南旧巷](https://image.viki.moe/b/sz/f3c6b3.jpeg)
+![颇有艺术和生活的气息的江南旧巷](https://image.viki.moe/blog/suzhou/f3c6b3.jpeg)
 
 路上还看到了一个很窄的巷子，只能通过一个人。巷子一侧是一面镜子，看到了别人画的 Chiikawa 三小只，可爱捏。从左到右依次是吉伊、小八和乌萨奇。
 
-![Chiikawa 三小只](https://image.viki.moe/b/sz/4c03ae.jpeg)
+![Chiikawa 三小只](https://image.viki.moe/blog/suzhou/4c03ae.jpeg)
 
 继续走，到了平江路，和观前街离得很近。苏州这边的河、桥特别多，随处可见，而且基本每座桥都不太一样，有自己的个性。沿着平江河散步，河边垂柳和天空一同倒映在水中。站在拱桥上，往两边看，可以看到不错的景观。
 
-![平江路景观](https://image.viki.moe/b/sz/e1a424.jpeg)
+![平江路景观](https://image.viki.moe/blog/suzhou/e1a424.jpeg)
 
-![平江路景观（另一侧）](https://image.viki.moe/b/sz/1f191e.jpeg)
+![平江路景观（另一侧）](https://image.viki.moe/blog/suzhou/1f191e.jpeg)
 
 在这边的文创店买了可爱的猫猫冰箱贴，路上能看到非常多穿着汉服的女生在拍照，以及各种提供昆曲演出的馆子。
 
 路过一家糕点铺，花样很多，可可爱爱。小东西还挺别致，买了两个，香甜软糯却又不腻。
 
-![糕点铺的糕点](https://image.viki.moe/b/sz/b5d950.jpeg)
+![糕点铺的糕点](https://image.viki.moe/blog/suzhou/b5d950.jpeg)
 
 走到路的尽头，绕了好几个非常窄的街区，走了好多条小巷子才走出来。途中有注意到，原来苏州的共享单车都要上牌照的。
 
-![要单独上牌照的苏州共享单车](https://image.viki.moe/b/sz/d5a0fc.jpeg)
+![要单独上牌照的苏州共享单车](https://image.viki.moe/blog/suzhou/d5a0fc.jpeg)
 
 走出来，已经快八点了，往地铁站走，准备去金鸡湖那边看看夜色和湖景。路上看到苏州特色的公交站台，下图上下分别为站台前后方。
 
-![苏州特色公交站台](https://image.viki.moe/b/sz/019b00.jpeg)
+![苏州特色公交站台](https://image.viki.moe/blog/suzhou/019b00.jpeg)
 
 路边饮品店买了一杯薄荷水，不是很好喝，有一股那种便宜薄荷糖里的色素味道。
 
-![不好喝的薄荷水](https://image.viki.moe/b/sz/a094ce.jpeg)
+![不好喝的薄荷水](https://image.viki.moe/blog/suzhou/a094ce.jpeg)
 
 在金鸡湖西侧的李公堤西站出站。这个时候已经八点多了，夜色已经暗了下来，我们步行到湖边，抬头能够明显地看到苏州夜晚上空的星星。
 
 湖边的风很大，沿途看到了一束巨大的玫瑰，倾倒在湖边，衬托着夜色，显得格外浪漫。抓拍了一张 Mio 风中凌乱的照片，头发都吹歪了。
 
-![巨大的玫瑰和风中凌乱的 Mio](https://image.viki.moe/b/sz/b8374d.jpeg)
+![巨大的玫瑰和风中凌乱的 Mio](https://image.viki.moe/blog/suzhou/b8374d.jpeg)
 
 沿着栈桥继续走，拍了一零碎夜景，因为距离、设备限制原因，远不如肉眼看到的那般绚丽。
 
-![零碎夜景](https://image.viki.moe/b/sz/1cb4ca.jpeg)
+![零碎夜景](https://image.viki.moe/blog/suzhou/1cb4ca.jpeg)
 
 看到很多座风格各异的拱桥，夜色下的灯光映衬着桥梁的轮廓。
 
-![拱桥夜景](https://image.viki.moe/b/sz/27fbdf.jpeg)
+![拱桥夜景](https://image.viki.moe/blog/suzhou/27fbdf.jpeg)
 
 坐地铁到金鸡湖的东南边。这里有两条相交、规模更大的栈桥，很宽很长。桥两边都有花盆装饰，花盆一直在往下滴水。
 
-![栈桥夜景](https://image.viki.moe/b/sz/a0bdee.jpeg)
+![栈桥夜景](https://image.viki.moe/blog/suzhou/a0bdee.jpeg)
 
 凑近看了下两侧的扶手下方，感觉应该是有水管和自动灌溉装置在给花盆浇水。整个桥两边的灯光一直在按照彩虹的颜色变换着，速度很慢。
 
-![栈桥的彩虹灯光](https://image.viki.moe/b/sz/585e7a.jpeg)
+![栈桥的彩虹灯光](https://image.viki.moe/blog/suzhou/585e7a.jpeg)
 
 无目的地一直走到桥的尽头。我们继续往前，不知不觉走到了一个别墅区内。经过公共健身区域，惊喜地发现这里有两个秋千。上一次荡秋千，已经不知道是什么时候了，没什么印象。
 
-![小区里的秋千](https://image.viki.moe/b/sz/635fda.jpeg)
+![小区里的秋千](https://image.viki.moe/blog/suzhou/635fda.jpeg)
 
 Mio 拿出手机放方大同的 _Love Song_，配着夜色和微风，拉着我一起荡了一会儿。这一刻仿佛回到了无忧无虑的童年时光，极其放松和惬意。
 
@@ -189,7 +189,7 @@ Mio 拿出手机放方大同的 _Love Song_，配着夜色和微风，拉着我�
 
 熟悉的味道和地道的牛油红锅，搭配一碗冰凉清甜的凉粉，绝绝子。这些都不够吃，后面还加了不少牛肉和鸡翅尖，买了两瓶 RIO，吃到最后感觉有点撑。
 
-![马路边边串串香](https://image.viki.moe/b/sz/ede28d.jpeg)
+![马路边边串串香](https://image.viki.moe/blog/suzhou/ede28d.jpeg)
 
 酒足饭饱之后，开始找休息的地方，因为我们没有提前预定酒店。
 
@@ -209,11 +209,11 @@ Mio 也醒了，本来我们的高铁是下午三四点的，还想去看看苏�
 
 于是我们协商着，改签了中午十一点的高铁，简单收拾下楼，直接打车到高铁站，电竞包间门口玻璃房看到了迪莫气球，可爱。
 
-![迪莫气球](https://image.viki.moe/b/sz/bd14c3.jpeg)
+![迪莫气球](https://image.viki.moe/blog/suzhou/bd14c3.jpeg)
 
 来的时候是到的苏州北站，这次出发是在苏州站，离我们更近。苏州站的外层和站名牌也是古建筑风格，正对着站口是一个大大的雕塑，下面是范仲淹的名言「先天下之忧而忧，后天下之乐而乐」，那这个雕塑就是范仲淹咯？
 
-![苏州站和范仲淹雕塑](https://image.viki.moe/b/sz/697e94.jpeg)
+![苏州站和范仲淹雕塑](https://image.viki.moe/blog/suzhou/697e94.jpeg)
 
 到了高铁站，突然感觉又精神了起来。看到站内的麦麦，Mio 忽然很想吃薯饼，我们就一起去麦当劳整了点早餐。这是我第一次吃麦当劳的薯饼，给我印象很好，咸软适中，下次还要吃。这个麦麦旁边就紧挨着 KFC，还是第一次见这两个店靠这么近。
 

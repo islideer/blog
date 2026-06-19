@@ -9,7 +9,7 @@ tags:
   - '前端开发'
   - '调试技巧'
   - '浏览器'
-top_image: 'https://image.viki.moe/b/devtools/96fbf0.png'
+top_image: 'https://image.viki.moe/blog/devtools/96fbf0.png'
 ---
 
 偶然间逛到 [Chrome DevTools 官方文档](https://developer.chrome.com/docs/devtools?hl=zh-cn)，发现了很多非常骚的小功能、小技巧。其中很多完全没有用过，甚至根本没有听说过。特地码了篇文章给自己加强印象，顺便给大家也科普、巩固一下。
@@ -32,17 +32,17 @@ top_image: 'https://image.viki.moe/b/devtools/96fbf0.png'
 
 在 Console 面板中，`$_` 代表上一个表达式的结果，适合连续操作。比如你在 Console 中执行了一个查询，想要对结果进行进一步操作，就可以直接使用 `$_`。
 
-![$_ 的执行示例](https://image.viki.moe/b/devtools/51331a.png)
+![$_ 的执行示例](https://image.viki.moe/blog/devtools/51331a.png)
 
 `$0`、`$1`、`$2`、`$3`、`$4` 这五个变量则是分别代表 Elements 面板中最近选中的元素及其前一个、前两个元素，后续依次类推。这可以让你不写 `document.querySelector()` 就能快速访问这些元素，非常方便。
 
-![$0 到 $4 的执行示例](https://image.viki.moe/b/devtools/8cb772.png)
+![$0 到 $4 的执行示例](https://image.viki.moe/blog/devtools/8cb772.png)
 
 ### 2. `copy()` 打头阵的多个实用函数
 
 在 Console 面板中，`copy(someValue)` 可以将 `someValue` 的内容以合适的字符串格式复制到剪贴板。对于对象，则会以 JSON 格式复制，非常实用。
 
-![copy() 的执行示例](https://image.viki.moe/b/devtools/7b4f4c.png)
+![copy() 的执行示例](https://image.viki.moe/blog/devtools/7b4f4c.png)
 
 其他实用函数还包括：
 
@@ -57,7 +57,7 @@ top_image: 'https://image.viki.moe/b/devtools/96fbf0.png'
 
 我猜你之前肯定手动写过不少 `document.querySelector()`。但实际上你可以直接在 Console 面板中使用 `$()` 来选择单个元素，使用 `$$()` 来选择多个元素。
 
-![$() 和 $$() 的执行示例](https://image.viki.moe/b/devtools/297488.png)
+![$() 和 $$() 的执行示例](https://image.viki.moe/blog/devtools/297488.png)
 
 **2026-05-19 更新**
 
@@ -67,7 +67,7 @@ Firefox 还额外支持了 `$$$()` 函数，能够穿透 Shadow DOM 进行元素
 
 如果你需要看看某段代码跑了多久，你就可以用到这两兄弟了。`console.time('label')` 开始计时，`console.timeEnd('label')` 结束计时并输出结果。非常适合快速性能测试。
 
-![time() 和 timeEnd() 的执行示例](https://image.viki.moe/b/devtools/970f4a.png)
+![time() 和 timeEnd() 的执行示例](https://image.viki.moe/blog/devtools/970f4a.png)
 
 ### 5. 花里胡哨的日志样式
 
@@ -85,7 +85,7 @@ console.log('\x1b[31m红色字体的日志\x1b[0m')
 console.log('%c炫酷吊炸天的日志', 'color: white; background: linear-gradient(90deg, #00f, #f0f); padding: 4px 8px; border-radius: 4px; text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); animation: glow 1s infinite alternate;')
 ```
 
-![炫酷吊炸天的日志](https://image.viki.moe/b/devtools/c93e51.png)
+![炫酷吊炸天的日志](https://image.viki.moe/blog/devtools/c93e51.png)
 
 ### 6. 远程调试（Node.js、WebView 等环境通杀）
 
@@ -93,7 +93,7 @@ Chrome DevTools 还支持远程调试功能，可以连接到各种系统的 Web
 
 只需要在地址栏输入 `chrome://inspect` 就可以看到可连接的设备和环境，按提示连接即可。
 
-![远程调试入口和示例](https://image.viki.moe/b/devtools/8a5c46.png)
+![远程调试入口和示例](https://image.viki.moe/blog/devtools/8a5c46.png)
 
 > 多说一嘴，这些 `chrome://` 开头的都是 Chrome 内置的特殊页面，提供了各种功能和信息。类似的还有 `chrome://about`、`chrome://extensions` 等等。~~你要是闲的蛋疼，还可以打开 `chrome://dino` 玩玩离线页面的小恐龙游戏。~~
 
@@ -105,7 +105,7 @@ node --inspect your-script.ts
 
 当然，如果你使用 VS Code，你也可以直接直接新建一个「JavaScript 调试终端」来调试 Node.js，享受 VS Code 深度整合带来更加友好的断点调试体验。
 
-![VS Code 的 JavaScript 调试终端 入口](https://image.viki.moe/b/devtools/9776d8.png)
+![VS Code 的 JavaScript 调试终端 入口](https://image.viki.moe/blog/devtools/9776d8.png)
 
 ### 7. 模拟媒体查询（浏览器内测试夜间模式）
 
@@ -113,7 +113,7 @@ node --inspect your-script.ts
 
 终于不用再像我一样手动到系统设置里傻乎乎地一次次切换了，像个笨蛋一样。
 
-![模拟媒体查询的选项](https://image.viki.moe/b/devtools/ca0416.png)
+![模拟媒体查询的选项](https://image.viki.moe/blog/devtools/ca0416.png)
 
 ### 8. 你的网页我说了算
 
@@ -125,7 +125,7 @@ document.body.contentEditable = true
 
 这行代码会让整个网页变得可编辑，你可以轻轻松松在网页上随意修改任意文本内容，无需复杂代码，无需打开 Element 面板。请注意，是任意（斜眼笑）。请马上打开你的支付宝余额页，把余额改成 9999999.99，截图发给老板，看看能不能给你涨工资。涨了 V 我 50，没涨别说是我教的。
 
-![把支付宝的余额改成 9999999.99](https://image.viki.moe/b/devtools/e0479e.png)
+![把支付宝的余额改成 9999999.99](https://image.viki.moe/blog/devtools/e0479e.png)
 
 ## 参考资料
 

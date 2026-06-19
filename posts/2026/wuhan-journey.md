@@ -3,7 +3,7 @@ title: '江城短歇，和猫猫一起游武汉'
 date: 2026-06-14
 topic: '生活'
 excerpt: '路途原因，带猫猫坐顺风车回成都，沿途在武汉停靠两天两夜，顺便在这里玩玩。'
-top_image: 'https://image.viki.moe/b/wh/f92b20.jpeg'
+top_image: 'https://image.viki.moe/blog/wuhan/f92b20.jpeg'
 tags:
   - '旅行'
   - '生活'
@@ -21,7 +21,7 @@ tags:
 
 路上坐了五六个小时的顺风车，雪球很乖，可乐一直在小声叫唤，有点害怕。下午四点顺利到达武汉，司机把我们送到汉庭楼下，这家是 Mio 专门挑的，猫猫友好。
 
-![第一次来汉庭、略带兴奋的雪球和可乐](https://image.viki.moe/b/wh/ebc104.jpeg)
+![第一次来汉庭、略带兴奋的雪球和可乐](https://image.viki.moe/blog/wuhan/ebc104.jpeg)
 
 安顿了一下，给小家伙们整理好休息的环境，倒上粮水。然后我俩直接躺在床上歇息，张开四肢，如释重负。
 
@@ -45,41 +45,41 @@ tags:
 
 下午五点到达江滩，小晴天。在江滩的三阳门入口两旁，看到两旁台阶上的绿植衬着蓝天，飞机从天空划过，留下优美的弧线，很漂亮。
 
-![汉口江滩的三阳门入口旁](https://image.viki.moe/b/wh/4c475a.jpeg)
+![汉口江滩的三阳门入口旁](https://image.viki.moe/blog/wuhan/4c475a.jpeg)
 
 一路往前，前往江边。第一次看到这么宽阔壮观的江景，这前面就是长江。
 
-![汉口江滩下午的江景](https://image.viki.moe/b/wh/f92b20.jpeg)
+![汉口江滩下午的江景](https://image.viki.moe/blog/wuhan/f92b20.jpeg)
 
 往回看，能看到一栋很高的建筑，后面搜了才知道是外滩金融中心。
 
-![江滩边上的外滩金融中心](https://image.viki.moe/b/wh/1a889c.jpeg)
+![江滩边上的外滩金融中心](https://image.viki.moe/blog/wuhan/1a889c.jpeg)
 
 长江边上有很多芦荻，有一个芦荻滩。
 
-![汉口江滩的芦荻滩](https://image.viki.moe/b/wh/b5d55e.jpeg)
+![汉口江滩的芦荻滩](https://image.viki.moe/blog/wuhan/b5d55e.jpeg)
 
 沿着江滩芦荻滩继续走，感受长江边上的微微小风吹在脸上，很惬意。整个岸边，广场区域和绿植区域交错相邻，种了几种菊花，不知道具体的种类，但是挺好看的。
 
-![岸边的大道 广场区和绿植区交错相临](https://image.viki.moe/b/wh/d0f414.jpeg)
+![岸边的大道 广场区和绿植区交错相临](https://image.viki.moe/blog/wuhan/d0f414.jpeg)
 
-![江滩岸边种植区里的几种菊花](https://image.viki.moe/b/wh/7fbcde.jpeg)
+![江滩岸边种植区里的几种菊花](https://image.viki.moe/blog/wuhan/7fbcde.jpeg)
 
 一直沿着江滩往北走，能看到武汉长江二桥，可惜天还没黑，相较于晚上的景色要逊一点。
 
-![远远看着武汉长江二桥](https://image.viki.moe/b/wh/81d66b.jpeg)
+![远远看着武汉长江二桥](https://image.viki.moe/blog/wuhan/81d66b.jpeg)
 
 岸边有个芦苇荡，几条交错的浮空长廊。
 
-![芦苇荡和浮空长廊](https://image.viki.moe/b/wh/05d46b.jpeg)
+![芦苇荡和浮空长廊](https://image.viki.moe/blog/wuhan/05d46b.jpeg)
 
 抓拍到一张头顶的景色，我很喜欢。
 
-![蓝天下的飞机拖着飞机云 一线天](https://image.viki.moe/b/wh/d6752b.jpeg)
+![蓝天下的飞机拖着飞机云 一线天](https://image.viki.moe/blog/wuhan/d6752b.jpeg)
 
 天色渐暗，在浮空长廊上捕捉了几张傍晚的外滩景色，要是再晚一点估计会更好看。一个值得注意的点是，江两边高楼建筑的外墙灯光都是统一控制的，非常协调。
 
-![江两边的高楼建筑 外墙灯光统一控制](https://image.viki.moe/b/wh/a00e48.jpeg)
+![江两边的高楼建筑 外墙灯光统一控制](https://image.viki.moe/blog/wuhan/a00e48.jpeg)
 
 ### 江汉步行街
 
@@ -87,11 +87,11 @@ tags:
 
 天黑了，打车到江汉步行街。这是一条很繁华的步行街区，灯火通明，人来人往。
 
-![江汉步行街](https://image.viki.moe/b/wh/541a20.jpeg)
+![江汉步行街](https://image.viki.moe/blog/wuhan/541a20.jpeg)
 
 看到一家巧克力专卖店，店门口有一个纯手工制作的大型巧克力摩天轮模型。
 
-![大型巧克力摩天轮模型](https://image.viki.moe/b/wh/02d79d.jpeg)
+![大型巧克力摩天轮模型](https://image.viki.moe/blog/wuhan/02d79d.jpeg)
 
 ### 榴莲摊
 
@@ -99,7 +99,7 @@ tags:
 
 对于榴莲爱好者来说，这种机会绝不能放过。直接挑了一个榴莲上称付款，也是五十几块，但比在厦门买的要多一点。吃着还可以，微湿但肉多，榴莲味浓厚，性价比可以说是拉满。
 
-![江汉步行街的榴莲小店 摆满了榴莲](https://image.viki.moe/b/wh/d6fb27.jpeg)
+![江汉步行街的榴莲小店 摆满了榴莲](https://image.viki.moe/blog/wuhan/d6fb27.jpeg)
 
 一路上看到不少小龙虾、烧烤、串串和海鲜店，桌子摆在外面，很有烟火气。不难看出，武汉的夜生活还是不错的。
 
@@ -107,9 +107,9 @@ tags:
 
 有点饿，找了一家附近的串串店吃饭，点了两杯奶茶，武汉本地的奶茶品牌。
 
-![火锅串串 味道一般但鸡翅尖还可以](https://image.viki.moe/b/wh/b6d3c1.jpeg)
+![火锅串串 味道一般但鸡翅尖还可以](https://image.viki.moe/blog/wuhan/b6d3c1.jpeg)
 
-![武汉本地品牌奶茶 真茶屋](https://image.viki.moe/b/wh/1c0001.jpeg)
+![武汉本地品牌奶茶 真茶屋](https://image.viki.moe/blog/wuhan/1c0001.jpeg)
 
 吃完打车回汉庭休息，熬夜看 Major 比赛直播。
 
@@ -117,7 +117,7 @@ tags:
 
 九点起来撸了会儿猫猫。昨晚它俩舒服地睡在旁边，早上醒来也是，看来已经适应了这里。
 
-![可乐和雪球躺在酒店床上 惬意舒服](https://image.viki.moe/b/wh/963e15.jpeg)
+![可乐和雪球躺在酒店床上 惬意舒服](https://image.viki.moe/blog/wuhan/963e15.jpeg)
 
 九点半在汉庭吃了个早餐，回来继续歇。一直到十二点半，有点饿了，出门整点吃的。
 
@@ -125,15 +125,15 @@ tags:
 
 找了家菜馆，点了鱼香肉丝（重庆版，偏甜）和空心菜。七十多块，感觉偏贵，但好在鱼香肉丝挺正宗，味道不错，份量也很多。
 
-![鱼香肉丝和空心菜 偏贵但不错](https://image.viki.moe/b/wh/de8a39.jpeg)
+![鱼香肉丝和空心菜 偏贵但不错](https://image.viki.moe/blog/wuhan/de8a39.jpeg)
 
 ### 同兴里
 
 然后打车到黎黄陂路，因为交通管制提前下车了，中途路过同兴里，一个艺术街区。
 
-![同兴里](https://image.viki.moe/b/wh/28b767.jpeg)
+![同兴里](https://image.viki.moe/blog/wuhan/28b767.jpeg)
 
-![同兴里的一些墙绘和文字](https://image.viki.moe/b/wh/e21701.jpeg)
+![同兴里的一些墙绘和文字](https://image.viki.moe/blog/wuhan/e21701.jpeg)
 
 ### 黎黄陂路
 
@@ -141,21 +141,21 @@ tags:
 
 黎黄陂路也是艺术街区，适合 City Walk。
 
-![黎黄陂路入口和路边的「猫猫公司‌」](https://image.viki.moe/b/wh/233025.jpeg)
+![黎黄陂路入口和路边的「猫猫公司‌」](https://image.viki.moe/blog/wuhan/233025.jpeg)
 
-![黎黄陂路](https://image.viki.moe/b/wh/497759.jpeg)
+![黎黄陂路](https://image.viki.moe/blog/wuhan/497759.jpeg)
 
 ### Mio‌ 的店
 
 在黎黄陂路里面散步，发现了一个神奇的店。这家店名叫 Mio，店名下面的数字 027 刚好是 Mio 的生日。这两个元素加起来，就像是给 Mio 量身定做的一样。
 
-![Mio‌ 的店](https://image.viki.moe/b/wh/c07fe4.jpeg)
+![Mio‌ 的店](https://image.viki.moe/blog/wuhan/c07fe4.jpeg)
 
 ### 手绘简笔画
 
 看到一家手绘店，有好几个画师，两排专用座位。店里开着空调，可以点咖啡。在等待成品的时候，可以喝咖啡、玩手机消磨时间。我们下单了一张黑白的简笔画，加上了猫猫，~~雪球被画的有点像小狗。~~
 
-![简笔手绘 加上了雪球和可乐](https://image.viki.moe/b/wh/71189f.jpeg)
+![简笔手绘 加上了雪球和可乐](https://image.viki.moe/blog/wuhan/71189f.jpeg)
 
 之前在成都玉林路 City Walk 的时候，在路边临时支起来的手绘小摊上画过一张类似的简笔画，摊子和形式都比较简陋。像武汉这样的「咖啡 + 手绘」结合的实体店经营模式，也许对那些收入途径少、不稳定的画师来说要好得多。我觉得相比于自己在外摆摊奔波，通过这样的实体店来展现自己价值，在商业体系、顾客体验、成品质量和服务保障上，都要更优，我挺认可的。
 
@@ -165,17 +165,17 @@ tags:
 
 接着，打车去武汉大学。这个我们提前做了功课，武汉大学从一个月前起，正式取消了外校人员预约制度，扫身份证即可入校参观。武汉大学的校园挺大的，绿化率很高，很漂亮，不愧常年稳居「中国最美大学」榜首。可惜现在不是三月，看不到最美的樱花校园。
 
-![武汉大学行政楼 面朝操场](https://image.viki.moe/b/wh/9890bd.jpeg)
+![武汉大学行政楼 面朝操场](https://image.viki.moe/blog/wuhan/9890bd.jpeg)
 
-![武汉大学校园内](https://image.viki.moe/b/wh/a563fe.jpeg)
+![武汉大学校园内](https://image.viki.moe/blog/wuhan/a563fe.jpeg)
 
-![武汉大学路边一角](https://image.viki.moe/b/wh/59429e.jpeg)
+![武汉大学路边一角](https://image.viki.moe/blog/wuhan/59429e.jpeg)
 
 ### 武汉大学图书馆
 
 虽然进校参观很方便，但是校内租车挺麻烦，电动车仅供校内学生和教职工使用。无奈上闲鱼找人代开了一辆，然后让 Mio 载着我逛了一圈。一路上经过不少学院大楼，看到了图书馆。
 
-![武汉大学图书馆](https://image.viki.moe/b/wh/6cdec1.jpeg)
+![武汉大学图书馆](https://image.viki.moe/blog/wuhan/6cdec1.jpeg)
 
 ### 雷军科技楼
 
@@ -183,21 +183,21 @@ tags:
 
 还看到了雷军科技楼，一看这名字就知道是因小米雷总而盖的，气派吧。
 
-![武汉大学内的雷军科技楼](https://image.viki.moe/b/wh/8c90ca.jpeg)
+![武汉大学内的雷军科技楼](https://image.viki.moe/blog/wuhan/8c90ca.jpeg)
 
 ### 凌波门
 
 从凌波门出来，这是武汉大学最好看的一个门，出门便面向东湖，还有很多湖上小栈道。
 
-![武汉大学凌波门](https://image.viki.moe/b/wh/645145.jpeg)
+![武汉大学凌波门](https://image.viki.moe/blog/wuhan/645145.jpeg)
 
-![凌波门外的湖上小栈道](https://image.viki.moe/b/wh/7ebbef.jpeg)
+![凌波门外的湖上小栈道](https://image.viki.moe/blog/wuhan/7ebbef.jpeg)
 
 ### 东湖书香道
 
 武汉大学一侧紧靠着东湖，中间有一条东湖书香道，环境不错，适合散步骑行。
 
-![武汉大学邻湖的东湖书香道](https://image.viki.moe/b/wh/af0ffd.jpeg)
+![武汉大学邻湖的东湖书香道](https://image.viki.moe/blog/wuhan/af0ffd.jpeg)
 
 ### 东湖绿道
 
@@ -205,19 +205,19 @@ tags:
 
 紧接着，打车到东湖绿道，这一路上，车刚好是沿着湖边开的。到了东湖绿道景区，在门口租了辆双人自行车，一路骑行，和盐城的黄海森林公园的风景有点类似。
 
-![东湖绿道 其一](https://image.viki.moe/b/wh/b9a6cf.jpeg)
+![东湖绿道 其一](https://image.viki.moe/blog/wuhan/b9a6cf.jpeg)
 
-![东湖绿道 其二](https://image.viki.moe/b/wh/99ef68.jpeg)
+![东湖绿道 其二](https://image.viki.moe/blog/wuhan/99ef68.jpeg)
 
 但毕竟是湖上绿道，绿植相对少一点，两边多了壮阔的湖景。
 
-![东湖绿道 其三](https://image.viki.moe/b/wh/47e401.jpeg)
+![东湖绿道 其三](https://image.viki.moe/blog/wuhan/47e401.jpeg)
 
-![东湖绿道 其四](https://image.viki.moe/b/wh/fb50e8.jpeg)
+![东湖绿道 其四](https://image.viki.moe/blog/wuhan/fb50e8.jpeg)
 
 绿道中间有两座桥，桥上的风景也不错。
 
-![东湖绿道 其五](https://image.viki.moe/b/wh/d51c65.jpeg)
+![东湖绿道 其五](https://image.viki.moe/blog/wuhan/d51c65.jpeg)
 
 骑行到湖中间，实在蹬不动了，直接坐观光车回岸边，30 一人有点小贵。
 
@@ -225,7 +225,7 @@ tags:
 
 出来打车到一家串串店，是开在商场里的，环境不错，也很有性价比，80 多块钱 100 根签签，水果自助，~~虽然只有橙子~~，味道还可以。吃完回酒店休息。
 
-![商场里的火锅串串 高性价比](https://image.viki.moe/b/wh/2caa24.jpeg)
+![商场里的火锅串串 高性价比](https://image.viki.moe/blog/wuhan/2caa24.jpeg)
 
 ## 第三天 / 六月十一日 / 周四
 
