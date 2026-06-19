@@ -20,7 +20,7 @@ tags:
 
 网易云每月总共有两百多天，每人一般 3 或 7 天，时长随机，全看运气。
 
-[![网易云领取入口](https://image.viki.moe/share/ncm-vip.jpeg '网易云音乐会员分享')][ncm]
+[![网易云领取入口](https://image.viki.moe/blog/music-vip/ncm.jpeg '网易云音乐会员分享')][ncm]
 
 > 💎 领取入口：[灝灝網易雲送你网易云音乐黑胶会员卡～][ncm]
 >
@@ -30,7 +30,7 @@ tags:
 
 QQ 音乐固定每月 10 张，每张 3 天，先到先得，领完为止。
 
-[![QQ 音乐领取入口](https://image.viki.moe/share/qqm-vip.jpeg 'QQ 音乐会员分享')][qqm]
+[![QQ 音乐领取入口](https://image.viki.moe/blog/music-vip/qqm.jpeg 'QQ 音乐会员分享')][qqm]
 
 > 💎 领取入口：[Viki 赠送你免费豪华绿钻会员卡][qqm]
 >
