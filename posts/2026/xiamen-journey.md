@@ -340,7 +340,7 @@ tags:
 
 ![鼓浪屿的沿海小路 其三](https://image.viki.moe/blog/xiamen/d10339.jpeg)
 
-路过一家小店，玻璃墙走过一直三花猫猫
+路过一家小店，玻璃墙走过一只三花猫猫。
 
 ![鼓浪屿的三花猫猫](https://image.viki.moe/blog/xiamen/23c69c.jpeg)
 
