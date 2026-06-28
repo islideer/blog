@@ -1,5 +1,13 @@
 [
   {
+    "id": "181",
+    "date": "2026-06-28T18:54:37+08:00",
+    "content": "在麦当劳歇了半小时，只点了一份心心念念的薯饼。",
+    "images": [
+      "https://image.viki.moe/blog/viki/831a81.jpeg"
+    ]
+  },
+  {
     "id": "180",
     "date": "2026-06-18T09:43:50+08:00",
     "content": "偶然间注意到 [纸鹿的友链页面](https://blog.zhilu.site/link) 里的好友头像并不是纯圆的，轮廓带有一点弧形。简单进行了下页面检视和源码审查后，发现其实用到了 `corner-shape` 属性，最近刚好有看到。再搭配 `superellipse()` 改变了椭圆曲率，使头像的边缘过渡更加丰满自然。\n\n`superellipse()` 返回一个超椭圆形状，可用于 `corner-shape`。超椭圆是一种介于矩形和椭圆之间的闭合对称曲线形状。它看起来像一个椭圆，保留了两条轴的几何特征。\n\n核心 CSS 代码如下：\n\n```css\n.round-cobblestone {\n    corner-shape: superellipse(1.2);\n}\n```",
