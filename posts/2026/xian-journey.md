@@ -1,9 +1,9 @@
 ---
-title: '西安'
+title: '赶在暑假前去了趟西安，看看这历代古都'
 date: 2026-06-30
 topic: '生活'
-excerpt: '西安之旅'
-top_image: ''
+excerpt: '历史书中的秦兵马俑、春晚西安分会场，让我对西安印象深刻，这次终于有时间去一趟了。'
+top_image: 'https://image.viki.moe/blog/xian/b7c95d.jpeg'
 draft: true
 tags:
   - '旅行'
@@ -23,6 +23,8 @@ tags:
 ## 第一天
 
 ### 羊肉泡馍
+
+### 陕西历史博物馆
 
 ### 洒金桥美食街
 
