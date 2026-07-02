@@ -2,7 +2,7 @@
 title: '赶在暑假前，去了趟历代古都西安'
 date: 2026-06-30
 topic: '生活'
-excerpt: '历史书中的秦兵马俑、春晚西安分会场，让我对西安印象深刻，这次终于有时间去一趟了。'
+excerpt: '书中的西安兵马俑、春晚的西安分会场，都让我印象深刻。这次终于有时间去一趟西安了。'
 top_image: 'https://image.viki.moe/blog/xian/b7c95d.jpeg'
 draft: true
 tags:
