@@ -1,9 +1,7 @@
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
-
-onlyBuiltDependencies:
-  - esbuild
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
 
 patchedDependencies:
   ua-parser-js: patches/ua-parser-js.patch
