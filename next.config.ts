@@ -2,12 +2,14 @@ import bundleAnalyzer from '@next/bundle-analyzer'
 
 import type { NextConfig } from 'next'
 
+const enableAnalyze = process.env.ANALYZE === 'true'
+
 const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: enableAnalyze,
 })
 
 const nextConfig: NextConfig = {
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['ts', 'tsx'],
   reactStrictMode: true,
   reactCompiler: true,
   crossOrigin: 'anonymous',
@@ -16,4 +18,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withBundleAnalyzer(nextConfig)
+export default enableAnalyze ? withBundleAnalyzer(nextConfig) : nextConfig
