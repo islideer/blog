@@ -44,7 +44,7 @@ export default function manifest(): MetadataRoute.Manifest {
       name: page.title,
       short_name: page.title,
       description: page.description,
-      url: `/${page.slug}`,
+      url: page.slug,
       icons: [{ src: '/icon-192.png', sizes: '192x192' }],
     })),
   }
