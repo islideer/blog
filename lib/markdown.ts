@@ -77,7 +77,7 @@ const processor = unified()
     },
     properties: {
       className: ['heading-anchor'],
-      ariaHidden: true,
+      ariaHidden: 'true',
       tabIndex: -1,
     },
   })
