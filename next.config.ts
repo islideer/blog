@@ -16,6 +16,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    useTypeScriptCli: true
+  }
 }
 
 export default enableAnalyze ? withBundleAnalyzer(nextConfig) : nextConfig
