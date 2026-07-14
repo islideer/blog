@@ -160,5 +160,12 @@
     "status": "pending",
     "rss": "https://innei.in/feed",
     "avatar": "https://avatars.githubusercontent.com/u/41265413?v=4"
+  },
+  {
+    "name": "mikann_OMO",
+    "url": "https://www.mikann.fun",
+    "description": "是一位大艺术家",
+    "avatar": "https://mikann.fun/avatar.webp",
+    "rss": "https://mikann.fun/rss.xml"
   }
 ]
