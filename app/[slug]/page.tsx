@@ -51,7 +51,7 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
-    keywords: post.tags?.join(', '),
+    keywords: post.tags || [],
     alternates: {
       canonical: canonicalUrl,
     },

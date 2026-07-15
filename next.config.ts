@@ -17,8 +17,8 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   experimental: {
-    useTypeScriptCli: true
-  }
+    useTypeScriptCli: true,
+  },
 }
 
 export default enableAnalyze ? withBundleAnalyzer(nextConfig) : nextConfig

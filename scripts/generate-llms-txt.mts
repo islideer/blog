@@ -12,7 +12,7 @@ async function generateLLMsTxt() {
   const posts = await getAllPosts()
 
   const postListContent = posts
-    .map((post) => `- [${post.title}](/${post.slug}) #${post.topic} #${post.date.slice(0, 10)}`)
+    .map((post) => `- [${post.title}](/${post.slug}.md) #${post.topic} #${post.date.slice(0, 10)}`)
     .join('\n')
 
   const content = `

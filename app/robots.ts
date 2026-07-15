@@ -5,13 +5,7 @@ export const dynamic = 'force-static'
 
 export const revalidate = 86400
 
-const restrictedPaths = [
-  '/api/',
-  '/out/',
-  '/_next/',
-  '/opengraph-image/',
-  '/*/opengraph-image/',
-]
+const restrictedPaths = ['/api/', '/out/', '/_next/', '/opengraph-image/', '/*/opengraph-image/']
 
 export default function robots(): MetadataRoute.Robots {
   return {
