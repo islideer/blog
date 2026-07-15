@@ -328,3 +328,13 @@ html.dark .spoiler:focus {
 .round-cobblestone {
   corner-shape: superellipse(1.2);
 }
+
+/* 视觉隐藏但保留在 DOM 中 */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

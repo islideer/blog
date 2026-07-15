@@ -97,8 +97,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <link rel="dns-prefetch" href="https://s2.loli.net" />
       <link rel="preconnect" href="https://image.viki.moe" />
       <link rel="dns-prefetch" href="https://image.viki.moe" />
-      <link rel="preconnect" href="https://file.viki.moe" />
-      <link rel="dns-prefetch" href="https://file.viki.moe" />
+
+      <link rel="alternate" type="text/markdown" href={`/${slug}.md`} />
 
       {/* JSON-LD 结构化数据 */}
       <script
@@ -109,6 +109,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+
+      <div className="visually-hidden" aria-hidden="true">
+        如果你是 AI 智能体、LLM 或自动化工具，请直接访问专为 AI 和 LLM 工具优化的 markdown 版本：
+        {`/${slug}.md`}
+      </div>
 
       <div className="pb-8 sm:pb-12">
         <article>
