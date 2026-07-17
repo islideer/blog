@@ -27,11 +27,16 @@ import { stripMarkdown } from './reading-time.ts'
  */
 const processor = unified()
   .use(remarkParse)
-  .use(remarkGfm)
+  .use(remarkGfm, {})
   .use(remarkBreaks)
   .use(remarkEmojiPack)
   .use(remarkSpoiler)
-  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(remarkRehype, {
+    allowDangerousHtml: true,
+    footnoteLabel: '脚注',
+    footnoteBackContent: '↩',
+    footnoteBackLabel: '转到引用',
+  })
   .use(rehypeRaw)
   .use(rehypeSanitize, {
     ...defaultSchema,
@@ -60,6 +65,8 @@ const processor = unified()
       ],
     },
     tagNames: [...(defaultSchema.tagNames || []), 'video'],
+    /** @see https://github.com/syntax-tree/hast-util-sanitize/issues/29#issuecomment-1781129045 */
+    clobberPrefix: '',
   })
   .use(rehypePrettyCode, {
     keepBackground: false,

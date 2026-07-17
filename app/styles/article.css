@@ -538,6 +538,10 @@ figure[data-rehype-pretty-code-figure]:hover .code-copy-btn {
   }
 }
 
+.prose .footnotes p {
+  margin: 0;
+}
+
 .prose .image-caption {
   display: block;
   width: 100%;
