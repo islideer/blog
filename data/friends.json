@@ -148,7 +148,7 @@
     "id": "snowball",
     "name": "Snowball_233's Blog",
     "url": "https://blog.qwq.my/",
-    "status": "offline",
+    "status": "archived",
     "description": "Snowball_233's Personal Blog",
     "avatar": "https://avatars.githubusercontent.com/u/97330394?v=4"
   },
@@ -156,16 +156,25 @@
     "id": "shizukanamori",
     "name": "静かな森",
     "url": "https://innei.in/",
+    "status": "archived",
     "description": "致虚极，守静笃。",
-    "status": "pending",
-    "rss": "https://innei.in/feed",
-    "avatar": "https://avatars.githubusercontent.com/u/41265413?v=4"
+    "avatar": "https://avatars.githubusercontent.com/u/41265413?v=4",
+    "rss": "https://innei.in/feed"
   },
   {
+    "id": "mikann",
     "name": "mikann_OMO",
     "url": "https://www.mikann.fun",
-    "description": "是一位大艺术家",
+    "description": "是一位大艺术家。",
     "avatar": "https://mikann.fun/avatar.webp",
     "rss": "https://mikann.fun/rss.xml"
+  },
+  {
+    "id": "ifdess",
+    "name": "关于 IFDESS 的书",
+    "url": "https://111654.xyz/",
+    "description": "这是一本记录 IFDESS 的经历和感悟的书。",
+    "avatar": "https://static.ifdess.cn/img/avatar.jpg",
+    "rss": "https://111654.xyz/feed.xml"
   }
 ]
