@@ -176,5 +176,13 @@
     "description": "这是一本记录 IFDESS 的经历和感悟的书。",
     "avatar": "https://static.ifdess.cn/img/avatar.jpg",
     "rss": "https://111654.xyz/feed.xml"
+  },
+  {
+    "id": "miuo",
+    "name": "miuo's blog",
+    "url": "https://miuo.me/",
+    "description": "记录文章、笔记、实验和暂时不想丢掉的内容。",
+    "avatar": "https://miuo.me/avatar.avif",
+    "rss": "https://miuo.me/rss.xml"
   }
 ]
