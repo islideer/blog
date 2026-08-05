@@ -172,7 +172,7 @@
   {
     "id": "168",
     "date": "2026-05-19T15:47:02+08:00",
-    "content": "通过返回永不解析的 Promise 可以实现异步中断，是 JavaScript 中最优雅的解决方案。\n\n```js\nasync function interrupt() {\n  return new Promise(() => {});\n}\n```\n\n这个方法使用原生异步语法（`await`）符合直觉，无需抛出异常（避开了 `try`/`catch`），且 GC 会自动清理未引用的 Pending Promise，无需担心内存问题。"
+    "content": "通过返回永不解析的 Promise 可以实现异步中断，是 JavaScript 中最优雅的解决方案。\n\n```js\nasync function interrupt() {\n  return new Promise(() => {});\n}\n```\n\n这个方法使用原生异步语法（`await`）符合直觉，无需抛出异常（避开了 `try`/`catch`），GC 会自动清理未引用的 Pending Promise，但必须严格管控外部引用，确保无闭包泄漏，否则还是可能导致内存问题。"
   },
   {
     "id": "167",
