@@ -1,5 +1,10 @@
 [
   {
+    "id": "197",
+    "date": "2026-08-11T09:04:28+08:00",
+    "content": "[import text](/thoughts/26) 提案在 Node.js 26.5.0 上已实装，但暂需加上实验性参数，属实是令人激动的特性，不再需要繁琐的 fs.readFileSync 了。\n\n```ts\n// node --experimental-import-text app.ts\nimport prompt from './prompt.md' with { type: 'text' };\nconsole.log(prompt); // raw prompt string\n```"
+  },
+  {
     "id": "196",
     "date": "2026-08-10T09:17:47+08:00",
     "content": "一般我们用 .gitignore 文件来忽略不想被 Git 追踪的文件，这在大多数情况下不是问题。但如果是一个团队项目，且只是个人本地的忽略需求，更建议使用 .git/exclude 文件，它可以在本地指定需要排除追踪的文件，优先级比 .gitignore 高，且这个文件不会被上传到远程仓库。"
