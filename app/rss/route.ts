@@ -62,8 +62,7 @@ export async function GET() {
   return new Response(feed.rss2(), {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      // 缓存 1 小时，对于博客来说足够了
-      'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
+      'Cache-Control': 'public, max-age=60, s-maxage=60, stale-while-revalidate=86400',
     },
   })
 }
