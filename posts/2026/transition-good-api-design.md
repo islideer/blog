@@ -10,13 +10,13 @@ tags:
   - '软件工程'
 ---
 
-> 标题：Everything I know about good API design
+> 原文：Everything I know about good API design
 >
 > 时间：2025 年 8 月 24 日
 >
-> 作者：sean goedecke
+> 作者：Sean Goedecke
 >
-> 原文：https://www.seangoedecke.com/good-api-design/
+> 链接：https://www.seangoedecke.com/good-api-design/
 
 ---
 

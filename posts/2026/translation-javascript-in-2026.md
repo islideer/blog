@@ -12,13 +12,13 @@ tags:
   - 'TypeScript'
 ---
 
-> 标题：What To Know in JavaScript (2026 Edition)
+> 原文：What To Know in JavaScript (2026 Edition)
 >
 > 时间：2026 年 4 月 2 日
 >
 > 作者：Chris Coyier
 >
-> 原文：https://frontendmasters.com/blog/what-to-know-in-javascript-2026-edition
+> 链接：https://frontendmasters.com/blog/what-to-know-in-javascript-2026-edition
 
 ---
 

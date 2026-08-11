@@ -16,7 +16,7 @@ tags:
 >
 > 作者：Aaron Andersen
 >
-> 原文：https://webaim.org/blog/user-agent-string-history
+> 链接：https://webaim.org/blog/user-agent-string-history
 
 ---
 

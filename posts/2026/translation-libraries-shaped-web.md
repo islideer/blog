@@ -11,13 +11,13 @@ tags:
   - '翻译'
 ---
 
-> 标题：9 Times the Web Platform Was Influenced by Libraries
+> 原文：9 Times the Web Platform Was Influenced by Libraries
 >
 > 时间：2026 年 5 月 4 日
 >
 > 作者：Jad Joubran
 >
-> 原文：https://jadjoubran.io/blog/web-platform-influenced-by-libraries
+> 链接：https://jadjoubran.io/blog/web-platform-influenced-by-libraries
 
 ---
 
