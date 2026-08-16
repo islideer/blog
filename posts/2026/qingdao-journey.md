@@ -197,7 +197,7 @@ Mio 专注地在沙滩上写名字。
 
 还拍了一个视频，记录此刻。
 
-<video loading="lazy" src="https://file.viki.moe/blog/qingdao//v/b4ac66.mp4" controls style="max-width: 360px; max-height: 360px; width: 100%;"></video>
+<video loading="lazy" src="https://file.viki.moe/blog/qingdao/video/b4ac66.mp4" controls style="max-width: 360px; max-height: 360px; width: 100%;"></video>
 
 继续往琴屿路走，这一路非常适合 City Walk，人流也很多，属于是网红打卡路线了。
 
@@ -363,7 +363,7 @@ Mio 还特意定了零点的闹钟，在 25 岁生日的第一秒给我送上了
 
 特意录下了这一刻，很有纪念意义。
 
-<video loading="lazy" src="https://file.viki.moe/blog/qingdao//v/fd76e2.mp4" controls style="max-width: 360px; max-height: 360px; width: 100%;"></video>
+<video loading="lazy" src="https://file.viki.moe/blog/qingdao/video/fd76e2.mp4" controls style="max-width: 360px; max-height: 360px; width: 100%;"></video>
 
 还收到了直播间其他观众的祝福。
 
