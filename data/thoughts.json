@@ -1,5 +1,10 @@
 [
   {
+    "id": "199",
+    "date": "2026-08-17T19:34:54+08:00",
+    "content": "Agent = Model + Harness"
+  },
+  {
     "id": "198",
     "date": "2026-08-11T11:29:09+08:00",
     "content": "不完整的 CSS 设计错误清单，列出了「盒模型应默认为 border-box」等 CSS 历史上的设计错误。顺手码一下，方便后续查找。 https://wiki.csswg.org/ideas/mistakes"
