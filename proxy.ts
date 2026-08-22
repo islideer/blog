@@ -6,6 +6,10 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(new URL(`/api/md/${slug}`, request.url))
   }
 
+  if (request.headers.get('accept')?.includes('text/markdown')) {
+    return NextResponse.rewrite(new URL(`/api/md/${request.nextUrl.pathname}`, request.url))
+  }
+
   return NextResponse.next()
 }
 
