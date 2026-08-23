@@ -1,5 +1,13 @@
 [
   {
+    "id": "202",
+    "date": "2026-08-24T00:53:35+08:00",
+    "content": "让我们恭喜绿龙，让一追三，拿下 EWC 冠军 🏆，donk 依旧牛逼，宗主也很有发挥。（奖杯差点摔了 hhh）",
+    "images": [
+      "https://image.viki.moe/blog/viki/3d2100.jpeg"
+    ]
+  },
+  {
     "id": "201",
     "date": "2026-08-21T12:09:38+08:00",
     "content": "当时 [用 CSS.highlights API 进行高亮](/thoughts/3) 的想法，终于也是有人做出来了，效果还真可以。 https://GitHub.com/davatron5000/microlighter"
