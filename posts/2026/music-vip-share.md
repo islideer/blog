@@ -44,6 +44,7 @@ QQ 音乐固定每月 10 张，每张 3 天，先到先得，领完为止。
 
 ## 更新记录
 
+- 2026-09-01：九月已更新。
 - 2026-08-01：八月已更新。
 - 2026-07-01：七月已更新。
 - 2026-06-01：六月已更新。
@@ -51,5 +52,5 @@ QQ 音乐固定每月 10 张，每张 3 天，先到先得，领完为止。
 - 2026-04-02：四月已更新。
 - 2026-03-18：发布文章，三月已更新。
 
-[ncm]: https://y.music.163.com/g/vip-invite-cashier/radsjl037?app_version=9.5.50&userid=5127559361&token=B2C3CC0BF81370606E24B02E74C5882A24A4D7A96660CF04CC90054AA0AF3C86&dlt=0846&qq_aio_chat_type=3
-[qqm]: https://y.qq.com/m/basic/client/experience_card/index.html?cardid=d9mjnbog30ij1vt82t6g&hosteuin=oK6PoK-F7eSkNn%2A%2A&hostName=Viki&ADTAG=yy_gnyy_hytyk&qq_aio_chat_type=3&from=share
+[ncm]: https://y.music.163.com/g/vip-invite-cashier/radsjl427?app_version=9.5.70&userid=5127559361&token=80C08090540271EB59CBC4C0F9D32D944A6575CDC0D91BB5D0765B22358F646E&dlt=0846&qq_aio_chat_type=3
+[qqm]: https://y.qq.com/m/basic/client/experience_card/index.html?cardid=dab1aoe3deas07kaonbg&hosteuin=oK6PoK-F7eSkNn%2A%2A&hostName=Viki&ADTAG=yy_gnyy_hytyk&qq_aio_chat_type=3&from=share
