@@ -1,5 +1,10 @@
 [
   {
+    "id": "219",
+    "date": "2026-09-14T12:39:35+08:00",
+    "content": "后知后觉，`.then` 其实还接受第二个参数 onRejected，可以捕获之前 Promise 的错误，但无法捕获当前第一个参数里的错误。然而，可以往后再加一个 `.then(null, onRejected)` 达到捕获所有错误的效果。\n\n其实 .catch(onRejected) 本质上就是 .then(null, onRejected) 的语法糖，只是我们一般采用前者方式，简洁、易读。\n\n\n```ts\npromise.then(xxx).catch(onRejected);\n// 等价于\npromise.then(xxx).then(null, onRejected);\n```"
+  },
+  {
     "id": "218",
     "date": "2026-09-14T12:12:32+08:00",
     "content": "后知后觉，[滚动吸附](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Scroll_snap)（Scroll Snap）是 CSS 本来就有的功能。常见于产品介绍页的「按页滚动」效果，其实就是通过这个功能实现的。\n\n```css\n.container {\n  scroll-snap-type: y mandatory;\n}\n```"
