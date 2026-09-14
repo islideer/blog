@@ -1,5 +1,10 @@
 [
   {
+    "id": "217",
+    "date": "2026-09-14T11:49:06+08:00",
+    "content": "记录一下没用过的 [font-display](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@font-face/font-display) 属性，放在 @font-face 字体定义里，用来控制自定义字体加载时的显示行为。一般推荐用 swap，内容立刻可见，字体加载完成后替换，因为字体形状不同，可能会闪一下。\n\n- auto 浏览器决定，通常类似 block\n- block 短暂隐藏文字（~3s），等字体加载\n- swap 先用系统字体，字体加载后替换\n- fallback 极短隐藏（~100ms），然后系统字体\n- optional 极短隐藏，网络慢就直接用系统字体\n\n```css\n@font-face {\n  font-family: 'MyFont';\n  src: url('myfont.woff2') format('woff2');\n  font-display: swap;\n}\n```"
+  },
+  {
     "id": "216",
     "date": "2026-09-09T17:25:52+08:00",
     "content": "[drydock](https://drydock.org/diff/react/19.2.7/19.2.8) 可以在线查看某个 npm 包不同版本之间的发布差异，获取详细的 diff 信息，用来判断某个版本是否出现后门、投毒等异常情况。\n\n然后我就发现，React 19.2.8 修正了仓库链接地址（",
