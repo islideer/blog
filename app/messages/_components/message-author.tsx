@@ -40,10 +40,6 @@ export function MessageAuthor({
 
   // 判断是否使用文字头像（无 avatar 且无 email）
   const useTextAvatar = !author.avatar && !author.email
-
-  // 清理网站 URL，统一为 https://
-  const cleanedWebsite = (author.website || '').replace(/https?:\/\//, 'https://')
-  const isCurrentSite = cleanedWebsite === websiteUrl
   const isAuthor = author.email === siteConfig.author.email
 
   // 样式变体
@@ -63,15 +59,17 @@ export function MessageAuthor({
             {firstChar}
           </div>
         ) : (
-          <Image
-            src={author.avatar}
-            alt={authorName}
-            className={`rounded-full object-cover ${avatarSizeClass}`}
-            height={avatarSize === 'sm' ? 28 : 36}
-            width={avatarSize === 'sm' ? 28 : 36}
-            loading="lazy"
-            referrerPolicy="no-referrer"
-          />
+          <a href={author.website || '#'}>
+            <Image
+              src={author.avatar}
+              alt={authorName}
+              className={`rounded-full object-cover ${avatarSizeClass}`}
+              height={avatarSize === 'sm' ? 28 : 36}
+              width={avatarSize === 'sm' ? 28 : 36}
+              loading="lazy"
+              referrerPolicy="no-referrer"
+            />
+          </a>
         )}
 
         {/* VIP 角标（博主专属） */}
@@ -89,12 +87,12 @@ export function MessageAuthor({
       {/* 作者信息 */}
       <div className={cn('min-w-0', textSize === 'sm' ? 'flex-0.5' : 'flex-1')}>
         <div className="flex items-center gap-2">
-          {author.website && !isCurrentSite ? (
+          {author.website ? (
             <a
               href={author.website}
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-text-primary font-medium underline decoration-dotted underline-offset-2 hover:decoration-solid ${nameTextSize}`}
+              className={`link font-medium ${nameTextSize}`}
             >
               {authorName}
             </a>
@@ -110,7 +108,7 @@ export function MessageAuthor({
           )}
         </div>
 
-        <div className={`text-text-tertiary mt-0.5 flex items-center gap-2 ${metaTextSize}`}>
+        <div className={`text-text-secondary mt-0.5 flex items-center gap-2 ${metaTextSize}`}>
           <span>{formatDate(createdAt, 'date-time')}</span>
           {ua && <UABadge ua={ua} />}
         </div>

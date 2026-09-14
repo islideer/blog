@@ -41,11 +41,18 @@ function ThoughtCardClient({
             : 'none',
       }}
     >
-      <div className="flex items-center gap-2 text-xs">
+      <div className="flex items-center gap-2 text-sm">
         <a
           href={`${slug}/${thought.id}`}
-          className="cursor-pointer font-mono font-semibold no-underline hover:underline"
-          style={mioTheme ? { color: 'var(--color-mio-pink)' } : undefined}
+          className="link"
+          style={
+            mioTheme
+              ? {
+                  color: 'var(--color-mio-pink)',
+                  textDecorationColor: 'var(--color-mio-pink)',
+                }
+              : undefined
+          }
         >
           #{thought.id}
         </a>
@@ -101,7 +108,7 @@ function ThoughtCardClient({
 function itemToToc(item: PagedThoughtItem): StaticTocItem {
   return {
     id: item.id,
-    title: `#${item.id} ${item.content ? Array.from(cleanMarkdownContent(item.content)).slice(0, 20).join('') : '无内容'}...`,
+    title: `#${item.id} ${item.content ? cleanMarkdownContent(item.content) : '无内容'}...`,
   }
 }
 
@@ -123,9 +130,7 @@ export function ThoughtsPageContent({
   emptyMessage = '还没有内容，快来记录吧',
 }: ThoughtsPageContentProps) {
   const [items, setItems] = useState<PagedThoughtItem[]>(initialItems)
-  const [tocItems, setTocItems] = useState<StaticTocItem[]>(() =>
-    initialItems.map(itemToToc),
-  )
+  const [tocItems, setTocItems] = useState<StaticTocItem[]>(() => initialItems.map(itemToToc))
   const [hasMore, setHasMore] = useState(initialHasMore)
   const [page, setPage] = useState(2)
   const [loading, setLoading] = useState(false)
@@ -163,13 +168,17 @@ export function ThoughtsPageContent({
   }, [loadMore])
 
   if (items.length === 0) {
-    return <p className="text-text-tertiary text-sm italic opacity-60">{emptyMessage}</p>
+    return <p className="text-text-secondary text-sm italic">{emptyMessage}</p>
   }
 
   return (
     <>
       <StaticTableOfContents behavior="auto" items={tocItems} />
-      <div className="space-y-8">
+      <div
+        className="space-y-8"
+        // @ts-expect-error for custom css var
+        style={mioTheme ? { '--accent-color': 'var(--color-mio-pink)' } : undefined}
+      >
         {items.map((item, index) => (
           <ThoughtCardClient
             key={item.id}
@@ -182,7 +191,7 @@ export function ThoughtsPageContent({
         ))}
         {hasMore && (
           <div ref={sentinelRef} className="flex justify-center py-8">
-            {loading && <div className="text-text-tertiary text-sm">加载中...</div>}
+            {loading && <div className="text-text-secondary text-sm">加载中...</div>}
           </div>
         )}
       </div>

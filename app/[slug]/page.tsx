@@ -141,14 +141,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {post.draft && (
                 <div className="inline-flex items-center gap-2">
                   <DraftBadge />
-                  <span className="text-text-tertiary text-xs sm:text-sm">
+                  <span className="text-text-secondary text-sm sm:text-base">
                     本文尚未正式发布，内容可能不完整，仅供预览。
                   </span>
                 </div>
               )}
             </div>
 
-            <div className="text-text-tertiary flex items-baseline gap-1 overflow-x-auto text-xs sm:gap-2 sm:text-sm">
+            <div className="text-text-secondary flex items-baseline gap-1 overflow-x-auto text-sm sm:gap-2 sm:text-base">
               <PostDate date={post.date} format="detail" className="shrink-0" />
               <span className="shrink-0">·</span>
               <span className="shrink-0">#{post.topic}</span>
@@ -158,7 +158,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </span>
               <span className="shrink-0">·</span>
               <span className="shrink-0">{post.wordCount.toLocaleString('zh-Hans-CN')} 字</span>
-              <OldPostTip short className="text-xs" date={post.date} />
+              <OldPostTip short date={post.date} />
             </div>
           </header>
 
@@ -168,12 +168,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         {/* Article End */}
         <div className="border-border mt-8 border-t pt-8 sm:mt-16">
-          <p className="text-text-tertiary mb-4 text-center text-sm">—— 本文完 ——</p>
-          <p className="text-text-tertiary mx-auto flex justify-center gap-2 text-center text-sm">
+          <p className="text-text-secondary mb-4 text-center text-sm">—— 本文完 ——</p>
+          <p className="text-text-secondary mx-auto flex justify-center gap-2 text-center text-sm">
             <ChatIconIcon className="h-5 w-5" />
             <span>
               交流讨论、反馈建议，请到
-              <a href="/messages" className="mx-1">
+              <a href="/messages" className="mx-1 text-text-primary">
                 话匣子
               </a>
               页面留言。

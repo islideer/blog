@@ -60,7 +60,7 @@ export async function ThoughtCard({
       <div className="flex items-center gap-2 text-xs">
         <a
           href={`${mioTheme ? pages.mioSays.slug : pages.thoughts.slug}/${thought.id}`}
-          className="cursor-pointer font-mono font-semibold no-underline hover:underline"
+          className="cursor-pointer font-mono font-semiboldhover:underline"
           style={mioTheme ? { color: 'var(--color-mio-pink)' } : undefined}
         >
           #{thought.id}

@@ -18,9 +18,7 @@ export default function rehypeImageCaption() {
       if (isEmoji) return
 
       const alt = node.properties.alt as string
-
       if (!alt || alt.trim() === '' || alt === 'image') return
-
       const parentEl = parent as Element
 
       // 孤立图片：<p><img></p> → 转为 figure/figcaption
@@ -37,7 +35,7 @@ export default function rehypeImageCaption() {
             {
               type: 'element',
               tagName: 'figcaption',
-              properties: { className: ['image-caption', 'no-underline'] },
+              properties: { className: ['image-caption'] },
               children: [{ type: 'text', value: alt }],
             } as Element,
           ]
@@ -47,18 +45,17 @@ export default function rehypeImageCaption() {
 
       if (parentEl.tagName === 'a') {
         const cls = parentEl.properties.className
-
-        if (typeof cls === 'undefined' || typeof cls === 'string' || Array.isArray(cls)) {
-          parentEl.properties.className = [cls || '', 'no-underline'].filter((e) => !!e).flat(1)
-        }
+        parentEl.properties.className = [cls || '']
+          .filter((e) => !!e)
+          .flat(1)
+          .filter((e) => e !== 'link' && e !== 'external')
       }
 
       // 降级：img 在其他容器中，直接在后面插入 span
-
       parentEl.children.splice(index + 1, 0, {
         type: 'element',
         tagName: 'span',
-        properties: { className: ['image-caption', 'no-underline'] },
+        properties: { className: ['image-caption'] },
         children: [{ type: 'text', value: alt }],
       } as Element)
     })

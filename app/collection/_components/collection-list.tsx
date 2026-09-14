@@ -13,29 +13,28 @@ export function CollectionList({ category, id }: CollectionListProps) {
         <h2 className="text-base font-bold" id={id}>
           {category.title}
         </h2>
-        <p className="text-text-secondary text-[11px]">{category.description}</p>
+        <p className="text-text-secondary mt-2 text-sm">{category.description}</p>
       </div>
 
       {/* Items List */}
       <div className="space-y-0.5 sm:space-y-1">
         {category.items.map((item, index) => (
-          <div key={index} className="group flex items-center justify-between">
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center truncate"
-            >
-              <h3 className="text-text mr-1 text-xs font-medium sm:mr-2 sm:text-sm">{item.name}</h3>
-              <p className="text-text-secondary flex-1 truncate text-xs sm:text-sm">
-                {item.description}
-              </p>
+          <div
+            key={index}
+            className="group hover:bg-bg-tertiary flex items-center justify-between gap-2"
+          >
+            <a href={item.url} target="_blank" rel="noopener noreferrer" className="link">
+              {item.name}
             </a>
+
+            <p className="text-text-secondary flex-1 truncate text-xs sm:text-sm">
+              {item.description}
+            </p>
 
             {item.tags && item.tags.length > 0 && (
               <div className="text-text-secondary flex shrink-0 gap-1">
                 {item.tags.map((tag, tagIndex) => (
-                  <span key={tagIndex} className="text-text-tertiary text-[11px] sm:text-xs">
+                  <span key={tagIndex} className="text-text-secondary text-sm">
                     #{tag}
                   </span>
                 ))}

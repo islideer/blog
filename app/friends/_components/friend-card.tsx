@@ -44,11 +44,11 @@ export function FriendCard({ friend }: FriendCardProps) {
         title={`${friend.name}: ${friend.description || '这位朋友有点懒，什么也没留下~'}`}
         href={friend.url}
         target="_blank"
-        className="no-icon absolute inset-0"
+        className="absolute inset-0"
         aria-label={`访问 ${friend.name} 的网站`}
       />
 
-      <a href={friend.url} className="no-icon no-underline">
+      <a href={friend.url}>
         {friend.avatar ? (
           <Image
             src={friend.avatar}

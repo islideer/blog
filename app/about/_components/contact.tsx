@@ -8,19 +8,13 @@ interface AboutContactProps {
 
 export function AboutContact({ id, links, title }: AboutContactProps) {
   return (
-    <section className="border-border-tertiary space-y-6 border-l-2 pl-2 sm:pl-4">
-      <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
+    <section className="space-y-2">
+      <h2 className="text-text-primary font-semibold tracking-wider uppercase" id={id}>
         {title}
       </h2>
-      <div className="text-text-secondary flex flex-wrap gap-4 text-sm">
+      <div className="text-text-secondary flex flex-wrap gap-4">
         {links.map((link, index) => (
-          <a
-            key={index}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="decoration-text-tertiary hover:text-text-primary hover:decoration-text-primary underline underline-offset-4"
-          >
+          <a key={index} href={link.url} target="_blank" rel="noopener noreferrer" className="link">
             {link.label}
           </a>
         ))}

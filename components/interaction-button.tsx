@@ -193,7 +193,7 @@ export function InteractionButton({
           : `点击${config.ariaLabel}${maxClicks > 1 ? `，最多 ${maxClicks} 次` : ''}`
       }
     >
-      <div className="group text-text-secondary relative inline-flex">
+      <div className="group text-text-primary relative inline-flex">
         <button
           onClick={handleClick}
           disabled={isPending || isSubmitting}
@@ -204,7 +204,7 @@ export function InteractionButton({
             className,
           )}
           style={{
-            color: isMaxedOut ? `var(${config.colorVar})` : 'var(--color-text-secondary)',
+            color: isMaxedOut ? `var(${config.colorVar})` : 'var(--color-text-primary)',
           }}
           aria-label={`${config.ariaLabel} ${displayCount.toLocaleString('zh-Hans-CN')} 次，你已点击 ${userClickCount.toLocaleString('zh-Hans-CN')} 次`}
         >

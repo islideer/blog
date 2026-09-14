@@ -102,7 +102,7 @@ export default async function MioSaysPage() {
                 href="/mio-says/rss"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="no-icon group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-2.5 py-1.5 text-xs no-underline transition-colors"
+                className="group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-2.5 py-1.5 text-xstransition-colors"
                 aria-label="RSS"
               >
                 <span className="inline-flex items-center gap-1.5 transition-transform group-active/btn:scale-90">

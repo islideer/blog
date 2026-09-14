@@ -117,7 +117,7 @@ export default async function PostsPage() {
           <section className="space-y-4">
             <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
               置顶{' '}
-              <span className="text-text-tertiary text-base font-normal sm:text-lg">
+              <span className="text-text-secondary text-base font-normal sm:text-lg">
                 ({pinnedPosts.length.toLocaleString('zh-Hans-CN')})
               </span>
             </h2>
@@ -140,15 +140,15 @@ export default async function PostsPage() {
                 {/* 年份标题 */}
                 <h2 className="text-text-primary text-xl font-bold sm:text-2xl">
                   <span>{year}</span>
-                  <span className="text-text-tertiary/60 mx-1">/</span>
+                  <span className="text-text-secondary/60 mx-1">/</span>
                   <span className="text-text-tertiary">{YEAR_DESC_MAP.get(year)}</span>
                   <span className="text-text-tertiary mx-1 text-base font-normal sm:text-lg">
                     ({yearPosts.length.toLocaleString('zh-Hans-CN')})
                   </span>
                 </h2>
-                <div className="border-border-tertiary space-y-2 border-l-2 pl-4 sm:pl-6">
+                <div className="border-border-secondary space-y-2 border-l-2 pl-4 sm:pl-6">
                   {hasNoPosts ? (
-                    <p className="text-text-tertiary text-xs italic opacity-60 sm:text-sm">
+                    <p className="text-text-secondary text-xs italic opacity-60 sm:text-sm">
                       {getEmptyYearMessage(year)}
                     </p>
                   ) : (

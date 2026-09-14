@@ -16,6 +16,9 @@ import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
 import rehypePrettyCode from 'rehype-pretty-code'
 import { stripMarkdown } from './reading-time.ts'
 
+import { visit } from 'unist-util-visit'
+import type { Root, Element, Text } from 'hast'
+
 /**
  * 统一的 Markdown 解析器（基于 unified）
  *
@@ -88,12 +91,21 @@ const processor = unified()
       tabIndex: -1,
     },
   })
+  .use(() => (tree) => {
+    visit(tree, 'element', (node: Element) => {
+      const isALink = node.tagName.toLowerCase() === 'a'
+      if (isALink) node.properties.className = [...(node.properties.className || []), 'link']
+    })
+  })
   .use(rehypeZoomImage)
-  .use(rehypeImageCaption)
   .use(rehypeExternalLinks, {
     target: '_blank',
     rel: ['noopener', 'noreferrer'],
+    properties: {
+      className: ['link', 'external'],
+    },
   })
+  .use(rehypeImageCaption)
   .use(rehypeStringify)
 
 /**

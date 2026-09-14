@@ -304,7 +304,7 @@ export function BaseMessageForm({
 
         {/* 操作按钮 */}
         <div className="flex items-center justify-between gap-3">
-          <div className="text-text-tertiary flex items-center gap-2">
+          <div className="text-text-secondary flex items-center gap-2">
             <EmojiPicker onSelect={handleEmojiSelect} />
             {isMessage && (
               <Button
@@ -341,7 +341,7 @@ export function BaseMessageForm({
             <span
               className={cn(
                 'hidden text-xs sm:inline',
-                contentLength > 1000 ? 'text-text-primary' : 'text-text-tertiary',
+                contentLength > 1000 ? 'text-text-primary' : 'text-text-secondary',
               )}
             >
               {contentLength} / {maxLength > 1000 ? '1000' : maxLength}

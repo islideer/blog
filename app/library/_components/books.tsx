@@ -22,7 +22,7 @@ export function Books({ id, data }: BooksProps) {
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
           书籍
         </h2>
-        <p className="text-text-tertiary text-sm">暂无书籍数据</p>
+        <p className="text-text-secondary text-sm">暂无书籍数据</p>
       </section>
     )
   }
@@ -68,7 +68,7 @@ function BookSection({ id, title, books }: BookSectionProps) {
         <h3 className="text-text-secondary text-xs font-medium" id={id}>
           {title}
         </h3>
-        <span className="text-text-tertiary text-xs">({books.length})</span>
+        <span className="text-text-secondary text-xs">({books.length})</span>
       </div>
 
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4">

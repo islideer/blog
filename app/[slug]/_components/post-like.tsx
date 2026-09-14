@@ -19,6 +19,8 @@ export function PostLike({ slug, initialCount }: PostLikeProps) {
     />
   )
 
+  return <div className="flex items-center justify-center">{icon}</div>
+
   return (
     <>
       {/* PC 端 - 固定在左侧，与目录对称 */}

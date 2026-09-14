@@ -73,7 +73,7 @@ export function DoubanProfile({ id, profile, books, movies }: DoubanProfileProps
             <div className="flex items-center gap-2">
               <span className="text-text-primary block text-lg font-medium">{profile.name}</span>
             </div>
-            <div className="text-text-tertiary flex flex-wrap items-center gap-1.5 text-xs">
+            <div className="text-text-secondary flex flex-wrap items-center gap-1.5 text-xs">
               <span className="bg-bg-tertiary inline-flex h-5 min-w-6 items-center justify-center rounded px-1.5 text-xs font-medium">
                 加入 {accountAgeYears} 年
               </span>
@@ -98,7 +98,7 @@ export function DoubanProfile({ id, profile, books, movies }: DoubanProfileProps
                 </span>
               )}
             </div>
-            <span className="text-text-tertiary text-xs">加入于 {formatDate(profile.join_date, 'full')}</span>
+            <span className="text-text-secondary text-xs">加入于 {formatDate(profile.join_date, 'full')}</span>
           </div>
         </div>
 
@@ -106,23 +106,23 @@ export function DoubanProfile({ id, profile, books, movies }: DoubanProfileProps
         {(profile.movies.collect > 0 || profile.books.collect > 0) && (
           <div className="grid grid-cols-2 gap-4 p-4">
             <div className="space-y-1">
-              <p className="text-text-tertiary text-xs">看过 / 在看 / 想看</p>
+              <p className="text-text-secondary text-xs">看过 / 在看 / 想看</p>
               <p className="text-text-primary text-lg font-semibold">
                 <ClientCounterUp end={profile.movies.collect} />
-                <span className="text-text-tertiary mx-1 opacity-60">/</span>
+                <span className="text-text-secondary mx-1">/</span>
                 <ClientCounterUp end={profile.movies.doings} />
-                <span className="text-text-tertiary mx-1 opacity-60">/</span>
+                <span className="text-text-secondary mx-1">/</span>
                 <ClientCounterUp end={profile.movies.wish} />
               </p>
             </div>
 
             <div className="space-y-1">
-              <p className="text-text-tertiary text-xs">读过 / 在读 / 想读</p>
+              <p className="text-text-secondary text-xs">读过 / 在读 / 想读</p>
               <p className="text-text-primary text-lg font-semibold">
                 <ClientCounterUp end={profile.books.collect} />
-                <span className="text-text-tertiary mx-1 opacity-60">/</span>
+                <span className="text-text-secondary mx-1">/</span>
                 <ClientCounterUp end={profile.books.doings} />
-                <span className="text-text-tertiary mx-1 opacity-60">/</span>
+                <span className="text-text-secondary mx-1">/</span>
                 <ClientCounterUp end={profile.books.wish} />
               </p>
             </div>

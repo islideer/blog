@@ -53,17 +53,13 @@ export default async function BlogPage() {
             />
             {siteConfig.home.hero.title}
           </h2>
-          <MarkdownLite
-            size="md"
-            className="text-text-secondary!"
-            content={about.intro.paragraphs.join('\n\n')}
-          />
+          <MarkdownLite size="md" content={about.intro.paragraphs.join('\n\n')} />
         </section>
 
         {/* 最近文章 */}
         {displayPosts.length > 0 ? (
           <>
-            <div className="border-border border-t" />
+            <div className="border-border-secondary border-t" />
             <RecentPosts
               posts={displayPosts}
               totalCount={allPosts.length}
@@ -72,10 +68,10 @@ export default async function BlogPage() {
           </>
         ) : (
           <>
-            <div className="border-border border-t" />
+            <div className="border-border-secondary border-t" />
             <div className="py-12 text-center">
-              <p className="text-text-secondary mb-4 text-xl">暂无文章</p>
-              <p className="text-text-tertiary">
+              <p className="text-text-primary mb-4 text-xl">暂无文章</p>
+              <p className="text-text-secondary">
                 请在 <code>posts</code> 目录添加 Markdown 文件
               </p>
             </div>
@@ -85,7 +81,7 @@ export default async function BlogPage() {
         {/* 最近动态 */}
         {recentThoughts.length > 0 && (
           <>
-            <div className="border-border border-t" />
+            <div className="border-border-secondary border-t" />
             <RecentActivities
               title="最近碎碎念"
               shortPosts={recentThoughts}
@@ -97,7 +93,7 @@ export default async function BlogPage() {
 
         {recentMioSays.length > 0 && (
           <>
-            <div className="border-border border-t" />
+            <div className="border-border-secondary border-t" />
             <RecentActivities
               title="最近 Mio 说"
               shortPosts={recentMioSays}

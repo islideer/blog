@@ -22,7 +22,7 @@ export function Movies({ id, data }: MoviesProps) {
         <h2 className="text-text-primary text-sm font-semibold tracking-wider uppercase" id={id}>
           影视
         </h2>
-        <p className="text-text-tertiary text-sm">暂无影视数据</p>
+        <p className="text-text-secondary text-sm">暂无影视数据</p>
       </section>
     )
   }
@@ -70,7 +70,7 @@ function MovieSection({ id, title, movies }: MovieSectionProps) {
         <h3 className="text-text-secondary text-xs font-medium" id={id}>
           {title}
         </h3>
-        <span className="text-text-tertiary text-xs">({movies.length})</span>
+        <span className="text-text-secondary text-xs">({movies.length})</span>
       </div>
 
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4">

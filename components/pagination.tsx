@@ -27,12 +27,12 @@ function generatePages(current: number, total: number): PageItem[] {
 
 const itemClass = cn(
   'inline-flex size-8 items-center justify-center rounded-md text-xs sm:text-sm',
-  'text-text-secondary transition-colors no-underline',
+  'text-text-secondary transition-colors',
 )
 
 const activeItemClass = cn(
   itemClass,
-  'group/btn sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary no-icon',
+  'group/btn sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary',
 )
 
 export function Pagination({ currentPage, totalPages, buildHref }: PaginationProps) {

@@ -58,13 +58,13 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
                     ? profile.game_info
                       ? 'text-steam-playing'
                       : 'text-steam-online'
-                    : 'text-text-secondary',
+                    : 'text-text-primary',
                 )}
               >
                 Mio's Puppy
               </span>
             </div>
-            <div className="text-text-tertiary flex flex-wrap items-center gap-1.5 text-xs">
+            <div className="text-text-secondary flex flex-wrap items-center gap-1.5 text-xs">
               <span className="bg-bg-tertiary inline-flex h-5 min-w-6 items-center justify-center rounded px-1.5 text-xs font-medium">
                 {profile.level_desc}
               </span>
@@ -85,7 +85,7 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
                   ? profile.game_info
                     ? 'text-steam-playing'
                     : 'text-steam-online'
-                  : 'text-text-tertiary',
+                  : 'text-text-secondary',
               )}
             >
               {profile.online_status_desc}
@@ -96,27 +96,27 @@ export function SteamProfile({ id, profile }: SteamProfileProps) {
         {/* 游戏统计 */}
         <div className="grid grid-cols-2 gap-4 p-4 sm:grid-cols-4">
           <div className="space-y-1">
-            <p className="text-text-tertiary text-xs">总游玩时长</p>
+            <p className="text-text-secondary text-xs">总游玩时长</p>
             <p className="text-text-primary text-lg font-semibold">
               <ClientCounterUp end={Math.round(profile.games_total_playtime / 60)} suffix=" 小时" />
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-text-tertiary text-xs">拥有 / 玩过 / 从未玩过</p>
+            <p className="text-text-secondary text-xs">拥有 / 玩过 / 从未玩过</p>
             <p className="text-text-primary text-lg font-semibold">
               <ClientCounterUp end={profile.games_owned} />
-              <span className="text-text-tertiary mx-1 opacity-60">/</span>
+              <span className="text-text-secondary mx-1">/</span>
               <ClientCounterUp end={profile.games_played} />
-              <span className="text-text-tertiary mx-1 opacity-60">/</span>
+              <span className="text-text-secondary mx-1">/</span>
               <ClientCounterUp end={profile.games_never_played} />
             </p>
           </div>
           <div className="hidden space-y-1 sm:block">
-            <p className="text-text-tertiary text-xs">账户等级</p>
+            <p className="text-text-secondary text-xs">账户等级</p>
             <p className="text-text-primary text-lg font-semibold">{profile.level_desc}</p>
           </div>
           <div className="hidden space-y-1 sm:block">
-            <p className="text-text-tertiary text-xs">账户年资</p>
+            <p className="text-text-secondary text-xs">账户年资</p>
             <p className="text-text-primary text-lg font-semibold">
               {profile.account_age_years_desc}
             </p>

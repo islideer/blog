@@ -420,7 +420,7 @@
       },
       {
         "name": "在 Go 中构建协作文本编辑器",
-        "description": "，，Building a collaborative text editor in Go，解决实时协作编辑产品的冲突问题",
+        "description": "Building a collaborative text editor in Go，解决实时协作编辑产品的冲突问题",
         "url": "https://www.aadhav.me/posts/collaborative-editor",
         "tags": ["TS", "设计"]
       },
@@ -474,7 +474,7 @@
       },
       {
         "name": "React 服务器组件中的 CSS",
-        "description": "，，CSS in React Server Components",
+        "description": "CSS in React Server Components",
         "url": "https://www.joshwcomeau.com/react/css-in-rsc/",
         "tags": ["CSS", "TS"]
       },
@@ -540,7 +540,7 @@
       },
       {
         "name": "使用 useDeferredValue 进行 Snappy UI 优化",
-        "description": "，，Snappy UI Optimization with useDeferredValue",
+        "description": "Snappy UI Optimization with useDeferredValue",
         "url": "https://www.joshwcomeau.com/react/use-deferred-value/",
         "tags": ["设计"]
       },

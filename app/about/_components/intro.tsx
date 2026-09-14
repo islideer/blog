@@ -9,7 +9,7 @@ interface AboutIntroProps {
 
 export async function AboutIntro({ title, paragraphs, id }: AboutIntroProps) {
   return (
-    <section className="space-y-4">
+    <section className="space-y-2">
       <h1 className="flex items-center gap-3 text-3xl font-bold sm:text-4xl" id={id}>
         <Image
           className="round-cobblestone inline-block rounded-full align-middle"
@@ -20,7 +20,7 @@ export async function AboutIntro({ title, paragraphs, id }: AboutIntroProps) {
         />
         {title}
       </h1>
-      <MarkdownLite size="md" className="text-text-secondary!" content={paragraphs.join('\n\n')} />
+      <MarkdownLite size="md" content={paragraphs.join('\n')} />
     </section>
   )
 }

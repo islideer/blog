@@ -11,7 +11,7 @@
 }
 
 html {
-  scroll-padding-top: 8rem; /* 为 sticky header 和图片懒加载预留足够空间 */
+  scroll-padding-top: 6rem; /* 为 sticky header 和图片懒加载预留足够空间 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -33,6 +33,41 @@ body {
   text-size-adjust: 100%;
 }
 
+a.link {
+  color: var(--accent-color);
+  font-weight: 500;
+  text-decoration: none;
+  text-underline-offset: 0.3em;
+
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:active {
+    text-decoration: underline solid var(--accent-color) 0.1em;
+  }
+}
+
+/* External links with arrow icon */
+a.link[target='_blank'] {
+  &::after {
+    content: ' ↗';
+    font-weight: bold;
+    display: inline-block;
+    font-size: 0.875em;
+    margin-left: 0.25em;
+    will-change: transform;
+    transform: translateX(0px) translateY(-2px);
+    transition: transform ease-in-out 0.12s;
+  }
+
+  &:hover::after {
+    transform: translateX(2px) translateY(-4px);
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -52,49 +87,11 @@ body {
   background: var(--color-text-tertiary);
 }
 
-/* Link Styles */
-a:not(.no-underline) {
-  text-decoration: underline;
-  text-decoration-style: dashed;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
-  text-decoration-color: var(--color-border-quaternary);
-}
-
-a:not(.no-underline):active {
-  text-decoration-style: solid;
-  text-decoration-color: var(--color-text-primary);
-}
-
-@media (width >= 640px) {
-  a:not(.no-underline):hover {
-    text-decoration-style: solid;
-    text-decoration-color: var(--color-text-primary);
-  }
-}
-
-/* Header logo link without underline */
-header > div > a {
-  text-decoration: none;
-}
-
-/* External links with arrow icon */
-a[target='_blank']:not(.no-icon):not(:has(> img))::after {
-  content: ' ↗';
-  display: inline-block;
-  /* text-decoration: inherit; */
-  font-weight: 500;
-  font-size: 0.875em;
-  margin-left: 0.25em;
-  opacity: 0.7;
-  color: inherit;
-}
-
 /* Selection styles */
 ::selection {
-  background-color: var(--color-selection-bg) !important;
-  color: inherit !important;
-  text-shadow: none !important;
+  color: inherit;
+  text-shadow: none;
+  background-color: var(--color-selection-bg);
 }
 
 /* Focus styles - Enhanced for better visibility */
@@ -106,11 +103,6 @@ a[target='_blank']:not(.no-icon):not(:has(> img))::after {
 .no-focus,
 .no-focus * {
   outline: none !important;
-}
-
-/* Header logo link without underline */
-header > div > a {
-  text-decoration: none;
 }
 
 /* Smooth scrollbar */

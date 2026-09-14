@@ -68,15 +68,11 @@ export function Header() {
       className="border-border bg-bg-primary/80 sticky top-0 z-40 max-w-3xl border-b px-4 backdrop-blur-sm select-none sm:px-6"
     >
       <div className="flex items-center justify-between py-2 sm:py-2.5">
-        <Link href="/" passHref className="no-underline" onClick={handleTitleClick}>
-          <div>
-            <TitleTag className="text-text-primary text-sm font-semibold sm:text-base">
-              {siteConfig.name}
-            </TitleTag>
-            <p className="text-text-tertiary hidden text-xs leading-tight sm:block">
-              {siteConfig.tagline.replace(/[\.。~=!～!]$/, '')}
-            </p>
-          </div>
+        <Link href="/" passHref onClick={handleTitleClick}>
+          <TitleTag className="text-sm font-semibold sm:text-base">{siteConfig.name}</TitleTag>
+          <p className="text-text-secondary hidden text-xs leading-tight sm:block">
+            {siteConfig.tagline.replace(/[\.。~=!～!]$/, '')}
+          </p>
         </Link>
 
         <nav
@@ -84,21 +80,11 @@ export function Header() {
           aria-label="主导航"
           className="flex items-center gap-2 text-xs sm:gap-4 sm:text-sm"
         >
-          <Link
-            href={pages.posts.slug}
-            className={cn(
-              'text-text-primary',
-            )}
-          >
+          <Link href={pages.posts.slug} className="link">
             {pages.posts.title}
           </Link>
 
-          <Link
-            href={pages.thoughts.slug}
-            className={cn(
-              'text-text-primary',
-            )}
-          >
+          <Link href={pages.thoughts.slug} className="link">
             {pages.thoughts.title}
           </Link>
 
@@ -134,9 +120,7 @@ export function Header() {
                   }, 150)
                 }
               }}
-              className={cn(
-                'group/btn text-text-primary',
-              )}
+              className={cn('group/btn text-text-primary')}
               aria-expanded={isMoreOpen}
               aria-haspopup="true"
             >
@@ -145,14 +129,11 @@ export function Header() {
               </span>
             </button>
             {isMoreOpen && (
-              <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
+              <div className="font-medium bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
                 <Link
                   key={pages.mioSays.slug}
                   href={pages.mioSays.slug}
-                  className={cn(
-                    'text-text-primary',
-                    'block px-4 py-2',
-                  )}
+                  className={cn('hover:bg-bg-quaternary block px-4 py-2')}
                   onClick={() => setIsMoreOpen(false)}
                 >
                   {pages.mioSays.title}
@@ -163,10 +144,7 @@ export function Header() {
                     <Link
                       key={page.slug}
                       href={page.slug}
-                      className={cn(
-                        'text-text-primary',
-                        'block px-4 py-2',
-                      )}
+                      className={cn('hover:bg-bg-quaternary block px-4 py-2')}
                       onClick={() => {
                         setIsMoreOpen(false)
                       }}
@@ -178,10 +156,7 @@ export function Header() {
                 <Link
                   key={pages.about.slug}
                   href={pages.about.slug}
-                  className={cn(
-                    'text-text-primary',
-                    'block px-4 py-2',
-                  )}
+                  className={cn('hover:bg-bg-quaternary block px-4 py-2')}
                   onClick={() => setIsMoreOpen(false)}
                 >
                   {pages.about.title}
@@ -191,10 +166,7 @@ export function Header() {
 
                 <Link
                   href={pages.friends.slug}
-                  className={cn(
-                    'text-text-primary',
-                    'block px-4 py-2',
-                  )}
+                  className={cn('hover:bg-bg-quaternary block px-4 py-2')}
                   onClick={() => setIsMoreOpen(false)}
                 >
                   {pages.friends.title}
@@ -202,10 +174,7 @@ export function Header() {
 
                 <a
                   href={pages.messages.slug}
-                  className={cn(
-                    'text-text-primary',
-                    'block px-4 py-2',
-                  )}
+                  className={cn('hover:bg-bg-quaternary block px-4 py-2')}
                   onClick={() => setIsMoreOpen(false)}
                 >
                   {pages.messages.title}
@@ -213,10 +182,7 @@ export function Header() {
 
                 <a
                   href={pages.reading.slug}
-                  className={cn(
-                    'text-text-primary',
-                    'block px-4 py-2',
-                  )}
+                  className={cn('hover:bg-bg-quaternary block px-4 py-2')}
                   onClick={() => setIsMoreOpen(false)}
                 >
                   {pages.reading.title}
@@ -227,10 +193,7 @@ export function Header() {
                   <a
                     href={siteConfig.author.github}
                     target="_blank"
-                    className={cn(
-                      'text-text-primary',
-                      'block px-4 py-2',
-                    )}
+                    className={cn('hover:bg-bg-quaternary block px-4 py-2')}
                     onClick={() => setIsMoreOpen(false)}
                   >
                     GitHub
@@ -239,10 +202,7 @@ export function Header() {
                   <a
                     href={siteConfig.links.rss}
                     target="_blank"
-                    className={cn(
-                      'text-text-primary',
-                      'block px-4 py-2',
-                    )}
+                    className={cn('hover:bg-bg-quaternary block px-4 py-2')}
                     onClick={() => setIsMoreOpen(false)}
                   >
                     RSS
@@ -251,10 +211,7 @@ export function Header() {
                   <a
                     href={siteConfig.links.travellings}
                     target="_blank"
-                    className={cn(
-                      'text-text-primary',
-                      'block px-4 py-2',
-                    )}
+                    className={cn('hover:bg-bg-quaternary block px-4 py-2')}
                     onClick={() => setIsMoreOpen(false)}
                   >
                     开往 · 友链接力

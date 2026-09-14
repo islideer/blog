@@ -42,7 +42,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
             {/* 年份标题 */}
             <h2 className="text-text-primary text-xl font-bold sm:text-2xl" id={`year-${year}`}>
               <span>{year}</span>
-              <span className="text-text-tertiary/60 mx-1">/</span>
+              <span className="text-text-tertiary mx-1">/</span>
               <span className="text-text-tertiary">{YEAR_DESC_MAP.get(year)}</span>
               <span className="text-text-tertiary mx-1 text-base font-normal sm:text-lg">
                 ({yearItems.length.toLocaleString('zh-Hans-CN')})
@@ -50,7 +50,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
             </h2>
 
             {/* 时间轴内容 */}
-            <div className="border-border-tertiary divide-border divide-y border-l-2 pl-2 sm:pl-4">
+            <div className="border-border-secondary divide-border divide-y border-l-2 pl-2 sm:pl-4">
               {sortedItems.map((item, index) => {
                 // 支持模糊时间格式
                 const date = dayjs(item.date)
@@ -83,7 +83,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
                     {formattedDate && (
                       <time
                         className={cn(
-                          'text-text-tertiary shrink-0 text-xs',
+                          'text-text-secondary shrink-0 text-xs',
                           hasDay ? 'sm:w-16' : 'sm:w-8',
                         )}
                       >
@@ -92,7 +92,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
                     )}
                     <MarkdownLite
                       size="sm"
-                      className="text-text-secondary! text-xs leading-5 sm:leading-6"
+                      className="text-xs leading-5 sm:leading-6"
                       content={item.description}
                     />
                   </article>

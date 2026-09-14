@@ -1,5 +1,10 @@
 /* Default Light Mode */
 :root {
+  /* 浏览器默认强调色 */
+  --accent-color: #0075ff;
+  /* 目前 AccentColor 值为常数，待后续更新 */
+  /* --accent-color: AccentColor; */
+
   /* Base Backgrounds */
   --color-bg-primary: oklch(0.99 0 0); /* Pure/Near White */
   --color-bg-secondary: oklch(0.96 0 0); /* Very Light Gray */
@@ -8,8 +13,8 @@
 
   /* Text Colors */
   --color-text-primary: oklch(0.2 0 0); /* Near Black - High Contrast */
-  --color-text-secondary: oklch(0.4 0 0); /* Dark Gray - Medium Contrast */
-  --color-text-tertiary: oklch(0.6 0 0); /* Light Gray - Low Contrast */
+  --color-text-secondary: oklch(0.48 0 0); /* Dark Gray - Medium Contrast */
+  --color-text-tertiary: oklch(0.64 0 0); /* Light Gray - Low Contrast */
   --color-text-quaternary: oklch(0.75 0 0); /* Very Light Gray - Subtle */
 
   /* Borders */
@@ -43,7 +48,7 @@
   --color-steam-online: oklch(0.7 0.12 220);
 
   /* Thoughts - Blue Theme */
-  --color-viki-blue: oklch(0.6 0.18 240);
+  --color-viki-blue: var(--accent-color);
   --color-viki-blue-muted: oklch(0.96 0.02 240);
   --color-viki-border: oklch(0.9 0.05 240);
   --color-viki-bg: oklch(0.99 0.01 240);
@@ -52,8 +57,8 @@
 /* Dark Mode */
 :root.dark {
   /* Base Backgrounds */
-  --color-bg-primary: oklch(0.1 0 0); /* Deep Dark */
-  --color-bg-secondary: oklch(0.18 0 0); /* Dark Gray */
+  --color-bg-primary: oklch(0.16 0 0); /* Deep Dark */
+  --color-bg-secondary: oklch(0.20 0 0); /* Dark Gray */
   --color-bg-tertiary: oklch(0.24 0 0); /* Medium Dark */
   --color-bg-quaternary: oklch(0.3 0 0); /* Lighter Dark */
 
@@ -94,7 +99,7 @@
   --color-steam-online: oklch(0.78 0.1 220);
 
   /* Thoughts - Blue Theme (Dark) */
-  --color-viki-blue: oklch(0.7 0.16 240);
+  --color-viki-blue: var(--accent-color);
   --color-viki-blue-muted: oklch(0.2 0.05 240);
   --color-viki-border: oklch(0.25 0.08 240);
   --color-viki-bg: oklch(0.14 0.02 240);

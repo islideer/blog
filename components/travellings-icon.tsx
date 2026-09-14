@@ -14,7 +14,7 @@ export function TravellingsIcon({ href, className }: TravellingsIconProps) {
       href={href}
       tooltip="开往 · 友链接力"
       icon={
-        <TravellingsIconBase className="text-text-secondary h-4 w-4 transition-transform group-active:scale-90 sm:h-4.5 sm:w-4.5" />
+        <TravellingsIconBase className="text-text-primary h-4 w-4 transition-transform group-active:scale-90 sm:h-4.5 sm:w-4.5" />
       }
       className={className}
     />

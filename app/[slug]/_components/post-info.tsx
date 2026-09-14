@@ -36,15 +36,15 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
     <div className="space-y-2 truncate py-1 text-xs">
       {/* 标题 */}
       <div className="flex items-center gap-1 truncate sm:gap-2">
-        <span className="text-text-tertiary shrink-0">标题</span>
-        <span className="text-text-tertiary shrink-0">·</span>
+        <span className="text-text-secondary shrink-0">标题</span>
+        <span className="text-text-secondary shrink-0">·</span>
         <div className="flex min-w-0 flex-1 items-center gap-1 truncate sm:gap-2">
           <span className="text-text-secondary min-w-0 truncate wrap-break-word">
             {displayTitle}
           </span>
           <button
             onClick={handleCopyTitle}
-            className="group/btn text-text-tertiary hover:text-text-primary shrink-0 transition-colors"
+            className="group/btn text-text-secondary hover:text-text-primary shrink-0 transition-colors"
             aria-label={copiedTitle ? '已复制' : '复制标题'}
           >
             {copiedTitle ? (
@@ -58,15 +58,15 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
 
       {/* 链接 */}
       <div className="flex items-center gap-1 sm:gap-2">
-        <span className="text-text-tertiary shrink-0">链接</span>
-        <span className="text-text-tertiary shrink-0">·</span>
+        <span className="text-text-secondary shrink-0">链接</span>
+        <span className="text-text-secondary shrink-0">·</span>
         <div className="flex min-w-0 flex-1 items-center gap-1 sm:gap-2">
           <code className="text-text-secondary min-w-0 truncate font-mono text-[11px] break-all">
             {url}
           </code>
           <button
             onClick={handleCopyUrl}
-            className="group/btn text-text-tertiary hover:text-text-primary shrink-0"
+            className="group/btn text-text-secondary hover:text-text-primary shrink-0"
             aria-label={copiedUrl ? '已复制' : '复制链接'}
           >
             {copiedUrl ? (
@@ -80,15 +80,15 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
 
       {/* 协议 */}
       <div className="flex items-center gap-1 sm:gap-2">
-        <span className="text-text-tertiary shrink-0">版权</span>
-        <span className="text-text-tertiary shrink-0">·</span>
+        <span className="text-text-secondary shrink-0">版权</span>
+        <span className="text-text-secondary shrink-0">·</span>
         <span className="text-text-secondary flex-1">
           文章以
           <a
             href={siteConfig.copyright.license.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-text-primary mx-1"
+            className="text-text-primary mx-1"
           >
             {siteConfig.copyright.license.name}
           </a>

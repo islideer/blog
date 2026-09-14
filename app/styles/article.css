@@ -72,19 +72,6 @@
    Custom Elements & Overrides
    ============================================ */
 
-/* Links */
-.prose a:not(.no-underline) {
-  text-decoration: underline dashed;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
-  font-weight: 400;
-}
-
-.prose a:not(.no-underline):hover {
-  text-decoration-style: solid;
-  color: var(--color-text-primary);
-}
-
 /* Headings */
 .prose h1,
 .prose h2,
@@ -104,12 +91,11 @@
 
 /* Heading Anchors */
 .prose .heading-anchor {
-  padding-left: 0.48em;
-  opacity: 0;
-  color: var(--color-text-tertiary);
+  display: none;
+  padding-left: 0.36em;
+  color: var(--accent-color);
   user-select: none;
   text-decoration: none;
-  transition: opacity var(--duration-fast) ease;
 }
 
 .prose h1:hover .heading-anchor,
@@ -117,11 +103,7 @@
 .prose h3:hover .heading-anchor,
 .prose h4:hover .heading-anchor,
 .prose h5:hover .heading-anchor {
-  opacity: 1;
-}
-.prose .heading-anchor:not(.no-underline):hover {
-  text-decoration: underline;
-  color: var(--color-text-primary);
+  display: inline;
 }
 
 /* Images */
@@ -581,12 +563,16 @@ figure[data-rehype-pretty-code-figure]:hover .code-copy-btn {
   margin: 0;
 }
 
+.prose a:has(.image-caption) {
+  text-decoration: none;
+}
+
 .prose .image-caption {
   display: block;
   width: 100%;
   text-align: center;
   font-size: var(--font-size-sm);
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
   margin-top: 0.8em;
   font-style: italic;
 

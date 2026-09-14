@@ -121,7 +121,7 @@ export default async function FriendsPage() {
             <div className="text-text-secondary space-y-4 text-sm">
               <div>
                 本博客支持以下字段，仅名称和地址必须。如需交换，请在
-                <a href="/messages" className="mx-1">
+                <a href="/messages" className="link mx-1">
                   话匣子
                 </a>
                 页面使用「友链模版」编辑后留言。

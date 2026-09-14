@@ -5,26 +5,29 @@ import { siteConfig } from '@/lib/config'
 
 function CopyrightText() {
   return (
-    <span className="text-text-secondary">
-      © {siteConfig.copyright.year.start}-{siteConfig.copyright.year.end} {siteConfig.author.name}.
-      All rights reserved.
+    <span className="text-text-secondary inline-flex gap-1">
+      <span>
+        © {siteConfig.copyright.year.start}-{siteConfig.copyright.year.end}
+      </span>
+      <span>{siteConfig.author.name}</span>
+      <span>保留所有权利。</span>
     </span>
   )
 }
 
-export function LicenseText({ className, short }: { className?: string; short?: boolean }) {
+export function LicenseText({ className }: { className?: string }) {
   return (
-    <span className={cn('text-text-tertiary', className)}>
-      {short ? '文章以' : '除特殊说明外，文章均以'}
+    <span className={cn('text-text-secondary', className)}>
+      除特殊说明外，所有文章均以
       <a
         href={siteConfig.copyright.license.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-text-primary mx-1"
+        className="link mx-1 font-medium"
       >
         {siteConfig.copyright.license.name}
       </a>
-      协议共享，转载请注明出处。
+      协议共享，转载请注明原文出处。
     </span>
   )
 }
@@ -36,7 +39,7 @@ function SocialLinks({ className }: { className?: string }) {
         href={siteConfig.author.github}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-text-primary"
+        className="link"
         title="访问 GitHub 主页"
       >
         GitHub
@@ -45,7 +48,7 @@ function SocialLinks({ className }: { className?: string }) {
         href={siteConfig.links.rss}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-text-primary"
+        className="link"
         title="RSS"
       >
         RSS
@@ -54,7 +57,7 @@ function SocialLinks({ className }: { className?: string }) {
         href={siteConfig.links.travellings}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-text-primary"
+        className="link"
         title="开往，友链接力"
       >
         开往 · 友链接力
@@ -65,8 +68,8 @@ function SocialLinks({ className }: { className?: string }) {
 
 function Tagline() {
   return (
-    <div className="text-text-secondary flex items-center gap-2">
-      <Link passHref href="/">
+    <div className="flex items-center gap-2">
+      <Link passHref href="/" className="link">
         <Image
           className="round-cobblestone inline-block rounded-full align-middle"
           src="/avatar.png"
@@ -84,24 +87,12 @@ export function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="border-border max-w-3xl border-t px-4 transition-opacity sm:px-6"
+      className="border-border-secondary max-w-3xl border-t p-4 transition-opacity sm:px-6"
     >
-      <div className="mx-auto w-full max-w-3xl pt-4 pb-16 sm:pt-6 sm:pb-20">
-        {/* 移动端布局 */}
-        <div className="flex flex-col gap-4 py-2 text-sm sm:hidden">
-          <Tagline />
-          <LicenseText short />
-          <CopyrightText />
-        </div>
-
-        {/* 桌面端布局 */}
-        <div className="hidden sm:block">
-          <div className="flex flex-col gap-3 text-left text-xs">
-            <Tagline />
-            <LicenseText />
-            <CopyrightText />
-          </div>
-        </div>
+      <div className="flex flex-col gap-3 text-left text-sm">
+        <Tagline />
+        <LicenseText />
+        <CopyrightText />
       </div>
     </footer>
   )

@@ -125,7 +125,10 @@ export default async function ThoughtPage({ params }: { params: Promise<{ id: st
           </p>
         </section>
 
-        <section>
+        <section
+          // @ts-expect-error for custom css var
+          style={{ '--accent-color': 'var(--color-mio-pink)' }}
+        >
           <article id={mioSay.id} className="thought-card space-y-2 pb-4 sm:pb-6">
             {/* 文本内容 */}
             {mioSay.content && mioSay.content.trim() !== '' && (

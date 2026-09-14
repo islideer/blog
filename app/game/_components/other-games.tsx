@@ -76,12 +76,12 @@ export function OtherGames({ id }: { id?: string }) {
             {(game.description || (game.achievements && game.achievements.length > 0)) && (
               <div className="bg-bg-secondary/50 flex flex-col gap-2 p-3 backdrop-blur-sm">
                 {game.description && (
-                  <p className="text-text-tertiary line-clamp-2 text-xs">{game.description}</p>
+                  <p className="text-text-secondary line-clamp-2 text-xs">{game.description}</p>
                 )}
 
                 {/* 成就列表 */}
                 {game.achievements && game.achievements.length > 0 && (
-                  <ul className="text-text-tertiary list-inside list-disc text-xs">
+                  <ul className="text-text-secondary list-inside list-disc text-xs">
                     {game.achievements.map((achievement, index) => (
                       <li key={index}>{achievement}</li>
                     ))}

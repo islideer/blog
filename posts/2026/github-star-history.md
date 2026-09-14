@@ -15,7 +15,7 @@ tags:
 
 有人用了，Star 自然也就开始一点一点地涨起来。对于开源社区来说，项目的星星（Star）数量很大程度上体现了该项目的受欢迎程度。为了能够比较直观地看到数量变化，加上平时不少逛 GitHub 社区，就看到很多项目用了 [Star History](https://www.star-history.com) 提供的免费 Star 历史图表，就像下面这样。
 
-[![原神助手星星历史（新仓库数据，旧仓库被误封）](https://api.star-history.com/chart?repos=vikiboss/gs-helper&type=date&legend=top-left)](https://www.star-history.com/?repos=vikiboss%2Fgs-helper&type=date&legend=top-left)
+![原神助手星星历史（新仓库数据，旧仓库被误封）](https://api.star-history.com/chart?repos=vikiboss/gs-helper&type=date&legend=top-left)
 
 接入很简单，只要在 README.md 里用图片语法插入项目的星星图链接就行，比如下面这样。
 

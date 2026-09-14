@@ -84,7 +84,7 @@ export function ReadingComments({ comments }: ReadingCommentsProps) {
     <section>
       <h2 className="mb-8 text-lg font-medium sm:text-2xl">
         读者评论
-        <span className="text-text-tertiary ml-2 font-normal sm:text-lg">
+        <span className="text-text-secondary ml-2 font-normal sm:text-lg">
           （共 {comments.length} 条）
         </span>
       </h2>
