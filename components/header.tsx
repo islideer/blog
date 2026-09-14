@@ -78,7 +78,7 @@ export function Header() {
         <nav
           role="navigation"
           aria-label="主导航"
-          className="flex items-center gap-2 text-xs sm:gap-4 sm:text-sm"
+          className="flex items-center gap-2 text-sm sm:gap-4 sm:text-base"
         >
           <Link href={pages.posts.slug} className="link">
             {pages.posts.title}
@@ -120,7 +120,7 @@ export function Header() {
                   }, 150)
                 }
               }}
-              className={cn('group/btn text-text-primary')}
+              className={cn('group/btn text-text-primary font-medium')}
               aria-expanded={isMoreOpen}
               aria-haspopup="true"
             >

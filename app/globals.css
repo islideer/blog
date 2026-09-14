@@ -59,12 +59,12 @@ a.link[target='_blank'] {
     font-size: 0.875em;
     margin-left: 0.25em;
     will-change: transform;
-    transform: translateX(0px) translateY(-2px);
+    transform: translateX(0) translateY(-0.1em);
     transition: transform ease-in-out 0.12s;
   }
 
   &:hover::after {
-    transform: translateX(2px) translateY(-4px);
+    transform: translateX(0.1em) translateY(-0.2em);
   }
 }
 

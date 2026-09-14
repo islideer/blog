@@ -10,12 +10,12 @@
     ]
   },
   "contact": {
-    "title": "联系 / Contact",
+    "title": "找到我 / Contact",
     "list": [
       { "label": "hi@viki.moe", "url": "mailto:hi@viki.moe" },
       { "label": "GitHub", "url": "https://github.com/vikiboss" },
       { "label": "RSS", "url": "/rss" },
-      { "label": "碎碎念 RSS", "url": "/thoughts/rss" }
+      { "label": "碎碎念", "url": "/thoughts/rss" }
     ]
   },
   "openSource": {
