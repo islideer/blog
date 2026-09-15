@@ -3,7 +3,6 @@ title: '[译] 2026 年 JavaScript 与前端生态综述'
 date: 2026-05-12
 topic: '前端'
 excerpt: '盘点前端生态中值得关注的内容，涵盖 ES 新特性、框架、运行时、构建工具、TypeScript 等。'
-top_image: 'https://image.viki.moe/blog/907f2a.png'
 tags:
   - 'JavaScript'
   - '前端'
