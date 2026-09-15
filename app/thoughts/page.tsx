@@ -123,7 +123,7 @@ export default async function ThoughtsPage() {
               type="thoughts"
               initialItems={initialItems}
               initialHasMore={initialHasMore}
-              emptyMessage="还没有碎碎念，快来记录吧"
+              emptyMessage="还没有碎碎念"
               contentPrefix="碎碎念"
             />
           </div>

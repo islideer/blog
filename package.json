@@ -6,6 +6,8 @@
   "packageManager": "pnpm@11.22.0",
   "scripts": {
     "generate:llms-txt": "node scripts/generate-llms-txt.mts",
+    "download:resources": "node scripts/download-viki-resources.mts",
+    "download:data-resources": "node scripts/download-data-resources.mts",
     "dev": "pnpm run generate:llms-txt && bun --bun next dev",
     "build": "pnpm run generate:llms-txt && next build",
     "analyze": "ANALYZE=true pnpm build",

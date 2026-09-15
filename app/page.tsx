@@ -70,10 +70,7 @@ export default async function BlogPage() {
           <>
             <div className="border-border-secondary border-t" />
             <div className="py-12 text-center">
-              <p className="text-text-primary mb-4 text-xl">暂无文章</p>
-              <p className="text-text-secondary">
-                请在 <code>posts</code> 目录添加 Markdown 文件
-              </p>
+              <p className="text-text-secondary mb-4">暂无文章</p>
             </div>
           </>
         )}

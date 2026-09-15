@@ -46,6 +46,7 @@ next-env.d.ts
 # generated
 public/search-index.json
 public/llms.txt
+/temp/
 
 scripts/demo.*
 scripts/imgs.*

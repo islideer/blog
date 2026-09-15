@@ -149,6 +149,12 @@ pnpm type-check
 # 代码格式化
 pnpm format
 
+# 下载文章中 file.viki.moe 和 image.viki.moe 的资源到 temp/
+pnpm download:resources
+
+# 下载 data/ 中 JSON 涉及的资源到 temp/
+pnpm download:data-resources
+
 # 打包分析
 pnpm analyze
 ```

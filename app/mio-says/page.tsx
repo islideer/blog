@@ -135,7 +135,7 @@ export default async function MioSaysPage() {
               initialItems={initialItems}
               initialHasMore={initialHasMore}
               mioTheme
-              emptyMessage={`${siteConfig.lover.name} 还没有说什么，敬请期待`}
+              emptyMessage={`${siteConfig.lover.name} 还没有说什么`}
               contentPrefix={`${siteConfig.lover.name} 说`}
             />
           </div>
