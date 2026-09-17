@@ -1,12 +1,11 @@
-import { AboutContact } from './_components/contact'
-import { AboutIntro } from './_components/intro'
-import { AboutOpenSource } from './_components/open-source'
-import { AboutTechStack } from './_components/tech-stack'
-import { about } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
-import { pages } from '@/lib/data'
+import { AboutIntro } from './_components/intro'
+import { about, pages } from '@/lib/data'
+import { AboutContact } from './_components/contact'
+import { AboutTechStack } from './_components/tech-stack'
+import { AboutOpenSource } from './_components/open-source'
+import { StaticTableOfContents, type StaticTocItem } from '@/components/table-of-contents'
 import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
-import { StaticTableOfContents } from '@/components/table-of-contents'
 
 import type { Metadata } from 'next'
 
@@ -65,28 +64,42 @@ export default function AboutPage() {
         }}
       />
       <StaticTableOfContents
-        items={[
-          { id: 'intro', title: about.intro.title },
-          { id: 'contact', title: about.contact.title },
-          { id: 'open-source', title: about.openSource.title },
-          { id: 'tech-stack', title: about.techStack.title },
-        ]}
+        items={
+          [
+            about.intro && { id: 'intro', title: about.intro.title },
+            about.contact && { id: 'contact', title: about.contact.title },
+            about.openSource && { id: 'open-source', title: about.openSource.title },
+            about.techStack && { id: 'tech-stack', title: about.techStack.title },
+          ].filter(Boolean) as StaticTocItem[]
+        }
       />
 
       <div className="space-y-12 py-8 sm:py-12">
-        <AboutIntro id="intro" title={about.intro.title} paragraphs={about.intro.aboutParagraphs} />
-        <AboutContact id="contact" title={about.contact.title} links={about.contact.list} />
-        <AboutOpenSource
-          id="open-source"
-          title={about.openSource.title}
-          data={about.openSource.data}
-          moreLink={about.openSource.moreLink}
-        />
-        <AboutTechStack
-          id="tech-stack"
-          title={about.techStack.title}
-          techStacks={about.techStack.data}
-        />
+        {about.intro && (
+          <AboutIntro
+            id="intro"
+            title={about.intro.title}
+            paragraphs={about.intro.aboutParagraphs}
+          />
+        )}
+        {about.contact && (
+          <AboutContact id="contact" title={about.contact.title} links={about.contact.list} />
+        )}
+        {about.openSource && (
+          <AboutOpenSource
+            id="open-source"
+            title={about.openSource.title}
+            data={about.openSource.data}
+            moreLink={about.openSource.moreLink}
+          />
+        )}
+        {about.techStack && (
+          <AboutTechStack
+            id="tech-stack"
+            title={about.techStack.title}
+            techStacks={about.techStack.data}
+          />
+        )}
       </div>
     </>
   )

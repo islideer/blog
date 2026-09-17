@@ -13,6 +13,7 @@ import { TravellingsIcon } from './travellings-icon'
 import { SearchTrigger } from './search/search-trigger'
 import { toast } from 'sonner'
 import { printEasterEgg } from '@/lib/easter-egg'
+import { TriangleDownIcon } from '@/icons/triangle-down'
 
 const SECRET_PAGES = [pages.library, pages.game, pages.timeline] as const
 
@@ -23,8 +24,6 @@ const EASTER_EGG_KEY = 'easter-egg-unlocked'
 export function Header() {
   const pathname = usePathname()
   const isHome = pathname === '/'
-  const isPosts = pathname === '/posts'
-  const isThoughts = pathname === '/thoughts'
   const TitleTag = isHome ? 'h1' : 'div'
   const [isMoreOpen, setIsMoreOpen] = useState(false)
   const [showSecret, setShowSecret] = useState(false)
@@ -69,7 +68,7 @@ export function Header() {
       role="banner"
       className="border-border bg-bg-primary/80 sticky top-0 z-40 max-w-3xl border-b px-4 backdrop-blur-sm select-none sm:px-6"
     >
-      <div className="flex items-center justify-between py-2 sm:py-2.5">
+      <div className="flex items-center justify-between py-1 sm:py-2">
         <Link href="/" passHref onClick={handleTitleClick}>
           <TitleTag className="text-sm font-semibold sm:text-base">{siteConfig.name}</TitleTag>
           <p className="text-text-secondary hidden text-xs leading-tight sm:block">
@@ -80,13 +79,12 @@ export function Header() {
         <nav
           role="navigation"
           aria-label="主导航"
-          className="flex items-center gap-2 text-sm sm:text-base"
+          className="flex items-center text-sm sm:text-base"
         >
           <Link
             href={pages.posts.slug}
             className={cn(
-              'active:bg-bg-secondary rounded-sm px-2 py-1 font-medium',
-              isPosts ? 'bg-bg-tertiary' : 'sm:hover:bg-bg-tertiary',
+              'active:bg-bg-secondary sm:hover:bg-bg-tertiary rounded px-1.5 py-0.5 font-medium',
             )}
           >
             {pages.posts.title}
@@ -95,8 +93,7 @@ export function Header() {
           <Link
             href={pages.thoughts.slug}
             className={cn(
-              'active:bg-bg-secondary rounded-sm px-2 py-1 font-medium',
-              isThoughts ? 'bg-bg-tertiary' : 'sm:hover:bg-bg-tertiary',
+              'active:bg-bg-secondary sm:hover:bg-bg-tertiary rounded px-1.5 py-0.5 font-medium',
             )}
           >
             {pages.thoughts.title}
@@ -138,8 +135,9 @@ export function Header() {
               aria-expanded={isMoreOpen}
               aria-haspopup="true"
             >
-              <span className="inline-block transition-transform group-active/btn:scale-90">
-                更多 ▾
+              <span className="inline-flex items-center transition-transform group-active/btn:scale-90">
+                更多
+                <TriangleDownIcon className='size-4' />
               </span>
             </button>
             {isMoreOpen && (

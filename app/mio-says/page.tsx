@@ -1,12 +1,13 @@
 import Image from 'next/image'
-import { pages, mioSays } from '@/lib/data'
+import { Tooltip } from '@/components/tooltip'
+import { RSSIcon } from '@/icons/rss'
 import { BackToTop } from '@/components/back-to-top'
 import { countWords } from '@/lib/word-count'
 import { siteConfig } from '@/lib/config'
+import { pages, mioSays } from '@/lib/data'
+import { getThoughtsPage } from '@/actions/thoughts'
 import { ThoughtsPageContent } from '@/components/thoughts-page-content'
 import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
-import { getThoughtsPage } from '@/actions/thoughts'
-import { RSSIcon } from '@/icons/rss'
 
 import type { Metadata } from 'next'
 
@@ -98,18 +99,20 @@ export default async function MioSaysPage() {
               <h1 className="text-mio-pink text-3xl font-bold sm:text-4xl">
                 {pages.mioSays.title}
               </h1>
-              <a
-                href="/mio-says/rss"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-2.5 py-1.5 text-xstransition-colors"
-                aria-label="RSS"
-              >
-                <span className="inline-flex items-center gap-1.5 transition-transform group-active/btn:scale-90">
-                  <RSSIcon className="h-3.5 w-3.5" />
-                  RSS
-                </span>
-              </a>
+              <Tooltip content="订阅 RSS">
+                <a
+                  href="/mio-says/rss"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded px-1 text-sm transition-colors"
+                  aria-label="RSS"
+                >
+                  <span className="inline-flex items-center gap-1 transition-transform group-active/btn:scale-90">
+                    <RSSIcon className="h-3.5 w-3.5" />
+                    RSS
+                  </span>
+                </a>
+              </Tooltip>
             </div>
             <p className="text-text-secondary">
               {`${pages.mioSays.description}，共 ${sortedMioSays.length.toLocaleString('zh-Hans-CN')} 条内容，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}

@@ -26,7 +26,7 @@ export async function RecentPosts({ posts, totalCount, showMoreThreshold }: Rece
   return (
     <section className="space-y-4 sm:space-y-6">
       <h2 className="text-xl font-semibold">最近文章</h2>
-      <div className="space-y-3">
+      <div className="space-y-6">
         <div className="divide-border space-y-6">
           {posts.map((post) => (
             <article className="space-y-2" key={post.slug}>
@@ -68,8 +68,8 @@ export async function RecentPosts({ posts, totalCount, showMoreThreshold }: Rece
 
         {/* 查看全部链接 */}
         {totalCount > showMoreThreshold && (
-          <Link href={pages.posts.slug} className="link text-xl">
-            ...
+          <Link href={pages.posts.slug} className="link">
+            探索更多（{totalCount}）
           </Link>
         )}
       </div>

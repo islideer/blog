@@ -68,7 +68,7 @@ function ThoughtCardClient({
       </div>
 
       {thought.html && (
-        <div className="prose prose-sm" dangerouslySetInnerHTML={{ __html: thought.html }} />
+        <div className="prose" dangerouslySetInnerHTML={{ __html: thought.html }} />
       )}
 
       {thought.images && thought.images.length > 0 && (

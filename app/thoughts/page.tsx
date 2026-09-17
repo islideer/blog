@@ -1,11 +1,12 @@
-import { pages, thoughts } from '@/lib/data'
+import { RSSIcon } from '@/icons/rss'
+import { Tooltip } from '@/components/tooltip'
 import { BackToTop } from '@/components/back-to-top'
 import { siteConfig } from '@/lib/config'
 import { countWords } from '@/lib/word-count'
+import { pages, thoughts } from '@/lib/data'
 import { ThoughtsPageContent } from '@/components/thoughts-page-content'
 import { generateCanonicalUrl, generateBreadcrumbSchema, generateWebPageSchema } from '@/lib/seo'
 import { getThoughtsPage } from '@/actions/thoughts'
-import { RSSIcon } from '@/icons/rss'
 
 import type { Metadata } from 'next'
 
@@ -98,18 +99,20 @@ export default async function ThoughtsPage() {
         <section className="space-y-3">
           <div className="flex items-baseline gap-2">
             <h1 className="text-3xl font-bold sm:text-4xl">{pages.thoughts.title}</h1>
-            <a
-              href="/thoughts/rss"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded-md px-2.5 py-1.5 text-xstransition-colors"
-              aria-label="RSS"
-            >
-              <span className="inline-flex items-center gap-1.5 transition-transform group-active/btn:scale-90">
-                <RSSIcon className="h-3.5 w-3.5" />
-                RSS
-              </span>
-            </a>
+            <Tooltip content="订阅 RSS">
+              <a
+                href="/thoughts/rss"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/btn text-text-secondary sm:hover:bg-bg-secondary sm:hover:text-text-primary active:bg-bg-secondary active:text-text-primary inline-flex items-center justify-center rounded px-1 text-sm transition-colors"
+                aria-label="RSS"
+              >
+                <span className="inline-flex items-center gap-1 transition-transform group-active/btn:scale-90">
+                  <RSSIcon className="h-3.5 w-3.5" />
+                  RSS
+                </span>
+              </a>
+            </Tooltip>
           </div>
           <p className="text-text-secondary">
             {`${pages.thoughts.description}，共 ${sortedThoughts.length.toLocaleString('zh-Hans-CN')} 条内容，月均 ${averagePerMonth.toLocaleString('zh-Hans-CN')} 条，累计 ${totalWords.toLocaleString('zh-Hans-CN')} 字。`}

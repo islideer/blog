@@ -2,24 +2,25 @@
   "intro": {
     "title": "Viki",
     "paragraphs": [
-      "一名热爱生活的 Web 前端开发，热爱 Web 技术，相信开源的力量。喜欢通过代码把奇思妙想 [变成现实](/about#open-source)。没事就拷打 AI 帮我干活，享受编程带来的乐趣。你可以翻翻我写的 [文章](/posts) 和 [碎碎念](/thoughts)，也可以在 [关于](/about) 页面了解更多。欢迎和我 [交换友链](/friends)，有事可在 [话匣子](/messages) 留言。"
+      "一名热爱生活的 Web 前端开发，喜欢 [Web 技术](https://developer.mozilla.org/zh-CN/docs/Web)，相信开源的力量。乐于通过代码将奇思妙想 [变成现实](/about#open-source)。~~没事就鞭策 AI 帮我干活~~，享受编程带来的乐趣。紧跟 Web 技术前沿，常在 [文章](/posts) 和 [碎碎念](/thoughts) 页分享前沿技术和生活日常。你可以在 [关于](/about) 页找到更多信息。欢迎和我 [交换友链](/friends)，有事可在 [话匣子](/messages) 留言。"
     ],
     "aboutParagraphs": [
       "一名热爱生活的 Web 前端开发、开源践行者、影视/音乐爱好者、电子游戏玩家。",
-      "> 博客刻意隐藏了「私人内容」入口，如果有兴趣，欢迎到处找找看。"
+      "",
+      "没有更多了 :)"
     ]
   },
   "contact": {
-    "title": "找到我 / Contact",
+    "title": "联系",
     "list": [
-      { "label": "hi@viki.moe", "url": "mailto:hi@viki.moe" },
       { "label": "GitHub", "url": "https://github.com/vikiboss" },
+      { "label": "hi@viki.moe", "url": "mailto:hi@viki.moe" },
       { "label": "RSS", "url": "/rss" },
       { "label": "碎碎念", "url": "/thoughts/rss" }
     ]
   },
   "openSource": {
-    "title": "开源 / Open Source",
+    "title": "开源",
     "moreLink": "https://github.com/vikiboss?tab=repositories",
     "data": {
       "libraries": [
@@ -34,7 +35,7 @@
           "homepage": "https://mioki.viki.moe/",
           "url": "https://github.com/vikiboss/mioki",
           "description": "基于 NapCat 的 OneBot 框架，KiviBot 精神继任者",
-          "stars": "20+",
+          "stars": "23",
           "status": "active"
         },
         {
@@ -47,7 +48,7 @@
           "name": "@shined/react-use",
           "url": "https://github.com/sheinsight/react-use",
           "description": "SSR 友好的 React Hooks 库",
-          "stars": "60+",
+          "stars": "67",
           "status": "active",
           "homepage": "https://sheinsight.github.io/react-use/"
         },
@@ -55,7 +56,7 @@
           "name": "@shined/reactive",
           "url": "https://github.com/sheinsight/reactive",
           "description": "JavaScript 响应式状态管理库",
-          "stars": "20+",
+          "stars": "28",
           "status": "active",
           "homepage": "https://sheinsight.github.io/reactive/"
         },
@@ -72,13 +73,14 @@
           "name": "单 HTML 文件应用",
           "url": "https://github.com/vikiboss/single-html-app",
           "description": "基于自用单页应用 Skill 开发的单文件应用列表",
+          "stars": "7",
           "status": "active",
           "homepage": "https://html.viki.moe/"
         },
         {
           "name": "R2 Web",
           "url": "https://github.com/vikiboss/r2-web",
-          "stars": "460+",
+          "stars": "465",
           "description": "Cloudflare R2 Web 端，支持浏览、上传和管理",
           "status": "active",
           "homepage": "https://r2.viki.moe/"
@@ -87,6 +89,7 @@
           "name": "Major Winner",
           "url": "https://github.com/vikiboss/major-winner",
           "description": "主播/职业选手的 CS2 Major 竞猜结果 & 排行",
+          "stars": "15",
           "status": "active",
           "homepage": "https://major.viki.moe/"
         },
@@ -94,10 +97,11 @@
           "name": "Viki 写东西的地方",
           "url": "https://github.com/vikiboss/blog",
           "description": "本博客，基于 Next.js 与 Tailwind CSS",
+          "stars": "27",
           "status": "active"
         },
         {
-          "name": "Stardust（星尘）",
+          "name": "Stardust",
           "url": "https://github.com/vikiboss/stardust",
           "description": "写给 VRChat 玩家的 PC 端小工具（WIP），已退游",
           "status": "archived"
@@ -106,6 +110,7 @@
           "name": "React Online",
           "url": "https://github.com/vikiboss/react-online",
           "description": "React 在线编辑器，支持 ESM、TS 和 Tailwind CSS",
+          "stars": "9",
           "status": "active",
           "homepage": "https://dev.viki.moe/"
         },
@@ -113,6 +118,7 @@
           "name": "Guitar Studio",
           "url": "https://github.com/vikiboss/guitar-studio",
           "description": "多合一吉他工具：调音、和弦、节奏（WIP）",
+          "stars": "7",
           "status": "active",
           "homepage": "https://guitar.viki.moe/"
         },
@@ -125,8 +131,8 @@
         {
           "name": "原神助手",
           "url": "https://github.com/vikiboss/gs-helper",
-          "description": "原神 PC 端小工具：祈愿分析、便签状态和游戏数据",
-          "stars": "100+",
+          "description": "原神小工具，支持祈愿分析、便签状态和查数据",
+          "stars": "115",
           "status": "archived"
         },
         {
@@ -172,7 +178,7 @@
           "url": "https://github.com/vikiboss/deno-functions",
           "description": "实用的无服务函数，部署在 Deno Deploy",
           "stars": "20+",
-          "status": "active",
+          "status": "archived",
           "homepage": "https://viki.deno.dev/"
         },
         {
@@ -196,7 +202,7 @@
           "name": "booth-price-cny",
           "url": "https://github.com/vikiboss/booth-price-cny",
           "description": "显示 booth.pm 上日元商品的人民币价格",
-          "status": "active"
+          "status": "archived"
         },
         {
           "name": "star-rail-gacha-export",
@@ -208,91 +214,13 @@
           "name": "ncu-auto-login-script",
           "url": "https://github.com/vikiboss/ncu-auto-login-script",
           "description": "南昌大学（NCU）校园网自动登录脚本",
-          "status": "active"
+          "status": "archived"
         },
         {
           "name": "BaidupanPlaySpeedControl",
           "url": "https://github.com/vikiboss/BaidupanPlaySpeedControl",
-          "description": "[已失效] 百度网盘视频倍速播放脚本",
+          "description": "百度网盘视频倍速播放脚本",
           "status": "archived"
-        }
-      ]
-    }
-  },
-  "techStack": {
-    "title": "技术栈 / Tech Stack",
-    "data": {
-      "languages": [
-        {
-          "name": "TypeScript",
-          "description": "带有静态类型的 JavaScript 超集",
-          "link": "https://www.typescriptlang.org/"
-        }
-      ],
-      "frontend": [
-        {
-          "name": "React",
-          "description": "构建 Web 和原生用户界面的库",
-          "link": "https://react.dev/"
-        },
-        {
-          "name": "Next.js",
-          "description": "用于 Web 的 React 框架",
-          "link": "https://nextjs.org/"
-        },
-        {
-          "name": "Tailwind CSS",
-          "description": "实用优先的 CSS 框架",
-          "link": "https://tailwindcss.com/"
-        },
-        {
-          "name": "Vite",
-          "description": "用于 Web 的构建工具",
-          "link": "https://vite.dev/"
-        }
-      ],
-      "backend": [
-        {
-          "name": "Node.js",
-          "description": "开源免费且跨平台的 JavaScript 运行时",
-          "link": "https://nodejs.org/"
-        },
-        {
-          "name": "Bun",
-          "description": "快速全能的 JS/TS/JSX 运行时、工具包",
-          "link": "https://bun.sh/"
-        },
-        {
-          "name": "Hono",
-          "description": "超快、轻量的 Web 应用框架",
-          "link": "https://hono.dev/"
-        },
-        {
-          "name": "NestJS",
-          "description": "构建高效稳定服务的渐进式 Node.js 框架",
-          "link": "https://nestjs.com/"
-        },
-        {
-          "name": "Prisma ORM",
-          "description": "下一代 Node.js 和 TypeScript ORM",
-          "link": "https://www.prisma.io/orm"
-        },
-        {
-          "name": "Drizzle ORM",
-          "description": "有头的无头 TypeScript ORM",
-          "link": "https://orm.drizzle.team/"
-        }
-      ],
-      "crossPlatform": [
-        {
-          "name": "Electron",
-          "description": "使用 Web 技术构建桌面应用的框架",
-          "link": "https://www.electronjs.org/"
-        },
-        {
-          "name": "React Native",
-          "description": "使用 React 构建原生移动应用的框架",
-          "link": "https://reactnative.dev/"
         }
       ]
     }

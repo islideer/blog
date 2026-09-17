@@ -49,7 +49,7 @@ interface BaseMessageFormProps {
   rows?: number
 }
 
-function SubmitButton({ disabled, type }: { disabled: boolean; type: 'message' | 'reply' }) {
+function SubmitButton({ disabled, type }: { disabled?: boolean; type: 'message' | 'reply' }) {
   const { pending } = useFormStatus()
 
   return (
@@ -212,7 +212,7 @@ export function BaseMessageForm({
         {!isMessage && messageId && <input type="hidden" name="messageId" value={messageId} />}
 
         <div className="no-focus border-border mb-2 grid grid-cols-1 gap-1 border-b pb-2 sm:grid-cols-3 sm:gap-2">
-          {/* 名称（可选） */}
+          {/* 名称 */}
           <div className="flex items-center gap-2">
             <label
               htmlFor={`${type}-name`}
@@ -227,7 +227,8 @@ export function BaseMessageForm({
               value={formData.name}
               onChange={handleChange}
               maxLength={50}
-              placeholder={isMessage ? '可选，用于展示身份' : '可选'}
+              required
+              placeholder={isMessage ? '必填，用于展示身份' : '必填'}
               className="input flex-1 text-xs sm:text-sm"
             />
           </div>
@@ -293,11 +294,7 @@ export function BaseMessageForm({
           onChange={handleChange}
           maxLength={maxLength}
           rows={rows}
-          placeholder={
-            isMessage
-              ? '还在等什么？来都来了，键盘敲起。'
-              : `回复 @${repliedAuthor?.name || '留言作者'} ...`
-          }
+          placeholder={isMessage ? '来都来了，键盘敲起。（申请友链请使用友链模版）' : `回复留言...`}
           className="no-focus field-sizing-content min-h-24 w-full"
           required
         />

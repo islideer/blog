@@ -32,7 +32,7 @@ export async function RecentActivities({
     <section className="space-y-4 sm:space-y-6">
       <h2 className="text-xl font-semibold">{title}</h2>
 
-      <div className="space-y-2">
+      <div className="space-y-4">
         <div className="divide-border space-y-4">
           {shortPosts.map((thought) => {
             const hasImages = thought.images && thought.images.length > 0
@@ -70,8 +70,8 @@ export async function RecentActivities({
         </div>
         {/* 查看全部链接 */}
         {totalCount > showMoreThreshold && (
-          <Link href={isMioSay ? pages.mioSays.slug : pages.thoughts.slug} className="link text-xl">
-            ...
+          <Link href={isMioSay ? pages.mioSays.slug : pages.thoughts.slug} className="link">
+            探索更多（{totalCount}）
           </Link>
         )}
       </div>

@@ -51,7 +51,7 @@ function CommentItem({ comment }: CommentItemProps) {
           ref={(el) => {
             if (el && !isExpanded) checkOverflow(el)
           }}
-          className={`leading-relaxed opacity-90 ${!isExpanded ? 'line-clamp-3' : ''} whitespace-pre-wrap`}
+          className={`leading-relaxed opacity-90 ${!isExpanded ? 'line-clamp-10' : ''} whitespace-pre-wrap`}
         >
           {comment.content}
         </p>

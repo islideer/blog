@@ -2,17 +2,17 @@
   {
     "id": "222",
     "date": "2026-09-17T10:38:34+08:00",
-    "content": "antfu 佬的又一大作 https://devfra.me/"
+    "content": "antfu 佬的又一大作，这次准备统一 DevTools https://devfra.me"
   },
   {
     "id": "221",
     "date": "2026-09-17T10:31:57+08:00",
-    "content": "我不允许还有人没玩过这个 https://page-rage.com"
+    "content": "我不允许有人没玩过这个，摧毁任何网页的解压神器 https://page-rage.com"
   },
   {
     "id": "220",
     "date": "2026-09-17T10:20:01+08:00",
-    "content": "当你感觉 Agent 给你的 UI 很怪，但又不知道如何改的时候，不妨看看 https://www.ui-skills.com"
+    "content": "当 Agent 生成的 UI 总是不尽人意时，不妨看看 https://www.ui-skills.com"
   },
   {
     "id": "219",
@@ -22,7 +22,7 @@
   {
     "id": "218",
     "date": "2026-09-14T12:12:32+08:00",
-    "content": "后知后觉，[滚动吸附](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Scroll_snap)（Scroll Snap）是 CSS 本来就有的功能。常见于产品介绍页的「按页滚动」效果，其实就是通过这个功能实现的。\n\n```css\n.container {\n  scroll-snap-type: y mandatory;\n}\n```"
+    "content": "后知后觉，[滚动吸附](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Scroll_snap)（Scroll Snap）是 CSS 新版内置的功能。常见于产品介绍页的「按页滚动」效果，其实就是通过这个功能实现的。\n\n```css\n.container {\n  scroll-snap-type: y mandatory;\n}\n```"
   },
   {
     "id": "217",

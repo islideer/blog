@@ -60,7 +60,7 @@ API 版本化，就是让新旧版本长期共存。现有的用户可以继续�
 
 简而言之，**最好只在万不得已时才使用 API 版本化**。
 
-## API 的成败，还是产品决定
+## API 的成败，还是由产品决定
 
 没人会为了 API 而使用你的产品。人们真正使用的是产品本身。对 [OpenAI API](https://platform.openai.com/docs/api-reference/chat/create) 来说，那是使用语言模型进行推理的能力；对 [Twilio API](https://www.twilio.com/docs/iam/api/account#fetch-an-account-resource) 来说，那是发送短信。没人会因为你的 API 足够规范、优雅而使用你的产品。他们只是用它来与你的产品交互。如果你的产品足够有价值，哪怕你的 API 再垃圾他们也得咬着牙用。
 

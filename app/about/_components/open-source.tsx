@@ -1,10 +1,11 @@
+import { GitHubIcon } from '@/icons/github'
 import type { AboutData, ProjectsData } from '@/lib/data'
 
 interface AboutOpenSourceProps {
   id: string
   title: string
-  moreLink: AboutData['openSource']['moreLink']
-  data: AboutData['openSource']['data']
+  moreLink: Exclude<AboutData['openSource'], undefined>['moreLink']
+  data: Exclude<AboutData['openSource'], undefined>['data']
 }
 
 const categoryNames: Record<keyof ProjectsData, string> = {
@@ -43,14 +44,17 @@ export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourcePr
                             已归档
                           </span>
                         )}
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="link font-medium"
-                        >
-                          {project.name}
-                        </a>
+                        <div className="inline-flex items-center gap-1">
+                          <GitHubIcon className="size-5" />
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="link"
+                          >
+                            {project.name}
+                          </a>
+                        </div>
                         {project.stars && (
                           <span className="text-text-secondary text-sm">★ {project.stars}</span>
                         )}

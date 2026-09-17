@@ -106,21 +106,21 @@ export const pages = {
 export type PageData = typeof pages
 
 export interface AboutData {
-  intro: {
+  intro?: {
     title: string
     paragraphs: string[]
     aboutParagraphs: string[]
   }
-  contact: {
+  contact?: {
     title: string
     list: ContactLink[]
   }
-  openSource: {
+  openSource?: {
     title: string
     moreLink: string
     data: ProjectsData
   }
-  techStack: {
+  techStack?: {
     title: string
     data: TechStackData
   }
