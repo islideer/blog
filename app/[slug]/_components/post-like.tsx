@@ -13,7 +13,7 @@ export function PostLike({ slug, initialCount }: PostLikeProps) {
       id={slug}
       type="posts"
       initialCount={initialCount}
-      className="flex-col justify-start! gap-1 text-lg opacity-48 hover:opacity-100 sm:text-xl"
+      className="flex-col justify-start! gap-1 text-lg opacity-60 hover:opacity-80 sm:text-xl"
       iconClassName="text-2xl sm:text-3xl"
       revalidatePagePath={`/${slug}`}
     />

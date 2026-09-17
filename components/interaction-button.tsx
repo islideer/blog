@@ -198,7 +198,7 @@ export function InteractionButton({
           onClick={handleClick}
           disabled={isPending || isSubmitting}
           className={cn(
-            'group/btn inline-flex items-center text-xs transition-colors',
+            'group/btn inline-flex items-center text-xs duration-100 transition-colors',
             canClick && !isSubmitting ? 'cursor-pointer hover:opacity-80' : 'cursor-default',
             isSubmitting ? 'opacity-80' : '',
             className,
@@ -208,10 +208,10 @@ export function InteractionButton({
           }}
           aria-label={`${config.ariaLabel} ${displayCount.toLocaleString('zh-Hans-CN')} 次，你已点击 ${userClickCount.toLocaleString('zh-Hans-CN')} 次`}
         >
-          <span className="inline-flex items-center gap-1 transition-transform group-active/btn:scale-75">
+          <span className="inline-flex items-center gap-1 duration-100 transition-transform group-active/btn:scale-75">
             <IconComponent
               className={cn(
-                'h-[1.2em] w-[1.2em] transition-transform',
+                'h-[1.2em] w-[1.2em] duration-100 transition-transform',
                 isMaxedOut && 'scale-110',
                 iconClassName,
               )}

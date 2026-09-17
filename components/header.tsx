@@ -129,7 +129,7 @@ export function Header() {
               </span>
             </button>
             {isMoreOpen && (
-              <div className="font-medium bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 text-nowrap shadow">
+              <div className="bg-bg-primary border-border absolute top-full right-0 mt-1 min-w-25 rounded-md border py-2 font-medium text-nowrap shadow">
                 <Link
                   key={pages.mioSays.slug}
                   href={pages.mioSays.slug}

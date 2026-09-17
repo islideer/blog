@@ -55,8 +55,6 @@ export async function RecentPosts({ posts, totalCount, showMoreThreshold }: Rece
                 <div className="text-text-secondary flex shrink-0 items-center gap-1.5 text-xs">
                   <PostDate date={post.date} />
                   <span className="shrink-0">·</span>
-                  <span className="shrink-0">#{post.topic}</span>
-                  <span className="shrink-0">·</span>
                   <span className="shrink-0">
                     约需 <ReadingTime minutes={post.readingTime} />
                   </span>

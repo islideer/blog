@@ -173,7 +173,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <ChatIconIcon className="h-5 w-5" />
             <span>
               交流讨论、反馈建议，请到
-              <a href="/messages" className="mx-1 text-text-primary">
+              <a href="/messages" className="link mx-1">
                 话匣子
               </a>
               页面留言。

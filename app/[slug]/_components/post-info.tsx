@@ -10,11 +10,11 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
   const [copiedTitle, setCopiedTitle] = useState(false)
   const [copiedUrl, setCopiedUrl] = useState(false)
 
-  const displayTitle = `${title} | ${siteConfig.name}`
+  const finalTitle = `${title} | ${siteConfig.name}`
 
   const handleCopyTitle = async () => {
     try {
-      await navigator.clipboard.writeText(displayTitle)
+      await navigator.clipboard.writeText(finalTitle)
       setCopiedTitle(true)
       setTimeout(() => setCopiedTitle(false), 2000)
     } catch (err) {
@@ -39,9 +39,7 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
         <span className="text-text-secondary shrink-0">标题</span>
         <span className="text-text-secondary shrink-0">·</span>
         <div className="flex min-w-0 flex-1 items-center gap-1 truncate sm:gap-2">
-          <span className="text-text-secondary min-w-0 truncate wrap-break-word">
-            {displayTitle}
-          </span>
+          <span className="text-text-secondary min-w-0 truncate wrap-break-word">{title}</span>
           <button
             onClick={handleCopyTitle}
             className="group/btn text-text-secondary hover:text-text-primary shrink-0 transition-colors"
@@ -88,7 +86,7 @@ export function PostInfo({ title, slug }: { title: string; slug: string }) {
             href={siteConfig.copyright.license.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text-primary mx-1"
+            className="link mx-1"
           >
             {siteConfig.copyright.license.name}
           </a>
