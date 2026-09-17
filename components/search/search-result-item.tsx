@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { formatDate, fromNow } from '@/lib/dayjs'
 import { useEffect, useRef } from 'react'
 import { highlightKeywords, extractKeywords, extractMatchingSnippet } from '@/lib/search-utils'

@@ -2,7 +2,7 @@
 
 import Zoom from 'react-medium-image-zoom'
 import Image from 'next/image'
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { useState, useEffect } from 'react'
 
 import 'react-medium-image-zoom/dist/styles.css'

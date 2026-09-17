@@ -1,4 +1,4 @@
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { pages } from '@/lib/data'
 import { thoughts } from '@/lib/data'
 import { notFound } from 'next/navigation'

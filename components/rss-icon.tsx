@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { IconLink } from './icon-link'
 import { RSSIcon as RSSIconBase } from '../icons/rss'
 import { Tooltip } from './tooltip'

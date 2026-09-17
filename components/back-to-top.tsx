@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { useEffect, useState } from 'react'
 import { ChevronUpIcon } from '@/icons/chevron-up'
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { LazyImage } from './lazy-image'
 import { RelativeTime } from './relative-time'
 import { InteractionButton } from './interaction-button'

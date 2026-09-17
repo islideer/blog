@@ -6,7 +6,7 @@
  */
 
 import Image from 'next/image'
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { UABadge } from './ua-badge'
 import { Tooltip } from '@/components/tooltip'
 import { VipBadge } from './vip-badge'

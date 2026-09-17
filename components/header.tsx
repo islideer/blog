@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { RSSIcon } from './rss-icon'
 import { useEffect, useRef, useState } from 'react'
 import { pages } from '@/lib/data'
@@ -23,6 +23,8 @@ const EASTER_EGG_KEY = 'easter-egg-unlocked'
 export function Header() {
   const pathname = usePathname()
   const isHome = pathname === '/'
+  const isPosts = pathname === '/posts'
+  const isThoughts = pathname === '/thoughts'
   const TitleTag = isHome ? 'h1' : 'div'
   const [isMoreOpen, setIsMoreOpen] = useState(false)
   const [showSecret, setShowSecret] = useState(false)
@@ -78,13 +80,25 @@ export function Header() {
         <nav
           role="navigation"
           aria-label="主导航"
-          className="flex items-center gap-2 text-sm sm:gap-4 sm:text-base"
+          className="flex items-center gap-2 text-sm sm:text-base"
         >
-          <Link href={pages.posts.slug} className="link">
+          <Link
+            href={pages.posts.slug}
+            className={cn(
+              'active:bg-bg-secondary rounded-sm px-2 py-1 font-medium',
+              isPosts ? 'bg-bg-tertiary' : 'sm:hover:bg-bg-tertiary',
+            )}
+          >
             {pages.posts.title}
           </Link>
 
-          <Link href={pages.thoughts.slug} className="link">
+          <Link
+            href={pages.thoughts.slug}
+            className={cn(
+              'active:bg-bg-secondary rounded-sm px-2 py-1 font-medium',
+              isThoughts ? 'bg-bg-tertiary' : 'sm:hover:bg-bg-tertiary',
+            )}
+          >
             {pages.thoughts.title}
           </Link>
 
@@ -120,7 +134,7 @@ export function Header() {
                   }, 150)
                 }
               }}
-              className={cn('group/btn text-text-primary font-medium')}
+              className={cn('group/btn text-text-primary px-2 py-1 font-medium')}
               aria-expanded={isMoreOpen}
               aria-haspopup="true"
             >

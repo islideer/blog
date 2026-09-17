@@ -3,7 +3,7 @@ import { YEAR_DESC_MAP } from '@/lib/year-desc'
 import { MarkdownLite } from '@/components/markdown-lite'
 
 import type { TimelineItem } from '@/lib/data'
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 
 interface TimelineViewProps {
   items: TimelineItem[]

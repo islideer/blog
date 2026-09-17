@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { ZoomImage } from './zoom-image'
 import { useState, useEffect, useRef } from 'react'
 

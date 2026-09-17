@@ -1,4 +1,4 @@
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { parseArticle } from '@/lib/markdown'
 import { ImageZoomProvider } from '@/components/image-zoom-provider'
 import { CodeBlockEnhancer } from '@/components/code-block-enhancer'

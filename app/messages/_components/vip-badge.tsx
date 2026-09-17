@@ -3,7 +3,7 @@
  * 显示金色 VIP 闪电图标
  */
 
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 
 interface VipBadgeProps {
   /** 自定义类名 */

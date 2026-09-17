@@ -3,7 +3,7 @@
  * 统一样式，支持不同尺寸，children 可包含文本和图标
  */
 
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { ButtonHTMLAttributes, ReactNode } from 'react'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

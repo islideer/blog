@@ -13,7 +13,7 @@ import emojiPacks from '@/data/emoji-packs.json'
 import { getGridColumns, getEmojiPackSize, DEFAULT_EMOJI_SIZE } from '@/lib/emoji-packs'
 
 import type { EmojiPacks } from '@/lib/emoji-packs'
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 
 const typedEmojiPacks = emojiPacks as EmojiPacks
 

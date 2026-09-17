@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { PostDate } from './post-date'
 import { DraftBadge } from './draft-badge'
 import { ReadingTime } from './reading-time'

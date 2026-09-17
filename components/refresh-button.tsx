@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { Tooltip } from './tooltip'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'

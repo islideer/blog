@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { formatDate } from '@/lib/dayjs'
 import { useAutoSize } from '@/hooks/use-auto-size'
 import { ChevronDownIcon } from '@/icons/chevron-down'

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { RSSIcon } from '@/components/rss-icon'
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 
 import type { Friend, FriendStatus } from '@/lib/data'
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { MenuIcon } from '../icons/menu'
 import { CloseIcon } from '../icons/close'
 import { extractHeadings } from '@/lib/toc'

@@ -1,4 +1,4 @@
-import { cn } from '@/lib/cn'
+import { cn } from 'cn'
 import { dayjs, TZ_SHANGHAI } from '@/lib/dayjs'
 import { pages } from '@/lib/data'
 import { siteConfig } from '@/lib/config'
