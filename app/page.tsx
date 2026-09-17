@@ -53,7 +53,7 @@ export default async function BlogPage() {
             />
             {siteConfig.home.hero.title}
           </h2>
-          <MarkdownLite size="md" content={about.intro.paragraphs.join('\n\n')} />
+          {about.intro && <MarkdownLite size="md" content={about.intro.paragraphs.join('\n\n')} />}
         </section>
 
         {/* 最近文章 */}

@@ -150,32 +150,36 @@ async function getAllSearchItems(): Promise<SearchIndexItem[]> {
   }
 
   // 关于 - 简介段落
-  for (let i = 0; i < about.intro.paragraphs.length; i++) {
-    const paragraph = about.intro.paragraphs[i]
-    items.push({
-      id: `about-intro-${i}`,
-      type: 'about',
-      title: '关于',
-      excerpt: paragraph,
-      content: paragraph,
-      url: '/about',
-    })
+  if (about.intro) {
+    for (let i = 0; i < about.intro.paragraphs.length; i++) {
+      const paragraph = about.intro.paragraphs[i]
+      items.push({
+        id: `about-intro-${i}`,
+        type: 'about',
+        title: '关于',
+        excerpt: paragraph,
+        content: paragraph,
+        url: '/about',
+      })
+    }
   }
 
   // 关于 - 开源项目
-  const projectCategories = ['libraries', 'applications', 'services', 'scripts'] as const
-  for (const category of projectCategories) {
-    const projects = about.openSource.data[category]
-    if (Array.isArray(projects)) {
-      for (const project of projects) {
-        items.push({
-          id: `about-project-${project.name}`,
-          type: 'about',
-          title: project.name,
-          excerpt: project.description,
-          content: `${project.name} ${project.description}`,
-          url: '/about#open-source',
-        })
+  if (about.openSource) {
+    const projectCategories = ['libraries', 'applications', 'services', 'scripts'] as const
+    for (const category of projectCategories) {
+      const projects = about.openSource.data[category]
+      if (Array.isArray(projects)) {
+        for (const project of projects) {
+          items.push({
+            id: `about-project-${project.name}`,
+            type: 'about',
+            title: project.name,
+            excerpt: project.description,
+            content: `${project.name} ${project.description}`,
+            url: '/about#open-source',
+          })
+        }
       }
     }
   }
