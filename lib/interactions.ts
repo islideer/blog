@@ -54,7 +54,7 @@ export const INTERACTION_CONFIGS: Record<string, InteractionConfig> = {
     ariaLabel: '喜欢',
     displayName: '文章互动',
     enabled: true, // 已启用
-    maxClicksPerDay: 10, // 每天 10 次
+    maxClicksPerDay: 1, // 每天 1 次
   },
 }
 
