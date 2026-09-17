@@ -185,16 +185,22 @@
 /* Inline Code */
 .prose :not(pre) > code {
   font-weight: 500;
-  background: transparent;
-  padding: 0 0.2em;
+  background: var(--color-bg-tertiary);
+  padding: 0.1em 0.3em;
   border-radius: var(--radius-sm);
+  vertical-align: 0.05em;
 }
 
-.prose :not(pre) > code::before,
+.prose :not(pre) > code:before,
+.prose :not(pre) > code:after {
+  display: none;
+}
+
+/* .prose :not(pre) > code::before,
 .prose :not(pre) > code::after {
   content: '`';
   opacity: 0.8;
-}
+} */
 
 /* Blockquotes */
 .prose blockquote {

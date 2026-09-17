@@ -17,7 +17,7 @@
   {
     "id": "219",
     "date": "2026-09-14T12:39:35+08:00",
-    "content": "后知后觉，`.then` 其实还接受第二个参数 onRejected，可以捕获之前 Promise 的错误，但无法捕获当前第一个参数里的错误。然而，可以往后再加一个 `.then(null, onRejected)` 达到捕获所有错误的效果。\n\n其实 .catch(onRejected) 本质上就是 .then(null, onRejected) 的语法糖，只是我们一般采用前者方式，简洁、易读。\n\n\n```ts\npromise.then(xxx).catch(onRejected);\n// 等价于\npromise.then(xxx).then(null, onRejected);\n```"
+    "content": "后知后觉，`.then` 其实还接受第二个参数 `onRejected`，可以捕获之前 Promise 的错误，但无法捕获当前第一个参数里的错误。然而，可以往后再加一个 `.then(null, onRejected)` 达到捕获所有错误的效果。\n\n其实 `.catch(onRejected)` 本质就是 `.then(null, onRejected)` 的语法糖，只是一般前者用得多，简洁易读。\n\n\n```ts\npromise.then(xxx).catch(onRejected);\n// 等价于\npromise.then(xxx).then(null, onRejected);\n```"
   },
   {
     "id": "218",
@@ -27,7 +27,7 @@
   {
     "id": "217",
     "date": "2026-09-14T11:49:06+08:00",
-    "content": "记录一下没用过的 [font-display](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@font-face/font-display) 属性，放在 @font-face 字体定义里，用来控制自定义字体加载时的显示行为。一般推荐用 swap，内容立刻可见，字体加载完成后替换，因为字体形状不同，可能会闪一下。\n\n- auto 浏览器决定，通常类似 block\n- block 短暂隐藏文字（~3s），等字体加载\n- swap 先用系统字体，字体加载后替换\n- fallback 极短隐藏（~100ms），然后系统字体\n- optional 极短隐藏，网络慢就直接用系统字体\n\n```css\n@font-face {\n  font-family: 'MyFont';\n  src: url('myfont.woff2') format('woff2');\n  font-display: swap;\n}\n```"
+    "content": "记录一下没用过的 [font-display](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@font-face/font-display) 属性，放在 `@font-face` 字体定义里，用来控制自定义字体加载时的显示行为。一般推荐用 `swap`，内容立刻可见，字体加载完成后替换，因为字体形状不同，可能会闪一下。\n\n- auto 浏览器决定，通常类似 block\n- block 短暂隐藏文字（~3s），等字体加载\n- swap 先用系统字体，字体加载后替换\n- fallback 极短隐藏（~100ms），然后系统字体\n- optional 极短隐藏，网络慢就直接用系统字体\n\n```css\n@font-face {\n  font-family: 'MyFont';\n  src: url('myfont.woff2') format('woff2');\n  font-display: swap;\n}\n```"
   },
   {
     "id": "216",
@@ -40,12 +40,12 @@
   {
     "id": "215",
     "date": "2026-09-09T17:06:31+08:00",
-    "content": "三月初 [预告](/thoughts/130) 过的 NestJS 12 终于也是 [正式发布](https://trilon.io/blog/nestjs-12-is-now-available) 了，带来了默认 ESM，并从 webpack 切换到 Rspack，还添加了对 zod 等参数验证库的 Standard Schema 支持。"
+    "content": "三月初 [预告](/thoughts/130) 过的 NestJS 12 终于也是 [正式发布](https://trilon.io/blog/nestjs-12-is-now-available) 了，带来了默认 ESM，并从 webpack 切换到 Rspack，还添加了对 `zod` 等参数验证库的 Standard Schema 支持。"
   },
   {
     "id": "214",
     "date": "2026-09-09T16:43:25+08:00",
-    "content": "`cn` 这个 npm 包名最终被 Tailwind CSS 团队拿下并使用，功能是我所预期的，据说相比于 clsx 和 classnames 有 [30 倍](https://github.com/shadcn-ui/cn#how-much-faster) 的性能提升。\n\n之前合并类名一直很烦。因为用 Tailwind CSS 和 UnoCSS 的原因，类名会变得非常长，导致在合并类名的时候，函数名多一个字母都变得极其敏感。因为刚那俩库的名字老长了，我又有代码洁癖，所以喜欢重新导出为 `cn` 别名，在不丢失可读性的同时，保持代码精简和优雅，就像下面那样。\n\n现在好了，直接装来用就行，不用再重新命名了，万岁。 🎉\n\n```tsx\n// src/utils\nexport { default as cn } from 'classnames'\n// 或 export { default as cn } from 'clsx'\n\n// src/index.tsx\nimport { cn } from '@/utils'\n<div className={cn('font-bold', isOn && 'text-green')}>Text</div>\n\n// 现在一步到位\nimport cn from 'cn'\n<div className={cn('font-bold', isOn && 'text-green')}>Text</div>\n```",
+    "content": "`cn` 这个 npm 包名最终被 Tailwind CSS 团队拿下并使用，功能是我所预期的，据说相比于 `clsx` 和 `classnames` 有 [30 倍](https://github.com/shadcn-ui/cn#how-much-faster) 的性能提升。\n\n之前合并类名一直很烦。因为用 Tailwind CSS 和 UnoCSS 的原因，类名会变得非常长，导致在合并类名的时候，函数名多一个字母都变得极其敏感。因为刚那俩库的名字老长了，我又有代码洁癖，所以喜欢重新导出为 `cn` 别名，在不丢失可读性的同时，保持代码精简和优雅，就像下面那样。\n\n现在好了，直接装来用就行，不用再重新命名了，万岁。 🎉\n\n```tsx\n// src/utils\nexport { default as cn } from 'classnames'\n// 或 export { default as cn } from 'clsx'\n\n// src/index.tsx\nimport { cn } from '@/utils'\n<div className={cn('font-bold', isOn && 'text-green')}>Text</div>\n\n// 现在一步到位\nimport cn from 'cn'\n<div className={cn('font-bold', isOn && 'text-green')}>Text</div>\n```",
     "images": [
       "https://image.viki.moe/blog/viki/661878.png"
     ]
@@ -61,32 +61,32 @@
   {
     "id": "212",
     "date": "2026-09-09T16:08:59+08:00",
-    "content": "[Bun 1.4](https://bun.com/blog/bun-v1.4) 发布，这是第一个由 Rust 重写的正式子版本，带来了 `Bun.markdown.react()` 和 `.html()` API，可以直接将 markdown 文本转 React 组件和 HTML。\n\n在此之前，Bun 已经发布了 [太多](https://bun.com/reference/bun) 工具函数了，比如 Bun.$()、Bun.build()、Bun.color()、Bun.cron()、Bun.file()、Bun.serve()、Bun.stripANSI() 等。此外，还有 Bun.Archive、Bun.Glob、Bun.Image、Bun.MD5、Bun.RedisClient、Bun.S3Client、Bun.Terminal、Bun.WebSocket、Bun.WebView 等工具类。\n\n不得不说 Bun 真是野心勃勃啥都想干，哪块蛋糕都想分一口。随便拉个 API 出来都能和一堆 npm 包叫板，越来越多的前端类库、框架、工具开始成为 Bun 的竞争对手 😂。"
+    "content": "[Bun 1.4](https://bun.com/blog/bun-v1.4) 发布，这是第一个由 Rust 重写的正式子版本，带来了 `Bun.markdown.react()` 和 `.html()` API，可以直接将 `markdown` 文本转 React 组件和 HTML。\n\n在此之前，Bun 已经发布了 [太多](https://bun.com/reference/bun) 工具函数了，比如 Bun.$()、Bun.build()、Bun.color()、Bun.cron()、Bun.file()、Bun.serve()、Bun.stripANSI() 等。此外，还有 Bun.Archive、Bun.Glob、Bun.Image、Bun.MD5、Bun.RedisClient、Bun.S3Client、Bun.Terminal、Bun.WebSocket、Bun.WebView 等工具类。\n\n不得不说 Bun 真是野心勃勃啥都想干，哪块蛋糕都想分一口。随便拉个 API 出来都能和一堆 npm 包叫板，越来越多的前端类库、框架、工具开始成为 Bun 的竞争对手 😂。"
   },
   {
     "id": "211",
     "date": "2026-09-09T15:54:59+08:00",
-    "content": "CSS 的新玩意，前缀选择器 (`.prefix-*`) [即将到来](https://github.com/w3c/csswg-drafts/issues/10001)，相比传统的属性选择器 (`[class*=\"prefix-\"]`) 在性能上要高。\n\n```css\n/* 匹配所有 .btn- 开头的 CSS 类 */\n.btn-* {  /* 按钮通用样式 */  }\n```"
+    "content": "CSS 的新玩意，前缀选择器 `.prefix-*` [即将到来](https://github.com/w3c/csswg-drafts/issues/10001)，相比传统的属性选择器 `[class*=\"prefix-\"]` 在性能上要高。\n\n```css\n/* 匹配所有 .btn- 开头的 CSS 类 */\n.btn-* {  /* 按钮通用样式 */  }\n```"
   },
   {
     "id": "210",
     "date": "2026-09-08T16:05:08+08:00",
-    "content": "You have to decide for yourself what is it that motivates you, makes you happy, keeps you doing this for for a lifetime. You only get one run at it in in life here, if you're going to do your best work, do the thing that that makes you the most happy.\n\n参考翻译：你必须自己决定什么激励着你，让你快乐，让你终身坚持下去。人生只有一次机会，如果你想做到最好，那就去做让你最快乐的事情。\n\n> TypeScript 和 C# 的作者 Anders Hejlsberg 在接受 TypeScript 的原生 Go 重写以及 AI 相关思考的 [采访](https://www.youtube.com/watch?v=cywK3XYYJ2o) 时的发言。他表示对能够参与语言开发并持续地编写代码感到十分快乐。"
+    "content": "You have to decide for yourself what is it that motivates you, makes you happy, keeps you doing this for for a lifetime. You only get one run at it in in life here, if you're going to do your best work, do the thing that that makes you the most happy.\n\n参考翻译：你必须自己决定什么激励着你，让你快乐，让你终身坚持下去。人生只有一次机会，如果你想做到最好，那就去做让你最快乐的事情。\n\n> TypeScript & C# 作者 Anders Hejlsberg 在接受 TypeScript 的原生 Go 重写以及对 AI 思考的 [采访](https://www.youtube.com/watch?v=cywK3XYYJ2o) 时的发言。他表示对能够参与语言开发并持续地编写代码感到十分快乐。"
   },
   {
     "id": "209",
     "date": "2026-09-08T12:10:17+08:00",
-    "content": "新的声明式样式化导航方案的 [提案](https://drafts.csswg.org/css-navigation-1/) 来了，将多页应用的复杂过渡效果从 JavaScript 迁移到 CSS，简化了实现，让开发者写的更简单、更开心。提案正稳步推进中，Chrome Canary 已经支持通过标志启用。\n\n原来不止我一个人觉得 View Transition 难用，这种东西就该用纯 CSS 来搞才对嘛～\n\n```css\n/* 1. Define Routes with @location */\n@location --home { pathname: url-pattern('/'); }\n@location --about { pathname: url-pattern('/about'); }\n\n/* 2. Query the navigation with @navigation */\n@navigation (from: --home) and (to: --about) {\n  @view-transition {\n    navigation: auto;\n    types: slide-all-to-left;\n  }\n}\n\n/* 3. Select the element that triggered the navigation with :nav-source */\n@navigation (between: --home --about) {\n  @navigation (at: --home) {\n    :nav-source img {\n      view-transition-name: image;\n    }\n  }\n  @navigation (at: --about) {\n    img#hero {\n      view-transition-name: image;\n    }\n  }\n}\n\n/* 4. Advanced link selection with :link-to() */\n:link-to(--about) {\n  color: hotpink;\n}\n```"
+    "content": "新的声明式样式化导航方案的 [提案](https://drafts.csswg.org/css-navigation-1/) 来了，将多页应用的复杂过渡效果从 JavaScript 迁移到 CSS，简化了实现，让开发者写的更简单、更开心。提案正稳步推进中，Chrome Canary 已经支持通过标志启用。\n\n原来不止我一个人觉得 [View Transition](https://developer.mozilla.org/zh-CN/docs/Web/API/ViewTransition) 难用，这种东西就该用纯 CSS 来搞才对嘛～\n\n```css\n/* 1. Define Routes with @location */\n@location --home { pathname: url-pattern('/'); }\n@location --about { pathname: url-pattern('/about'); }\n\n/* 2. Query the navigation with @navigation */\n@navigation (from: --home) and (to: --about) {\n  @view-transition {\n    navigation: auto;\n    types: slide-all-to-left;\n  }\n}\n\n/* 3. Select the element that triggered the navigation with :nav-source */\n@navigation (between: --home --about) {\n  @navigation (at: --home) {\n    :nav-source img {\n      view-transition-name: image;\n    }\n  }\n  @navigation (at: --about) {\n    img#hero {\n      view-transition-name: image;\n    }\n  }\n}\n\n/* 4. Advanced link selection with :link-to() */\n:link-to(--about) {\n  color: hotpink;\n}\n```"
   },
   {
     "id": "208",
     "date": "2026-09-08T11:52:52+08:00",
-    "content": "希望我不是第一个知道在链接上按鼠标中间可以快速在后台标签页打开，类似于先按住 Control/Command，再单击鼠标左键在后台打开链接的效果。\n\n自己试试 👉 [一个神奇的链接](https://b23.tv/vNc77B0)。"
+    "content": "希望我不是第一个知道在链接上按鼠标中间可以快速在后台标签页打开的人，其效果类似于按住 `Control` 或 `Command`，然后单击鼠标左键在后台打开链接的效果。\n\n自己试试 👉 [一个神奇的链接](https://b23.tv/vNc77B0)。"
   },
   {
     "id": "207",
     "date": "2026-09-08T11:08:19+08:00",
-    "content": "React 又加了一个新的 API，[browser()](https://react.dev/reference/react-dom/browser)，因为特定于浏览器，就放在了 react-dom 包里，搭配 use 以 `use(browser(reason?))` 的方式来使用。在功能和用法命名上有点像细粒度、通用版本的 'use client'。\n\n优势在于可以在渲染期间动态切换组件为仅浏览器渲染，且可以是有条件的（比如在 if 条件分支中调用，符合 use API 规则）。但目前存在使用限制，必须和 use 搭配使用，且使用到的组件必须被 `<Suspense>` 包裹。因为 `browser()` 的底层会抛出可恢复的 use 错误，然后被 React 内部捕获且有意抑制了，这样在 SSR 期间会被回退到 Suspense 的 fallback 组件，同时客户端又能够正常渲染，达到让组件仅在客户端环境渲染的目的。\n\n```tsx\nimport { use } from 'react';\nimport { browser } from 'react-dom';\n\nfunction BrowserOnly() {\n  use(browser('This component requires browser APIs.'));\n  return <BrowserContent />;\n}\n```"
+    "content": "React 又加了一个新的 API，[browser()](https://react.dev/reference/react-dom/browser)，因为特定于浏览器，就放在了 react-dom 包里，搭配 `use` 以 `use(browser(reason?))` 的方式来使用。在功能和用法命名上有点像细粒度、通用版本的 `'use client'`。\n\n优势在于可以在渲染期间动态切换组件为仅浏览器渲染，且可以是有条件的（比如在 if 条件分支中调用，符合 `use` API 规则）。但目前存在使用限制，必须和 `use` 搭配使用，且使用到的组件必须被 `<Suspense>` 包裹。因为 `browser()` 的底层会抛出可恢复的 `use` 错误，然后被 React 内部捕获且有意抑制了，这样在 SSR 期间会被回退到 Suspense 的 fallback 组件，同时客户端又能够正常渲染，达到让组件仅在客户端环境渲染的目的。\n\n```tsx\nimport { use } from 'react';\nimport { browser } from 'react-dom';\n\nfunction BrowserOnly() {\n  use(browser('This component requires browser APIs.'));\n  return <BrowserContent />;\n}\n```"
   },
   {
     "id": "206",
@@ -99,12 +99,12 @@
   {
     "id": "205",
     "date": "2026-09-04T15:36:27+08:00",
-    "content": "文档画中画（Document Picture-in-Picture），可以将任意的 HTML 放入画中画窗口，相比于传统仅限视频的画中画有了更多可能。比如：自定义的画中画播放器、网页小组件、悬浮面板和小工具等。目前仅 Chrome 和 Firefox 桌面版支持。\n\n详情参考 https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentPictureInPicture\n\n```ts\n// 视频画中画\nHTMLVideoElement.requestPictureInPicture(...)\n\n// 文档画中画\nconst pipWindow = await documentPictureInPicture.requestWindow(...)\npipWindow.document // ... 操作弹出窗口的 DOM，比如 添加元素、CSS 等\n```"
+    "content": "[文档画中画](https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentPictureInPicture)（Document Picture-in-Picture），可以将任意的 HTML 放入画中画窗口，相比于传统仅限视频的画中画有了更多可能。比如：自定义的画中画播放器、网页小组件、悬浮面板和小工具等。目前仅 Chrome 和 Firefox 桌面版支持。\n\n详情参考 https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentPictureInPicture\n\n```ts\n// 视频画中画\nHTMLVideoElement.requestPictureInPicture(...)\n\n// 文档画中画\nconst pipWindow = await documentPictureInPicture.requestWindow(...)\npipWindow.document // ... 操作弹出窗口的 DOM，比如 添加元素、CSS 等\n```"
   },
   {
     "id": "204",
     "date": "2026-09-01T09:16:34+08:00",
-    "content": "HTML in Canvas，贼牛逼，意味着 Canvas 里可以直接调用原生 HTML 控件、HTML 原生转图片！目前需要手动在 `chrome://flags/#canvas-draw-element` 开启特性才有效，在线体验: https://chrome.dev/html-in-canvas/\n\nAPI 很简单，核心代码其实只有一行。\n\n```ts\ncanvas.getContext('2d').drawElementImage(htmlElement, 0, 0);\n```",
+    "content": "HTML in Canvas，贼牛逼，意味着 Canvas 里可以直接调用原生 HTML 控件、HTML 原生转图片！目前需要手动在 `chrome://flags/#canvas-draw-element` 开启特性才有效，在线体验: https://chrome.dev/html-in-canvas/\n\nAPI 看着不复杂，核心代码只有一行。\n\n```ts\ncanvas.getContext('2d').drawElementImage(htmlElement, 0, 0);\n```",
     "images": [
       "https://image.viki.moe/blog/viki/bc56c6.png"
     ]
@@ -125,7 +125,7 @@
   {
     "id": "201",
     "date": "2026-08-21T12:09:38+08:00",
-    "content": "当时 [用 CSS.highlights API 进行高亮](/thoughts/3) 的想法，终于也是有人做出来了，效果还真可以。 https://GitHub.com/davatron5000/microlighter"
+    "content": "早前有 [用 CSS.highlights API 进行高亮](/thoughts/3) 的想法，近期有人做出来生产可用的开源项目了，效果还可以，主要是性能提升大，且对于洁癖党来说，得益于 [CSS Highlight API](https://developer.mozilla.org/zh-CN/docs/Web/API/CSS_Custom_Highlight_API)，没有杂乱的 `span` 标签影响。 https://GitHub.com/davatron5000/microlighter"
   },
   {
     "id": "200",
@@ -143,22 +143,22 @@
   {
     "id": "198",
     "date": "2026-08-11T11:29:09+08:00",
-    "content": "不完整的 CSS 设计错误清单，列出了「盒模型应默认为 border-box」等 CSS 历史上的设计错误。顺手码一下，方便后续查找。 https://wiki.csswg.org/ideas/mistakes"
+    "content": "不完整的 CSS 设计错误清单，列出了「盒模型应默认为 `border-box`」等 CSS 历史上的设计错误。顺手码一下，方便后续查找。 https://wiki.csswg.org/ideas/mistakes"
   },
   {
     "id": "197",
     "date": "2026-08-11T09:04:28+08:00",
-    "content": "[import text](/thoughts/26) 提案在 Node.js 26.5.0 上已实装，但暂需加上实验性参数，属实是令人激动的特性，不再需要繁琐的 fs.readFileSync 了。\n\n```ts\n// node --experimental-import-text app.ts\nimport prompt from './prompt.md' with { type: 'text' };\nconsole.log(prompt); // raw prompt string\n```"
+    "content": "[import text](/thoughts/26) 提案在 Node.js 26.5.0 上已实装，但暂需加上实验性参数，属实是令人激动的特性，不再需要繁琐的 `fs.readFileSync` 了。\n\n```ts\n// node --experimental-import-text app.ts\nimport prompt from './prompt.md' with { type: 'text' };\nconsole.log(prompt); // raw prompt string\n```"
   },
   {
     "id": "196",
     "date": "2026-08-10T09:17:47+08:00",
-    "content": "一般我们用 .gitignore 文件来忽略不想被 Git 追踪的文件，这在大多数情况下不是问题。但如果是一个团队项目，且只是个人本地的忽略需求，更建议使用 .git/exclude 文件，它可以在本地指定需要排除追踪的文件，优先级比 .gitignore 高，且这个文件不会被上传到远程仓库。"
+    "content": "一般我们用 `.gitignore` 文件来忽略不想被 Git 追踪的文件，这在大多数情况下不是问题。但如果是一个团队项目，且只是个人本地的忽略需求，更建议使用 `.git/exclude` 文件，它可以在本地指定需要排除追踪的文件，优先级比 `.gitignore` 高，且这个文件不会被上传到远程仓库。"
   },
   {
     "id": "195",
     "date": "2026-08-10T09:08:07+08:00",
-    "content": "传输大型 SQLite 数据库时，最好不要直接复制数据库文件，考虑用 .dump 命令将数据库导出为 SQL 文本，再用 gzip 压缩传输，最后导入重建；这样能利用文本压缩将体积缩小，大幅提升传输速度，同时避免传输过程中数据库更新导致的文件损坏问题。"
+    "content": "传输大型 SQLite 数据库时，最好不要直接复制数据库文件，考虑用 `.dump` 命令将数据库导出为 SQL 文本，再用 gzip 压缩传输，最后导入重建；这样能利用文本压缩将体积缩小，大幅提升传输速度，同时避免传输过程中数据库更新导致的文件损坏问题。"
   },
   {
     "id": "194",
@@ -181,7 +181,7 @@
   {
     "id": "191",
     "date": "2026-07-16T09:26:42+08:00",
-    "content": "新的 HTTP 方法「[QUERY](https://http.dev/query)」的标准在今年六月落地，填补了「GET 的 URL 长度限制、特殊参数难以编码」和「POST 不幂等、缓存不友好」两者之间的空白。"
+    "content": "新的 HTTP 方法 [QUERY](https://http.dev/query) 来了，标准在今年六月落地，填补了「GET 的 URL 长度限制、特殊参数难以编码」和「POST 不幂等、缓存不友好」两者之间的空白。"
   },
   {
     "id": "190",
