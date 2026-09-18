@@ -2,7 +2,7 @@
   {
     "id": "224",
     "date": "2026-09-18T15:17:29+08:00",
-    "content": "Node.js 内置的 [denounce](https://github.com/nodejs/node/blob/main/doc/api/util.md#utildebouncefn-wait-options) 和 [throttle](https://github.com/nodejs/node/blob/main/doc/api/util.md#utilthrottlefn-limit-interval-options) 已经在路上了，三天前刚 [合入主分支](https://github.com/nodejs/node/compare/312db1e3d24d9159fd337643facebc2ae8e09d8e...c081d10d7e436f3c99d0c1f4dd2097207cb011ad)。\n\n以后谁再让我手写防抖节流我就把这个甩他脸上（\n\n```ts\nexport { debounce, throttle } from 'node:util'\n```"
+    "content": "Node.js 内置的 [debounce](https://github.com/nodejs/node/blob/main/doc/api/util.md#utildebouncefn-wait-options) 和 [throttle](https://github.com/nodejs/node/blob/main/doc/api/util.md#utilthrottlefn-limit-interval-options) 已经在路上了，三天前刚 [合入主分支](https://github.com/nodejs/node/compare/312db1e3d24d9159fd337643facebc2ae8e09d8e...c081d10d7e436f3c99d0c1f4dd2097207cb011ad)。\n\n以后谁再让我手写防抖节流我就把这个甩他脸上（\n\n```ts\nexport { debounce, throttle } from 'node:util'\n```"
   },
   {
     "id": "223",
