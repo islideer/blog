@@ -267,4 +267,4 @@ document.addEventListener("click", (event) => {
 
 ## 译者注
 
-大部分内容由 AI 辅助翻译完成，译者进行了润色和校对。
+主要内容由 AI 辅助翻译，译者进行了后期润色和校对。
