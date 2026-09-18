@@ -199,7 +199,7 @@ tags:
 
 ![主动靠近的年长公麋鹿](https://image.viki.moe/blog/yancheng/7a392e.jpeg)
 
-![另一只凑过来要吃的麋鹿](https://image.viki.moe/blog/yancheng/871407.jpeg)
+![另一只麋鹿凑过来要吃的](https://image.viki.moe/blog/yancheng/871407.jpeg)
 
 ![Mio 给麋鹿喂胡萝卜](https://image.viki.moe/blog/yancheng/8e18da.jpeg)
 
