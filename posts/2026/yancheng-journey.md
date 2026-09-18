@@ -35,7 +35,7 @@ tags:
 
 下车后打车到酒店，有点小冷，比南京低个 8 到 10 度。22 日晚 22 点到达盐城，入住的汉庭酒店的房间号刚好也是 2222，嘻。
 
-![入住收据，2222 号房](https://image.viki.moe/blog/yancheng/80a47d.png)
+![入住收据，2222 号房](https://image.viki.moe/blog/yancheng/80a47d.jpeg)
 
 ---
 
@@ -307,7 +307,7 @@ tags:
 
 之前 Mio 都对博物馆这样的地方不怎么感冒，经过这次的参观，她说感觉博物馆也没那么无聊了，还是挺有意思的。
 
-![各种海盐样本](https://image.viki.moe/blog/yancheng/2a73bd.png)
+![各种海盐样本](https://image.viki.moe/blog/yancheng/2a73bd.jpeg)
 
 ![海盐制作工序](https://image.viki.moe/blog/yancheng/335e3b.jpeg)
 
