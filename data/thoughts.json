@@ -1,5 +1,10 @@
 [
   {
+    "id": "224",
+    "date": "2026-09-18T15:17:29+08:00",
+    "content": "Node.js 内置的 [denounce](https://github.com/nodejs/node/blob/main/doc/api/util.md#utildebouncefn-wait-options) 和 [throttle](https://github.com/nodejs/node/blob/main/doc/api/util.md#utilthrottlefn-limit-interval-options) 已经在路上了，三天前刚 [合入主分支](https://github.com/nodejs/node/compare/312db1e3d24d9159fd337643facebc2ae8e09d8e...c081d10d7e436f3c99d0c1f4dd2097207cb011ad)。\n\n以后谁再让我手写防抖节流我就把这个甩他脸上（\n\n```ts\nexport { debounce, throttle } from 'node:util'\n```"
+  },
+  {
     "id": "223",
     "date": "2026-09-18T12:42:46+08:00",
     "content": "从 AI 的回复里看到一个从来没见过的词「寻租」。查了一下，是一个经济学术语，简单来说，是指靠特权、关系、垄断、制度漏洞等不正经手段获利的行为。\n\n> 寻租（英文 rent-seeking，又称为竞租），是指在没有从事生产的情况下，为垄断社会资源或维持垄断地位，从而得到垄断利润（亦即垄断租金）所从事的一种非生产性的寻利活动。"
