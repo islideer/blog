@@ -16,6 +16,7 @@ interface SearchResultItemProps {
 
 // 类型名称映射
 const TYPE_NAMES: Record<SearchIndexItem['type'], string> = {
+  tech: '译集',
   post: '文章',
   thought: '碎碎念',
   'mio-say': 'Mio 说',
@@ -55,7 +56,7 @@ export function SearchResultItem({ result, query, isSelected, onClick }: SearchR
   }, [isSelected])
 
   const linkClassName = cn(
-    'border-border block border-b p-3sm:p-4',
+    'border-border block border-b p-3 sm:p-4',
     'hover:bg-bg-secondary active:bg-bg-secondary dark:hover:bg-bg-tertiary dark:active:bg-bg-tertiary',
     isSelected && 'bg-bg-secondary dark:bg-bg-tertiary',
   )

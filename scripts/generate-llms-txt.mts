@@ -11,8 +11,17 @@ const publicDirectory = path.join(process.cwd(), 'public')
 async function generateLLMsTxt() {
   const posts = await getAllPosts()
 
-  const postListContent = posts
+  const originalPosts = posts
+    .filter((e) => e.original)
     .map((post) => `- [${post.title}](/${post.slug}.md) #${post.topic} #${post.date.slice(0, 10)}`)
+    .join('\n')
+
+  const othersPosts = posts
+    .filter((e) => !e.original)
+    .map(
+      (post) =>
+        `- [${post.title}](/${post.slug}.md) 原作者 ${post.author || '匿名'} #${post.topic} #${post.date.slice(0, 10)}`,
+    )
     .join('\n')
 
   const content = `
@@ -22,11 +31,15 @@ async function generateLLMsTxt() {
 
 ## 关于作者
 
-${about.intro.title}，${about.intro.paragraphs.join('')}
+${about.intro?.title || '匿名'}，${about.intro?.paragraphs?.join('') || '无描述'}
 
-## 所有文章
+## 原创文章
 
-${postListContent}
+${originalPosts}
+
+## 翻译文集
+
+${othersPosts}
 
 ## 博客页面
 
@@ -42,19 +55,22 @@ ${Object.entries(pages)
 
 ## 开源项目
 
-${[
-  ...(about.openSource.data?.libraries ?? []),
-  ...(about.openSource.data?.applications ?? []),
-  ...(about.openSource.data?.services ?? []),
-  ...(about.openSource.data?.scripts ?? []),
-  ...(about.openSource.data?.tools ?? []),
-]
-  .map((app) => `- [${app.name}](${app.url}) - ${app.description}`)
-  .join('\n')}
+${
+  about.openSource &&
+  [
+    ...(about.openSource.data?.libraries ?? []),
+    ...(about.openSource.data?.applications ?? []),
+    ...(about.openSource.data?.services ?? []),
+    ...(about.openSource.data?.scripts ?? []),
+    ...(about.openSource.data?.tools ?? []),
+  ]
+    .map((app) => `- [${app.name}](${app.url}) - ${app.description}`)
+    .join('\n')
+}
 
 ## 联系方式
 
-${about.contact.list.map((contact) => `- [${contact.label}](${contact.url})`).join('\n')}
+${about.contact && about.contact.list.map((contact) => `- [${contact.label}](${contact.url})`).join('\n')}
 `.trim()
 
   const target = path.join(publicDirectory, 'llms.txt')

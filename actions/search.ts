@@ -1,12 +1,12 @@
 'use server'
 
+import { dayjs } from '@/lib/dayjs'
 import { getAllPosts } from '@/lib/posts'
 import { about, thoughts, mioSays, timeline, friends, collection } from '@/lib/data'
-import { dayjs } from '@/lib/dayjs'
 
 export interface SearchIndexItem {
   id: string
-  type: 'post' | 'thought' | 'mio-say' | 'collection' | 'timeline' | 'about' | 'friend'
+  type: 'post' | 'tech' | 'thought' | 'mio-say' | 'collection' | 'timeline' | 'about' | 'friend'
   title: string
   excerpt?: string
   content: string
@@ -16,7 +16,8 @@ export interface SearchIndexItem {
 }
 
 const TYPE_WEIGHTS: Record<SearchIndexItem['type'], number> = {
-  post: 5,
+  post: 6,
+  tech: 5,
   thought: 4,
   'mio-say': 4,
   collection: 3,
@@ -67,8 +68,8 @@ async function getAllSearchItems(): Promise<SearchIndexItem[]> {
 
   for (const post of posts) {
     items.push({
-      id: `post-${post.slug}`,
-      type: 'post',
+      id: `${post.original ? 'post' : 'post'}-${post.slug}`,
+      type: post.original ? 'post' : 'tech',
       title: post.title,
       excerpt: post.excerpt,
       content: cleanMarkdown(post.content),
