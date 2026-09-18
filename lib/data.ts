@@ -56,6 +56,11 @@ export const pages = {
     description: `${siteConfig.author.name} 的碎碎念小角落，记录点滴想法和言论`,
     slug: '/thoughts',
   },
+  tech: {
+    title: '译集',
+    description: `冲浪时阅读到的技术好文，翻译并整理在此。主要内容由 AI 辅助翻译，我进行了后期润色和校对`,
+    slug: '/tech',
+  },
   mioSays: {
     title: `${siteConfig.lover.name} 说`,
     description: `${siteConfig.lover.name} 的专属发言空间，${siteConfig.author.name} 无编辑权限`,

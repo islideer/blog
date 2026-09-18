@@ -91,6 +91,15 @@ export function Header() {
           </Link>
 
           <Link
+            href={pages.tech.slug}
+            className={cn(
+              'active:bg-bg-secondary sm:hover:bg-bg-tertiary rounded px-1.5 py-0.5 font-medium',
+            )}
+          >
+            {pages.tech.title}
+          </Link>
+
+          <Link
             href={pages.thoughts.slug}
             className={cn(
               'active:bg-bg-secondary sm:hover:bg-bg-tertiary rounded px-1.5 py-0.5 font-medium',
@@ -137,7 +146,7 @@ export function Header() {
             >
               <span className="inline-flex items-center transition-transform group-active/btn:scale-90">
                 更多
-                <TriangleDownIcon className='size-4' />
+                <TriangleDownIcon className="size-4" />
               </span>
             </button>
             {isMoreOpen && (

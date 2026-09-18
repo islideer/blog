@@ -35,6 +35,8 @@ export interface PostMetadata {
   archived: boolean
   /** 文章是否置顶，默认为 false */
   top: boolean
+  /** 文章是否原创，默认为 true */
+  original: boolean
   /** 文章置顶图片 URL，frontmatter 中的 top_image，默认为 undefined */
   topImage: string | undefined
 }
@@ -87,6 +89,12 @@ interface GetAllPostsOptions {
    * @default false
    */
   includeDrafts?: boolean
+  /**
+   * 是否原创文章。
+   *
+   * @default true
+   */
+  isOriginal?: boolean
 }
 
 export async function getAllPosts(
@@ -98,7 +106,7 @@ export async function getAllPosts(
 export async function getAllPosts(
   options: GetAllPostsOptions = {},
 ): Promise<(PostMetadata | Post)[]> {
-  const { withContent = false, includeDrafts = false } = options
+  const { withContent = false, includeDrafts = false, isOriginal } = options
   const markdownFiles = await getAllMarkdownFiles(postsDirectory)
   const imgRegExp = /!\[[^\]]*]\(\s*<?([^>\s)]+(?:\)[^>\s)]*)?)>?(?:\s+["'(].*?["')])?\s*\)/g
 
@@ -127,6 +135,7 @@ export async function getAllPosts(
         draft: data.draft || false,
         archived: data.archived || false,
         top: data.top || false,
+        original: data.original !== undefined ? data.original : true,
         topImage: data.top_image || undefined,
         ...(withContent ? { content } : {}),
       }
@@ -139,7 +148,9 @@ export async function getAllPosts(
       ? allPostsData.filter((post) => !post.archived)
       : allPostsData.filter((post) => !post.draft && !post.archived)
 
-  return filteredPosts.toSorted((a, b) => (a.date < b.date ? 1 : -1))
+  return filteredPosts
+    .filter((e) => isOriginal === undefined || e.original === isOriginal)
+    .toSorted((a, b) => (a.date < b.date ? 1 : -1))
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {

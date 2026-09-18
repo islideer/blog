@@ -2,7 +2,9 @@
 title: '[译] 我所知道的优秀 API 设计'
 date: 2026-07-17
 topic: '技术'
-excerpt: '很多流行 API 设计建议过于理论化，真正重要的是那些在长期工程实践中踩出来的经验。'
+excerpt: 'API 设计应优先考虑易用性、稳定性和向后兼容性。'
+original: false
+author: 'Sean Goedecke'
 tags:
   - '开发'
   - '技术'

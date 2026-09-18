@@ -2,7 +2,9 @@
 title: '[译] 浏览器 User Agent 字符串的历史'
 date: 2026-01-29
 topic: '技术'
-excerpt: '讲述各大浏览器如何互相伪装，最终导致 UA 字符串彻底沦为一团乱麻。'
+excerpt: '浏览器互相伪装，最终导致 UA 一团乱麻的故事。'
+original: false
+author: 'Aaron Andersen'
 tags:
   - '浏览器'
   - 'Web'

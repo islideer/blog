@@ -2,7 +2,9 @@
 title: '[译] 我们还需要构建工具吗？'
 date: 2026-08-11
 topic: '技术'
-excerpt: '探讨一下构建工具的必要性'
+excerpt: '探讨一下 2026 年前端构建工具的必要性。'
+author: 'Ollie Williams'
+original: false
 tags:
   - '开发'
   - '技术'

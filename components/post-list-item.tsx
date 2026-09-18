@@ -12,9 +12,10 @@ interface PostListItemProps {
   dateFormat?: PostDateProps['format']
   gap?: '5rem' | '6rem'
   post: PostMetadata
+  author?: string
 }
 
-export function PostListItem({ post, gap = '5rem', dateFormat }: PostListItemProps) {
+export function PostListItem({ post, gap = '5rem', author, dateFormat }: PostListItemProps) {
   return (
     <article
       key={post.slug}
@@ -28,13 +29,14 @@ export function PostListItem({ post, gap = '5rem', dateFormat }: PostListItemPro
         <PostDate date={post.date} format={dateFormat ?? 'month-day'} />
       </div>
 
-      <div className="col-span-2 flex items-center gap-2 sm:col-span-1 sm:col-start-2 sm:row-start-1">
+      <div className="col-span-2 flex flex-col gap-2 sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center">
         {post.draft && <DraftBadge className="mt-0.5 hidden sm:inline" />}
         <ViewTransition name={`post-title-${post.slug}`} default="transform">
           <Link href={`/${post.slug}`} className="link flex-1 text-sm leading-snug sm:text-base">
             {post.title}
           </Link>
         </ViewTransition>
+        {author && <span className="text-text-secondary text-sm italic">作者: {author}</span>}
       </div>
 
       <div className="text-text-secondary col-start-2 row-start-1 flex items-center gap-2 font-mono text-xs sm:col-start-3 sm:row-start-1 sm:text-sm">

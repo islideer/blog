@@ -28,6 +28,10 @@ export function printEasterEgg(pages: readonly Page[], baseUrl: string) {
       c('#67e8f9', 'text-decoration:underline;'),
     )
   })
-  console.log('%c└' + '─'.repeat(48), c('#166534'))
-  console.log('%c  $ 连点站点标题三次即可解锁导航入口 ;)', c('#4b5563', 'font-size:11px;'))
+
+  console.log(
+    '%c└──%c连点标题三次即可解锁入口 :)',
+    c('#166534'),
+    c('#4ade80', 'font-size:13px;font-weight:bold;'),
+  )
 }
