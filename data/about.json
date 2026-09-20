@@ -11,7 +11,7 @@
     ]
   },
   "contact": {
-    "title": "联系",
+    "title": "联系我",
     "list": [
       { "label": "GitHub", "url": "https://github.com/vikiboss" },
       { "label": "hi@viki.moe", "url": "mailto:hi@viki.moe" },
@@ -20,7 +20,7 @@
     ]
   },
   "openSource": {
-    "title": "开源",
+    "title": "开源项目",
     "moreLink": "https://github.com/vikiboss?tab=repositories",
     "data": {
       "libraries": [

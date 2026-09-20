@@ -37,7 +37,7 @@ export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourcePr
               <ul className="space-y-4 sm:space-y-2">
                 {categoryProjects.map((project) => (
                   <li key={project.name} className="text-text-secondary">
-                    <div className="inline-flex flex-col flex-wrap gap-0 sm:flex-row sm:items-baseline sm:gap-3">
+                    <div className="inline-flex flex-col flex-wrap gap-0 sm:flex-row sm:items-center sm:gap-3">
                       <div className="inline-flex items-center gap-2">
                         {project.status === 'archived' && (
                           <span className="text-text-secondary bg-bg-secondary rounded-sm px-1.5 py-1 text-xs font-medium">
@@ -56,21 +56,21 @@ export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourcePr
                           </a>
                         </div>
                         {project.stars && (
-                          <span className="text-text-secondary text-sm">★ {project.stars}</span>
+                          <span className="text-text-secondary">★ {project.stars}</span>
                         )}
                         {project.homepage && (
                           <a
                             href={project.homepage}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="link text-sm"
+                            className="link"
                           >
                             主页
                           </a>
                         )}
                       </div>
 
-                      <span className="text-text-secondary text-sm">{project.description}</span>
+                      <span className="text-text-secondary">{project.description}</span>
                     </div>
                   </li>
                 ))}
