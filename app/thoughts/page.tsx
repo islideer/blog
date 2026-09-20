@@ -121,15 +121,13 @@ export default async function ThoughtsPage() {
 
         {/* Thoughts Timeline */}
         <section className="space-y-4">
-          <div className="border-border-secondary sm:border-l-2 sm:pl-6">
-            <ThoughtsPageContent
-              type="thoughts"
-              initialItems={initialItems}
-              initialHasMore={initialHasMore}
-              emptyMessage="还没有碎碎念"
-              contentPrefix="碎碎念"
-            />
-          </div>
+          <ThoughtsPageContent
+            type="thoughts"
+            initialItems={initialItems}
+            initialHasMore={initialHasMore}
+            emptyMessage="还没有碎碎念"
+            contentPrefix="碎碎念"
+          />
         </section>
       </div>
     </>

@@ -132,16 +132,14 @@ export default async function MioSaysPage() {
 
         {/* Mio Says Timeline */}
         <section className="space-y-4">
-          <div className="sm:border-mio-border sm:border-l-2 sm:pl-6">
-            <ThoughtsPageContent
-              type="mio-says"
-              initialItems={initialItems}
-              initialHasMore={initialHasMore}
-              mioTheme
-              emptyMessage={`${siteConfig.lover.name} 还没有说什么`}
-              contentPrefix={`${siteConfig.lover.name} 说`}
-            />
-          </div>
+          <ThoughtsPageContent
+            type="mio-says"
+            initialItems={initialItems}
+            initialHasMore={initialHasMore}
+            mioTheme
+            emptyMessage={`${siteConfig.lover.name} 还没有说什么`}
+            contentPrefix={`${siteConfig.lover.name} 说`}
+          />
         </section>
       </div>
     </>

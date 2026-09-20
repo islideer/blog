@@ -29,15 +29,12 @@ export function AboutOpenSource({ data, moreLink, id, title }: AboutOpenSourcePr
           if (categoryProjects.length === 0) return null
 
           return (
-            <div
-              key={category}
-              className="sm:border-border-secondary space-y-2 sm:border-l-2 sm:pl-4"
-            >
+            <div key={category} className="space-y-2">
               <h3 className="text-text-primary font-medium">{categoryNames[category]}</h3>
               <ul className="space-y-4 sm:space-y-2">
                 {categoryProjects.map((project) => (
                   <li key={project.name} className="text-text-secondary">
-                    <div className="inline-flex flex-col flex-wrap sm:flex-row sm:items-center gap-1 sm:gap-3">
+                    <div className="inline-flex flex-col flex-wrap gap-1 sm:flex-row sm:items-center sm:gap-3">
                       <div className="inline-flex items-center gap-2">
                         {project.status === 'archived' && (
                           <span className="text-text-secondary bg-bg-secondary rounded-sm px-1.5 py-1 text-xs font-medium">
