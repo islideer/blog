@@ -91,7 +91,7 @@ a.link[target='_blank'] {
 ::selection {
   color: inherit;
   text-shadow: none;
-  background-color: var(--color-selection-bg);
+  background-color: #0075ff30;
 }
 
 /* Focus styles - Enhanced for better visibility */

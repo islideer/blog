@@ -189,6 +189,7 @@
   padding: 0.1em 0.3em;
   border-radius: var(--radius-sm);
   vertical-align: 0.05em;
+  border: 1px color-mix(in srgb, currentColor 10%, transparent) solid;
 }
 
 .prose :not(pre) > code:before,

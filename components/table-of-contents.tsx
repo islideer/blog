@@ -380,7 +380,7 @@ export function StaticTableOfContentsPC({
                     scrollToHeading(item.id)
                   }}
                   className={cn(
-                    'block w-full truncate text-left font-medium',
+                    'block w-full truncate text-left font-medium underline-offset-4 hover:underline',
                     isActive
                       ? 'text-text-primary'
                       : isHovered
