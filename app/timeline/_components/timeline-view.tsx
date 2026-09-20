@@ -50,7 +50,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
             </h2>
 
             {/* 时间轴内容 */}
-            <div className="border-border-secondary divide-border divide-y border-l-2 pl-2 sm:pl-4">
+            <div className="border-border-secondary divide-border divide-y">
               {sortedItems.map((item, index) => {
                 // 支持模糊时间格式
                 const date = dayjs(item.date)
@@ -90,11 +90,7 @@ export async function TimelineView({ items }: TimelineViewProps) {
                         {formattedDate}
                       </time>
                     )}
-                    <MarkdownLite
-                      size="sm"
-                      className="text-xs leading-5 sm:leading-6"
-                      content={item.description}
-                    />
+                    <MarkdownLite className="leading-5 sm:leading-6" content={item.description} />
                   </article>
                 )
               })}

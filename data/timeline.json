@@ -45,7 +45,7 @@
   },
   {
     "date": "2026-05",
-    "description": "购入新的独立域名 [nioi.in](https://nioi.in)。nioi 取自日语的 におい（匂い，发音 ni-o-i），意为「气味、香味」。"
+    "description": "购入独立域名 [nioi.in](https://nioi.in)。nioi 取自日语 におい（发音 ni-o-i），意为「气味、香味」。"
   },
   {
     "date": "2026-05",
@@ -97,7 +97,7 @@
   },
   {
     "date": "2025-10",
-    "description": "飞往成都找 Mio 一起过国庆假期。第一次住汉庭。第一次吃火锅串串、绵绵冰。第一次做陶艺、拼豆。"
+    "description": "飞往成都和 Mio 过国庆假期。第一次住汉庭、吃火锅串串和绵绵冰、做陶艺、拼豆。"
   },
   {
     "date": "2025-08",
@@ -109,19 +109,19 @@
   },
   {
     "date": "2025-07",
-    "description": "半年后退坑 [VRChat](https://hello.vrchat.com/)。中文吧、中文教程吧、中文咖啡厅、台北 K 歌、动漫屋等是喜欢且常去的地图。"
+    "description": "退坑 [VRChat](https://hello.vrchat.com/)。中文吧、中文教程吧、中文咖啡厅、台北 K 歌、动漫屋是常去的地图。"
   },
   {
     "date": "2025-05",
-    "description": "浅学了 [C#](https://learn.microsoft.com/zh-cn/dotnet/csharp/) 和 [Unity](https://unity.com/)，买了不少正版模型、衣服、插件，改了点模，开发了属于自己的地图。"
+    "description": "浅学 [C#](https://learn.microsoft.com/zh-cn/dotnet/csharp/) 和 [Unity](https://unity.com/)，买了正版模型、衣服、插件，改模并开发了属于自己的地图。"
   },
   {
     "date": "2025-03",
-    "description": "购入全新 [PICO 4](https://www.picoxr.com/global/products/pico4) 头显和三个 [PICO 体感追踪器](https://www.picoxr.com/global/products/pico-motion-tracker)，俗称「腿环」，一套极具性价比的全身追踪方案。"
+    "description": "购入全新 [PICO 4](https://www.picoxr.com/global/products/pico4) 和三个 [PICO 体感追踪器](https://www.picoxr.com/global/products/pico-motion-tracker)，俗称「腿环」，一套性价比全身追踪方案。"
   },
   {
     "date": "2025-02",
-    "description": "迷上了 [VRChat](https://hello.vrchat.com/) 虚拟社交平台，认识了不少有趣的朋友，感受虚拟社交的乐趣。"
+    "description": "迷上 [VRChat](https://hello.vrchat.com/) 虚拟社交平台，认识了不少有趣的朋友，感受虚拟社交的乐趣。"
   },
   {
     "date": "2024-11",
@@ -137,7 +137,7 @@
   },
   {
     "date": "2024-05",
-    "description": "用自己挣的钱动手组了人生第一台主机，[i5 13600KF](https://www.intel.cn/content/www/cn/zh/products/sku/230494/intel-core-i513600kf-processor-24m-cache-up-to-5-10-ghz/specifications.html) + [RTX 4070 SUPER](https://www.nvidia.cn/geforce/graphics-cards/40-series/rtx-4070-family/)，很能打。"
+    "description": "用挣的钱组了人生第一台主机，[i5 13600KF](https://www.intel.cn/content/www/cn/zh/products/sku/230494/intel-core-i513600kf-processor-24m-cache-up-to-5-10-ghz/specifications.html) + [RTX 4070 SUPER](https://www.nvidia.cn/geforce/graphics-cards/40-series/rtx-4070-family/)，很能打。"
   },
   {
     "date": "2023-12",
@@ -169,19 +169,19 @@
   },
   {
     "date": "2022-09",
-    "description": "在北京进行三天「特种兵旅行」，游览了什刹海、故宫、颐和园、动物园等标志性景点。第一次看熊猫。"
+    "description": "在北京进行三天「特种兵旅行」，游览了故宫、颐和园等标志性景点。第一次看熊猫。"
   },
   {
     "date": "2022-07",
-    "description": "前往 [北京百度总部](https://baike.baidu.com/item/%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6/3132660) 实习，第一次出远门，第一次去北京，第一次独立生活，第一次体验大厂工作节奏。"
+    "description": "前往 [北京百度总部](https://baike.baidu.com/item/%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6/3132660) 实习，第一次出远门、去北京、独立生活、体验大厂工作节奏。"
   },
   {
     "date": "2021-10",
-    "description": "[KiviBot](https://b.viki.moe) 诞生，简单的 [Node.js](https://nodejs.org/) 机器人框架。由于协议、开源等问题先后更名为 [keli](https://keli.viki.moe)、[mioki](https://mioki.viki.moe)。"
+    "description": "[KiviBot](https://b.viki.moe) 诞生，简单的 [Node.js](https://nodejs.org/) 机器人框架。由于协议、开源等问题已闭源。"
   },
   {
     "date": "2020-11",
-    "description": "接触到「酷喵」，一个内置了 [gocq-http](https://github.com/Mrs4s/go-cqhttp)、使用易语言编写的机器人框架，暴露了多种语言 SDK 接口。我刚学会 [Node.js](https://nodejs.org/) 不久，尝试用 [JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript) 和 [易语言](https://www.dywt.com.cn/) 给它写了不少插件。"
+    "description": "接触到「酷喵」，一个内置了 [gocq-http](https://github.com/Mrs4s/go-cqhttp)、使用易语言编写的机器人框架，暴露了多种语言 SDK 接口。在学 [Node.js](https://nodejs.org/)，尝试用 [JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript) 和 [易语言](https://www.dywt.com.cn/) 给它写了不少插件。"
   },
   {
     "date": "2020-09",
@@ -189,7 +189,7 @@
   },
   {
     "date": "2020-07",
-    "description": "参与开发工作室负责的多个校内项目。包括招新小游戏、学生服务平台、小程序、APP 等。"
+    "description": "参与开发工作室的多个校内项目。包括招新小游戏、学生服务平台、小程序、APP 等。"
   },
   {
     "date": "2020-06",
@@ -201,11 +201,11 @@
   },
   {
     "date": "2019-11",
-    "description": "在校级互联网马拉松（Hackweek）中有幸和 Mio 分到一组，使用 [Vue 2](https://v2.vuejs.org/) 并荣获「最佳前端」。"
+    "description": "参加校级互联网马拉松（Hackweek），并有幸和 Mio 分到一组，使用 [Vue 2](https://v2.vuejs.org/) 开发产品并荣获「最佳前端」。"
   },
   {
     "date": "2019-11",
-    "description": "在学长指导下，使用 [GitHub Pages](https://pages.github.com/) 和 [Jekyll](https://jekyllrb.com/) 构建了个人博客，并使用 [vikiboss](https://github.com/vikiboss) 作为 GitHub ID，启用 [vikiboss.top](https://vikiboss.top) 域名，同时发布了我的第一篇博客文章 _[Hello World](/blog-journey)_。"
+    "description": "使用 [GitHub Pages](https://pages.github.com/) 和 [Jekyll](https://jekyllrb.com/) 构建了个人博客，并使用 [vikiboss](https://github.com/vikiboss) 作为 GitHub ID，启用 vikiboss.top 域名，同时发布了我的第一篇博客文章 _[Hello World](/blog-journey)_。"
   },
   {
     "date": "2019-10",
@@ -217,7 +217,7 @@
   },
   {
     "date": "2019-09",
-    "description": "加入 [南昌大学家园工作室](https://home.ncu.edu.cn/)（NCUHOME），遇见 Mio，学习 [Web](https://developer.mozilla.org/zh-CN/docs/Learn_web_development) 并正式踏入前端开发。"
+    "description": "加入 [家园工作室](https://home.ncu.edu.cn/)（NCUHOME），遇见 Mio，学习 [Web](https://developer.mozilla.org/zh-CN/docs/Learn_web_development) 并正式踏入前端开发。"
   },
   {
     "date": "2019-07",
@@ -229,7 +229,7 @@
   },
   {
     "date": "2014",
-    "description": "给旧手机 Root、刷过系统 [ROM](https://baike.baidu.com/item/%E5%AE%89%E5%8D%93ROM/2967985) 包，虽然变了几次转，那个时候的 [MIUI](https://www.mi.com/global/miui) 还是非常简单好用的。"
+    "description": "给旧手机 Root、刷系统 [ROM](https://baike.baidu.com/item/%E5%AE%89%E5%8D%93ROM/2967985) 包，虽然变了几次砖。那时的 [MIUI](https://www.mi.com/global/miui) 还是非常好用的。"
   },
   {
     "date": "2013",
@@ -241,11 +241,11 @@
   },
   {
     "date": "2013",
-    "description": "误打误撞接触到 [易语言](https://www.dywt.com.cn/)，一门充满争议的中文编程语言（那个时候对英文有天然的排斥感）。"
+    "description": "误打误撞接触到 [易语言](https://www.dywt.com.cn/)，一门充满争议的中文编程语言（那个时候对英文有天然排斥感）。"
   },
   {
     "date": "2010",
-    "description": "注册了 QQ 号，因为想玩的 [洛克王国](https://17roco.qq.com/) 要用 QQ 登录。（~~道理我都懂，怎么分给我 10 位数？~~）"
+    "description": "注册了 QQ 号，因为 [洛克王国](https://17roco.qq.com/) 要用 QQ 登录。（~~道理我都懂，怎么分给我 10 位数？~~）"
   },
   {
     "date": "2001",
