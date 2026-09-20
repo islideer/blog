@@ -456,6 +456,7 @@ html.dark :is(.prose, .prose-sm) :not(pre) code span {
 .prose > hr {
   margin-top: 2em;
   margin-bottom: 2em;
+  border-color: var(--color-border-secondary)
 }
 
 .prose > blockquote > p {
