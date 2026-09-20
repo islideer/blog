@@ -9,6 +9,7 @@ import { StaticTableOfContents, type StaticTocItem } from './table-of-contents'
 import { pages } from '@/lib/data'
 import { cleanMarkdownContent } from '@/lib/markdown'
 import { getThoughtsPage, type PagedThoughtItem, type PostType } from '@/actions/thoughts'
+import { CodeBlockEnhancer } from './code-block-enhancer'
 
 interface ThoughtCardClientProps {
   thought: PagedThoughtItem
@@ -68,7 +69,9 @@ function ThoughtCardClient({
       </div>
 
       {thought.html && (
-        <div className="prose" dangerouslySetInnerHTML={{ __html: thought.html }} />
+        <CodeBlockEnhancer>
+          <div className="prose" dangerouslySetInnerHTML={{ __html: thought.html }} />
+        </CodeBlockEnhancer>
       )}
 
       {thought.images && thought.images.length > 0 && (

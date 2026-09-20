@@ -17,7 +17,7 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import { stripMarkdown } from './reading-time.ts'
 
 import { visit } from 'unist-util-visit'
-import type { Root, Element, Text } from 'hast'
+import type { Element } from 'hast'
 
 /**
  * 统一的 Markdown 解析器（基于 unified）
@@ -73,6 +73,11 @@ const processor = unified()
   })
   .use(rehypePrettyCode, {
     keepBackground: false,
+    bypassInlineCode: false,
+    defaultLang: {
+      block: 'plaintext',
+      inline: 'plaintext',
+    },
     theme: {
       light: 'one-light',
       dark: 'one-dark-pro',

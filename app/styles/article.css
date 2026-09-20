@@ -189,7 +189,6 @@
   padding: 0.1em 0.3em;
   border-radius: var(--radius-sm);
   vertical-align: 0.05em;
-  border: 1px color-mix(in srgb, currentColor 10%, transparent) solid;
 }
 
 .prose :not(pre) > code:before,
@@ -386,38 +385,38 @@
   }
 }
 
-.prose pre span {
+:is(.prose, .prose-sm) pre {
+  background-color: var(--color-code-bg);
+  color: var(--shiki-light);
+}
+
+html.dark :is(.prose, .prose-sm) pre {
+  background-color: var(--color-code-bg);
+  color: var(--shiki-dark);
+}
+
+:is(.prose, .prose-sm) pre span {
   color: var(--shiki-light);
   font-style: var(--shiki-light-font-style);
   font-weight: var(--shiki-light-font-weight);
   text-decoration: var(--shiki-light-text-decoration);
 }
 
-.prose-sm pre span {
+:is(.prose, .prose-sm) :not(pre) code span {
   color: var(--shiki-light);
   font-style: var(--shiki-light-font-style);
   font-weight: var(--shiki-light-font-weight);
   text-decoration: var(--shiki-light-text-decoration);
 }
 
-html.dark .prose pre {
-  background-color: var(--color-code-bg);
-  color: var(--shiki-dark);
-}
-
-html.dark .prose-sm pre {
-  background-color: var(--color-code-bg);
-  color: var(--shiki-dark);
-}
-
-html.dark .prose pre span {
+html.dark :is(.prose, .prose-sm) pre span {
   color: var(--shiki-dark);
   font-style: var(--shiki-dark-font-style);
   font-weight: var(--shiki-dark-font-weight);
   text-decoration: var(--shiki-dark-text-decoration);
 }
 
-html.dark .prose-sm pre span {
+html.dark :is(.prose, .prose-sm) :not(pre) code span {
   color: var(--shiki-dark);
   font-style: var(--shiki-dark-font-style);
   font-weight: var(--shiki-dark-font-weight);
@@ -493,7 +492,7 @@ figure[data-rehype-pretty-code-figure] > pre[data-language]:not([data-language='
     font-family: var(--font-mono, monospace);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--color-text-quaternary);
+    color: var(--color-text-tertiary);
     pointer-events: none;
     user-select: none;
   }

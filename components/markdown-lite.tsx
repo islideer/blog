@@ -19,7 +19,7 @@ const sizeClassMap = {
  * 用于碎碎念、Mio 说等简单内容
  * 支持 Shiki 代码高亮，服务端渲染确保 SEO 友好
  */
-export async function MarkdownLite({ size = 'sm', content, className = '' }: MarkdownLiteProps) {
+export async function MarkdownLite({ size = 'md', content, className = '' }: MarkdownLiteProps) {
   if (!content || content.trim() === '') {
     return null
   }

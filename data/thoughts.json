@@ -27,7 +27,7 @@
   {
     "id": "219",
     "date": "2026-09-14T12:39:35+08:00",
-    "content": "后知后觉，`.then` 其实还接受第二个参数 `onRejected`，可以捕获之前 Promise 的错误，但无法捕获当前第一个参数里的错误。然而，可以往后再加一个 `.then(null, onRejected)` 达到捕获所有错误的效果。\n\n其实 `.catch(onRejected)` 本质就是 `.then(null, onRejected)` 的语法糖，只是一般前者用得多，简洁易读。\n\n\n```ts\npromise.then(xxx).catch(onRejected);\n// 等价于\npromise.then(xxx).then(null, onRejected);\n```"
+    "content": "后知后觉，`.then(){:ts}` 其实还接受第二个参数 `onRejected{:ts}`，可以捕获之前 Promise 的错误，但无法捕获当前第一个参数里的错误。然而，可以往后再加一个 `.then(null, onRejected){:ts}` 达到捕获所有错误的效果。\n\n其实 `.catch(onRejected){:ts}` 本质就是 `.then(null, onRejected){:ts}` 的语法糖，只是一般前者用得多，简洁易读。\n\n\n```ts\npromise.then(xxx).catch(onRejected);\n// 等价于\npromise.then(xxx).then(null, onRejected);\n```"
   },
   {
     "id": "218",
@@ -37,7 +37,7 @@
   {
     "id": "217",
     "date": "2026-09-14T11:49:06+08:00",
-    "content": "记录一下没用过的 [font-display](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@font-face/font-display) 属性，放在 `@font-face` 字体定义里，用来控制自定义字体加载时的显示行为。一般推荐用 `swap`，内容立刻可见，字体加载完成后替换，因为字体形状不同，可能会闪一下。\n\n- auto 浏览器决定，通常类似 block\n- block 短暂隐藏文字（~3s），等字体加载\n- swap 先用系统字体，字体加载后替换\n- fallback 极短隐藏（~100ms），然后系统字体\n- optional 极短隐藏，网络慢就直接用系统字体\n\n```css\n@font-face {\n  font-family: 'MyFont';\n  src: url('myfont.woff2') format('woff2');\n  font-display: swap;\n}\n```"
+    "content": "记录一下没用过的 [font-display](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@font-face/font-display) 属性，放在 `@font-face{:css}` 字体定义里，用来控制自定义字体加载时的显示行为。一般推荐用 `swap{:css}`，内容立刻可见，字体加载完成后替换，因为字体形状不同，可能会闪一下。\n\n- auto 浏览器决定，通常类似 block\n- block 短暂隐藏文字（~3s），等字体加载\n- swap 先用系统字体，字体加载后替换\n- fallback 极短隐藏（~100ms），然后系统字体\n- optional 极短隐藏，网络慢就直接用系统字体\n\n```css\n@font-face {\n  font-family: 'MyFont';\n  src: url('myfont.woff2') format('woff2');\n  font-display: swap;\n}\n```"
   },
   {
     "id": "216",
@@ -71,12 +71,12 @@
   {
     "id": "212",
     "date": "2026-09-09T16:08:59+08:00",
-    "content": "[Bun 1.4](https://bun.com/blog/bun-v1.4) 发布，这是第一个由 Rust 重写的正式子版本，带来了 `Bun.markdown.react()` 和 `.html()` API，可以直接将 `markdown` 文本转 React 组件和 HTML。\n\n在此之前，Bun 已经发布了 [太多](https://bun.com/reference/bun) 工具函数了，比如 Bun.$()、Bun.build()、Bun.color()、Bun.cron()、Bun.file()、Bun.serve()、Bun.stripANSI() 等。此外，还有 Bun.Archive、Bun.Glob、Bun.Image、Bun.MD5、Bun.RedisClient、Bun.S3Client、Bun.Terminal、Bun.WebSocket、Bun.WebView 等工具类。\n\n不得不说 Bun 真是野心勃勃啥都想干，哪块蛋糕都想分一口。随便拉个 API 出来都能和一堆 npm 包叫板，越来越多的前端类库、框架、工具开始成为 Bun 的竞争对手 😂。"
+    "content": "[Bun 1.4](https://bun.com/blog/bun-v1.4) 发布，这是第一个由 Rust 重写的正式子版本，带来了 `Bun.markdown.react(){:ts}` 和 `.html(){:ts}` API，可以直接将 `markdown` 文本转 React 组件和 HTML。\n\n在此之前，Bun 已经发布了 [太多](https://bun.com/reference/bun) 工具函数了，比如 Bun.$()、Bun.build()、Bun.color()、Bun.cron()、Bun.file()、Bun.serve()、Bun.stripANSI() 等。此外，还有 Bun.Archive、Bun.Glob、Bun.Image、Bun.MD5、Bun.RedisClient、Bun.S3Client、Bun.Terminal、Bun.WebSocket、Bun.WebView 等工具类。\n\n不得不说 Bun 真是野心勃勃啥都想干，哪块蛋糕都想分一口。随便拉个 API 出来都能和一堆 npm 包叫板，越来越多的前端类库、框架、工具开始成为 Bun 的竞争对手 😂。"
   },
   {
     "id": "211",
     "date": "2026-09-09T15:54:59+08:00",
-    "content": "CSS 的新玩意，前缀选择器 `.prefix-*` [即将到来](https://github.com/w3c/csswg-drafts/issues/10001)，相比传统的属性选择器 `[class*=\"prefix-\"]` 在性能上要高。\n\n```css\n/* 匹配所有 .btn- 开头的 CSS 类 */\n.btn-* {  /* 按钮通用样式 */  }\n```"
+    "content": "CSS 的新玩意，前缀选择器 `.prefix-*{:css}` [即将到来](https://github.com/w3c/csswg-drafts/issues/10001)，相比传统的属性选择器 `[class*=\"prefix-\"]{:css}` 在性能上要高。\n\n```css\n/* 匹配所有 .btn- 开头的 CSS 类 */\n.btn-* {  /* 按钮通用样式 */  }\n```"
   },
   {
     "id": "210",
@@ -96,7 +96,7 @@
   {
     "id": "207",
     "date": "2026-09-08T11:08:19+08:00",
-    "content": "React 又加了一个新的 API，[browser()](https://react.dev/reference/react-dom/browser)，因为特定于浏览器，就放在了 react-dom 包里，搭配 `use` 以 `use(browser(reason?))` 的方式来使用。在功能和用法命名上有点像细粒度、通用版本的 `'use client'`。\n\n优势在于可以在渲染期间动态切换组件为仅浏览器渲染，且可以是有条件的（比如在 if 条件分支中调用，符合 `use` API 规则）。但目前存在使用限制，必须和 `use` 搭配使用，且使用到的组件必须被 `<Suspense>` 包裹。因为 `browser()` 的底层会抛出可恢复的 `use` 错误，然后被 React 内部捕获且有意抑制了，这样在 SSR 期间会被回退到 Suspense 的 fallback 组件，同时客户端又能够正常渲染，达到让组件仅在客户端环境渲染的目的。\n\n```tsx\nimport { use } from 'react';\nimport { browser } from 'react-dom';\n\nfunction BrowserOnly() {\n  use(browser('This component requires browser APIs.'));\n  return <BrowserContent />;\n}\n```"
+    "content": "React 又加了一个新的 API，[browser()](https://react.dev/reference/react-dom/browser)，因为特定于浏览器，就放在了 react-dom 包里，搭配 `use(){:ts}` 以 `use(browser(reason?)){:ts}` 的方式来使用。在功能和用法命名上有点像细粒度、通用版本的 `'use client'{:ts}`。\n\n优势在于可以在渲染期间动态切换组件为仅浏览器渲染，且可以是有条件的（比如在 if 条件分支中调用，符合 `use` API 规则）。但目前存在使用限制，必须和 `use` 搭配使用，且使用到的组件必须被 `<Suspense>{:tsx}` 包裹。因为 `browser(){:ts}` 的底层会抛出可恢复的 `use` 错误，然后被 React 内部捕获且有意抑制了，这样在 SSR 期间会被回退到 Suspense 的 fallback 组件，同时客户端又能够正常渲染，达到让组件仅在客户端环境渲染的目的。\n\n```tsx\nimport { use } from 'react';\nimport { browser } from 'react-dom';\n\nfunction BrowserOnly() {\n  use(browser('This component requires browser APIs.'));\n  return <BrowserContent />;\n}\n```"
   },
   {
     "id": "206",
@@ -135,7 +135,7 @@
   {
     "id": "201",
     "date": "2026-08-21T12:09:38+08:00",
-    "content": "早前有 [用 CSS.highlights API 进行高亮](/thoughts/3) 的想法，近期有人做出来生产可用的开源项目了，效果还可以，主要是性能提升大，且对于洁癖党来说，得益于 [CSS Highlight API](https://developer.mozilla.org/zh-CN/docs/Web/API/CSS_Custom_Highlight_API)，没有杂乱的 `span` 标签影响。 https://GitHub.com/davatron5000/microlighter"
+    "content": "早前有 [用 CSS.highlights API 进行高亮](/thoughts/3) 的想法，近期有人做出来生产可用的开源项目了，效果还可以，主要是性能提升大，且对于洁癖党来说，得益于 [CSS Highlight API](https://developer.mozilla.org/zh-CN/docs/Web/API/CSS_Custom_Highlight_API)，没有杂乱的 `<span>{:html}` 标签影响。 https://GitHub.com/davatron5000/microlighter"
   },
   {
     "id": "200",
@@ -153,12 +153,12 @@
   {
     "id": "198",
     "date": "2026-08-11T11:29:09+08:00",
-    "content": "不完整的 CSS 设计错误清单，列出了「盒模型应默认为 `border-box`」等 CSS 历史上的设计错误。顺手码一下，方便后续查找。 https://wiki.csswg.org/ideas/mistakes"
+    "content": "不完整的 CSS 设计错误清单，列出了「盒模型应默认为 `border-box{:css}`」等 CSS 历史上的设计错误。顺手码一下，方便后续查找。 https://wiki.csswg.org/ideas/mistakes"
   },
   {
     "id": "197",
     "date": "2026-08-11T09:04:28+08:00",
-    "content": "[import text](/thoughts/26) 提案在 Node.js 26.5.0 上已实装，但暂需加上实验性参数，属实是令人激动的特性，不再需要繁琐的 `fs.readFileSync` 了。\n\n```ts\n// node --experimental-import-text app.ts\nimport prompt from './prompt.md' with { type: 'text' };\nconsole.log(prompt); // raw prompt string\n```"
+    "content": "[import text](/thoughts/26) 提案在 Node.js 26.5.0 上已实装，但暂需加上实验性参数，属实是令人激动的特性，不再需要繁琐的 `fs.readFileSync(){:ts}` 了。\n\n```ts\n// node --experimental-import-text app.ts\nimport prompt from './prompt.md' with { type: 'text' };\nconsole.log(prompt); // raw prompt string\n```"
   },
   {
     "id": "196",
@@ -259,7 +259,7 @@
   {
     "id": "180",
     "date": "2026-06-18T09:43:50+08:00",
-    "content": "偶然间注意到 [纸鹿的友链页面](https://blog.zhilu.site/link) 里的好友头像并不是纯圆的，轮廓带有一点弧形。简单进行了下页面检视和源码审查后，发现其实用到了 `corner-shape` 属性，最近刚好有看到。再搭配 `superellipse()` 改变了椭圆曲率，使头像的边缘过渡更加丰满自然。\n\n`superellipse()` 返回一个超椭圆形状，可用于 `corner-shape`。超椭圆是一种介于矩形和椭圆之间的闭合对称曲线形状。它看起来像一个椭圆，保留了两条轴的几何特征。\n\n核心 CSS 代码如下：\n\n```css\n.round-cobblestone {\n    corner-shape: superellipse(1.2);\n}\n```",
+    "content": "偶然间注意到 [纸鹿的友链页面](https://blog.zhilu.site/link) 里的好友头像并不是纯圆的，轮廓带有一点弧形。简单进行了下页面检视和源码审查后，发现其实用到了 `corner-shape{:css}` 属性，最近刚好有看到。再搭配 `superellipse{:css}` 改变了椭圆曲率，使头像的边缘过渡更加丰满自然。\n\n`superellipse{:css}` 返回一个超椭圆形状，可用于 `corner-shape{:css}`。超椭圆是一种介于矩形和椭圆之间的闭合对称曲线形状。它看起来像一个椭圆，保留了两条轴的几何特征。\n\n核心 CSS 代码如下：\n\n```css\n.round-cobblestone {\n    corner-shape: superellipse(1.2);\n}\n```",
     "images": [
       "https://image.viki.moe/blog/viki/c9560a.png"
     ]
@@ -343,7 +343,7 @@
   {
     "id": "168",
     "date": "2026-05-19T15:47:02+08:00",
-    "content": "通过返回永不解析的 Promise 可以实现异步中断，是 JavaScript 中最优雅的解决方案。\n\n```js\nasync function interrupt() {\n  return new Promise(() => {});\n}\n```\n\n这个方法使用原生异步语法（`await`）符合直觉，无需抛出异常（避开了 `try`/`catch`），GC 会自动清理未引用的 Pending Promise，但必须严格管控外部引用，确保无闭包泄漏，否则还是可能导致内存问题。"
+    "content": "通过返回永不解析的 Promise 可以实现异步中断，是 JavaScript 中最优雅的解决方案。\n\n```js\nasync function interrupt() {\n  return new Promise(() => {});\n}\n```\n\n这个方法使用原生异步语法（`await{:ts}`）符合直觉，无需抛出异常（避开了 `try{:ts}`/`catch{:ts}`），GC 会自动清理未引用的 Pending Promise，但必须严格管控外部引用，确保无闭包泄漏，否则还是可能导致内存问题。"
   },
   {
     "id": "167",
@@ -369,7 +369,7 @@
   {
     "id": "164",
     "date": "2026-05-11T18:04:30+08:00",
-    "content": "今天看到了好玩的新 API `JSON.rawJSON()`，给 `JSON.stringify()` 用的。它可以让一段 JSON 文本原样输出，不再普通序列化。在大整数、精确控制内容时很实用。\n\n```js\nJSON.stringify({ value: 12345678901234567890 })\n// {\"value\":12345678901234567000} // 精度丢失了\n\nJSON.stringify({ value: JSON.rawJSON(\"12345678901234567890\") })\n// {\"value\":12345678901234567890} // 原样输出了，精度没有丢失\n```\n\n往下深挖了一下，发现 `JSON.rawJSON()` 会返回一个 `{rawJSON: \"...\"}` 格式的「普通」对象，`JSON.stringify()` 可以识别它。好奇的我尝试手动构造一个表面特征几乎一样的对象，但是发现完全骗不到 `JSON.stringify()`。\n\n```js\n// 和 JSON.rawJSON 一样，null 原型 + 冻结 + 不可扩展\nconst fake = Object.freeze(Object.create(null, {\n  rawJSON: {\n    value: \"12345678901234567890\", enumerable: true,\n    writable: false, configurable: false\n  }\n}))\n\nJSON.stringify({ value: fake }) // 欺骗失败 😂\n// {\"value\":{\"rawJSON\":\"12345678901234567890\"}}\n```\n\n深入了解才明白，这个「普通」对象其实并不普通。它带上了引擎内部的特殊标记，也就是规范里定义的「内部槽位」，无法通过 JS 代码构造出来，也很难看出区别。"
+    "content": "今天看到了好玩的新 API `JSON.rawJSON(){:ts}`，给 `JSON.stringify(){:ts}` 用的。它可以让一段 JSON 文本原样输出，不再普通序列化。在大整数、精确控制内容时很实用。\n\n```js\nJSON.stringify({ value: 12345678901234567890 })\n// {\"value\":12345678901234567000} // 精度丢失了\n\nJSON.stringify({ value: JSON.rawJSON(\"12345678901234567890\") })\n// {\"value\":12345678901234567890} // 原样输出了，精度没有丢失\n```\n\n往下深挖了一下，发现 `JSON.rawJSON(){:ts}` 会返回一个 `{ rawJSON: \"...\" }{:ts}` 格式的「普通」对象，`JSON.stringify(){:ts}` 可以识别它。好奇的我尝试手动构造一个表面特征几乎一样的对象，但是发现完全骗不到 `JSON.stringify(){:ts}`。\n\n```js\n// 和 JSON.rawJSON 一样，null 原型 + 冻结 + 不可扩展\nconst fake = Object.freeze(Object.create(null, {\n  rawJSON: {\n    value: \"12345678901234567890\", enumerable: true,\n    writable: false, configurable: false\n  }\n}))\n\nJSON.stringify({ value: fake }) // 欺骗失败 😂\n// {\"value\":{\"rawJSON\":\"12345678901234567890\"}}\n```\n\n深入了解才明白，这个「普通」对象其实并不普通。它带上了引擎内部的特殊标记，也就是规范里定义的「内部槽位」，无法通过 JS 代码构造出来，也很难看出区别。"
   },
   {
     "id": "163",
@@ -527,7 +527,7 @@
   {
     "id": "143",
     "date": "2026-03-30T18:09:09+08:00",
-    "content": "最近在看 CC (Claude Code) 的东西，一些浅显的收获：\n\n- 系统提示词最好不要带上时间戳等动态内容，非常容易破坏缓存，成本、性能都受影响。\n- 动态内容可以用 `<system-reminder>` 追加到用户消息中，CC 自己也是这么做的。\n- 会话中减少模型切换（Subagent 替代）、减少 Tools 动态增删（Agent 开发中），可以提高缓存命中率。\n- CC 中双击 `ESC` 可以回溯历史，快速重新编辑消息、撤销文件改动、回滚会话等，非常好用。\n- 使用 [RTK (Rust Token Killer)](https://github.com/rtk-ai/rtk) 可精简常见命令输出，大幅节省 Token。\n- 如果要用 `RTK`，建议设置环境变量 `RTK_TELEMETRY_DISABLED=1` 屏蔽匿名数据收集。\n- CC 有一个 [ToolSearch](https://platform.claude.com/docs/zh-CN/agents-and-tools/tool-use/tool-search-tool) Tool 用来搜索 Tools，有一个 [ProgrammaticTool](https://platform.claude.com/docs/zh-CN/agents-and-tools/tool-use/programmatic-tool-calling) Tool 以编程方式调用 Tools。\n- 将 Tool 的 `defer_loading` 标记为 `true`，默认不加载到上下文，搭配 ToolSearch 可实现按需加载。\n- `/clear` 和 `/compact` 看得多，用得少，还是得多用，搭配 `/context` 和 `/memory` 管理好上下文。",
+    "content": "最近在看 CC (Claude Code) 的东西，一些浅显的收获：\n\n- 系统提示词最好不要带上时间戳等动态内容，非常容易破坏缓存，成本、性能都受影响。\n- 动态内容可以用 `<system-reminder>{:html}` 追加到用户消息中，CC 自己也是这么做的。\n- 会话中减少模型切换（Subagent 替代）、减少 Tools 动态增删（Agent 开发中），可以提高缓存命中率。\n- CC 中双击 `ESC` 可以回溯历史，快速重新编辑消息、撤销文件改动、回滚会话等，非常好用。\n- 使用 [RTK (Rust Token Killer)](https://github.com/rtk-ai/rtk) 可精简常见命令输出，大幅节省 Token。\n- 如果要用 `RTK`，建议设置环境变量 `RTK_TELEMETRY_DISABLED=1{:bash}` 屏蔽匿名数据收集。\n- CC 有一个 [ToolSearch](https://platform.claude.com/docs/zh-CN/agents-and-tools/tool-use/tool-search-tool) Tool 用来搜索 Tools，有一个 [ProgrammaticTool](https://platform.claude.com/docs/zh-CN/agents-and-tools/tool-use/programmatic-tool-calling) Tool 以编程方式调用 Tools。\n- 将 Tool 的 `defer_loading` 标记为 `true`，默认不加载到上下文，搭配 ToolSearch 可实现按需加载。\n- `/clear` 和 `/compact` 看得多，用得少，还是得多用，搭配 `/context` 和 `/memory` 管理好上下文。",
     "images": [
       "https://image.viki.moe/blog/viki/6fc519.png"
     ]
@@ -575,7 +575,7 @@
   {
     "id": "137",
     "date": "2026-03-18T10:33:21+08:00",
-    "content": "Chrome 146 Canary 版本开始支持 WebMCP，在 `chrome://flags` 页面开启 WebMCP 功能后，可以通过 navigator.modelContext.registerTool() 等方法进行注册和管理。\n\n> WebMCP 是由 Chrome 提出的一项 Web 标准草案，可以让网站向浏览器内的 AI 代理暴露结构化工具接口，旨在代替当前只能通过截图或 DOM 猜测操作等过于低效的交互方式。\n\n多说一嘴：Chrome 144 版本带来了官方 DevTools MCP，在 `chrome://inspect#remote-debugging` 页面开启后，可搭配 `chrome-devtools-mcp` 直接控制浏览器。",
+    "content": "Chrome 146 Canary 版本开始支持 WebMCP，在 `chrome://flags` 页面开启 WebMCP 功能后，可以通过 `navigator.modelContext.registerTool(){:ts}` 等方法进行注册和管理。\n\n> WebMCP 是由 Chrome 提出的一项 Web 标准草案，可以让网站向浏览器内的 AI 代理暴露结构化工具接口，旨在代替当前只能通过截图或 DOM 猜测操作等过于低效的交互方式。\n\n多说一嘴：Chrome 144 版本带来了官方 DevTools MCP，在 `chrome://inspect#remote-debugging` 页面开启后，可搭配 `chrome-devtools-mcp` 直接控制浏览器。",
     "images": [
       "https://image.viki.moe/blog/viki/b63cd3.png",
       "https://image.viki.moe/blog/viki/de0ff8.png"
@@ -584,7 +584,7 @@
   {
     "id": "136",
     "date": "2026-03-13T14:58:01+08:00",
-    "content": "Web 滤镜不只有 CSS 的 `filter` 内置值，还可以通过 SVG Filter 定义更复杂的滤镜效果。通过 \\<svg\\> 元素定义滤镜，然后使用 filter: url(#filter-id) 方式引用。[webkit.org](https://webkit.org/blog/viki/17808/interop-2025-review/) 就利用了 SVG Filter 在夜间模式下实现图片素材的亮度反转效果。\n\nSVG Filter 内容可参考 [svg-filter.txt](https://image.viki.moe/share/svg-filter.txt)。",
+    "content": "Web 滤镜不只有 CSS 的 `filter{:css}` 内置值，还可以通过 SVG Filter 定义更复杂的滤镜效果。通过 `<svg>{:html}` 元素定义滤镜，然后使用 `#el { filter: url(#filter-id); }{:css}` 方式引用。[webkit.org](https://webkit.org/blog/viki/17808/interop-2025-review/) 就利用了 SVG Filter 在夜间模式下实现图片素材的亮度反转效果。\n\nSVG Filter 内容可参考 [svg-filter.txt](https://image.viki.moe/share/svg-filter.txt)。",
     "images": [
       "https://image.viki.moe/blog/viki/2d2c16.png"
     ]
@@ -631,7 +631,7 @@
   {
     "id": "130",
     "date": "2026-03-04T11:43:00+08:00",
-    "content": "NestJS 拖了很久的全量 ESM 终于要来了。这主要得益于 `require(ESM)` 的推进。新版本还集成了 Vitest 和 Zod 等校验库，更加现代化。\n\n- [Big updates coming in NestJS v12 - X](https://x.com/nestframework/status/2025894197044158491)\n- [nestjs/nest#16391 - GitHub](https://github.com/nestjs/nest/pull/16391)",
+    "content": "NestJS 拖了很久的全量 ESM 终于要来了。这主要得益于 `require(ESM){:ts}` 的推进。新版本还集成了 Vitest 和 Zod 等校验库，更加现代化。\n\n- [Big updates coming in NestJS v12 - X](https://x.com/nestframework/status/2025894197044158491)\n- [nestjs/nest#16391 - GitHub](https://github.com/nestjs/nest/pull/16391)",
     "images": [
       "https://image.viki.moe/blog/viki/a9a813.png"
     ]
@@ -843,7 +843,7 @@
   {
     "id": "101",
     "date": "2026-01-15T17:59:34+08:00",
-    "content": "当使用浏览器不支持的 HTML 标签时，该标签会被回退到 [HTMLUnknownElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLUnknownElement)，该元素继承自 [HTMLElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement) 接口，但未实现任何额外的属性或方法。\n\n可以利用这一点，在内部添加兼容性的逻辑或者 UI 起到兼容效果。例如：\n\n```html\n<unsupported-tag>\n  <p>Your browser does not support this feature.</p>\n</unsupported-tag>\n```\n\n在不支持 `<unsupported-tag>` 的浏览器中，用户会看到 `<p>` 元素中的内容，从而提供了一个降级的体验。"
+    "content": "当使用浏览器不支持的 HTML 标签时，该标签会被回退到 [HTMLUnknownElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLUnknownElement)，该元素继承自 [HTMLElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement) 接口，但未实现任何额外的属性或方法。\n\n可以利用这一点，在内部添加兼容性的逻辑或者 UI 起到兼容效果。例如：\n\n```html\n<unsupported-tag>\n  <p>Your browser does not support this feature.</p>\n</unsupported-tag>\n```\n\n在不支持 `<unsupported-tag>{:html}` 的浏览器中，用户会看到 `<p>{:html}` 元素中的内容，从而提供了一个降级的体验。"
   },
   {
     "id": "100",
@@ -861,12 +861,12 @@
   {
     "id": "98",
     "date": "2026-01-14T22:18:08+08:00",
-    "content": "博客加入了「[开往](https://www.travellings.cn/docs/#%E5%85%B3%E4%BA%8E%E5%BC%80%E5%BE%80)」，一个由开源社区发起的友链接力公益项目。我就喜欢这种有意义的事儿~ 😎"
+    "content": "博客加入了 [开往](https://www.travellings.cn/docs/#%E5%85%B3%E4%BA%8E%E5%BC%80%E5%BE%80)，一个由开源社区发起的友链接力公益项目。就喜欢这种有意义的事 😎"
   },
   {
     "id": "97",
     "date": "2026-01-13T12:02:40+08:00",
-    "content": "XDG 是指 Cross-Desktop Group，由 [freedesktop.org](https://www.freedesktop.org/) 维护的 **一组** 社区规范（Specifications）， 用于 **规范 Linux/Unix 桌面环境和应用的行为**，非强制。\n\n其中 [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir/latest/) 是 XDG 规范中最常被用到的一条，它迫使开发者先确定「这是什么文件」再决定「它应该放在哪里」，并由此延伸了配置、数据、缓存等数据类型及其目录规范。\n\n具体来说：\n\n- `$XDG_CONFIG_HOME` 控制配置目录，默认为 `$HOME/.config`（可编辑的）\n- `$XDG_DATA_HOME` 控制数据目录，默认为 `$HOME/.local/share`（用户数据）\n- `$XDG_CACHE_HOME` 控制缓存目录，默认为 `$HOME/.cache`（可随时删）\n- `$XDG_STATE_HOME` 控制状态目录，默认为 `$HOME/.local/state`（日志、历史）\n\n~~这明明是给 Linux 的规范，可 Windows/macOS 下也到处都能见到这种配置形式的身影 🤷~~\n\n各平台推荐目录：\n\n- Linux/Unix：遵循 XDG 规范，配置一般放在 `~/.config/`，缓存一般放在 `~/.cache/`\n- Windows：配置一般放在 `%APPDATA%\\Roaming`，缓存一般放在 `%LOCALAPPDATA%\\Local`\n- macOS：配置一般放在 `~/Library/Preferences/`，缓存一般放在 `~/Library/Caches/`\n\n PS: 可以用 [env-paths](https://npm.im/env-paths) 获取各个最佳实践的应用目录。"
+    "content": "XDG 是指 Cross-Desktop Group，由 [freedesktop.org](https://www.freedesktop.org/) 维护的 **一组** 社区规范（Specifications）， 用于 **规范 Linux/Unix 桌面环境和应用的行为**，非强制。\n\n其中 [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir/latest/) 是 XDG 规范中最常被用到的一条，它迫使开发者先确定「这是什么文件」再决定「它应该放在哪里」，并由此延伸了配置、数据、缓存等数据类型及其目录规范。\n\n具体来说：\n\n- `$XDG_CONFIG_HOME{:bash}` 控制配置目录，默认为 `$HOME/.config{:.string}`（可编辑的）\n- `$XDG_DATA_HOME{:bash}` 控制数据目录，默认为 `$HOME/.local/share{:.string}`（用户数据）\n- `$XDG_CACHE_HOME{:bash}` 控制缓存目录，默认为 `$HOME/.cache{:.string}`（可随时删）\n- `$XDG_STATE_HOME{:bash}` 控制状态目录，默认为 `$HOME/.local/state{:.string}`（日志、历史）\n\n~~这明明是给 Linux 的规范，可 Windows/macOS 下也到处都能见到这种配置形式的身影 🤷~~\n\n各平台推荐目录：\n\n- Linux/Unix：遵循 XDG 规范，配置一般放在 `~/.config/{:.string}`，缓存一般放在 `~/.cache/{:.string}`\n- Windows：配置一般放在 `%APPDATA%\\Roaming{:.string}`，缓存一般放在 `%LOCALAPPDATA%\\Local{:.string}`\n- macOS：配置一般放在 `~/Library/Preferences/{:.string}`，缓存一般放在 `~/Library/Caches/{:.string}`\n\n PS: 可以用 [env-paths](https://npm.im/env-paths) 获取各个最佳实践的应用目录。"
   },
   {
     "id": "96",
@@ -1052,12 +1052,12 @@
   {
     "id": "70",
     "date": "2025-12-19T18:14:53+08:00",
-    "content": "轮播图的现代化方案: \n- [::scroll-marker](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-marker)\n- [::scroll-button](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-button)"
+    "content": "轮播图小圆圈的的现代化方案，[`::scroll-marker { }{:css}`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-marker) 和 [`::scroll-button { }{:css}`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-button)"
   },
   {
     "id": "69",
     "date": "2025-12-19T17:50:05+08:00",
-    "content": "之前有提到可以 [自定义 \\<select\\> 元素](/thoughts/48)，具体来说是通过设置 CSS 属性 appearance 为 `base-select` 来实现的，不得不说，效果确实很牛批，不仅是样式可自定义，连布局排版都可以高度定制化。目前已在 Chrome 135 可用，Chrome 官方发布了一篇文章说明这个功能: _[现在可以使用 CSS 自定义 \\<select\\> 元素](https://developer.chrome.com/blog/viki/a-customizable-select?hl=zh-cn)_，团队成员 Una 也发了篇个人博客来讲述技术细节: _[Updates to the customizable select API](https://una.im/select-updates/)_",
+    "content": "之前有提到可以 [自定义 `<select>{:html}` 元素](/thoughts/48)，具体来说是通过设置 CSS 属性 `appearance{:css}` 为 `base-select{:css}` 来实现的，不得不说，效果确实很牛批，不仅是样式可自定义，连布局排版都可以高度定制化。目前已在 Chrome 135 可用，Chrome 官方发布了一篇文章说明这个功能: _[现在可以使用 CSS 自定义 \\<select\\> 元素](https://developer.chrome.com/blog/viki/a-customizable-select?hl=zh-cn)_，团队成员 Una 也发了篇个人博客来讲述技术细节: _[Updates to the customizable select API](https://una.im/select-updates/)_",
     "images": [
       "https://s2.loli.net/2025/12/19/yN6muwvZDgdbJX2.png",
       "https://s2.loli.net/2025/12/19/YiD5v2fUV4L3q7F.png"
@@ -1145,7 +1145,7 @@
   {
     "id": "57",
     "date": "2025-12-12T17:14:01+08:00",
-    "content": "一种主动缓解 npm 包供应链攻击的可选方案，通过 `--before` 标志安装指定日期之前发布的包版本，让整个 npm 生态有时间来响应和修复潜在的安全问题。pnpm 也提供了 [minimumReleaseAge](https://pnpm.io/settings#minimumreleaseage) 配置来达到类似目的。\n\n```bash\nnpm install express --before=\"$(date -v -7d)\"\n```"
+    "content": "一种主动缓解 npm 包供应链攻击的可选方案，通过 `--before{:bash}` 标志安装指定日期之前发布的包版本，让整个 npm 生态有时间来响应和修复潜在的安全问题。pnpm 也提供了 [minimumReleaseAge](https://pnpm.io/settings#minimumreleaseage) 配置来达到类似目的。\n\n```bash\nnpm install express --before=\"$(date -v -7d)\"\n```"
   },
   {
     "id": "56",
@@ -1202,12 +1202,12 @@
   {
     "id": "48",
     "date": "2025-12-10T10:20:18+08:00",
-    "content": "强烈推荐阅读由微软 Edge 平台产品经理 Patrick Brosset 发布的博客文章：_[Masonry: Things You Won’t Need A Library For Anymore](https://www.smashingmagazine.com/2025/12/masonry-things-you-wont-need-library-anymore/)_。文中他详细阐述了一系列现代网络特性和替代方案，这些特性和方案可以帮助开发者减少对第三方库的依赖，从而简化代码库并提升性能。\n\n阅读笔记：\n\n- [corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/corner-shape) 属性带来了比 [border-radius](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/border-radius) 更花里胡哨的转角形状\n- [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)、[\\<dialog\\>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/dialog) 和 [::backdrop](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors/::backdrop) 帮助摆脱对弹出框、提示框和对话框库的依赖\n- [\\<details\\>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/details) 元素、其 name 属性以及 [::details-content](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::details-content) 伪元素消除了对手风琴组件的需求\n- [Cascade layers](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@layer) （层叠层）使 CSS 更加有序，[CSS Nesting](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Nesting) （嵌套）使 CSS 更加紧凑\n- 新颜色函数、[相对颜色](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Using_relative_colors) 和 [@supports](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@supports)，新数学函数如 [color-mix](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/color_value/color-mix)、[abs()](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/abs) 等\n- [:has()](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors/:has) 是长期以来最受欢迎的功能之一，消除了对更复杂的基于 JavaScript 解决方案的需求\n- 数组新的 [findLast()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast)、[at()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/at) 以及 Set 新的 [difference()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set/difference)、[intersection()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set/intersection)、[union()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set/union)\n- [Container queries](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Containment/Container_queries) （容器查询）使 UI 组件能够响应除视口大小之外的其他因素\n- [Grid](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Grid_layout)、[Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Subgrid)、[Flexbox](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Flexible_box_layout) 或 [multi-column](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/columns) 布局已经成为基线特性很长时间\n- [Anchor positioning](https://developer.mozilla.org/docs/Web/CSS/CSS_anchor_positioning) （铆点定位）处理弹出框和工具提示的相对定位，是对 [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) 的很好补充\n- [Navigation API](https://developer.mozilla.org/zh-CN/docs/Web/API/Navigation_API) 可用于处理单页应用中的导航，可能是各种路由库的绝佳补充\n- [View Transitions API](https://developer.mozilla.org/zh-CN/docs/Web/API/View_Transition_API) 使状态之间平滑过渡变得非常容易\n- [Scroll-driven animations](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations) （滚动驱动动画）基于滚动位置运行，是讲述故事和产品导览的 [绝佳方案](https://codepen.io/pimskie/pen/OPMQVjP)\n- 可定制的 [\\<select\\>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/select) 让你能够完全自定义其外观和内容，同时确保无障碍访问和性能优势\n- 即将推出的原生瀑布流布局 [Masonry](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Grid_layout/Masonry_layout) 是作品集和图片库等场景的绝佳选择，但远不止于此"
+    "content": "强烈推荐阅读由微软 Edge 平台产品经理 Patrick Brosset 发布的博客文章：_[Masonry: Things You Won’t Need A Library For Anymore](https://www.smashingmagazine.com/2025/12/masonry-things-you-wont-need-library-anymore/)_。文中他详细阐述了一系列现代网络特性和替代方案，这些特性和方案可以帮助开发者减少对第三方库的依赖，从而简化代码库并提升性能。\n\n阅读笔记：\n\n- [`corner-shape{:css}`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/corner-shape) 属性带来了比 [`border-radius{:css}`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/border-radius) 更花里胡哨的转角形状\n- [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)、[`<dialog>{:html}`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/dialog) 和 [`::backdrop{:css}`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors/::backdrop) 帮助摆脱对弹出框、提示框和对话框库的依赖\n- [`<details>{:html}`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/details) 元素以及 [`::details-content{:css}`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::details-content) 伪元素消除了对手风琴组件的需求\n- [Cascade layers](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@layer) （层叠层）使 CSS 更加有序，[CSS Nesting](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Nesting) （嵌套）使 CSS 更加紧凑\n- 新颜色函数、[相对颜色](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Using_relative_colors) 和 [`@supports{:css}`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/At-rules/@supports)，新数学函数如 [`color-mix{:css}`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/color_value/color-mix)、[`abs{:css}`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Values/abs) 等\n- [`:has(){:css}`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Selectors/:has) 是长期以来最受欢迎的功能之一，消除了对更复杂的基于 JavaScript 解决方案的需求\n- 数组 [`findLast(){:ts}`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast)、[`at(){:ts}`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/at) 和 Set [`difference(){:ts}`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set/difference)、[`intersection(){:ts}`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set/intersection)、[`union(){:ts}`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set/union)\n- [Container queries](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Containment/Container_queries) （容器查询）使 UI 组件能够响应除视口大小之外的其他因素\n- [Grid](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Grid_layout)、[Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Subgrid)、[Flexbox](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Flexible_box_layout) 或 [Multi Column](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/columns) 布局已经成为基线特性很长时间\n- [Anchor positioning](https://developer.mozilla.org/docs/Web/CSS/CSS_anchor_positioning) （铆点定位）处理弹出框相对定位，对 [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) 的很好补充\n- [Navigation API](https://developer.mozilla.org/zh-CN/docs/Web/API/Navigation_API) 可用于处理单页应用中的导航，可能是各种路由库的绝佳补充\n- [View Transitions API](https://developer.mozilla.org/zh-CN/docs/Web/API/View_Transition_API) 使状态之间平滑过渡变得非常容易\n- [Scroll-driven animations](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations) 基于滚动位置运行，是讲述故事和产品导览的 [绝佳方案](https://codepen.io/pimskie/pen/OPMQVjP)\n- 可定制的 [`<select>{:html}`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/select) 让你能够完全自定义其外观和内容，同时确保无障碍访问和性能优势\n- 即将推出的原生瀑布流布局 [Masonry](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Guides/Grid_layout/Masonry_layout) 是作品集和图片库等场景的绝佳选择，但远不止于此"
   },
   {
     "id": "47",
     "date": "2025-12-10T08:46:51+08:00",
-    "content": "当子元素滚动到边缘时继续滚动，这个时候父元素的滚动行为可以通过 CSS 属性 [overscroll-behavior](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/overscroll-behavior) 来控制，即：浏览器在到达滚动区域边界时的行为。这种滚动行为的默认链式表现，也叫 [滚动链](https://developer.mozilla.org/zh-CN/docs/Glossary/Scroll_chaining)。"
+    "content": "当子元素滚动到边缘时继续滚动，这个时候父元素的滚动行为可以通过 CSS 属性 [`overscroll-behavior{:css}`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/overscroll-behavior) 来控制，即：浏览器在到达滚动区域边界时的行为。这种滚动行为的默认链式表现，也叫 [滚动链](https://developer.mozilla.org/zh-CN/docs/Glossary/Scroll_chaining)。"
   },
   {
     "id": "46",
@@ -1225,7 +1225,7 @@
   {
     "id": "44",
     "date": "2025-12-09T20:36:53+08:00",
-    "content": "一个值得思考的 `useMediaQuery` 实现:\n\n```ts\nfunction useMediaQuery(query) {\n  return useSyncExternalStore(\n    (callback) => {\n      const mql = window.matchMedia(query);\n      mql.addEventListener('change', callback);\n      return () => mql.removeEventListener('change', callback);\n    },\n    () => window.matchMedia(query).matches,\n    () => false // SSR fallback\n  );\n}\n```"
+    "content": "一个值得思考的 `useMediaQuery{:ts}` 实现:\n\n```ts\nfunction useMediaQuery(query) {\n  return useSyncExternalStore(\n    (callback) => {\n      const mql = window.matchMedia(query);\n      mql.addEventListener('change', callback);\n      return () => mql.removeEventListener('change', callback);\n    },\n    () => window.matchMedia(query).matches,\n    () => false // SSR fallback\n  );\n}\n```"
   },
   {
     "id": "43",
@@ -1261,7 +1261,7 @@
   {
     "id": "38",
     "date": "2025-12-04T17:20:09+08:00",
-    "content": "[CookieStore API](https://developer.mozilla.org/zh-CN/docs/Web/API/CookieStore) 在今年七月被正式列入 [基线特性](https://developer.mozilla.org/zh-CN/docs/Glossary/Baseline/Compatibility)，相比传统的 `document.cookie`，它更现代、结构化、异步、安全，适合复杂和高安全需求场景。\n\n```typescript\n// 写入指定 Cookie\nawait cookieStore.set({\n  name: 'username',\n  value: 'Viki',\n  expires: new Date(Date.now() + 24 * 60 * 60 * 1000), \n  domain: 'viki.moe',\n}) \n// 读取指定 Cookie\nconst cookie = await cookieStore.get('username')\nconst cookie = await cookieStore.get({ name: 'username' })\n// 读取所有 Cookie\nconst cookies = await cookieStore.getAll()\nconst cookies = await cookieStore.getAll('username')\nconst cookies = await cookieStore.getAll({ url: 'https://viki.moe/' })\n// 删除指定 Cookie\nawait cookieStore.delete('username')\n// 监听 Cookie 变化\ncookieStore.addEventListener('change', (event) => {\n  console.log('Cookie changed:', event.changed)\n  console.log('Cookie deleted:', event.deleted)\n})\n```"
+    "content": "[CookieStore API](https://developer.mozilla.org/zh-CN/docs/Web/API/CookieStore) 在今年七月被正式列入 [基线特性](https://developer.mozilla.org/zh-CN/docs/Glossary/Baseline/Compatibility)，相比传统的 `document.cookie{:ts}`，它更现代、结构化、异步、安全，适合复杂和高安全需求场景。\n\n```typescript\n// 写入指定 Cookie\nawait cookieStore.set({\n  name: 'username',\n  value: 'Viki',\n  expires: new Date(Date.now() + 24 * 60 * 60 * 1000), \n  domain: 'viki.moe',\n}) \n// 读取指定 Cookie\nconst cookie = await cookieStore.get('username')\nconst cookie = await cookieStore.get({ name: 'username' })\n// 读取所有 Cookie\nconst cookies = await cookieStore.getAll()\nconst cookies = await cookieStore.getAll('username')\nconst cookies = await cookieStore.getAll({ url: 'https://viki.moe/' })\n// 删除指定 Cookie\nawait cookieStore.delete('username')\n// 监听 Cookie 变化\ncookieStore.addEventListener('change', (event) => {\n  console.log('Cookie changed:', event.changed)\n  console.log('Cookie deleted:', event.deleted)\n})\n```"
   },
   {
     "id": "37",
@@ -1307,7 +1307,7 @@
   {
     "id": "30",
     "date": "2025-12-03T20:48:15+08:00",
-    "content": "TC39 成员 [Marco Ippolito](https://github.com/marco-ippolito)最近分享了一篇 _[我在夏天发布了类型剥离功能](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping)_，讲述了将 TypeScript 带到 Node.js 的故事，挺有意思的。他最近正在推进 [--experimental-config-fileconfig](https://nodejs.org/api/cli.html#--experimental-config-fileconfig)。没想到的是，开源大神 [Anthony Fu](https://github.com/antfu) 竟然还 [赞助](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping#:~:text=Two%20hundred%20fifty%20from%20Anthony%20Fu) 了他。"
+    "content": "TC39 成员 [Marco Ippolito](https://github.com/marco-ippolito)最近分享了一篇 _[我在夏天发布了类型剥离功能](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping)_，讲述了将 TypeScript 带到 Node.js 的故事，挺有意思的。他最近正在推进 [`--experimental-config-fileconfig{:bash}`](https://nodejs.org/api/cli.html#--experimental-config-fileconfig)。没想到的是，开源大神 [Anthony Fu](https://github.com/antfu) 竟然还 [赞助](https://satanacchio.hashnode.dev/the-summer-i-shipped-type-stripping#:~:text=Two%20hundred%20fifty%20from%20Anthony%20Fu) 了他。"
   },
   {
     "id": "29",
@@ -1320,7 +1320,7 @@
   {
     "id": "28",
     "date": "2025-12-03T16:08:55+08:00",
-    "content": "接 [#16](#16)，以下类型解决了 [Omit](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys) 在复杂 [联合类型](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) 下的局限性。它通过 `K extends keyof T` 来确保 K 必须是 T 的键之一，并利用 [分布式条件类型](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types) 来处理联合类型情况下的 T。`DistributiveOmit<A | B, K>` 实际上等价于 `Omit<A, K> | Omit<B, K>`，而不是 `Omit<A | B, K>`。\n\n```ts\ntype DistributiveOmit<T, K extends keyof T> = T extends any ? Omit<T, K> : never;\n\ntype TypeBase = { name: string; };\ntype TypeA = TypeBase & { type: 'A' };\ntype TypeB = TypeBase & { type: 'B' };\n\ntype Result = DistributiveOmit<TypeA | TypeB, 'name'>;\n// Result => { type: 'A' } | { type: 'B' }\n\ntype BrokenResult = Omit<TypeA | TypeB, 'name'>;\n// BrokenResult => { type: 'A' | 'B' }\n```"
+    "content": "接 [#16](#16)，以下类型解决了 [Omit](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys) 在复杂 [联合类型](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) 下的局限性。它通过 `K extends keyof T` 来确保 K 必须是 T 的键之一，并利用 [分布式条件类型](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types) 来处理联合类型情况下的 T。\n\n`DistributiveOmit<A | B, K>{:ts}` = `Omit<A, K> | Omit<B, K>{:ts}`，而非 `Omit<A | B, K>{:ts}`。\n\n```ts\ntype DistributiveOmit<T, K extends keyof T> = T extends any ? Omit<T, K> : never;\n\ntype TypeBase = { name: string; };\ntype TypeA = TypeBase & { type: 'A' };\ntype TypeB = TypeBase & { type: 'B' };\n\ntype Result = DistributiveOmit<TypeA | TypeB, 'name'>;\n// Result => { type: 'A' } | { type: 'B' }\n\ntype BrokenResult = Omit<TypeA | TypeB, 'name'>;\n// BrokenResult => { type: 'A' | 'B' }\n```"
   },
   {
     "id": "27",
@@ -1338,7 +1338,7 @@
   {
     "id": "25",
     "date": "2025-12-03T11:28:34+08:00",
-    "content": "关于 `<input type=\"number\" />` 的一些笔记：\n\n- 设置 [appearance](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/appearance) 移除默认增减按钮\n- 通过 [max](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes/max)、[min](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes/min)、[step](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes/step) 控制范围和步长\n- 通过 [stepUp()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/stepUp) 和 [stepDown()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/stepDown) 实例方法增减数值\n- 设置 [onwheel](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/wheel_event#%E8%AF%AD%E6%B3%95) 属性会开启「滚轮调整数值」功能\n- [inputmode=\"numeric\"](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inputMode#numeric) 移动端仅含数字键盘\n- [inputmode=\"decimal\"](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inputMode#decimal) 移动端数字键盘含小数点\n- [value](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/value) 是字符串类型，[valueAsNumber](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/valueAsNumber) 是数值类型，类似的还有 [valueAsDate](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/valueAsDate)\n- 通过 [input.validity.[ValidityState]](https://developer.mozilla.org/zh-CN/docs/Web/API/ValidityState) 检查输入合法性\n- 通过 [list](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/input#list) 属性 和 [\\<datalist\\>](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist) 实现预设值功能\n- 卡号、验证码等场景更建议 `<input type=\"text\" inputmode=\"numeric\" pattern=\"\\d+\" />`\n- 期望以 `0` 开头时不要使用 `type=\"number\"`"
+    "content": "关于 `<input type=\"number\" />{:html}` 的一些笔记：\n\n- 设置 [`appearance{:css}`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/appearance) 移除默认增减按钮\n- 通过 [`max](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes/max)、[min](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes/min)、[step](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Attributes/step) 控制范围和步长\n- 通过 [`stepUp(){:ts}`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/stepUp) 和 [`stepDown(){:ts}`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/stepDown) 实例方法增减数值\n- 设置 [onwheel](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/wheel_event#%E8%AF%AD%E6%B3%95) 属性会开启「滚轮调整数值」功能\n- [`inputmode=\"numeric\"{:html}`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inputMode#numeric) 移动端仅含数字键盘\n- [`inputmode=\"decimal\"{:html}`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inputMode#decimal) 移动端数字键盘含小数点\n- [value](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/value) 是字符串类型，[valueAsNumber](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/valueAsNumber) 是数值类型，类似的还有 [valueAsDate](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/valueAsDate)\n- 通过 [`input.validity.[ValidityState]{:ts}`](https://developer.mozilla.org/zh-CN/docs/Web/API/ValidityState) 检查输入合法性\n- 通过 [list](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/input#list) 属性 和 [`<datalist>{:html}`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist) 实现预设值功能\n- 卡号、验证码等场景更建议 `<input type=\"text\" inputmode=\"numeric\" pattern=\"\\d+\" />{:html}`\n- 期望以 `0` 开头时不要使用 `type=\"number\"{:html}`"
   },
   {
     "id": "24",
@@ -1384,7 +1384,7 @@
   {
     "id": "19",
     "date": "2025-12-02T08:43:15+08:00",
-    "content": "`<Tooltip />` 这种组件确实非常不友好，在规范的 Web 开发中很可能出现过度使用、误用、可访问性差、信息隐藏和不确定性等问题。 GitHub 官方的 [Primer 设计系统](https://primer.style/) 有提到 [Tooltip 的替代方案](https://primer.style/product/components/tooltip/guidelines/#alternatives-to-tooltips)。另可参考这篇博客 _[Tooltip Components Should Not Exist](https://tkdodo.eu/blog/viki/tooltip-components-should-not-exist)_。"
+    "content": "`<Tooltip />{:tsx}` 这种组件确实非常不友好，在规范的 Web 开发中很可能出现过度使用、误用、可访问性差、信息隐藏和不确定性等问题。 GitHub 官方的 [Primer 设计系统](https://primer.style/) 有提到 [Tooltip 的替代方案](https://primer.style/product/components/tooltip/guidelines/#alternatives-to-tooltips)。另可参考这篇博客 _[Tooltip Components Should Not Exist](https://tkdodo.eu/blog/viki/tooltip-components-should-not-exist)_。"
   },
   {
     "id": "18",
@@ -1402,7 +1402,7 @@
   {
     "id": "16",
     "date": "2025-12-01T17:26:04+08:00",
-    "content": "通过将 TypeScript 类型包装在元组 `[T]` 和 `[U]` 中，可以禁用 [分布式条件类型](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types)。\n\n```ts\ntype AllExtend<T, U> = [T] extends [U] ? true : false // ✅ \ntype AllExtendBroken<T, U> = T extends U ? true : false // ❌\n\ntype WrapInArray<T> = [T] extends [unknown] ? T[] : never // ✅\ntype WrapInArrayBroken<T> = T extends unknown ? T[] : never // ❌\n\ntype Result1 = AllExtend<'cat' | 42, string> // false ✅\ntype Result2 = AllExtendBroken<'cat' | 42, string> // true | false ❌\ntype Result3 = WrapInArray<'cat' | 42> // ('cat' | 42)[] ✅\ntype Result4 = WrapInArrayBroken<'cat' | 42> // 'cat'[] | 42[] ❌\n```"
+    "content": "通过将 TypeScript 类型包装在元组 `[T]{:ts}` 和 `[U]{:ts}` 中，可以禁用 [分布式条件类型](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types)。\n\n```ts\ntype AllExtend<T, U> = [T] extends [U] ? true : false // ✅ \ntype AllExtendBroken<T, U> = T extends U ? true : false // ❌\n\ntype WrapInArray<T> = [T] extends [unknown] ? T[] : never // ✅\ntype WrapInArrayBroken<T> = T extends unknown ? T[] : never // ❌\n\ntype Result1 = AllExtend<'cat' | 42, string> // false ✅\ntype Result2 = AllExtendBroken<'cat' | 42, string> // true | false ❌\ntype Result3 = WrapInArray<'cat' | 42> // ('cat' | 42)[] ✅\ntype Result4 = WrapInArrayBroken<'cat' | 42> // 'cat'[] | 42[] ❌\n```"
   },
   {
     "id": "15",
@@ -1481,7 +1481,7 @@
   {
     "id": "5",
     "date": "2025-11-20T20:50:27+08:00",
-    "content": "测试一下发布碎碎念的 API 以及 Markdown 渲染格式是否正常。\n- 这是 **加粗**\n- 这是 _斜体_\n- 这是 ~~删除线~~\n- 这是 [链接](https://blog.viki.moe)\n- 这是 `code`\n\n下面是代码块。\n\n```ts\nconst message = \"Hello world!\"\n```\n\n下面是测试图片。",
+    "content": "测试一下发布碎碎念的 API 以及 Markdown 渲染格式是否正常。\n- 这是 **加粗**\n- 这是 _斜体_\n- 这是 ~~删除线~~\n- 这是 [链接](/posts)，这是 [外链](https://blog.viki.moe)\n- 这是 `code` 和带语言的 `<div>code</div>{:html}` \n\n下面是代码块。\n\n```ts\nconst message = \"Hello world!\"\n```\n\n下面是测试图片。",
     "images": [
       "https://s2.loli.net/2025/11/24/IQ8CxRO49U2lrMV.png"
     ]
@@ -1489,7 +1489,7 @@
   {
     "id": "4",
     "date": "2025-11-17T16:48:00+08:00",
-    "content": "完整的 URL 结构中还包含 [Text Fragments](https://developer.mozilla.org/zh-CN/docs/Web/URI/Reference/Fragment/Text_fragments)，用于在 URL 中指定具体文本，浏览器打开即可高亮对应的文本，方便定位分享。基于 Chromium 的浏览器已经在右键菜单内置了复制命令。尝试点击这个 [文本高亮链接](https://blog.viki.moe/thoughts#:~:text=%E8%AE%B0%E5%BD%95%E7%94%9F%E6%B4%BB) 试试看，它会重新打开当前页面，并突出高亮「记录生活」这四个字。",
+    "content": "完整的 URL 结构中还包含 [Text Fragments](https://developer.mozilla.org/zh-CN/docs/Web/URI/Reference/Fragment/Text_fragments)，用于在 URL 中指定具体文本，浏览器打开即可高亮对应的文本，方便定位分享。基于 Chromium 的浏览器已经在右键菜单内置了复制命令。尝试点击这个 [文本高亮链接](https://blog.viki.moe/thoughts#:~:text=%E5%BF%B5%E5%B0%8F%E8%A7%92%E8%90%BD%EF%BC%8C-,%E8%AE%B0%E5%BD%95%E7%82%B9%E6%BB%B4%E6%83%B3%E6%B3%95%E5%92%8C%E8%A8%80%E8%AE%BA,-%EF%BC%8C%E5%85%B1%20224%20%E6%9D%A1) 试试看，它会重新打开当前页面，并突出高亮文本。",
     "images": [
       "https://s2.loli.net/2025/11/24/msjwN8IrFJxStOq.png",
       "https://s2.loli.net/2025/11/24/6qWQXP7GIUrYZgF.png"
@@ -1508,6 +1508,6 @@
   {
     "id": "1",
     "date": "2025-11-14T09:28:00+08:00",
-    "content": "使用 `all: unset` 可以快速重置按钮样式，相比于 `div` 方案更加语义化且易于维护。\n\n```diff\n- <div role=\"button\" tabindex=\"0\" />\n+ <button /> + { all: unset; }\n```"
+    "content": "使用 CSS 样式 `button { all: unset }{:css}` 可以快速重置按钮样式，相比于 `<div>{:html}` 方案更加语义化且易于维护。\n\n```diff\n- <div role=\"button\" tabindex=\"0\" />\n+ <button /> + { all: unset; }\n```"
   }
 ]
