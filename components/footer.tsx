@@ -5,7 +5,7 @@ import { siteConfig } from '@/lib/config'
 
 function CopyrightText() {
   return (
-    <span className="text-text-secondary inline-flex gap-1">
+    <span className="text-text-secondary inline-flex gap-1 text-xs">
       <span>
         © {siteConfig.copyright.year.start}-{siteConfig.copyright.year.end}
       </span>
@@ -17,7 +17,7 @@ function CopyrightText() {
 
 export function LicenseText({ className }: { className?: string }) {
   return (
-    <span className={cn('text-text-secondary', className)}>
+    <span className={cn('text-text-secondary text-xs', className)}>
       除特殊说明外，所有文章均以
       <a
         href={siteConfig.copyright.license.url}
@@ -28,6 +28,14 @@ export function LicenseText({ className }: { className?: string }) {
         {siteConfig.copyright.license.name}
       </a>
       协议共享，转载请注明原文出处。
+    </span>
+  )
+}
+
+export function Tagline({ className }: { className?: string }) {
+  return (
+    <span className={cn('text-text-secondary', className)}>
+      {siteConfig.tagline}
     </span>
   )
 }
@@ -66,7 +74,7 @@ function SocialLinks({ className }: { className?: string }) {
   )
 }
 
-function Tagline() {
+function SiteInfo() {
   return (
     <div className="flex items-center gap-2">
       <Link passHref href="/" className="link">
@@ -90,6 +98,7 @@ export function Footer() {
       className="border-border-secondary max-w-3xl border-t p-4 transition-opacity sm:px-6"
     >
       <div className="flex flex-col gap-3 text-left text-sm">
+        <SiteInfo />
         <Tagline />
         <LicenseText />
         <CopyrightText />
