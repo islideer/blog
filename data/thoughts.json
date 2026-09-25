@@ -1,5 +1,13 @@
 [
   {
+    "id": "227",
+    "date": "2026-09-25T17:19:45+08:00",
+    "content": "儿时的记忆，人民的艺术家，致敬。",
+    "images": [
+      "https://image.viki.moe/blog/viki/30caf5.jpeg"
+    ]
+  },
+  {
     "id": "226",
     "date": "2026-09-23T09:07:26+08:00",
     "content": "Node.js 26.10.0 发布，正式引入 `util.debounce(){:ts}` 和 `util.throttle(){:ts}`。"
