@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@11.22.0",
+  "packageManager": "pnpm@12.6.0",
   "scripts": {
     "generate:llms-txt": "node scripts/generate-llms-txt.mts",
     "dev": "pnpm run generate:llms-txt && bun --bun next dev",
@@ -13,8 +13,8 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "type-check": "tsc --noEmit",
-    "vercel:link": "vercel link",
-    "vercel:pull-env": "vercel env pull .env.local",
+    "vercel:link": "npx vercel link",
+    "vercel:pull-env": "npx vercel env pull .env.local",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage"
@@ -81,7 +81,6 @@
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "unified": "^11.0.5",
-    "vercel": "^59.18.0",
     "vitest": "^4.1.11"
   },
   "prettier": {
