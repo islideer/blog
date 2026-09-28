@@ -212,7 +212,7 @@ statement.run()
 
 ## node:test, node:assert
 
-Node.js 也迎来了自己的 Test Runner，简单测试不在话下。写测试前可以先评估，是否急切地需要引入 `mocha`, `jest`, `vitest` 或者 `rstest`。
+Node.js 也迎来了自己的 Test Runner，简单测试不在话下。写测试前可以先评估，是否急切地需要引入 `mocha{:.string}`, `jest{:.string}`, `vitest{:.string}` 或者 `rstest{:.string}`。
 
 ```ts
 import test from 'node:test'
