@@ -105,6 +105,7 @@ describe('SEO Functions', () => {
         draft: false,
         archived: false,
         top: false,
+        original: true,
         topImage: undefined,
       }
     })
@@ -307,6 +308,7 @@ describe('SEO Functions', () => {
         draft: false,
         archived: false,
         top: false,
+        original: true,
         topImage: undefined,
       }
     })
@@ -373,6 +375,7 @@ describe('SEO Functions', () => {
         draft: false,
         archived: false,
         top: false,
+        original: true,
         topImage: undefined,
       }
     })
@@ -418,6 +421,7 @@ describe('SEO Functions', () => {
         draft: false,
         archived: false,
         top: false,
+        original: true,
         topImage: undefined,
       }
 
@@ -444,6 +448,7 @@ describe('SEO Functions', () => {
         draft: false,
         archived: false,
         top: false,
+        original: true,
         topImage: undefined,
       }
 
