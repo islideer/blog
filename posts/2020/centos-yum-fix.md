@@ -4,6 +4,7 @@ date: 2020-01-12
 top_image: 'https://i.loli.net/2020/11/21/o7sYJZVIuqMRpT3.jpg'
 topic: '笔记'
 excerpt: '解决 CentOS 7 系统中 yum 命令失效的常见问题，提供启用网卡自启动及修改镜像源的完整解决方案。'
+archived: true
 tags:
   - 'Linux'
   - 'CentOS'
