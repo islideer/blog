@@ -159,5 +159,13 @@
     "description": "愿指引明路的苍蓝星为你闪耀。",
     "avatar": "https://bu.dusays.com/2025/09/08/68be367856ad1.jpg",
     "rss": "https://yxbug.ren/atom.xml"
+  },
+  {
+    "id": "jerry",
+    "name": "Jerry's ink",
+    "url": "https://jerryplusy.ink",
+    "description": "愿我们在清醒的明天再会。",
+    "avatar": "https://image.viki.moe/blog/friend/jerry.png",
+    "rss": "https://jerryplusy.ink/rss.xml"
   }
 ]
