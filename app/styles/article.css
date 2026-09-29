@@ -463,9 +463,12 @@ html.dark :is(.prose, .prose-sm) :not(pre) code span {
 
 /* 图片已在 globals.css 中处理，这里再次确保 */
 .prose img {
-  width: 100%;
   max-width: 100%;
   height: auto;
+
+  &:not(.emoji) {
+    width: 100%;
+  }
 }
 
 /* SVG 图片 */
