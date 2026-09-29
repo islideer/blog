@@ -1,7 +1,7 @@
 /* Default Light Mode */
 :root {
   /* 浏览器默认强调色 */
-  --accent-color: #0075ff;
+  --accent-color: #0071e3;
   /* 目前 AccentColor 值为常数，待后续更新 */
   /* --accent-color: AccentColor; */
 
@@ -9,7 +9,7 @@
   --color-bg-primary: oklch(0.99 0 0); /* Pure/Near White */
   --color-bg-secondary: oklch(0.96 0 0); /* Very Light Gray */
   --color-bg-tertiary: oklch(0.94 0 0); /* Light Gray */
-  --color-bg-quaternary: oklch(0.92 0 0); /* Distinct Gray */
+  --color-bg-quaternary: oklch(0.90 0 0); /* Distinct Gray */
 
   /* Text Colors */
   --color-text-primary: oklch(0.2 0 0); /* Near Black - High Contrast */
@@ -60,7 +60,7 @@
   --color-bg-primary: oklch(0.16 0 0); /* Deep Dark */
   --color-bg-secondary: oklch(0.20 0 0); /* Dark Gray */
   --color-bg-tertiary: oklch(0.24 0 0); /* Medium Dark */
-  --color-bg-quaternary: oklch(0.3 0 0); /* Lighter Dark */
+  --color-bg-quaternary: oklch(0.36 0 0); /* Lighter Dark */
 
   /* Text Colors */
   --color-text-primary: oklch(0.95 0 0); /* Near White */

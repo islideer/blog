@@ -66,7 +66,7 @@ export function Header() {
   return (
     <header
       role="banner"
-      className="border-border bg-bg-primary/80 sticky top-0 z-40 max-w-3xl border-b px-4 backdrop-blur-sm select-none sm:px-6"
+      className="border-border bg-bg-primary/72 sticky top-0 z-40 max-w-3xl border-b px-4 backdrop-blur-sm select-none sm:px-6"
     >
       <div className="flex items-center justify-between py-1 sm:py-2">
         <Link href="/" passHref onClick={handleTitleClick}>

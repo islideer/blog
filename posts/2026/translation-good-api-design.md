@@ -178,9 +178,15 @@ GET /comments_job/589 -> { status: 'complete', comments: [...] }
 
 **我还漏了什么？** 我没有写 REST vs SOAP，JSON vs XML，因为我觉得这些不是特别重要。我喜欢 REST 和 JSON，但我对此没有强烈意见。我也没有提到 OpenAPI schema，它是一个有用的工具，但我觉得如果你愿意，直接用 Markdown 写 API 文档也完全可以。
 
-*更新：这篇文章在 [Hacker News](https://news.ycombinator.com/item?id=45006801) 和 [Reddit](https://www.reddit.com/r/programming/comments/1mzqigs/everything_i_know_about_good_api_design/) 上受到热议。有人说我应该在幂等性部分提到 PUT，因为它按理说在设计上就是幂等的。也许吧，我在实践中见得不多，而且在我看来，HTTP 动词本身并没有什么东西能让它比 POST 更幂等。还有人担心使用 Redis 作为幂等存储，因为无法在 Redis 和数据库之间协调安全的原子操作。对于支付或高风险领域，这确实是个合理的担忧，但在已有的非幂等 API 上硬接一个 Redis 仍然比什么都不做强得多。*
+> 更新：
+> 
+> 这篇文章在 [Hacker News](https://news.ycombinator.com/item?id=45006801) 和 [Reddit](https://www.reddit.com/r/programming/comments/1mzqigs/everything_i_know_about_good_api_design/) 上受到热议。有人说我应该在幂等性部分提到 PUT，因为它按理说在设计上就是幂等的。也许吧，我在实践中见得不多，而且在我看来，HTTP 动词本身并没有什么东西能让它比 POST 更幂等。还有人担心使用 Redis 作为幂等存储，因为无法在 Redis 和数据库之间协调安全的原子操作。对于支付或高风险领域，这确实是个合理的担忧，但在已有的非幂等 API 上硬接一个 Redis 仍然比什么都不做强得多。
 
 ---
+
+## 译者注
+
+主要内容由 AI 辅助翻译，译者进行了后期润色和校对。
 
 [^1]: 作者原注：这里主要指我所在的大型 SaaS 公司。
 [^2]: 这就是为什么 REST 是 API 中如此常见的模式。它不一定比其他方式更好，但到了现在，它已经足够熟悉，用户甚至不用读你的 API 文档就能搞明白。
@@ -188,9 +194,3 @@ GET /comments_job/589 -> { status: 'complete', comments: [...] }
 [^4]: 除非你有一些奇怪的、非 ID 范围的操作，比如「删除最近的一条记录“。
 [^5]: 他后来被招进了 Apps 团队，我和他共事了好几年。
 [^6]: GraphQL 的另一部分思想是让不同的后端服务分别处理单个 API 的不同部分，而对 API 用户透明。
-
----
-
-## 译者注
-
-主要内容由 AI 辅助翻译，译者进行了后期润色和校对。

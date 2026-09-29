@@ -185,8 +185,9 @@
 /* Inline Code */
 .prose :not(pre) > code {
   font-weight: 500;
-  background: var(--color-bg-tertiary);
+  background: var(--color-bg-secondary);
   padding: 0.1em 0.3em;
+  border: 1px var(--color-border-tertiary) solid;
   border-radius: var(--radius-sm);
   vertical-align: 0.05em;
 }
@@ -202,14 +203,38 @@
   opacity: 0.8;
 } */
 
+.prose li {
+  padding-inline-start: 0.125em;
+
+  &::marker {
+    color: var(--color-text-tertiary);
+    font-weight: 600;
+  }
+}
+
 /* Blockquotes */
 .prose blockquote {
-  font-style: italic;
-  border-left-width: 4px;
-  border-left-color: var(--color-border-tertiary);
-  background: var(--color-bg-secondary);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  padding: 0.5em 1em 0.5em 1.5em;
+  border: none;
+  position: relative;
+  padding-inline-start: 1.2em;
+  /* padding-block-start: 1em; */
+
+  & p {
+    font-style: italic;
+  }
+
+  &:before {
+    content: '';
+    top: -0.3em;
+    left: -0.6em;
+    width: 1.6em;
+    height: 1.6em;
+    z-index: 1;
+    position: absolute;
+    background-color: var(--color-bg-quaternary);
+    mask: url("data:image/svg+xml,%3Csvg width='11' height='9' viewBox='0 0 11 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.796 7.487C1.218 6.874.908 6.186.908 5.07c0-1.963 1.378-3.722 3.382-4.592l.5.773C2.92 2.263 2.556 3.576 2.41 4.403c.301-.155.695-.21 1.082-.174 1.011.094 1.809.924 1.809 1.957a1.963 1.963 0 0 1-1.963 1.963 2.17 2.17 0 0 1-1.541-.662zm5.608 0c-.578-.613-.888-1.301-.888-2.417 0-1.963 1.378-3.722 3.382-4.592l.5.773c-1.87 1.012-2.235 2.325-2.381 3.152.301-.155.695-.21 1.082-.174 1.012.094 1.81.924 1.81 1.957a1.963 1.963 0 0 1-1.964 1.963 2.17 2.17 0 0 1-1.54-.662z' fill='%23000'/%3E%3C/svg%3E")
+      50%/1.6em no-repeat;
+  }
 }
 
 .prose blockquote p:first-of-type::before,
@@ -456,7 +481,7 @@ html.dark :is(.prose, .prose-sm) :not(pre) code span {
 .prose > hr {
   margin-top: 2em;
   margin-bottom: 2em;
-  border-color: var(--color-border-secondary)
+  border-color: var(--color-border-secondary);
 }
 
 .prose > blockquote > p {
@@ -509,7 +534,7 @@ figure[data-rehype-pretty-code-figure] > pre[data-language]:not([data-language='
   justify-content: center;
   padding: 0.25rem;
   border-radius: var(--radius-xs);
-  color: rgb(171 178 191 / 0.45);
+  color: var(--color-text-tertiary);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -533,7 +558,7 @@ figure[data-rehype-pretty-code-figure] > pre[data-language]:not([data-language='
   }
 
   &:hover {
-    color: #fff;
+    color: var(--color-text-secondary);
   }
 
   &:active {

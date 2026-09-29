@@ -37,7 +37,7 @@ a.link {
   color: var(--accent-color);
   font-weight: 500;
   text-decoration: none;
-  text-underline-offset: 0.3em;
+  text-underline-offset: 0.24em;
 
   &:link,
   &:visited {
@@ -51,22 +51,23 @@ a.link {
 }
 
 /* External links with arrow icon */
-a.link[target='_blank'] {
+/* a.link[target='_blank'] {
   &::after {
-    content: ' ↗';
+    content: '↗';
     font-weight: bold;
     display: inline-block;
-    font-size: 0.875em;
-    margin-left: 0.25em;
+    position: absolute;
+    font-size: 0.48em;
+    margin-left: 0.1em;
     will-change: transform;
-    transform: translateX(0) translateY(-0.1em);
+    transform: translateX(0) translateY(-0.4em);
     transition: transform ease-in-out 0.12s;
   }
 
   &:hover::after {
-    transform: translateX(0.1em) translateY(-0.2em);
+    transform: translateX(0.05em) translateY(-0.45em);
   }
-}
+} */
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
@@ -91,7 +92,7 @@ a.link[target='_blank'] {
 ::selection {
   color: inherit;
   text-shadow: none;
-  background-color: #0075ff30;
+  background-color: #0071e354;
 }
 
 /* Focus styles - Enhanced for better visibility */

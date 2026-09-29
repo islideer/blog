@@ -22,16 +22,16 @@
     background-color: transparent;
   }
   10% {
-    background-color: oklch(0.5 0 0 / 0.3);
+    background-color: #0071e354;
   }
   30% {
-    background-color: oklch(0.5 0 0 / 0.12);
+    background-color: #0071e334;
   }
   50% {
-    background-color: oklch(0.5 0 0 / 0.12);
+    background-color: #0071e354;
   }
   70% {
-    background-color: oklch(0.5 0 0 / 0.3);
+    background-color: #0071e334;
   }
   100% {
     background-color: transparent;
@@ -43,16 +43,16 @@
     background-color: transparent;
   }
   10% {
-    background-color: oklch(0.7 0 0 / 0.12);
+    background-color: #0071e354;
   }
   30% {
-    background-color: oklch(0.7 0 0 / 0.3);
+    background-color: #0071e334;
   }
   50% {
-    background-color: oklch(0.7 0 0 / 0.3);
+    background-color: #0071e354;
   }
   70% {
-    background-color: oklch(0.7 0 0 / 0.12);
+    background-color: #0071e334;
   }
   100% {
     background-color: transparent;
